@@ -11,7 +11,7 @@ image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - API
 created: '2025-03-01'
-modified: '2025-03-01'
+modified: '2026-03-16'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/sportsdataio/refs/heads/main/apis.yml
 specificationVersion: '0.19'
@@ -22,12 +22,21 @@ apis:
       SportsDataIO is an award-winning sports data and content provider
       producing millions of data points across thousands of games annually. We
       license our products through robust APIs, responsive widgets 
-    humanURL: undefined
+    humanURL: https://sportsdata.io/developers
     tags:
-      - API
+      - Sports
+      - Statistics
+      - Data
     properties:
       - type: Documentation
-        url: undefined
+        url: https://sportsdata.io/developers
+      - type: Reference
+        url: https://sportsdata.io/developers/api-documentation/nfl
+common:
+  - type: Portal
+    url: https://sportsdata.io/developers
+  - type: Website
+    url: https://sportsdata.io/
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com

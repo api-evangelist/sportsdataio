@@ -1,9 +1,9 @@
 aid: sportsdataio
 name: SportsDataIO
 description: >-
-  SportsDataIO is an award-winning sports data and content provider producing
-  millions of data points across thousands of games annually. We license our
-  products through robust APIs, responsive widgets 
+  SportsDataIO is an award-winning sports data and content provider producing millions
+  of data points across thousands of games annually. We license our products through
+  robust APIs, responsive widgets.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -19,9 +19,9 @@ apis:
   - aid: sportsdataio:sportsdataio
     name: SportsDataIO
     description: >-
-      SportsDataIO is an award-winning sports data and content provider
-      producing millions of data points across thousands of games annually. We
-      license our products through robust APIs, responsive widgets 
+      SportsDataIO is an award-winning sports data and content provider producing
+      millions of data points across thousands of games annually. We license our products
+      through robust APIs, responsive widgets.
     humanURL: https://sportsdata.io/developers
     tags:
       - Sports

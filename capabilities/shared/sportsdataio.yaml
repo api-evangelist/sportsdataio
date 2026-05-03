@@ -1,0 +1,154 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "SportsDataIO API"
+  description: >-
+    Award-winning sports data API covering 14+ sports with live scores, statistics,
+    fantasy projections, odds, injuries, depth charts, and standings for NFL, MLB, NBA,
+    NHL, Soccer, Golf, NASCAR, MMA, Tennis, F1, College Football, College Basketball, WNBA.
+  tags:
+    - Sports Data
+    - Statistics
+    - Fantasy Sports
+    - Live Scores
+    - Odds
+    - NFL
+    - NBA
+    - MLB
+    - NHL
+    - Soccer
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SPORTSDATAIO_NFL_KEY: SPORTSDATAIO_NFL_KEY
+      SPORTSDATAIO_MLB_KEY: SPORTSDATAIO_MLB_KEY
+      SPORTSDATAIO_NBA_KEY: SPORTSDATAIO_NBA_KEY
+      SPORTSDATAIO_NHL_KEY: SPORTSDATAIO_NHL_KEY
+      SPORTSDATAIO_SOCCER_KEY: SPORTSDATAIO_SOCCER_KEY
+
+capability:
+  consumes:
+    - type: http
+      namespace: sportsdataio
+      baseUri: https://api.sportsdata.io
+      description: "SportsDataIO REST API for comprehensive sports data"
+      authentication:
+        type: apikey
+        key: Ocp-Apim-Subscription-Key
+        value: "{{SPORTSDATAIO_NFL_KEY}}"
+        placement: header
+      resources:
+        - name: nfl-scores
+          path: /v3/nfl/scores/{format}
+          description: "NFL scores and game data"
+          operations:
+            - name: get-nfl-current-season
+              method: GET
+              description: "Get current NFL season information"
+              inputParameters:
+                - name: format
+                  in: path
+                  type: string
+                  required: true
+                  description: "Response format: JSON or XML"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-nfl-teams
+              method: GET
+              description: "Get all NFL teams"
+              inputParameters:
+                - name: format
+                  in: path
+                  type: string
+                  required: true
+                  description: "Response format"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-nfl-schedule
+              method: GET
+              description: "Get NFL schedule for a season"
+              inputParameters:
+                - name: format
+                  in: path
+                  type: string
+                  required: true
+                  description: "Response format"
+                - name: season
+                  in: path
+                  type: string
+                  required: true
+                  description: "Season year (e.g., 2025)"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8103
+      namespace: sportsdataio-api
+      resources:
+        - path: /v1/nfl/season
+          name: nfl-season
+          description: "Current NFL season"
+          operations:
+            - method: GET
+              name: get-nfl-season
+              description: "Get current NFL season"
+              call: "sportsdataio.get-nfl-current-season"
+              with:
+                format: "JSON"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/nfl/teams
+          name: nfl-teams
+          description: "NFL teams"
+          operations:
+            - method: GET
+              name: get-nfl-teams
+              description: "Get all NFL teams"
+              call: "sportsdataio.get-nfl-teams"
+              with:
+                format: "JSON"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9103
+      namespace: sportsdataio-mcp
+      transport: http
+      tools:
+        - name: get-nfl-teams
+          description: "Get all NFL teams with names, cities, conferences, and divisions"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sportsdataio.get-nfl-teams"
+          with:
+            format: "JSON"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-nfl-current-season
+          description: "Get current NFL season year and week information"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sportsdataio.get-nfl-current-season"
+          with:
+            format: "JSON"
+          outputParameters:
+            - type: object
+              mapping: "$."

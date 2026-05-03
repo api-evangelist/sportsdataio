@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sportsdata.io/schemas/player",
+  "title": "SportsDataIO Player",
+  "description": "An athlete registered in a SportsDataIO sports database",
+  "type": "object",
+  "required": ["PlayerID", "Name", "Team", "Position"],
+  "properties": {
+    "PlayerID": {
+      "type": "integer",
+      "description": "Unique player identifier in SportsDataIO"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Player full name"
+    },
+    "Team": {
+      "type": "string",
+      "description": "Current team abbreviation"
+    },
+    "TeamID": {
+      "type": "integer",
+      "description": "Current team unique identifier"
+    },
+    "Position": {
+      "type": "string",
+      "description": "Player position (e.g., QB, RB, WR, TE for NFL; C, PF, SF, SG, PG for NBA)"
+    },
+    "Status": {
+      "type": "string",
+      "description": "Player status (Active, Injured, InactiveList, PracticeSquad, etc.)"
+    },
+    "InjuryStatus": {
+      "type": "string",
+      "description": "Injury designation (Out, Doubtful, Questionable, Probable, Healthy)",
+      "enum": ["Out", "Doubtful", "Questionable", "Probable", "Healthy", null]
+    },
+    "InjuryBodyPart": {
+      "type": "string",
+      "description": "Injured body part (e.g., Knee, Ankle, Shoulder)"
+    },
+    "InjuryNotes": {
+      "type": "string",
+      "description": "Additional injury notes and timeline"
+    },
+    "FantasyAlarmPlayerID": {
+      "type": "integer",
+      "description": "Fantasy Alarm player cross-reference ID"
+    },
+    "RotowirePlayerID": {
+      "type": "integer",
+      "description": "Rotowire player cross-reference ID"
+    },
+    "Age": {
+      "type": "integer",
+      "description": "Player age in years"
+    },
+    "Height": {
+      "type": "string",
+      "description": "Player height (e.g., 6'4\")"
+    },
+    "Weight": {
+      "type": "integer",
+      "description": "Player weight in pounds"
+    },
+    "College": {
+      "type": "string",
+      "description": "College attended"
+    },
+    "DraftYear": {
+      "type": "integer",
+      "description": "NFL Draft year"
+    },
+    "DraftRound": {
+      "type": "integer",
+      "description": "Draft round selected in"
+    },
+    "DraftPick": {
+      "type": "integer",
+      "description": "Pick number in draft"
+    },
+    "AverageDraftPosition": {
+      "type": "number",
+      "description": "Average fantasy draft position (ADP)"
+    }
+  }
+}

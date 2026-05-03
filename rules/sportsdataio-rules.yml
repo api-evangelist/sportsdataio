@@ -1,0 +1,93 @@
+extends: spectral:oas
+rules:
+  # SportsDataIO API-specific conventions
+
+  sportsdataio-format-param:
+    description: SportsDataIO endpoints use a {format} path parameter for JSON or XML.
+    message: "Path '{{property}}' should include a {format} parameter for content-type negotiation."
+    severity: warn
+    given: "$.paths"
+    then:
+      function: pattern
+      functionOptions:
+        match: ".*\\{format\\}.*"
+
+  sportsdataio-v3-prefix:
+    description: SportsDataIO endpoints use a /v3/{sport}/ prefix.
+    message: "Path '{{property}}' must include /v3/ version prefix."
+    severity: error
+    given: "$.paths"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^\\/v3\\/"
+
+  sportsdataio-apikey-security:
+    description: All operations must use API key authentication.
+    message: "Operation must use apiKeyHeader or apiKeyQuery authentication."
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: security
+      function: truthy
+
+  sportsdataio-get-only:
+    description: SportsDataIO APIs are read-only and use only GET requests.
+    message: "Only GET operations are expected in SportsDataIO APIs."
+    severity: warn
+    given: "$.paths[*]"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          not:
+            required:
+              - post
+
+  sportsdataio-operation-summary:
+    description: All operations must have a summary.
+    message: "Operation must have a summary."
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: summary
+      function: truthy
+
+  sportsdataio-summary-title-case:
+    description: Operation summaries must use Title Case.
+    message: "Summary '{{value}}' must use Title Case."
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z]*(\\s[A-Z][a-zA-Z]*)*$"
+
+  sportsdataio-response-200:
+    description: All GET operations must define a 200 response.
+    message: "GET operation must define a 200 response."
+    severity: error
+    given: "$.paths[*].get"
+    then:
+      field: responses.200
+      function: truthy
+
+  sportsdataio-operation-id:
+    description: All operations must have an operationId.
+    message: "Operation must have an operationId."
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: operationId
+      function: truthy
+
+  sportsdataio-server-production:
+    description: API must define production server URL.
+    message: "API must define https://api.sportsdata.io as the production server."
+    severity: error
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://api\\.sportsdata\\.io$"

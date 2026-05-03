@@ -1,0 +1,118 @@
+name: SportsDataIO Vocabulary
+description: >-
+  Domain vocabulary for the SportsDataIO sports data platform, covering terminology
+  for sports statistics, fantasy sports, betting odds, and multi-sport data APIs.
+version: '1.0'
+created: '2026-05-02'
+modified: '2026-05-02'
+terms:
+  - term: Fantasy Points
+    definition: >-
+      A numerical score assigned to a player based on their real-world statistical
+      performance, used in fantasy sports leagues to rank and score teams.
+    related:
+      - PPR
+      - Standard Scoring
+
+  - term: PPR (Points Per Reception)
+    definition: >-
+      A fantasy scoring format where players receive one additional fantasy point
+      per reception, increasing the value of pass-catching running backs and receivers.
+
+  - term: Projection
+    definition: >-
+      A statistical prediction of a player's expected fantasy point output for
+      an upcoming game, generated using historical data, matchup analysis, and
+      injury/lineup information.
+
+  - term: Depth Chart
+    definition: >-
+      The official or unofficial ranking of players at each position on a team,
+      indicating who the starter, backup, and third-string player are.
+
+  - term: Injury Report
+    definition: >-
+      An official league report detailing the injury status of players, typically
+      using classifications such as Out, Doubtful, Questionable, and Probable.
+
+  - term: DFS (Daily Fantasy Sports)
+    definition: >-
+      A fantasy sports format where participants draft new teams for each game day
+      or week, competing for cash prizes against other players.
+
+  - term: Salary
+    definition: >-
+      In DFS context, the cost assigned to a player in daily fantasy contests.
+      Managers must build a roster that fits within a salary cap.
+
+  - term: Game Slate
+    definition: >-
+      The set of games available for a specific DFS contest, often a single day's
+      worth of games or a specific weeknight/weekend set.
+
+  - term: Quarterback Rating (QBR/Passer Rating)
+    definition: >-
+      A composite statistic measuring a quarterback's passing efficiency,
+      calculated from completions, yards, touchdowns, and interceptions.
+
+  - term: BABIP (Batting Average on Balls in Play)
+    definition: >-
+      A baseball statistic measuring how often a batted ball in play goes for a hit,
+      used to assess luck and predict future performance.
+
+  - term: WAR (Wins Above Replacement)
+    definition: >-
+      A comprehensive baseball/basketball statistic measuring how many more wins a
+      player contributes compared to a typical replacement-level player.
+
+  - term: Over/Under (Total)
+    definition: >-
+      A betting market where the wager is on whether the combined score in a game
+      will be higher or lower than a sportsbook-set number.
+
+  - term: Moneyline
+    definition: >-
+      A betting market where the wager is simply on which team will win, with
+      odds adjusted based on the perceived strength of each team.
+
+  - term: Player News
+    definition: >-
+      Breaking news and updates about individual athletes, including injuries,
+      trades, lineup changes, and notable performance information.
+
+  - term: Live Odds
+    definition: >-
+      Real-time betting odds from sportsbooks that update during a game as the
+      score and game situation change.
+
+  - term: Bet Settlement
+    definition: >-
+      The process of resolving a sports wager after the game concludes, determining
+      whether the bet won or lost based on the actual game outcome.
+
+  - term: Lineup
+    definition: >-
+      The official list of players who will be starting a game, announced prior
+      to game time. Used for DFS decisions and performance projections.
+
+  - term: Expected Points Added (EPA)
+    definition: >-
+      A football analytics metric measuring the expected point value of each play
+      based on down, distance, and field position.
+
+  - term: DVOA (Defense-Adjusted Value Over Average)
+    definition: >-
+      A football analytics statistic measuring performance relative to league average
+      after adjusting for opponent strength.
+
+tags:
+  - Sports Data
+  - Statistics
+  - Fantasy Sports
+  - NFL
+  - NBA
+  - MLB
+  - NHL
+  - Soccer
+  - Live Scores
+  - Odds

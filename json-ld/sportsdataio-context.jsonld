@@ -1,0 +1,69 @@
+{
+  "@context": {
+    "@vocab": "https://sportsdata.io/ontology/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Game": "schema:SportsEvent",
+    "gameId": "@id",
+    "season": "sportsdataio:season",
+    "week": "sportsdataio:week",
+    "homeTeam": {
+      "@id": "schema:homeTeam",
+      "@type": "schema:SportsTeam"
+    },
+    "awayTeam": {
+      "@id": "schema:awayTeam",
+      "@type": "schema:SportsTeam"
+    },
+    "homeScore": "sportsdataio:homeScore",
+    "awayScore": "sportsdataio:awayScore",
+    "status": "schema:eventStatus",
+    "gameDate": {
+      "@id": "schema:startDate",
+      "@type": "xsd:dateTime"
+    },
+
+    "Player": "schema:Person",
+    "playerId": "@id",
+    "name": "schema:name",
+    "position": "schema:jobTitle",
+    "team": {
+      "@id": "schema:memberOf",
+      "@type": "schema:SportsTeam"
+    },
+    "status": "sportsdataio:playerStatus",
+    "injury": "sportsdataio:injuryStatus",
+
+    "PlayerStats": "sportsdataio:PlayerStatistics",
+    "playerStatId": "@id",
+    "fantasyPoints": "sportsdataio:fantasyPoints",
+    "fantasyPointsPPR": "sportsdataio:fantasyPointsPPR",
+    "passingYards": "sportsdataio:passingYards",
+    "rushingYards": "sportsdataio:rushingYards",
+    "receivingYards": "sportsdataio:receivingYards",
+    "touchdowns": "sportsdataio:touchdowns",
+
+    "Team": "schema:SportsTeam",
+    "teamId": "@id",
+    "fullName": "schema:name",
+    "abbreviation": "schema:alternateName",
+    "city": "schema:addressLocality",
+    "conference": "sportsdataio:conference",
+    "division": "sportsdataio:division",
+
+    "Standing": "sportsdataio:TeamStanding",
+    "wins": "sportsdataio:wins",
+    "losses": "sportsdataio:losses",
+    "ties": "sportsdataio:ties",
+    "winPercentage": "sportsdataio:winPercentage",
+    "pointsFor": "sportsdataio:pointsFor",
+    "pointsAgainst": "sportsdataio:pointsAgainst",
+
+    "Odds": "sportsdataio:BettingOdds",
+    "pointSpread": "sportsdataio:pointSpread",
+    "overUnder": "sportsdataio:overUnder",
+    "homeMoneyLine": "sportsdataio:homeMoneyLine",
+    "awayMoneyLine": "sportsdataio:awayMoneyLine"
+  }
+}

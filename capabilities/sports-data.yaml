@@ -1,0 +1,97 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "SportsDataIO Sports Data"
+  description: >-
+    Unified sports data capability composing SportsDataIO APIs for multi-sport
+    data access including live scores, statistics, fantasy projections, odds,
+    player news, injuries, and standings across NFL, MLB, NBA, NHL, and Soccer.
+  tags:
+    - Sports Data
+    - Statistics
+    - Fantasy Sports
+    - Live Scores
+    - Odds
+    - NFL
+    - MLB
+    - NBA
+    - NHL
+    - Soccer
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SPORTSDATAIO_NFL_KEY: SPORTSDATAIO_NFL_KEY
+      SPORTSDATAIO_MLB_KEY: SPORTSDATAIO_MLB_KEY
+      SPORTSDATAIO_NBA_KEY: SPORTSDATAIO_NBA_KEY
+      SPORTSDATAIO_NHL_KEY: SPORTSDATAIO_NHL_KEY
+      SPORTSDATAIO_SOCCER_KEY: SPORTSDATAIO_SOCCER_KEY
+
+capability:
+  consumes:
+    - import: sportsdataio
+      location: ./shared/sportsdataio.yaml
+
+  exposes:
+    - type: rest
+      port: 8083
+      namespace: sports-data-api
+      description: "Unified REST API for multi-sport data from SportsDataIO."
+      resources:
+        - path: /v1/nfl/teams
+          name: nfl-teams
+          description: "NFL teams"
+          operations:
+            - method: GET
+              name: get-nfl-teams
+              description: "Get all 32 NFL teams"
+              call: "sportsdataio.get-nfl-teams"
+              with:
+                format: "JSON"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/nfl/season
+          name: nfl-season
+          description: "Current NFL season info"
+          operations:
+            - method: GET
+              name: get-nfl-season
+              description: "Get current NFL season"
+              call: "sportsdataio.get-nfl-current-season"
+              with:
+                format: "JSON"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9083
+      namespace: sports-data-mcp
+      transport: http
+      description: "MCP server for AI-assisted sports data research and fantasy sports analysis."
+      tools:
+        - name: get-nfl-teams
+          description: "Get all 32 NFL teams with full details including conference, division, city, and stadium."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sportsdataio.get-nfl-teams"
+          with:
+            format: "JSON"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-nfl-current-season
+          description: "Get the current NFL season year and week, useful for constructing other API queries."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sportsdataio.get-nfl-current-season"
+          with:
+            format: "JSON"
+          outputParameters:
+            - type: object
+              mapping: "$."

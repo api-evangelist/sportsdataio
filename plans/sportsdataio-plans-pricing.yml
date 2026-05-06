@@ -4,7 +4,8 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: SportsDataIO
 providerId: sportsdataio
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - Sports Data
   - Statistics
@@ -13,153 +14,118 @@ tags:
   - Odds
   - NFL
   - NBA
-  - MLB
-  - NHL
-  - Soccer
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+description: SportsDataIO sells sports-data API access in three documented bands —
+  a free trial with scrambled data, a self-serve "Discovery Lab" tier priced at
+  roughly $99–$149/month with daily call caps and next-day data, and full
+  commercial / production access (including the unlimited Leagues and Global
+  Sports APIs) sold via direct sales. A free Dev Key is offered for integration
+  testing once a commercial agreement is in flight.
+sources:
+  - https://sportsdata.io/developers/api-documentation
+  - https://sportsdata.io/developers/getting-started
+  - https://sportsdata.io/cart
 plans:
-  - id: sportsdataio-free
-    name: Free
+  - id: sportsdataio-free-trial
+    name: Free Trial
     type: freemium
-    description: Free entry tier for the SportsDataIO API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+    description: Free trial key with scrambled test data and a small daily call
+      cap; intended for evaluation, not production.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
+      - label: Daily API Calls
+        name: api_calls_daily
         type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
+        metric: request
+        limit: small daily call limit (see developer portal)
+        timeFrame: day
         geo: global
-        domains:
-          - https://api.sportsdata.io
         unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://api.sportsdata.io
-        unit: 1
-        price: '0.00'
+        price: '$0'
         userMultiplied: false
     elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: SportsDataIO NFL API
-      - name: SportsDataIO MLB API
-      - name: SportsDataIO NBA API
-      - name: SportsDataIO NHL API
-      - name: SportsDataIO Soccer API
-  - id: sportsdataio-pro
-    name: Professional
-    type: paid
-    description: Production tier for SportsDataIO. Provides higher quotas, priority support, and access
-      to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
+      - name: Scrambled Test Data
+      - name: Evaluation Use Only
+  - id: sportsdataio-discovery-lab
+    name: Discovery Lab
+    type: subscription
+    description: Self-serve "Discovery Lab" subscription. Daily-capped, next-day
+      delayed data, sold by tier within a $99–$149/month band.
     entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
+      - label: Discovery Lab Subscription
+        name: discovery_lab_subscription
+        type: subscription
+        metric: month
+        limit: 1
         timeFrame: month
         geo: global
-        domains:
-          - https://api.sportsdata.io
         unit: 1
-        price: TBD
+        price: '$99–$149/month (tier-dependent)'
         userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
+      - label: Daily API Calls
+        name: api_calls_daily
+        type: quota
+        metric: request
+        limit: 100–1000 (tier-dependent)
+        timeFrame: day
         geo: global
-        domains:
-          - https://api.sportsdata.io
         unit: 1
-        price: '0.00'
+        price: included
         userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
+    elements:
+      - name: Next-Day Delayed Data
+      - name: Self-Serve Subscription
+  - id: sportsdataio-dev-key
+    name: Dev Key
+    type: subscription
+    description: Free integration-testing key offered alongside a commercial
+      conversation. No daily call limit; intended to support development toward
+      a commercial agreement rather than to be a standing free tier.
+    entries:
+      - label: Daily API Calls
+        name: api_calls_daily
+        type: quota
+        metric: request
         limit: -1
-        timeFrame: month
+        timeFrame: day
         geo: global
-        domains:
-          - https://api.sportsdata.io
-        unit: 1000
-        price: TBD
+        unit: 1
+        price: '$0 (during commercial discussion)'
         userMultiplied: false
     elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: SportsDataIO NFL API
-      - name: SportsDataIO MLB API
-      - name: SportsDataIO NBA API
-      - name: SportsDataIO NHL API
-      - name: SportsDataIO Soccer API
-  - id: sportsdataio-enterprise
-    name: Enterprise
+      - name: Integration Testing
+      - name: Commercial-Path Required
+  - id: sportsdataio-commercial
+    name: Commercial / Production
     type: enterprise
-    description: Custom-negotiated tier for SportsDataIO. Includes dedicated capacity, contractual SLAs,
-      security review, data residency options, and named technical account management.
+    description: Production licensing for SportsDataIO sport-specific APIs,
+      Leagues API, and Global Sports API. Quote-based; pricing varies by sport
+      coverage, real-time vs delayed data, and use case (media, fantasy, betting).
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
+      - label: Commercial License
+        name: commercial_license
+        type: subscription
+        metric: varies
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: contact sales
+        userMultiplied: false
+      - label: Leagues / Global Sports API Calls
+        name: api_calls_unlimited
         type: quota
-        metric: requests
+        metric: request
         limit: -1
         timeFrame: month
-        geo: configurable
-        domains:
-          - https://api.sportsdata.io
+        geo: global
         unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://api.sportsdata.io
-        unit: 1
-        price: custom
+        price: included with license
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: SportsDataIO NFL API
-      - name: SportsDataIO MLB API
-      - name: SportsDataIO NBA API
-      - name: SportsDataIO NHL API
-      - name: SportsDataIO Soccer API
+      - name: Real-Time Data Feeds
+      - name: Sport-Specific APIs (NFL, NBA, MLB, NHL, etc.)
+      - name: Leagues API
+      - name: Global Sports API
+      - name: Custom SLA
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+  - FN: API Evangelist
+    email: info@apievangelist.com

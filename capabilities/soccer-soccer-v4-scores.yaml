@@ -1,0 +1,1157 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SOCCER API — Soccer v4 Scores
+  description: 'SOCCER API — Soccer v4 Scores. 21 operations. Lead operation: Memberships - by Active. Self-contained Naftiko
+    capability covering one Sportsdataio business surface.'
+  tags:
+  - Sportsdataio
+  - Soccer v4 Scores
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPORTSDATAIO_API_KEY: SPORTSDATAIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: soccer-soccer-v4-scores
+    baseUri: https://api.sportsdata.io
+    description: SOCCER API — Soccer v4 Scores business capability. Self-contained, no shared references.
+    resources:
+    - name: v4-soccer-scores-format-ActiveMemberships-competition
+      path: /v4/soccer/scores/{format}/ActiveMemberships/{competition}
+      operations:
+      - name: soccerv4scoresmembershipsbyactive
+        method: GET
+        description: Memberships - by Active
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+    - name: v4-soccer-scores-format-Areas
+      path: /v4/soccer/scores/{format}/Areas
+      operations:
+      - name: soccerv4scoresareascountries
+        method: GET
+        description: Areas (Countries)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v4-soccer-scores-format-CanceledMemberships
+      path: /v4/soccer/scores/{format}/CanceledMemberships
+      operations:
+      - name: soccerv4scoresmembershipsbycanceled
+        method: GET
+        description: Memberships - by Canceled
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v4-soccer-scores-format-CompetitionDetails-competition
+      path: /v4/soccer/scores/{format}/CompetitionDetails/{competition}
+      operations:
+      - name: soccerv4scoresgamesbycompetitionlivefinal
+        method: GET
+        description: Games - by Competition [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+    - name: v4-soccer-scores-format-Competitions
+      path: /v4/soccer/scores/{format}/Competitions
+      operations:
+      - name: soccerv4scorescompetitionsleagues
+        method: GET
+        description: Competitions (Leagues)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v4-soccer-scores-format-GamesByDate-competition-date
+      path: /v4/soccer/scores/{format}/GamesByDate/{competition}/{date}
+      operations:
+      - name: soccerv4scoresgamesbydatelivefinal
+        method: GET
+        description: Games - by Date [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v4-soccer-scores-format-GamesByDateFinal-competition-date
+      path: /v4/soccer/scores/{format}/GamesByDateFinal/{competition}/{date}
+      operations:
+      - name: soccerv4scoresgamesbydatefinal
+        method: GET
+        description: Games - by Date [Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v4-soccer-scores-format-HistoricalMembershipsByTeam-competition-teamid
+      path: /v4/soccer/scores/{format}/HistoricalMembershipsByTeam/{competition}/{teamid}
+      operations:
+      - name: soccerv4scoresmembershipshistoricalbyteam
+        method: GET
+        description: Memberships Historical - by Team
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: teamid
+          in: path
+          type: string
+          description: 'Unique FantasyData Team ID. '
+          required: true
+    - name: v4-soccer-scores-format-PlayersByTeam-competition-teamid
+      path: /v4/soccer/scores/{format}/PlayersByTeam/{competition}/{teamid}
+      operations:
+      - name: soccerv4scoresplayerdetailsbyteam
+        method: GET
+        description: Player Details - by Team
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: teamid
+          in: path
+          type: string
+          description: 'Unique FantasyData Team ID. '
+          required: true
+    - name: v4-soccer-scores-format-PlayersByTeamBasic-competition-teamid
+      path: /v4/soccer/scores/{format}/PlayersByTeamBasic/{competition}/{teamid}
+      operations:
+      - name: soccerv4scoresplayerprofilesbyteam
+        method: GET
+        description: Player Profiles - by Team
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: teamid
+          in: path
+          type: string
+          description: 'Unique FantasyData Team ID. '
+          required: true
+    - name: v4-soccer-scores-format-RecentlyChangedMemberships-competition-days
+      path: /v4/soccer/scores/{format}/RecentlyChangedMemberships/{competition}/{days}
+      operations:
+      - name: soccerv4scoresmembershipsbyrecentlychanged
+        method: GET
+        description: Memberships - by Recently Changed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: days
+          in: path
+          type: string
+          description: 'The number of days since memberships were updated. For example, if you pass <code>3</code>, you''ll
+            receive all memberships that have been updated in the past 3 '
+          required: true
+    - name: v4-soccer-scores-format-Schedule-competition-season
+      path: /v4/soccer/scores/{format}/Schedule/{competition}/{season}
+      operations:
+      - name: soccerv4scoresschedules
+        method: GET
+        description: Schedules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc.'
+          required: true
+    - name: v4-soccer-scores-format-SchedulesBasic-competition-season
+      path: /v4/soccer/scores/{format}/SchedulesBasic/{competition}/{season}
+      operations:
+      - name: soccerv4scoresschedulesbasic
+        method: GET
+        description: Schedules (Basic)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc.'
+          required: true
+    - name: v4-soccer-scores-format-ScoresBasic-competition-date
+      path: /v4/soccer/scores/{format}/ScoresBasic/{competition}/{date}
+      operations:
+      - name: soccerv4scoresgamesbasicbydatelivefinal
+        method: GET
+        description: Games (Basic) - by Date [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v4-soccer-scores-format-ScoresBasicFinal-competition-date
+      path: /v4/soccer/scores/{format}/ScoresBasicFinal/{competition}/{date}
+      operations:
+      - name: soccerv4scoresgamesbasicbydatefinal
+        method: GET
+        description: Games (Basic) - by Date [Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v4-soccer-scores-format-SeasonTeams-competition-seasonid
+      path: /v4/soccer/scores/{format}/SeasonTeams/{competition}/{seasonid}
+      operations:
+      - name: soccerv4scoresteamprofilesbyseason
+        method: GET
+        description: Team Profiles - by Season
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: seasonid
+          in: path
+          type: string
+          description: 'Unique FantasyData Season ID. SeasonIDs can be found in the Competition Hierarchy (League Hierarchy). '
+          required: true
+    - name: v4-soccer-scores-format-Standings-competition-season
+      path: /v4/soccer/scores/{format}/Standings/{competition}/{season}
+      operations:
+      - name: soccerv4scoresstandings
+        method: GET
+        description: Standings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc.'
+          required: true
+    - name: v4-soccer-scores-format-TeamGameStatsByDate-competition-date
+      path: /v4/soccer/scores/{format}/TeamGameStatsByDate/{competition}/{date}
+      operations:
+      - name: soccerv4scoresteamgamestatsbydatelivefinal
+        method: GET
+        description: Team Game Stats - by Date [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v4-soccer-scores-format-TeamSeasonStats-competition-season
+      path: /v4/soccer/scores/{format}/TeamSeasonStats/{competition}/{season}
+      operations:
+      - name: soccerv4scoresteamseasonstats
+        method: GET
+        description: Team Season Stats
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc.'
+          required: true
+    - name: v4-soccer-scores-format-Teams-competition
+      path: /v4/soccer/scores/{format}/Teams/{competition}
+      operations:
+      - name: soccerv4scoresteamprofilesbycompetition
+        method: GET
+        description: Team Profiles - by Competition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: competition
+          in: path
+          type: string
+          description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition
+            Key. Possible values include: <code>EPL</code>, <code>1</co'
+          required: true
+    - name: v4-soccer-scores-format-Venues
+      path: /v4/soccer/scores/{format}/Venues
+      operations:
+      - name: soccerv4scoresvenues
+        method: GET
+        description: Venues
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    authentication:
+      type: apikey
+      key: Ocp-Apim-Subscription-Key
+      value: '{{env.SPORTSDATAIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: soccer-soccer-v4-scores-rest
+    port: 8080
+    description: REST adapter for SOCCER API — Soccer v4 Scores. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v4/soccer/scores/{format}/activememberships/{competition}
+      name: v4-soccer-scores-format-activememberships-competition
+      description: REST surface for v4-soccer-scores-format-ActiveMemberships-competition.
+      operations:
+      - method: GET
+        name: soccerv4scoresmembershipsbyactive
+        description: Memberships - by Active
+        call: soccer-soccer-v4-scores.soccerv4scoresmembershipsbyactive
+        with:
+          format: rest.format
+          competition: rest.competition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/areas
+      name: v4-soccer-scores-format-areas
+      description: REST surface for v4-soccer-scores-format-Areas.
+      operations:
+      - method: GET
+        name: soccerv4scoresareascountries
+        description: Areas (Countries)
+        call: soccer-soccer-v4-scores.soccerv4scoresareascountries
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/canceledmemberships
+      name: v4-soccer-scores-format-canceledmemberships
+      description: REST surface for v4-soccer-scores-format-CanceledMemberships.
+      operations:
+      - method: GET
+        name: soccerv4scoresmembershipsbycanceled
+        description: Memberships - by Canceled
+        call: soccer-soccer-v4-scores.soccerv4scoresmembershipsbycanceled
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/competitiondetails/{competition}
+      name: v4-soccer-scores-format-competitiondetails-competition
+      description: REST surface for v4-soccer-scores-format-CompetitionDetails-competition.
+      operations:
+      - method: GET
+        name: soccerv4scoresgamesbycompetitionlivefinal
+        description: Games - by Competition [Live & Final]
+        call: soccer-soccer-v4-scores.soccerv4scoresgamesbycompetitionlivefinal
+        with:
+          format: rest.format
+          competition: rest.competition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/competitions
+      name: v4-soccer-scores-format-competitions
+      description: REST surface for v4-soccer-scores-format-Competitions.
+      operations:
+      - method: GET
+        name: soccerv4scorescompetitionsleagues
+        description: Competitions (Leagues)
+        call: soccer-soccer-v4-scores.soccerv4scorescompetitionsleagues
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/gamesbydate/{competition}/{date}
+      name: v4-soccer-scores-format-gamesbydate-competition-date
+      description: REST surface for v4-soccer-scores-format-GamesByDate-competition-date.
+      operations:
+      - method: GET
+        name: soccerv4scoresgamesbydatelivefinal
+        description: Games - by Date [Live & Final]
+        call: soccer-soccer-v4-scores.soccerv4scoresgamesbydatelivefinal
+        with:
+          format: rest.format
+          competition: rest.competition
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/gamesbydatefinal/{competition}/{date}
+      name: v4-soccer-scores-format-gamesbydatefinal-competition-date
+      description: REST surface for v4-soccer-scores-format-GamesByDateFinal-competition-date.
+      operations:
+      - method: GET
+        name: soccerv4scoresgamesbydatefinal
+        description: Games - by Date [Final]
+        call: soccer-soccer-v4-scores.soccerv4scoresgamesbydatefinal
+        with:
+          format: rest.format
+          competition: rest.competition
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/historicalmembershipsbyteam/{competition}/{teamid}
+      name: v4-soccer-scores-format-historicalmembershipsbyteam-competition-teamid
+      description: REST surface for v4-soccer-scores-format-HistoricalMembershipsByTeam-competition-teamid.
+      operations:
+      - method: GET
+        name: soccerv4scoresmembershipshistoricalbyteam
+        description: Memberships Historical - by Team
+        call: soccer-soccer-v4-scores.soccerv4scoresmembershipshistoricalbyteam
+        with:
+          format: rest.format
+          competition: rest.competition
+          teamid: rest.teamid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/playersbyteam/{competition}/{teamid}
+      name: v4-soccer-scores-format-playersbyteam-competition-teamid
+      description: REST surface for v4-soccer-scores-format-PlayersByTeam-competition-teamid.
+      operations:
+      - method: GET
+        name: soccerv4scoresplayerdetailsbyteam
+        description: Player Details - by Team
+        call: soccer-soccer-v4-scores.soccerv4scoresplayerdetailsbyteam
+        with:
+          format: rest.format
+          competition: rest.competition
+          teamid: rest.teamid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/playersbyteambasic/{competition}/{teamid}
+      name: v4-soccer-scores-format-playersbyteambasic-competition-teamid
+      description: REST surface for v4-soccer-scores-format-PlayersByTeamBasic-competition-teamid.
+      operations:
+      - method: GET
+        name: soccerv4scoresplayerprofilesbyteam
+        description: Player Profiles - by Team
+        call: soccer-soccer-v4-scores.soccerv4scoresplayerprofilesbyteam
+        with:
+          format: rest.format
+          competition: rest.competition
+          teamid: rest.teamid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/recentlychangedmemberships/{competition}/{days}
+      name: v4-soccer-scores-format-recentlychangedmemberships-competition-days
+      description: REST surface for v4-soccer-scores-format-RecentlyChangedMemberships-competition-days.
+      operations:
+      - method: GET
+        name: soccerv4scoresmembershipsbyrecentlychanged
+        description: Memberships - by Recently Changed
+        call: soccer-soccer-v4-scores.soccerv4scoresmembershipsbyrecentlychanged
+        with:
+          format: rest.format
+          competition: rest.competition
+          days: rest.days
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/schedule/{competition}/{season}
+      name: v4-soccer-scores-format-schedule-competition-season
+      description: REST surface for v4-soccer-scores-format-Schedule-competition-season.
+      operations:
+      - method: GET
+        name: soccerv4scoresschedules
+        description: Schedules
+        call: soccer-soccer-v4-scores.soccerv4scoresschedules
+        with:
+          format: rest.format
+          competition: rest.competition
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/schedulesbasic/{competition}/{season}
+      name: v4-soccer-scores-format-schedulesbasic-competition-season
+      description: REST surface for v4-soccer-scores-format-SchedulesBasic-competition-season.
+      operations:
+      - method: GET
+        name: soccerv4scoresschedulesbasic
+        description: Schedules (Basic)
+        call: soccer-soccer-v4-scores.soccerv4scoresschedulesbasic
+        with:
+          format: rest.format
+          competition: rest.competition
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/scoresbasic/{competition}/{date}
+      name: v4-soccer-scores-format-scoresbasic-competition-date
+      description: REST surface for v4-soccer-scores-format-ScoresBasic-competition-date.
+      operations:
+      - method: GET
+        name: soccerv4scoresgamesbasicbydatelivefinal
+        description: Games (Basic) - by Date [Live & Final]
+        call: soccer-soccer-v4-scores.soccerv4scoresgamesbasicbydatelivefinal
+        with:
+          format: rest.format
+          competition: rest.competition
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/scoresbasicfinal/{competition}/{date}
+      name: v4-soccer-scores-format-scoresbasicfinal-competition-date
+      description: REST surface for v4-soccer-scores-format-ScoresBasicFinal-competition-date.
+      operations:
+      - method: GET
+        name: soccerv4scoresgamesbasicbydatefinal
+        description: Games (Basic) - by Date [Final]
+        call: soccer-soccer-v4-scores.soccerv4scoresgamesbasicbydatefinal
+        with:
+          format: rest.format
+          competition: rest.competition
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/seasonteams/{competition}/{seasonid}
+      name: v4-soccer-scores-format-seasonteams-competition-seasonid
+      description: REST surface for v4-soccer-scores-format-SeasonTeams-competition-seasonid.
+      operations:
+      - method: GET
+        name: soccerv4scoresteamprofilesbyseason
+        description: Team Profiles - by Season
+        call: soccer-soccer-v4-scores.soccerv4scoresteamprofilesbyseason
+        with:
+          format: rest.format
+          competition: rest.competition
+          seasonid: rest.seasonid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/standings/{competition}/{season}
+      name: v4-soccer-scores-format-standings-competition-season
+      description: REST surface for v4-soccer-scores-format-Standings-competition-season.
+      operations:
+      - method: GET
+        name: soccerv4scoresstandings
+        description: Standings
+        call: soccer-soccer-v4-scores.soccerv4scoresstandings
+        with:
+          format: rest.format
+          competition: rest.competition
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/teamgamestatsbydate/{competition}/{date}
+      name: v4-soccer-scores-format-teamgamestatsbydate-competition-date
+      description: REST surface for v4-soccer-scores-format-TeamGameStatsByDate-competition-date.
+      operations:
+      - method: GET
+        name: soccerv4scoresteamgamestatsbydatelivefinal
+        description: Team Game Stats - by Date [Live & Final]
+        call: soccer-soccer-v4-scores.soccerv4scoresteamgamestatsbydatelivefinal
+        with:
+          format: rest.format
+          competition: rest.competition
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/teamseasonstats/{competition}/{season}
+      name: v4-soccer-scores-format-teamseasonstats-competition-season
+      description: REST surface for v4-soccer-scores-format-TeamSeasonStats-competition-season.
+      operations:
+      - method: GET
+        name: soccerv4scoresteamseasonstats
+        description: Team Season Stats
+        call: soccer-soccer-v4-scores.soccerv4scoresteamseasonstats
+        with:
+          format: rest.format
+          competition: rest.competition
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/teams/{competition}
+      name: v4-soccer-scores-format-teams-competition
+      description: REST surface for v4-soccer-scores-format-Teams-competition.
+      operations:
+      - method: GET
+        name: soccerv4scoresteamprofilesbycompetition
+        description: Team Profiles - by Competition
+        call: soccer-soccer-v4-scores.soccerv4scoresteamprofilesbycompetition
+        with:
+          format: rest.format
+          competition: rest.competition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v4/soccer/scores/{format}/venues
+      name: v4-soccer-scores-format-venues
+      description: REST surface for v4-soccer-scores-format-Venues.
+      operations:
+      - method: GET
+        name: soccerv4scoresvenues
+        description: Venues
+        call: soccer-soccer-v4-scores.soccerv4scoresvenues
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: soccer-soccer-v4-scores-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SOCCER API — Soccer v4 Scores. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: memberships-active
+      description: Memberships - by Active
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresmembershipsbyactive
+      with:
+        format: tools.format
+        competition: tools.competition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: areas-countries
+      description: Areas (Countries)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresareascountries
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: memberships-canceled
+      description: Memberships - by Canceled
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresmembershipsbycanceled
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-competition-live-final
+      description: Games - by Competition [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresgamesbycompetitionlivefinal
+      with:
+        format: tools.format
+        competition: tools.competition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: competitions-leagues
+      description: Competitions (Leagues)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scorescompetitionsleagues
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-date-live-final
+      description: Games - by Date [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresgamesbydatelivefinal
+      with:
+        format: tools.format
+        competition: tools.competition
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-date-final
+      description: Games - by Date [Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresgamesbydatefinal
+      with:
+        format: tools.format
+        competition: tools.competition
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: memberships-historical-team
+      description: Memberships Historical - by Team
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresmembershipshistoricalbyteam
+      with:
+        format: tools.format
+        competition: tools.competition
+        teamid: tools.teamid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-details-team
+      description: Player Details - by Team
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresplayerdetailsbyteam
+      with:
+        format: tools.format
+        competition: tools.competition
+        teamid: tools.teamid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-profiles-team
+      description: Player Profiles - by Team
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresplayerprofilesbyteam
+      with:
+        format: tools.format
+        competition: tools.competition
+        teamid: tools.teamid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: memberships-recently-changed
+      description: Memberships - by Recently Changed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresmembershipsbyrecentlychanged
+      with:
+        format: tools.format
+        competition: tools.competition
+        days: tools.days
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedules
+      description: Schedules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresschedules
+      with:
+        format: tools.format
+        competition: tools.competition
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedules-basic
+      description: Schedules (Basic)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresschedulesbasic
+      with:
+        format: tools.format
+        competition: tools.competition
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-basic-date-live-final
+      description: Games (Basic) - by Date [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresgamesbasicbydatelivefinal
+      with:
+        format: tools.format
+        competition: tools.competition
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-basic-date-final
+      description: Games (Basic) - by Date [Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresgamesbasicbydatefinal
+      with:
+        format: tools.format
+        competition: tools.competition
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-profiles-season
+      description: Team Profiles - by Season
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresteamprofilesbyseason
+      with:
+        format: tools.format
+        competition: tools.competition
+        seasonid: tools.seasonid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: standings
+      description: Standings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresstandings
+      with:
+        format: tools.format
+        competition: tools.competition
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-game-stats-date-live
+      description: Team Game Stats - by Date [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresteamgamestatsbydatelivefinal
+      with:
+        format: tools.format
+        competition: tools.competition
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-season-stats
+      description: Team Season Stats
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresteamseasonstats
+      with:
+        format: tools.format
+        competition: tools.competition
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-profiles-competition
+      description: Team Profiles - by Competition
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresteamprofilesbycompetition
+      with:
+        format: tools.format
+        competition: tools.competition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: venues
+      description: Venues
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-scores.soccerv4scoresvenues
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.

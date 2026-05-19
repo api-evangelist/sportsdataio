@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NBA API — NBA v3 Headshots
+  description: 'NBA API — NBA v3 Headshots. 1 operations. Lead operation: Headshots. Self-contained Naftiko capability covering
+    one Sportsdataio business surface.'
+  tags:
+  - Sportsdataio
+  - NBA v3 Headshots
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPORTSDATAIO_API_KEY: SPORTSDATAIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: nba-nba-v3-headshots
+    baseUri: https://api.sportsdata.io
+    description: NBA API — NBA v3 Headshots business capability. Self-contained, no shared references.
+    resources:
+    - name: v3-nba-headshots-format-Headshots
+      path: /v3/nba/headshots/{format}/Headshots
+      operations:
+      - name: nbav3headshotsheadshots
+        method: GET
+        description: Headshots
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    authentication:
+      type: apikey
+      key: Ocp-Apim-Subscription-Key
+      value: '{{env.SPORTSDATAIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: nba-nba-v3-headshots-rest
+    port: 8080
+    description: REST adapter for NBA API — NBA v3 Headshots. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v3/nba/headshots/{format}/headshots
+      name: v3-nba-headshots-format-headshots
+      description: REST surface for v3-nba-headshots-format-Headshots.
+      operations:
+      - method: GET
+        name: nbav3headshotsheadshots
+        description: Headshots
+        call: nba-nba-v3-headshots.nbav3headshotsheadshots
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: nba-nba-v3-headshots-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NBA API — NBA v3 Headshots. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: headshots
+      description: Headshots
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nba-nba-v3-headshots.nbav3headshotsheadshots
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.

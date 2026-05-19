@@ -1,0 +1,386 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NFL API — NFL v3 Play-by-Play
+  description: 'NFL API — NFL v3 Play-by-Play. 6 operations. Lead operation: Play By Play [Live & Final]. Self-contained Naftiko
+    capability covering one Sportsdataio business surface.'
+  tags:
+  - Sportsdataio
+  - NFL v3 Play-by-Play
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPORTSDATAIO_API_KEY: SPORTSDATAIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: nfl-nfl-v3-play-by-play
+    baseUri: https://api.sportsdata.io
+    description: NFL API — NFL v3 Play-by-Play business capability. Self-contained, no shared references.
+    resources:
+    - name: v3-nfl-pbp-format-PlayByPlay-gameid
+      path: /v3/nfl/pbp/{format}/PlayByPlay/{gameid}
+      operations:
+      - name: nflv3pbpplaybyplaylivefinal
+        method: GET
+        description: Play By Play [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: gameid
+          in: path
+          type: string
+          description: The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code>
+            or <code>16905</code>
+          required: true
+    - name: v3-nfl-pbp-format-PlayByPlay-season-week-hometeam
+      path: /v3/nfl/pbp/{format}/PlayByPlay/{season}/{week}/{hometeam}
+      operations:
+      - name: nflv3pbpplaybyplaybyteamlivefinal
+        method: GET
+        description: Play By Play - by Team [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason
+            1 to 4.'
+          required: true
+        - name: hometeam
+          in: path
+          type: string
+          description: 'Abbreviation of the home team. Example: <code>WAS</code>.'
+          required: true
+    - name: v3-nfl-pbp-format-PlayByPlayDelta-season-week-minutes
+      path: /v3/nfl/pbp/{format}/PlayByPlayDelta/{season}/{week}/{minutes}
+      operations:
+      - name: nflv3pbpplaybyplaydelta
+        method: GET
+        description: Play By Play Delta
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason
+            1 to 4.'
+          required: true
+        - name: minutes
+          in: path
+          type: string
+          description: Only returns player statistics that have changed in the last X minutes.  You specify how many minutes
+            in time to go back.  Valid entries are:<br>
+          required: true
+    - name: v3-nfl-pbp-format-PlayByPlayFinal-gameid
+      path: /v3/nfl/pbp/{format}/PlayByPlayFinal/{gameid}
+      operations:
+      - name: nflv3pbpplaybyplayfinal
+        method: GET
+        description: Play By Play [Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: gameid
+          in: path
+          type: string
+          description: The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code>
+            or <code>16905</code>
+          required: true
+    - name: v3-nfl-pbp-format-PlayByPlayFinal-season-week-hometeam
+      path: /v3/nfl/pbp/{format}/PlayByPlayFinal/{season}/{week}/{hometeam}
+      operations:
+      - name: nflv3pbpplaybyplaybyteamfinal
+        method: GET
+        description: Play By Play - by Team [Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason
+            1 to 4.'
+          required: true
+        - name: hometeam
+          in: path
+          type: string
+          description: 'Abbreviation of the home team. Example: <code>WAS</code>.'
+          required: true
+    - name: v3-nfl-pbp-format-SimulatedPlayByPlay-numberofplays
+      path: /v3/nfl/pbp/{format}/SimulatedPlayByPlay/{numberofplays}
+      operations:
+      - name: nflv3pbpplaybyplaysimulation
+        method: GET
+        description: Play By Play Simulation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: numberofplays
+          in: path
+          type: string
+          description: The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>,
+            <code>1</code>, <code>2</code>, <code>3</code>, <code>150<
+          required: true
+    authentication:
+      type: apikey
+      key: Ocp-Apim-Subscription-Key
+      value: '{{env.SPORTSDATAIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: nfl-nfl-v3-play-by-play-rest
+    port: 8080
+    description: REST adapter for NFL API — NFL v3 Play-by-Play. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v3/nfl/pbp/{format}/playbyplay/{gameid}
+      name: v3-nfl-pbp-format-playbyplay-gameid
+      description: REST surface for v3-nfl-pbp-format-PlayByPlay-gameid.
+      operations:
+      - method: GET
+        name: nflv3pbpplaybyplaylivefinal
+        description: Play By Play [Live & Final]
+        call: nfl-nfl-v3-play-by-play.nflv3pbpplaybyplaylivefinal
+        with:
+          format: rest.format
+          gameid: rest.gameid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/pbp/{format}/playbyplay/{season}/{week}/{hometeam}
+      name: v3-nfl-pbp-format-playbyplay-season-week-hometeam
+      description: REST surface for v3-nfl-pbp-format-PlayByPlay-season-week-hometeam.
+      operations:
+      - method: GET
+        name: nflv3pbpplaybyplaybyteamlivefinal
+        description: Play By Play - by Team [Live & Final]
+        call: nfl-nfl-v3-play-by-play.nflv3pbpplaybyplaybyteamlivefinal
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+          hometeam: rest.hometeam
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/pbp/{format}/playbyplaydelta/{season}/{week}/{minutes}
+      name: v3-nfl-pbp-format-playbyplaydelta-season-week-minutes
+      description: REST surface for v3-nfl-pbp-format-PlayByPlayDelta-season-week-minutes.
+      operations:
+      - method: GET
+        name: nflv3pbpplaybyplaydelta
+        description: Play By Play Delta
+        call: nfl-nfl-v3-play-by-play.nflv3pbpplaybyplaydelta
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+          minutes: rest.minutes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/pbp/{format}/playbyplayfinal/{gameid}
+      name: v3-nfl-pbp-format-playbyplayfinal-gameid
+      description: REST surface for v3-nfl-pbp-format-PlayByPlayFinal-gameid.
+      operations:
+      - method: GET
+        name: nflv3pbpplaybyplayfinal
+        description: Play By Play [Final]
+        call: nfl-nfl-v3-play-by-play.nflv3pbpplaybyplayfinal
+        with:
+          format: rest.format
+          gameid: rest.gameid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/pbp/{format}/playbyplayfinal/{season}/{week}/{hometeam}
+      name: v3-nfl-pbp-format-playbyplayfinal-season-week-hometeam
+      description: REST surface for v3-nfl-pbp-format-PlayByPlayFinal-season-week-hometeam.
+      operations:
+      - method: GET
+        name: nflv3pbpplaybyplaybyteamfinal
+        description: Play By Play - by Team [Final]
+        call: nfl-nfl-v3-play-by-play.nflv3pbpplaybyplaybyteamfinal
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+          hometeam: rest.hometeam
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/pbp/{format}/simulatedplaybyplay/{numberofplays}
+      name: v3-nfl-pbp-format-simulatedplaybyplay-numberofplays
+      description: REST surface for v3-nfl-pbp-format-SimulatedPlayByPlay-numberofplays.
+      operations:
+      - method: GET
+        name: nflv3pbpplaybyplaysimulation
+        description: Play By Play Simulation
+        call: nfl-nfl-v3-play-by-play.nflv3pbpplaybyplaysimulation
+        with:
+          format: rest.format
+          numberofplays: rest.numberofplays
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: nfl-nfl-v3-play-by-play-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NFL API — NFL v3 Play-by-Play. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: play-play-live-final
+      description: Play By Play [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-play-by-play.nflv3pbpplaybyplaylivefinal
+      with:
+        format: tools.format
+        gameid: tools.gameid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: play-play-team-live-final
+      description: Play By Play - by Team [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-play-by-play.nflv3pbpplaybyplaybyteamlivefinal
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+        hometeam: tools.hometeam
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: play-play-delta
+      description: Play By Play Delta
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-play-by-play.nflv3pbpplaybyplaydelta
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+        minutes: tools.minutes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: play-play-final
+      description: Play By Play [Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-play-by-play.nflv3pbpplaybyplayfinal
+      with:
+        format: tools.format
+        gameid: tools.gameid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: play-play-team-final
+      description: Play By Play - by Team [Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-play-by-play.nflv3pbpplaybyplaybyteamfinal
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+        hometeam: tools.hometeam
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: play-play-simulation
+      description: Play By Play Simulation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-play-by-play.nflv3pbpplaybyplaysimulation
+      with:
+        format: tools.format
+        numberofplays: tools.numberofplays
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,1310 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: MLB API — MLB v3 Scores
+  description: 'MLB API — MLB v3 Scores. 27 operations. Lead operation: Team Profiles - All. Self-contained Naftiko capability
+    covering one Sportsdataio business surface.'
+  tags:
+  - Sportsdataio
+  - MLB v3 Scores
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPORTSDATAIO_API_KEY: SPORTSDATAIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mlb-mlb-v3-scores
+    baseUri: https://api.sportsdata.io
+    description: MLB API — MLB v3 Scores business capability. Self-contained, no shared references.
+    resources:
+    - name: v3-mlb-scores-format-AllTeams
+      path: /v3/mlb/scores/{format}/AllTeams
+      operations:
+      - name: mlbv3scoresteamprofilesall
+        method: GET
+        description: Team Profiles - All
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-mlb-scores-format-AreAnyGamesInProgress
+      path: /v3/mlb/scores/{format}/AreAnyGamesInProgress
+      operations:
+      - name: mlbv3scoresaregamesinprogress
+        method: GET
+        description: Are Games In Progress
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-mlb-scores-format-CurrentSeason
+      path: /v3/mlb/scores/{format}/CurrentSeason
+      operations:
+      - name: mlbv3scoresseasoncurrent
+        method: GET
+        description: Season - Current
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-mlb-scores-format-FreeAgents
+      path: /v3/mlb/scores/{format}/FreeAgents
+      operations:
+      - name: mlbv3scoresplayerdetailsbyfreeagents
+        method: GET
+        description: Player Details - by Free Agents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-mlb-scores-format-Games-season
+      path: /v3/mlb/scores/{format}/Games/{season}
+      operations:
+      - name: mlbv3scoresschedules
+        method: GET
+        description: Schedules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>,
+            <code>2018POST</code>, <code>2018STAR</code>, <code>2019</'
+          required: true
+    - name: v3-mlb-scores-format-GamesByDate-date
+      path: /v3/mlb/scores/{format}/GamesByDate/{date}
+      operations:
+      - name: mlbv3scoresgamesbydatelivefinal
+        method: GET
+        description: Games - by Date [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-mlb-scores-format-GamesByDateFinal-date
+      path: /v3/mlb/scores/{format}/GamesByDateFinal/{date}
+      operations:
+      - name: mlbv3scoresgamesbydatefinal
+        method: GET
+        description: Games - by Date [Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-mlb-scores-format-News
+      path: /v3/mlb/scores/{format}/News
+      operations:
+      - name: mlbv3scoresnews
+        method: GET
+        description: News
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-mlb-scores-format-NewsByDate-date
+      path: /v3/mlb/scores/{format}/NewsByDate/{date}
+      operations:
+      - name: mlbv3scoresnewsbydate
+        method: GET
+        description: News - by Date
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the news.
+          required: true
+    - name: v3-mlb-scores-format-NewsByPlayerID-playerid
+      path: /v3/mlb/scores/{format}/NewsByPlayerID/{playerid}
+      operations:
+      - name: mlbv3scoresnewsbyplayer
+        method: GET
+        description: News - by Player
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: playerid
+          in: path
+          type: string
+          description: Unique FantasyData Player ID.
+          required: true
+    - name: v3-mlb-scores-format-Players
+      path: /v3/mlb/scores/{format}/Players
+      operations:
+      - name: mlbv3scoresplayerdetailsbyactive
+        method: GET
+        description: Player Details - by Active
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-mlb-scores-format-Players-team
+      path: /v3/mlb/scores/{format}/Players/{team}
+      operations:
+      - name: mlbv3scoresplayersdetailsbyteam
+        method: GET
+        description: Players Details - by Team
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: team
+          in: path
+          type: string
+          description: The abbreviation of the requested team.
+          required: true
+    - name: v3-mlb-scores-format-PlayersBasic-team
+      path: /v3/mlb/scores/{format}/PlayersBasic/{team}
+      operations:
+      - name: mlbv3scoresplayerprofilesbyteam
+        method: GET
+        description: Player Profiles - by Team
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: team
+          in: path
+          type: string
+          description: The abbreviation of the requested team.
+          required: true
+    - name: v3-mlb-scores-format-PlayersByActive
+      path: /v3/mlb/scores/{format}/PlayersByActive
+      operations:
+      - name: mlbv3scoresplayerprofilesbyactive
+        method: GET
+        description: Player Profiles - by Active
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-mlb-scores-format-PlayersByFreeAgents
+      path: /v3/mlb/scores/{format}/PlayersByFreeAgents
+      operations:
+      - name: mlbv3scoresplayerprofilesbyfreeagents
+        method: GET
+        description: Player Profiles - by Free Agents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-mlb-scores-format-SchedulesBasic-season
+      path: /v3/mlb/scores/{format}/SchedulesBasic/{season}
+      operations:
+      - name: mlbv3scoresschedulesbasic
+        method: GET
+        description: Schedules (Basic)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>,
+            <code>2018POST</code>, <code>2018STAR</code>, <code>2019</'
+          required: true
+    - name: v3-mlb-scores-format-ScoresBasic-date
+      path: /v3/mlb/scores/{format}/ScoresBasic/{date}
+      operations:
+      - name: mlbv3scoresgamesbasicbydatelivefinal
+        method: GET
+        description: Games (Basic) - by Date [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-mlb-scores-format-ScoresBasicFinal-date
+      path: /v3/mlb/scores/{format}/ScoresBasicFinal/{date}
+      operations:
+      - name: mlbv3scoresgamesbasicbydatefinal
+        method: GET
+        description: Games (Basic) - by Date [Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-mlb-scores-format-Stadiums
+      path: /v3/mlb/scores/{format}/Stadiums
+      operations:
+      - name: mlbv3scoresstadiums
+        method: GET
+        description: Stadiums
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-mlb-scores-format-Standings-season
+      path: /v3/mlb/scores/{format}/Standings/{season}
+      operations:
+      - name: mlbv3scoresstandings
+        method: GET
+        description: Standings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season.
+          required: true
+    - name: v3-mlb-scores-format-TeamGameStatsByDate-date
+      path: /v3/mlb/scores/{format}/TeamGameStatsByDate/{date}
+      operations:
+      - name: mlbv3scoresteamgamestatsbydatelivefinal
+        method: GET
+        description: Team Game Stats - by Date [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-mlb-scores-format-TeamGameStatsByDateFinal-date
+      path: /v3/mlb/scores/{format}/TeamGameStatsByDateFinal/{date}
+      operations:
+      - name: mlbv3scoresteamgamestatsbydatefinal
+        method: GET
+        description: Team Game Stats - by Date [Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-mlb-scores-format-TeamGameStatsBySeason-season-teamid-numberofgames
+      path: /v3/mlb/scores/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}
+      operations:
+      - name: mlbv3scoresteamgamelogsbyseason
+        method: GET
+        description: Team Game Logs - by Season
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Season to get games from. Example <code>2019POST</code>, <code>2020</code>
+          required: true
+        - name: teamid
+          in: path
+          type: string
+          description: Unique ID of team.  Example <code> 12 </code>
+          required: true
+        - name: numberofgames
+          in: path
+          type: string
+          description: How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code>
+          required: true
+    - name: v3-mlb-scores-format-TeamSeasonStats-season
+      path: /v3/mlb/scores/{format}/TeamSeasonStats/{season}
+      operations:
+      - name: mlbv3scoresteamseasonstats
+        method: GET
+        description: Team Season Stats
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season.
+          required: true
+    - name: v3-mlb-scores-format-TransactionsByDate-date
+      path: /v3/mlb/scores/{format}/TransactionsByDate/{date}
+      operations:
+      - name: mlbv3scorestransactions
+        method: GET
+        description: Transactions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the news.
+          required: true
+    - name: v3-mlb-scores-format-teams
+      path: /v3/mlb/scores/{format}/teams
+      operations:
+      - name: mlbv3scoresteamprofilesbyactive
+        method: GET
+        description: Team Profiles - by Active
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-mlb-scores-format-teams-season
+      path: /v3/mlb/scores/{format}/teams/{season}
+      operations:
+      - name: mlbv3scoresteamprofilesbyseason
+        method: GET
+        description: Team Profiles - by Season
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+    authentication:
+      type: apikey
+      key: Ocp-Apim-Subscription-Key
+      value: '{{env.SPORTSDATAIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: mlb-mlb-v3-scores-rest
+    port: 8080
+    description: REST adapter for MLB API — MLB v3 Scores. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v3/mlb/scores/{format}/allteams
+      name: v3-mlb-scores-format-allteams
+      description: REST surface for v3-mlb-scores-format-AllTeams.
+      operations:
+      - method: GET
+        name: mlbv3scoresteamprofilesall
+        description: Team Profiles - All
+        call: mlb-mlb-v3-scores.mlbv3scoresteamprofilesall
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/areanygamesinprogress
+      name: v3-mlb-scores-format-areanygamesinprogress
+      description: REST surface for v3-mlb-scores-format-AreAnyGamesInProgress.
+      operations:
+      - method: GET
+        name: mlbv3scoresaregamesinprogress
+        description: Are Games In Progress
+        call: mlb-mlb-v3-scores.mlbv3scoresaregamesinprogress
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/currentseason
+      name: v3-mlb-scores-format-currentseason
+      description: REST surface for v3-mlb-scores-format-CurrentSeason.
+      operations:
+      - method: GET
+        name: mlbv3scoresseasoncurrent
+        description: Season - Current
+        call: mlb-mlb-v3-scores.mlbv3scoresseasoncurrent
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/freeagents
+      name: v3-mlb-scores-format-freeagents
+      description: REST surface for v3-mlb-scores-format-FreeAgents.
+      operations:
+      - method: GET
+        name: mlbv3scoresplayerdetailsbyfreeagents
+        description: Player Details - by Free Agents
+        call: mlb-mlb-v3-scores.mlbv3scoresplayerdetailsbyfreeagents
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/games/{season}
+      name: v3-mlb-scores-format-games-season
+      description: REST surface for v3-mlb-scores-format-Games-season.
+      operations:
+      - method: GET
+        name: mlbv3scoresschedules
+        description: Schedules
+        call: mlb-mlb-v3-scores.mlbv3scoresschedules
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/gamesbydate/{date}
+      name: v3-mlb-scores-format-gamesbydate-date
+      description: REST surface for v3-mlb-scores-format-GamesByDate-date.
+      operations:
+      - method: GET
+        name: mlbv3scoresgamesbydatelivefinal
+        description: Games - by Date [Live & Final]
+        call: mlb-mlb-v3-scores.mlbv3scoresgamesbydatelivefinal
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/gamesbydatefinal/{date}
+      name: v3-mlb-scores-format-gamesbydatefinal-date
+      description: REST surface for v3-mlb-scores-format-GamesByDateFinal-date.
+      operations:
+      - method: GET
+        name: mlbv3scoresgamesbydatefinal
+        description: Games - by Date [Final]
+        call: mlb-mlb-v3-scores.mlbv3scoresgamesbydatefinal
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/news
+      name: v3-mlb-scores-format-news
+      description: REST surface for v3-mlb-scores-format-News.
+      operations:
+      - method: GET
+        name: mlbv3scoresnews
+        description: News
+        call: mlb-mlb-v3-scores.mlbv3scoresnews
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/newsbydate/{date}
+      name: v3-mlb-scores-format-newsbydate-date
+      description: REST surface for v3-mlb-scores-format-NewsByDate-date.
+      operations:
+      - method: GET
+        name: mlbv3scoresnewsbydate
+        description: News - by Date
+        call: mlb-mlb-v3-scores.mlbv3scoresnewsbydate
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/newsbyplayerid/{playerid}
+      name: v3-mlb-scores-format-newsbyplayerid-playerid
+      description: REST surface for v3-mlb-scores-format-NewsByPlayerID-playerid.
+      operations:
+      - method: GET
+        name: mlbv3scoresnewsbyplayer
+        description: News - by Player
+        call: mlb-mlb-v3-scores.mlbv3scoresnewsbyplayer
+        with:
+          format: rest.format
+          playerid: rest.playerid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/players
+      name: v3-mlb-scores-format-players
+      description: REST surface for v3-mlb-scores-format-Players.
+      operations:
+      - method: GET
+        name: mlbv3scoresplayerdetailsbyactive
+        description: Player Details - by Active
+        call: mlb-mlb-v3-scores.mlbv3scoresplayerdetailsbyactive
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/players/{team}
+      name: v3-mlb-scores-format-players-team
+      description: REST surface for v3-mlb-scores-format-Players-team.
+      operations:
+      - method: GET
+        name: mlbv3scoresplayersdetailsbyteam
+        description: Players Details - by Team
+        call: mlb-mlb-v3-scores.mlbv3scoresplayersdetailsbyteam
+        with:
+          format: rest.format
+          team: rest.team
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/playersbasic/{team}
+      name: v3-mlb-scores-format-playersbasic-team
+      description: REST surface for v3-mlb-scores-format-PlayersBasic-team.
+      operations:
+      - method: GET
+        name: mlbv3scoresplayerprofilesbyteam
+        description: Player Profiles - by Team
+        call: mlb-mlb-v3-scores.mlbv3scoresplayerprofilesbyteam
+        with:
+          format: rest.format
+          team: rest.team
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/playersbyactive
+      name: v3-mlb-scores-format-playersbyactive
+      description: REST surface for v3-mlb-scores-format-PlayersByActive.
+      operations:
+      - method: GET
+        name: mlbv3scoresplayerprofilesbyactive
+        description: Player Profiles - by Active
+        call: mlb-mlb-v3-scores.mlbv3scoresplayerprofilesbyactive
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/playersbyfreeagents
+      name: v3-mlb-scores-format-playersbyfreeagents
+      description: REST surface for v3-mlb-scores-format-PlayersByFreeAgents.
+      operations:
+      - method: GET
+        name: mlbv3scoresplayerprofilesbyfreeagents
+        description: Player Profiles - by Free Agents
+        call: mlb-mlb-v3-scores.mlbv3scoresplayerprofilesbyfreeagents
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/schedulesbasic/{season}
+      name: v3-mlb-scores-format-schedulesbasic-season
+      description: REST surface for v3-mlb-scores-format-SchedulesBasic-season.
+      operations:
+      - method: GET
+        name: mlbv3scoresschedulesbasic
+        description: Schedules (Basic)
+        call: mlb-mlb-v3-scores.mlbv3scoresschedulesbasic
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/scoresbasic/{date}
+      name: v3-mlb-scores-format-scoresbasic-date
+      description: REST surface for v3-mlb-scores-format-ScoresBasic-date.
+      operations:
+      - method: GET
+        name: mlbv3scoresgamesbasicbydatelivefinal
+        description: Games (Basic) - by Date [Live & Final]
+        call: mlb-mlb-v3-scores.mlbv3scoresgamesbasicbydatelivefinal
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/scoresbasicfinal/{date}
+      name: v3-mlb-scores-format-scoresbasicfinal-date
+      description: REST surface for v3-mlb-scores-format-ScoresBasicFinal-date.
+      operations:
+      - method: GET
+        name: mlbv3scoresgamesbasicbydatefinal
+        description: Games (Basic) - by Date [Final]
+        call: mlb-mlb-v3-scores.mlbv3scoresgamesbasicbydatefinal
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/stadiums
+      name: v3-mlb-scores-format-stadiums
+      description: REST surface for v3-mlb-scores-format-Stadiums.
+      operations:
+      - method: GET
+        name: mlbv3scoresstadiums
+        description: Stadiums
+        call: mlb-mlb-v3-scores.mlbv3scoresstadiums
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/standings/{season}
+      name: v3-mlb-scores-format-standings-season
+      description: REST surface for v3-mlb-scores-format-Standings-season.
+      operations:
+      - method: GET
+        name: mlbv3scoresstandings
+        description: Standings
+        call: mlb-mlb-v3-scores.mlbv3scoresstandings
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/teamgamestatsbydate/{date}
+      name: v3-mlb-scores-format-teamgamestatsbydate-date
+      description: REST surface for v3-mlb-scores-format-TeamGameStatsByDate-date.
+      operations:
+      - method: GET
+        name: mlbv3scoresteamgamestatsbydatelivefinal
+        description: Team Game Stats - by Date [Live & Final]
+        call: mlb-mlb-v3-scores.mlbv3scoresteamgamestatsbydatelivefinal
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/teamgamestatsbydatefinal/{date}
+      name: v3-mlb-scores-format-teamgamestatsbydatefinal-date
+      description: REST surface for v3-mlb-scores-format-TeamGameStatsByDateFinal-date.
+      operations:
+      - method: GET
+        name: mlbv3scoresteamgamestatsbydatefinal
+        description: Team Game Stats - by Date [Final]
+        call: mlb-mlb-v3-scores.mlbv3scoresteamgamestatsbydatefinal
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/teamgamestatsbyseason/{season}/{teamid}/{numberofgames}
+      name: v3-mlb-scores-format-teamgamestatsbyseason-season-teamid-numberofgames
+      description: REST surface for v3-mlb-scores-format-TeamGameStatsBySeason-season-teamid-numberofgames.
+      operations:
+      - method: GET
+        name: mlbv3scoresteamgamelogsbyseason
+        description: Team Game Logs - by Season
+        call: mlb-mlb-v3-scores.mlbv3scoresteamgamelogsbyseason
+        with:
+          format: rest.format
+          season: rest.season
+          teamid: rest.teamid
+          numberofgames: rest.numberofgames
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/teamseasonstats/{season}
+      name: v3-mlb-scores-format-teamseasonstats-season
+      description: REST surface for v3-mlb-scores-format-TeamSeasonStats-season.
+      operations:
+      - method: GET
+        name: mlbv3scoresteamseasonstats
+        description: Team Season Stats
+        call: mlb-mlb-v3-scores.mlbv3scoresteamseasonstats
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/transactionsbydate/{date}
+      name: v3-mlb-scores-format-transactionsbydate-date
+      description: REST surface for v3-mlb-scores-format-TransactionsByDate-date.
+      operations:
+      - method: GET
+        name: mlbv3scorestransactions
+        description: Transactions
+        call: mlb-mlb-v3-scores.mlbv3scorestransactions
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/teams
+      name: v3-mlb-scores-format-teams
+      description: REST surface for v3-mlb-scores-format-teams.
+      operations:
+      - method: GET
+        name: mlbv3scoresteamprofilesbyactive
+        description: Team Profiles - by Active
+        call: mlb-mlb-v3-scores.mlbv3scoresteamprofilesbyactive
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/scores/{format}/teams/{season}
+      name: v3-mlb-scores-format-teams-season
+      description: REST surface for v3-mlb-scores-format-teams-season.
+      operations:
+      - method: GET
+        name: mlbv3scoresteamprofilesbyseason
+        description: Team Profiles - by Season
+        call: mlb-mlb-v3-scores.mlbv3scoresteamprofilesbyseason
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mlb-mlb-v3-scores-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for MLB API — MLB v3 Scores. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: team-profiles-all
+      description: Team Profiles - All
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresteamprofilesall
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: are-games-progress
+      description: Are Games In Progress
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresaregamesinprogress
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: season-current
+      description: Season - Current
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresseasoncurrent
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-details-free-agents
+      description: Player Details - by Free Agents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresplayerdetailsbyfreeagents
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedules
+      description: Schedules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresschedules
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-date-live-final
+      description: Games - by Date [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresgamesbydatelivefinal
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-date-final
+      description: Games - by Date [Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresgamesbydatefinal
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: news
+      description: News
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresnews
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: news-date
+      description: News - by Date
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresnewsbydate
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: news-player
+      description: News - by Player
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresnewsbyplayer
+      with:
+        format: tools.format
+        playerid: tools.playerid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-details-active
+      description: Player Details - by Active
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresplayerdetailsbyactive
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: players-details-team
+      description: Players Details - by Team
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresplayersdetailsbyteam
+      with:
+        format: tools.format
+        team: tools.team
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-profiles-team
+      description: Player Profiles - by Team
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresplayerprofilesbyteam
+      with:
+        format: tools.format
+        team: tools.team
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-profiles-active
+      description: Player Profiles - by Active
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresplayerprofilesbyactive
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-profiles-free-agents
+      description: Player Profiles - by Free Agents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresplayerprofilesbyfreeagents
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedules-basic
+      description: Schedules (Basic)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresschedulesbasic
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-basic-date-live-final
+      description: Games (Basic) - by Date [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresgamesbasicbydatelivefinal
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-basic-date-final
+      description: Games (Basic) - by Date [Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresgamesbasicbydatefinal
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stadiums
+      description: Stadiums
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresstadiums
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: standings
+      description: Standings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresstandings
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-game-stats-date-live
+      description: Team Game Stats - by Date [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresteamgamestatsbydatelivefinal
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-game-stats-date-final
+      description: Team Game Stats - by Date [Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresteamgamestatsbydatefinal
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-game-logs-season
+      description: Team Game Logs - by Season
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresteamgamelogsbyseason
+      with:
+        format: tools.format
+        season: tools.season
+        teamid: tools.teamid
+        numberofgames: tools.numberofgames
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-season-stats
+      description: Team Season Stats
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresteamseasonstats
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: transactions
+      description: Transactions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scorestransactions
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-profiles-active
+      description: Team Profiles - by Active
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresteamprofilesbyactive
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-profiles-season
+      description: Team Profiles - by Season
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-scores.mlbv3scoresteamprofilesbyseason
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.

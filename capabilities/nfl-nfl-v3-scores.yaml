@@ -1,0 +1,2190 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NFL API — NFL v3 Scores
+  description: 'NFL API — NFL v3 Scores. 45 operations. Lead operation: Team Profiles - All. Self-contained Naftiko capability
+    covering one Sportsdataio business surface.'
+  tags:
+  - Sportsdataio
+  - NFL v3 Scores
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPORTSDATAIO_API_KEY: SPORTSDATAIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: nfl-nfl-v3-scores
+    baseUri: https://api.sportsdata.io
+    description: NFL API — NFL v3 Scores business capability. Self-contained, no shared references.
+    resources:
+    - name: v3-nfl-scores-format-AllTeams
+      path: /v3/nfl/scores/{format}/AllTeams
+      operations:
+      - name: nflv3scoresteamprofilesall
+        method: GET
+        description: Team Profiles - All
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-AreAnyGamesInProgress
+      path: /v3/nfl/scores/{format}/AreAnyGamesInProgress
+      operations:
+      - name: nflv3scoresaregamesinprogress
+        method: GET
+        description: Are Games In Progress
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-Byes-season
+      path: /v3/nfl/scores/{format}/Byes/{season}
+      operations:
+      - name: nflv3scoresbyeweeks
+        method: GET
+        description: Bye Weeks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+    - name: v3-nfl-scores-format-CurrentSeason
+      path: /v3/nfl/scores/{format}/CurrentSeason
+      operations:
+      - name: nflv3scoresseasoncurrent
+        method: GET
+        description: Season - Current
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-CurrentWeek
+      path: /v3/nfl/scores/{format}/CurrentWeek
+      operations:
+      - name: nflv3scoresweekcurrent
+        method: GET
+        description: Week - Current
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-DepthCharts
+      path: /v3/nfl/scores/{format}/DepthCharts
+      operations:
+      - name: nflv3scoresdepthchartsbyactive
+        method: GET
+        description: Depth Charts - by Active
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-DepthChartsAll
+      path: /v3/nfl/scores/{format}/DepthChartsAll
+      operations:
+      - name: nflv3scoresdepthchartsall
+        method: GET
+        description: Depth Charts - All
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-DepthChartsByWeek-season-week
+      path: /v3/nfl/scores/{format}/DepthChartsByWeek/{season}/{week}
+      operations:
+      - name: nflv3scoresdepthchartsbyweek
+        method: GET
+        description: Depth Charts - by Week
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season and the season type. If no season type is provided, then the default is regular
+            season.          <br>Examples: <code>2015REG</code>, <code>20'
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason
+            1 to 4.          Example: <code>1</code>'
+          required: true
+    - name: v3-nfl-scores-format-FreeAgents
+      path: /v3/nfl/scores/{format}/FreeAgents
+      operations:
+      - name: nflv3scoresplayerdetailsbyfreeagents
+        method: GET
+        description: Player Details - by Free Agents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-LastCompletedSeason
+      path: /v3/nfl/scores/{format}/LastCompletedSeason
+      operations:
+      - name: nflv3scoresseasonlastcompleted
+        method: GET
+        description: Season - Last Completed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-LastCompletedWeek
+      path: /v3/nfl/scores/{format}/LastCompletedWeek
+      operations:
+      - name: nflv3scoresweeklastcompleted
+        method: GET
+        description: Week - Last Completed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-News
+      path: /v3/nfl/scores/{format}/News
+      operations:
+      - name: nflv3scoresnews
+        method: GET
+        description: News
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-NewsByDate-date
+      path: /v3/nfl/scores/{format}/NewsByDate/{date}
+      operations:
+      - name: nflv3scoresnewsbydate
+        method: GET
+        description: News - by Date
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the news.
+          required: true
+    - name: v3-nfl-scores-format-NewsByPlayerID-playerid
+      path: /v3/nfl/scores/{format}/NewsByPlayerID/{playerid}
+      operations:
+      - name: nflv3scoresnewsbyplayer
+        method: GET
+        description: News - by Player
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: playerid
+          in: path
+          type: string
+          description: Each NFL player has a unique ID assigned by FantasyData. Player IDs can be determined by pulling player
+            related data. Example:<code>14257</code>.
+          required: true
+    - name: v3-nfl-scores-format-NewsByTeam-team
+      path: /v3/nfl/scores/{format}/NewsByTeam/{team}
+      operations:
+      - name: nflv3scoresnewsbyteam
+        method: GET
+        description: News - by Team
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: team
+          in: path
+          type: string
+          description: 'Abbreviation of the team. Example: <code>WAS</code>.'
+          required: true
+    - name: v3-nfl-scores-format-Players
+      path: /v3/nfl/scores/{format}/Players
+      operations:
+      - name: nflv3scoresplayerdetailsall
+        method: GET
+        description: Player Details - All
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-Players-team
+      path: /v3/nfl/scores/{format}/Players/{team}
+      operations:
+      - name: nflv3scoresplayerdetailsbyteam
+        method: GET
+        description: Player Details - by Team
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: team
+          in: path
+          type: string
+          description: 'Abbreviation of the team. Example: <code>WAS</code>.'
+          required: true
+    - name: v3-nfl-scores-format-PlayersBasic-team
+      path: /v3/nfl/scores/{format}/PlayersBasic/{team}
+      operations:
+      - name: nflv3scoresplayerprofilesbyteam
+        method: GET
+        description: Player Profiles - by Team
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: team
+          in: path
+          type: string
+          description: 'Abbreviation of the team. Example: <code>WAS</code>.'
+          required: true
+    - name: v3-nfl-scores-format-PlayersByAvailable
+      path: /v3/nfl/scores/{format}/PlayersByAvailable
+      operations:
+      - name: nflv3scoresplayerprofilesall
+        method: GET
+        description: Player Profiles - All
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-PlayersByFreeAgents
+      path: /v3/nfl/scores/{format}/PlayersByFreeAgents
+      operations:
+      - name: nflv3scoresplayerprofilesbyfreeagent
+        method: GET
+        description: Player Profiles - by Free Agent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-PlayersByRookieDraftYear-season
+      path: /v3/nfl/scores/{format}/PlayersByRookieDraftYear/{season}
+      operations:
+      - name: nflv3scoresplayerprofilesbyrookiedraftyear
+        method: GET
+        description: Player Profiles - by Rookie Draft Year
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season.<br>Examples: <code>2018</code>, <code>2019</code>, etc.'
+          required: true
+    - name: v3-nfl-scores-format-Referees
+      path: /v3/nfl/scores/{format}/Referees
+      operations:
+      - name: nflv3scoresreferees
+        method: GET
+        description: Referees
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-Rookies-season
+      path: /v3/nfl/scores/{format}/Rookies/{season}
+      operations:
+      - name: nflv3scoresplayerdetailsbyrookiedraftyear
+        method: GET
+        description: Player Details - by Rookie Draft Year
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season.<br>Examples: <code>2018</code>, <code>2019</code>, etc.'
+          required: true
+    - name: v3-nfl-scores-format-Schedules-season
+      path: /v3/nfl/scores/{format}/Schedules/{season}
+      operations:
+      - name: nflv3scoresschedules
+        method: GET
+        description: Schedules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>,
+            <code>2018POST</code>, <code>2018STAR</code>, <code>2019</'
+          required: true
+    - name: v3-nfl-scores-format-SchedulesBasic-season
+      path: /v3/nfl/scores/{format}/SchedulesBasic/{season}
+      operations:
+      - name: nflv3scoresschedulesbasic
+        method: GET
+        description: Schedules (Basic)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>,
+            <code>2018POST</code>, <code>2018STAR</code>, <code>2019</'
+          required: true
+    - name: v3-nfl-scores-format-Scores-season
+      path: /v3/nfl/scores/{format}/Scores/{season}
+      operations:
+      - name: nflv3scoresgamesbyseasonlivefinal
+        method: GET
+        description: Games - by Season [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>,
+            <code>2018POST</code>, <code>2018STAR</code>, <code>2019</'
+          required: true
+    - name: v3-nfl-scores-format-ScoresBasic-season-week
+      path: /v3/nfl/scores/{format}/ScoresBasic/{season}/{week}
+      operations:
+      - name: nflv3scoresgamesbasicbyweeklivefinal
+        method: GET
+        description: Games (Basic) - by Week [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason
+            1 to 4.'
+          required: true
+    - name: v3-nfl-scores-format-ScoresBasicFinal-season-week
+      path: /v3/nfl/scores/{format}/ScoresBasicFinal/{season}/{week}
+      operations:
+      - name: nflv3scoresgamesbasicbyweekfinal
+        method: GET
+        description: Games (Basic) - by Week [Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason
+            1 to 4.'
+          required: true
+    - name: v3-nfl-scores-format-ScoresByDate-date
+      path: /v3/nfl/scores/{format}/ScoresByDate/{date}
+      operations:
+      - name: nflv3scoresgamesbydatelivefinal
+        method: GET
+        description: Games - by Date [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: 'The date of the games.<br>Examples: <code>2021-SEP-12</code>, <code>2021-NOV-28</code>.'
+          required: true
+    - name: v3-nfl-scores-format-ScoresByDateFinal-date
+      path: /v3/nfl/scores/{format}/ScoresByDateFinal/{date}
+      operations:
+      - name: nflv3scoresgamesbydatefinal
+        method: GET
+        description: Games - by Date [Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: 'The date of the games.<br>Examples: <code>2021-SEP-12</code>, <code>2021-NOV-28</code>.'
+          required: true
+    - name: v3-nfl-scores-format-ScoresByWeek-season-week
+      path: /v3/nfl/scores/{format}/ScoresByWeek/{season}/{week}
+      operations:
+      - name: nflv3scoresgamesbyweeklivefinal
+        method: GET
+        description: Games - by Week [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason
+            1 to 4.'
+          required: true
+    - name: v3-nfl-scores-format-ScoresByWeekFinal-season-week
+      path: /v3/nfl/scores/{format}/ScoresByWeekFinal/{season}/{week}
+      operations:
+      - name: nflv3scoresgamesbyweekfinal
+        method: GET
+        description: Games - by Week [Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason
+            1 to 4.'
+          required: true
+    - name: v3-nfl-scores-format-SimulatedScores-numberofplays
+      path: /v3/nfl/scores/{format}/SimulatedScores/{numberofplays}
+      operations:
+      - name: nflv3scoresscoresbyweeksimulation
+        method: GET
+        description: Scores by Week Simulation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: numberofplays
+          in: path
+          type: string
+          description: The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>,
+            <code>1</code>, <code>2</code>, <code>3</code>, <code>150<
+          required: true
+    - name: v3-nfl-scores-format-Stadiums
+      path: /v3/nfl/scores/{format}/Stadiums
+      operations:
+      - name: nflv3scoresstadiums
+        method: GET
+        description: Stadiums
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-Standings-season
+      path: /v3/nfl/scores/{format}/Standings/{season}
+      operations:
+      - name: nflv3scoresstandings
+        method: GET
+        description: Standings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+    - name: v3-nfl-scores-format-TeamGameStats-season-week
+      path: /v3/nfl/scores/{format}/TeamGameStats/{season}/{week}
+      operations:
+      - name: nflv3scoresteamgamestatslivefinal
+        method: GET
+        description: Team Game Stats [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason
+            1 to 4.'
+          required: true
+    - name: v3-nfl-scores-format-TeamGameStatsBySeason-season-teamid-numberofgames
+      path: /v3/nfl/scores/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}
+      operations:
+      - name: nflv3scoresplayergamelogsbyseason
+        method: GET
+        description: Player Game Logs - by Season
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Season to get games from. Example <code>2019POST</code>, <code>2020</code>
+          required: true
+        - name: teamid
+          in: path
+          type: string
+          description: Unique ID of team.  Example <code> 8 </code>
+          required: true
+        - name: numberofgames
+          in: path
+          type: string
+          description: How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code>
+          required: true
+    - name: v3-nfl-scores-format-TeamSeasonStats-season
+      path: /v3/nfl/scores/{format}/TeamSeasonStats/{season}
+      operations:
+      - name: nflv3scoresteamseasonstats
+        method: GET
+        description: Team Season Stats
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+    - name: v3-nfl-scores-format-Teams
+      path: /v3/nfl/scores/{format}/Teams
+      operations:
+      - name: nflv3scoresteamprofilesbyactive
+        method: GET
+        description: Team Profiles - by Active
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-Teams-season
+      path: /v3/nfl/scores/{format}/Teams/{season}
+      operations:
+      - name: nflv3scoresteamprofilesbyseason
+        method: GET
+        description: Team Profiles - by Season
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+    - name: v3-nfl-scores-format-TeamsBasic
+      path: /v3/nfl/scores/{format}/TeamsBasic
+      operations:
+      - name: nflv3scoresteamprofilesbasicall
+        method: GET
+        description: Team Profiles (Basic) - All
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-Timeframes-type
+      path: /v3/nfl/scores/{format}/Timeframes/{type}
+      operations:
+      - name: nflv3scorestimeframes
+        method: GET
+        description: Timeframes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: type
+          in: path
+          type: string
+          description: The type of timeframes to return.  Valid entries are <code>current</code> or <code>upcoming</code>
+            or <code>completed</code> or <code>recent</code> or <code>all
+          required: true
+    - name: v3-nfl-scores-format-TransactionsByDate-date
+      path: /v3/nfl/scores/{format}/TransactionsByDate/{date}
+      operations:
+      - name: nflv3scorestransactionsbydate
+        method: GET
+        description: Transactions - by Date
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the news.
+          required: true
+    - name: v3-nfl-scores-format-UpcomingSeason
+      path: /v3/nfl/scores/{format}/UpcomingSeason
+      operations:
+      - name: nflv3scoresseasonupcoming
+        method: GET
+        description: Season - Upcoming
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-scores-format-UpcomingWeek
+      path: /v3/nfl/scores/{format}/UpcomingWeek
+      operations:
+      - name: nflv3scoresweekupcoming
+        method: GET
+        description: Week - Upcoming
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    authentication:
+      type: apikey
+      key: Ocp-Apim-Subscription-Key
+      value: '{{env.SPORTSDATAIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: nfl-nfl-v3-scores-rest
+    port: 8080
+    description: REST adapter for NFL API — NFL v3 Scores. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v3/nfl/scores/{format}/allteams
+      name: v3-nfl-scores-format-allteams
+      description: REST surface for v3-nfl-scores-format-AllTeams.
+      operations:
+      - method: GET
+        name: nflv3scoresteamprofilesall
+        description: Team Profiles - All
+        call: nfl-nfl-v3-scores.nflv3scoresteamprofilesall
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/areanygamesinprogress
+      name: v3-nfl-scores-format-areanygamesinprogress
+      description: REST surface for v3-nfl-scores-format-AreAnyGamesInProgress.
+      operations:
+      - method: GET
+        name: nflv3scoresaregamesinprogress
+        description: Are Games In Progress
+        call: nfl-nfl-v3-scores.nflv3scoresaregamesinprogress
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/byes/{season}
+      name: v3-nfl-scores-format-byes-season
+      description: REST surface for v3-nfl-scores-format-Byes-season.
+      operations:
+      - method: GET
+        name: nflv3scoresbyeweeks
+        description: Bye Weeks
+        call: nfl-nfl-v3-scores.nflv3scoresbyeweeks
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/currentseason
+      name: v3-nfl-scores-format-currentseason
+      description: REST surface for v3-nfl-scores-format-CurrentSeason.
+      operations:
+      - method: GET
+        name: nflv3scoresseasoncurrent
+        description: Season - Current
+        call: nfl-nfl-v3-scores.nflv3scoresseasoncurrent
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/currentweek
+      name: v3-nfl-scores-format-currentweek
+      description: REST surface for v3-nfl-scores-format-CurrentWeek.
+      operations:
+      - method: GET
+        name: nflv3scoresweekcurrent
+        description: Week - Current
+        call: nfl-nfl-v3-scores.nflv3scoresweekcurrent
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/depthcharts
+      name: v3-nfl-scores-format-depthcharts
+      description: REST surface for v3-nfl-scores-format-DepthCharts.
+      operations:
+      - method: GET
+        name: nflv3scoresdepthchartsbyactive
+        description: Depth Charts - by Active
+        call: nfl-nfl-v3-scores.nflv3scoresdepthchartsbyactive
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/depthchartsall
+      name: v3-nfl-scores-format-depthchartsall
+      description: REST surface for v3-nfl-scores-format-DepthChartsAll.
+      operations:
+      - method: GET
+        name: nflv3scoresdepthchartsall
+        description: Depth Charts - All
+        call: nfl-nfl-v3-scores.nflv3scoresdepthchartsall
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/depthchartsbyweek/{season}/{week}
+      name: v3-nfl-scores-format-depthchartsbyweek-season-week
+      description: REST surface for v3-nfl-scores-format-DepthChartsByWeek-season-week.
+      operations:
+      - method: GET
+        name: nflv3scoresdepthchartsbyweek
+        description: Depth Charts - by Week
+        call: nfl-nfl-v3-scores.nflv3scoresdepthchartsbyweek
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/freeagents
+      name: v3-nfl-scores-format-freeagents
+      description: REST surface for v3-nfl-scores-format-FreeAgents.
+      operations:
+      - method: GET
+        name: nflv3scoresplayerdetailsbyfreeagents
+        description: Player Details - by Free Agents
+        call: nfl-nfl-v3-scores.nflv3scoresplayerdetailsbyfreeagents
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/lastcompletedseason
+      name: v3-nfl-scores-format-lastcompletedseason
+      description: REST surface for v3-nfl-scores-format-LastCompletedSeason.
+      operations:
+      - method: GET
+        name: nflv3scoresseasonlastcompleted
+        description: Season - Last Completed
+        call: nfl-nfl-v3-scores.nflv3scoresseasonlastcompleted
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/lastcompletedweek
+      name: v3-nfl-scores-format-lastcompletedweek
+      description: REST surface for v3-nfl-scores-format-LastCompletedWeek.
+      operations:
+      - method: GET
+        name: nflv3scoresweeklastcompleted
+        description: Week - Last Completed
+        call: nfl-nfl-v3-scores.nflv3scoresweeklastcompleted
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/news
+      name: v3-nfl-scores-format-news
+      description: REST surface for v3-nfl-scores-format-News.
+      operations:
+      - method: GET
+        name: nflv3scoresnews
+        description: News
+        call: nfl-nfl-v3-scores.nflv3scoresnews
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/newsbydate/{date}
+      name: v3-nfl-scores-format-newsbydate-date
+      description: REST surface for v3-nfl-scores-format-NewsByDate-date.
+      operations:
+      - method: GET
+        name: nflv3scoresnewsbydate
+        description: News - by Date
+        call: nfl-nfl-v3-scores.nflv3scoresnewsbydate
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/newsbyplayerid/{playerid}
+      name: v3-nfl-scores-format-newsbyplayerid-playerid
+      description: REST surface for v3-nfl-scores-format-NewsByPlayerID-playerid.
+      operations:
+      - method: GET
+        name: nflv3scoresnewsbyplayer
+        description: News - by Player
+        call: nfl-nfl-v3-scores.nflv3scoresnewsbyplayer
+        with:
+          format: rest.format
+          playerid: rest.playerid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/newsbyteam/{team}
+      name: v3-nfl-scores-format-newsbyteam-team
+      description: REST surface for v3-nfl-scores-format-NewsByTeam-team.
+      operations:
+      - method: GET
+        name: nflv3scoresnewsbyteam
+        description: News - by Team
+        call: nfl-nfl-v3-scores.nflv3scoresnewsbyteam
+        with:
+          format: rest.format
+          team: rest.team
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/players
+      name: v3-nfl-scores-format-players
+      description: REST surface for v3-nfl-scores-format-Players.
+      operations:
+      - method: GET
+        name: nflv3scoresplayerdetailsall
+        description: Player Details - All
+        call: nfl-nfl-v3-scores.nflv3scoresplayerdetailsall
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/players/{team}
+      name: v3-nfl-scores-format-players-team
+      description: REST surface for v3-nfl-scores-format-Players-team.
+      operations:
+      - method: GET
+        name: nflv3scoresplayerdetailsbyteam
+        description: Player Details - by Team
+        call: nfl-nfl-v3-scores.nflv3scoresplayerdetailsbyteam
+        with:
+          format: rest.format
+          team: rest.team
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/playersbasic/{team}
+      name: v3-nfl-scores-format-playersbasic-team
+      description: REST surface for v3-nfl-scores-format-PlayersBasic-team.
+      operations:
+      - method: GET
+        name: nflv3scoresplayerprofilesbyteam
+        description: Player Profiles - by Team
+        call: nfl-nfl-v3-scores.nflv3scoresplayerprofilesbyteam
+        with:
+          format: rest.format
+          team: rest.team
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/playersbyavailable
+      name: v3-nfl-scores-format-playersbyavailable
+      description: REST surface for v3-nfl-scores-format-PlayersByAvailable.
+      operations:
+      - method: GET
+        name: nflv3scoresplayerprofilesall
+        description: Player Profiles - All
+        call: nfl-nfl-v3-scores.nflv3scoresplayerprofilesall
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/playersbyfreeagents
+      name: v3-nfl-scores-format-playersbyfreeagents
+      description: REST surface for v3-nfl-scores-format-PlayersByFreeAgents.
+      operations:
+      - method: GET
+        name: nflv3scoresplayerprofilesbyfreeagent
+        description: Player Profiles - by Free Agent
+        call: nfl-nfl-v3-scores.nflv3scoresplayerprofilesbyfreeagent
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/playersbyrookiedraftyear/{season}
+      name: v3-nfl-scores-format-playersbyrookiedraftyear-season
+      description: REST surface for v3-nfl-scores-format-PlayersByRookieDraftYear-season.
+      operations:
+      - method: GET
+        name: nflv3scoresplayerprofilesbyrookiedraftyear
+        description: Player Profiles - by Rookie Draft Year
+        call: nfl-nfl-v3-scores.nflv3scoresplayerprofilesbyrookiedraftyear
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/referees
+      name: v3-nfl-scores-format-referees
+      description: REST surface for v3-nfl-scores-format-Referees.
+      operations:
+      - method: GET
+        name: nflv3scoresreferees
+        description: Referees
+        call: nfl-nfl-v3-scores.nflv3scoresreferees
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/rookies/{season}
+      name: v3-nfl-scores-format-rookies-season
+      description: REST surface for v3-nfl-scores-format-Rookies-season.
+      operations:
+      - method: GET
+        name: nflv3scoresplayerdetailsbyrookiedraftyear
+        description: Player Details - by Rookie Draft Year
+        call: nfl-nfl-v3-scores.nflv3scoresplayerdetailsbyrookiedraftyear
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/schedules/{season}
+      name: v3-nfl-scores-format-schedules-season
+      description: REST surface for v3-nfl-scores-format-Schedules-season.
+      operations:
+      - method: GET
+        name: nflv3scoresschedules
+        description: Schedules
+        call: nfl-nfl-v3-scores.nflv3scoresschedules
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/schedulesbasic/{season}
+      name: v3-nfl-scores-format-schedulesbasic-season
+      description: REST surface for v3-nfl-scores-format-SchedulesBasic-season.
+      operations:
+      - method: GET
+        name: nflv3scoresschedulesbasic
+        description: Schedules (Basic)
+        call: nfl-nfl-v3-scores.nflv3scoresschedulesbasic
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/scores/{season}
+      name: v3-nfl-scores-format-scores-season
+      description: REST surface for v3-nfl-scores-format-Scores-season.
+      operations:
+      - method: GET
+        name: nflv3scoresgamesbyseasonlivefinal
+        description: Games - by Season [Live & Final]
+        call: nfl-nfl-v3-scores.nflv3scoresgamesbyseasonlivefinal
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/scoresbasic/{season}/{week}
+      name: v3-nfl-scores-format-scoresbasic-season-week
+      description: REST surface for v3-nfl-scores-format-ScoresBasic-season-week.
+      operations:
+      - method: GET
+        name: nflv3scoresgamesbasicbyweeklivefinal
+        description: Games (Basic) - by Week [Live & Final]
+        call: nfl-nfl-v3-scores.nflv3scoresgamesbasicbyweeklivefinal
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/scoresbasicfinal/{season}/{week}
+      name: v3-nfl-scores-format-scoresbasicfinal-season-week
+      description: REST surface for v3-nfl-scores-format-ScoresBasicFinal-season-week.
+      operations:
+      - method: GET
+        name: nflv3scoresgamesbasicbyweekfinal
+        description: Games (Basic) - by Week [Final]
+        call: nfl-nfl-v3-scores.nflv3scoresgamesbasicbyweekfinal
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/scoresbydate/{date}
+      name: v3-nfl-scores-format-scoresbydate-date
+      description: REST surface for v3-nfl-scores-format-ScoresByDate-date.
+      operations:
+      - method: GET
+        name: nflv3scoresgamesbydatelivefinal
+        description: Games - by Date [Live & Final]
+        call: nfl-nfl-v3-scores.nflv3scoresgamesbydatelivefinal
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/scoresbydatefinal/{date}
+      name: v3-nfl-scores-format-scoresbydatefinal-date
+      description: REST surface for v3-nfl-scores-format-ScoresByDateFinal-date.
+      operations:
+      - method: GET
+        name: nflv3scoresgamesbydatefinal
+        description: Games - by Date [Final]
+        call: nfl-nfl-v3-scores.nflv3scoresgamesbydatefinal
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/scoresbyweek/{season}/{week}
+      name: v3-nfl-scores-format-scoresbyweek-season-week
+      description: REST surface for v3-nfl-scores-format-ScoresByWeek-season-week.
+      operations:
+      - method: GET
+        name: nflv3scoresgamesbyweeklivefinal
+        description: Games - by Week [Live & Final]
+        call: nfl-nfl-v3-scores.nflv3scoresgamesbyweeklivefinal
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/scoresbyweekfinal/{season}/{week}
+      name: v3-nfl-scores-format-scoresbyweekfinal-season-week
+      description: REST surface for v3-nfl-scores-format-ScoresByWeekFinal-season-week.
+      operations:
+      - method: GET
+        name: nflv3scoresgamesbyweekfinal
+        description: Games - by Week [Final]
+        call: nfl-nfl-v3-scores.nflv3scoresgamesbyweekfinal
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/simulatedscores/{numberofplays}
+      name: v3-nfl-scores-format-simulatedscores-numberofplays
+      description: REST surface for v3-nfl-scores-format-SimulatedScores-numberofplays.
+      operations:
+      - method: GET
+        name: nflv3scoresscoresbyweeksimulation
+        description: Scores by Week Simulation
+        call: nfl-nfl-v3-scores.nflv3scoresscoresbyweeksimulation
+        with:
+          format: rest.format
+          numberofplays: rest.numberofplays
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/stadiums
+      name: v3-nfl-scores-format-stadiums
+      description: REST surface for v3-nfl-scores-format-Stadiums.
+      operations:
+      - method: GET
+        name: nflv3scoresstadiums
+        description: Stadiums
+        call: nfl-nfl-v3-scores.nflv3scoresstadiums
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/standings/{season}
+      name: v3-nfl-scores-format-standings-season
+      description: REST surface for v3-nfl-scores-format-Standings-season.
+      operations:
+      - method: GET
+        name: nflv3scoresstandings
+        description: Standings
+        call: nfl-nfl-v3-scores.nflv3scoresstandings
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/teamgamestats/{season}/{week}
+      name: v3-nfl-scores-format-teamgamestats-season-week
+      description: REST surface for v3-nfl-scores-format-TeamGameStats-season-week.
+      operations:
+      - method: GET
+        name: nflv3scoresteamgamestatslivefinal
+        description: Team Game Stats [Live & Final]
+        call: nfl-nfl-v3-scores.nflv3scoresteamgamestatslivefinal
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/teamgamestatsbyseason/{season}/{teamid}/{numberofgames}
+      name: v3-nfl-scores-format-teamgamestatsbyseason-season-teamid-numberofgames
+      description: REST surface for v3-nfl-scores-format-TeamGameStatsBySeason-season-teamid-numberofgames.
+      operations:
+      - method: GET
+        name: nflv3scoresplayergamelogsbyseason
+        description: Player Game Logs - by Season
+        call: nfl-nfl-v3-scores.nflv3scoresplayergamelogsbyseason
+        with:
+          format: rest.format
+          season: rest.season
+          teamid: rest.teamid
+          numberofgames: rest.numberofgames
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/teamseasonstats/{season}
+      name: v3-nfl-scores-format-teamseasonstats-season
+      description: REST surface for v3-nfl-scores-format-TeamSeasonStats-season.
+      operations:
+      - method: GET
+        name: nflv3scoresteamseasonstats
+        description: Team Season Stats
+        call: nfl-nfl-v3-scores.nflv3scoresteamseasonstats
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/teams
+      name: v3-nfl-scores-format-teams
+      description: REST surface for v3-nfl-scores-format-Teams.
+      operations:
+      - method: GET
+        name: nflv3scoresteamprofilesbyactive
+        description: Team Profiles - by Active
+        call: nfl-nfl-v3-scores.nflv3scoresteamprofilesbyactive
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/teams/{season}
+      name: v3-nfl-scores-format-teams-season
+      description: REST surface for v3-nfl-scores-format-Teams-season.
+      operations:
+      - method: GET
+        name: nflv3scoresteamprofilesbyseason
+        description: Team Profiles - by Season
+        call: nfl-nfl-v3-scores.nflv3scoresteamprofilesbyseason
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/teamsbasic
+      name: v3-nfl-scores-format-teamsbasic
+      description: REST surface for v3-nfl-scores-format-TeamsBasic.
+      operations:
+      - method: GET
+        name: nflv3scoresteamprofilesbasicall
+        description: Team Profiles (Basic) - All
+        call: nfl-nfl-v3-scores.nflv3scoresteamprofilesbasicall
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/timeframes/{type}
+      name: v3-nfl-scores-format-timeframes-type
+      description: REST surface for v3-nfl-scores-format-Timeframes-type.
+      operations:
+      - method: GET
+        name: nflv3scorestimeframes
+        description: Timeframes
+        call: nfl-nfl-v3-scores.nflv3scorestimeframes
+        with:
+          format: rest.format
+          type: rest.type
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/transactionsbydate/{date}
+      name: v3-nfl-scores-format-transactionsbydate-date
+      description: REST surface for v3-nfl-scores-format-TransactionsByDate-date.
+      operations:
+      - method: GET
+        name: nflv3scorestransactionsbydate
+        description: Transactions - by Date
+        call: nfl-nfl-v3-scores.nflv3scorestransactionsbydate
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/upcomingseason
+      name: v3-nfl-scores-format-upcomingseason
+      description: REST surface for v3-nfl-scores-format-UpcomingSeason.
+      operations:
+      - method: GET
+        name: nflv3scoresseasonupcoming
+        description: Season - Upcoming
+        call: nfl-nfl-v3-scores.nflv3scoresseasonupcoming
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/scores/{format}/upcomingweek
+      name: v3-nfl-scores-format-upcomingweek
+      description: REST surface for v3-nfl-scores-format-UpcomingWeek.
+      operations:
+      - method: GET
+        name: nflv3scoresweekupcoming
+        description: Week - Upcoming
+        call: nfl-nfl-v3-scores.nflv3scoresweekupcoming
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: nfl-nfl-v3-scores-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NFL API — NFL v3 Scores. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: team-profiles-all
+      description: Team Profiles - All
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresteamprofilesall
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: are-games-progress
+      description: Are Games In Progress
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresaregamesinprogress
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: bye-weeks
+      description: Bye Weeks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresbyeweeks
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: season-current
+      description: Season - Current
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresseasoncurrent
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: week-current
+      description: Week - Current
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresweekcurrent
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: depth-charts-active
+      description: Depth Charts - by Active
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresdepthchartsbyactive
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: depth-charts-all
+      description: Depth Charts - All
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresdepthchartsall
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: depth-charts-week
+      description: Depth Charts - by Week
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresdepthchartsbyweek
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-details-free-agents
+      description: Player Details - by Free Agents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresplayerdetailsbyfreeagents
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: season-last-completed
+      description: Season - Last Completed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresseasonlastcompleted
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: week-last-completed
+      description: Week - Last Completed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresweeklastcompleted
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: news
+      description: News
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresnews
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: news-date
+      description: News - by Date
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresnewsbydate
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: news-player
+      description: News - by Player
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresnewsbyplayer
+      with:
+        format: tools.format
+        playerid: tools.playerid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: news-team
+      description: News - by Team
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresnewsbyteam
+      with:
+        format: tools.format
+        team: tools.team
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-details-all
+      description: Player Details - All
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresplayerdetailsall
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-details-team
+      description: Player Details - by Team
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresplayerdetailsbyteam
+      with:
+        format: tools.format
+        team: tools.team
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-profiles-team
+      description: Player Profiles - by Team
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresplayerprofilesbyteam
+      with:
+        format: tools.format
+        team: tools.team
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-profiles-all
+      description: Player Profiles - All
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresplayerprofilesall
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-profiles-free-agent
+      description: Player Profiles - by Free Agent
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresplayerprofilesbyfreeagent
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-profiles-rookie-draft-year
+      description: Player Profiles - by Rookie Draft Year
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresplayerprofilesbyrookiedraftyear
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: referees
+      description: Referees
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresreferees
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-details-rookie-draft-year
+      description: Player Details - by Rookie Draft Year
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresplayerdetailsbyrookiedraftyear
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedules
+      description: Schedules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresschedules
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedules-basic
+      description: Schedules (Basic)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresschedulesbasic
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-season-live-final
+      description: Games - by Season [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresgamesbyseasonlivefinal
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-basic-week-live-final
+      description: Games (Basic) - by Week [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresgamesbasicbyweeklivefinal
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-basic-week-final
+      description: Games (Basic) - by Week [Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresgamesbasicbyweekfinal
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-date-live-final
+      description: Games - by Date [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresgamesbydatelivefinal
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-date-final
+      description: Games - by Date [Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresgamesbydatefinal
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-week-live-final
+      description: Games - by Week [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresgamesbyweeklivefinal
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-week-final
+      description: Games - by Week [Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresgamesbyweekfinal
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: scores-week-simulation
+      description: Scores by Week Simulation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresscoresbyweeksimulation
+      with:
+        format: tools.format
+        numberofplays: tools.numberofplays
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stadiums
+      description: Stadiums
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresstadiums
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: standings
+      description: Standings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresstandings
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-game-stats-live-final
+      description: Team Game Stats [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresteamgamestatslivefinal
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-game-logs-season
+      description: Player Game Logs - by Season
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresplayergamelogsbyseason
+      with:
+        format: tools.format
+        season: tools.season
+        teamid: tools.teamid
+        numberofgames: tools.numberofgames
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-season-stats
+      description: Team Season Stats
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresteamseasonstats
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-profiles-active
+      description: Team Profiles - by Active
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresteamprofilesbyactive
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-profiles-season
+      description: Team Profiles - by Season
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresteamprofilesbyseason
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-profiles-basic-all
+      description: Team Profiles (Basic) - All
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresteamprofilesbasicall
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: timeframes
+      description: Timeframes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scorestimeframes
+      with:
+        format: tools.format
+        type: tools.type
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: transactions-date
+      description: Transactions - by Date
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scorestransactionsbydate
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: season-upcoming
+      description: Season - Upcoming
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresseasonupcoming
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: week-upcoming
+      description: Week - Upcoming
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-scores.nflv3scoresweekupcoming
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.

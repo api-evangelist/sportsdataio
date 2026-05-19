@@ -1,0 +1,1345 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NHL API — NHL v3 Scores
+  description: 'NHL API — NHL v3 Scores. 28 operations. Lead operation: Team Profiles - All. Self-contained Naftiko capability
+    covering one Sportsdataio business surface.'
+  tags:
+  - Sportsdataio
+  - NHL v3 Scores
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPORTSDATAIO_API_KEY: SPORTSDATAIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: nhl-nhl-v3-scores
+    baseUri: https://api.sportsdata.io
+    description: NHL API — NHL v3 Scores business capability. Self-contained, no shared references.
+    resources:
+    - name: v3-nhl-scores-format-AllTeams
+      path: /v3/nhl/scores/{format}/AllTeams
+      operations:
+      - name: nhlv3scoresteamprofilesall
+        method: GET
+        description: Team Profiles - All
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nhl-scores-format-AreAnyGamesInProgress
+      path: /v3/nhl/scores/{format}/AreAnyGamesInProgress
+      operations:
+      - name: nhlv3scoresaregamesinprogress
+        method: GET
+        description: Are Games In Progress
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nhl-scores-format-CurrentSeason
+      path: /v3/nhl/scores/{format}/CurrentSeason
+      operations:
+      - name: nhlv3scoresseasoncurrent
+        method: GET
+        description: Season - Current
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nhl-scores-format-FreeAgents
+      path: /v3/nhl/scores/{format}/FreeAgents
+      operations:
+      - name: nhlv3scoresplayerdetailsbyfreeagents
+        method: GET
+        description: Player Details - by Free Agents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nhl-scores-format-Games-season
+      path: /v3/nhl/scores/{format}/Games/{season}
+      operations:
+      - name: nhlv3scoresschedules
+        method: GET
+        description: Schedules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>,
+            <code>2018POST</code>, <code>2018STAR</code>, <code>2019</'
+          required: true
+    - name: v3-nhl-scores-format-GamesByDate-date
+      path: /v3/nhl/scores/{format}/GamesByDate/{date}
+      operations:
+      - name: nhlv3scoresgamesbydatelivefinal
+        method: GET
+        description: Games - by Date [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-nhl-scores-format-GamesByDateFinal-date
+      path: /v3/nhl/scores/{format}/GamesByDateFinal/{date}
+      operations:
+      - name: nhlv3scoresgamesbydatefinal
+        method: GET
+        description: Games - by Date [Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-nhl-scores-format-GoalieDepthCharts
+      path: /v3/nhl/scores/{format}/GoalieDepthCharts
+      operations:
+      - name: nhlv3scoresdepthchartsgoalies
+        method: GET
+        description: Depth Charts - Goalies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nhl-scores-format-News
+      path: /v3/nhl/scores/{format}/News
+      operations:
+      - name: nhlv3scoresnews
+        method: GET
+        description: News
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nhl-scores-format-NewsByDate-date
+      path: /v3/nhl/scores/{format}/NewsByDate/{date}
+      operations:
+      - name: nhlv3scoresnewsbydate
+        method: GET
+        description: News - by Date
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the news.
+          required: true
+    - name: v3-nhl-scores-format-NewsByPlayerID-playerid
+      path: /v3/nhl/scores/{format}/NewsByPlayerID/{playerid}
+      operations:
+      - name: nhlv3scoresnewsbyplayer
+        method: GET
+        description: News - by Player
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: playerid
+          in: path
+          type: string
+          description: Unique FantasyData Player ID.
+          required: true
+    - name: v3-nhl-scores-format-Players
+      path: /v3/nhl/scores/{format}/Players
+      operations:
+      - name: nhlv3scoresplayerdetailsbyactive
+        method: GET
+        description: Player Details - by Active
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nhl-scores-format-Players-team
+      path: /v3/nhl/scores/{format}/Players/{team}
+      operations:
+      - name: nhlv3scoresplayersdetailsbyteam
+        method: GET
+        description: Players Details - by Team
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: team
+          in: path
+          type: string
+          description: The abbreviation of the requested team.
+          required: true
+    - name: v3-nhl-scores-format-PlayersBasic-team
+      path: /v3/nhl/scores/{format}/PlayersBasic/{team}
+      operations:
+      - name: nhlv3scoresplayersprofilesbyteam
+        method: GET
+        description: Players Profiles - by Team
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: team
+          in: path
+          type: string
+          description: The abbreviation of the requested team.
+          required: true
+    - name: v3-nhl-scores-format-PlayersByActive
+      path: /v3/nhl/scores/{format}/PlayersByActive
+      operations:
+      - name: nhlv3scoresplayerdetailsbyactive2
+        method: GET
+        description: Player Details - by Active
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nhl-scores-format-PlayersByFreeAgents
+      path: /v3/nhl/scores/{format}/PlayersByFreeAgents
+      operations:
+      - name: nhlv3scoresplayerdetailsbyfreeagents2
+        method: GET
+        description: Player Details - by Free Agents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nhl-scores-format-Referees
+      path: /v3/nhl/scores/{format}/Referees
+      operations:
+      - name: nhlv3scoresreferees
+        method: GET
+        description: Referees
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nhl-scores-format-SchedulesBasic-season
+      path: /v3/nhl/scores/{format}/SchedulesBasic/{season}
+      operations:
+      - name: nhlv3scoresschedulesbasic
+        method: GET
+        description: Schedules (Basic)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>,
+            <code>2018POST</code>, <code>2018STAR</code>, <code>2019</'
+          required: true
+    - name: v3-nhl-scores-format-ScoresBasic-date
+      path: /v3/nhl/scores/{format}/ScoresBasic/{date}
+      operations:
+      - name: nhlv3scoresgamesbasicbydatelivefinal
+        method: GET
+        description: Games (Basic) - by Date [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-nhl-scores-format-ScoresBasicFinal-date
+      path: /v3/nhl/scores/{format}/ScoresBasicFinal/{date}
+      operations:
+      - name: nhlv3scoresgamesbasicbydatefinal
+        method: GET
+        description: Games (Basic) - by Date [Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-nhl-scores-format-Stadiums
+      path: /v3/nhl/scores/{format}/Stadiums
+      operations:
+      - name: nhlv3scoresstadiums
+        method: GET
+        description: Stadiums
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nhl-scores-format-Standings-season
+      path: /v3/nhl/scores/{format}/Standings/{season}
+      operations:
+      - name: nhlv3scoresstandings
+        method: GET
+        description: Standings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season.
+          required: true
+    - name: v3-nhl-scores-format-TeamGameStatsByDate-date
+      path: /v3/nhl/scores/{format}/TeamGameStatsByDate/{date}
+      operations:
+      - name: nhlv3scoresteamgamestatsbydatelivefinal
+        method: GET
+        description: Team Game Stats - by Date [Live & Final]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-nhl-scores-format-TeamGameStatsBySeason-season-teamid-numberofgames
+      path: /v3/nhl/scores/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}
+      operations:
+      - name: nhlv3scoresteamgamelogsbyseason
+        method: GET
+        description: Team Game Logs - by Season
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Season to get games from. Example <code>2019POST</code>, <code>2020</code>
+          required: true
+        - name: teamid
+          in: path
+          type: string
+          description: Unique ID of team.  Example <code> 8 </code>
+          required: true
+        - name: numberofgames
+          in: path
+          type: string
+          description: How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code>
+          required: true
+    - name: v3-nhl-scores-format-TeamSeasonStats-season
+      path: /v3/nhl/scores/{format}/TeamSeasonStats/{season}
+      operations:
+      - name: nhlv3scoresteamseasonstats
+        method: GET
+        description: Team Season Stats
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season.
+          required: true
+    - name: v3-nhl-scores-format-TransactionsByDate-date
+      path: /v3/nhl/scores/{format}/TransactionsByDate/{date}
+      operations:
+      - name: nhlv3scorestransactions
+        method: GET
+        description: Transactions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the news.
+          required: true
+    - name: v3-nhl-scores-format-teams
+      path: /v3/nhl/scores/{format}/teams
+      operations:
+      - name: nhlv3scoresteamprofilesbyactive
+        method: GET
+        description: Team Profiles - by Active
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nhl-scores-format-teams-season
+      path: /v3/nhl/scores/{format}/teams/{season}
+      operations:
+      - name: nhlv3scoresteamprofilesbyseason
+        method: GET
+        description: Team Profiles - by Season
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season and the season type. If no season type is provided, then the default is regular
+            season.
+          required: true
+    authentication:
+      type: apikey
+      key: Ocp-Apim-Subscription-Key
+      value: '{{env.SPORTSDATAIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: nhl-nhl-v3-scores-rest
+    port: 8080
+    description: REST adapter for NHL API — NHL v3 Scores. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v3/nhl/scores/{format}/allteams
+      name: v3-nhl-scores-format-allteams
+      description: REST surface for v3-nhl-scores-format-AllTeams.
+      operations:
+      - method: GET
+        name: nhlv3scoresteamprofilesall
+        description: Team Profiles - All
+        call: nhl-nhl-v3-scores.nhlv3scoresteamprofilesall
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/areanygamesinprogress
+      name: v3-nhl-scores-format-areanygamesinprogress
+      description: REST surface for v3-nhl-scores-format-AreAnyGamesInProgress.
+      operations:
+      - method: GET
+        name: nhlv3scoresaregamesinprogress
+        description: Are Games In Progress
+        call: nhl-nhl-v3-scores.nhlv3scoresaregamesinprogress
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/currentseason
+      name: v3-nhl-scores-format-currentseason
+      description: REST surface for v3-nhl-scores-format-CurrentSeason.
+      operations:
+      - method: GET
+        name: nhlv3scoresseasoncurrent
+        description: Season - Current
+        call: nhl-nhl-v3-scores.nhlv3scoresseasoncurrent
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/freeagents
+      name: v3-nhl-scores-format-freeagents
+      description: REST surface for v3-nhl-scores-format-FreeAgents.
+      operations:
+      - method: GET
+        name: nhlv3scoresplayerdetailsbyfreeagents
+        description: Player Details - by Free Agents
+        call: nhl-nhl-v3-scores.nhlv3scoresplayerdetailsbyfreeagents
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/games/{season}
+      name: v3-nhl-scores-format-games-season
+      description: REST surface for v3-nhl-scores-format-Games-season.
+      operations:
+      - method: GET
+        name: nhlv3scoresschedules
+        description: Schedules
+        call: nhl-nhl-v3-scores.nhlv3scoresschedules
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/gamesbydate/{date}
+      name: v3-nhl-scores-format-gamesbydate-date
+      description: REST surface for v3-nhl-scores-format-GamesByDate-date.
+      operations:
+      - method: GET
+        name: nhlv3scoresgamesbydatelivefinal
+        description: Games - by Date [Live & Final]
+        call: nhl-nhl-v3-scores.nhlv3scoresgamesbydatelivefinal
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/gamesbydatefinal/{date}
+      name: v3-nhl-scores-format-gamesbydatefinal-date
+      description: REST surface for v3-nhl-scores-format-GamesByDateFinal-date.
+      operations:
+      - method: GET
+        name: nhlv3scoresgamesbydatefinal
+        description: Games - by Date [Final]
+        call: nhl-nhl-v3-scores.nhlv3scoresgamesbydatefinal
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/goaliedepthcharts
+      name: v3-nhl-scores-format-goaliedepthcharts
+      description: REST surface for v3-nhl-scores-format-GoalieDepthCharts.
+      operations:
+      - method: GET
+        name: nhlv3scoresdepthchartsgoalies
+        description: Depth Charts - Goalies
+        call: nhl-nhl-v3-scores.nhlv3scoresdepthchartsgoalies
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/news
+      name: v3-nhl-scores-format-news
+      description: REST surface for v3-nhl-scores-format-News.
+      operations:
+      - method: GET
+        name: nhlv3scoresnews
+        description: News
+        call: nhl-nhl-v3-scores.nhlv3scoresnews
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/newsbydate/{date}
+      name: v3-nhl-scores-format-newsbydate-date
+      description: REST surface for v3-nhl-scores-format-NewsByDate-date.
+      operations:
+      - method: GET
+        name: nhlv3scoresnewsbydate
+        description: News - by Date
+        call: nhl-nhl-v3-scores.nhlv3scoresnewsbydate
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/newsbyplayerid/{playerid}
+      name: v3-nhl-scores-format-newsbyplayerid-playerid
+      description: REST surface for v3-nhl-scores-format-NewsByPlayerID-playerid.
+      operations:
+      - method: GET
+        name: nhlv3scoresnewsbyplayer
+        description: News - by Player
+        call: nhl-nhl-v3-scores.nhlv3scoresnewsbyplayer
+        with:
+          format: rest.format
+          playerid: rest.playerid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/players
+      name: v3-nhl-scores-format-players
+      description: REST surface for v3-nhl-scores-format-Players.
+      operations:
+      - method: GET
+        name: nhlv3scoresplayerdetailsbyactive
+        description: Player Details - by Active
+        call: nhl-nhl-v3-scores.nhlv3scoresplayerdetailsbyactive
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/players/{team}
+      name: v3-nhl-scores-format-players-team
+      description: REST surface for v3-nhl-scores-format-Players-team.
+      operations:
+      - method: GET
+        name: nhlv3scoresplayersdetailsbyteam
+        description: Players Details - by Team
+        call: nhl-nhl-v3-scores.nhlv3scoresplayersdetailsbyteam
+        with:
+          format: rest.format
+          team: rest.team
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/playersbasic/{team}
+      name: v3-nhl-scores-format-playersbasic-team
+      description: REST surface for v3-nhl-scores-format-PlayersBasic-team.
+      operations:
+      - method: GET
+        name: nhlv3scoresplayersprofilesbyteam
+        description: Players Profiles - by Team
+        call: nhl-nhl-v3-scores.nhlv3scoresplayersprofilesbyteam
+        with:
+          format: rest.format
+          team: rest.team
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/playersbyactive
+      name: v3-nhl-scores-format-playersbyactive
+      description: REST surface for v3-nhl-scores-format-PlayersByActive.
+      operations:
+      - method: GET
+        name: nhlv3scoresplayerdetailsbyactive2
+        description: Player Details - by Active
+        call: nhl-nhl-v3-scores.nhlv3scoresplayerdetailsbyactive2
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/playersbyfreeagents
+      name: v3-nhl-scores-format-playersbyfreeagents
+      description: REST surface for v3-nhl-scores-format-PlayersByFreeAgents.
+      operations:
+      - method: GET
+        name: nhlv3scoresplayerdetailsbyfreeagents2
+        description: Player Details - by Free Agents
+        call: nhl-nhl-v3-scores.nhlv3scoresplayerdetailsbyfreeagents2
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/referees
+      name: v3-nhl-scores-format-referees
+      description: REST surface for v3-nhl-scores-format-Referees.
+      operations:
+      - method: GET
+        name: nhlv3scoresreferees
+        description: Referees
+        call: nhl-nhl-v3-scores.nhlv3scoresreferees
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/schedulesbasic/{season}
+      name: v3-nhl-scores-format-schedulesbasic-season
+      description: REST surface for v3-nhl-scores-format-SchedulesBasic-season.
+      operations:
+      - method: GET
+        name: nhlv3scoresschedulesbasic
+        description: Schedules (Basic)
+        call: nhl-nhl-v3-scores.nhlv3scoresschedulesbasic
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/scoresbasic/{date}
+      name: v3-nhl-scores-format-scoresbasic-date
+      description: REST surface for v3-nhl-scores-format-ScoresBasic-date.
+      operations:
+      - method: GET
+        name: nhlv3scoresgamesbasicbydatelivefinal
+        description: Games (Basic) - by Date [Live & Final]
+        call: nhl-nhl-v3-scores.nhlv3scoresgamesbasicbydatelivefinal
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/scoresbasicfinal/{date}
+      name: v3-nhl-scores-format-scoresbasicfinal-date
+      description: REST surface for v3-nhl-scores-format-ScoresBasicFinal-date.
+      operations:
+      - method: GET
+        name: nhlv3scoresgamesbasicbydatefinal
+        description: Games (Basic) - by Date [Final]
+        call: nhl-nhl-v3-scores.nhlv3scoresgamesbasicbydatefinal
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/stadiums
+      name: v3-nhl-scores-format-stadiums
+      description: REST surface for v3-nhl-scores-format-Stadiums.
+      operations:
+      - method: GET
+        name: nhlv3scoresstadiums
+        description: Stadiums
+        call: nhl-nhl-v3-scores.nhlv3scoresstadiums
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/standings/{season}
+      name: v3-nhl-scores-format-standings-season
+      description: REST surface for v3-nhl-scores-format-Standings-season.
+      operations:
+      - method: GET
+        name: nhlv3scoresstandings
+        description: Standings
+        call: nhl-nhl-v3-scores.nhlv3scoresstandings
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/teamgamestatsbydate/{date}
+      name: v3-nhl-scores-format-teamgamestatsbydate-date
+      description: REST surface for v3-nhl-scores-format-TeamGameStatsByDate-date.
+      operations:
+      - method: GET
+        name: nhlv3scoresteamgamestatsbydatelivefinal
+        description: Team Game Stats - by Date [Live & Final]
+        call: nhl-nhl-v3-scores.nhlv3scoresteamgamestatsbydatelivefinal
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/teamgamestatsbyseason/{season}/{teamid}/{numberofgames}
+      name: v3-nhl-scores-format-teamgamestatsbyseason-season-teamid-numberofgames
+      description: REST surface for v3-nhl-scores-format-TeamGameStatsBySeason-season-teamid-numberofgames.
+      operations:
+      - method: GET
+        name: nhlv3scoresteamgamelogsbyseason
+        description: Team Game Logs - by Season
+        call: nhl-nhl-v3-scores.nhlv3scoresteamgamelogsbyseason
+        with:
+          format: rest.format
+          season: rest.season
+          teamid: rest.teamid
+          numberofgames: rest.numberofgames
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/teamseasonstats/{season}
+      name: v3-nhl-scores-format-teamseasonstats-season
+      description: REST surface for v3-nhl-scores-format-TeamSeasonStats-season.
+      operations:
+      - method: GET
+        name: nhlv3scoresteamseasonstats
+        description: Team Season Stats
+        call: nhl-nhl-v3-scores.nhlv3scoresteamseasonstats
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/transactionsbydate/{date}
+      name: v3-nhl-scores-format-transactionsbydate-date
+      description: REST surface for v3-nhl-scores-format-TransactionsByDate-date.
+      operations:
+      - method: GET
+        name: nhlv3scorestransactions
+        description: Transactions
+        call: nhl-nhl-v3-scores.nhlv3scorestransactions
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/teams
+      name: v3-nhl-scores-format-teams
+      description: REST surface for v3-nhl-scores-format-teams.
+      operations:
+      - method: GET
+        name: nhlv3scoresteamprofilesbyactive
+        description: Team Profiles - by Active
+        call: nhl-nhl-v3-scores.nhlv3scoresteamprofilesbyactive
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/scores/{format}/teams/{season}
+      name: v3-nhl-scores-format-teams-season
+      description: REST surface for v3-nhl-scores-format-teams-season.
+      operations:
+      - method: GET
+        name: nhlv3scoresteamprofilesbyseason
+        description: Team Profiles - by Season
+        call: nhl-nhl-v3-scores.nhlv3scoresteamprofilesbyseason
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: nhl-nhl-v3-scores-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NHL API — NHL v3 Scores. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: team-profiles-all
+      description: Team Profiles - All
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresteamprofilesall
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: are-games-progress
+      description: Are Games In Progress
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresaregamesinprogress
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: season-current
+      description: Season - Current
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresseasoncurrent
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-details-free-agents
+      description: Player Details - by Free Agents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresplayerdetailsbyfreeagents
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedules
+      description: Schedules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresschedules
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-date-live-final
+      description: Games - by Date [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresgamesbydatelivefinal
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-date-final
+      description: Games - by Date [Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresgamesbydatefinal
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: depth-charts-goalies
+      description: Depth Charts - Goalies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresdepthchartsgoalies
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: news
+      description: News
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresnews
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: news-date
+      description: News - by Date
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresnewsbydate
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: news-player
+      description: News - by Player
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresnewsbyplayer
+      with:
+        format: tools.format
+        playerid: tools.playerid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-details-active
+      description: Player Details - by Active
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresplayerdetailsbyactive
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: players-details-team
+      description: Players Details - by Team
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresplayersdetailsbyteam
+      with:
+        format: tools.format
+        team: tools.team
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: players-profiles-team
+      description: Players Profiles - by Team
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresplayersprofilesbyteam
+      with:
+        format: tools.format
+        team: tools.team
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-details-active-2
+      description: Player Details - by Active
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresplayerdetailsbyactive2
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-details-free-agents-2
+      description: Player Details - by Free Agents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresplayerdetailsbyfreeagents2
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: referees
+      description: Referees
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresreferees
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedules-basic
+      description: Schedules (Basic)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresschedulesbasic
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-basic-date-live-final
+      description: Games (Basic) - by Date [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresgamesbasicbydatelivefinal
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: games-basic-date-final
+      description: Games (Basic) - by Date [Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresgamesbasicbydatefinal
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stadiums
+      description: Stadiums
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresstadiums
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: standings
+      description: Standings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresstandings
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-game-stats-date-live
+      description: Team Game Stats - by Date [Live & Final]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresteamgamestatsbydatelivefinal
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-game-logs-season
+      description: Team Game Logs - by Season
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresteamgamelogsbyseason
+      with:
+        format: tools.format
+        season: tools.season
+        teamid: tools.teamid
+        numberofgames: tools.numberofgames
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-season-stats
+      description: Team Season Stats
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresteamseasonstats
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: transactions
+      description: Transactions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scorestransactions
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-profiles-active
+      description: Team Profiles - by Active
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresteamprofilesbyactive
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: team-profiles-season
+      description: Team Profiles - by Season
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-scores.nhlv3scoresteamprofilesbyseason
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.

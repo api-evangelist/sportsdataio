@@ -1,0 +1,229 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NHL API — NHL v3 Projections
+  description: 'NHL API — NHL v3 Projections. 4 operations. Lead operation: DFS Slates - by Date. Self-contained Naftiko capability
+    covering one Sportsdataio business surface.'
+  tags:
+  - Sportsdataio
+  - NHL v3 Projections
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPORTSDATAIO_API_KEY: SPORTSDATAIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: nhl-nhl-v3-projections
+    baseUri: https://api.sportsdata.io
+    description: NHL API — NHL v3 Projections business capability. Self-contained, no shared references.
+    resources:
+    - name: v3-nhl-projections-format-DfsSlatesByDate-date
+      path: /v3/nhl/projections/{format}/DfsSlatesByDate/{date}
+      operations:
+      - name: nhlv3projectionsdfsslatesbydate
+        method: GET
+        description: DFS Slates - by Date
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-nhl-projections-format-InjuredPlayers
+      path: /v3/nhl/projections/{format}/InjuredPlayers
+      operations:
+      - name: nhlv3projectionsplayerdetailsbyinjured
+        method: GET
+        description: Player Details - by Injured
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nhl-projections-format-PlayerGameProjectionStatsByDate-date
+      path: /v3/nhl/projections/{format}/PlayerGameProjectionStatsByDate/{date}
+      operations:
+      - name: nhlv3projectionsprojectedplayergamestatsbydate
+        method: GET
+        description: Projected Player Game Stats - by Date
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-nhl-projections-format-StartingGoaltendersByDate-date
+      path: /v3/nhl/projections/{format}/StartingGoaltendersByDate/{date}
+      operations:
+      - name: nhlv3projectionsstartinggoaltendersbydate
+        method: GET
+        description: Starting Goaltenders - by Date
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    authentication:
+      type: apikey
+      key: Ocp-Apim-Subscription-Key
+      value: '{{env.SPORTSDATAIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: nhl-nhl-v3-projections-rest
+    port: 8080
+    description: REST adapter for NHL API — NHL v3 Projections. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v3/nhl/projections/{format}/dfsslatesbydate/{date}
+      name: v3-nhl-projections-format-dfsslatesbydate-date
+      description: REST surface for v3-nhl-projections-format-DfsSlatesByDate-date.
+      operations:
+      - method: GET
+        name: nhlv3projectionsdfsslatesbydate
+        description: DFS Slates - by Date
+        call: nhl-nhl-v3-projections.nhlv3projectionsdfsslatesbydate
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/projections/{format}/injuredplayers
+      name: v3-nhl-projections-format-injuredplayers
+      description: REST surface for v3-nhl-projections-format-InjuredPlayers.
+      operations:
+      - method: GET
+        name: nhlv3projectionsplayerdetailsbyinjured
+        description: Player Details - by Injured
+        call: nhl-nhl-v3-projections.nhlv3projectionsplayerdetailsbyinjured
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/projections/{format}/playergameprojectionstatsbydate/{date}
+      name: v3-nhl-projections-format-playergameprojectionstatsbydate-date
+      description: REST surface for v3-nhl-projections-format-PlayerGameProjectionStatsByDate-date.
+      operations:
+      - method: GET
+        name: nhlv3projectionsprojectedplayergamestatsbydate
+        description: Projected Player Game Stats - by Date
+        call: nhl-nhl-v3-projections.nhlv3projectionsprojectedplayergamestatsbydate
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nhl/projections/{format}/startinggoaltendersbydate/{date}
+      name: v3-nhl-projections-format-startinggoaltendersbydate-date
+      description: REST surface for v3-nhl-projections-format-StartingGoaltendersByDate-date.
+      operations:
+      - method: GET
+        name: nhlv3projectionsstartinggoaltendersbydate
+        description: Starting Goaltenders - by Date
+        call: nhl-nhl-v3-projections.nhlv3projectionsstartinggoaltendersbydate
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: nhl-nhl-v3-projections-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NHL API — NHL v3 Projections. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: dfs-slates-date
+      description: DFS Slates - by Date
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-projections.nhlv3projectionsdfsslatesbydate
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-details-injured
+      description: Player Details - by Injured
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-projections.nhlv3projectionsplayerdetailsbyinjured
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: projected-player-game-stats-date
+      description: Projected Player Game Stats - by Date
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-projections.nhlv3projectionsprojectedplayergamestatsbydate
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: starting-goaltenders-date
+      description: Starting Goaltenders - by Date
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nhl-nhl-v3-projections.nhlv3projectionsstartinggoaltendersbydate
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.

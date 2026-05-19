@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SOCCER API — Soccer v4 Headshots
+  description: 'SOCCER API — Soccer v4 Headshots. 1 operations. Lead operation: Headshots. Self-contained Naftiko capability
+    covering one Sportsdataio business surface.'
+  tags:
+  - Sportsdataio
+  - Soccer v4 Headshots
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPORTSDATAIO_API_KEY: SPORTSDATAIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: soccer-soccer-v4-headshots
+    baseUri: https://api.sportsdata.io
+    description: SOCCER API — Soccer v4 Headshots business capability. Self-contained, no shared references.
+    resources:
+    - name: v4-soccer-headshots-format-Headshots
+      path: /v4/soccer/headshots/{format}/Headshots
+      operations:
+      - name: soccerv4headshotsheadshots
+        method: GET
+        description: Headshots
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    authentication:
+      type: apikey
+      key: Ocp-Apim-Subscription-Key
+      value: '{{env.SPORTSDATAIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: soccer-soccer-v4-headshots-rest
+    port: 8080
+    description: REST adapter for SOCCER API — Soccer v4 Headshots. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v4/soccer/headshots/{format}/headshots
+      name: v4-soccer-headshots-format-headshots
+      description: REST surface for v4-soccer-headshots-format-Headshots.
+      operations:
+      - method: GET
+        name: soccerv4headshotsheadshots
+        description: Headshots
+        call: soccer-soccer-v4-headshots.soccerv4headshotsheadshots
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: soccer-soccer-v4-headshots-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SOCCER API — Soccer v4 Headshots. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: headshots
+      description: Headshots
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: soccer-soccer-v4-headshots.soccerv4headshotsheadshots
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.

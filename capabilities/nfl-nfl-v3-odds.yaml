@@ -1,0 +1,1912 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NFL API — NFL v3 Odds
+  description: 'NFL API — NFL v3 Odds. 34 operations. Lead operation: Sportsbooks - Active. Self-contained Naftiko capability
+    covering one Sportsdataio business surface.'
+  tags:
+  - Sportsdataio
+  - NFL v3 Odds
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPORTSDATAIO_API_KEY: SPORTSDATAIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: nfl-nfl-v3-odds
+    baseUri: https://api.sportsdata.io
+    description: NFL API — NFL v3 Odds business capability. Self-contained, no shared references.
+    resources:
+    - name: v3-nfl-odds-format-ActiveSportsbooks
+      path: /v3/nfl/odds/{format}/ActiveSportsbooks
+      operations:
+      - name: nflv3oddssportsbooksactive
+        method: GET
+        description: Sportsbooks - Active
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-odds-format-AlternateMarketGameOddsByWeek-season-week
+      path: /v3/nfl/odds/{format}/AlternateMarketGameOddsByWeek/{season}/{week}
+      operations:
+      - name: nflv3oddsperiodgameoddsbyweek
+        method: GET
+        description: Period Game Odds - by Week
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season, with optional season type. <br>Examples: <code>2018</code>, <code>2018POST</code>,
+            etc.'
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'The week of the scores (games). <br>Examples: <code>1</code>, <code>2</code>, etc.'
+          required: true
+    - name: v3-nfl-odds-format-AlternateMarketGameOddsLineMovement-scoreid
+      path: /v3/nfl/odds/{format}/AlternateMarketGameOddsLineMovement/{scoreid}
+      operations:
+      - name: nflv3oddsperiodgameoddslinemovement
+        method: GET
+        description: Period Game Odds Line Movement
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: scoreid
+          in: path
+          type: string
+          description: The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code>
+            or <code>16667</code>
+          required: true
+    - name: v3-nfl-odds-format-BettingEvents-season
+      path: /v3/nfl/odds/{format}/BettingEvents/{season}
+      operations:
+      - name: nflv3oddsbettingeventsbyseason
+        method: GET
+        description: Betting Events - by Season
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc.'
+          required: true
+    - name: v3-nfl-odds-format-BettingEventsByDate-date
+      path: /v3/nfl/odds/{format}/BettingEventsByDate/{date}
+      operations:
+      - name: nflv3oddsbettingeventsbydate
+        method: GET
+        description: Betting Events - by Date
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: 'The date of the game(s). <br>Examples: <code>2020-09-10</code>, <code>2020-09-13</code>.'
+          required: true
+    - name: v3-nfl-odds-format-BettingFuturesBySeason-season
+      path: /v3/nfl/odds/{format}/BettingFuturesBySeason/{season}
+      operations:
+      - name: nflv3oddsbettingfuturesbyseason
+        method: GET
+        description: Betting Futures - by Season
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season (with optional season type).<br>Examples: <code>2020REG</code>, <code>2020PRE</code>,
+            <code>2020POST</code>, <code>2021</code>, etc.'
+          required: true
+    - name: v3-nfl-odds-format-BettingFuturesBySeason-season-sportsbookgroup
+      path: /v3/nfl/odds/{format}/BettingFuturesBySeason/{season}/{sportsbookgroup}
+      operations:
+      - name: nflv3oddsbettingfuturesbyseasonsportsbookgroup
+        method: GET
+        description: Betting Futures - by Season [Sportsbook Group]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season (with optional season type).<br>Examples: <code>2020REG</code>, <code>2020PRE</code>,
+            <code>2020POST</code>, <code>2021</code>, etc.'
+          required: true
+        - name: sportsbookgroup
+          in: path
+          type: string
+          description: The name of the Sportsbook grouping.
+          required: true
+    - name: v3-nfl-odds-format-BettingMarket-marketId
+      path: /v3/nfl/odds/{format}/BettingMarket/{marketId}
+      operations:
+      - name: nflv3oddsbettingmarket
+        method: GET
+        description: Betting Market
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: marketId
+          in: path
+          type: string
+          description: The MarketId of the desired market for which to pull all outcomes/bets.
+          required: true
+    - name: v3-nfl-odds-format-BettingMarket-marketId-sportsbookgroup
+      path: /v3/nfl/odds/{format}/BettingMarket/{marketId}/{sportsbookgroup}
+      operations:
+      - name: nflv3oddsbettingmarketsportsbookgroup
+        method: GET
+        description: Betting Market [Sportsbook Group]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: marketId
+          in: path
+          type: string
+          description: The MarketId of the desired market for which to pull all outcomes/bets.
+          required: true
+        - name: sportsbookgroup
+          in: path
+          type: string
+          description: The name of the Sportsbook grouping.
+          required: true
+    - name: v3-nfl-odds-format-BettingMarketResults-marketId
+      path: /v3/nfl/odds/{format}/BettingMarketResults/{marketId}
+      operations:
+      - name: nflv3oddsbettingresultsbymarket
+        method: GET
+        description: Betting Results - by Market
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: marketId
+          in: path
+          type: string
+          description: The MarketId of the desired market for which to pull all outcomes/bets.
+          required: true
+    - name: v3-nfl-odds-format-BettingMarkets-eventId
+      path: /v3/nfl/odds/{format}/BettingMarkets/{eventId}
+      operations:
+      - name: nflv3oddsbettingmarketsbyevent
+        method: GET
+        description: Betting Markets - by Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          description: The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).
+          required: true
+        - name: include
+          in: query
+          type: string
+          description: This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default,
+            this endpoint only returns available outcomes, excludin
+    - name: v3-nfl-odds-format-BettingMarketsByEvent-eventId-sportsbookgroup
+      path: /v3/nfl/odds/{format}/BettingMarketsByEvent/{eventId}/{sportsbookgroup}
+      operations:
+      - name: nflv3oddsbettingmarketsbyeventsportsbookgroup
+        method: GET
+        description: Betting Markets - by Event [Sportsbook Group]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          description: The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).
+          required: true
+        - name: sportsbookgroup
+          in: path
+          type: string
+          description: The name of the Sportsbook grouping.
+          required: true
+        - name: include
+          in: query
+          type: string
+          description: This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default,
+            this endpoint only returns available outcomes, excludin
+    - name: v3-nfl-odds-format-BettingMarketsByGameID-gameid-sportsbookgroup
+      path: /v3/nfl/odds/{format}/BettingMarketsByGameID/{gameid}/{sportsbookgroup}
+      operations:
+      - name: nflv3oddsbettingmarketsbygamesportsbookgroup
+        method: GET
+        description: Betting Markets - by Game [Sportsbook Group]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: gameid
+          in: path
+          type: string
+          description: The GameID of the desired game/score for which to pull all betting markets (includes outcomes/bets).
+          required: true
+        - name: sportsbookgroup
+          in: path
+          type: string
+          description: The name of the Sportsbook grouping.
+          required: true
+        - name: include
+          in: query
+          type: string
+          description: This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default,
+            this endpoint only returns available outcomes, excludin
+    - name: v3-nfl-odds-format-BettingMarketsByMarketType-eventId-marketTypeID
+      path: /v3/nfl/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}
+      operations:
+      - name: nflv3oddsbettingmarketsbymarkettype
+        method: GET
+        description: Betting Markets - by Market Type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          description: The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).
+          required: true
+        - name: marketTypeID
+          in: path
+          type: string
+          description: 'The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for
+            Game Lines, <code>2</code> for Player Props, <code>3</code>'
+          required: true
+        - name: include
+          in: query
+          type: string
+          description: This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default,
+            this endpoint only returns available outcomes, excludin
+    - name: v3-nfl-odds-format-BettingMarketsByMarketType-eventId-marketTypeID-sportsbookgro
+      path: /v3/nfl/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}/{sportsbookgroup}
+      operations:
+      - name: nflv3oddsbettingmarketsbymarkettypesportsbookgroup
+        method: GET
+        description: Betting Markets - by Market Type [Sportsbook Group]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          description: The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).
+          required: true
+        - name: marketTypeID
+          in: path
+          type: string
+          description: 'The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for
+            Game Lines, <code>2</code> for Player Props, <code>3</code>'
+          required: true
+        - name: sportsbookgroup
+          in: path
+          type: string
+          description: The name of the Sportsbook grouping.
+          required: true
+        - name: include
+          in: query
+          type: string
+          description: This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default,
+            this endpoint only returns available outcomes, excludin
+    - name: v3-nfl-odds-format-BettingMarketsByScoreID-scoreid
+      path: /v3/nfl/odds/{format}/BettingMarketsByScoreID/{scoreid}
+      operations:
+      - name: nflv3oddsbettingmarketsbygame
+        method: GET
+        description: Betting Markets - by Game
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: scoreid
+          in: path
+          type: string
+          description: The ScoreID of the desired game/score for which to pull all betting markets (includes outcomes/bets).
+          required: true
+        - name: include
+          in: query
+          type: string
+          description: This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default,
+            this endpoint only returns available outcomes, excludin
+    - name: v3-nfl-odds-format-BettingMetadata
+      path: /v3/nfl/odds/{format}/BettingMetadata
+      operations:
+      - name: nflv3oddsbettingmetadata
+        method: GET
+        description: Betting Metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-nfl-odds-format-BettingPlayerPropsByScoreID-scoreid
+      path: /v3/nfl/odds/{format}/BettingPlayerPropsByScoreID/{scoreid}
+      operations:
+      - name: nflv3oddsbettingplayerpropsbygame
+        method: GET
+        description: Betting Player Props - by Game
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: scoreid
+          in: path
+          type: string
+          description: The unique ScoreID of the game in question.
+          required: true
+        - name: include
+          in: query
+          type: string
+          description: This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default,
+            this endpoint only returns available outcomes, excludin
+    - name: v3-nfl-odds-format-BettingPlayerPropsByScoreID-scoreid-sportsbookgroup
+      path: /v3/nfl/odds/{format}/BettingPlayerPropsByScoreID/{scoreid}/{sportsbookgroup}
+      operations:
+      - name: nflv3oddsbettingplayerpropsbygamesportsbookgroup
+        method: GET
+        description: Betting Player Props - by Game [Sportsbook Group]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: scoreid
+          in: path
+          type: string
+          description: The unique ScoreID of the game in question.
+          required: true
+        - name: sportsbookgroup
+          in: path
+          type: string
+          description: The name of the Sportsbook grouping.
+          required: true
+        - name: include
+          in: query
+          type: string
+          description: This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default,
+            this endpoint only returns available outcomes, excludin
+    - name: v3-nfl-odds-format-BettingResultsByMarket-marketId-sportsbookgroup
+      path: /v3/nfl/odds/{format}/BettingResultsByMarket/{marketId}/{sportsbookgroup}
+      operations:
+      - name: nflv3oddsbettingresultsbymarketsportsbookgroup
+        method: GET
+        description: Betting Results - by Market [Sportsbook Group]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: marketId
+          in: path
+          type: string
+          description: The MarketId of the desired market for which to pull all outcomes/bets.
+          required: true
+        - name: sportsbookgroup
+          in: path
+          type: string
+          description: The name of the Sportsbook grouping.
+          required: true
+    - name: v3-nfl-odds-format-BettingSplitsByMarketId-marketId
+      path: /v3/nfl/odds/{format}/BettingSplitsByMarketId/{marketId}
+      operations:
+      - name: nflv3oddsbettingsplitsbybettingmarket
+        method: GET
+        description: Betting Splits - by Betting Market
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: marketId
+          in: path
+          type: string
+          description: The BettingMarketID of the market you would like to get splits for. Note that markets we do not have
+            split information on will return an empty response.
+          required: true
+    - name: v3-nfl-odds-format-BettingSplitsByScoreId-scoreId
+      path: /v3/nfl/odds/{format}/BettingSplitsByScoreId/{scoreId}
+      operations:
+      - name: nflv3oddsbettingsplitsbygame
+        method: GET
+        description: Betting Splits - by Game
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: scoreId
+          in: path
+          type: string
+          description: The ScoreID of the desired game to get Betting Market Splits for
+          required: true
+    - name: v3-nfl-odds-format-GameOddsByWeek-season-week
+      path: /v3/nfl/odds/{format}/GameOddsByWeek/{season}/{week}
+      operations:
+      - name: nflv3oddspregameoddsbyweek
+        method: GET
+        description: Pre-Game Odds - by Week
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season, with optional season type. <br>Examples: <code>2018</code>, <code>2018POST</code>,
+            etc.'
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'The week of the scores (games). <br>Examples: <code>1</code>, <code>2</code>, etc.'
+          required: true
+    - name: v3-nfl-odds-format-GameOddsLineMovement-scoreid
+      path: /v3/nfl/odds/{format}/GameOddsLineMovement/{scoreid}
+      operations:
+      - name: nflv3oddspregameoddslinemovement
+        method: GET
+        description: Pre-Game Odds Line Movement
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: scoreid
+          in: path
+          type: string
+          description: The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code>
+            or <code>16667</code>
+          required: true
+    - name: v3-nfl-odds-format-InGameLineMovement-scoreid-sportsbookgroup
+      path: /v3/nfl/odds/{format}/InGameLineMovement/{scoreid}/{sportsbookgroup}
+      operations:
+      - name: nflv3oddsingameoddslinemovementsportsbookgroup
+        method: GET
+        description: In-Game Odds Line Movement [Sportsbook Group]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: scoreid
+          in: path
+          type: string
+          description: The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code>
+            or <code>16667</code>
+          required: true
+        - name: sportsbookgroup
+          in: path
+          type: string
+          description: The name of the Sportsbook grouping.
+          required: true
+    - name: v3-nfl-odds-format-InGameLineMovementWithResulting-scoreid-sportsbookgroup
+      path: /v3/nfl/odds/{format}/InGameLineMovementWithResulting/{scoreid}/{sportsbookgroup}
+      operations:
+      - name: nflv3oddsingameoddslinemovementwithresultingsportsbookgroup
+        method: GET
+        description: In-Game Odds Line Movement with Resulting [Sportsbook Group]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: scoreid
+          in: path
+          type: string
+          description: The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code>
+            or <code>16667</code>
+          required: true
+        - name: sportsbookgroup
+          in: path
+          type: string
+          description: The name of the Sportsbook grouping.
+          required: true
+    - name: v3-nfl-odds-format-InGameOddsByWeek-season-week-sportsbookgroup
+      path: /v3/nfl/odds/{format}/InGameOddsByWeek/{season}/{week}/{sportsbookgroup}
+      operations:
+      - name: nflv3oddsingameoddsbyweeksportsbookgroup
+        method: GET
+        description: In-Game Odds by Week [Sportsbook Group]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season, with optional season type. <br>Examples: <code>2018</code>, <code>2018POST</code>,
+            etc.'
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'The week of the scores (games). <br>Examples: <code>1</code>, <code>2</code>, etc.'
+          required: true
+        - name: sportsbookgroup
+          in: path
+          type: string
+          description: The name of the Sportsbook grouping.
+          required: true
+    - name: v3-nfl-odds-format-LiveGameOddsByWeek-season-week
+      path: /v3/nfl/odds/{format}/LiveGameOddsByWeek/{season}/{week}
+      operations:
+      - name: nflv3oddsingameoddsbyweek
+        method: GET
+        description: In-Game Odds - by Week
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season, with optional season type. <br>Examples: <code>2018</code>, <code>2018POST</code>,
+            etc.'
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'The week of the scores (games). <br>Examples: <code>1</code>, <code>2</code>, etc.'
+          required: true
+    - name: v3-nfl-odds-format-LiveGameOddsLineMovement-scoreid
+      path: /v3/nfl/odds/{format}/LiveGameOddsLineMovement/{scoreid}
+      operations:
+      - name: nflv3oddsingameoddslinemovement
+        method: GET
+        description: In-Game Odds Line Movement
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: scoreid
+          in: path
+          type: string
+          description: The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code>
+            or <code>16667</code>
+          required: true
+    - name: v3-nfl-odds-format-MatchupTrends-team-opponent
+      path: /v3/nfl/odds/{format}/MatchupTrends/{team}/{opponent}
+      operations:
+      - name: nflv3oddsbettingtrendsbymatchup
+        method: GET
+        description: Betting Trends - by Matchup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: team
+          in: path
+          type: string
+          description: 'Abbreviation of a team. Example: <code>PHI</code>.'
+          required: true
+        - name: opponent
+          in: path
+          type: string
+          description: 'Abbreviation of an opponent. Example: <code>NE</code>.'
+          required: true
+    - name: v3-nfl-odds-format-PreGameOddsByWeek-season-week-sportsbookgroup
+      path: /v3/nfl/odds/{format}/PreGameOddsByWeek/{season}/{week}/{sportsbookgroup}
+      operations:
+      - name: nflv3oddspregameandperiodgameoddsbyweeksportsbookgroup
+        method: GET
+        description: Pre-Game and Period Game Odds - by Week [Sportsbook Group]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: 'Year of the season, with optional season type. <br>Examples: <code>2018</code>, <code>2018POST</code>,
+            etc.'
+          required: true
+        - name: week
+          in: path
+          type: string
+          description: 'The week of the scores (games). <br>Examples: <code>1</code>, <code>2</code>, etc.'
+          required: true
+        - name: sportsbookgroup
+          in: path
+          type: string
+          description: The name of the Sportsbook grouping.
+          required: true
+    - name: v3-nfl-odds-format-PreGameOddsLineMovement-scoreid-sportsbookgroup
+      path: /v3/nfl/odds/{format}/PreGameOddsLineMovement/{scoreid}/{sportsbookgroup}
+      operations:
+      - name: nflv3oddspregameandperiodgameoddslinemovementsportsbookgroup
+        method: GET
+        description: Pre-Game and Period Game Odds Line Movement [Sportsbook Group]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: scoreid
+          in: path
+          type: string
+          description: The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code>
+            or <code>16667</code>
+          required: true
+        - name: sportsbookgroup
+          in: path
+          type: string
+          description: The name of the Sportsbook grouping.
+          required: true
+    - name: v3-nfl-odds-format-PreGameOddsLineMovementWithResulting-scoreid-sportsbookgroup
+      path: /v3/nfl/odds/{format}/PreGameOddsLineMovementWithResulting/{scoreid}/{sportsbookgroup}
+      operations:
+      - name: nflv3oddspregameandperiodgameoddslinemovementwithresultingsportsbookgroup
+        method: GET
+        description: Pre-Game and Period Game Odds Line Movement with Resulting [Sportsbook Group]
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: scoreid
+          in: path
+          type: string
+          description: The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code>
+            or <code>16667</code>
+          required: true
+        - name: sportsbookgroup
+          in: path
+          type: string
+          description: The name of the Sportsbook grouping.
+          required: true
+    - name: v3-nfl-odds-format-TeamTrends-team
+      path: /v3/nfl/odds/{format}/TeamTrends/{team}
+      operations:
+      - name: nflv3oddsbettingtrendsbyteam
+        method: GET
+        description: Betting Trends - by Team
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: team
+          in: path
+          type: string
+          description: 'Abbreviation of a team. Example: <code>PHI</code>.'
+          required: true
+    authentication:
+      type: apikey
+      key: Ocp-Apim-Subscription-Key
+      value: '{{env.SPORTSDATAIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: nfl-nfl-v3-odds-rest
+    port: 8080
+    description: REST adapter for NFL API — NFL v3 Odds. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v3/nfl/odds/{format}/activesportsbooks
+      name: v3-nfl-odds-format-activesportsbooks
+      description: REST surface for v3-nfl-odds-format-ActiveSportsbooks.
+      operations:
+      - method: GET
+        name: nflv3oddssportsbooksactive
+        description: Sportsbooks - Active
+        call: nfl-nfl-v3-odds.nflv3oddssportsbooksactive
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/alternatemarketgameoddsbyweek/{season}/{week}
+      name: v3-nfl-odds-format-alternatemarketgameoddsbyweek-season-week
+      description: REST surface for v3-nfl-odds-format-AlternateMarketGameOddsByWeek-season-week.
+      operations:
+      - method: GET
+        name: nflv3oddsperiodgameoddsbyweek
+        description: Period Game Odds - by Week
+        call: nfl-nfl-v3-odds.nflv3oddsperiodgameoddsbyweek
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/alternatemarketgameoddslinemovement/{scoreid}
+      name: v3-nfl-odds-format-alternatemarketgameoddslinemovement-scoreid
+      description: REST surface for v3-nfl-odds-format-AlternateMarketGameOddsLineMovement-scoreid.
+      operations:
+      - method: GET
+        name: nflv3oddsperiodgameoddslinemovement
+        description: Period Game Odds Line Movement
+        call: nfl-nfl-v3-odds.nflv3oddsperiodgameoddslinemovement
+        with:
+          format: rest.format
+          scoreid: rest.scoreid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingevents/{season}
+      name: v3-nfl-odds-format-bettingevents-season
+      description: REST surface for v3-nfl-odds-format-BettingEvents-season.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingeventsbyseason
+        description: Betting Events - by Season
+        call: nfl-nfl-v3-odds.nflv3oddsbettingeventsbyseason
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingeventsbydate/{date}
+      name: v3-nfl-odds-format-bettingeventsbydate-date
+      description: REST surface for v3-nfl-odds-format-BettingEventsByDate-date.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingeventsbydate
+        description: Betting Events - by Date
+        call: nfl-nfl-v3-odds.nflv3oddsbettingeventsbydate
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingfuturesbyseason/{season}
+      name: v3-nfl-odds-format-bettingfuturesbyseason-season
+      description: REST surface for v3-nfl-odds-format-BettingFuturesBySeason-season.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingfuturesbyseason
+        description: Betting Futures - by Season
+        call: nfl-nfl-v3-odds.nflv3oddsbettingfuturesbyseason
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingfuturesbyseason/{season}/{sportsbookgroup}
+      name: v3-nfl-odds-format-bettingfuturesbyseason-season-sportsbookgroup
+      description: REST surface for v3-nfl-odds-format-BettingFuturesBySeason-season-sportsbookgroup.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingfuturesbyseasonsportsbookgroup
+        description: Betting Futures - by Season [Sportsbook Group]
+        call: nfl-nfl-v3-odds.nflv3oddsbettingfuturesbyseasonsportsbookgroup
+        with:
+          format: rest.format
+          season: rest.season
+          sportsbookgroup: rest.sportsbookgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingmarket/{marketid}
+      name: v3-nfl-odds-format-bettingmarket-marketid
+      description: REST surface for v3-nfl-odds-format-BettingMarket-marketId.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingmarket
+        description: Betting Market
+        call: nfl-nfl-v3-odds.nflv3oddsbettingmarket
+        with:
+          format: rest.format
+          marketId: rest.marketId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingmarket/{marketid}/{sportsbookgroup}
+      name: v3-nfl-odds-format-bettingmarket-marketid-sportsbookgroup
+      description: REST surface for v3-nfl-odds-format-BettingMarket-marketId-sportsbookgroup.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingmarketsportsbookgroup
+        description: Betting Market [Sportsbook Group]
+        call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsportsbookgroup
+        with:
+          format: rest.format
+          marketId: rest.marketId
+          sportsbookgroup: rest.sportsbookgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingmarketresults/{marketid}
+      name: v3-nfl-odds-format-bettingmarketresults-marketid
+      description: REST surface for v3-nfl-odds-format-BettingMarketResults-marketId.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingresultsbymarket
+        description: Betting Results - by Market
+        call: nfl-nfl-v3-odds.nflv3oddsbettingresultsbymarket
+        with:
+          format: rest.format
+          marketId: rest.marketId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingmarkets/{eventid}
+      name: v3-nfl-odds-format-bettingmarkets-eventid
+      description: REST surface for v3-nfl-odds-format-BettingMarkets-eventId.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingmarketsbyevent
+        description: Betting Markets - by Event
+        call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsbyevent
+        with:
+          format: rest.format
+          eventId: rest.eventId
+          include: rest.include
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingmarketsbyevent/{eventid}/{sportsbookgroup}
+      name: v3-nfl-odds-format-bettingmarketsbyevent-eventid-sportsbookgroup
+      description: REST surface for v3-nfl-odds-format-BettingMarketsByEvent-eventId-sportsbookgroup.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingmarketsbyeventsportsbookgroup
+        description: Betting Markets - by Event [Sportsbook Group]
+        call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsbyeventsportsbookgroup
+        with:
+          format: rest.format
+          eventId: rest.eventId
+          sportsbookgroup: rest.sportsbookgroup
+          include: rest.include
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingmarketsbygameid/{gameid}/{sportsbookgroup}
+      name: v3-nfl-odds-format-bettingmarketsbygameid-gameid-sportsbookgroup
+      description: REST surface for v3-nfl-odds-format-BettingMarketsByGameID-gameid-sportsbookgroup.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingmarketsbygamesportsbookgroup
+        description: Betting Markets - by Game [Sportsbook Group]
+        call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsbygamesportsbookgroup
+        with:
+          format: rest.format
+          gameid: rest.gameid
+          sportsbookgroup: rest.sportsbookgroup
+          include: rest.include
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingmarketsbymarkettype/{eventid}/{markettypeid}
+      name: v3-nfl-odds-format-bettingmarketsbymarkettype-eventid-markettypeid
+      description: REST surface for v3-nfl-odds-format-BettingMarketsByMarketType-eventId-marketTypeID.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingmarketsbymarkettype
+        description: Betting Markets - by Market Type
+        call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsbymarkettype
+        with:
+          format: rest.format
+          eventId: rest.eventId
+          marketTypeID: rest.marketTypeID
+          include: rest.include
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingmarketsbymarkettype/{eventid}/{markettypeid}/{sportsbookgroup}
+      name: v3-nfl-odds-format-bettingmarketsbymarkettype-eventid-markettypeid-sportsbookgro
+      description: REST surface for v3-nfl-odds-format-BettingMarketsByMarketType-eventId-marketTypeID-sportsbookgro.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingmarketsbymarkettypesportsbookgroup
+        description: Betting Markets - by Market Type [Sportsbook Group]
+        call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsbymarkettypesportsbookgroup
+        with:
+          format: rest.format
+          eventId: rest.eventId
+          marketTypeID: rest.marketTypeID
+          sportsbookgroup: rest.sportsbookgroup
+          include: rest.include
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingmarketsbyscoreid/{scoreid}
+      name: v3-nfl-odds-format-bettingmarketsbyscoreid-scoreid
+      description: REST surface for v3-nfl-odds-format-BettingMarketsByScoreID-scoreid.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingmarketsbygame
+        description: Betting Markets - by Game
+        call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsbygame
+        with:
+          format: rest.format
+          scoreid: rest.scoreid
+          include: rest.include
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingmetadata
+      name: v3-nfl-odds-format-bettingmetadata
+      description: REST surface for v3-nfl-odds-format-BettingMetadata.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingmetadata
+        description: Betting Metadata
+        call: nfl-nfl-v3-odds.nflv3oddsbettingmetadata
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingplayerpropsbyscoreid/{scoreid}
+      name: v3-nfl-odds-format-bettingplayerpropsbyscoreid-scoreid
+      description: REST surface for v3-nfl-odds-format-BettingPlayerPropsByScoreID-scoreid.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingplayerpropsbygame
+        description: Betting Player Props - by Game
+        call: nfl-nfl-v3-odds.nflv3oddsbettingplayerpropsbygame
+        with:
+          format: rest.format
+          scoreid: rest.scoreid
+          include: rest.include
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingplayerpropsbyscoreid/{scoreid}/{sportsbookgroup}
+      name: v3-nfl-odds-format-bettingplayerpropsbyscoreid-scoreid-sportsbookgroup
+      description: REST surface for v3-nfl-odds-format-BettingPlayerPropsByScoreID-scoreid-sportsbookgroup.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingplayerpropsbygamesportsbookgroup
+        description: Betting Player Props - by Game [Sportsbook Group]
+        call: nfl-nfl-v3-odds.nflv3oddsbettingplayerpropsbygamesportsbookgroup
+        with:
+          format: rest.format
+          scoreid: rest.scoreid
+          sportsbookgroup: rest.sportsbookgroup
+          include: rest.include
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingresultsbymarket/{marketid}/{sportsbookgroup}
+      name: v3-nfl-odds-format-bettingresultsbymarket-marketid-sportsbookgroup
+      description: REST surface for v3-nfl-odds-format-BettingResultsByMarket-marketId-sportsbookgroup.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingresultsbymarketsportsbookgroup
+        description: Betting Results - by Market [Sportsbook Group]
+        call: nfl-nfl-v3-odds.nflv3oddsbettingresultsbymarketsportsbookgroup
+        with:
+          format: rest.format
+          marketId: rest.marketId
+          sportsbookgroup: rest.sportsbookgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingsplitsbymarketid/{marketid}
+      name: v3-nfl-odds-format-bettingsplitsbymarketid-marketid
+      description: REST surface for v3-nfl-odds-format-BettingSplitsByMarketId-marketId.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingsplitsbybettingmarket
+        description: Betting Splits - by Betting Market
+        call: nfl-nfl-v3-odds.nflv3oddsbettingsplitsbybettingmarket
+        with:
+          format: rest.format
+          marketId: rest.marketId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/bettingsplitsbyscoreid/{scoreid}
+      name: v3-nfl-odds-format-bettingsplitsbyscoreid-scoreid
+      description: REST surface for v3-nfl-odds-format-BettingSplitsByScoreId-scoreId.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingsplitsbygame
+        description: Betting Splits - by Game
+        call: nfl-nfl-v3-odds.nflv3oddsbettingsplitsbygame
+        with:
+          format: rest.format
+          scoreId: rest.scoreId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/gameoddsbyweek/{season}/{week}
+      name: v3-nfl-odds-format-gameoddsbyweek-season-week
+      description: REST surface for v3-nfl-odds-format-GameOddsByWeek-season-week.
+      operations:
+      - method: GET
+        name: nflv3oddspregameoddsbyweek
+        description: Pre-Game Odds - by Week
+        call: nfl-nfl-v3-odds.nflv3oddspregameoddsbyweek
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/gameoddslinemovement/{scoreid}
+      name: v3-nfl-odds-format-gameoddslinemovement-scoreid
+      description: REST surface for v3-nfl-odds-format-GameOddsLineMovement-scoreid.
+      operations:
+      - method: GET
+        name: nflv3oddspregameoddslinemovement
+        description: Pre-Game Odds Line Movement
+        call: nfl-nfl-v3-odds.nflv3oddspregameoddslinemovement
+        with:
+          format: rest.format
+          scoreid: rest.scoreid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/ingamelinemovement/{scoreid}/{sportsbookgroup}
+      name: v3-nfl-odds-format-ingamelinemovement-scoreid-sportsbookgroup
+      description: REST surface for v3-nfl-odds-format-InGameLineMovement-scoreid-sportsbookgroup.
+      operations:
+      - method: GET
+        name: nflv3oddsingameoddslinemovementsportsbookgroup
+        description: In-Game Odds Line Movement [Sportsbook Group]
+        call: nfl-nfl-v3-odds.nflv3oddsingameoddslinemovementsportsbookgroup
+        with:
+          format: rest.format
+          scoreid: rest.scoreid
+          sportsbookgroup: rest.sportsbookgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/ingamelinemovementwithresulting/{scoreid}/{sportsbookgroup}
+      name: v3-nfl-odds-format-ingamelinemovementwithresulting-scoreid-sportsbookgroup
+      description: REST surface for v3-nfl-odds-format-InGameLineMovementWithResulting-scoreid-sportsbookgroup.
+      operations:
+      - method: GET
+        name: nflv3oddsingameoddslinemovementwithresultingsportsbookgroup
+        description: In-Game Odds Line Movement with Resulting [Sportsbook Group]
+        call: nfl-nfl-v3-odds.nflv3oddsingameoddslinemovementwithresultingsportsbookgroup
+        with:
+          format: rest.format
+          scoreid: rest.scoreid
+          sportsbookgroup: rest.sportsbookgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/ingameoddsbyweek/{season}/{week}/{sportsbookgroup}
+      name: v3-nfl-odds-format-ingameoddsbyweek-season-week-sportsbookgroup
+      description: REST surface for v3-nfl-odds-format-InGameOddsByWeek-season-week-sportsbookgroup.
+      operations:
+      - method: GET
+        name: nflv3oddsingameoddsbyweeksportsbookgroup
+        description: In-Game Odds by Week [Sportsbook Group]
+        call: nfl-nfl-v3-odds.nflv3oddsingameoddsbyweeksportsbookgroup
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+          sportsbookgroup: rest.sportsbookgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/livegameoddsbyweek/{season}/{week}
+      name: v3-nfl-odds-format-livegameoddsbyweek-season-week
+      description: REST surface for v3-nfl-odds-format-LiveGameOddsByWeek-season-week.
+      operations:
+      - method: GET
+        name: nflv3oddsingameoddsbyweek
+        description: In-Game Odds - by Week
+        call: nfl-nfl-v3-odds.nflv3oddsingameoddsbyweek
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/livegameoddslinemovement/{scoreid}
+      name: v3-nfl-odds-format-livegameoddslinemovement-scoreid
+      description: REST surface for v3-nfl-odds-format-LiveGameOddsLineMovement-scoreid.
+      operations:
+      - method: GET
+        name: nflv3oddsingameoddslinemovement
+        description: In-Game Odds Line Movement
+        call: nfl-nfl-v3-odds.nflv3oddsingameoddslinemovement
+        with:
+          format: rest.format
+          scoreid: rest.scoreid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/matchuptrends/{team}/{opponent}
+      name: v3-nfl-odds-format-matchuptrends-team-opponent
+      description: REST surface for v3-nfl-odds-format-MatchupTrends-team-opponent.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingtrendsbymatchup
+        description: Betting Trends - by Matchup
+        call: nfl-nfl-v3-odds.nflv3oddsbettingtrendsbymatchup
+        with:
+          format: rest.format
+          team: rest.team
+          opponent: rest.opponent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/pregameoddsbyweek/{season}/{week}/{sportsbookgroup}
+      name: v3-nfl-odds-format-pregameoddsbyweek-season-week-sportsbookgroup
+      description: REST surface for v3-nfl-odds-format-PreGameOddsByWeek-season-week-sportsbookgroup.
+      operations:
+      - method: GET
+        name: nflv3oddspregameandperiodgameoddsbyweeksportsbookgroup
+        description: Pre-Game and Period Game Odds - by Week [Sportsbook Group]
+        call: nfl-nfl-v3-odds.nflv3oddspregameandperiodgameoddsbyweeksportsbookgroup
+        with:
+          format: rest.format
+          season: rest.season
+          week: rest.week
+          sportsbookgroup: rest.sportsbookgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/pregameoddslinemovement/{scoreid}/{sportsbookgroup}
+      name: v3-nfl-odds-format-pregameoddslinemovement-scoreid-sportsbookgroup
+      description: REST surface for v3-nfl-odds-format-PreGameOddsLineMovement-scoreid-sportsbookgroup.
+      operations:
+      - method: GET
+        name: nflv3oddspregameandperiodgameoddslinemovementsportsbookgroup
+        description: Pre-Game and Period Game Odds Line Movement [Sportsbook Group]
+        call: nfl-nfl-v3-odds.nflv3oddspregameandperiodgameoddslinemovementsportsbookgroup
+        with:
+          format: rest.format
+          scoreid: rest.scoreid
+          sportsbookgroup: rest.sportsbookgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/pregameoddslinemovementwithresulting/{scoreid}/{sportsbookgroup}
+      name: v3-nfl-odds-format-pregameoddslinemovementwithresulting-scoreid-sportsbookgroup
+      description: REST surface for v3-nfl-odds-format-PreGameOddsLineMovementWithResulting-scoreid-sportsbookgroup.
+      operations:
+      - method: GET
+        name: nflv3oddspregameandperiodgameoddslinemovementwithresultingsportsbookgroup
+        description: Pre-Game and Period Game Odds Line Movement with Resulting [Sportsbook Group]
+        call: nfl-nfl-v3-odds.nflv3oddspregameandperiodgameoddslinemovementwithresultingsportsbookgroup
+        with:
+          format: rest.format
+          scoreid: rest.scoreid
+          sportsbookgroup: rest.sportsbookgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/nfl/odds/{format}/teamtrends/{team}
+      name: v3-nfl-odds-format-teamtrends-team
+      description: REST surface for v3-nfl-odds-format-TeamTrends-team.
+      operations:
+      - method: GET
+        name: nflv3oddsbettingtrendsbyteam
+        description: Betting Trends - by Team
+        call: nfl-nfl-v3-odds.nflv3oddsbettingtrendsbyteam
+        with:
+          format: rest.format
+          team: rest.team
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: nfl-nfl-v3-odds-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NFL API — NFL v3 Odds. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: sportsbooks-active
+      description: Sportsbooks - Active
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddssportsbooksactive
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: period-game-odds-week
+      description: Period Game Odds - by Week
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsperiodgameoddsbyweek
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: period-game-odds-line-movement
+      description: Period Game Odds Line Movement
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsperiodgameoddslinemovement
+      with:
+        format: tools.format
+        scoreid: tools.scoreid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-events-season
+      description: Betting Events - by Season
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingeventsbyseason
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-events-date
+      description: Betting Events - by Date
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingeventsbydate
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-futures-season
+      description: Betting Futures - by Season
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingfuturesbyseason
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-futures-season-sportsbook-group
+      description: Betting Futures - by Season [Sportsbook Group]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingfuturesbyseasonsportsbookgroup
+      with:
+        format: tools.format
+        season: tools.season
+        sportsbookgroup: tools.sportsbookgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-market
+      description: Betting Market
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingmarket
+      with:
+        format: tools.format
+        marketId: tools.marketId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-market-sportsbook-group
+      description: Betting Market [Sportsbook Group]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsportsbookgroup
+      with:
+        format: tools.format
+        marketId: tools.marketId
+        sportsbookgroup: tools.sportsbookgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-results-market
+      description: Betting Results - by Market
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingresultsbymarket
+      with:
+        format: tools.format
+        marketId: tools.marketId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-markets-event
+      description: Betting Markets - by Event
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsbyevent
+      with:
+        format: tools.format
+        eventId: tools.eventId
+        include: tools.include
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-markets-event-sportsbook-group
+      description: Betting Markets - by Event [Sportsbook Group]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsbyeventsportsbookgroup
+      with:
+        format: tools.format
+        eventId: tools.eventId
+        sportsbookgroup: tools.sportsbookgroup
+        include: tools.include
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-markets-game-sportsbook-group
+      description: Betting Markets - by Game [Sportsbook Group]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsbygamesportsbookgroup
+      with:
+        format: tools.format
+        gameid: tools.gameid
+        sportsbookgroup: tools.sportsbookgroup
+        include: tools.include
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-markets-market-type
+      description: Betting Markets - by Market Type
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsbymarkettype
+      with:
+        format: tools.format
+        eventId: tools.eventId
+        marketTypeID: tools.marketTypeID
+        include: tools.include
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-markets-market-type-sportsbook
+      description: Betting Markets - by Market Type [Sportsbook Group]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsbymarkettypesportsbookgroup
+      with:
+        format: tools.format
+        eventId: tools.eventId
+        marketTypeID: tools.marketTypeID
+        sportsbookgroup: tools.sportsbookgroup
+        include: tools.include
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-markets-game
+      description: Betting Markets - by Game
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingmarketsbygame
+      with:
+        format: tools.format
+        scoreid: tools.scoreid
+        include: tools.include
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-metadata
+      description: Betting Metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingmetadata
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-player-props-game
+      description: Betting Player Props - by Game
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingplayerpropsbygame
+      with:
+        format: tools.format
+        scoreid: tools.scoreid
+        include: tools.include
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-player-props-game-sportsbook
+      description: Betting Player Props - by Game [Sportsbook Group]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingplayerpropsbygamesportsbookgroup
+      with:
+        format: tools.format
+        scoreid: tools.scoreid
+        sportsbookgroup: tools.sportsbookgroup
+        include: tools.include
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-results-market-sportsbook-group
+      description: Betting Results - by Market [Sportsbook Group]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingresultsbymarketsportsbookgroup
+      with:
+        format: tools.format
+        marketId: tools.marketId
+        sportsbookgroup: tools.sportsbookgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-splits-betting-market
+      description: Betting Splits - by Betting Market
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingsplitsbybettingmarket
+      with:
+        format: tools.format
+        marketId: tools.marketId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-splits-game
+      description: Betting Splits - by Game
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingsplitsbygame
+      with:
+        format: tools.format
+        scoreId: tools.scoreId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pre-game-odds-week
+      description: Pre-Game Odds - by Week
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddspregameoddsbyweek
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pre-game-odds-line-movement
+      description: Pre-Game Odds Line Movement
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddspregameoddslinemovement
+      with:
+        format: tools.format
+        scoreid: tools.scoreid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: game-odds-line-movement-sportsbook
+      description: In-Game Odds Line Movement [Sportsbook Group]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsingameoddslinemovementsportsbookgroup
+      with:
+        format: tools.format
+        scoreid: tools.scoreid
+        sportsbookgroup: tools.sportsbookgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: game-odds-line-movement-resulting
+      description: In-Game Odds Line Movement with Resulting [Sportsbook Group]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsingameoddslinemovementwithresultingsportsbookgroup
+      with:
+        format: tools.format
+        scoreid: tools.scoreid
+        sportsbookgroup: tools.sportsbookgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: game-odds-week-sportsbook-group
+      description: In-Game Odds by Week [Sportsbook Group]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsingameoddsbyweeksportsbookgroup
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+        sportsbookgroup: tools.sportsbookgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: game-odds-week
+      description: In-Game Odds - by Week
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsingameoddsbyweek
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: game-odds-line-movement
+      description: In-Game Odds Line Movement
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsingameoddslinemovement
+      with:
+        format: tools.format
+        scoreid: tools.scoreid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-trends-matchup
+      description: Betting Trends - by Matchup
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingtrendsbymatchup
+      with:
+        format: tools.format
+        team: tools.team
+        opponent: tools.opponent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pre-game-and-period-game
+      description: Pre-Game and Period Game Odds - by Week [Sportsbook Group]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddspregameandperiodgameoddsbyweeksportsbookgroup
+      with:
+        format: tools.format
+        season: tools.season
+        week: tools.week
+        sportsbookgroup: tools.sportsbookgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pre-game-and-period-game-2
+      description: Pre-Game and Period Game Odds Line Movement [Sportsbook Group]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddspregameandperiodgameoddslinemovementsportsbookgroup
+      with:
+        format: tools.format
+        scoreid: tools.scoreid
+        sportsbookgroup: tools.sportsbookgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pre-game-and-period-game-3
+      description: Pre-Game and Period Game Odds Line Movement with Resulting [Sportsbook Group]
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddspregameandperiodgameoddslinemovementwithresultingsportsbookgroup
+      with:
+        format: tools.format
+        scoreid: tools.scoreid
+        sportsbookgroup: tools.sportsbookgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: betting-trends-team
+      description: Betting Trends - by Team
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nfl-nfl-v3-odds.nflv3oddsbettingtrendsbyteam
+      with:
+        format: tools.format
+        team: tools.team
+      outputParameters:
+      - type: object
+        mapping: $.

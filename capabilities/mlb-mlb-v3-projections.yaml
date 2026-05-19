@@ -1,0 +1,412 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: MLB API — MLB v3 Projections
+  description: 'MLB API — MLB v3 Projections. 8 operations. Lead operation: Depth Charts. Self-contained Naftiko capability
+    covering one Sportsdataio business surface.'
+  tags:
+  - Sportsdataio
+  - MLB v3 Projections
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPORTSDATAIO_API_KEY: SPORTSDATAIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mlb-mlb-v3-projections
+    baseUri: https://api.sportsdata.io
+    description: MLB API — MLB v3 Projections business capability. Self-contained, no shared references.
+    resources:
+    - name: v3-mlb-projections-format-DepthCharts
+      path: /v3/mlb/projections/{format}/DepthCharts
+      operations:
+      - name: mlbv3projectionsdepthcharts
+        method: GET
+        description: Depth Charts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-mlb-projections-format-DfsSlateOwnershipProjectionsBySlateID-slateId
+      path: /v3/mlb/projections/{format}/DfsSlateOwnershipProjectionsBySlateID/{slateId}
+      operations:
+      - name: mlbv3projectionsdfsslateownershipprojectionsbyslate
+        method: GET
+        description: DFS Slate Ownership Projections - by Slate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: slateId
+          in: path
+          type: integer
+          description: SlateID of the DFS Slate you wish to get ownership projections for. Will have an empty SlateOwnershipProjections
+            if this slate was not projected
+          required: true
+    - name: v3-mlb-projections-format-DfsSlatesByDate-date
+      path: /v3/mlb/projections/{format}/DfsSlatesByDate/{date}
+      operations:
+      - name: mlbv3projectionsdfsslatesbydate
+        method: GET
+        description: DFS Slates - by Date
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the slates.
+          required: true
+    - name: v3-mlb-projections-format-InjuredPlayers
+      path: /v3/mlb/projections/{format}/InjuredPlayers
+      operations:
+      - name: mlbv3projectionsplayerdetailsbyinjured
+        method: GET
+        description: Player Details - by Injured
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    - name: v3-mlb-projections-format-PlayerGameProjectionStatsByDate-date
+      path: /v3/mlb/projections/{format}/PlayerGameProjectionStatsByDate/{date}
+      operations:
+      - name: mlbv3projectionsprojectedplayergamestatsbydate
+        method: GET
+        description: Projected Player Game Stats - by Date
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the game(s).
+          required: true
+    - name: v3-mlb-projections-format-PlayerSeasonProjectionStats-season
+      path: /v3/mlb/projections/{format}/PlayerSeasonProjectionStats/{season}
+      operations:
+      - name: mlbv3projectionsprojectedplayerseasonstatswithadp
+        method: GET
+        description: Projected Player Season Stats With ADP
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: season
+          in: path
+          type: string
+          description: Year of the season.
+          required: true
+    - name: v3-mlb-projections-format-StartingLineupsByDate-date
+      path: /v3/mlb/projections/{format}/StartingLineupsByDate/{date}
+      operations:
+      - name: mlbv3projectionsstartinglineupsbydate
+        method: GET
+        description: Starting Lineups - by Date
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+        - name: date
+          in: path
+          type: string
+          description: The date of the slates.
+          required: true
+    - name: v3-mlb-projections-format-UpcomingDfsSlateOwnershipProjections
+      path: /v3/mlb/projections/{format}/UpcomingDfsSlateOwnershipProjections
+      operations:
+      - name: mlbv3projectionsdfsslateownershipprojectionsupcoming
+        method: GET
+        description: DFS Slate Ownership Projections - Upcoming
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: path
+          type: string
+          description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+          required: true
+    authentication:
+      type: apikey
+      key: Ocp-Apim-Subscription-Key
+      value: '{{env.SPORTSDATAIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: mlb-mlb-v3-projections-rest
+    port: 8080
+    description: REST adapter for MLB API — MLB v3 Projections. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v3/mlb/projections/{format}/depthcharts
+      name: v3-mlb-projections-format-depthcharts
+      description: REST surface for v3-mlb-projections-format-DepthCharts.
+      operations:
+      - method: GET
+        name: mlbv3projectionsdepthcharts
+        description: Depth Charts
+        call: mlb-mlb-v3-projections.mlbv3projectionsdepthcharts
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/projections/{format}/dfsslateownershipprojectionsbyslateid/{slateid}
+      name: v3-mlb-projections-format-dfsslateownershipprojectionsbyslateid-slateid
+      description: REST surface for v3-mlb-projections-format-DfsSlateOwnershipProjectionsBySlateID-slateId.
+      operations:
+      - method: GET
+        name: mlbv3projectionsdfsslateownershipprojectionsbyslate
+        description: DFS Slate Ownership Projections - by Slate
+        call: mlb-mlb-v3-projections.mlbv3projectionsdfsslateownershipprojectionsbyslate
+        with:
+          format: rest.format
+          slateId: rest.slateId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/projections/{format}/dfsslatesbydate/{date}
+      name: v3-mlb-projections-format-dfsslatesbydate-date
+      description: REST surface for v3-mlb-projections-format-DfsSlatesByDate-date.
+      operations:
+      - method: GET
+        name: mlbv3projectionsdfsslatesbydate
+        description: DFS Slates - by Date
+        call: mlb-mlb-v3-projections.mlbv3projectionsdfsslatesbydate
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/projections/{format}/injuredplayers
+      name: v3-mlb-projections-format-injuredplayers
+      description: REST surface for v3-mlb-projections-format-InjuredPlayers.
+      operations:
+      - method: GET
+        name: mlbv3projectionsplayerdetailsbyinjured
+        description: Player Details - by Injured
+        call: mlb-mlb-v3-projections.mlbv3projectionsplayerdetailsbyinjured
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/projections/{format}/playergameprojectionstatsbydate/{date}
+      name: v3-mlb-projections-format-playergameprojectionstatsbydate-date
+      description: REST surface for v3-mlb-projections-format-PlayerGameProjectionStatsByDate-date.
+      operations:
+      - method: GET
+        name: mlbv3projectionsprojectedplayergamestatsbydate
+        description: Projected Player Game Stats - by Date
+        call: mlb-mlb-v3-projections.mlbv3projectionsprojectedplayergamestatsbydate
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/projections/{format}/playerseasonprojectionstats/{season}
+      name: v3-mlb-projections-format-playerseasonprojectionstats-season
+      description: REST surface for v3-mlb-projections-format-PlayerSeasonProjectionStats-season.
+      operations:
+      - method: GET
+        name: mlbv3projectionsprojectedplayerseasonstatswithadp
+        description: Projected Player Season Stats With ADP
+        call: mlb-mlb-v3-projections.mlbv3projectionsprojectedplayerseasonstatswithadp
+        with:
+          format: rest.format
+          season: rest.season
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/projections/{format}/startinglineupsbydate/{date}
+      name: v3-mlb-projections-format-startinglineupsbydate-date
+      description: REST surface for v3-mlb-projections-format-StartingLineupsByDate-date.
+      operations:
+      - method: GET
+        name: mlbv3projectionsstartinglineupsbydate
+        description: Starting Lineups - by Date
+        call: mlb-mlb-v3-projections.mlbv3projectionsstartinglineupsbydate
+        with:
+          format: rest.format
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/mlb/projections/{format}/upcomingdfsslateownershipprojections
+      name: v3-mlb-projections-format-upcomingdfsslateownershipprojections
+      description: REST surface for v3-mlb-projections-format-UpcomingDfsSlateOwnershipProjections.
+      operations:
+      - method: GET
+        name: mlbv3projectionsdfsslateownershipprojectionsupcoming
+        description: DFS Slate Ownership Projections - Upcoming
+        call: mlb-mlb-v3-projections.mlbv3projectionsdfsslateownershipprojectionsupcoming
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mlb-mlb-v3-projections-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for MLB API — MLB v3 Projections. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: depth-charts
+      description: Depth Charts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-projections.mlbv3projectionsdepthcharts
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: dfs-slate-ownership-projections-slate
+      description: DFS Slate Ownership Projections - by Slate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-projections.mlbv3projectionsdfsslateownershipprojectionsbyslate
+      with:
+        format: tools.format
+        slateId: tools.slateId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: dfs-slates-date
+      description: DFS Slates - by Date
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-projections.mlbv3projectionsdfsslatesbydate
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: player-details-injured
+      description: Player Details - by Injured
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-projections.mlbv3projectionsplayerdetailsbyinjured
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: projected-player-game-stats-date
+      description: Projected Player Game Stats - by Date
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-projections.mlbv3projectionsprojectedplayergamestatsbydate
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: projected-player-season-stats-adp
+      description: Projected Player Season Stats With ADP
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-projections.mlbv3projectionsprojectedplayerseasonstatswithadp
+      with:
+        format: tools.format
+        season: tools.season
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: starting-lineups-date
+      description: Starting Lineups - by Date
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-projections.mlbv3projectionsstartinglineupsbydate
+      with:
+        format: tools.format
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: dfs-slate-ownership-projections-upcoming
+      description: DFS Slate Ownership Projections - Upcoming
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mlb-mlb-v3-projections.mlbv3projectionsdfsslateownershipprojectionsupcoming
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.

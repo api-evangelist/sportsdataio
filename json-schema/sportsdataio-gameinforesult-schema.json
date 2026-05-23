@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GameInfoResult",
+  "title": "GameInfoResult",
+  "properties": {
+    "GameID": {
+      "type": "integer",
+      "description": "The unique ID of this game"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The MLB season of the game"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)."
+    },
+    "Day": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The day of the game"
+    },
+    "DateTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game in US Eastern Time"
+    },
+    "Status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Indicates the game's status. Possible values include: Scheduled; InProgress; Final; Suspended; Delayed; Postponed; Canceled; Forfeit; NotNecessary"
+    },
+    "AwayTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique TeamID of the away team"
+    },
+    "HomeTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique TeamID of the home team"
+    },
+    "AwayTeamName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the away team"
+    },
+    "HomeTeamName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the home team"
+    },
+    "GlobalGameID": {
+      "type": "integer",
+      "description": "A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "GlobalAwayTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "GlobalHomeTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "PregameOdds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GameOddResult"
+      },
+      "description": "List of Pregame GameOdds from different sportsbooks with results"
+    },
+    "HomeTeamScore": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Score of the home team (updated after game ends to allow for resolving bets)"
+    },
+    "AwayTeamScore": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Score of the away team (updated after game ends to allow for resolving bets)"
+    },
+    "TotalScore": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The combined scores of the home and away team of the game tied to this event (post-game)"
+    },
+    "HomeRotationNumber": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Rotation number of home team for this game"
+    },
+    "AwayRotationNumber": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Rotation number of away team for this game"
+    },
+    "AlternateMarketPregameOdds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GameOddResult"
+      },
+      "description": "List of Alternate Market Game Odds from different sportsbooks with results"
+    },
+    "Inning": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The inning that the game is currently in, or the inning in which the game ended. Possible values include: NULL, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, etc)"
+    },
+    "InningHalf": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The inning half that the game is currently in; or the inning half in which the game ended (possible values: T; B; E: M: NULL)"
+    },
+    "IsClosed": {
+      "type": "boolean",
+      "description": "Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status"
+    },
+    "Innings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Inning"
+      },
+      "description": "The inning details associated with the game"
+    },
+    "LiveOdds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GameOddResult"
+      },
+      "description": "Shows a list of live odds from different sportsbooks with results"
+    }
+  }
+}

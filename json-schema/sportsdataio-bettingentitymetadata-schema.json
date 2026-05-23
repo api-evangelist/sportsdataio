@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BettingEntityMetadata",
+  "title": "BettingEntityMetadata",
+  "properties": {
+    "RecordId": {
+      "type": "integer",
+      "description": "The ID of the record; unique only within the same entity type (i.e. BettingMarketType IDs overlap with BettingBetType IDs)"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Denotes the name of the Type  (e.g. Betting Market Type, Betting Event Type, Betting Period Type)"
+    },
+    "Active": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether or not this betting entity is active"
+    }
+  }
+}

@@ -1,0 +1,520 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PlayStat",
+  "title": "PlayStat",
+  "properties": {
+    "PlayStatID": {
+      "type": "integer",
+      "description": "The unique ID of the PlayStat on the play"
+    },
+    "PlayID": {
+      "type": "integer",
+      "description": "The unique ID of the play in which the PlayStat occurred"
+    },
+    "Sequence": {
+      "type": "integer",
+      "description": "The order in which the play stat was registered to the Play."
+    },
+    "PlayerID": {
+      "type": "integer",
+      "description": "The unique PlayerID of the player whose stats are tied to the play. Note: this ID will stay with the player throughout their entire career"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The Name of the Player whose stats this represents."
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team the player belongs to"
+    },
+    "Opponent": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the opponent team of the player who recorded the stat"
+    },
+    "HomeOrAway": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Whether the Player was Home or Away (possible values: HOME, AWAY)"
+    },
+    "Direction": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The Direction this Play occurred (possible values: Left, Middle, Right)"
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The database generated timestamp of when this PlayStat was last updated (in US Eastern time)"
+    },
+    "Created": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The database generated timestamp of when this PlayStat was first created (in US Eastern Time)"
+    },
+    "PassingAttempts": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total passes thrown by the player on the play"
+    },
+    "PassingCompletions": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total passing completions by the player on the play"
+    },
+    "PassingYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total passing yards by the player on the play"
+    },
+    "PassingTouchdowns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total passing touchdowns thrown by the player on the play"
+    },
+    "PassingInterceptions": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total interceptions thrown by the player on the play"
+    },
+    "PassingSacks": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The total number of times the player was sacked on the play"
+    },
+    "PassingSackYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total yards lost by the player as a result of being sacked on the play"
+    },
+    "RushingAttempts": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Rushing attempts by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "RushingYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total rushing yards by the player on the play"
+    },
+    "RushingTouchdowns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total rushing touchdowns by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "ReceivingTargets": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total receiving targets by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "Receptions": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total receptions by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "ReceivingYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total receiving yards by the player on the play"
+    },
+    "ReceivingTouchdowns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total receiving touchdowns by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "Fumbles": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Times the player fumbled on the play"
+    },
+    "FumblesLost": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Fumbles lost by the player on the play"
+    },
+    "TwoPointConversionAttempts": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total two point conversion attempts by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "TwoPointConversionPasses": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total successful two point conversion passes by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "TwoPointConversionRuns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total two point conversion rushes by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "TwoPointConversionReceptions": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total successful two point conversion receptions by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "TwoPointConversionReturns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total successful two point conversion returns by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "SoloTackles": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total defensive solo (unassisted) tackles by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "AssistedTackles": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total defensive assisted tackles by the player on the play"
+    },
+    "TacklesForLoss": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Tackles for loss of yards by the player on the play. Note: These are tackles behind the line of scrimmage for loss of yards (including sacks) - also this field is expected to be 1 or 0"
+    },
+    "Sacks": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total Sacks by this player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "SackYards": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total sack yards by this player on the play"
+    },
+    "PassesDefended": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total passes defended by the player on the play"
+    },
+    "Safeties": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total defensive safeties by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "FumblesForced": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Fumbles forced by the player on the play"
+    },
+    "FumblesRecovered": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Defensive fumbles recovered by the player on the play"
+    },
+    "FumbleReturnYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Fumble recoveries returned yards by the player on the play"
+    },
+    "FumbleReturnTouchdowns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Fumble recoveries returned for touchdowns by the player on the play"
+    },
+    "Interceptions": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Interceptions by the player on the play"
+    },
+    "InterceptionReturnYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Interception return yards by the player on the play"
+    },
+    "InterceptionReturnTouchdowns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Interception return touchdowns by the player on the play"
+    },
+    "PuntReturns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total punts returned by the player on the play"
+    },
+    "PuntReturnYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total punt return yards by the player on the play"
+    },
+    "PuntReturnTouchdowns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Punt returns for touchdowns by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "KickReturns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Kicks returned by the player on the play"
+    },
+    "KickReturnYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Kicks return yards by the player on the play"
+    },
+    "KickReturnTouchdowns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Kicks returned for touchdowns by the player on the play"
+    },
+    "BlockedKicks": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Blocked kicks by the player on the play. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points"
+    },
+    "BlockedKickReturns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Blocked kick recovery returns by the player on the play"
+    },
+    "BlockedKickReturnYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Blocked kick recovery return yards by the player on the play"
+    },
+    "BlockedKickReturnTouchdowns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Blocked kick recovery return touchdowns by the player on the play"
+    },
+    "FieldGoalReturns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Field goal returns by the player on the play"
+    },
+    "FieldGoalReturnYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Field goal return yards by the player on the play. Note: This field excludes blocked field goals"
+    },
+    "FieldGoalReturnTouchdowns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Field goal return touchdowns by the player on the play. Note: This field excludes blocked field goals"
+    },
+    "Kickoffs": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total kickoffs by this player on the play"
+    },
+    "KickoffYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Gross kickoff yards by the player on the play"
+    },
+    "KickoffTouchbacks": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Kickoff touchbacks by the player on the play"
+    },
+    "Punts": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of punts by the player on the play. Note: this field is expected to be 1 or 0"
+    },
+    "PuntYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total gross punt yards by the player on the play"
+    },
+    "PuntTouchbacks": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total punt touchbacks by the player on the play. Note: this field is expected to be either 1 or 0"
+    },
+    "PuntsHadBlocked": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total punts by the player that were blocked on the play. Note: this field is expected to be 1 or 0"
+    },
+    "FieldGoalsAttempted": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Field goals attempted by the player on the play"
+    },
+    "FieldGoalsMade": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Field goals made by the player on the play"
+    },
+    "FieldGoalsYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Field goal yards attempted by the player on the play"
+    },
+    "FieldGoalsHadBlocked": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Field goals attempted by the player that were blocked on the play"
+    },
+    "ExtraPointsAttempted": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Extra points attempted by the player on the play"
+    },
+    "ExtraPointsMade": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Extra points made by the player on the play"
+    },
+    "ExtraPointsHadBlocked": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Extra point attempts by the player that were blocked on the play"
+    },
+    "Penalties": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Indicates the number of penalties against a player on a play. Note: This serves as a placeholder for data intended to be added in the future"
+    },
+    "PenaltyYards": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total penalty yards enforced against the player on the play"
+    }
+  }
+}

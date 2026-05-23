@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GameOddResult",
+  "title": "GameOddResult",
+  "properties": {
+    "GameOddID": {
+      "type": "integer",
+      "description": "Unique ID of this odd"
+    },
+    "Sportsbook": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Name of sportsbook"
+    },
+    "GameID": {
+      "type": "integer",
+      "description": "The unique ID of this game"
+    },
+    "Created": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time when these odds were first created in US Eastern Time"
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of when these odds were last updated (in US Eatern Time). If these are the latest odds for this game; and they have not been updated within the last few minutes; then it indicates that there were problems connecting to the sportsbook."
+    },
+    "HomeMoneyLine": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The sportsbook's moneyline for the home team"
+    },
+    "AwayMoneyLine": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The sportsbook's moneyline for the away team"
+    },
+    "HomePointSpread": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The sportsbook's run line for the home team"
+    },
+    "AwayPointSpread": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The sportsbook's run line for the away team"
+    },
+    "HomePointSpreadPayout": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The sportsbook's run line payout for the home team"
+    },
+    "AwayPointSpreadPayout": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The sportsbook's run line payout for the away team"
+    },
+    "OverUnder": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The total points line as given by the sportsbook"
+    },
+    "OverPayout": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The sportsbook's payout for the over"
+    },
+    "UnderPayout": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The sportsbook's payout for the under"
+    },
+    "SportsbookID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Unique ID of the sportsbook"
+    },
+    "SportsbookUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The URL for sportsbook event"
+    },
+    "OddType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The market type of the odd (ex: live; pregame; 1st inning; etc)"
+    },
+    "GameOddOutcomeResults": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GameOddOutcome"
+      },
+      "description": "List of outcomes showing results of betting markets that were bet on for the given game"
+    }
+  }
+}

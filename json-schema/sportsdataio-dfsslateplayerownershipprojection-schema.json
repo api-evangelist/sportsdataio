@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DfsSlatePlayerOwnershipProjection",
+  "title": "DfsSlatePlayerOwnershipProjection",
+  "properties": {
+    "SlateID": {
+      "type": "integer",
+      "description": "Unique ID of a Slate (assigned by SportsDataIO)."
+    },
+    "PlayerID": {
+      "type": "integer",
+      "description": "Unique ID of the Associated Player."
+    },
+    "ProjectedOwnershipPercentage": {
+      "type": "number",
+      "description": "Projected Ownership Percentage (0-100)"
+    },
+    "IsCaptain": {
+      "type": "boolean",
+      "description": "Indicates if this is the MVP/Captain slot for single game slates"
+    }
+  }
+}

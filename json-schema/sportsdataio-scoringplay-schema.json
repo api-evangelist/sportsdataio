@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ScoringPlay",
+  "title": "ScoringPlay",
+  "properties": {
+    "GameKey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this game corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)"
+    },
+    "ScoringPlayID": {
+      "type": "integer",
+      "description": "Unique ID of the scoring play"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The NFL season of the game"
+    },
+    "Week": {
+      "type": "integer",
+      "description": "The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks"
+    },
+    "AwayTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key} of the away team"
+    },
+    "HomeTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the home team"
+    },
+    "Date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game (in US Eastern Time)"
+    },
+    "Sequence": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The order in which the scoring play happened"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team"
+    },
+    "Quarter": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The quarter of the scoring play (1; 2; 3; 4; OT)"
+    },
+    "TimeRemaining": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The amount of time remaining in the current quarter when the scoring play occurred (e.g. 11:23; 5:34; NULL if game is not in progress or at halftime)"
+    },
+    "PlayDescription": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The detailed description of the play for display purposes"
+    },
+    "AwayScore": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The away team's score as a result of the scoring play (includes point after)"
+    },
+    "HomeScore": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The home team's score as a result of the scoring play (includes point after)"
+    },
+    "ScoreID": {
+      "type": "integer",
+      "description": "Unique ID of the score/game"
+    }
+  }
+}

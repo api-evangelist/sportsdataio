@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Pitch",
+  "title": "Pitch",
+  "properties": {
+    "PitchID": {
+      "type": "integer",
+      "description": "The unique ID of the pitch"
+    },
+    "PlayID": {
+      "type": "integer",
+      "description": "The unique ID of the play assigned by SportsDataIO"
+    },
+    "PitchNumberThisAtBat": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of pitches in the at bat in which the pitch occurred."
+    },
+    "PitcherID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the pitcher who threw the pitch"
+    },
+    "HitterID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique PlayerID of the hitter who represents the play"
+    },
+    "Outs": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of outs when the pitch occurred"
+    },
+    "BallsBeforePitch": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of balls the pitcher has thrown before the current pitch"
+    },
+    "StrikesBeforePitch": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of strikes the pitcher has thrown before the current pitch"
+    },
+    "Strike": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the pitch was a strike (true/false)"
+    },
+    "Ball": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the pitch was a ball (true/false)"
+    },
+    "Foul": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the pitch was hit foul (true/false)"
+    },
+    "Swinging": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the hitter struck out swinging (true/false)"
+    },
+    "Looking": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether or not the hitter struck out looking (returns true/false)"
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DfsSlatePlayer",
+  "title": "DfsSlatePlayer",
+  "properties": {
+    "SlatePlayerID": {
+      "type": "integer",
+      "description": "Unique ID of a SlatePlayer (assigned by SportsDataIO)"
+    },
+    "SlateID": {
+      "type": "integer",
+      "description": "The SlateID that this SlatePlayer refers to"
+    },
+    "SlateGameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The SlateGameID that this SlatePlayer refers to"
+    },
+    "PlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career"
+    },
+    "PlayerGameProjectionStatID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The SportsDataIO StatID that this SlatePlayer refers to. This points to data in the respective sports' projected player game stats feeds."
+    },
+    "OperatorPlayerID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Unique ID of the Player (assigned by the operator)"
+    },
+    "OperatorSlatePlayerID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Unique ID of the SlatePlayer (assigned by the operator)"
+    },
+    "OperatorPlayerName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's name (assigned by the operator)"
+    },
+    "OperatorPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's eligible positions for the contest (assigned by the operator)"
+    },
+    "OperatorSalary": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's salary for the contest (assigned by the operator)"
+    },
+    "OperatorRosterSlots": {
+      "type": "array",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "description": "The player's eligible positions to be played in the contest (assigned by the operator).  Note: this would include UTIL; etc plays for those that are eligible."
+    },
+    "RemovedByOperator": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether this player was removed/deleted by the operator"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team"
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The team's unique TeamID as assigned by SportsDataIO"
+    }
+  }
+}

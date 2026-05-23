@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Play",
+  "title": "Play",
+  "properties": {
+    "PlayID": {
+      "type": "integer",
+      "description": "The unique ID of the play assigned by SportsDataIO"
+    },
+    "InningID": {
+      "type": "integer",
+      "description": "The unique ID associated with this specific inning in which the play occurred"
+    },
+    "InningNumber": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The inning number in which the particular play occurred"
+    },
+    "InningHalf": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The inning half that the game is currently in; or the inning half in which the game ended (possible values: T; B; E: M: NULL)"
+    },
+    "PlayNumber": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The order in which plays occurred in a game"
+    },
+    "InningBatterNumber": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The batter number in the inning where the play occurred."
+    },
+    "AwayTeamRuns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Number of runs scored by the away team on this specific play"
+    },
+    "HomeTeamRuns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Number of runs scored by the home team on this specific play"
+    },
+    "HitterID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique PlayerID of the hitter involved with the play"
+    },
+    "PitcherID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the pitcher involved in the play"
+    },
+    "HitterTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The TeamID of the hitter's team."
+    },
+    "PitcherTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The ID of the pitcher's team"
+    },
+    "HitterName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The first and last name of the hitter involved in the play"
+    },
+    "PitcherName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The full name of the pitcher involved in the play"
+    },
+    "PitcherThrowHand": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The throwing hand of the pitcher in which the play occurred. (right or left)"
+    },
+    "HitterBatHand": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The batter's handedness for which the play occurred. (R; L; S)"
+    },
+    "HitterPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The\u00c2 position of the player in which the play occrred. (e.g. P;C;1B; SS; OF)"
+    },
+    "Outs": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of outs in which the play occurred"
+    },
+    "Balls": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of balls in the count in which the play occurred"
+    },
+    "Strikes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of strikes in the count in which the play occurred"
+    },
+    "PitchNumberThisAtBat": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of pitches in the at bat in which the play occurred"
+    },
+    "Result": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The result of the play. Possible values include: Batter's Interference, Bunted into Double Play, Catcher's Interference, Double, Error, Fielder's Choice, Fly into Double Play, Fly Out, Foul Out, Fouled into Double Play, Ground into Double Play, Ground Out, Hit by Pitch, Home Run, Infield Fly Out, Intentional Walk, Line into Double Play, Lineout, Pop Out, Popped into Double Play, Sacrifice, Sacrifice Fly, Single, Strikeout Bunting, Strikeout Looking, Strikeout Swinging, Triple, Triple Play, Walk, Stolen Base, Caught Stealing, Passed Ball, Wild Pitch, Pick Off, Balk, Error, Fielders Indifference"
+    },
+    "NumberOfOutsOnPlay": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of outs recorded on the play"
+    },
+    "RunsBattedIn": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of runs batted in on the play"
+    },
+    "AtBat": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether this plate appearance resulted in an at bat"
+    },
+    "Strikeout": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the play resulted with a strikeout (returns true/false)"
+    },
+    "Walk": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether the play resulted in a walk for the hitter (returns true/false)"
+    },
+    "Hit": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether this play resulted in a hit (true/false)"
+    },
+    "Out": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether this play resutled in an out (true/false)"
+    },
+    "Sacrifice": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the play resulted in a sacrifice (returns true/false)"
+    },
+    "Error": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether this play resulted in an error (true/false)"
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The database generated timestamp of when this record was last updated (in US Eastern Time)"
+    },
+    "Description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The description of the play for display purposes"
+    },
+    "Pitches": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Pitch"
+      },
+      "description": "The details of the pitches associated with this play"
+    },
+    "Runner1ID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the player on first as a result of the play (post-play)"
+    },
+    "Runner2ID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the player on second as a result of the play (post-play)"
+    },
+    "Runner3ID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the player on third as a result of the play (post-play)"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CompetitionDetail",
+  "title": "CompetitionDetail",
+  "properties": {
+    "CurrentSeason": {
+      "$ref": "#/components/schemas/Season",
+      "description": "The current active season for this competition/league"
+    },
+    "Teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamDetail"
+      },
+      "description": "The list of active teams associated with this competition"
+    },
+    "Games": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Game"
+      },
+      "description": "The complete schedule for the current season of this competition/league"
+    },
+    "CompetitionId": {
+      "type": "integer",
+      "description": "The unique ID of the competition/league"
+    },
+    "AreaId": {
+      "type": "integer",
+      "description": "The unique ID of the area where this competition/league is played"
+    },
+    "AreaName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The display name of the area where this competition/league is played"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The display name of the competition/league"
+    },
+    "Gender": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The gender of the players on the team Possible Values: Male; Female"
+    },
+    "Type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The type of this competition/league Possible values: Club; International"
+    },
+    "Format": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The format of the competition/league.  Possible values: Domestic League; International Cup"
+    },
+    "Seasons": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Season"
+      },
+      "description": "The seasons associated with this competition/league"
+    },
+    "Key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The unique string key of the competition/league"
+    }
+  }
+}

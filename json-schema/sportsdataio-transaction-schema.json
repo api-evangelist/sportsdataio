@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Transaction",
+  "title": "Transaction",
+  "properties": {
+    "PlayerID": {
+      "type": "integer",
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career."
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's full name"
+    },
+    "FormerTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "TeamID of player's former team"
+    },
+    "FormerTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's former team in abbreviated format [Key] (e.g. SD; PHI; LAD; ATL etc.)"
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The team's unique TeamID as assigned by SportsDataIO"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team"
+    },
+    "Type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Type of Transaction. Released, Waived, Signed, Promoted, Elevated, Demoted, and Traded."
+    },
+    "Date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date that this transaction took place"
+    },
+    "Note": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A summary of the transaction (e.g. \"Harris has signed with the Diamondbacks.\")"
+    },
+    "Created": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time this transaction was created in US Eastern Time"
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the last update made to this transaction (in US Eastern Time)"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Lineup",
+  "title": "Lineup",
+  "properties": {
+    "PlayerID": {
+      "type": "integer",
+      "description": "The player's unique PlayerID as assigned by SportsDataIO Note: this ID will stay with the player throughout their MLB career"
+    },
+    "TeamID": {
+      "type": "integer",
+      "description": "The team's unique TeamID as assigned by SportsDataIO"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team"
+    },
+    "FirstName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's first name"
+    },
+    "LastName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's last name"
+    },
+    "BattingOrder": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Where the player batted in the lineup for the game (1;2;3; etc.)"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's position in the starting lineup (if started); otherwise the position he substituted for"
+    },
+    "Starting": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates if this player is starting. Note: started = 1 and non starting= 0"
+    },
+    "Confirmed": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates if batting order has been confirmed (true/false)"
+    }
+  }
+}

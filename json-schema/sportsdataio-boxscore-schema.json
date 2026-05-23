@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BoxScore",
+  "title": "BoxScore",
+  "properties": {
+    "Game": {
+      "$ref": "#/components/schemas/Game",
+      "description": "The details of the game associated with this box score"
+    },
+    "Innings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Inning"
+      },
+      "description": "The inning details associated with the box score"
+    },
+    "TeamGames": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamGame"
+      },
+      "description": "The team game stats associated with this box score"
+    },
+    "PlayerGames": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PlayerGame"
+      },
+      "description": "The player game stats associated with this box score"
+    }
+  }
+}

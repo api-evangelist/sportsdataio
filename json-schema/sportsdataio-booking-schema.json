@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Booking",
+  "title": "Booking",
+  "properties": {
+    "BookingId": {
+      "type": "integer",
+      "description": "The unique ID of the booking"
+    },
+    "GameId": {
+      "type": "integer",
+      "description": "The unique ID of the game tied to this booking"
+    },
+    "Type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The type of booking. Possible values: Yellow Card, Red Card, Yellow Red Card"
+    },
+    "TeamId": {
+      "type": "integer",
+      "description": "The unique ID of the team associated with this booking"
+    },
+    "PlayerId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The full name of the player who was booked"
+    },
+    "GameMinute": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The minute in the game in which the booking occurred"
+    },
+    "GameMinuteExtra": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The extra minute in the game in which the booking occurred"
+    }
+  }
+}

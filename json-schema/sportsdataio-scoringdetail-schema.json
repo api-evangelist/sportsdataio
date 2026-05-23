@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ScoringDetail",
+  "title": "ScoringDetail",
+  "properties": {
+    "GameKey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this game corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)"
+    },
+    "PlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique PlayerID of the player as assigned by SportsDataIO tied to this scoring detail. Note: this ID will stay with the player throughout their entire career"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The season during which the score happened"
+    },
+    "Week": {
+      "type": "integer",
+      "description": "The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks"
+    },
+    "ScoringType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The type of scoring play (e.g. BlockedFieldGoalReturnTouchdown, BlockedPuntReturnTouchdown, FieldGoalMade, FieldGoalReturnTouchdown, FumbleReturnTouchdown, InterceptionReturnTouchdown, KickoffReturnTouchdown, PassingTouchdown, PuntReturnTouchdown, ReceivingTouchdown, RushingTouchdown, Safety)"
+    },
+    "Length": {
+      "type": "integer",
+      "description": "The length in yards of the score"
+    },
+    "ScoringDetailID": {
+      "type": "integer",
+      "description": "Unique ID of this scoring detail"
+    },
+    "PlayerGameID": {
+      "type": "integer",
+      "description": "Unique ID of the PlayerGame record tied to this scoring detail"
+    },
+    "ScoreID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Unique ID of the score/game"
+    },
+    "ScoringPlayID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Unique ID of the scoring play"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TeamLine",
+  "title": "TeamLine",
+  "properties": {
+    "TeamID": {
+      "type": "integer",
+      "description": "The unique ID of the team"
+    },
+    "Key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "\"The abbreviation [Key] of the team associated with this market (Ex. BOS, EDM, LAK)\""
+    },
+    "FullName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The team's full name (ex. Minnesota Wild; New York Islanders)"
+    },
+    "EvenStrengthLines": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PlayerLine"
+      },
+      "description": "The even strength lines for this team"
+    },
+    "PowerPlayLines": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PlayerLine"
+      },
+      "description": "The power play lines for a given team"
+    },
+    "ShortHandedLines": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PlayerLine"
+      },
+      "description": "The short-handed/penalty-kill lines for this team"
+    }
+  }
+}

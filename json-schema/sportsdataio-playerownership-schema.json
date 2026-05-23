@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PlayerOwnership",
+  "title": "PlayerOwnership",
+  "properties": {
+    "PlayerID": {
+      "type": "integer",
+      "description": "The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The NFL season of the ownership info"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)."
+    },
+    "Week": {
+      "type": "integer",
+      "description": "The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's full name"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's fantasy football position. Possible values: QB; RB; WR; TE; DL; LB; DB; K; P; OL"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team that the player is on"
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL"
+    },
+    "OwnershipPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Player's ownership percentage on NFL.com fantasy leagues during this week"
+    },
+    "DeltaOwnershipPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Player's change in ownership percentage on NFL.com fantasy leagues during this week"
+    },
+    "StartPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Player's starting lineup percentage on NFL.com fantasy leagues during this week"
+    },
+    "DeltaStartPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Player's change in starting lineup percentage on NFL.com fantasy leagues during this week"
+    }
+  }
+}

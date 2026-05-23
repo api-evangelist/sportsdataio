@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CanceledMembership",
+  "title": "CanceledMembership",
+  "properties": {
+    "CanceledMembershipId": {
+      "type": "integer",
+      "description": "The unique ID of the canceled membership"
+    },
+    "MembershipId": {
+      "type": "integer",
+      "description": "The unique ID of the membership which is being canceled; should be used to find memberships which may be safely deleted."
+    },
+    "TeamId": {
+      "type": "integer",
+      "description": "The unique ID of the team associated with this canceled membership"
+    },
+    "PlayerID": {
+      "type": "integer",
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career"
+    },
+    "Created": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time when this canceled membership was created"
+    }
+  }
+}

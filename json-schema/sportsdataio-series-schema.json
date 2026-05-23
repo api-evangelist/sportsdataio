@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Series",
+  "title": "Series",
+  "properties": {
+    "HomeTeamWins": {
+      "type": "integer",
+      "description": "Number of wins by the home team on in the series. Note: this is for postseason series only."
+    },
+    "AwayTeamWins": {
+      "type": "integer",
+      "description": "Number of wins by the away team in the series. Note: This is for postseason series only."
+    },
+    "GameNumber": {
+      "type": "integer",
+      "description": "Game number in series. Note: this applies to postseason series only."
+    },
+    "MaxLength": {
+      "type": "integer",
+      "description": "Maximum number of games in the series. Note: this is for postseason series only."
+    }
+  }
+}

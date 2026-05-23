@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Bye",
+  "title": "Bye",
+  "properties": {
+    "Season": {
+      "type": "integer",
+      "description": "The NFL season during which this bye week occurs."
+    },
+    "Week": {
+      "type": "integer",
+      "description": "The NFL week during this bye week (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team who is on a bye"
+    }
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FantasyGame",
+  "title": "FantasyGame",
+  "properties": {
+    "GameID": {
+      "type": "integer",
+      "description": "The unique ID of this game"
+    },
+    "PlayerID": {
+      "type": "integer",
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career"
+    },
+    "SeasonType": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar)."
+    },
+    "Season": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The MLB season of the game"
+    },
+    "Day": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date of the game"
+    },
+    "DateTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game in US Eastern Time"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team"
+    },
+    "Opponent": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name [Key] of the player's opponent in the game"
+    },
+    "HomeOrAway": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Whether the team is home or away"
+    },
+    "Jersey": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's jersey number."
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's full name"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's position associated with the given game or season. Possible values: 1B, 2B, 3B, C, CF, DH, IF, LF, OF, P, PH, PR, RF, RP, SP, SS"
+    },
+    "PositionCategory": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's position category. Possible values: DH; IF; OF; P; PH; PR"
+    },
+    "Games": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of games played by the player. Note: for game feeds this will always = 1"
+    },
+    "Started": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Whether the player started in the game. Note: started = 1 and not starting = 0"
+    },
+    "FantasyPoints": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total fantasy points by the player during the game"
+    },
+    "FantasyPointsBatting": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total batting fantasy points by the player in the game"
+    },
+    "FantasyPointsPitching": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total pitching fantasy points by the player in the game"
+    },
+    "IsGameOver": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether or not the game is over (returns ture/false)"
+    },
+    "FantasyPointsFanDuel": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total FanDuel fantasy points by the player in the game"
+    },
+    "FantasyPointsYahoo": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total Yahoo fantasy points by the player in the game"
+    },
+    "FantasyPointsDraftKings": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total DraftKings fantasy points by the player in the game"
+    },
+    "FanDuelPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's eligible position in FanDuel's daily fantasy sports platform."
+    },
+    "DraftKingsPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's eligible position in DraftKings' daily fantasy sports platform."
+    },
+    "YahooPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's eligible position in Yahoo's daily fantasy sports platform"
+    },
+    "OpponentRank": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The ranking of the player's opponent with regards to fantasy points allowed"
+    },
+    "OppositionPositionRank": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The ranking of the player's opponent by position with regards to fantasy points allowed"
+    },
+    "GlobalGameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the late update made to this record (in US Eastern Time)"
+    }
+  }
+}

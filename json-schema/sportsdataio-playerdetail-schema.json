@@ -1,0 +1,524 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PlayerDetail",
+  "title": "PlayerDetail",
+  "properties": {
+    "PlayerSeason": {
+      "$ref": "#/components/schemas/PlayerSeason",
+      "description": "This field is expected to be NULL"
+    },
+    "LatestNews": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/News"
+      },
+      "description": "The latest news associated with this player"
+    },
+    "PlayerID": {
+      "type": "integer",
+      "description": "The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career."
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team that the player is on. Note: If this player is a free agent; this field is NULL."
+    },
+    "Number": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Player's jersey number"
+    },
+    "FirstName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's first name"
+    },
+    "LastName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's last name"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The primary position of the player. Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR."
+    },
+    "Status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's current status.  Possible values include Active, Inactive, Injured Reserve, Physically Unable to Perform, Practice Squad, Suspended, Non Football Injury, Non-Football Illness, Commissioner Exempt List, Exempt/Left Team, Paternity, Bereavement, Reserve/COVID-19, and Voluntary Opt Out. Inactive indicates that this player is a free agent.  Active indicates that this player is on his team's active roster."
+    },
+    "Height": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Height in feet, inches"
+    },
+    "Weight": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Player's weight in pounds"
+    },
+    "BirthDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's date of birth"
+    },
+    "College": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "College team the player played for prior to turning professional"
+    },
+    "Experience": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Number of years experience.  Note: This number is incremented every year; in the Spring; when we load the rookies following the NFL Draft. Rookies will have Experience = 0; while second year players will have Experience = 2."
+    },
+    "FantasyPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's fantasy football position. Possible values: QB; RB; WR; TE; DL; LB; DB; K; P; OL."
+    },
+    "Active": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether or not the player is on the active roster of the NFL team (True/False)"
+    },
+    "PositionCategory": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The category of the player's position (OFF; DEF; ST)"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's full name"
+    },
+    "Age": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's current age"
+    },
+    "ExperienceString": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's experience converted to a string"
+    },
+    "BirthDateString": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's date of birth converted to a string"
+    },
+    "PhotoUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "This field is deprecated. Note: Headshots are now delivered through IMAGN. Please see our Headshots products for further information."
+    },
+    "ByeWeek": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The week the player is on bye for the upcoming or current season"
+    },
+    "UpcomingGameOpponent": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The opposing team the player is playing against in the upcoming week"
+    },
+    "UpcomingGameWeek": {
+      "type": "integer",
+      "description": "The week of the player's upcoming game (this will be the upcoming week unless the player is on Bye that week, which would bump it to the next week)"
+    },
+    "ShortName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The first initial and last name of the player (J. Doe)"
+    },
+    "AverageDraftPosition": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The average draft position of the player in re-draft leagues"
+    },
+    "DepthPositionCategory": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The category (Offense, Defense or Special Teams) of the players DepthPositionCategory (OFF, DEF, ST)"
+    },
+    "DepthPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The position this player is listed at on his team's depth chart (e.g. QB; LWR; RDE; LILB, K)"
+    },
+    "DepthOrder": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The order this player is at his position (1 = Starter; 2 = Backup; 3 = 3rd String; 4 = 4th String; 5 = 5th String)"
+    },
+    "DepthDisplayOrder": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The display order of the positions (for display purposes)"
+    },
+    "CurrentTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The team who currently employs this player. This value is null when this player is unemployed (for example a free agent or retired player)."
+    },
+    "CollegeDraftTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The team who drafted this player. Note: If this player was an Undrafted Free Agent; then it's the team who first signed him as a rookie."
+    },
+    "CollegeDraftYear": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The year this player entered the NFL as a rookie"
+    },
+    "CollegeDraftRound": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The round this player was drafted in"
+    },
+    "CollegeDraftPick": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The overall pick in the draft this player was selected"
+    },
+    "IsUndraftedFreeAgent": {
+      "type": "boolean",
+      "description": "Whether this player was an undrafted free agent. This value is True if the player was not drafted."
+    },
+    "HeightFeet": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The feet component of a player's height (if player is 6'3\", then this value would be 6)"
+    },
+    "HeightInches": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The inches component of a player's height (if player is 6'3\", then this value would be 3)"
+    },
+    "UpcomingOpponentRank": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's upcoming opponent's rank in fantasy points allowed"
+    },
+    "UpcomingOpponentPositionRank": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's upcoming opponent's rank in fantasy points allowed to his fantasy position"
+    },
+    "CurrentStatus": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's current status.  Possible values include Active, Inactive, Injured Reserve, Physically Unable to Perform, Practice Squad, Suspended, Non Football Injury, Non-Football Illness, Commissioner Exempt List, Exempt/Left Team, Paternity, Bereavement, Reserve/COVID-19, and Voluntary Opt Out. Inactive indicates that this player is a free agent.  Active indicates that this player is on his team's active roster.  Can also include injury status."
+    },
+    "UpcomingSalary": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's salary for the upcoming week in accordance with a $50,000 salary cap. This is used for daily fantasy sports salary cap contests. Salaries represent those published by DraftKings. When DraftKings doesn't publish a salary for a given game; the most recent DraftKings salary is used. We recommend using our new DFS endpoints instead."
+    },
+    "FantasyAlarmPlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's cross reference PlayerID to the FantasyAlarm news feed"
+    },
+    "SportRadarPlayerID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's cross reference PlayerID to the SportRadar API"
+    },
+    "RotoworldPlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's cross reference PlayerID to the Rotoworld news feed"
+    },
+    "RotoWirePlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's cross reference PlayerID to the RotoWire news feed"
+    },
+    "StatsPlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's cross reference PlayerID to the STATS data feeds"
+    },
+    "SportsDirectPlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's cross reference PlayerID to the SportsDirect data feeds, now part of Nielsen GraceNote"
+    },
+    "XmlTeamPlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's unique PlayerID for cross reference use with XML Team data feeds"
+    },
+    "FanDuelPlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's cross reference PlayerID to FanDuel"
+    },
+    "DraftKingsPlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's cross reference PlayerID to DraftKings"
+    },
+    "YahooPlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's unique PlayerID for cross reference use with Yahoo"
+    },
+    "InjuryStatus": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's current injury status, in the form of likelihood that player plays (Probable, Questionable, Doubtful, Out)"
+    },
+    "InjuryBodyPart": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The body part that is injured for the player (Knee; Groin; Calf; Hamstring; etc.)"
+    },
+    "InjuryStartDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The day that the player's injury started or was first discovered"
+    },
+    "InjuryNotes": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A brief description of the player's injury and expected availability"
+    },
+    "FanDuelName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's full name in FanDuel's daily fantasy sports platform"
+    },
+    "DraftKingsName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's full name in DraftKings' daily fantasy sports platform"
+    },
+    "YahooName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's name in Yahoo's daily fantasy sports platform"
+    },
+    "FantasyPositionDepthOrder": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The order this player is at his team's FantasyPosition"
+    },
+    "InjuryPractice": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "InjuryPracticeDescription": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "DeclaredInactive": {
+      "type": "boolean",
+      "description": "Whether the player has been declared inactive. This value is updated in the hours leading up to game start time; as teams announce their inactive players.  Note: This is only updated for offensive skill position players (QB; RB; WR; TE)."
+    },
+    "UpcomingFanDuelSalary": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's FanDuel salary for the upcoming week. Note: We recommend using our new DFS endpoints instead."
+    },
+    "UpcomingDraftKingsSalary": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's DraftKings salary for the upcoming week. Note: We recommend using our new DFS endpoints instead."
+    },
+    "UpcomingYahooSalary": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's Yahoo salary for the upcoming week. We recommend using our new DFS endpoints instead."
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL"
+    },
+    "GlobalTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "FantasyDraftPlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's cross reference PlayerID to FantasyDraft"
+    },
+    "FantasyDraftName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's full name in FantasyDraft's daily fantasy sports platform"
+    },
+    "UsaTodayPlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's cross reference PlayerID to USA Today headshot data feeds"
+    },
+    "UsaTodayHeadshotUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's headshot URL as provided by USA Today. License from USA Today is required."
+    },
+    "UsaTodayHeadshotNoBackgroundUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's transparent background headshot URL as provided by USA Today. License from USA Today is required."
+    },
+    "UsaTodayHeadshotUpdated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The last updated date of the player's headshot as provided by USA Today. License from USA Today is required."
+    },
+    "UsaTodayHeadshotNoBackgroundUpdated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The last updated date of the player's transparent background headshot as provided by USA Today. License from USA Today is required."
+    }
+  }
+}

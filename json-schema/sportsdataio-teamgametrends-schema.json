@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TeamGameTrends",
+  "title": "TeamGameTrends",
+  "properties": {
+    "Scope": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The type of trend (e.g. Last 5 games; Last 10 games; Last 5 home games; etc.)"
+    },
+    "TeamID": {
+      "type": "integer",
+      "description": "The team's unique TeamID as assigned by SportsDataIO"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team"
+    },
+    "OpponentID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The TeamID of the opposing team related to the scop of the search"
+    },
+    "Opponent": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name [Key] of the team's opponent related to the scop of the search"
+    },
+    "Wins": {
+      "type": "integer",
+      "description": "The total number of wins by the team relating to the scope"
+    },
+    "Losses": {
+      "type": "integer",
+      "description": "Team losses relating to the scope"
+    },
+    "Ties": {
+      "type": "integer",
+      "description": "Ties by a team relating to the scope of the search"
+    },
+    "WinsAgainstTheSpread": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of wins against the run line relating to the scope"
+    },
+    "LossesAgainstTheSpread": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Team losses against the run line relating to the scope"
+    },
+    "PushesAgainstTheSpread": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The amount of times a given team's final score of their game has pushed the run line (a push is neither a win nor a loss)"
+    },
+    "Overs": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Amount of times the total score goes over the OverUnder"
+    },
+    "Unders": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Amount of times the total score goes under the OverUnder"
+    },
+    "OverUnderPushes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The amount of times a given team's final score of their game has pushed the point total (a push is neither a win nor a loss)"
+    },
+    "AverageScore": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Average score of team"
+    },
+    "AverageOpponentScore": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Average score of the opposing team"
+    }
+  }
+}

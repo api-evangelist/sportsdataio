@@ -1,0 +1,440 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PlayerGameBasic",
+  "title": "PlayerGameBasic",
+  "properties": {
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The timestamp of when the record was last updated (in US Eastern Time)"
+    },
+    "UpdatedUtc": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The timestamp of when the record was last updated (in UTC Time)"
+    },
+    "Games": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of games played by the player in the game"
+    },
+    "Minutes": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total minutes played by the player in the game"
+    },
+    "Goals": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total goals scored by the player in the game"
+    },
+    "Assists": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total assists scored by the player in the game"
+    },
+    "Shots": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total shots attempted by the player in the game"
+    },
+    "ShotsOnGoal": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total shots on goal attempted by the player in the game"
+    },
+    "YellowCards": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total yellow cards against the player in the game"
+    },
+    "RedCards": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total red cards against by the player in the game"
+    },
+    "YellowRedCards": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total double yellow cards against the player in the game. Note: A double yellow card results in a red card"
+    },
+    "Crosses": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total crosses by the player in the game. Note: a cross means a pass from a wide area of the field towards the center of the field near the opponent's goal."
+    },
+    "TacklesWon": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total tackles won by the player in the game"
+    },
+    "Interceptions": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total interceptions made by the player in the game"
+    },
+    "OwnGoals": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total goals scored against own team (accidentally)"
+    },
+    "Fouls": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total fouls made by the player in the game"
+    },
+    "Fouled": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total times the player was fouled in the game"
+    },
+    "Offsides": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total offsides against by the player in the game"
+    },
+    "Passes": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total passes attempted by the player in the game"
+    },
+    "PassesCompleted": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total passes completed by the player in the game"
+    },
+    "LastManTackle": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total tackles made by the player when there is no one else available to stop the opponent from scoring in the game"
+    },
+    "CornersWon": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total corner kicks awarded to the player in the game"
+    },
+    "BlockedShots": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total shots blocked by the player in the game"
+    },
+    "Touches": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total times the player touched the ball in the game"
+    },
+    "DefenderCleanSheets": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total defender clean sheets by the player in the game. Note: clean sheets are awarded when zero goals were allowed to the opponent and the player played at least 60 minutes)."
+    },
+    "GoalkeeperSaves": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total saves made by goalkeeper in the game"
+    },
+    "GoalkeeperGoalsAgainst": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total goals allowed by goalkeeper in the game"
+    },
+    "GoalkeeperSingleGoalAgainst": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total games where the goalkeeper allowed exactly one goal in the game"
+    },
+    "GoalkeeperCleanSheets": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total number of clean sheets by the goalkeeper in the game. Note: Awarded when zero goals were allowed to the opponent and the player played at least 60 minutes"
+    },
+    "GoalkeeperWins": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total wins by the goalkeeper in the game"
+    },
+    "PenaltyKickGoals": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total penalty kick goals scored by the player in the game"
+    },
+    "PenaltyKickMisses": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total penalty kicks missed by the player in the game"
+    },
+    "PenaltyKickSaves": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total penalty kicks saved by the player in the game"
+    },
+    "PenaltiesWon": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total penalties won by the player in the game"
+    },
+    "PenaltiesConceded": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total penalties conceded by the player in the game"
+    },
+    "Score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total goals scored by the player's team in the game"
+    },
+    "OpponentScore": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total goals scored against own team by the player in the game"
+    },
+    "Tackles": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total tackles by the player in the game"
+    },
+    "GameId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the game"
+    },
+    "OpponentId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team's opponent"
+    },
+    "Opponent": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the opponent team"
+    },
+    "Day": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The day of the game"
+    },
+    "DateTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game (in UTC)"
+    },
+    "HomeOrAway": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Whether the team is the home team or away team"
+    },
+    "IsGameOver": {
+      "type": "boolean",
+      "description": "Whether the game is over (true) or not (false)"
+    },
+    "GlobalGameId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "GlobalOpponentId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "StatId": {
+      "type": "integer",
+      "description": "The unique ID of the stat associated with this player"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)."
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The soccer regular season for which these totals apply"
+    },
+    "RoundId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the round that this player is associated with"
+    },
+    "TeamId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team"
+    },
+    "PlayerId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's full name"
+    },
+    "ShortName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The short name of the player"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the player's team"
+    },
+    "PositionCategory": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's position category"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The position of the player. Possible values include: A (Attacker); M (Midfielder); D (Defender); GK (Goalkeeper)"
+    },
+    "Jersey": {
+      "type": "integer",
+      "description": "The player's jersey number"
+    },
+    "Started": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The total number of games the player started"
+    },
+    "Captain": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the player is a captain (true/false)"
+    },
+    "Suspension": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the player is suspended or not (true/false)"
+    },
+    "SuspensionReason": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The reason given for the player's suspension"
+    },
+    "GlobalTeamId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues."
+    }
+  }
+}

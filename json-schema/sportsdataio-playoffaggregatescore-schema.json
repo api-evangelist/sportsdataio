@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PlayoffAggregateScore",
+  "title": "PlayoffAggregateScore",
+  "properties": {
+    "TeamA_Id": {
+      "type": "integer",
+      "description": "The TeamID of Team A. Note: Team A is determined by the home team in the first leg, and remains set through the life of the record"
+    },
+    "TeamA_AggregateScore": {
+      "type": "integer",
+      "description": "The score, on aggregate, of Team A in the matchup. Note: Team A is determined by the home team in the first leg, and remains set through the life of the record"
+    },
+    "TeamB_Id": {
+      "type": "integer",
+      "description": "The TeamID of Team B. Note: Team B is determined by the away team in the first leg, and remains set through the life of the record"
+    },
+    "TeamB_AggregateScore": {
+      "type": "integer",
+      "description": "The score, on aggregate, of Team B in the matchup. Note: Team B is determined by the away team in the first leg, and remains set through the life of the record"
+    },
+    "WinningTeamId": {
+      "type": "integer",
+      "description": "The ID of the team that wins the home-and-home matchup"
+    },
+    "Created": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Date and time the record was created (in US Eastern Time)"
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The timestamp of when the record was last updated (in US Eastern Time)"
+    }
+  }
+}

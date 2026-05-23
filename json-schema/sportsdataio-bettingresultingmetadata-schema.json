@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BettingResultingMetadata",
+  "title": "BettingResultingMetadata",
+  "properties": {
+    "BettingMarketTypeId": {
+      "type": "integer",
+      "description": "The unique ID associated with the market type of the betting market"
+    },
+    "BettingBetTypeId": {
+      "type": "integer",
+      "description": "The ID associated with the name of the bet type within a market"
+    },
+    "BettingPeriodTypeId": {
+      "type": "integer",
+      "description": "The BettingPeriodTypeID of this market"
+    }
+  }
+}

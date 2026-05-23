@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DepthChart",
+  "title": "DepthChart",
+  "properties": {
+    "DepthChartID": {
+      "type": "integer",
+      "description": "The unique ID of the Depth Chard record"
+    },
+    "TeamID": {
+      "type": "integer",
+      "description": "The team's unique TeamID as assigned by SportsDataIO"
+    },
+    "PlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's full name"
+    },
+    "PositionCategory": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's position category. Possible values: DH; IF; OF; P; PH; PR"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's position in the depth chart. Note: a player can be listed in multiple positions of the depth chart"
+    },
+    "DepthOrder": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The Depth Chart order of the player and where they are placed in the depth chart"
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the last update made to this depth chart (in US Eastern Time)"
+    }
+  }
+}

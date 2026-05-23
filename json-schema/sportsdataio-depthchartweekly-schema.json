@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DepthChartWeekly",
+  "title": "DepthChartWeekly",
+  "properties": {
+    "DepthChartWeeklyID": {
+      "type": "integer",
+      "description": "Unique ID of Depth Chart Weekly Record"
+    },
+    "TeamID": {
+      "type": "integer",
+      "description": "Unique ID of Team"
+    },
+    "PlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Unique ID of Player"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player Name"
+    },
+    "PositionCategory": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player Position Category (OFF, DEF, ST)"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player Position"
+    },
+    "DepthOrder": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Depth Chart Order"
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Date and Time Last Updated"
+    }
+  }
+}

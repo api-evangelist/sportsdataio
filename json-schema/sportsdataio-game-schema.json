@@ -1,0 +1,551 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Game",
+  "title": "Game",
+  "properties": {
+    "GameID": {
+      "type": "integer",
+      "description": "The unique ID of this game"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The MLB season of the game"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season stage the game belongs to, e.g. Regular season, Post-season. For a description of possible values and how they work, see <a href=\"https://support.sportsdata.io/hc/en-us/articles/15196612633623-Process-Guide-Season-Types-and-Parameters\" target=\"_blank\">here."
+    },
+    "Status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The status of the game. For a description of possible values, see <a href=\"https://support.sportsdata.io/hc/en-us/articles/14287629964567-Process-Guide-Game-Status\" target=\"_blank\">here.</a> For how suspended and postponed games are handled specifically, see <a href=\"https://support.sportsdata.io/hc/en-us/articles/4404845580567-Postponed-and-Rescheduled-Games\" target=\"_blank\">here</a>."
+    },
+    "Day": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date of the game"
+    },
+    "DateTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game (in US Eastern Time)"
+    },
+    "AwayTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the away team"
+    },
+    "HomeTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the home team"
+    },
+    "AwayTeamID": {
+      "type": "integer",
+      "description": "The unique TeamID of the away team"
+    },
+    "HomeTeamID": {
+      "type": "integer",
+      "description": "The unique ID of the home team"
+    },
+    "RescheduledGameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling."
+    },
+    "StadiumID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the stadium"
+    },
+    "Channel": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The television station broadcasting the game"
+    },
+    "Inning": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The inning that the game is currently in, or the inning in which the game ended. Possible values include: NULL, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, etc)"
+    },
+    "InningHalf": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The inning half that the game is currently in; or the inning half in which the game ended (possible values: T; B; E: M: NULL)"
+    },
+    "AwayTeamRuns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Number of runs scored by the away team in the game"
+    },
+    "HomeTeamRuns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Number of runs scored by the home team in the game"
+    },
+    "AwayTeamHits": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total hits by the away team in the game"
+    },
+    "HomeTeamHits": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total hits by the home team in the game"
+    },
+    "AwayTeamErrors": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total errors committed by the away team in the game"
+    },
+    "HomeTeamErrors": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total errors committed by the home team in the game"
+    },
+    "WinningPitcherID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the pitcher who recorded the win in the game"
+    },
+    "LosingPitcherID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the losing pitcher in the game"
+    },
+    "SavingPitcherID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the pitcher who recorded the save in the game"
+    },
+    "Attendance": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of people who attended the game"
+    },
+    "AwayTeamProbablePitcherID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the away team's probable pitcher"
+    },
+    "HomeTeamProbablePitcherID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the home team's probable pitcher"
+    },
+    "Outs": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of outs recorded in the current inning of the game"
+    },
+    "Balls": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of balls thrown for the current at bat"
+    },
+    "Strikes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of strikes thrown for the current at bat"
+    },
+    "CurrentPitcherID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the current pitcher"
+    },
+    "CurrentHitterID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the current hitter"
+    },
+    "AwayTeamStartingPitcherID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the away team's starting pitcher"
+    },
+    "HomeTeamStartingPitcherID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the home team starting pitcher in the game"
+    },
+    "CurrentPitchingTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The TeamID of the current pitcher's team"
+    },
+    "CurrentHittingTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The TeamID of the current hitter's team"
+    },
+    "PointSpread": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The consensus Run Line at game start from the perspective of the HomeTeam (in the Game table, the PointSpread field's negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored. Note that this rule does not hold in betting-related tables, where the run line is contingent on the bet line). Note: In MLB, Point Spread may also be referred to as Run Line"
+    },
+    "OverUnder": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The oddsmaker total points line at game start"
+    },
+    "AwayTeamMoneyLine": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Moneyline from the perspective of the away team"
+    },
+    "HomeTeamMoneyLine": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Moneyline from the perspective of the home team"
+    },
+    "ForecastTempLow": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The forecasted low temperature on game day at this venue (in Fahrenheit)"
+    },
+    "ForecastTempHigh": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The forecasted high temperature on game day at this venue (in Fahrenheit)"
+    },
+    "ForecastDescription": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The description of the weather forecast. Posible values include: Broken Clouds, Clear Sky, Few Clouds, Heavy Intensity Rain, Light Rain, Moderate Rain, Mostly Cloudy, Mostly Sunny, Overcast Clouds, Partly Cloudy, Scattered Clouds, Showers, Thunderstorms"
+    },
+    "ForecastWindChill": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The forecasted wind chill on game day at this venue."
+    },
+    "ForecastWindSpeed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The forecasted wind speed on game day at this venue."
+    },
+    "ForecastWindDirection": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The wind direction isn't baseball specific.  It refers to the direction that the wind is coming from.  90 would be wind coming from the east.  180 is wind from the south.  270 is a wind from the west ... and so on."
+    },
+    "RescheduledFromGameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as \"make up\" games."
+    },
+    "RunnerOnFirst": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates if there is a runner on first base"
+    },
+    "RunnerOnSecond": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates if there is a runner on second base"
+    },
+    "RunnerOnThird": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates if there is a runner on third base"
+    },
+    "AwayTeamStartingPitcher": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The first and last name of the away team's starting pitcher for the game"
+    },
+    "HomeTeamStartingPitcher": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The first and last name of the home team starting pitcher for the game"
+    },
+    "CurrentPitcher": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Indicates the current pitcher's name"
+    },
+    "CurrentHitter": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Indicates the current hitter's name"
+    },
+    "WinningPitcher": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the pitcher who recorded the win in the game"
+    },
+    "LosingPitcher": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The first and last name of the losing pitcher in the game"
+    },
+    "SavingPitcher": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the pitcher who recorded the save in the game"
+    },
+    "DueUpHitterID1": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the hitter due up first from the current hitter"
+    },
+    "DueUpHitterID2": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the hitter due up second from the current hitter"
+    },
+    "DueUpHitterID3": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the hitter due up third from the current hitter"
+    },
+    "GlobalGameID": {
+      "type": "integer",
+      "description": "A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "GlobalAwayTeamID": {
+      "type": "integer",
+      "description": "A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "GlobalHomeTeamID": {
+      "type": "integer",
+      "description": "A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "PointSpreadAwayTeamMoneyLine": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The moneyline payout odds when betting on the away team with the run line"
+    },
+    "PointSpreadHomeTeamMoneyLine": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The moneyline payout odds when betting on the home team with the run line"
+    },
+    "LastPlay": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The description of the most recent play/event of the game. This is for display purposes and does not include corresponding data points."
+    },
+    "IsClosed": {
+      "type": "boolean",
+      "description": "Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status"
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the late update made to this record (in US Eastern Time)"
+    },
+    "Innings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Inning"
+      },
+      "description": "The inning details associated with the game"
+    },
+    "GameEndDateTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time that the game ended in US Eastern Time"
+    },
+    "HomeRotationNumber": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Rotation number of home team for this game"
+    },
+    "AwayRotationNumber": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Rotation number of away team for this game"
+    },
+    "NeutralVenue": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether this game is played in a neutral venue. Note: Neutral = True, not neutral = False"
+    },
+    "InningDescription": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The current status of the inning for display purposes (possible values: Top 2, Mid 2, Bot 2, End 2, etc)"
+    },
+    "OverPayout": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The sportsbook's payout for the over"
+    },
+    "UnderPayout": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The sportsbook's payout for the under"
+    },
+    "SeriesInfo": {
+      "$ref": "#/components/schemas/Series",
+      "description": "Contains relevant series data for postseason series only - HomeTeamWins; AwayTeamWins; GameNumber; and MaxLength"
+    },
+    "DateTimeUTC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game in UTC"
+    },
+    "HomeTeamOpener": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether the home team will use an opener as the starting pitcher. NOTE: An opener is a pitcher (typically a relief pitcher) that is only scheduled to pitch the first 1-3 innings of the game"
+    },
+    "AwayTeamOpener": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether the away team will use an opener as the starting pitcher.. NOTE: An opener is a pitcher (typically a relief pitcher) that is only scheduled to pitch the first 1-3 innings of the game"
+    },
+    "SuspensionResumeDay": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date a game that was suspended in play will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status."
+    },
+    "SuspensionResumeDateTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and start-time that the suspended in play game will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status."
+    }
+  }
+}

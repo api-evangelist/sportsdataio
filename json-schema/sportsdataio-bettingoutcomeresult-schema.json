@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BettingOutcomeResult",
+  "title": "BettingOutcomeResult",
+  "properties": {
+    "BettingOutcomeID": {
+      "type": "integer",
+      "description": "The unique ID associated with the betting outcome"
+    },
+    "BettingResultTypeID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The BettingResultTypeID of this outcome"
+    },
+    "BettingResultType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The string identifier of the BettingResultType of this outcome (e.g. Win; Loss; Push; Not Resulted; Incomplete)"
+    },
+    "BettingOutcomeTypeID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID associated with this BettingOutcomeType"
+    },
+    "BettingOutcomeType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of BettingOutcomeType (e.g. Home; Away; Under; Over)"
+    },
+    "BetValue": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The offered betting line from a sportsbook for a game (i.e. If a team won a game by 2 and the run line was -1.5, the actual value would be 2 and the bet value would be -1.5)"
+    },
+    "ActualValue": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The value of the actual result that occured in game (i.e. If a team won a game by 2 and the spread was -1.5, the actual value would be 2 and the bet value would be -1.5)"
+    }
+  }
+}

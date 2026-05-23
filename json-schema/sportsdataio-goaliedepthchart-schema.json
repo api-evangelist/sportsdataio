@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GoalieDepthChart",
+  "title": "GoalieDepthChart",
+  "properties": {
+    "TeamID": {
+      "type": "integer",
+      "description": "The unique ID of the team"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team this player is employed by"
+    },
+    "PlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The full name of the goaltender"
+    },
+    "DepthType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Indicates whether it is a goalie tandem or not for a goalie depth chart (returns Tandem; Regular)"
+    },
+    "DisplayType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "If the goalie depth chart is displayed as a Tandem or as Regular"
+    },
+    "DepthOrder": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The order of the goalie in the team's depth chart"
+    },
+    "Created": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The timestamp of when this depth chart was last edited; based on US Eastern Time (EST/EDT)"
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The timestamp of when the record was last updated (in US Eastern Time)"
+    }
+  }
+}

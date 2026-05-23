@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TeamDepthChart",
+  "title": "TeamDepthChart",
+  "properties": {
+    "DepthCharts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DepthChart"
+      },
+      "description": "List of Depth Chart Records for Team"
+    },
+    "TeamID": {
+      "type": "integer",
+      "description": "The team's unique TeamID as assigned by SportsDataIO"
+    }
+  }
+}

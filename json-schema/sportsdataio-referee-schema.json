@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Referee",
+  "title": "Referee",
+  "properties": {
+    "RefereeID": {
+      "type": "integer",
+      "description": "Unique ID of Referee"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The referee's full name"
+    },
+    "Number": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of the referee"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The position of the referee in the crew"
+    },
+    "College": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The college of the referee"
+    },
+    "Experience": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of years of experience the referee has in the NBA"
+    }
+  }
+}

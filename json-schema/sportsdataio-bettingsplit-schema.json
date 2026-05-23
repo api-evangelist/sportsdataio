@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BettingSplit",
+  "title": "BettingSplit",
+  "properties": {
+    "BettingMarketSplitID": {
+      "type": "integer",
+      "description": "The unique ID assciated with the betting split"
+    },
+    "BettingMarketID": {
+      "type": "integer",
+      "description": "The unique ID associated with the betting market"
+    },
+    "BettingOutcomeTypeID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID associated with this BettingOutcomeType"
+    },
+    "BettingOutcomeType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of BettingOutcomeType (e.g. Home; Away; Under; Over)"
+    },
+    "BetPercentage": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Percentage of bets placed on a specific outcome"
+    },
+    "MoneyPercentage": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The percentage of the money placed in wagers on this market taken by this type of bet"
+    },
+    "Created": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time this betting split was created in US Eastern Time"
+    },
+    "LastSeen": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time this set of values was last seen"
+    }
+  }
+}

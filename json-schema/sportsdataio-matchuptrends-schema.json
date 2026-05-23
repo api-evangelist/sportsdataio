@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MatchupTrends",
+  "title": "MatchupTrends",
+  "properties": {
+    "UpcomingGame": {
+      "$ref": "#/components/schemas/Game",
+      "description": "Next scheduled game for the team with a specified opposing team"
+    },
+    "TeamTrends": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamTrends"
+      },
+      "description": "The collection of team trends between each team"
+    },
+    "TeamMatchupTrends": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamGameTrends"
+      },
+      "description": "The collection of team game trends against opponent"
+    },
+    "OpponentMatchupTrends": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamGameTrends"
+      },
+      "description": "The collection of opponent game trends against the team"
+    },
+    "PreviousGames": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Game"
+      },
+      "description": "The collection of last 10 game scores between each team"
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ConsensusOutcome",
+  "title": "ConsensusOutcome",
+  "properties": {
+    "NumberOfSportsbooks": {
+      "type": "integer",
+      "description": "The number of sportsbooks odds that went into creating this consensus outcome"
+    },
+    "BettingOutcomeID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID associated with the betting outcome"
+    },
+    "BettingMarketID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID associated with the betting market"
+    },
+    "SportsBook": {
+      "$ref": "#/components/schemas/Sportsbook",
+      "description": "Name of sportsbook"
+    },
+    "BettingOutcomeTypeID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID associated with this BettingOutcomeType"
+    },
+    "BettingOutcomeType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of BettingOutcomeType (e.g. Home; Away; Under; Over)"
+    },
+    "PayoutAmerican": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The payout of the bet, shown in American odds format"
+    },
+    "PayoutDecimal": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The payout of the bet, shown in decimal odds format"
+    },
+    "Value": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The number associated with the outcome of a market (e.g. the run line, game total, etc.)"
+    },
+    "Participant": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the participant (typically team or player) associated with the outcome. NOTE: This is provided by the sportsbook. In the case of Player odds, we highly recommend using PlayerID as names of players can be inconsistent between sportsbooks."
+    },
+    "IsAvailable": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether a BettingOutcome is available for betting or not (true/false)"
+    },
+    "IsAlternate": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether this is an alternate value or the core value (true/false)"
+    },
+    "Created": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time when this betting outcome was created in US Eastern Time."
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the last update made to this betting outcome (in US Eastern Time)"
+    },
+    "Unlisted": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The timestamp of when these odds were first made unavailable to be bet on any further (In US Eastern Time)"
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The team's unique TeamID as assigned by SportsDataIO tied this outcome (if applicable)"
+    },
+    "PlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's unique PlayerID as assigned by SportsDataIO tied to this outcome (if applicable) Note: this ID will stay with the player throughout their MLB career"
+    },
+    "GlobalTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this team tied to this outcome. This value is guaranteed to be unique across all sports/leagues (where applicable)"
+    },
+    "SportsbookUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The URL for sportsbook event"
+    },
+    "IsInPlay": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Was this outcome created after the start time of the game (only applies when the betting event is of type game; true/false)"
+    },
+    "SportsbookMarketID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The market ID on the given sportsbook for deeplinking (when available)"
+    },
+    "SportsbookOutcomeID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The outcome ID on the given sportsbook for deeplinking (when available)"
+    }
+  }
+}

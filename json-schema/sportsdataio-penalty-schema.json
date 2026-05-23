@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Penalty",
+  "title": "Penalty",
+  "properties": {
+    "PenaltyID": {
+      "type": "integer",
+      "description": "The unique ID of this penalty"
+    },
+    "PeriodID": {
+      "type": "integer",
+      "description": "The unique ID of the period during which this penalty occurred"
+    },
+    "Sequence": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The sequence/order that this penalty happened"
+    },
+    "TimeRemainingMinutes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Number of minutes that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock minutes which are the number of minutes that have already passed in the period."
+    },
+    "TimeRemainingSeconds": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Number of seconds that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock seconds which are the number of minutes that have already passed in the period."
+    },
+    "Description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The description of the penalty"
+    },
+    "PenaltyMinutes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total minutes the penalty lasts"
+    },
+    "PenalizedTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The TeamID of the team who committed the penalty"
+    },
+    "PenalizedPlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the player who committed the penalty"
+    },
+    "DrawnByTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The TeamID of the player/team that drew the penalty"
+    },
+    "DrawnByPlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the player who drew the penalty"
+    },
+    "IsBenchPenalty": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether or not the penalty is a bench penalty"
+    },
+    "BenchPenaltyServedByPlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the player who served the bench penalty"
+    }
+  }
+}

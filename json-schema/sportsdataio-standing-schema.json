@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Standing",
+  "title": "Standing",
+  "properties": {
+    "Season": {
+      "type": "integer",
+      "description": "The MLB season for which these totals apply"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)"
+    },
+    "TeamID": {
+      "type": "integer",
+      "description": "The team's unique TeamID as assigned by SportsDataIO"
+    },
+    "Key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Abbreviation of the team (e.g. LAD; PHI; BOS; CHC; etc.)"
+    },
+    "City": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The city/location of the team (e.g. Los Angeles; Philadelphia; Boston; Chicago; etc.)"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Team's full name (city and mascot)"
+    },
+    "League": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The league of the team (possible values: AL; NL)"
+    },
+    "Division": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The division of the team (e.g. East, Central, West)"
+    },
+    "Wins": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The total number of wins by a team in the season"
+    },
+    "Losses": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of losses by the team in the season"
+    },
+    "Percentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Winning percentage of a team"
+    },
+    "DivisionWins": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of division wins in the season"
+    },
+    "DivisionLosses": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of division losses in a season"
+    },
+    "GamesBehind": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Number of games behind the first place team"
+    },
+    "LastTenGamesWins": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of wins in the last ten games"
+    },
+    "LastTenGamesLosses": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of losses in the last ten games"
+    },
+    "Streak": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Current streak the team is on (e.g. Win 3, Lost 3)"
+    },
+    "LeagueRank": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The ranking in the league"
+    },
+    "DivisionRank": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The ranking in the division (e.g. 1, 2, 3, 4, 5)"
+    },
+    "WildCardRank": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The rank of the team in terms of Wild Card standings only"
+    },
+    "WildCardGamesBehind": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The number of games behind a team is of the final Wild Card spot"
+    },
+    "HomeWins": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of home wins in the season"
+    },
+    "HomeLosses": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of home losses in the season"
+    },
+    "AwayWins": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of away wins in the season"
+    },
+    "AwayLosses": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of away losses in the season"
+    },
+    "DayWins": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of wins in daytime games"
+    },
+    "DayLosses": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of losses in daytime games"
+    },
+    "NightWins": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of wins in nighttime games"
+    },
+    "NightLosses": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of losses in nighttime games"
+    },
+    "RunsScored": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total runs scored by the team in the season"
+    },
+    "RunsAgainst": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of runs scored by the opponents of a specified team"
+    },
+    "GlobalTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "ClinchedBestLeagueRecord": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Returns TRUE if team has clinched the best record in their respective league; FALSE if not"
+    },
+    "ClinchedWildCard": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Returns TRUE if team has clinched Wild Card spot; FALSE if not"
+    },
+    "ClinchedDivision": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Returns TRUE if team has clinched their division; FALSE if not"
+    },
+    "EliminatedFromPlayoffContention": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Returns TRUE if team has been eliminated from playoff contention; FALSE if not"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Period",
+  "title": "Period",
+  "properties": {
+    "PeriodID": {
+      "type": "integer",
+      "description": "The unique ID associated of this period"
+    },
+    "GameID": {
+      "type": "integer",
+      "description": "The unique ID of this game tied to this period"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the period (possible values: 1; 2; 3; SO; OT; OT2; OT3; OT4; etc)"
+    },
+    "AwayScore": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total goals scored by the away team in a given period"
+    },
+    "HomeScore": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total goals scored by the home team in the period"
+    },
+    "ScoringPlays": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScoringPlay"
+      },
+      "description": "The details of the scoring plays that occurred during this period"
+    },
+    "Penalties": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Penalty"
+      },
+      "description": "The details of the penalties that occurred during this period"
+    }
+  }
+}

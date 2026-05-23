@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Quarter",
+  "title": "Quarter",
+  "properties": {
+    "QuarterID": {
+      "type": "integer",
+      "description": "Unique identifier for each Quarter."
+    },
+    "GameID": {
+      "type": "integer",
+      "description": "The unique ID of the game associated with this quarter"
+    },
+    "Number": {
+      "type": "integer",
+      "description": "The Number (Order) of the Quarter in the scope of the Game."
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)"
+    },
+    "AwayScore": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The total points scored by the away team in the given period only"
+    },
+    "HomeScore": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The total points scored by the home team in the given period only"
+    }
+  }
+}

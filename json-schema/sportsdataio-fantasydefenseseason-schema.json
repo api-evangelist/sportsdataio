@@ -1,0 +1,566 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FantasyDefenseSeason",
+  "title": "FantasyDefenseSeason",
+  "properties": {
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this team corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The NFL regular season for which these totals apply"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team"
+    },
+    "PointsAllowed": {
+      "type": "number",
+      "description": "Total points allowed by the team during the season"
+    },
+    "TouchdownsScored": {
+      "type": "number",
+      "description": "Total defensive and special teams touchdowns scored by the team in the season"
+    },
+    "SoloTackles": {
+      "type": "number",
+      "description": "Total defensive solo (unassisted) tackles by the team in the season"
+    },
+    "AssistedTackles": {
+      "type": "number",
+      "description": "Total defensive assisted tackles by the team in the season"
+    },
+    "Sacks": {
+      "type": "number",
+      "description": "Total defensive sacks by the team in the season"
+    },
+    "SackYards": {
+      "type": "number",
+      "description": "Total defensive sack yards by the team in the season"
+    },
+    "PassesDefended": {
+      "type": "number",
+      "description": "Total passes defended by the team in the season"
+    },
+    "FumblesForced": {
+      "type": "number",
+      "description": "Total fumbles forced on defense by the team in the season"
+    },
+    "FumblesRecovered": {
+      "type": "number",
+      "description": "Total defensive fumble recoveries by the team in the season"
+    },
+    "FumbleReturnYards": {
+      "type": "number",
+      "description": "Total fumble return yards by the team in the season"
+    },
+    "FumbleReturnTouchdowns": {
+      "type": "number",
+      "description": "Total fumble return touchdowns by the team in the season"
+    },
+    "Interceptions": {
+      "type": "number",
+      "description": "Total defensive interceptions by the team in the season"
+    },
+    "InterceptionReturnYards": {
+      "type": "number",
+      "description": "Total defensive interception return yards by the team in the season"
+    },
+    "InterceptionReturnTouchdowns": {
+      "type": "number",
+      "description": "Total defensive interception return touchdowns by the team in the season"
+    },
+    "BlockedKicks": {
+      "type": "number",
+      "description": "Total blocked kicks by the team in the season. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points"
+    },
+    "Safeties": {
+      "type": "number",
+      "description": "Total defensive safeties scored by the team in the season"
+    },
+    "PuntReturns": {
+      "type": "number",
+      "description": "Total punt returns by the team in the season"
+    },
+    "PuntReturnYards": {
+      "type": "number",
+      "description": "Total punt return yards by the team in the season"
+    },
+    "PuntReturnTouchdowns": {
+      "type": "number",
+      "description": "Total punt return touchdowns by the team in the season"
+    },
+    "PuntReturnLong": {
+      "type": "number",
+      "description": "The longest punt return by the team in the season"
+    },
+    "KickReturns": {
+      "type": "number",
+      "description": "Total kickoff returns by the team in the season"
+    },
+    "KickReturnYards": {
+      "type": "number",
+      "description": "Total kickoff return yards by the team in the season"
+    },
+    "KickReturnTouchdowns": {
+      "type": "number",
+      "description": "Total kickoff return touchdowns by the team in the season"
+    },
+    "KickReturnLong": {
+      "type": "number",
+      "description": "Longest kick return by the team in the season"
+    },
+    "BlockedKickReturnTouchdowns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total blocked kick recovery return touchdowns for the team in the season"
+    },
+    "FieldGoalReturnTouchdowns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goal return touchdowns by the team in the season. Note: This field excludes blocked field goals"
+    },
+    "FantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE"
+    },
+    "QuarterbackFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points allowed to opposing quarterbacks by the team in the season"
+    },
+    "RunningbackFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total fantasy points allowed to opposing running backs by the team in the season"
+    },
+    "WideReceiverFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points allowed to opposing wide receivers"
+    },
+    "TightEndFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points allowed to opposing tight ends by the team in the season"
+    },
+    "KickerFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points allowed to opponent kickers by the team in the season"
+    },
+    "Games": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The total number of games played by the team in the season"
+    },
+    "BlockedKickReturnYards": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total blocked kick recovery return yards for the team in the season"
+    },
+    "FieldGoalReturnYards": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goal return yards by the team in the season. Note: This field excludes blocked field goals"
+    },
+    "QuarterbackHits": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total quarterback hits by the team in the season. Note: This is a defensive stat that includes sacks"
+    },
+    "TacklesForLoss": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total tackles for loss by the team in the season. Note: these are tackles behind the line of scrimmage for loss of yards (including sacks)"
+    },
+    "DefensiveTouchdowns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total defensive touchdowns scored by the team in the season"
+    },
+    "SpecialTeamsTouchdowns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total special teams touchdowns scored by the team in the season"
+    },
+    "FantasyPoints": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points scored based on basic fantasy scoring system by the team in the season"
+    },
+    "Temperature": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Temperature at game start (Fahrenheit)"
+    },
+    "Humidity": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The humidity percentage at the start of the game"
+    },
+    "WindSpeed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The wind speed at the start of the game (in MPH)"
+    },
+    "ThirdDownAttempts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total third down attempts against the team in the season"
+    },
+    "ThirdDownConversions": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total third down conversions against the team in the season"
+    },
+    "FourthDownAttempts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Opponent's fourth down attempts against the team in the season"
+    },
+    "FourthDownConversions": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Opponent's fourth down conversions against the team in the season"
+    },
+    "PointsAllowedByDefenseSpecialTeams": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total number of points allowed by the team in the season to the opposing offense and special teams. Note: This field excludes points scored by the opponent's defense"
+    },
+    "AuctionValue": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Player's dollar value in a $200 salary cap auction draft."
+    },
+    "AuctionValuePPR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Player's dollar value in a $200 salary cap PPR auction draft."
+    },
+    "TwoPointConversionReturns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total successful two point conversion returns by the team in the season"
+    },
+    "FantasyPointsFanDuel": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points based on FanDuel's scoring system by the team in the season"
+    },
+    "FantasyPointsDraftKings": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points based on DraftKings' scoring system by the team in the season"
+    },
+    "OffensiveYardsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Offensive yards allowed by the team's defense in the season"
+    },
+    "PlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique PlayerID of the player as assigned by SportsDataIO for use when combining with player feeds. Note: this ID will stay with the player throughout their entire career"
+    },
+    "FantasyPointsYahoo": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points based on Yahoo's daily fantasy scoring system by the team in the season"
+    },
+    "AverageDraftPosition": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The average draft position of the team's fantasy defense (DST) in re-draft leagues"
+    },
+    "AverageDraftPositionPPR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The average draft position of the team (DST) in Points Per Reception (PPR) leagues"
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team"
+    },
+    "GlobalTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "FanDuelFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "FanDuel fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE"
+    },
+    "FanDuelQuarterbackFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "FanDuel fantasy points allowed by the team to opposing quarterbacks in the season"
+    },
+    "FanDuelRunningbackFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "FanDuel fantasy points allowed by the team to opposing running backs in the season"
+    },
+    "FanDuelWideReceiverFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "FanDuel fantasy points allowed by the team to opposing wide receivers in the season"
+    },
+    "FanDuelTightEndFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "FanDuel fantasy points allowed by the team to opposing tight ends in the season"
+    },
+    "FanDuelKickerFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "FanDuel fantasy points allowed by the team to opposing kickers in the season"
+    },
+    "DraftKingsFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "DraftKings fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE"
+    },
+    "DraftKingsQuarterbackFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "DraftKings fantasy points allowed by the team to opponent quarterbacks in the season"
+    },
+    "DraftKingsRunningbackFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "DraftKings fantasy points allowed by the team to opponent running backs in the season"
+    },
+    "DraftKingsWideReceiverFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "DraftKings fantasy points allowed by the team to opponent wide receivers in the season"
+    },
+    "DraftKingsTightEndFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "DraftKings fantasy points allowed by the team to opponent tight ends in the season"
+    },
+    "DraftKingsKickerFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "DraftKings fantasy points allowed by the team to opponent kickers in the season"
+    },
+    "YahooFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total Yahoo fantasy points allowed to opposing offensive players by the team in the season. Note: Offensive players include: QB, RB, WR, & TE"
+    },
+    "YahooQuarterbackFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total Yahoo fantasy points allowed to opposing quarterbacks by the team in the season"
+    },
+    "YahooRunningbackFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total Yahoo fantasy points allowed to opposing running backs by the team in the season"
+    },
+    "YahooWideReceiverFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total Yahoo fantasy points allowed to opposing wide receivers by the team in the season"
+    },
+    "YahooTightEndFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total Yahoo fantasy points allowed to opposing tight ends by the team in the season"
+    },
+    "YahooKickerFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total Yahoo fantasy points allowed to opposing kickers by the team in the season"
+    },
+    "FantasyPointsFantasyDraft": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points based on FanDraft's scoring system by the team in the season"
+    },
+    "FantasyDraftFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "FantasyDraft fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE"
+    },
+    "FantasyDraftQuarterbackFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "FantasyDraft fantasy points allowed by the team to opposing quarterbacks in the season"
+    },
+    "FantasyDraftRunningbackFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "FantasyDraft fantasy points allowed by the team to opposing running backs in the season"
+    },
+    "FantasyDraftWideReceiverFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "FantasyDraft fantasy points allowed by the team to opposing wide receivers in the season"
+    },
+    "FantasyDraftTightEndFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "FantasyDraft fantasy points allowed by the team to opposing tight ends in the season"
+    },
+    "FantasyDraftKickerFantasyPointsAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "FantasyDraft fantasy points allowed by the team to opposing kickers in the season"
+    },
+    "ScoringDetails": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScoringDetail"
+      },
+      "description": "The details of the scoring plays this team DST recorded in the season"
+    },
+    "AverageDraftPositionDynasty": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The average draft position of this team (DST) in dynasty drafts leagues"
+    },
+    "AverageDraftPosition2QB": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The average draft position of the team (DST) in 2 Quarterback leagues"
+    }
+  }
+}

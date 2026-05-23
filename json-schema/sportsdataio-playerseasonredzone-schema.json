@@ -1,0 +1,763 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PlayerSeasonRedZone",
+  "title": "PlayerSeasonRedZone",
+  "properties": {
+    "PlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this player corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The NFL season for which these totals apply"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team that the player is on. Note: If this player is a free agent; this field is NULL"
+    },
+    "Number": {
+      "type": "integer",
+      "description": "Player's jersey number"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's full name"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The primary position of the player. Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR"
+    },
+    "PositionCategory": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The category of the player's position (OFF; DEF; ST)"
+    },
+    "Activated": {
+      "type": "integer",
+      "description": "The total number of games that the player was active for in the season"
+    },
+    "Played": {
+      "type": "integer",
+      "description": "The total number of games played by the the player in the season"
+    },
+    "Started": {
+      "type": "integer",
+      "description": "Total games started (on offense or defense) by the player in the season"
+    },
+    "PassingAttempts": {
+      "type": "number",
+      "description": "Total passes thrown by the player in the season"
+    },
+    "PassingCompletions": {
+      "type": "number",
+      "description": "Total passes completed by the player in the season"
+    },
+    "PassingYards": {
+      "type": "number",
+      "description": "Total passing yards by the player in the season"
+    },
+    "PassingCompletionPercentage": {
+      "type": "number",
+      "description": "The percentage of passes completed by the player in the season"
+    },
+    "PassingYardsPerAttempt": {
+      "type": "number",
+      "description": "Total average passing yards per attempt by the player in the season"
+    },
+    "PassingYardsPerCompletion": {
+      "type": "number",
+      "description": "Total average passing yards per completion by the player in the season"
+    },
+    "PassingTouchdowns": {
+      "type": "number",
+      "description": "Total passing touchdowns by the player in the season"
+    },
+    "PassingInterceptions": {
+      "type": "number",
+      "description": "Total interceptions thrown by the player in the season"
+    },
+    "PassingRating": {
+      "type": "number",
+      "description": "The passer rating of the player in the season"
+    },
+    "PassingLong": {
+      "type": "number",
+      "description": "Total yards of longest completion by the player in the season"
+    },
+    "PassingSacks": {
+      "type": "number",
+      "description": "The total number of times the player was sacked in the season"
+    },
+    "PassingSackYards": {
+      "type": "number",
+      "description": "Total yards lost by the player in the season as a result of being sacked"
+    },
+    "RushingAttempts": {
+      "type": "number",
+      "description": "Total rushing attempts by the player in the season"
+    },
+    "RushingYards": {
+      "type": "number",
+      "description": "Total rushing yards by the player in the season"
+    },
+    "RushingYardsPerAttempt": {
+      "type": "number",
+      "description": "Total rushing yards per attempt by the player in the season"
+    },
+    "RushingTouchdowns": {
+      "type": "number",
+      "description": "Total rushing touchdowns by the player in the season"
+    },
+    "RushingLong": {
+      "type": "number",
+      "description": "The longest rush by the player in the season"
+    },
+    "ReceivingTargets": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total receiving targets by the player in the season"
+    },
+    "Receptions": {
+      "type": "number",
+      "description": "Total receptions by the player in the season"
+    },
+    "ReceivingYards": {
+      "type": "number",
+      "description": "Total receiving yards by the player in the season"
+    },
+    "ReceivingYardsPerReception": {
+      "type": "number",
+      "description": "Average receiving yards per reception by the player in the season"
+    },
+    "ReceivingTouchdowns": {
+      "type": "number",
+      "description": "Total receiving touchdowns by the player in the season"
+    },
+    "ReceivingLong": {
+      "type": "number",
+      "description": "The longest reception by the player in the season"
+    },
+    "Fumbles": {
+      "type": "number",
+      "description": "Total fumbles by the player in the season"
+    },
+    "FumblesLost": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total fumbles lost by the player in the season"
+    },
+    "PuntReturns": {
+      "type": "number",
+      "description": "Total punt returns by the player in the season"
+    },
+    "PuntReturnYards": {
+      "type": "number",
+      "description": "Total punt return yards by the player in the season"
+    },
+    "PuntReturnYardsPerAttempt": {
+      "type": "number",
+      "description": "Total average yards gained per punt return by the player in the season"
+    },
+    "PuntReturnTouchdowns": {
+      "type": "number",
+      "description": "Total punt return touchdowns by the player in the season"
+    },
+    "PuntReturnLong": {
+      "type": "number",
+      "description": "The longest punt return by the player in the season"
+    },
+    "KickReturns": {
+      "type": "number",
+      "description": "Total kickoff returns by the player in the season"
+    },
+    "KickReturnYards": {
+      "type": "number",
+      "description": "Total kickoff return yards by the player in the season"
+    },
+    "KickReturnYardsPerAttempt": {
+      "type": "number",
+      "description": "Average yards gained per kick return by the player in the season"
+    },
+    "KickReturnTouchdowns": {
+      "type": "number",
+      "description": "Total kickoff return touchdowns by the player in the season"
+    },
+    "KickReturnLong": {
+      "type": "number",
+      "description": "Longest kick return by the player in the season"
+    },
+    "SoloTackles": {
+      "type": "number",
+      "description": "Total defensive solo (unassisted) tackles by the player in the season"
+    },
+    "AssistedTackles": {
+      "type": "number",
+      "description": "Total defensive assisted tackles by the player in the season"
+    },
+    "TacklesForLoss": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total tackles for loss by the player in the season. Note: these are tackles behind the line of scrimmage for loss of yards (including sacks)"
+    },
+    "Sacks": {
+      "type": "number",
+      "description": "Total defensive sacks by the player in the season"
+    },
+    "SackYards": {
+      "type": "number",
+      "description": "Total defensive safeties scored by the player in the season"
+    },
+    "QuarterbackHits": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total quarterback hits by the player in the season. Note: This is a defensive stat that includes sacks"
+    },
+    "PassesDefended": {
+      "type": "number",
+      "description": "Total passes defended by the player in the season"
+    },
+    "FumblesForced": {
+      "type": "number",
+      "description": "Total fumbles forced on defense by the player in the season"
+    },
+    "FumblesRecovered": {
+      "type": "number",
+      "description": "Total defensive fumble recoveries by the player in the season"
+    },
+    "FumbleReturnYards": {
+      "type": "number",
+      "description": "Total fumble return yards by the player in the season"
+    },
+    "FumbleReturnTouchdowns": {
+      "type": "number",
+      "description": "Total fumble return touchdowns by the player in the season"
+    },
+    "Interceptions": {
+      "type": "number",
+      "description": "Total defensive interceptions by the player in the season"
+    },
+    "InterceptionReturnYards": {
+      "type": "number",
+      "description": "Total defensive interception return yards by the player in the season"
+    },
+    "InterceptionReturnTouchdowns": {
+      "type": "number",
+      "description": "Total defensive interception return touchdowns by the player in the season"
+    },
+    "BlockedKicks": {
+      "type": "number",
+      "description": "Total blocked kicks by the player in the season. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points"
+    },
+    "SpecialTeamsSoloTackles": {
+      "type": "number",
+      "description": "This field is deprecated"
+    },
+    "SpecialTeamsAssistedTackles": {
+      "type": "number",
+      "description": "This field is deprecated"
+    },
+    "MiscSoloTackles": {
+      "type": "number",
+      "description": "This field is deprecated"
+    },
+    "MiscAssistedTackles": {
+      "type": "number",
+      "description": "This field is deprecated"
+    },
+    "Punts": {
+      "type": "number",
+      "description": "Total number of punts by the player in the season"
+    },
+    "PuntYards": {
+      "type": "number",
+      "description": "Total punt yards by the player in the season"
+    },
+    "PuntAverage": {
+      "type": "number",
+      "description": "The average number of yards per punt by the player in the season"
+    },
+    "FieldGoalsAttempted": {
+      "type": "number",
+      "description": "Total field goals attempted by the player in the season"
+    },
+    "FieldGoalsMade": {
+      "type": "number",
+      "description": "Total field goals made by the player in season"
+    },
+    "FieldGoalsLongestMade": {
+      "type": "number",
+      "description": "Longest field goal made by the player in the season"
+    },
+    "ExtraPointsMade": {
+      "type": "number",
+      "description": "Total extra points made by the player in the season"
+    },
+    "TwoPointConversionPasses": {
+      "type": "number",
+      "description": "Total successful two point conversion passes by the player in the season"
+    },
+    "TwoPointConversionRuns": {
+      "type": "number",
+      "description": "Total successful two point conversion rushes by the player in the season"
+    },
+    "TwoPointConversionReceptions": {
+      "type": "number",
+      "description": "Total successful two point conversion receptions by the player in the season"
+    },
+    "FantasyPoints": {
+      "type": "number",
+      "description": "Fantasy points scored based on basic fantasy scoring system by the player in the season"
+    },
+    "FantasyPointsPPR": {
+      "type": "number",
+      "description": "Fantasy points scored based on basic PPR fantasy scoring system by the player in the season"
+    },
+    "ReceptionPercentage": {
+      "type": "number",
+      "description": "Total percentage of receiving targets that were receptions by the player in the season"
+    },
+    "ReceivingYardsPerTarget": {
+      "type": "number",
+      "description": "Average receiving yards per target by the player in the season"
+    },
+    "Tackles": {
+      "type": "number",
+      "description": "Total tackles (solo & assisted) by the player in the season"
+    },
+    "OffensiveTouchdowns": {
+      "type": "number",
+      "description": "Total offensive touchdowns scored by the player in the season"
+    },
+    "DefensiveTouchdowns": {
+      "type": "number",
+      "description": "Total defensive touchdowns scored by the player in the season"
+    },
+    "SpecialTeamsTouchdowns": {
+      "type": "number",
+      "description": "Total special teams touchdowns scored by the player in the season"
+    },
+    "Touchdowns": {
+      "type": "number",
+      "description": "Total touchdowns scored by the player in the season"
+    },
+    "FantasyPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's fantasy football position. Possible values: QB, RB, WR, TE, DL, LB, DB, K, P, OL"
+    },
+    "FieldGoalPercentage": {
+      "type": "number",
+      "description": "Total field goal attempts made by the player in the season"
+    },
+    "PlayerSeasonID": {
+      "type": "integer",
+      "description": "Unique ID of PlayerSeason record (subject to change, although it very rarely does).  For a static ID, use a combination of SeasonType, Season and PlayerID."
+    },
+    "FumblesOwnRecoveries": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total own fumble recoveries by the player in the season. Note: this fumble doesn't result in a turnover - the fumbling team recovers the fumble"
+    },
+    "FumblesOutOfBounds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "KickReturnFairCatches": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "PuntReturnFairCatches": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated."
+    },
+    "PuntTouchbacks": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total punts that resulted in touchbacks by the player in the season"
+    },
+    "PuntInside20": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total punts downed inside the 20 yard line by the player in the season"
+    },
+    "PuntNetAverage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The average net yards per punt by the player in the season"
+    },
+    "ExtraPointsAttempted": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total extra point kicks attempted by the player in the season"
+    },
+    "BlockedKickReturnTouchdowns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total blocked kick recovery return touchdowns for the player in the season"
+    },
+    "FieldGoalReturnTouchdowns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goal return touchdowns by the player in the season. Note: This field excludes blocked field goals"
+    },
+    "Safeties": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Defensive safeties (sacks in end zone, solo tackles in end zone, blocked kicks that went out of bounds in the end zone)"
+    },
+    "FieldGoalsHadBlocked": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goals by the player that were blocked in the season"
+    },
+    "PuntsHadBlocked": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total punts by the player that were blocked in the season"
+    },
+    "ExtraPointsHadBlocked": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total extra point kick attempts by the player that were blocked in the season"
+    },
+    "PuntLong": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The longest punt by the player in the season"
+    },
+    "BlockedKickReturnYards": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total blocked kick recovery return yards for the player in the season"
+    },
+    "FieldGoalReturnYards": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goal return yards by the player in the season. Note: This field excludes blocked field goals"
+    },
+    "PuntNetYards": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The net yards of the punts by the player in the season"
+    },
+    "SpecialTeamsFumblesForced": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "SpecialTeamsFumblesRecovered": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "MiscFumblesForced": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "MiscFumblesRecovered": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "ShortName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The first initial and last name of the player (J. Doe)"
+    },
+    "SafetiesAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "Temperature": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Temperature at game start (Fahrenheit)"
+    },
+    "Humidity": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The humidity percentage at the start of the game"
+    },
+    "WindSpeed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The wind speed at the start of the game (in MPH)"
+    },
+    "OffensiveSnapsPlayed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total snaps this player played on offensive in the season. Note: Snap counts are available the morning after the game."
+    },
+    "DefensiveSnapsPlayed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total snaps this player played on defense in the season. Note: Snap counts are available the morning after the game."
+    },
+    "SpecialTeamsSnapsPlayed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total snaps this player played on special teams in the season. Note: Snap counts are available the morning after the game."
+    },
+    "OffensiveTeamSnaps": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total offensive snaps this player's team played in the season. Note: Snap counts are available the morning after the game."
+    },
+    "DefensiveTeamSnaps": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total defensive snaps this player's team played in the season. Note: Snap counts are available the morning after the game."
+    },
+    "SpecialTeamsTeamSnaps": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total special teams snaps this player's team played in the season. Note: Snap counts are available the morning after the game."
+    },
+    "AuctionValue": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Player's dollar value in a $200 salary cap auction draft."
+    },
+    "AuctionValuePPR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Player's dollar value in a $200 salary cap PPR auction draft."
+    },
+    "TwoPointConversionReturns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total successful two point conversion returns by the player in the season"
+    },
+    "FantasyPointsFanDuel": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points based on FanDuel's scoring system by the player in the season"
+    },
+    "FieldGoalsMade0to19": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goals of 0 to 19 yards made by the player in season"
+    },
+    "FieldGoalsMade20to29": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goals of 20 to 29 yards made by the player in season"
+    },
+    "FieldGoalsMade30to39": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goals of 30 to 39 yards made by the player in season"
+    },
+    "FieldGoalsMade40to49": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goals of 40 to 49 yards made by the player in season"
+    },
+    "FieldGoalsMade50Plus": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goals of 50+ yards made by the player in season"
+    },
+    "FantasyPointsDraftKings": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points based on DraftKings' scoring system by the player in the season"
+    },
+    "FantasyPointsYahoo": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points based on Yahoo's daily fantasy scoring system by the player in the season"
+    },
+    "AverageDraftPosition": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The average draft position of the player in re-draft leagues"
+    },
+    "AverageDraftPositionPPR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The average draft position of this player in Points Per Reception (PPR) leagues."
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL"
+    },
+    "GlobalTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "FantasyPointsFantasyDraft": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points based on FantasyDraft's scoring system by the player in the season"
+    },
+    "ScoringDetails": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScoringDetail"
+      },
+      "description": "The details of the scoring plays this player recorded in the season"
+    },
+    "AverageDraftPositionRookie": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The average draft position of this rookie in Points Per Reception (PPR) leagues."
+    },
+    "AverageDraftPositionDynasty": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The average draft position of this player in dynasty drafts leagues"
+    },
+    "AverageDraftPosition2QB": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The average draft position of this player in 2 Quarterback leagues"
+    },
+    "OffensiveFumbleRecoveryTouchdowns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    }
+  }
+}

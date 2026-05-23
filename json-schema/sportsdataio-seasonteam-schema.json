@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SeasonTeam",
+  "title": "SeasonTeam",
+  "properties": {
+    "SeasonTeamId": {
+      "type": "integer",
+      "description": "Unique ID of this season/team combination"
+    },
+    "SeasonId": {
+      "type": "integer",
+      "description": "The unique ID of the season this record is associated with"
+    },
+    "TeamId": {
+      "type": "integer",
+      "description": "The unique ID of the team"
+    },
+    "TeamName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the team associated with this record"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "Whether this team is actively associated with this season (true/false)"
+    },
+    "Gender": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The gender of the players on the team. Possible Values: Male; Female"
+    },
+    "Type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The type of season/team. Possible values: Club; National"
+    },
+    "Team": {
+      "$ref": "#/components/schemas/Team",
+      "description": "The details of the team for the given season/team association"
+    }
+  }
+}

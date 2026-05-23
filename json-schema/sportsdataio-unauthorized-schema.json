@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Unauthorized",
+  "title": "Unauthorized",
+  "properties": {
+    "HttpStatusCode": {
+      "type": "integer"
+    },
+    "Code": {
+      "type": "integer"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Help": {
+      "type": "string"
+    }
+  }
+}

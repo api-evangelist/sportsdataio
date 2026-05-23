@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Headshot",
+  "title": "Headshot",
+  "properties": {
+    "PlayerID": {
+      "type": "integer",
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's full name"
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The team's unique TeamID as assigned by SportsDataIO"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's position associated with the given game or season. Possible values: 1B; 2B; 3B; C; CF; DH; IF; LF; OF; P; PH; PR; RF; RP; SP; SS"
+    },
+    "PreferredHostedHeadshotUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's preferred hosted headshot URL. This returns the headshot with transparent background, if available."
+    },
+    "PreferredHostedHeadshotUpdated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The last updated date of the player's preferred hosted headshot."
+    },
+    "HostedHeadshotWithBackgroundUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's hosted headshot URL"
+    },
+    "HostedHeadshotWithBackgroundUpdated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The last date and time the player's hosted headshot was updated in US Eastern Time"
+    },
+    "HostedHeadshotNoBackgroundUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's transparent background hosted headshot URL"
+    },
+    "HostedHeadshotNoBackgroundUpdated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The last date and time the player's transparent background hosted headshot was updated in US Eastern Time"
+    }
+  }
+}

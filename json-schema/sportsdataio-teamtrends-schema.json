@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TeamTrends",
+  "title": "TeamTrends",
+  "properties": {
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team"
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The team's unique TeamID as assigned by SportsDataIO"
+    },
+    "UpcomingGame": {
+      "$ref": "#/components/schemas/Game",
+      "description": "Next scheduled game for the team"
+    },
+    "TeamGameTrends": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamGameTrends"
+      },
+      "description": "The collection of Game Trends for this team"
+    }
+  }
+}

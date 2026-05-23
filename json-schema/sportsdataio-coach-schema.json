@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Coach",
+  "title": "Coach",
+  "properties": {
+    "CoachId": {
+      "type": "integer",
+      "description": "The unique ID of the coach"
+    },
+    "FirstName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Coach's first name"
+    },
+    "LastName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The last name of the coach"
+    },
+    "ShortName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The short name of the coach"
+    },
+    "Nationality": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Coach's nationality"
+    }
+  }
+}

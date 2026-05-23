@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TeamGoalieDepthChart",
+  "title": "TeamGoalieDepthChart",
+  "properties": {
+    "GoalieDepthCharts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GoalieDepthChart"
+      },
+      "description": "List of players that make up the goalie depth chart for each team"
+    },
+    "TeamID": {
+      "type": "integer",
+      "description": "The unique ID of the team"
+    }
+  }
+}

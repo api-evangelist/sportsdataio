@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Inning",
+  "title": "Inning",
+  "properties": {
+    "InningID": {
+      "type": "integer",
+      "description": "The unique ID of this specific inning"
+    },
+    "GameID": {
+      "type": "integer",
+      "description": "The unique ID of the game tied to this Inning"
+    },
+    "InningNumber": {
+      "type": "integer",
+      "description": "The current inning number of the game"
+    },
+    "AwayTeamRuns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Number of runs scored by the away team in the specific inning"
+    },
+    "HomeTeamRuns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Number of runs scored by the home team in the specific inning"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Team",
+  "title": "Team",
+  "properties": {
+    "TeamID": {
+      "type": "integer",
+      "description": "The team's unique TeamID as assigned by SportsDataIO"
+    },
+    "Key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Abbreviation of the team (e.g. LAD, PHI, BOS, CHC, etc.)"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "Whether or not this team is active"
+    },
+    "City": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The city/location of the team (e.g. Los Angeles, Philadelphia, Boston, Chicago, etc.)"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The mascot of the team (e.g. Dodgers, Phillies, Red Sox, Cubs, etc.)"
+    },
+    "StadiumID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team's current home stadium"
+    },
+    "League": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The league of the team (possible values: AL, NL)"
+    },
+    "Division": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The division of the team (e.g. East; Central; West)"
+    },
+    "PrimaryColor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The team's primary color. (This is not licensed for public or commercial use)"
+    },
+    "SecondaryColor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The team's secondary color. (This is not licensed for public or commercial use)"
+    },
+    "TertiaryColor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The team's tertiary color. (This is not licensed for public or commercial use)"
+    },
+    "QuaternaryColor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The team's quaternary color. (This is not licensed for public or commercial use)"
+    },
+    "WikipediaLogoUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The link to the team's logo hosted on Wikipedia. (This is not licensed for public or commercial use)"
+    },
+    "WikipediaWordMarkUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The link to the team's wordmark logo hosted on Wikipedia. (This is not licensed for public or commercial use)"
+    },
+    "GlobalTeamID": {
+      "type": "integer",
+      "description": "A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "HeadCoach": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The current head coach (manager) of the team"
+    },
+    "HittingCoach": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The current hitting coach of the team. Note: some teams may have multiple or no hitting coaches"
+    },
+    "PitchingCoach": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The current pitching coach of the team. Note: some teams may have multiple or no pitching coaches"
+    }
+  }
+}

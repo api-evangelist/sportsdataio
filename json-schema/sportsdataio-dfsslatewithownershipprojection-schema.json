@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DfsSlateWithOwnershipProjection",
+  "title": "DfsSlateWithOwnershipProjection",
+  "properties": {
+    "SlateID": {
+      "type": "integer",
+      "description": "Unique ID of a Slate (assigned by SportsDataIO)."
+    },
+    "Operator": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the operator who is running contests for this slate. Possible values: FanDuel, DraftKings, Yahoo, FantasyDraft, etc."
+    },
+    "OperatorSlateID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Unique ID of a slate (assigned by the operator)."
+    },
+    "OperatorName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the slate (assigned by the operator). Possible values: Main, Express, Arcade, Late Night, etc."
+    },
+    "OperatorDay": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The day (in EST/EDT) that the slate begins (assigned by the operator)."
+    },
+    "OperatorStartTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date/time (in EST/EDT) that the slate begins (assigned by the operator)."
+    },
+    "SlateOwnershipProjections": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DfsSlatePlayerOwnershipProjection"
+      },
+      "description": "The list of projected ownership"
+    }
+  }
+}

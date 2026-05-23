@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Timeframe",
+  "title": "Timeframe",
+  "properties": {
+    "SeasonType": {
+      "type": "integer",
+      "description": "The season type of the timeframe (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=All-Star)"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The league year of the timeframe (this gets incremented on the first day of the league year during free agency)"
+    },
+    "Week": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The week of the timeframe (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to4; offseason=NULL). Note: seasons after 2021 will have only 3 preseason weeks"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The friendly name of the Timeframe"
+    },
+    "ShortName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The shorter name of the Timeframe"
+    },
+    "StartDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The start date/time of this Timeframe"
+    },
+    "EndDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The end date and time of the timeframe"
+    },
+    "FirstGameStart": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The start date/time of the first game of the Timeframe (if no games then returns the StartDate)"
+    },
+    "FirstGameEnd": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The end date/time of the first game of the Timeframe (if no games then returns the EndDate)"
+    },
+    "LastGameEnd": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The end date/time of the last game of the Timeframe (if no games then returns the EndDate)"
+    },
+    "HasGames": {
+      "type": "boolean",
+      "description": "Whether there are any games in this Timeframe"
+    },
+    "HasStarted": {
+      "type": "boolean",
+      "description": "Whether this Timeframe has started"
+    },
+    "HasEnded": {
+      "type": "boolean",
+      "description": "Whether this Timeframe has ended"
+    },
+    "HasFirstGameStarted": {
+      "type": "boolean",
+      "description": "Whether the first game has started"
+    },
+    "HasFirstGameEnded": {
+      "type": "boolean",
+      "description": "Whether the first game has ended"
+    },
+    "HasLastGameEnded": {
+      "type": "boolean",
+      "description": "Whether the last game has ended"
+    },
+    "ApiSeason": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The value of the Season parameter used to pass into the API"
+    },
+    "ApiWeek": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The value of the Week parameter used to pass into the API"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PlayByPlay",
+  "title": "PlayByPlay",
+  "properties": {
+    "Game": {
+      "$ref": "#/components/schemas/Game",
+      "description": "The details of the game associated with this play-by-play"
+    },
+    "Plays": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Play"
+      },
+      "description": "The details of the plays associated with this play-by-play"
+    }
+  }
+}

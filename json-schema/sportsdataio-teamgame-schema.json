@@ -1,0 +1,834 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TeamGame",
+  "title": "TeamGame",
+  "properties": {
+    "StatID": {
+      "type": "integer",
+      "description": "The unique ID of the stat"
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The team's unique TeamID as assigned by SportsDataIO"
+    },
+    "SeasonType": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)"
+    },
+    "Season": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The MLB season of the game"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Team's full name (city and mascot)"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team"
+    },
+    "GlobalTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "GameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of this game"
+    },
+    "OpponentID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The\u00a0unique ID of the team's opponent"
+    },
+    "Opponent": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The\u00a0name of the opponent\u00a0"
+    },
+    "Day": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The day of the game"
+    },
+    "DateTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game"
+    },
+    "HomeOrAway": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Whether the team is home or away"
+    },
+    "IsGameOver": {
+      "type": "boolean",
+      "description": "Whether the game is over (true/false)"
+    },
+    "GlobalGameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "GlobalOpponentID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The timestamp of when the record was last updated (US Eastern Time)."
+    },
+    "Games": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of games played."
+    },
+    "FantasyPoints": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total fantasy points"
+    },
+    "AtBats": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "At bats while hitting"
+    },
+    "Runs": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total runs scored."
+    },
+    "Hits": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total hits"
+    },
+    "Singles": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total singles"
+    },
+    "Doubles": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0doubles"
+    },
+    "Triples": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0triples"
+    },
+    "HomeRuns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0home runs"
+    },
+    "RunsBattedIn": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0runs batted in"
+    },
+    "BattingAverage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0batting average"
+    },
+    "Outs": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0outs"
+    },
+    "Strikeouts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0strikeouts"
+    },
+    "Walks": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0walks"
+    },
+    "HitByPitch": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0times hit by pitch"
+    },
+    "Sacrifices": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0sacrifices"
+    },
+    "SacrificeFlies": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0sacrifice flies"
+    },
+    "GroundIntoDoublePlay": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0times grounded into double play"
+    },
+    "StolenBases": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0stolen bases"
+    },
+    "CaughtStealing": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0caught stealing"
+    },
+    "PitchesSeen": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0pitches seen"
+    },
+    "OnBasePercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0on base percentage"
+    },
+    "SluggingPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0slugging percentage"
+    },
+    "OnBasePlusSlugging": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total on base plus percentage\u00a0"
+    },
+    "Errors": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0errors"
+    },
+    "Wins": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0wins by the team/player"
+    },
+    "Losses": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0losses by the team/player"
+    },
+    "Saves": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0saves by team/player"
+    },
+    "InningsPitchedDecimal": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Decimal representation of total innings pitched (e.g. 1.33, 7.66, etc)"
+    },
+    "TotalOutsPitched": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total\u00a0outs pitched by team/player"
+    },
+    "InningsPitchedFull": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total full innings pitched (e.g. 6, 71, 89, etc)"
+    },
+    "InningsPitchedOuts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Outs pitched beyond InningsPitchedFull (possible values: 0, 1, 2)"
+    },
+    "EarnedRunAverage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total earned run average by team/player"
+    },
+    "PitchingHits": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Hits allowed while pitching"
+    },
+    "PitchingRuns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Runs allowed while pitching"
+    },
+    "PitchingEarnedRuns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Earned runs allowed while pitching"
+    },
+    "PitchingWalks": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Walks allowed while pitching"
+    },
+    "PitchingStrikeouts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Strikeouts allowed while pitching"
+    },
+    "PitchingHomeRuns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Home runs allowed while pitching"
+    },
+    "PitchesThrown": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total pitches thrown while pitching"
+    },
+    "PitchesThrownStrikes": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total pitches thrown for strikes while pitching"
+    },
+    "WalksHitsPerInningsPitched": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Walks plus hits per innings pitched (WHIP) while pitching"
+    },
+    "PitchingBattingAverageAgainst": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total batting average against (BAA) while pitching"
+    },
+    "GrandSlams": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total grand slams"
+    },
+    "FantasyPointsFanDuel": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total FanDuel fantasy points"
+    },
+    "FantasyPointsDraftKings": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total DraftKings fantasy points"
+    },
+    "FantasyPointsYahoo": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total Yahoo fantasy points"
+    },
+    "PlateAppearances": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total plate appearances"
+    },
+    "TotalBases": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Number of total bases"
+    },
+    "FlyOuts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total fly outs"
+    },
+    "GroundOuts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total ground outs"
+    },
+    "LineOuts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total line outs"
+    },
+    "PopOuts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total pop outs"
+    },
+    "IntentionalWalks": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total intentional walks"
+    },
+    "ReachedOnError": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total times reached on error"
+    },
+    "BallsInPlay": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total balls in play"
+    },
+    "BattingAverageOnBallsInPlay": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total batting average on balls in play (BABIP)"
+    },
+    "WeightedOnBasePercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total weight on base percentage"
+    },
+    "PitchingSingles": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total singles allowed while pitching"
+    },
+    "PitchingDoubles": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total doubles allowed while pitching"
+    },
+    "PitchingTriples": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total triples allowed while pitching"
+    },
+    "PitchingGrandSlams": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total grand slams allowed while pitching"
+    },
+    "PitchingHitByPitch": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total batters hit by pitch while pitching"
+    },
+    "PitchingSacrifices": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total sacrifices while pitching"
+    },
+    "PitchingSacrificeFlies": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total sacrifice flies while pitching"
+    },
+    "PitchingGroundIntoDoublePlay": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total grounded into double plays while pitching"
+    },
+    "PitchingCompleteGames": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total complete games while pitching"
+    },
+    "PitchingShutOuts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total shuouts while pitching"
+    },
+    "PitchingNoHitters": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total no hitters while pitching"
+    },
+    "PitchingPerfectGames": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total perfect games while pitching"
+    },
+    "PitchingPlateAppearances": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total plate appearances while pitching"
+    },
+    "PitchingTotalBases": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total bases while pitching"
+    },
+    "PitchingFlyOuts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total fly outs while pitching"
+    },
+    "PitchingGroundOuts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total ground outs while pitching"
+    },
+    "PitchingLineOuts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total line outs while pitching"
+    },
+    "PitchingPopOuts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total pop outs while pitching"
+    },
+    "PitchingIntentionalWalks": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total intentional walks while pitching"
+    },
+    "PitchingReachedOnError": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total times reached on error while pitching"
+    },
+    "PitchingCatchersInterference": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total catchers interference while pitching"
+    },
+    "PitchingBallsInPlay": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total balls in play while pitching"
+    },
+    "PitchingOnBasePercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total on base percentage (OBP) while pitching"
+    },
+    "PitchingSluggingPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total slugging percentage (SLG) while pitching"
+    },
+    "PitchingOnBasePlusSlugging": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total on base plus slugging (OPS) while pitching"
+    },
+    "PitchingStrikeoutsPerNineInnings": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total strikeouts per nine innings (K/9) while pitching"
+    },
+    "PitchingWalksPerNineInnings": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total walks per nine innings (BB/9) while pitching"
+    },
+    "PitchingBattingAverageOnBallsInPlay": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total batting average on balls in play (BABIP) while pitching"
+    },
+    "PitchingWeightedOnBasePercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total weighted on base percentage while pitching\u00a0"
+    },
+    "DoublePlays": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total double plays, defined as one of: Bunted into Double Play, Fly into Double Play, Fouled into Double Play, Ground into Double Pla,y Line into Double Play, Popped into Double Play"
+    },
+    "PitchingDoublePlays": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total double plays while pitching"
+    },
+    "BattingOrderConfirmed": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the batting order is confirmed (true/false)"
+    },
+    "IsolatedPower": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total isolated power (ISO)"
+    },
+    "FieldingIndependentPitching": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total fielding independent pitching (FIP)"
+    },
+    "PitchingQualityStarts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total quality starts pitched"
+    },
+    "PitchingInningStarted": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The inning that the pitcher entered the game (if any)."
+    },
+    "LeftOnBase": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total left on base percentage\u00a0"
+    },
+    "PitchingHolds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total holds pitched"
+    },
+    "PitchingBlownSaves": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total blown saves pitched"
+    },
+    "SubstituteBattingOrder": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The position in the batting order where this player was substituted into the game (does not include players in the starting lineup)"
+    },
+    "SubstituteBattingOrderSequence": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The sequence in which this player was substituted into the game, within the particular batting order"
+    },
+    "FantasyPointsFantasyDraft": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total FantasyDraft fantasy points"
+    },
+    "FantasyPointsBatting": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total batting fantasy points"
+    },
+    "FantasyPointsPitching": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total pitching fantasy points"
+    }
+  }
+}

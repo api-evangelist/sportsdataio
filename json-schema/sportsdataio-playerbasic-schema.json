@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PlayerBasic",
+  "title": "PlayerBasic",
+  "properties": {
+    "PlayerID": {
+      "type": "integer",
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career"
+    },
+    "SportsDataID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Deprecated. Use SportRadarPlayerID instead."
+    },
+    "Status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Indicates the player's status of being on an Major League Active Roster. Possible values include: Active, 40 Man Active, Non-Roster Invitee, Minors, Inactive, 7 Day Injury List, 10 Day Injury List, 15 Day Injury List, 60 Day Injury List, Restricted List, Paternity List, Bereavement List, Military List"
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The team's unique TeamID as assigned by SportsDataIO"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team"
+    },
+    "Jersey": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's jersey number"
+    },
+    "PositionCategory": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's position category. Possible values: DH, IF, OF, P, PH, PR"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's position associated with the given game or season. Possible values: 1B; 2B; 3B; C; CF; DH; IF; LF; OF; P; PH; PR; RF; RP; SP; SS"
+    },
+    "FirstName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's first name"
+    },
+    "LastName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's last name"
+    },
+    "BirthDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's date of birth"
+    },
+    "BirthCity": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The city in which the player was born"
+    },
+    "BirthState": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The state in which the player was born. Note: State will be NULL for all countries outside of North America and Australia"
+    },
+    "BirthCountry": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The country in which the player was born"
+    },
+    "GlobalTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "BatHand": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's batting hand. Possible values: R, L, S"
+    },
+    "ThrowHand": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's throwing hand. Possible values: R, L, S"
+    },
+    "Height": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's height in inches"
+    },
+    "Weight": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The weight of the player in pounds (lbs.)"
+    }
+  }
+}

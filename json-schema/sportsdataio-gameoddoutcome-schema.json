@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GameOddOutcome",
+  "title": "GameOddOutcome",
+  "properties": {
+    "GameOddId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Unique ID of this odd"
+    },
+    "GameOddResultTypeId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of this GameOddResultType"
+    },
+    "GameOddResultType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The result/outcome of a bet (e.g. Won; Lost; Push; Not Resulted; Incomplete)"
+    },
+    "OddType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The market type of the odd (ex: live; pregame; 1st inning; etc)"
+    },
+    "GameOddType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The GameOddResultType of an outcome in the form of a string"
+    },
+    "BetValue": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The offered betting line from a sportsbook for a game (i.e. If a team won a game by 2 and the run line was -1.5, the actual value would be 2 and the bet value would be -1.5)"
+    },
+    "ActualValue": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The value of the actual result that occured in game (i.e. If a team won a game by 2 and the spread was -1.5, the actual value would be 2 and the bet value would be -1.5)"
+    }
+  }
+}

@@ -1,0 +1,1668 @@
+{
+  "provider": "SportsDataIO",
+  "providerId": "sportsdataio",
+  "kind": "json-structure",
+  "description": "Structural overview of the SportsDataIO API surface; extracted from openapi/.",
+  "schemaCount": 72,
+  "operationCount": 136,
+  "schemas": [
+    {
+      "name": "Unauthorized",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "Team",
+      "type": "object",
+      "propertyCount": 43,
+      "required": []
+    },
+    {
+      "name": "Stadium",
+      "type": "object",
+      "propertyCount": 10,
+      "required": []
+    },
+    {
+      "name": "Bye",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "Score",
+      "type": "object",
+      "propertyCount": 78,
+      "required": []
+    },
+    {
+      "name": "News",
+      "type": "object",
+      "propertyCount": 18,
+      "required": []
+    },
+    {
+      "name": "Schedule",
+      "type": "object",
+      "propertyCount": 31,
+      "required": []
+    },
+    {
+      "name": "Standing",
+      "type": "object",
+      "propertyCount": 35,
+      "required": []
+    },
+    {
+      "name": "Timeframe",
+      "type": "object",
+      "propertyCount": 18,
+      "required": []
+    },
+    {
+      "name": "TeamGame",
+      "type": "object",
+      "propertyCount": 256,
+      "required": []
+    },
+    {
+      "name": "TeamSeason",
+      "type": "object",
+      "propertyCount": 239,
+      "required": []
+    },
+    {
+      "name": "Player",
+      "type": "object",
+      "propertyCount": 74,
+      "required": []
+    },
+    {
+      "name": "PlayerDetail",
+      "type": "object",
+      "propertyCount": 76,
+      "required": []
+    },
+    {
+      "name": "PlayerSeason",
+      "type": "object",
+      "propertyCount": 141,
+      "required": []
+    },
+    {
+      "name": "ScoringDetail",
+      "type": "object",
+      "propertyCount": 12,
+      "required": []
+    },
+    {
+      "name": "Referee",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "TeamDepthChart",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "DepthChart",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "ScheduleBasic",
+      "type": "object",
+      "propertyCount": 25,
+      "required": []
+    },
+    {
+      "name": "ScoreBasic",
+      "type": "object",
+      "propertyCount": 31,
+      "required": []
+    },
+    {
+      "name": "TeamBasic",
+      "type": "object",
+      "propertyCount": 23,
+      "required": []
+    },
+    {
+      "name": "PlayerBasic",
+      "type": "object",
+      "propertyCount": 27,
+      "required": []
+    },
+    {
+      "name": "Transaction",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    },
+    {
+      "name": "TeamDepthChartWeekly",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "DepthChartWeekly",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "FantasyDefenseSeasonProjection",
+      "type": "object",
+      "propertyCount": 91,
+      "required": []
+    },
+    {
+      "name": "FantasyDefenseGameProjection",
+      "type": "object",
+      "propertyCount": 110,
+      "required": []
+    },
+    {
+      "name": "PlayerGameProjection",
+      "type": "object",
+      "propertyCount": 169,
+      "required": []
+    },
+    {
+      "name": "PlayerSeasonProjection",
+      "type": "object",
+      "propertyCount": 141,
+      "required": []
+    },
+    {
+      "name": "DfsSlate",
+      "type": "object",
+      "propertyCount": 14,
+      "required": []
+    },
+    {
+      "name": "DfsSlateGame",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "DfsSlatePlayer",
+      "type": "object",
+      "propertyCount": 15,
+      "required": []
+    },
+    {
+      "name": "DfsSlateWithOwnershipProjection",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "DfsSlatePlayerOwnershipProjection",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "GameInfo",
+      "type": "object",
+      "propertyCount": 23,
+      "required": []
+    },
+    {
+      "name": "GameOdd",
+      "type": "object",
+      "propertyCount": 20,
+      "required": []
+    },
+    {
+      "name": "TeamTrends",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "TeamGameTrends",
+      "type": "object",
+      "propertyCount": 16,
+      "required": []
+    },
+    {
+      "name": "MatchupTrends",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "BettingEvent",
+      "type": "object",
+      "propertyCount": 25,
+      "required": []
+    },
+    {
+      "name": "BettingMarket",
+      "type": "object",
+      "propertyCount": 21,
+      "required": []
+    },
+    {
+      "name": "Sportsbook",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "BettingOutcome",
+      "type": "object",
+      "propertyCount": 21,
+      "required": []
+    },
+    {
+      "name": "ConsensusOutcome",
+      "type": "object",
+      "propertyCount": 22,
+      "required": []
+    },
+    {
+      "name": "BettingEntityMetadataCollection",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "BettingEntityMetadata",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "BettingResultingMetadata",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "GameBettingSplit",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "BettingMarketSplit",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "BettingSplit",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "BettingMarketResult",
+      "type": "object",
+      "propertyCount": 14,
+      "required": []
+    },
+    {
+      "name": "BettingOutcomeResult",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "GameInfoResult",
+      "type": "object",
+      "propertyCount": 36,
+      "required": []
+    },
+    {
+      "name": "GameOddResult",
+      "type": "object",
+      "propertyCount": 20,
+      "required": []
+    },
+    {
+      "name": "GameOddOutcome",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "PlayerGame",
+      "type": "object",
+      "propertyCount": 169,
+      "required": []
+    },
+    {
+      "name": "FantasyDefenseGame",
+      "type": "object",
+      "propertyCount": 110,
+      "required": []
+    },
+    {
+      "name": "FantasyDefenseSeason",
+      "type": "object",
+      "propertyCount": 91,
+      "required": []
+    },
+    {
+      "name": "Injury",
+      "type": "object",
+      "propertyCount": 18,
+      "required": []
+    },
+    {
+      "name": "PlayerSeasonRedZone",
+      "type": "object",
+      "propertyCount": 141,
+      "required": []
+    },
+    {
+      "name": "PlayerSeasonThirdDown",
+      "type": "object",
+      "propertyCount": 141,
+      "required": []
+    },
+    {
+      "name": "BoxScoreV3",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "Quarter",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "ScoringPlay",
+      "type": "object",
+      "propertyCount": 16,
+      "required": []
+    },
+    {
+      "name": "PlayerOwnership",
+      "type": "object",
+      "propertyCount": 12,
+      "required": []
+    },
+    {
+      "name": "PlayerGameRedZone",
+      "type": "object",
+      "propertyCount": 169,
+      "required": []
+    },
+    {
+      "name": "PlayerInfo",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "FantasyGame",
+      "type": "object",
+      "propertyCount": 31,
+      "required": []
+    },
+    {
+      "name": "PlayByPlay",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "Play",
+      "type": "object",
+      "propertyCount": 22,
+      "required": []
+    },
+    {
+      "name": "PlayStat",
+      "type": "object",
+      "propertyCount": 75,
+      "required": []
+    },
+    {
+      "name": "Headshot",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/AreAnyGamesInProgress",
+      "operationId": "nfl_v3_scores_are_games_in_progress",
+      "summary": "Are Games In Progress",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/Teams",
+      "operationId": "nfl_v3_scores_team_profiles___by_active",
+      "summary": "Team Profiles - by Active",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/Byes/{season}",
+      "operationId": "nfl_v3_scores_bye_weeks",
+      "summary": "Bye Weeks",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/CurrentSeason",
+      "operationId": "nfl_v3_scores_season___current",
+      "summary": "Season - Current",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/CurrentWeek",
+      "operationId": "nfl_v3_scores_week___current",
+      "summary": "Week - Current",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/Scores/{season}",
+      "operationId": "nfl_v3_scores_games___by_season__live___final",
+      "summary": "Games - by Season [Live & Final]",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/LastCompletedSeason",
+      "operationId": "nfl_v3_scores_season___last_completed",
+      "summary": "Season - Last Completed",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/LastCompletedWeek",
+      "operationId": "nfl_v3_scores_week___last_completed",
+      "summary": "Week - Last Completed",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/News",
+      "operationId": "nfl_v3_scores_news",
+      "summary": "News",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/NewsByPlayerID/{playerid}",
+      "operationId": "nfl_v3_scores_news___by_player",
+      "summary": "News - by Player",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/NewsByTeam/{team}",
+      "operationId": "nfl_v3_scores_news___by_team",
+      "summary": "News - by Team",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/Schedules/{season}",
+      "operationId": "nfl_v3_scores_schedules",
+      "summary": "Schedules",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/ScoresByWeek/{season}/{week}",
+      "operationId": "nfl_v3_scores_games___by_week__live___final",
+      "summary": "Games - by Week [Live & Final]",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/Stadiums",
+      "operationId": "nfl_v3_scores_stadiums",
+      "summary": "Stadiums",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/Standings/{season}",
+      "operationId": "nfl_v3_scores_standings",
+      "summary": "Standings",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/Teams/{season}",
+      "operationId": "nfl_v3_scores_team_profiles___by_season",
+      "summary": "Team Profiles - by Season",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/Timeframes/{type}",
+      "operationId": "nfl_v3_scores_timeframes",
+      "summary": "Timeframes",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/UpcomingSeason",
+      "operationId": "nfl_v3_scores_season___upcoming",
+      "summary": "Season - Upcoming",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/UpcomingWeek",
+      "operationId": "nfl_v3_scores_week___upcoming",
+      "summary": "Week - Upcoming",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/TeamGameStats/{season}/{week}",
+      "operationId": "nfl_v3_scores_team_game_stats__live___final",
+      "summary": "Team Game Stats [Live & Final]",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/TeamSeasonStats/{season}",
+      "operationId": "nfl_v3_scores_team_season_stats",
+      "summary": "Team Season Stats",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/AllTeams",
+      "operationId": "nfl_v3_scores_team_profiles___all",
+      "summary": "Team Profiles - All",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/NewsByDate/{date}",
+      "operationId": "nfl_v3_scores_news___by_date",
+      "summary": "News - by Date",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/SimulatedScores/{numberofplays}",
+      "operationId": "nfl_v3_scores_scores_by_week_simulation",
+      "summary": "Scores by Week Simulation",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/Players",
+      "operationId": "nfl_v3_scores_player_details___all",
+      "summary": "Player Details - All",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/FreeAgents",
+      "operationId": "nfl_v3_scores_player_details___by_free_agents",
+      "summary": "Player Details - by Free Agents",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/Players/{team}",
+      "operationId": "nfl_v3_scores_player_details___by_team",
+      "summary": "Player Details - by Team",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/Rookies/{season}",
+      "operationId": "nfl_v3_scores_player_details___by_rookie_draft_year",
+      "summary": "Player Details - by Rookie Draft Year",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/Referees",
+      "operationId": "nfl_v3_scores_referees",
+      "summary": "Referees",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/ScoresByDate/{date}",
+      "operationId": "nfl_v3_scores_games___by_date__live___final",
+      "summary": "Games - by Date [Live & Final]",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}",
+      "operationId": "nfl_v3_scores_player_game_logs___by_season",
+      "summary": "Player Game Logs - by Season",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/DepthCharts",
+      "operationId": "nfl_v3_scores_depth_charts___by_active",
+      "summary": "Depth Charts - by Active",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/SchedulesBasic/{season}",
+      "operationId": "nfl_v3_scores_schedules__basic",
+      "summary": "Schedules (Basic)",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/ScoresBasic/{season}/{week}",
+      "operationId": "nfl_v3_scores_games__basic____by_week__live___final",
+      "summary": "Games (Basic) - by Week [Live & Final]",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/TeamsBasic",
+      "operationId": "nfl_v3_scores_team_profiles__basic____all",
+      "summary": "Team Profiles (Basic) - All",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/PlayersBasic/{team}",
+      "operationId": "nfl_v3_scores_player_profiles___by_team",
+      "summary": "Player Profiles - by Team",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/PlayersByAvailable",
+      "operationId": "nfl_v3_scores_player_profiles___all",
+      "summary": "Player Profiles - All",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/PlayersByFreeAgents",
+      "operationId": "nfl_v3_scores_player_profiles___by_free_agent",
+      "summary": "Player Profiles - by Free Agent",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/PlayersByRookieDraftYear/{season}",
+      "operationId": "nfl_v3_scores_player_profiles___by_rookie_draft_year",
+      "summary": "Player Profiles - by Rookie Draft Year",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/TransactionsByDate/{date}",
+      "operationId": "nfl_v3_scores_transactions___by_date",
+      "summary": "Transactions - by Date",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/ScoresByWeekFinal/{season}/{week}",
+      "operationId": "nfl_v3_scores_games___by_week__final",
+      "summary": "Games - by Week [Final]",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/ScoresByDateFinal/{date}",
+      "operationId": "nfl_v3_scores_games___by_date__final",
+      "summary": "Games - by Date [Final]",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/ScoresBasicFinal/{season}/{week}",
+      "operationId": "nfl_v3_scores_games__basic____by_week__final",
+      "summary": "Games (Basic) - by Week [Final]",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/DepthChartsAll",
+      "operationId": "nfl_v3_scores_depth_charts___all",
+      "summary": "Depth Charts - All",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/scores/{format}/DepthChartsByWeek/{season}/{week}",
+      "operationId": "nfl_v3_scores_depth_charts___by_week",
+      "summary": "Depth Charts - by Week",
+      "tags": [
+        "NFL v3 Scores"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/projections/{format}/FantasyDefenseProjectionsBySeason/{season}",
+      "operationId": "nfl_v3_projections_projected_fantasy_defense_season_stats_with_adp",
+      "summary": "Projected Fantasy Defense Season Stats With ADP",
+      "tags": [
+        "NFL v3 Projections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/projections/{format}/FantasyDefenseProjectionsByGame/{season}/{week}",
+      "operationId": "nfl_v3_projections_projected_fantasy_defense_game_stats_with_dfs_salaries",
+      "summary": "Projected Fantasy Defense Game Stats With DFS Salaries",
+      "tags": [
+        "NFL v3 Projections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/projections/{format}/PlayerGameProjectionStatsByTeam/{season}/{week}/{team}",
+      "operationId": "nfl_v3_projections_projected_player_game_stats___by_team",
+      "summary": "Projected Player Game Stats - by Team",
+      "tags": [
+        "NFL v3 Projections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/projections/{format}/PlayerSeasonProjectionStats/{season}",
+      "operationId": "nfl_v3_projections_projected_player_season_stats_with_adp",
+      "summary": "Projected Player Season Stats With ADP",
+      "tags": [
+        "NFL v3 Projections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/projections/{format}/PlayerSeasonProjectionStatsByTeam/{season}/{team}",
+      "operationId": "nfl_v3_projections_projected_player_season_stats_with_adp___by_team",
+      "summary": "Projected Player Season Stats With ADP - by Team",
+      "tags": [
+        "NFL v3 Projections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/projections/{format}/PlayerGameProjectionStatsByWeek/{season}/{week}",
+      "operationId": "nfl_v3_projections_projected_player_game_stats___by_week",
+      "summary": "Projected Player Game Stats - by Week",
+      "tags": [
+        "NFL v3 Projections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/projections/{format}/DfsSlatesByDate/{date}",
+      "operationId": "nfl_v3_projections_dfs_slates___by_date",
+      "summary": "DFS Slates - by Date",
+      "tags": [
+        "NFL v3 Projections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/projections/{format}/DfsSlatesByWeek/{season}/{week}",
+      "operationId": "nfl_v3_projections_dfs_slates___by_week",
+      "summary": "DFS Slates - by Week",
+      "tags": [
+        "NFL v3 Projections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/projections/{format}/IdpPlayerGameProjectionStatsByWeek/{season}/{week}",
+      "operationId": "nfl_v3_projections_idp_projected_player_game_stats___by_week",
+      "summary": "IDP Projected Player Game Stats - by Week",
+      "tags": [
+        "NFL v3 Projections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/projections/{format}/IdpPlayerGameProjectionStatsByTeam/{season}/{week}/{team}",
+      "operationId": "nfl_v3_projections_idp_projected_player_game_stats___by_team",
+      "summary": "IDP Projected Player Game Stats - by Team",
+      "tags": [
+        "NFL v3 Projections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/projections/{format}/UpcomingDfsSlateOwnershipProjections",
+      "operationId": "nfl_v3_projections_dfs_slate_ownership_projections___upcoming",
+      "summary": "DFS Slate Ownership Projections - Upcoming",
+      "tags": [
+        "NFL v3 Projections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/projections/{format}/DfsSlateOwnershipProjectionsBySlateID/{slateId}",
+      "operationId": "nfl_v3_projections_dfs_slate_ownership_projections___by_slate",
+      "summary": "DFS Slate Ownership Projections - by Slate",
+      "tags": [
+        "NFL v3 Projections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/projections/{format}/InjuredPlayers",
+      "operationId": "nfl_v3_projections_player_details___by_injured",
+      "summary": "Player Details - by Injured",
+      "tags": [
+        "NFL v3 Projections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/news-rotoballer/{format}/RotoBallerPremiumNews",
+      "operationId": "nfl_v3_news_rotoballer_premium_news",
+      "summary": "Premium News",
+      "tags": [
+        "NFL v3 RotoBaller Premium News"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/news-rotoballer/{format}/RotoBallerPremiumNewsByDate/{date}",
+      "operationId": "nfl_v3_news_rotoballer_premium_news___by_date",
+      "summary": "Premium News - by Date",
+      "tags": [
+        "NFL v3 RotoBaller Premium News"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/news-rotoballer/{format}/RotoBallerPremiumNewsByTeam/{team}",
+      "operationId": "nfl_v3_news_rotoballer_premium_news___by_team",
+      "summary": "Premium News - by Team",
+      "tags": [
+        "NFL v3 RotoBaller Premium News"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/GameOddsByWeek/{season}/{week}",
+      "operationId": "nfl_v3_odds_pre_game_odds___by_week",
+      "summary": "Pre-Game Odds - by Week",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/GameOddsLineMovement/{scoreid}",
+      "operationId": "nfl_v3_odds_pre_game_odds_line_movement",
+      "summary": "Pre-Game Odds Line Movement",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/LiveGameOddsByWeek/{season}/{week}",
+      "operationId": "nfl_v3_odds_in_game_odds___by_week",
+      "summary": "In-Game Odds - by Week",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/LiveGameOddsLineMovement/{scoreid}",
+      "operationId": "nfl_v3_odds_in_game_odds_line_movement",
+      "summary": "In-Game Odds Line Movement",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/AlternateMarketGameOddsByWeek/{season}/{week}",
+      "operationId": "nfl_v3_odds_period_game_odds___by_week",
+      "summary": "Period Game Odds - by Week",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/AlternateMarketGameOddsLineMovement/{scoreid}",
+      "operationId": "nfl_v3_odds_period_game_odds_line_movement",
+      "summary": "Period Game Odds Line Movement ",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/TeamTrends/{team}",
+      "operationId": "nfl_v3_odds_betting_trends___by_team",
+      "summary": "Betting Trends - by Team",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/MatchupTrends/{team}/{opponent}",
+      "operationId": "nfl_v3_odds_betting_trends___by_matchup",
+      "summary": "Betting Trends - by Matchup",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingEventsByDate/{date}",
+      "operationId": "nfl_v3_odds_betting_events___by_date",
+      "summary": "Betting Events - by Date",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingEvents/{season}",
+      "operationId": "nfl_v3_odds_betting_events___by_season",
+      "summary": "Betting Events - by Season",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingFuturesBySeason/{season}",
+      "operationId": "nfl_v3_odds_betting_futures___by_season",
+      "summary": "Betting Futures - by Season",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingMarkets/{eventId}",
+      "operationId": "nfl_v3_odds_betting_markets___by_event",
+      "summary": "Betting Markets - by Event",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingMarket/{marketId}",
+      "operationId": "nfl_v3_odds_betting_market",
+      "summary": "Betting Market",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}",
+      "operationId": "nfl_v3_odds_betting_markets___by_market_type",
+      "summary": "Betting Markets - by Market Type",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingMarketsByScoreID/{scoreid}",
+      "operationId": "nfl_v3_odds_betting_markets___by_game",
+      "summary": "Betting Markets - by Game",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingMetadata",
+      "operationId": "nfl_v3_odds_betting_metadata",
+      "summary": "Betting Metadata",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/ActiveSportsbooks",
+      "operationId": "nfl_v3_odds_sportsbooks___active",
+      "summary": "Sportsbooks - Active",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingSplitsByScoreId/{scoreId}",
+      "operationId": "nfl_v3_odds_betting_splits___by_game",
+      "summary": "Betting Splits - by Game",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingSplitsByMarketId/{marketId}",
+      "operationId": "nfl_v3_odds_betting_splits___by_betting_market",
+      "summary": "Betting Splits - by Betting Market",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingMarketResults/{marketId}",
+      "operationId": "nfl_v3_odds_betting_results___by_market",
+      "summary": "Betting Results - by Market",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingPlayerPropsByScoreID/{scoreid}",
+      "operationId": "nfl_v3_odds_betting_player_props___by_game",
+      "summary": "Betting Player Props - by Game",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/PreGameOddsByWeek/{season}/{week}/{sportsbookgroup}",
+      "operationId": "nfl_v3_odds_pre_game_and_period_game_odds___by_week__sportsbook_group",
+      "summary": "Pre-Game and Period Game Odds - by Week [Sportsbook Group]",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/PreGameOddsLineMovement/{scoreid}/{sportsbookgroup}",
+      "operationId": "nfl_v3_odds_pre_game_and_period_game_odds_line_movement__sportsbook_group",
+      "summary": "Pre-Game and Period Game Odds Line Movement [Sportsbook Group]",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/InGameOddsByWeek/{season}/{week}/{sportsbookgroup}",
+      "operationId": "nfl_v3_odds_in_game_odds_by_week__sportsbook_group",
+      "summary": "In-Game Odds by Week [Sportsbook Group]",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/InGameLineMovement/{scoreid}/{sportsbookgroup}",
+      "operationId": "nfl_v3_odds_in_game_odds_line_movement__sportsbook_group",
+      "summary": "In-Game Odds Line Movement [Sportsbook Group]",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingPlayerPropsByScoreID/{scoreid}/{sportsbookgroup}",
+      "operationId": "nfl_v3_odds_betting_player_props___by_game__sportsbook_group",
+      "summary": "Betting Player Props - by Game [Sportsbook Group]",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}/{sportsbookgroup}",
+      "operationId": "nfl_v3_odds_betting_markets___by_market_type__sportsbook_group",
+      "summary": "Betting Markets - by Market Type [Sportsbook Group]",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingMarketsByGameID/{gameid}/{sportsbookgroup}",
+      "operationId": "nfl_v3_odds_betting_markets___by_game__sportsbook_group",
+      "summary": "Betting Markets - by Game [Sportsbook Group]",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingMarketsByEvent/{eventId}/{sportsbookgroup}",
+      "operationId": "nfl_v3_odds_betting_markets___by_event__sportsbook_group",
+      "summary": "Betting Markets - by Event [Sportsbook Group]",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingMarket/{marketId}/{sportsbookgroup}",
+      "operationId": "nfl_v3_odds_betting_market__sportsbook_group",
+      "summary": "Betting Market [Sportsbook Group]",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingResultsByMarket/{marketId}/{sportsbookgroup}",
+      "operationId": "nfl_v3_odds_betting_results___by_market__sportsbook_group",
+      "summary": "Betting Results - by Market [Sportsbook Group]",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/BettingFuturesBySeason/{season}/{sportsbookgroup}",
+      "operationId": "nfl_v3_odds_betting_futures___by_season__sportsbook_group",
+      "summary": "Betting Futures - by Season [Sportsbook Group]",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/PreGameOddsLineMovementWithResulting/{scoreid}/{sportsbookgroup}",
+      "operationId": "nfl_v3_odds_pre_game_and_period_game_odds_line_movement_with_resulting__sportsbook_group",
+      "summary": "Pre-Game and Period Game Odds Line Movement with Resulting [Sportsbook Group]",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/odds/{format}/InGameLineMovementWithResulting/{scoreid}/{sportsbookgroup}",
+      "operationId": "nfl_v3_odds_in_game_odds_line_movement_with_resulting__sportsbook_group",
+      "summary": "In-Game Odds Line Movement with Resulting [Sportsbook Group]",
+      "tags": [
+        "NFL v3 Odds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerGameStatsDelta/{minutes}",
+      "operationId": "nfl_v3_stats_player_game_stats_delta",
+      "summary": "Player Game Stats Delta",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/FantasyDefenseByGame/{season}/{week}",
+      "operationId": "nfl_v3_stats_fantasy_defense_game_stats___all",
+      "summary": "Fantasy Defense Game Stats - All",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/FantasyDefenseBySeason/{season}",
+      "operationId": "nfl_v3_stats_fantasy_defense_season_stats___all",
+      "summary": "Fantasy Defense Season Stats - All",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/Injuries/{season}/{week}",
+      "operationId": "nfl_v3_stats_injuries___all",
+      "summary": "Injuries - All",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/Injuries/{season}/{week}/{team}",
+      "operationId": "nfl_v3_stats_injuries___by_team",
+      "summary": "Injuries - by Team",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerGameStatsByTeam/{season}/{week}/{team}",
+      "operationId": "nfl_v3_stats_player_game_stats___by_team__live___final",
+      "summary": "Player Game Stats - by Team [Live & Final]",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerGameStatsByWeekDelta/{season}/{week}/{minutes}",
+      "operationId": "nfl_v3_stats_player_game_stats_delta___by_week",
+      "summary": "Player Game Stats Delta - by Week",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerSeasonStatsByTeam/{season}/{team}",
+      "operationId": "nfl_v3_stats_player_season_stats___by_team",
+      "summary": "Player Season Stats - by Team",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerGameStatsByWeek/{season}/{week}",
+      "operationId": "nfl_v3_stats_player_game_stats___by_week__live___final",
+      "summary": "Player Game Stats - by Week [Live & Final]",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerSeasonStats/{season}",
+      "operationId": "nfl_v3_stats_player_season_stats",
+      "summary": "Player Season Stats",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/FantasyDefenseByGameByTeam/{season}/{week}/{team}",
+      "operationId": "nfl_v3_stats_fantasy_defense_game_stats___by_team",
+      "summary": "Fantasy Defense Game Stats - by Team",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/FantasyDefenseBySeasonByTeam/{season}/{team}",
+      "operationId": "nfl_v3_stats_fantasy_defense_season_stats___by_team",
+      "summary": "Fantasy Defense Season Stats - by Team",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerSeasonRedZoneStats/{season}",
+      "operationId": "nfl_v3_stats_player_season_red_zone_stats",
+      "summary": "Player Season Red Zone Stats",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerSeasonThirdDownStats/{season}",
+      "operationId": "nfl_v3_stats_player_season_third_down_stats",
+      "summary": "Player Season Third Down Stats",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/BoxScoresDeltaV3/{season}/{week}/{playerstoinclude}/{minutes}",
+      "operationId": "nfl_v3_stats_box_scores_delta___by_week",
+      "summary": "Box Scores Delta - by Week",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/BoxScoreV3/{season}/{week}/{hometeam}",
+      "operationId": "nfl_v3_stats_box_score___by_team__live___final",
+      "summary": "Box Score - by Team [Live & Final]",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/BoxScoreByScoreIDV3/{scoreid}",
+      "operationId": "nfl_v3_stats_box_score__live___final",
+      "summary": "Box Score [Live & Final]",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerOwnership/{season}/{week}",
+      "operationId": "nfl_v3_stats_fantasy_player_ownership_percentages__season_long____by_week",
+      "summary": "Fantasy Player Ownership Percentages (Season-Long) - by Week",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerGameRedZoneStats/{season}/{week}",
+      "operationId": "nfl_v3_stats_player_game_red_zone_stats",
+      "summary": "Player Game Red Zone Stats",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/ProBowlers/{season}",
+      "operationId": "nfl_v3_stats_pro_bowlers",
+      "summary": "Pro Bowlers",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/SimulatedBoxScoresV3/{numberofplays}",
+      "operationId": "nfl_v3_stats_box_scores_simulation",
+      "summary": "Box Scores Simulation",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerGameRedZoneInsideTenStats/{season}/{week}",
+      "operationId": "nfl_v3_stats_player_game_red_zone_stats__inside_ten",
+      "summary": "Player Game Red Zone Stats (Inside Ten)",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerSeasonRedZoneInsideTenStats/{season}",
+      "operationId": "nfl_v3_stats_player_season_red_zone_stats__inside_ten",
+      "summary": "Player Season Red Zone Stats (Inside Ten)",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerGameRedZoneInsideFiveStats/{season}/{week}",
+      "operationId": "nfl_v3_stats_player_game_red_zone_stats__inside_five",
+      "summary": "Player Game Red Zone Stats (Inside Five)",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerSeasonRedZoneInsideFiveStats/{season}",
+      "operationId": "nfl_v3_stats_player_season_red_zone_stats__inside_five",
+      "summary": "Player Season Red Zone Stats (Inside Five)",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerGameStatsBySeason/{season}/{playerid}/{numberofgames}",
+      "operationId": "nfl_v3_stats_player_game_logs___by_season",
+      "summary": "Player Game Logs - by Season",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/BoxScoreFinal/{scoreid}",
+      "operationId": "nfl_v3_stats_box_score__final",
+      "summary": "Box Score [Final]",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/BoxScoresFinal/{season}/{week}",
+      "operationId": "nfl_v3_stats_box_scores___by_week__final",
+      "summary": "Box Scores - by Week [Final]",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/TeamGameStatsFinal/{season}/{week}",
+      "operationId": "nfl_v3_stats_team_game_stats___by_game__final",
+      "summary": "Team Game Stats - by Game [Final]",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerGameStatsByWeekFinal/{season}/{week}",
+      "operationId": "nfl_v3_stats_player_game_stats___by_week__final",
+      "summary": "Player Game Stats - by Week [Final]",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/ScoresFinal/{season}",
+      "operationId": "nfl_v3_stats_games___by_season__final",
+      "summary": "Games - by Season [Final]",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/PlayerGameStatsByTeamFinal/{season}/{week}/{team}",
+      "operationId": "nfl_v3_stats_player_game_stats___by_team__final",
+      "summary": "Player Game Stats - by Team [Final]",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/BoxScoreByTeamFinal/{season}/{week}/{hometeam}",
+      "operationId": "nfl_v3_stats_box_score___by_team__final",
+      "summary": "Box Score - by Team [Final]",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/stats/{format}/FantasyGameStatsByWeek/{season}/{week}",
+      "operationId": "nfl_v3_stats_fantasy_points___by_week",
+      "summary": "Fantasy Points - by Week",
+      "tags": [
+        "NFL v3 Stats"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/pbp/{format}/PlayByPlay/{season}/{week}/{hometeam}",
+      "operationId": "nfl_v3_pbp_play_by_play___by_team__live___final",
+      "summary": "Play By Play - by Team [Live & Final]",
+      "tags": [
+        "NFL v3 Play-by-Play"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/pbp/{format}/SimulatedPlayByPlay/{numberofplays}",
+      "operationId": "nfl_v3_pbp_play_by_play_simulation",
+      "summary": "Play By Play Simulation",
+      "tags": [
+        "NFL v3 Play-by-Play"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/pbp/{format}/PlayByPlayDelta/{season}/{week}/{minutes}",
+      "operationId": "nfl_v3_pbp_play_by_play_delta",
+      "summary": "Play By Play Delta",
+      "tags": [
+        "NFL v3 Play-by-Play"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/pbp/{format}/PlayByPlayFinal/{gameid}",
+      "operationId": "nfl_v3_pbp_play_by_play__final",
+      "summary": "Play By Play [Final]",
+      "tags": [
+        "NFL v3 Play-by-Play"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/pbp/{format}/PlayByPlay/{gameid}",
+      "operationId": "nfl_v3_pbp_play_by_play__live___final",
+      "summary": "Play By Play [Live & Final]",
+      "tags": [
+        "NFL v3 Play-by-Play"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/pbp/{format}/PlayByPlayFinal/{season}/{week}/{hometeam}",
+      "operationId": "nfl_v3_pbp_play_by_play___by_team__final",
+      "summary": "Play By Play - by Team [Final]",
+      "tags": [
+        "NFL v3 Play-by-Play"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/nfl/headshots/{format}/Headshots",
+      "operationId": "nfl_v3_headshots_headshots",
+      "summary": "Headshots",
+      "tags": [
+        "NFL v3 Headshots"
+      ]
+    }
+  ]
+}

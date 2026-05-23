@@ -1,0 +1,414 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OpponentSeason",
+  "title": "OpponentSeason",
+  "properties": {
+    "StatID": {
+      "type": "integer",
+      "description": "The unique ID of the stat"
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team"
+    },
+    "SeasonType": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition)."
+    },
+    "Season": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The NBA season that these totals apply for"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the team"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team"
+    },
+    "Wins": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of team wins on the season"
+    },
+    "Losses": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of team losses on the season"
+    },
+    "OpponentPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "This field is expected to be NULL"
+    },
+    "Possessions": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total number of estimated possessions by the team in the season"
+    },
+    "GlobalTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The timestamp of when the record was last updated (US Eastern Time)"
+    },
+    "Games": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of games played"
+    },
+    "FantasyPoints": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total fantasy points"
+    },
+    "Minutes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of minutes played"
+    },
+    "Seconds": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of seconds played"
+    },
+    "FieldGoalsMade": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total number of field goals made"
+    },
+    "FieldGoalsAttempted": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total number of field goals attempted"
+    },
+    "FieldGoalsPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goal percentage"
+    },
+    "EffectiveFieldGoalsPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total effective field goals percentage"
+    },
+    "TwoPointersMade": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total two pointers made"
+    },
+    "TwoPointersAttempted": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total two pointers attempted"
+    },
+    "TwoPointersPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total two pointers percentage"
+    },
+    "ThreePointersMade": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total three pointers made"
+    },
+    "ThreePointersAttempted": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total three pointers attempted"
+    },
+    "ThreePointersPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total three pointers percentage"
+    },
+    "FreeThrowsMade": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total free throws made"
+    },
+    "FreeThrowsAttempted": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total free throws attempted"
+    },
+    "FreeThrowsPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total free throws percentage"
+    },
+    "OffensiveRebounds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total offensive rebounds"
+    },
+    "DefensiveRebounds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total defensive rebounds"
+    },
+    "Rebounds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total rebounds"
+    },
+    "OffensiveReboundsPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total offensive rebounds percentage"
+    },
+    "DefensiveReboundsPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total defensive rebounds percentage"
+    },
+    "TotalReboundsPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The player/team total rebounds percentage"
+    },
+    "Assists": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total assists"
+    },
+    "Steals": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total steals"
+    },
+    "BlockedShots": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total blocked shots"
+    },
+    "Turnovers": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total turnovers"
+    },
+    "PersonalFouls": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total personal fouls"
+    },
+    "Points": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total points scored"
+    },
+    "TrueShootingAttempts": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The player's true shooting attempts as defined here: http://www.basketball-reference.com/about/glossary.html"
+    },
+    "TrueShootingPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The player's true shooting percentage as defined here: http://www.basketball-reference.com/about/glossary.html"
+    },
+    "PlayerEfficiencyRating": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The player's linear weight efficiency rating as defined here: http://bleacherreport.com/articles/113144-cracking-the-code-how-to-calculate-hollingers-per-without-all-the-mess"
+    },
+    "AssistsPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The player's assist percentage as defined here: http://www.basketball-reference.com/about/glossary.html"
+    },
+    "StealsPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The player's steal percentage as defined here: http://www.basketball-reference.com/about/glossary.html"
+    },
+    "BlocksPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The player's block percentage as defined here: http://www.basketball-reference.com/about/glossary.html"
+    },
+    "TurnOversPercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The player's turnover percentage as defined here: http://www.basketball-reference.com/about/glossary.html"
+    },
+    "UsageRatePercentage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The player's usage rate percentage as defined here: http://www.basketball-reference.com/about/glossary.html"
+    },
+    "FantasyPointsFanDuel": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total FanDuel daily fantasy points scored"
+    },
+    "FantasyPointsDraftKings": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total DraftKings daily fantasy points scored"
+    },
+    "FantasyPointsYahoo": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total Yahoo daily fantasy points scored"
+    },
+    "PlusMinus": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total plus minus"
+    },
+    "DoubleDoubles": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total double-doubles scored"
+    },
+    "TripleDoubles": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total triple-doubles scored"
+    },
+    "FantasyPointsFantasyDraft": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total FantasyDraft daily fantasy points scored"
+    },
+    "IsClosed": {
+      "type": "boolean",
+      "description": "Indicates whether the game is over and the stats for this player have been verified and closed out."
+    },
+    "LineupConfirmed": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether starting lineup is confirmed"
+    },
+    "LineupStatus": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Indicates whether player is starting, active, or inactive"
+    }
+  }
+}

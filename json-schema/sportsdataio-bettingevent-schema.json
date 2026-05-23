@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BettingEvent",
+  "title": "BettingEvent",
+  "properties": {
+    "BettingEventID": {
+      "type": "integer",
+      "description": "The unique ID assocated with the betting event"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of this betting event"
+    },
+    "Season": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The MLB season of the betting event"
+    },
+    "BettingEventTypeID": {
+      "type": "integer",
+      "description": "The ID associated with the type of betting event"
+    },
+    "BettingEventType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Indicates the type of betting event - Game or Future"
+    },
+    "StartDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The furthest forward time any book has a market set to close for this betting event"
+    },
+    "Created": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time when this betting event was created in US Eastern Time"
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the last update made to this betting event (in US Eastern Time)"
+    },
+    "GameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the game tied to this BettingEvent"
+    },
+    "GlobalGameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for the game tied to this BettingEvent. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "GameStatus": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The status of the game in tied to this event"
+    },
+    "Quarter": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The quarter of the game tied to this event"
+    },
+    "AwayTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the away team"
+    },
+    "HomeTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the Home Team"
+    },
+    "AwayTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique TeamID of the away team in the game tied to this BettingEvent"
+    },
+    "HomeTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the home team tied to this BettingEvent"
+    },
+    "GlobalAwayTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for the away team tied to this BettingEvent This value is guaranteed to be unique across all sports/leagues"
+    },
+    "GlobalHomeTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for the home team tied to this BettingEvent. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "AwayTeamScore": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Score of the away team tied to this betting event (updated after game ends to allow for resolving bets)"
+    },
+    "HomeTeamScore": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Score of the home team tied to this betting event (updated after game ends to allow for resolving bets)"
+    },
+    "TotalScore": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The combined scores of the home and away team of the game tied to this event (post-game)"
+    },
+    "AwayRotationNumber": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Rotation number of away team for this game"
+    },
+    "HomeRotationNumber": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Rotation number of home team for this game"
+    },
+    "BettingMarkets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/BettingMarket"
+      },
+      "description": "The list of betting markets for this event"
+    },
+    "GameStartTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time the game starts"
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TeamBasic",
+  "title": "TeamBasic",
+  "properties": {
+    "Key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Abbreviation [Key] of the team (e.g. LAC; PHI; NE; IND; etc.)"
+    },
+    "TeamID": {
+      "type": "integer",
+      "description": "The unique ID of the team"
+    },
+    "PlayerID": {
+      "type": "integer",
+      "description": "The auto-generated unique ID of the Team, that avoids collisions with PlayerIDs.  This is useful when combining players and fantasy defenses to create fantasy teams."
+    },
+    "City": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The city/location of the team (e.g. Minnesota; Philadelphia; New England; Indianapolis; etc.)"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The mascot of the team (e.g. Chargers, Eagles, Patriots, Colts, etc.)"
+    },
+    "Conference": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The conference of the team (e.g. AFC or NFC)"
+    },
+    "Division": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The division of the team (e.g. East, North, South, West)"
+    },
+    "FullName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The full name of the team (e.g. New England Patriots)"
+    },
+    "StadiumID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team's current home stadium"
+    },
+    "ByeWeek": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The bye week of the team in the upcoming or current regular season"
+    },
+    "GlobalTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "HeadCoach": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The current head coach of the team"
+    },
+    "PrimaryColor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The team's first color. (This is not licensed for public or commercial use)"
+    },
+    "SecondaryColor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The team's second color. (This is not licensed for public or commercial use)"
+    },
+    "TertiaryColor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The team's third color. (This is not licensed for public or commercial use)"
+    },
+    "QuaternaryColor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The team's fourth color. (This is not licensed for public or commercial use)"
+    },
+    "WikipediaLogoURL": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The link to the team's logo hosted on Wikipedia (This is not licensed for public or commercial use)"
+    },
+    "WikipediaWordMarkURL": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The link to the team's wordmark logo hosted on Wikipedia (This is not licensed for public or commercial use)"
+    },
+    "OffensiveCoordinator": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The current offensive coordinator of the team. Note: field will be NULL if team doesn't have an OFF coordinator"
+    },
+    "DefensiveCoordinator": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The current defensive coordinator of the team. Note: field will be NULL if team doesn't have an DEFF coordinator"
+    },
+    "SpecialTeamsCoach": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The current special teams coordinator of the team. Note: field will be NULL if team doesn't have an ST coordinator"
+    },
+    "OffensiveScheme": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The offensive scheme this team runs (PRO, 2TE, 3WR).  This is decided at our discretion."
+    },
+    "DefensiveScheme": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The current defensive scheme this team runs (3-4, 4-3)"
+    }
+  }
+}

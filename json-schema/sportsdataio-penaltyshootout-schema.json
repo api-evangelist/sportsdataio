@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PenaltyShootout",
+  "title": "PenaltyShootout",
+  "properties": {
+    "PenaltyShootoutId": {
+      "type": "integer",
+      "description": "The unique ID of the penalty shootout"
+    },
+    "GameId": {
+      "type": "integer",
+      "description": "The unique ID of the game tied to this penalty shootout"
+    },
+    "Type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The result of this penalty shootout kick. Possible values: Goal; Miss."
+    },
+    "TeamId": {
+      "type": "integer",
+      "description": "The unique ID of the team"
+    },
+    "PlayerId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career."
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the player in the penalty shootout"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The position of the player. Possible values include: A (Attacker); M (Midfielder); D (Defender); GK (Goalkeeper)."
+    },
+    "Order": {
+      "type": "integer",
+      "description": "The order of the penalty shootout"
+    }
+  }
+}

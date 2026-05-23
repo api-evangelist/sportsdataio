@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BettingMarket",
+  "title": "BettingMarket",
+  "properties": {
+    "BettingMarketID": {
+      "type": "integer",
+      "description": "The unique ID associated with the betting market"
+    },
+    "BettingEventID": {
+      "type": "integer",
+      "description": "The unique ID assocated with the betting event"
+    },
+    "BettingMarketTypeID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID associated with the market type of the betting market"
+    },
+    "BettingMarketType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the market type within a market (e.g. Player Prop, Team Prop, Game Prop, etc.)"
+    },
+    "BettingBetTypeID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The ID associated with the name of the bet type within a market"
+    },
+    "BettingBetType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the bet type within a market (e.g. Total Runs, Moneyline, Run Line, etc.)"
+    },
+    "BettingPeriodTypeID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The BettingPeriodTypeID of this market"
+    },
+    "BettingPeriodType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The BettingPeriodType of this market (e.g. Full Game; 1st-5th Inning; 2nd Inning; Regular Season)"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The generic name of this market"
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The team's unique TeamID as assigned by SportsDataIO tied this market (if applicable)"
+    },
+    "TeamKey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team tied to this market (if applicable)"
+    },
+    "PlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's unique PlayerID as assigned by SportsDataIO tied to this market (if applicable) Note: this ID will stay with the player throughout their MLB career"
+    },
+    "PlayerName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The full name of the player associated with this market"
+    },
+    "Created": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time when this betting market was created in US Eastern Time"
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the last update made to this betting market (in US Eastern Time)"
+    },
+    "AvailableSportsbooks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Sportsbook"
+      },
+      "description": "The sportsbooks that have had odds in this market"
+    },
+    "AnyBetsAvailable": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "A field that returns \"True\" if there are any available bets to make within the market in question. If there are no bets available to make, the field returns \"False\""
+    },
+    "BettingOutcomes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/BettingOutcome"
+      },
+      "description": "The list of betting outcomes from each sportsbook in this market"
+    },
+    "ConsensusOutcomes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ConsensusOutcome"
+      },
+      "description": "The single set of consensus outcomes of this market"
+    },
+    "IsArchived": {
+      "type": "boolean",
+      "description": "Indicates whether a BettingOutcome has been archived or not (true/false)"
+    },
+    "ArchiveLocation": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "If IsArchived is true, this returns the URL that can be used to retrieve the archived BettingOutcomes. An API Key and Sportsbook Grouping will be required to retrieve this information. If IsArchived is false, this returns an emtpy string"
+    }
+  }
+}

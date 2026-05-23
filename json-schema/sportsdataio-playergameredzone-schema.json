@@ -1,0 +1,950 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PlayerGameRedZone",
+  "title": "PlayerGameRedZone",
+  "properties": {
+    "GameKey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam.. Note: This value will be NULL for bye weeks"
+    },
+    "PlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this player corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The NFL season of the game"
+    },
+    "GameDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time the game is scheduled to start"
+    },
+    "Week": {
+      "type": "integer",
+      "description": "The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team that the player is on. Note: if this player is a free agent; this field is NULL"
+    },
+    "Opponent": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the opponent team"
+    },
+    "HomeOrAway": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Whether the team is home or away"
+    },
+    "Number": {
+      "type": "integer",
+      "description": "Player's jersey number"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's full name"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The primary position of the player. Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR"
+    },
+    "PositionCategory": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The category of the player's position (OFF; DEF; ST)"
+    },
+    "Activated": {
+      "type": "integer",
+      "description": "Whether or not the player was active for the game"
+    },
+    "Played": {
+      "type": "integer",
+      "description": "Whether the player played at least one snap in the game Note: Will return \"1\" if player played at least one snap and \"0\" if they did not"
+    },
+    "Started": {
+      "type": "integer",
+      "description": "Whether the player started the game (on offensive or defense). Note: Started = 1 / Did Not Start = 0"
+    },
+    "PassingAttempts": {
+      "type": "number",
+      "description": "Total passes thrown by the player in the game"
+    },
+    "PassingCompletions": {
+      "type": "number",
+      "description": "Total passes completed by the player in the game"
+    },
+    "PassingYards": {
+      "type": "number",
+      "description": "Total passing yards by the player in the game"
+    },
+    "PassingCompletionPercentage": {
+      "type": "number",
+      "description": "The percentage of passes completed by the player in the game"
+    },
+    "PassingYardsPerAttempt": {
+      "type": "number",
+      "description": "Total average passing yards per attempt by the player in the game"
+    },
+    "PassingYardsPerCompletion": {
+      "type": "number",
+      "description": "Total average passing yards per completion by the player in the game"
+    },
+    "PassingTouchdowns": {
+      "type": "number",
+      "description": "Total passing touchdowns by the player in the game"
+    },
+    "PassingInterceptions": {
+      "type": "number",
+      "description": "Total interceptions thrown by the player in the game"
+    },
+    "PassingRating": {
+      "type": "number",
+      "description": "The passer rating of the player in the game"
+    },
+    "PassingLong": {
+      "type": "number",
+      "description": "Total yards of longest completion by the player in the game"
+    },
+    "PassingSacks": {
+      "type": "number",
+      "description": "The total number of times the player was sacked in the game"
+    },
+    "PassingSackYards": {
+      "type": "number",
+      "description": "Total yards lost by the player in the game as a result of being sacked"
+    },
+    "RushingAttempts": {
+      "type": "number",
+      "description": "Total rushing attempts by the player in the game"
+    },
+    "RushingYards": {
+      "type": "number",
+      "description": "Total rushing yards by the player in the game"
+    },
+    "RushingYardsPerAttempt": {
+      "type": "number",
+      "description": "Total rushing yards per attempt by the player in the game"
+    },
+    "RushingTouchdowns": {
+      "type": "number",
+      "description": "Total rushing touchdowns by the player in the game"
+    },
+    "RushingLong": {
+      "type": "number",
+      "description": "The longest rush by the player in the game"
+    },
+    "ReceivingTargets": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total receiving targets by the player in the game"
+    },
+    "Receptions": {
+      "type": "number",
+      "description": "Total receptions by the player in the game"
+    },
+    "ReceivingYards": {
+      "type": "number",
+      "description": "Total receiving yards by the player in the game"
+    },
+    "ReceivingYardsPerReception": {
+      "type": "number",
+      "description": "Average receiving yards per reception by the player in the game"
+    },
+    "ReceivingTouchdowns": {
+      "type": "number",
+      "description": "Total receiving touchdowns by the player in the game"
+    },
+    "ReceivingLong": {
+      "type": "number",
+      "description": "The longest reception by the player in the game"
+    },
+    "Fumbles": {
+      "type": "number",
+      "description": "Total fumbles by the player in the game"
+    },
+    "FumblesLost": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total fumbles lost by the player in the game"
+    },
+    "PuntReturns": {
+      "type": "number",
+      "description": "Total punt returns by the player in the game"
+    },
+    "PuntReturnYards": {
+      "type": "number",
+      "description": "Total punt return yards by the player in the game"
+    },
+    "PuntReturnYardsPerAttempt": {
+      "type": "number",
+      "description": "Total average yards gained per punt return by the player in the game"
+    },
+    "PuntReturnTouchdowns": {
+      "type": "number",
+      "description": "Total punt return touchdowns by the player in the game"
+    },
+    "PuntReturnLong": {
+      "type": "number",
+      "description": "The longest punt return by the player in the game"
+    },
+    "KickReturns": {
+      "type": "number",
+      "description": "Total kickoff returns by the player in the game"
+    },
+    "KickReturnYards": {
+      "type": "number",
+      "description": "Total kickoff return yards by the player in the game"
+    },
+    "KickReturnYardsPerAttempt": {
+      "type": "number",
+      "description": "Average yards gained per kick return by the player in the game"
+    },
+    "KickReturnTouchdowns": {
+      "type": "number",
+      "description": "Total kickoff return touchdowns by the player in the game"
+    },
+    "KickReturnLong": {
+      "type": "number",
+      "description": "Longest kick return by the player in the game"
+    },
+    "SoloTackles": {
+      "type": "number",
+      "description": "Total defensive solo (unassisted) tackles by the player in the game"
+    },
+    "AssistedTackles": {
+      "type": "number",
+      "description": "Total defensive assisted tackles by the player in the game"
+    },
+    "TacklesForLoss": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total tackles for loss by the player in the game. Note: these are tackles behind the line of scrimmage for loss of yards (including sacks)"
+    },
+    "Sacks": {
+      "type": "number",
+      "description": "Total defensive sacks by the player in the game"
+    },
+    "SackYards": {
+      "type": "number",
+      "description": "Total defensive sacks yards by the player in the game"
+    },
+    "QuarterbackHits": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total quarterback hits by the player in the game. Note: This is a defensive stat that includes sacks"
+    },
+    "PassesDefended": {
+      "type": "number",
+      "description": "Total passes defended by the player in the game"
+    },
+    "FumblesForced": {
+      "type": "number",
+      "description": "Total fumbles forced on defense by the player in the game"
+    },
+    "FumblesRecovered": {
+      "type": "number",
+      "description": "Total defensive fumble recoveries by the player in the game"
+    },
+    "FumbleReturnYards": {
+      "type": "number",
+      "description": "Total fumble return yards by the player in the game"
+    },
+    "FumbleReturnTouchdowns": {
+      "type": "number",
+      "description": "Total fumble return touchdowns by the player in the game"
+    },
+    "Interceptions": {
+      "type": "number",
+      "description": "Total defensive interceptions by the player in the game"
+    },
+    "InterceptionReturnYards": {
+      "type": "number",
+      "description": "Total defensive interception return yards by the player in the game"
+    },
+    "InterceptionReturnTouchdowns": {
+      "type": "number",
+      "description": "Total defensive interception return touchdowns by the player in the game"
+    },
+    "BlockedKicks": {
+      "type": "number",
+      "description": "Total blocked kicks by the player in the game. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points"
+    },
+    "SpecialTeamsSoloTackles": {
+      "type": "number",
+      "description": "This field is deprecated"
+    },
+    "SpecialTeamsAssistedTackles": {
+      "type": "number",
+      "description": "This field is deprecated"
+    },
+    "MiscSoloTackles": {
+      "type": "number",
+      "description": "This field is deprecated"
+    },
+    "MiscAssistedTackles": {
+      "type": "number",
+      "description": "This field is deprecated"
+    },
+    "Punts": {
+      "type": "number",
+      "description": "Total number of punts by the player in the game"
+    },
+    "PuntYards": {
+      "type": "number",
+      "description": "Total punt yards by the player in the game"
+    },
+    "PuntAverage": {
+      "type": "number",
+      "description": "The average number of yards per punt by the player in the game"
+    },
+    "FieldGoalsAttempted": {
+      "type": "number",
+      "description": "Total field goals attempted by the player in the game"
+    },
+    "FieldGoalsMade": {
+      "type": "number",
+      "description": "Total field goals made by the player in game"
+    },
+    "FieldGoalsLongestMade": {
+      "type": "number",
+      "description": "Longest field goal made by the player in the game"
+    },
+    "ExtraPointsMade": {
+      "type": "number",
+      "description": "Total extra points made by the player in the game"
+    },
+    "TwoPointConversionPasses": {
+      "type": "number",
+      "description": "Total successful two point conversion passes by the player in the game"
+    },
+    "TwoPointConversionRuns": {
+      "type": "number",
+      "description": "Total successful two point conversion rushes by the player in the game"
+    },
+    "TwoPointConversionReceptions": {
+      "type": "number",
+      "description": "Total successful two point conversion receptions by the player in the game"
+    },
+    "FantasyPoints": {
+      "type": "number",
+      "description": "Fantasy points scored based on basic fantasy scoring system by the player in the game"
+    },
+    "FantasyPointsPPR": {
+      "type": "number",
+      "description": "This field is expected to be NULL"
+    },
+    "ReceptionPercentage": {
+      "type": "number",
+      "description": "Total percentage of receiving targets that were receptions by the player in the game"
+    },
+    "ReceivingYardsPerTarget": {
+      "type": "number",
+      "description": "Average receiving yards per target by the player in the game"
+    },
+    "Tackles": {
+      "type": "number",
+      "description": "Total tackles (solo & assisted) by the player in the game"
+    },
+    "OffensiveTouchdowns": {
+      "type": "number",
+      "description": "Total offensive touchdowns scored by the player in the game"
+    },
+    "DefensiveTouchdowns": {
+      "type": "number",
+      "description": "Total defensive touchdowns scored by the player in the game"
+    },
+    "SpecialTeamsTouchdowns": {
+      "type": "number",
+      "description": "Total special teams touchdowns scored by the player in the game"
+    },
+    "Touchdowns": {
+      "type": "number",
+      "description": "Total touchdowns scored by the player in the game (excludes passing touchdowns)"
+    },
+    "FantasyPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's fantasy football position. Possible values: QB; RB; WR; TE; DL; LB; DB; K; P; OL"
+    },
+    "FieldGoalPercentage": {
+      "type": "number",
+      "description": "Total field goal attempts made by the player in the game"
+    },
+    "PlayerGameID": {
+      "type": "integer",
+      "description": "Unique ID of PlayerGame record (subject to change, although it very rarely does).  For a static ID, use a combination of GameKey and PlayerID."
+    },
+    "FumblesOwnRecoveries": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total own fumble recoveries by the player in the game. Note: this fumble doesn't result in a turnover - the fumbling team recovers the fumble"
+    },
+    "FumblesOutOfBounds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "KickReturnFairCatches": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "PuntReturnFairCatches": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "PuntTouchbacks": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total punts that resulted in touchbacks by the player in the game"
+    },
+    "PuntInside20": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total punts downed inside the 20 yard line by the player in the game"
+    },
+    "PuntNetAverage": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The average net yards per punt by the player in the game"
+    },
+    "ExtraPointsAttempted": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total extra point kicks attempted by the player in the game"
+    },
+    "BlockedKickReturnTouchdowns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total blocked kick recovery return touchdowns for the player in the game"
+    },
+    "FieldGoalReturnTouchdowns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goal return touchdowns by the player in the game. Note: This field excludes blocked field goals"
+    },
+    "Safeties": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total defensive safeties scored by the player in the game"
+    },
+    "FieldGoalsHadBlocked": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goals by the player that were blocked in the game"
+    },
+    "PuntsHadBlocked": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total punts by the player that were blocked in the game"
+    },
+    "ExtraPointsHadBlocked": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total extra point kick attempts by the player that were blocked in the game"
+    },
+    "PuntLong": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The longest punt by the player in the game"
+    },
+    "BlockedKickReturnYards": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total blocked kick recovery return yards for the player in the game"
+    },
+    "FieldGoalReturnYards": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goal return yards by the player in the game. Note: This field excludes blocked field goals"
+    },
+    "PuntNetYards": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The net yards of the punts by the player in the game"
+    },
+    "SpecialTeamsFumblesForced": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "SpecialTeamsFumblesRecovered": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "MiscFumblesForced": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "MiscFumblesRecovered": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "ShortName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The first initial and last name of the player (J. Doe)"
+    },
+    "PlayingSurface": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The playing surface of the stadium"
+    },
+    "IsGameOver": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the game is over (true/false)"
+    },
+    "SafetiesAllowed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "Stadium": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Stadium of the event"
+    },
+    "Temperature": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Temperature at game start (Fahrenheit)"
+    },
+    "Humidity": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The humidity percentage at the start of the game"
+    },
+    "WindSpeed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The wind speed at the start of the game (in MPH)"
+    },
+    "FanDuelSalary": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's salary for FanDuel daily fantasy contests."
+    },
+    "DraftKingsSalary": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's salary for DraftKings daily fantasy contests."
+    },
+    "FantasyDataSalary": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's salary as calculated by SportsDataIO (formerly known as FantasyData). \u00a0Based on the same salary cap as DraftKings contests ($50,000)."
+    },
+    "OffensiveSnapsPlayed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total snaps this player played on offense in the game. Note: Snap counts are available the morning after the game."
+    },
+    "DefensiveSnapsPlayed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total snaps this player played on defense in the game. Note: Snap counts are available the morning after the game."
+    },
+    "SpecialTeamsSnapsPlayed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total snaps this player played on special teams in the game. Note: Snap counts are available the morning after the game."
+    },
+    "OffensiveTeamSnaps": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total offensive snaps this player's team played in the game. Note: Snap counts are available the morning after the game."
+    },
+    "DefensiveTeamSnaps": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total defensive snaps this player's team played in the game. Note: Snap counts are available the morning after the game."
+    },
+    "SpecialTeamsTeamSnaps": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total special teams snaps this player's team played in the game. Note: Snap counts are available the morning after the game."
+    },
+    "VictivSalary": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's salary for Victiv daily fantasy contests."
+    },
+    "TwoPointConversionReturns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total successful two point conversion returns by the player in the game"
+    },
+    "FantasyPointsFanDuel": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points based on FanDuel's scoring system by the player in the game"
+    },
+    "FieldGoalsMade0to19": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goals of 0 to 19 yards made by the player in game"
+    },
+    "FieldGoalsMade20to29": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goals of 20 to 29 yards made by the player in game"
+    },
+    "FieldGoalsMade30to39": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goals of 30 to 39 yards made by the player in game"
+    },
+    "FieldGoalsMade40to49": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goals of 40 to 49 yards made by the player in game"
+    },
+    "FieldGoalsMade50Plus": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total field goals of 50+ yards made by the player in game"
+    },
+    "FantasyPointsDraftKings": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points based on DraftKings' scoring system by the player in the game"
+    },
+    "YahooSalary": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's salary for Yahoo daily fantasy contests"
+    },
+    "FantasyPointsYahoo": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fantasy points based on Yahoo's daily fantasy scoring system by the player in the game"
+    },
+    "InjuryStatus": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's current injury status; in the form of likelihood that player plays (Probable; Questionable; Doubtful; Out)"
+    },
+    "InjuryBodyPart": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The body part that is injured for the player (Knee; Groin; Calf; Hamstring; etc.)"
+    },
+    "InjuryStartDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The day that the player's injury started or was first discovered"
+    },
+    "InjuryNotes": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A brief description of the player's injury and expected availability"
+    },
+    "FanDuelPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's eligible position in FanDuel's daily fantasy sports platform."
+    },
+    "DraftKingsPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's eligible position in DraftKings' daily fantasy sports platform."
+    },
+    "YahooPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's eligible position in Yahoo's daily fantasy sports platform"
+    },
+    "OpponentRank": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The ranking of the player's opponent with regards to fantasy points allowed."
+    },
+    "OpponentPositionRank": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The ranking of the player's opponent by position with regards to fantasy points allowed."
+    },
+    "InjuryPractice": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "InjuryPracticeDescription": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "DeclaredInactive": {
+      "type": "boolean",
+      "description": "Whether the player has been declared inactive. This value is updated in the hours leading up to game start time; as teams announce their inactive players.  Note: This is only updated for offensive skill position players (QB; RB; WR; TE)"
+    },
+    "FantasyDraftSalary": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's salary for FantasyDraft daily fantasy contests."
+    },
+    "FantasyDraftPosition": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's eligible position in FantasyDraft's daily fantasy sports platform."
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team that the player is on. Note: if the player is a free agent; this field is NULL"
+    },
+    "OpponentID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of this opponent team"
+    },
+    "Day": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date of the game (in US Eastern Time)"
+    },
+    "DateTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game (in US Eastern Time)"
+    },
+    "GlobalGameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "GlobalTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "GlobalOpponentID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this opposing team. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "ScoreID": {
+      "type": "integer",
+      "description": "Unique ID of the score/game"
+    },
+    "FantasyPointsFantasyDraft": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is no longer in use and will return null."
+    },
+    "ScoringDetails": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScoringDetail"
+      },
+      "description": "The details of the scoring plays this player recorded in the game"
+    },
+    "OffensiveFumbleRecoveryTouchdowns": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "SnapCountsConfirmed": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether snap count fields are confirmed (true/false). Note: This takes place the morning after the game."
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Time of last update (in US Eastern time). Note: this does not indicate that stats changed."
+    }
+  }
+}

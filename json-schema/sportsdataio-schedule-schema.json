@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Schedule",
+  "title": "Schedule",
+  "properties": {
+    "GameKey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this game corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The NFL season of the game"
+    },
+    "Week": {
+      "type": "integer",
+      "description": "The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks"
+    },
+    "Date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game (in US Eastern Time)"
+    },
+    "AwayTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the away team"
+    },
+    "HomeTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the home team"
+    },
+    "Channel": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The television station broadcasting the game"
+    },
+    "PointSpread": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The oddsmaker point spread at game start from the perspective of the team (negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored)"
+    },
+    "OverUnder": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The total points line (over/under) at game start"
+    },
+    "StadiumID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team's current home stadium"
+    },
+    "Canceled": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether the game was canceled"
+    },
+    "GeoLat": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The geographic latitude coordinate of the venue where the game is taking place"
+    },
+    "GeoLong": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The geographic longitude coordinate of the venue where the game is taking place"
+    },
+    "ForecastTempLow": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The forecasted low temperature on game day at this venue (Fahrenheit)."
+    },
+    "ForecastTempHigh": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The forecasted high temperature on game day at this venue (Fahrenheit)."
+    },
+    "ForecastDescription": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The forecast description on game day at this venue."
+    },
+    "ForecastWindChill": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The forecasted wind chill on game day at this venue."
+    },
+    "ForecastWindSpeed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The forecasted wind speed on game day at this venue."
+    },
+    "AwayTeamMoneyLine": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The sportsbook's moneyline for the away team"
+    },
+    "HomeTeamMoneyLine": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The sportsbook's moneyline for the home team"
+    },
+    "Day": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date of the game (in US Eastern Time)"
+    },
+    "DateTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game (in US Eastern Time)"
+    },
+    "GlobalGameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "GlobalAwayTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "GlobalHomeTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues"
+    },
+    "ScoreID": {
+      "type": "integer",
+      "description": "Unique ID of the score/game"
+    },
+    "StadiumDetails": {
+      "$ref": "#/components/schemas/Stadium",
+      "description": "The details of the stadium where this game is played"
+    },
+    "Status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The status of the game. For a description of possible values, see <a href=\"https://support.sportsdata.io/hc/en-us/articles/14287629964567-Process-Guide-Game-Status\" target=\"_blank\">here.</a> For how suspended and postponed games are handled specifically, see <a href=\"https://support.sportsdata.io/hc/en-us/articles/4404845580567-Postponed-and-Rescheduled-Games\" target=\"_blank\">here</a>."
+    },
+    "IsClosed": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether the game is over and the final score has been verified and closed out."
+    },
+    "DateTimeUTC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game (in UTC)"
+    }
+  }
+}

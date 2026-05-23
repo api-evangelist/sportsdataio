@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DfsSlateGame",
+  "title": "DfsSlateGame",
+  "properties": {
+    "SlateGameID": {
+      "type": "integer",
+      "description": "The SlateGameID that this SlatePlayer refers to"
+    },
+    "SlateID": {
+      "type": "integer",
+      "description": "The SlateID that this SlateGame refers to"
+    },
+    "GameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the game tied to this SlateGame"
+    },
+    "Game": {
+      "$ref": "#/components/schemas/Game",
+      "description": "The details of the Game that this SlateGame refers to"
+    },
+    "OperatorGameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Unique ID of a SlateGame (assigned by the operator)"
+    },
+    "RemovedByOperator": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether this game was removed/deleted by the operator."
+    }
+  }
+}

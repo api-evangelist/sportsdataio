@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TeamDetail",
+  "title": "TeamDetail",
+  "properties": {
+    "Players": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Player"
+      },
+      "description": "The players who are current on this team's active roster/squad"
+    },
+    "TeamId": {
+      "type": "integer",
+      "description": "The unique ID of the team"
+    },
+    "AreaId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team's current home arena"
+    },
+    "VenueId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team's venue"
+    },
+    "Key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Abbreviation of the team (e.g. LIV; ARS; MNU; etc.)"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The mascot of the team (e.g. The Reds, The Gunners, etc.)"
+    },
+    "FullName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The full name of the team (e.g. Liverpool Football Club, Arsenal Football Club, etc.)"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "Whether or not this team is active (true/false)"
+    },
+    "AreaName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The area name of the home team"
+    },
+    "VenueName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the home team's venue"
+    },
+    "Gender": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The gender of the players on the team. Possible Values: Male; Female"
+    },
+    "Type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The type of this team. Possible values: Club, National"
+    },
+    "Address": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The address of the home team"
+    },
+    "City": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The city of the home team"
+    },
+    "Zip": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The zip code of the team's home location"
+    },
+    "Phone": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The phone number of the home team"
+    },
+    "Fax": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The fax number of the home team"
+    },
+    "Website": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The website address of the home team"
+    },
+    "Email": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The email of the home team"
+    },
+    "Founded": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The calendar year that the team was founded"
+    },
+    "ClubColor1": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The primary color of this team's logo/uniform/branding"
+    },
+    "ClubColor2": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The secondary color of this team's logo/uniform/branding"
+    },
+    "ClubColor3": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The tertiary color of this team's logo/uniform/branding"
+    },
+    "Nickname1": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A nickname for this team"
+    },
+    "Nickname2": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A nickname for this team"
+    },
+    "Nickname3": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A nickname for this team"
+    },
+    "WikipediaLogoUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The link to the team's logo hosted on Wikipedia (This is not licensed for public or commercial use)"
+    },
+    "WikipediaWordMarkUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The link to the team's wordmark logo hosted on Wikipedia (This is not licensed for public or commercial use)"
+    },
+    "GlobalTeamId": {
+      "type": "integer",
+      "description": "A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues."
+    }
+  }
+}

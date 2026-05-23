@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Round",
+  "title": "Round",
+  "properties": {
+    "RoundId": {
+      "type": "integer",
+      "description": "The unique ID of the round"
+    },
+    "SeasonId": {
+      "type": "integer",
+      "description": "The unique ID of the season this round is associated with"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The soccer regular season for which these totals apply"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)."
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The display name of the round (examples: Regular Season, Semi-finals, Final, etc)"
+    },
+    "Type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The type of this round. Possible values: Cup; Table"
+    },
+    "StartDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The start date of the round"
+    },
+    "EndDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The end date of the round"
+    },
+    "CurrentWeek": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The current week that this round is in"
+    },
+    "CurrentRound": {
+      "type": "boolean",
+      "description": "Indicates whether or not this round is the current round of the competition/season"
+    },
+    "Games": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Game"
+      },
+      "description": "The games and their details that are apart of this round"
+    },
+    "Standings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Standing"
+      },
+      "description": "The standings details associated with this round of the competition"
+    },
+    "TeamSeasons": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamSeason"
+      },
+      "description": "The team stat records associated with this round"
+    },
+    "PlayerSeasons": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PlayerSeason"
+      },
+      "description": "Player Season stat records associated with this round"
+    }
+  }
+}

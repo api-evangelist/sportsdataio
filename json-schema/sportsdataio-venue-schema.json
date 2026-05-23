@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Venue",
+  "title": "Venue",
+  "properties": {
+    "VenueId": {
+      "type": "integer",
+      "description": "The unique ID of the venue"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The full name of the venue"
+    },
+    "Address": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The address where the venue is located"
+    },
+    "City": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The city where the venue is located"
+    },
+    "Zip": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The zip code of where the venue is located"
+    },
+    "Country": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The country name of where the venue is located"
+    },
+    "Open": {
+      "type": "boolean",
+      "description": "Indicates whether this venue is actively used"
+    },
+    "Opened": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The year the venue opened (e.g. 1950; 1960; etc)"
+    },
+    "Nickname1": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A nickname for this venue"
+    },
+    "Nickname2": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A nickname for this venue"
+    },
+    "Capacity": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The estimated seating capacity of the venue"
+    },
+    "Surface": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The playing surface of the stadium. Possible values: Grass; Artificial"
+    },
+    "GeoLat": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The geographic latitude coordinate of this venue"
+    },
+    "GeoLong": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The geographic latitude coordinate of this venue"
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Injury",
+  "title": "Injury",
+  "properties": {
+    "InjuryID": {
+      "type": "integer",
+      "description": "The unique ID of the injury record for the player"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this player corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The season of the game that this injury leads up to"
+    },
+    "Week": {
+      "type": "integer",
+      "description": "The NFL week of the game that this injury leads up to (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons prior to 2021 will have 3 preseason weeks."
+    },
+    "PlayerID": {
+      "type": "integer",
+      "description": "The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career."
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Player's full name"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The primary position of the player. Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR."
+    },
+    "Number": {
+      "type": "integer",
+      "description": "Player's jersey number"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team that the player is on. Note: If this player is a free agent; this field is NULL."
+    },
+    "Opponent": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the opponent team of the injured player"
+    },
+    "BodyPart": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The body part that is injured (Knee; Groin; Calf; Hamstring; etc.)"
+    },
+    "Status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The injury designation assigned to the player (Probable; Questionable; Doubtful; Out)"
+    },
+    "Practice": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "PracticeDescription": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "This field is deprecated"
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date/time the injury status was updated (in US Eastern time)"
+    },
+    "DeclaredInactive": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether the player has been declared inactive. This value is updated in the hours leading up to game start time; as teams announce their inactive players. Note: This is only updated for offensive skill position players (QB; RB; WR; TE)."
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL."
+    },
+    "OpponentID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the opponent this player played on during this game"
+    }
+  }
+}

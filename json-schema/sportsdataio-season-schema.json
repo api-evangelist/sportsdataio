@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Season",
+  "title": "Season",
+  "properties": {
+    "Season": {
+      "type": "integer",
+      "description": "The MLB season for which these totals apply"
+    },
+    "RegularSeasonStartDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The start date of the regular season"
+    },
+    "PostSeasonStartDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The start date of the postseason"
+    },
+    "SeasonType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)."
+    },
+    "ApiSeason": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The string to pass into subsequent API calls in the season parameter (e.g. 2025REG, 2025POST, etc.)."
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Goaltender",
+  "title": "Goaltender",
+  "properties": {
+    "PlayerID": {
+      "type": "integer",
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career"
+    },
+    "TeamID": {
+      "type": "integer",
+      "description": "The unique ID of the team"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team the goaltender belongs to"
+    },
+    "FirstName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The first name of the goaltender"
+    },
+    "LastName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The goaltender's last name"
+    },
+    "Jersey": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The goaltender's jersey number"
+    },
+    "Confirmed": {
+      "type": "boolean",
+      "description": "Indicates whether the starting goaltender is projected or confirmed"
+    }
+  }
+}

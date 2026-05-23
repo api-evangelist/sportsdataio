@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TeamDepthChartWeekly",
+  "title": "TeamDepthChartWeekly",
+  "properties": {
+    "TeamID": {
+      "type": "integer",
+      "description": "Unique ID of Team"
+    },
+    "Offense": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DepthChartWeekly"
+      },
+      "description": "List of Offensive Depth Charts for Team"
+    },
+    "Defense": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DepthChartWeekly"
+      },
+      "description": "List of Defensive Depth Charts for Team"
+    },
+    "SpecialTeams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DepthChartWeekly"
+      },
+      "description": "List of Special Teams Depth Charts for Team"
+    }
+  }
+}

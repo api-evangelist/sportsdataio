@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/News",
+  "title": "News",
+  "properties": {
+    "NewsID": {
+      "type": "integer",
+      "description": "The unique ID assigned to this news story"
+    },
+    "Source": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The source of the story (RotoBaller, NBCSports.com, etc.)"
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The timestamp of when this news story was published"
+    },
+    "TimeAgo": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "A description of how long ago this content was published"
+    },
+    "Title": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The brief title of the news story (typically less than 100 characters)"
+    },
+    "Content": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The entirety of the content of the news story"
+    },
+    "Url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The website URL of the full news story"
+    },
+    "TermsOfUse": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The terms of use with using this news item, credit must be given to the originator of the story when specified in the terms of use"
+    },
+    "Author": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The author of the content"
+    },
+    "Categories": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Comma delimited meta tags describing the categories of this content. Possible tags include: Top Headlines, Breaking News, Injury, Sit/Start, Waiver Wire, Risers, Fallers, Lineups, Transactions, Free Agents, Prospects/Rookies, Game Recap, Matchup Outlook"
+    },
+    "PlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career"
+    },
+    "TeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The team's unique TeamID as assigned by SportsDataIO"
+    },
+    "Team": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the team that relates to this story"
+    },
+    "PlayerID2": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The PlayerID of the player who relates to this story"
+    },
+    "TeamID2": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The TeamID of the second team that relates to this story"
+    },
+    "Team2": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the second team that relates to this story"
+    },
+    "OriginalSource": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The original source who broke this news (before it was picked up by the publisher of this story)"
+    },
+    "OriginalSourceUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The URL of the original source who broke this news story"
+    }
+  }
+}

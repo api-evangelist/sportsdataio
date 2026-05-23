@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BoxScoreV3",
+  "title": "BoxScoreV3",
+  "properties": {
+    "Score": {
+      "$ref": "#/components/schemas/Score",
+      "description": "The Score object related to this game"
+    },
+    "Quarters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Quarter"
+      },
+      "description": "The Quarters objects related to this game"
+    },
+    "TeamGames": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamGame"
+      },
+      "description": "The TeamGame objects related to this game"
+    },
+    "PlayerGames": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PlayerGame"
+      },
+      "description": "The PlayerGame objects related to this game"
+    },
+    "FantasyDefenseGames": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/FantasyDefenseGame"
+      },
+      "description": "The FantasyDefenseGame objects related to this game"
+    },
+    "ScoringPlays": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScoringPlay"
+      },
+      "description": "The ScoringPlay objects related to this game"
+    },
+    "ScoringDetails": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScoringDetail"
+      },
+      "description": "The ScoringDetail objects related to this game"
+    }
+  }
+}

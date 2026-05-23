@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StartingGoaltenders",
+  "title": "StartingGoaltenders",
+  "properties": {
+    "GameID": {
+      "type": "integer",
+      "description": "The unique ID of the game tied to the StartingGoaltenders"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The end year of season (2021-22 would be 2022)"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition)."
+    },
+    "Day": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date of the game"
+    },
+    "DateTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game in US Eastern Time"
+    },
+    "Status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Indicates the game's status. Possible values include: Scheduled; InProgress; Final; F/SO; F/OT; Suspended; Postponed; Delayed; Canceled; Forfeit"
+    },
+    "HomeTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the home team tied to these StartingGoaltenders"
+    },
+    "HomeTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the home team"
+    },
+    "AwayTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the away team as it relates to the starting goaltenders"
+    },
+    "AwayTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the away team"
+    },
+    "HomeGoaltender": {
+      "$ref": "#/components/schemas/Goaltender",
+      "description": "The information of the home goaltender (PlayerID, TeamID, Team, First & Last Name, Jersey Number, Confirmed)"
+    },
+    "AwayGoaltender": {
+      "$ref": "#/components/schemas/Goaltender",
+      "description": "The information of the away goaltender (PlayerID, TeamID, Team, First & Last Name, Jersey Number, Confirmed)"
+    }
+  }
+}

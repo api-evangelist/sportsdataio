@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BettingEntityMetadataCollection",
+  "title": "BettingEntityMetadataCollection",
+  "properties": {
+    "BettingBetTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/BettingEntityMetadata"
+      },
+      "description": "The list of the bet types that can be found within a market"
+    },
+    "BettingMarketTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/BettingEntityMetadata"
+      },
+      "description": "A list of the possible Market Types within a Betting Event (e.g. Game Line, Team prop, Player Future, etc.)"
+    },
+    "BettingPeriodTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/BettingEntityMetadata"
+      },
+      "description": "A list of the possible BettingPeriodTypes (e.g. Full Game; 1st-5th Inning; 1st Inning)"
+    },
+    "BettingEventTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/BettingEntityMetadata"
+      },
+      "description": "A list of the possible BettingEventTypes (e.g. Game, Future)"
+    },
+    "BettingOutcomeTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/BettingEntityMetadata"
+      },
+      "description": "A list of the possible BettingOutcomeTypes (e.g. Home; Away; Under; Over)"
+    },
+    "ResultedMarketMetaData": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/BettingResultingMetadata"
+      },
+      "description": "A list of the combinations of MarketType, BetType, & PeriodType which we willl provide automated resulting for"
+    },
+    "BettingResultTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/BettingEntityMetadata"
+      },
+      "description": "A list of the possible BettingResultTypes (e.g. Win; Loss; Push; Not Resulted; Incomplete)"
+    }
+  }
+}

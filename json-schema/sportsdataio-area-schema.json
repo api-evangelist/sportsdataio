@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Area",
+  "title": "Area",
+  "properties": {
+    "AreaId": {
+      "type": "integer",
+      "description": "The unique ID of the area"
+    },
+    "CountryCode": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The 3-digit country or continent code where the area is located"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The display name of the area"
+    },
+    "Competitions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Competition"
+      },
+      "description": "The competitions that are associated with and/or played in the area"
+    }
+  }
+}

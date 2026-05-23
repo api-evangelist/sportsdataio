@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PlayerLine",
+  "title": "PlayerLine",
+  "properties": {
+    "LineNumber": {
+      "type": "integer",
+      "description": "The line the player is on (e.g. 1, 2, 3, or 4)"
+    },
+    "Position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The player's primary position. Possible values: C; RW; LW; D; or G"
+    },
+    "PlayerID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The player's unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career"
+    },
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The full name of the player on the line"
+    },
+    "Shoots": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The hand the player shoots the puck with (right or left)"
+    },
+    "LineType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The type of line the player is on (e.g. EvenStrength (EV); PowerPlay (PP); ShortHanded (SH))"
+    }
+  }
+}

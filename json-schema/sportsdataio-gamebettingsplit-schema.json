@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GameBettingSplit",
+  "title": "GameBettingSplit",
+  "properties": {
+    "GameID": {
+      "type": "integer",
+      "description": "The unique ID of the game tied to the BettingSplits"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar)."
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The MLB season of the betting split"
+    },
+    "Day": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The day of the game"
+    },
+    "AwayTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the away team"
+    },
+    "HomeTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the Home Team"
+    },
+    "BettingMarketSplits": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/BettingMarketSplit"
+      },
+      "description": "Shows the BettingMarkets that have splits included for them in a given game"
+    }
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ScoreBasic",
+  "title": "ScoreBasic",
+  "properties": {
+    "AwayTeamRuns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Number of runs scored by the away team in the game"
+    },
+    "HomeTeamRuns": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Number of runs scored by the home team in the game"
+    },
+    "AwayTeamHits": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total hits by the away team in the game"
+    },
+    "HomeTeamHits": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total hits by the home team in the game"
+    },
+    "AwayTeamErrors": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total errors committed by the away team in the game"
+    },
+    "HomeTeamErrors": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total errors committed by the home team in the game"
+    },
+    "Attendance": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Total number of people who attended the game"
+    },
+    "GlobalGameID": {
+      "type": "integer",
+      "description": "A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "GlobalAwayTeamID": {
+      "type": "integer",
+      "description": "A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "GlobalHomeTeamID": {
+      "type": "integer",
+      "description": "A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues."
+    },
+    "NeutralVenue": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether this game is played in a neutral venue"
+    },
+    "Inning": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The inning that the game is currently in, or the inning in which the game ended. Possible values include: NULL, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, etc)"
+    },
+    "InningHalf": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The inning half that the game is currently in; or the inning half in which the game ended (possible values: T; B; E: M: NULL)"
+    },
+    "GameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of this game"
+    },
+    "Season": {
+      "type": "integer",
+      "description": "The MLB season of the game"
+    },
+    "SeasonType": {
+      "type": "integer",
+      "description": "The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)"
+    },
+    "Status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Indicates the game's status. Possible values include: Scheduled, InProgress, Final, Suspended, Delayed, Postponed, Canceled, Forfeit, NotNecessary"
+    },
+    "Day": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date of the game"
+    },
+    "DateTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game in US Eastern Time"
+    },
+    "AwayTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the away team"
+    },
+    "HomeTeam": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The abbreviation [Key] of the Home Team"
+    },
+    "AwayTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique TeamID of the away team"
+    },
+    "HomeTeamID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the home team"
+    },
+    "RescheduledGameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling."
+    },
+    "StadiumID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The unique ID of the stadium"
+    },
+    "IsClosed": {
+      "type": "boolean",
+      "description": "Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status."
+    },
+    "Updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the late update made to this record (in US Eastern Time)"
+    },
+    "GameEndDateTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time that the game ended in US Eastern Time"
+    },
+    "DateTimeUTC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and time of the game in UTC"
+    },
+    "SeriesInfo": {
+      "$ref": "#/components/schemas/Series",
+      "description": "Contains relevant series data for postseason series only - HomeTeamWins; AwayTeamWins; GameNumber; and MaxLength"
+    },
+    "RescheduledFromGameID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as \"make up\" games."
+    },
+    "SuspensionResumeDay": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date a game that was suspended in play will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status."
+    },
+    "SuspensionResumeDateTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date and start-time that the suspended in play game will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status."
+    }
+  }
+}

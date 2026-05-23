@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DfsSlate",
+  "title": "DfsSlate",
+  "properties": {
+    "SlateID": {
+      "type": "integer",
+      "description": "The SlateID that this SlateGame refers to"
+    },
+    "Operator": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the operator who is running contests for this slate Possible values: FanDuel; DraftKings; Yahoo; FantasyDraft; etc."
+    },
+    "OperatorSlateID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Unique ID of a slate (assigned by the operator)."
+    },
+    "OperatorName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The name of the slate (assigned by the operator). Possible values: Main, Express, Arcade, Late Night, etc."
+    },
+    "OperatorDay": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The day (in EST/EDT) that the slate begins (assigned by the operator)"
+    },
+    "OperatorStartTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The date/time (in EST/EDT) that the slate begins (assigned by the operator)."
+    },
+    "NumberOfGames": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The number of actual games that this slate covers"
+    },
+    "IsMultiDaySlate": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Whether or not this slate uses games that take place on different days (true/false)"
+    },
+    "RemovedByOperator": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates whether this slate was removed/deleted by the operator."
+    },
+    "OperatorGameType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The game type of the slate. Note: Will often be null as most operators only have one game type"
+    },
+    "DfsSlateGames": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DfsSlateGame"
+      },
+      "description": "The games that are included in this slate"
+    },
+    "DfsSlatePlayers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DfsSlatePlayer"
+      },
+      "description": "The players that are included in this slate"
+    },
+    "SlateRosterSlots": {
+      "type": "array",
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "description": "The positions that need to be filled for this particular slate"
+    },
+    "SalaryCap": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "The salary cap for the current slate (is null for slates with no salary cap such a Tiers gametypes)"
+    }
+  }
+}

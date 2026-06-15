@@ -1,0 +1,3828 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NFL API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NFL v3 Scores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Are Games In Progress",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/AreAnyGamesInProgress",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns <code>true</code> if there is at least one game being played at the time of the request or <code>false</code> if there are none."
+        },
+        {
+          "info": {
+            "name": "Team Profiles - by Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/Teams",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full team information: team name and city, conference and division, colors, coaching and scheme info. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns the teams currently active in the league."
+        },
+        {
+          "info": {
+            "name": "Bye Weeks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/Byes/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Get bye weeks for the teams during a specified NFL season."
+        },
+        {
+          "info": {
+            "name": "Season - Current",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/CurrentSeason",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Year of the current NFL season. This value changes at the start of the new NFL league year. NFL seasons run across two calendar years; the league year is the one in which it starts, not ends (that is, a season starting in 2023 and ending in 2024 will have the league year of 2023.)"
+        },
+        {
+          "info": {
+            "name": "Week - Current",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/CurrentWeek",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Number of the current week of the NFL season. This value usually changes on Tuesday nights or Wednesday mornings at midnight ET but in the rare case of a rescheduled or overseas game with a non-standard gameday this could change."
+        },
+        {
+          "info": {
+            "name": "Games - by Season [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/Scores/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info delivered live and post-game. Live data includes down and distance, as well as game clock. Gameday info includes referee, weather, TV channel etc."
+        },
+        {
+          "info": {
+            "name": "Season - Last Completed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/LastCompletedSeason",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Year of the most recently completed NFL season. This value changes immediately after the Super Bowl. NFL seasons run across two calendar years; the league year is the one in which it starts, not ends (that is, a season starting in 2023 and ending in 2024 will have the league year of 2023.)"
+        },
+        {
+          "info": {
+            "name": "Week - Last Completed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/LastCompletedWeek",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Number of the last completed week of the NFL season. This value usually changes on Tuesday nights or Wednesday mornings at midnight ET but in the rare case of a rescheduled or overseas game with a non-standard gameday this could change."
+        },
+        {
+          "info": {
+            "name": "News",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/News",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Basic RotoBaller news feed, with limited stories available - usually 0-1 stories per day. Ideal for test purposes."
+        },
+        {
+          "info": {
+            "name": "News - by Player",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/NewsByPlayerID/:playerid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "playerid",
+                "value": "",
+                "type": "path",
+                "description": "Each NFL player has a unique ID assigned by FantasyData. Player IDs can be determined by pulling player related data. Example:<code>14257</code>."
+              }
+            ]
+          },
+          "docs": "Basic RotoBaller news feed, with limited stories available - usually 0-1 stories per day. Ideal for test purposes."
+        },
+        {
+          "info": {
+            "name": "News - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/NewsByTeam/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Basic RotoBaller news feed, with limited stories available - usually 0-1 stories per day. Ideal for test purposes."
+        },
+        {
+          "info": {
+            "name": "Schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/Schedules/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc."
+              }
+            ]
+          },
+          "docs": "Home and away teams, date and time, season type and week etc. are included. Also includes gameday information. This includes full stadium information (capacity, lat/long, surface etc.), top-line betting information (spread, moneyline, total), weather conditions, and broadcast information."
+        },
+        {
+          "info": {
+            "name": "Games - by Week [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/ScoresByWeek/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info delivered live and post-game. Live data includes down and distance, as well as game clock. Gameday info includes referee, weather, TV channel etc."
+        },
+        {
+          "info": {
+            "name": "Stadiums",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/Stadiums",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns all stadiums in the NFL with capacity, surface, latitude/longitude, city and state (and, where applicable, country.)"
+        },
+        {
+          "info": {
+            "name": "Standings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/Standings/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Includes regular season standings in division and conference, from which postseason seeding can be derived."
+        },
+        {
+          "info": {
+            "name": "Team Profiles - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/Teams/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Full team information: team name and city, conference and division, colors, coaching and scheme info. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns the active teams for a given season."
+        },
+        {
+          "info": {
+            "name": "Timeframes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/Timeframes/:type",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "The type of timeframes to return.  Valid entries are <code>current</code> or <code>upcoming</code> or <code>completed</code> or <code>recent</code> or <code>all</code>."
+              }
+            ]
+          },
+          "docs": "Timeframes for the NFL refer to current weeks, season status etc."
+        },
+        {
+          "info": {
+            "name": "Season - Upcoming",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/UpcomingSeason",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Year of the current NFL season, if we are in the mid-season. If we are in the off-season, then year of the next upcoming season. This value changes immediately after the Super Bowl. NFL seasons run across two calendar years; the league year is the one in which it starts, not ends (that is, a season starting in 2023 and ending in 2024 will have the league year of 2023.)"
+        },
+        {
+          "info": {
+            "name": "Week - Upcoming",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/UpcomingWeek",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Number of the next upcoming week of the NFL season. This value usually changes on Tuesday nights or Wednesday mornings at midnight ET but in the rare case of a rescheduled or overseas game with a non-standard gameday this could change."
+        },
+        {
+          "info": {
+            "name": "Team Game Stats [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/TeamGameStats/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record team-wide (aggregated from all players) for a given team's game in a given week, during the game and with final stats after it ends."
+        },
+        {
+          "info": {
+            "name": "Team Season Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/TeamSeasonStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for all teams (aggregated from all players) for a given season."
+        },
+        {
+          "info": {
+            "name": "Team Profiles - All",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/AllTeams",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full team information: team name and city, conference and division, colors, coaching and scheme info. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns all teams regardless of current active status."
+        },
+        {
+          "info": {
+            "name": "News - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/NewsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the news.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Basic RotoBaller news feed, with limited stories available - usually 0-1 stories per day. Ideal for test purposes."
+        },
+        {
+          "info": {
+            "name": "Scores by Week Simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/SimulatedScores/:numberofplays",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "numberofplays",
+                "value": "",
+                "type": "path",
+                "description": "The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>150</code>, <code>200</code>, etc."
+              }
+            ]
+          },
+          "docs": "Gets simulated live scores of NFL games, covering the Conference Championship games on January 21, 2018."
+        },
+        {
+          "info": {
+            "name": "Player Details - All",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/Players",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full player bio and details, including injury notes, for all NFL players in our database."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Free Agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/FreeAgents",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full player bio and details, including injury notes, for all available NFL free agents unattached to a team."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/Players/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Full player bio and details, including injury notes, for all available NFL players by team."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Rookie Draft Year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/Rookies/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.<br>Examples: <code>2018</code>, <code>2019</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full player bio and details, including injury notes, for all available NFL players by a specified draft year."
+        },
+        {
+          "info": {
+            "name": "Referees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/Referees",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns referees with name, numbers, position (e.g. FJ for Field Judge), college, and years of experience."
+        },
+        {
+          "info": {
+            "name": "Games - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/ScoresByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the games.<br>Examples: <code>2021-SEP-12</code>, <code>2021-NOV-28</code>."
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info delivered live and post-game. Live data includes down and distance, as well as game clock. Gameday info includes referee, weather, TV channel etc."
+        },
+        {
+          "info": {
+            "name": "Player Game Logs - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/TeamGameStatsBySeason/:season/:teamid/:numberofgames",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Season to get games from. Example <code>2019POST</code>, <code>2020</code>        "
+              },
+              {
+                "name": "teamid",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of team.  Example <code> 8 </code>"
+              },
+              {
+                "name": "numberofgames",
+                "value": "",
+                "type": "path",
+                "description": "How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code>"
+              }
+            ]
+          },
+          "docs": "Specify a season, a player, and number of games (either an integer or <code>all</code>) to see all of their box score logs. Refreshed after their most recent game is complete."
+        },
+        {
+          "info": {
+            "name": "Depth Charts - by Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/DepthCharts",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Depth charts for all active players NFL teams split by offensive, defensive, and special teams position groupings."
+        },
+        {
+          "info": {
+            "name": "Schedules (Basic)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/SchedulesBasic/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc."
+              }
+            ]
+          },
+          "docs": "A lightweight schedule endpoint without gameday information. Home and away teams, the date and time of the game, and season type, week etc. are included. Ideal for the most basic information required to build a schedule."
+        },
+        {
+          "info": {
+            "name": "Games (Basic) - by Week [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/ScoresBasic/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "This endpoint simply delivers the game clock and quarter and total scores live; no down and distance and no gameday info such as weather."
+        },
+        {
+          "info": {
+            "name": "Team Profiles (Basic) - All",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/TeamsBasic",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "The most basic top-line team information, such as team name and city, conference and division, stadium ID, coach info, and team colors. Returns all teams regardless of current active status."
+        },
+        {
+          "info": {
+            "name": "Player Profiles - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/PlayersBasic/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Roster information for a given team. Player profiles include basic biographical information, position, college, and current team (if attached to a team.) Specify a team tricode parameter to receive all players currently on that team."
+        },
+        {
+          "info": {
+            "name": "Player Profiles - All",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/PlayersByAvailable",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Player profiles include basic biographical information, position, college, and current team (if attached to a team.) This returns all players."
+        },
+        {
+          "info": {
+            "name": "Player Profiles - by Free Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/PlayersByFreeAgents",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Player profiles include basic biographical information, position, college, and current team (if attached to a team.) This returns all free agents not currently attached to a team."
+        },
+        {
+          "info": {
+            "name": "Player Profiles - by Rookie Draft Year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/PlayersByRookieDraftYear/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.<br>Examples: <code>2018</code>, <code>2019</code>, etc."
+              }
+            ]
+          },
+          "docs": "Player profiles include basic biographical information, position, college, and current team (if attached to a team.) Specify a year parameter to receive all player profiles from that rookie draft year."
+        },
+        {
+          "info": {
+            "name": "Transactions - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/TransactionsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the news.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Includes a list of transactions for a given date, with type (e.g. trade, injury listing, assignment) and a brief note."
+        },
+        {
+          "info": {
+            "name": "Games - by Week [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/ScoresByWeekFinal/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info, including weather, referee, infotainment odds, as well as all of the quarter scores and full-time score."
+        },
+        {
+          "info": {
+            "name": "Games - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/ScoresByDateFinal/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the games.<br>Examples: <code>2021-SEP-12</code>, <code>2021-NOV-28</code>."
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info, including weather, referee, infotainment odds, as well as all of the quarter scores and full-time score."
+        },
+        {
+          "info": {
+            "name": "Games (Basic) - by Week [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/ScoresBasicFinal/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "A slimmed-down score endpoint, giving just the quarter scores and final score, for simple applications."
+        },
+        {
+          "info": {
+            "name": "Depth Charts - All",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/DepthChartsAll",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Depth charts for all players in all NFL teams split by offensive, defensive, and special teams position groupings."
+        },
+        {
+          "info": {
+            "name": "Depth Charts - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/scores/:format/DepthChartsByWeek/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.         \n"
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.          Example: <code>1</code>        \n"
+              }
+            ]
+          },
+          "docs": "Depth charts for active players by week in all NFL teams split by offensive, defensive, and special teams position groupings."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NFL v3 Projections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Projected Fantasy Defense Season Stats With ADP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/projections/:format/FantasyDefenseProjectionsBySeason/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "SportsDataIO's proprietary projections, including average draft position, for all fantasy defense teams for the season. Does not contain Individual Defensive Players (IDP), which have their own endpoint."
+        },
+        {
+          "info": {
+            "name": "Projected Fantasy Defense Game Stats With DFS Salaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/projections/:format/FantasyDefenseProjectionsByGame/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "SportsDataIO's proprietary projections, including DFS salary information, for all fantasy defense teams. Called by season and week. Does not contain Individual Defensive Players (IDP), which have their own endpoint."
+        },
+        {
+          "info": {
+            "name": "Projected Player Game Stats - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/projections/:format/PlayerGameProjectionStatsByTeam/:season/:week/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, for a given game, called by team."
+        },
+        {
+          "info": {
+            "name": "Projected Player Season Stats With ADP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/projections/:format/PlayerSeasonProjectionStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "SportsDataIO's proprietary projections on a season-long basis, including Average Draft Position (ADP), for fantasy players, for a given season."
+        },
+        {
+          "info": {
+            "name": "Projected Player Season Stats With ADP - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/projections/:format/PlayerSeasonProjectionStatsByTeam/:season/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "SportsDataIO's proprietary projections on a season-long basis, including ADP, for fantasy players, for a given season and team."
+        },
+        {
+          "info": {
+            "name": "Projected Player Game Stats - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/projections/:format/PlayerGameProjectionStatsByWeek/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, called by week."
+        },
+        {
+          "info": {
+            "name": "DFS Slates - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/projections/:format/DfsSlatesByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the slates.\n<br>Examples: <code>2017-SEP-25</code>, <code>2017-10-31</code>."
+              }
+            ]
+          },
+          "docs": "Returns DFS slates, including eligible games, positions, captain mode, players and salaries, for a given date."
+        },
+        {
+          "info": {
+            "name": "DFS Slates - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/projections/:format/DfsSlatesByWeek/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>"
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>"
+              }
+            ]
+          },
+          "docs": "Returns DFS slates, including eligible games, positions, captain mode, players and salaries, for a given week."
+        },
+        {
+          "info": {
+            "name": "IDP Projected Player Game Stats - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/projections/:format/IdpPlayerGameProjectionStatsByWeek/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Individual Defensive Player (IDP stats, including DFS salary information and injuries, for fantasy players, called by week."
+        },
+        {
+          "info": {
+            "name": "IDP Projected Player Game Stats - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/projections/:format/IdpPlayerGameProjectionStatsByTeam/:season/:week/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Individual Defensive Player (IDP stats, including DFS salary information and injuries, for fantasy players, called by team."
+        },
+        {
+          "info": {
+            "name": "DFS Slate Ownership Projections - Upcoming",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/projections/:format/UpcomingDfsSlateOwnershipProjections",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns DFS Slates which have not yet started for which we have DFS Ownership projections."
+        },
+        {
+          "info": {
+            "name": "DFS Slate Ownership Projections - by Slate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/projections/:format/DfsSlateOwnershipProjectionsBySlateID/:slateId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "slateId",
+                "value": "",
+                "type": "path",
+                "description": "SlateID of the DFS Slate you wish to get ownership projections for. Will have an empty SlateOwnershipProjections if this slate was not projected"
+              }
+            ]
+          },
+          "docs": "Slate Ownership Projections for a specific slate. Projections are for Guaranteed Prize Pool (GPP) format ownership. Will return an empty list if the slate is not yet projected or not a slate we have projections for."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Injured",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/projections/:format/InjuredPlayers",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "This endpoint provides all currently injured NFL players, along with injury details."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NFL v3 RotoBaller Premium News",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Premium News",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/news-rotoballer/:format/RotoBallerPremiumNews",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "RotoBaller's Premium News feed, with the latest updated stories in greater detail."
+        },
+        {
+          "info": {
+            "name": "Premium News - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/news-rotoballer/:format/RotoBallerPremiumNewsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the news.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "RotoBaller's Premium News feed, with the latest updated stories in greater detail called by date."
+        },
+        {
+          "info": {
+            "name": "Premium News - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/news-rotoballer/:format/RotoBallerPremiumNewsByTeam/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "RotoBaller's Premium News feed, with the latest updated stories in greater detail called by team."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NFL v3 Odds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pre-Game Odds - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/GameOddsByWeek/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season, with optional season type. <br>Examples: <code>2018</code>, <code>2018POST</code>, etc."
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "The week of the scores (games). <br>Examples: <code>1</code>, <code>2</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns the full-game core odds for games in a given week & season. This means moneyline, spread, and total. Only returns the most recently seen odds, not-including line movement."
+        },
+        {
+          "info": {
+            "name": "Pre-Game Odds Line Movement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/GameOddsLineMovement/:scoreid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code> or <code>16667</code>"
+              }
+            ]
+          },
+          "docs": "Returns the full-game core odds for a given ScoreID. This means moneyline, spread, and total. Only returns the most recently seen odds, not-including line movement. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/LiveGameOddsByWeek/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season, with optional season type. <br>Examples: <code>2018</code>, <code>2018POST</code>, etc."
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "The week of the scores (games). <br>Examples: <code>1</code>, <code>2</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games in a given week and season. Only returns the most recently seen odds, not inclusive of line movement. As this is in-game, it will only return results while the game is in progress."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds Line Movement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/LiveGameOddsLineMovement/:scoreid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code> or <code>16667</code>"
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games in a given week and season. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line."
+        },
+        {
+          "info": {
+            "name": "Period Game Odds - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/AlternateMarketGameOddsByWeek/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season, with optional season type. <br>Examples: <code>2018</code>, <code>2018POST</code>, etc."
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "The week of the scores (games). <br>Examples: <code>1</code>, <code>2</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns the non-full-game odds (spread, moneyline, total) for games in a given week and season. Non-full-game means 1st-half or 1st-quarter, for example, rather than full game. Only returns the most recently seen odds, not inclusive of line movement."
+        },
+        {
+          "info": {
+            "name": "Period Game Odds Line Movement ",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/AlternateMarketGameOddsLineMovement/:scoreid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code> or <code>16667</code>"
+              }
+            ]
+          },
+          "docs": "Returns the non-full-game odds (spread, moneyline, total) for games in a given week and season. Non-full-game means 1st-half or 1st-quarter, for example, rather than full game. Only returns the most recently seen odds, not inclusive of line movement."
+        },
+        {
+          "info": {
+            "name": "Betting Trends - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/TeamTrends/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of a team. Example: <code>PHI</code>."
+              }
+            ]
+          },
+          "docs": "Describes recent team trends and performance against betting data in recent sets of games."
+        },
+        {
+          "info": {
+            "name": "Betting Trends - by Matchup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/MatchupTrends/:team/:opponent",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of a team. Example: <code>PHI</code>."
+              },
+              {
+                "name": "opponent",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of an opponent. Example: <code>NE</code>."
+              }
+            ]
+          },
+          "docs": "Returns trends data for a given pairing of teams. Will return data even if the teams are not set to play this season. Intended for use on a specific game, though it will work for other comparisons if applicable."
+        },
+        {
+          "info": {
+            "name": "Betting Events - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingEventsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2020-09-10</code>, <code>2020-09-13</code>."
+              }
+            ]
+          },
+          "docs": "The list of current BettingEvents for the given date, from which Betting Market data can be gathered via the Betting Markets by Event endpoint, for all available Betting Market types (e.g. Player Props, Team Props.)"
+        },
+        {
+          "info": {
+            "name": "Betting Events - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingEvents/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc."
+              }
+            ]
+          },
+          "docs": "The list of current BettingEvents for the given season, from which Betting Market data can be gathered via the Betting Markets by Event endpoint, for all available Betting Market types (e.g. Player Props, Team Props.)"
+        },
+        {
+          "info": {
+            "name": "Betting Futures - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingFuturesBySeason/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2020REG</code>, <code>2020PRE</code>, <code>2020POST</code>, <code>2021</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns available Futures markets for the given season. Does not include line movement."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingMarkets/:eventId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given BettingEventID."
+        },
+        {
+          "info": {
+            "name": "Betting Market",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingMarket/:marketId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets."
+              }
+            ]
+          },
+          "docs": "Returns full line movement for a given BettingMarket. Due to the sheer size of the output and the level of detail, it is intended for historical data purposes and not for the most up-to-the-second lines."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Market Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingMarketsByMarketType/:eventId/:marketTypeID",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "marketTypeID",
+                "value": "",
+                "type": "path",
+                "description": "The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for Game Lines, <code>2</code> for Player Props, <code>3</code> for Team Props, <code>6</code> for Game Props"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns Markets and available outcomes for a given event and market type requested. A lighter call than by BettingEventID as it only includes markets tagged with the specific MarketType, a full list of which is available for each sport in its Betting Metadata endpoint."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingMarketsByScoreID/:scoreid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The ScoreID of the desired game/score for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given GameID."
+        },
+        {
+          "info": {
+            "name": "Betting Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingMetadata",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns the list of MarketTypes, BetTypes, PeriodTypes, OutcomeTypes, and ResultTypes to map the IDs to descriptive names. Also includes a list of the MarketType, BetType & PeriodType combinations which we will have resulting for."
+        },
+        {
+          "info": {
+            "name": "Sportsbooks - Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/ActiveSportsbooks",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns a list for mapping SportsbookID to the Sportsbook name."
+        },
+        {
+          "info": {
+            "name": "Betting Splits - by Game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingSplitsByScoreId/:scoreId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreId",
+                "value": "",
+                "type": "path",
+                "description": "The ScoreID of the desired game to get Betting Market Splits for"
+              }
+            ]
+          },
+          "docs": "List of Money and Bet Percentage splits for each market and their respective outcome types available in this game. This specific endpoint will return current splits for each available market and no line movement."
+        },
+        {
+          "info": {
+            "name": "Betting Splits - by Betting Market",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingSplitsByMarketId/:marketId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The BettingMarketID of the market you would like to get splits for. Note that markets we do not have split information on will return an empty response."
+              }
+            ]
+          },
+          "docs": "List of Money and Bet Percentage splits for each outcome type available in this market. This specific endpoint will return the movement from this market as well as the most recent."
+        },
+        {
+          "info": {
+            "name": "Betting Results - by Market",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingMarketResults/:marketId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets. "
+              }
+            ]
+          },
+          "docs": "Provide a market ID that supports resulting (i.e. has a ResultType) and this endpoint will return a result: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost."
+        },
+        {
+          "info": {
+            "name": "Betting Player Props - by Game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingPlayerPropsByScoreID/:scoreid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The unique ScoreID of the game in question."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "This works in the same way as Betting Markets by Market Type but is prefiltered to the Player Props type only. Ideal if your application will only ever require Player Props, but if you also want Team Props etc. it is recommended to use the by Market Type endpoint."
+        },
+        {
+          "info": {
+            "name": "Pre-Game and Period Game Odds - by Week [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/PreGameOddsByWeek/:season/:week/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season, with optional season type. <br>Examples: <code>2018</code>, <code>2018POST</code>, etc."
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "The week of the scores (games). <br>Examples: <code>1</code>, <code>2</code>, etc."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns the full-game and non-full-game odds (spread, moneyline, total) for games in a given week and season. Only returns the most recently seen odds, not inclusive of line movement. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Pre-Game and Period Game Odds Line Movement [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/PreGameOddsLineMovement/:scoreid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code> or <code>16667</code>"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns the game odds (for games in a given week and season. In this endpoint both full-game and partial-game odds are included. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds by Week [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/InGameOddsByWeek/:season/:week/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season, with optional season type. <br>Examples: <code>2018</code>, <code>2018POST</code>, etc."
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "The week of the scores (games). <br>Examples: <code>1</code>, <code>2</code>, etc."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games in a given week and season. Only returns the most recently seen odds, not inclusive of line movement. As this is in-game, it will only return results while the game is in progress. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds Line Movement [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/InGameLineMovement/:scoreid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code> or <code>16667</code>"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games in a given week and season. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Player Props - by Game [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingPlayerPropsByScoreID/:scoreid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The unique ScoreID of the game in question."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "This works in the same way as Betting Markets by Market Type but is prefiltered to the Player Props type only. Ideal if your application will only ever require Player Props, but if you also want Team Props etc. it is recommended to use the by Market Type endpoint. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Market Type [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingMarketsByMarketType/:eventId/:marketTypeID/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "marketTypeID",
+                "value": "",
+                "type": "path",
+                "description": "The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for Game Lines, <code>2</code> for Player Props, <code>3</code> for Team Props, <code>6</code> for Game Props"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns Markets and available outcomes for a given event and market type requested. A lighter call than by BettingEventID as it only includes markets tagged with the specific MarketType, a full list of which is available for each sport in its Betting Metadata endpoint. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Game [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingMarketsByGameID/:gameid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of the desired game/score for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given GameID. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Event [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingMarketsByEvent/:eventId/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns the markets and available outcomes for a given BettingEventID. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Market [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingMarket/:marketId/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns full line movement for a given BettingMarket. Due to the sheer size of the output and the level of detail, it is intended for historical data purposes and not for the most up-to-the-second lines.<br><br>A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Results - by Market [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingResultsByMarket/:marketId/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets. "
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Provide a market ID that supports resulting (i.e. has a ResultType) and this endpoint will return a result: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Futures - by Season [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/BettingFuturesBySeason/:season/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2020REG</code>, <code>2020PRE</code>, <code>2020POST</code>, <code>2021</code>, etc."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns available Futures markets for the given season. Does not include line movement. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Pre-Game and Period Game Odds Line Movement with Resulting [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/PreGameOddsLineMovementWithResulting/:scoreid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code> or <code>16667</code>"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns the game odds ( for games in a given week and season. In this endpoint both full-game and partial-game odds are included.<br><br>This also includes Resulting: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost.<br><br>Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line.<br><br>A Sportsbook Group m"
+        },
+        {
+          "info": {
+            "name": "In-Game Odds Line Movement with Resulting [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/odds/:format/InGameLineMovementWithResulting/:scoreid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The ScoreID of an NFL score (game).  ScoreIDs can be found in the Scores API.  Valid entries are <code>16654</code> or <code>16667</code>"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Provides in-play odds line movement data for a given game. This means odds for games which are in-progress. Serves full line movement and is intended for showing the trend over a game rather than the most up-to-the second lines."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NFL v3 Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Player Game Stats Delta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsDelta/:minutes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "minutes",
+                "value": "",
+                "type": "path",
+                "description": "\n          Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n          <code>1</code> or <code>2</code>.\n        "
+              }
+            ]
+          },
+          "docs": "This method returns all player game stats, but only returns player stats that have changed in the last X minutes as specified in your API call. By definition this is a live endpoint, not final."
+        },
+        {
+          "info": {
+            "name": "Fantasy Defense Game Stats - All",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/FantasyDefenseByGame/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Returns stats and fantasy points for a given game for the fantasy defense team (not IDP.)"
+        },
+        {
+          "info": {
+            "name": "Fantasy Defense Season Stats - All",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/FantasyDefenseBySeason/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Returns stats and fantasy points for a given season for the fantasy defense team (not IDP.)"
+        },
+        {
+          "info": {
+            "name": "Injuries - All",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/Injuries/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "A list of all injured players and a description of their injuries."
+        },
+        {
+          "info": {
+            "name": "Injuries - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/Injuries/:season/:week/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "A list of all injured players on a specified team and a description of their injuries."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats - by Team [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsByTeam/:season/:week/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players across a given team's game in a given week, updated live as the game takes place."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats Delta - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsByWeekDelta/:season/:week/:minutes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "minutes",
+                "value": "",
+                "type": "path",
+                "description": "Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:<br>\n          <code>1</code> or <code>2</code>.\n        "
+              }
+            ]
+          },
+          "docs": "This method returns all player scores for a given season and week, but only returns player stats that have changed in the last X minutes as specified in your API call. Ideal for live applications."
+        },
+        {
+          "info": {
+            "name": "Player Season Stats - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerSeasonStatsByTeam/:season/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for a given team's players in a given season."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats - by Week [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsByWeek/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players across a given week, updated live as the game takes place."
+        },
+        {
+          "info": {
+            "name": "Player Season Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerSeasonStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for all players for a given season."
+        },
+        {
+          "info": {
+            "name": "Fantasy Defense Game Stats - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/FantasyDefenseByGameByTeam/:season/:week/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Returns stats and fantasy points for a given team's game for the fantasy defense team (not IDP.)"
+        },
+        {
+          "info": {
+            "name": "Fantasy Defense Season Stats - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/FantasyDefenseBySeasonByTeam/:season/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Returns stats and fantasy points for a given team and season for the fantasy defense team (not IDP.)"
+        },
+        {
+          "info": {
+            "name": "Player Season Red Zone Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerSeasonRedZoneStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Delivers all offensive stats within the red zone (within the 20-yard line of the defensive team) for all players in a given season (i.e. the season total, not each individual game record.)"
+        },
+        {
+          "info": {
+            "name": "Player Season Third Down Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerSeasonThirdDownStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for all players on the third down for a given season."
+        },
+        {
+          "info": {
+            "name": "Box Scores Delta - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/BoxScoresDeltaV3/:season/:week/:playerstoinclude/:minutes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "playerstoinclude",
+                "value": "",
+                "type": "path",
+                "description": "The subcategory of players to include in the returned PlayerGame records. Possible values include:<br><br>\n<code>all</code> Returns all players<br>\n<code>fantasy</code> Returns traditional fantasy players (QB, RB, WR, TE, K, DST)<br>\n<code>idp</code> Returns traditional fantasy players and IDP players."
+              },
+              {
+                "name": "minutes",
+                "value": "",
+                "type": "path",
+                "description": "Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:<br><code>1</code>,\n <code>2</code>, etc.\n        "
+              }
+            ]
+          },
+          "docs": "This method returns all box scores for a given season and week, but only returns player stats that have changed in the last X minutes as specified in your API call. You can also filter by type of player stats to include, such as traditional fantasy players, IDP players or all players. by definition this is a live endpoint, not final."
+        },
+        {
+          "info": {
+            "name": "Box Score - by Team [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/BoxScoreV3/:season/:week/:hometeam",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "hometeam",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of a team playing in this game. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered live during the game, called for a given team's game in a given week and season."
+        },
+        {
+          "info": {
+            "name": "Box Score [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/BoxScoreByScoreIDV3/:scoreid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The ScoreID of the game. Possible values include: <code>16247</code>, <code>16245</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered live during the game, called per individual game."
+        },
+        {
+          "info": {
+            "name": "Fantasy Player Ownership Percentages (Season-Long) - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerOwnership/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Projected fantasy ownership of all players for a given season."
+        },
+        {
+          "info": {
+            "name": "Player Game Red Zone Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameRedZoneStats/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Delivers all offensive stats within the red zone (within the 20-yard line of the defensive team) for all players in a given season or week."
+        },
+        {
+          "info": {
+            "name": "Pro Bowlers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/ProBowlers/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season\n<br>Examples: <code>2016</code>, <code>2017</code>"
+              }
+            ]
+          },
+          "docs": "A list of players involved in the Pro Bowl, by season."
+        },
+        {
+          "info": {
+            "name": "Box Scores Simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/SimulatedBoxScoresV3/:numberofplays",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "numberofplays",
+                "value": "",
+                "type": "path",
+                "description": "The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>150</code>, <code>200</code>, etc."
+              }
+            ]
+          },
+          "docs": "Gets simulated live box scores of NFL games, covering the Conference Championship games on January 21, 2018."
+        },
+        {
+          "info": {
+            "name": "Player Game Red Zone Stats (Inside Ten)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameRedZoneInsideTenStats/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Delivers all offensive stats within the 10-yard line of the defensive team for all players in a given season or week."
+        },
+        {
+          "info": {
+            "name": "Player Season Red Zone Stats (Inside Ten)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerSeasonRedZoneInsideTenStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Delivers all offensive stats within the 10-yard line of the defensive team for all players in a given season (i.e. the season total, not each individual game record.)"
+        },
+        {
+          "info": {
+            "name": "Player Game Red Zone Stats (Inside Five)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameRedZoneInsideFiveStats/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Delivers all offensive stats within the 5-yard line of the defensive team for all players in a given season or week."
+        },
+        {
+          "info": {
+            "name": "Player Season Red Zone Stats (Inside Five)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerSeasonRedZoneInsideFiveStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Delivers all offensive stats within the 5-yard line of the defensive team for all players in a given season (i.e. the season total, not each individual game record.)"
+        },
+        {
+          "info": {
+            "name": "Player Game Logs - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsBySeason/:season/:playerid/:numberofgames",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Season to get games from. Example <code>2019POST</code>, <code>2020</code>"
+              },
+              {
+                "name": "playerid",
+                "value": "",
+                "type": "path",
+                "description": "Unique SportsDataIO Player ID. Example:<code>17920</code>."
+              },
+              {
+                "name": "numberofgames",
+                "value": "",
+                "type": "path",
+                "description": "How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code>"
+              }
+            ]
+          },
+          "docs": "Specify a season, a player, and number of games (either an integer or <code>all</code>) to see all of their box score logs. Refreshed after their most recent game is complete."
+        },
+        {
+          "info": {
+            "name": "Box Score [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/BoxScoreFinal/:scoreid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The ScoreID of the game. Possible values include: <code>16247</code>, <code>16245</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered after the game is complete."
+        },
+        {
+          "info": {
+            "name": "Box Scores - by Week [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/BoxScoresFinal/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game week for each game that took place, down to the team and player stat level, delivered after the game is complete."
+        },
+        {
+          "info": {
+            "name": "Team Game Stats - by Game [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/TeamGameStatsFinal/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record team-wide (aggregated from all players) for a given team's game in a given week after the game has concluded."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats - by Week [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsByWeekFinal/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players across all teams' games in a given week after the game has concluded."
+        },
+        {
+          "info": {
+            "name": "Games - by Season [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/ScoresFinal/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info, including weather, referee, infotainment odds, as well as all of the quarter scores and full-time score."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats - by Team [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsByTeamFinal/:season/:week/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players in a given team's game in a given week after the game has concluded."
+        },
+        {
+          "info": {
+            "name": "Box Score - by Team [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/BoxScoreByTeamFinal/:season/:week/:hometeam",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "hometeam",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of a team playing in this game. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a given team's game in a specified season and week, down to the team and player stat level, delivered after the game is complete."
+        },
+        {
+          "info": {
+            "name": "Fantasy Points - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/FantasyGameStatsByWeek/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Returns a simple list of fantasy points and stats for each player for a given week."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NFL v3 Play-by-Play",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Play By Play - by Team [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/pbp/:format/PlayByPlay/:season/:week/:hometeam",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "hometeam",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the home team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by team."
+        },
+        {
+          "info": {
+            "name": "Play By Play Simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/pbp/:format/SimulatedPlayByPlay/:numberofplays",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "numberofplays",
+                "value": "",
+                "type": "path",
+                "description": "The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>150</code>, <code>200</code>, etc."
+              }
+            ]
+          },
+          "docs": "Gets simulated live play-by-play of NFL games, covering the Conference Championship games on January 21, 2018."
+        },
+        {
+          "info": {
+            "name": "Play By Play Delta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/pbp/:format/PlayByPlayDelta/:season/:week/:minutes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "minutes",
+                "value": "",
+                "type": "path",
+                "description": "Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:<br>\n          <code>1</code> or <code>2</code>.\n        "
+              }
+            ]
+          },
+          "docs": "This method returns all play-by-plays for a given season and week, but only returnsplays that have changed in the last X minutes as specified in your API call. by definition this is a live endpoint, not final."
+        },
+        {
+          "info": {
+            "name": "Play By Play [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/pbp/:format/PlayByPlayFinal/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+              }
+            ]
+          },
+          "docs": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by team."
+        },
+        {
+          "info": {
+            "name": "Play By Play [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/pbp/:format/PlayByPlay/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+              }
+            ]
+          },
+          "docs": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by game."
+        },
+        {
+          "info": {
+            "name": "Play By Play - by Team [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/pbp/:format/PlayByPlayFinal/:season/:week/:hometeam",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "hometeam",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the home team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by team."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NFL v3 Headshots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Headshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/headshots/:format/Headshots",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "USA Today/IMAGN cropped action headshots for all active NFL players, delivered shortly after the season starts."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

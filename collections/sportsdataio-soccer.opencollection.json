@@ -1,0 +1,2049 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SOCCER API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Soccer v4 Scores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Games - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/GamesByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info delivered live and post-game. Live data includes half and score info. Gameday info includes weather, TV channel etc"
+        },
+        {
+          "info": {
+            "name": "Areas (Countries)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/Areas",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "A list of countries, continents etc. for finding their respective competitions."
+        },
+        {
+          "info": {
+            "name": "Competitions (Leagues)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/Competitions",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "A list of all competitions (leagues, cups etc.) and their associated countries or areas."
+        },
+        {
+          "info": {
+            "name": "Team Profiles - by Competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/Teams/:competition",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full team information: team name and city, conference and division, and colors. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns the teams ever associated with a competition; use Team Profiles - by Season for just the current ones."
+        },
+        {
+          "info": {
+            "name": "Venues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/Venues",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Stadium information from across the world"
+        },
+        {
+          "info": {
+            "name": "Team Profiles - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/SeasonTeams/:competition/:seasonid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "seasonid",
+                "value": "",
+                "type": "path",
+                "description": "Unique FantasyData Season ID. SeasonIDs can be found in the Competition Hierarchy (League Hierarchy). \nExamples: <code>1</code>, <code>2</code>, <code>3</code>, etc"
+              }
+            ]
+          },
+          "docs": "Full team information: team name and city, conference and division, and colors. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns the teams currently associated with a competition's active season; use Team Profiles - by Competition for all-time (e.g. teams since relegated from the EPL.)"
+        },
+        {
+          "info": {
+            "name": "Schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/Schedule/:competition/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc."
+              }
+            ]
+          },
+          "docs": "Home and away teams, date and time, season type and week etc. are included. Also includes gameday information. This includes full stadium information (capacity, lat/long, surface etc.), top-line betting information (spread, moneyline, total), weather conditions, and broadcast information."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/PlayersByTeam/:competition/:teamid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "teamid",
+                "value": "",
+                "type": "path",
+                "description": "Unique FantasyData Team ID. \nExample:<code>516</code>."
+              }
+            ]
+          },
+          "docs": "Full player bio and details, including injury notes, for all available players by team."
+        },
+        {
+          "info": {
+            "name": "Team Season Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/TeamSeasonStats/:competition/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for all teams (aggregated from all players) for a given season."
+        },
+        {
+          "info": {
+            "name": "Team Game Stats - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/TeamGameStatsByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record team-wide (aggregated from all players) for all games on a given date within a competition, both live and post-game."
+        },
+        {
+          "info": {
+            "name": "Standings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/Standings/:competition/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc."
+              }
+            ]
+          },
+          "docs": "Includes regular season standings in a given league or tournament and season."
+        },
+        {
+          "info": {
+            "name": "Games - by Competition [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/CompetitionDetails/:competition",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info delivered live and post-game. Live data includes half and score info, delivered by competition."
+        },
+        {
+          "info": {
+            "name": "Memberships Historical - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/HistoricalMembershipsByTeam/:competition/:teamid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "teamid",
+                "value": "",
+                "type": "path",
+                "description": "Unique FantasyData Team ID. \nExample:<code>516</code>."
+              }
+            ]
+          },
+          "docs": "Historical memberships of a team, i.e. players who were once on the roster but have since left."
+        },
+        {
+          "info": {
+            "name": "Memberships - by Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/ActiveMemberships/:competition",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              }
+            ]
+          },
+          "docs": "Players currently active on teams within a specified competition."
+        },
+        {
+          "info": {
+            "name": "Memberships - by Recently Changed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/RecentlyChangedMemberships/:competition/:days",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "days",
+                "value": "",
+                "type": "path",
+                "description": "The number of days since memberships were updated. For example, if you pass <code>3</code>, you'll receive all memberships that have been updated in the past 3 days. Valid entries are: <code>1</code>, <code>2</code> ... <code>30</code>"
+              }
+            ]
+          },
+          "docs": "A list of all recently changed memberships (e.g. player transfers, releases) for a given competition, called by number of days ago."
+        },
+        {
+          "info": {
+            "name": "Memberships - by Canceled",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/CanceledMemberships",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Memberships (players' membership of a team) that have since been revoked by our system."
+        },
+        {
+          "info": {
+            "name": "Schedules (Basic)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/SchedulesBasic/:competition/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc."
+              }
+            ]
+          },
+          "docs": "A lightweight schedule endpoint without gameday information. Home and away teams, the date and time of the game, and season type, week etc. are included. Ideal for the most basic information required to build a schedule."
+        },
+        {
+          "info": {
+            "name": "Games (Basic) - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/ScoresBasic/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info delivered live and post-game, called by date and competition."
+        },
+        {
+          "info": {
+            "name": "Player Profiles - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/PlayersByTeamBasic/:competition/:teamid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "teamid",
+                "value": "",
+                "type": "path",
+                "description": "Unique FantasyData Team ID. \nExample:<code>516</code>."
+              }
+            ]
+          },
+          "docs": "Roster information for a given team. Player profiles include basic biographical information, position, etc. Specify a TeamId parameter to receive all players currently on that team."
+        },
+        {
+          "info": {
+            "name": "Games - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/GamesByDateFinal/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info, as well as half and full-time score, delivered post-game."
+        },
+        {
+          "info": {
+            "name": "Games (Basic) - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/scores/:format/ScoresBasicFinal/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "The most top-line full-time information, ideal for basic applications, called by competition and date, delivered post-game."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Soccer v4 Headshots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Headshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/headshots/:format/Headshots",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "USA Today/IMAGN cropped action headshots for all active MLS players only, delivered shortly after the season starts."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Soccer v4 Projections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Projected Player Game Stats - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/projections/:format/PlayerGameProjectionStatsByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, called by date."
+        },
+        {
+          "info": {
+            "name": "DFS Slates - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/projections/:format/DfsSlatesByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2020-02-18</code>\n"
+              }
+            ]
+          },
+          "docs": "Returns DFS Slates which have not yet started, with their player and salary information."
+        },
+        {
+          "info": {
+            "name": "Upcoming DFS Slates - by Competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/projections/:format/UpcomingDfsSlatesByCompetition/:competition",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns upcoming DFS Slates which have not yet started, with their player and salary information, by competition."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Injured",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/projections/:format/InjuredPlayers/:competition",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              }
+            ]
+          },
+          "docs": "This endpoint provides all currently injured soccer players by competition, along with injury details."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Soccer v4 Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Box Scores - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/stats/:format/BoxScoresByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered live during the games, called for all games on a given date within a competition."
+        },
+        {
+          "info": {
+            "name": "Box Scores Delta - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/stats/:format/BoxScoresDeltaByDate/:competition/:date/:minutes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              },
+              {
+                "name": "minutes",
+                "value": "",
+                "type": "path",
+                "description": "Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back. Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
+              }
+            ]
+          },
+          "docs": "This method returns all box scores for a given date in a given competition, but only returns player stats that have changed in the last X minutes as specified in your API call. By definition this is a live endpoint, not final."
+        },
+        {
+          "info": {
+            "name": "Box Score [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/stats/:format/BoxScore/:competition/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of a Soccer game.  GameIDs can be found in the Games API.  Valid entries are <code>702</code>, <code>1274</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered live during the game, called per individual game."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/stats/:format/PlayerGameStatsByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players across all teams' games on a given date in a given competition, both live and after each game has concluded."
+        },
+        {
+          "info": {
+            "name": "Player Season Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/stats/:format/PlayerSeasonStats/:competition/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for all players for a given season."
+        },
+        {
+          "info": {
+            "name": "Box Score [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/stats/:format/BoxScoreFinal/:competition/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of a Soccer game.  GameIDs can be found in the Games API.  Valid entries are <code>702</code>, <code>1274</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered after the game is complete."
+        },
+        {
+          "info": {
+            "name": "Box Scores - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/stats/:format/BoxScoresFinal/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified date for each game that took place, down to the team and player stat level, delivered after the game is complete."
+        },
+        {
+          "info": {
+            "name": "Lineups - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/stats/:format/LineupsByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "Projected and confirmed starting XIs and substitute benches for a given competition on a given date."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/stats/:format/PlayerGameStatsByDateFinal/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players across all teams' games for a given competition on a given date after each game has concluded."
+        },
+        {
+          "info": {
+            "name": "Team Game Stats - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/stats/:format/TeamGameStatsByDateFinal/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record team-wide (aggregated from all players) for a games in a given competition on a given date, updated as each game has concluded."
+        },
+        {
+          "info": {
+            "name": "Fantasy Points - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/stats/:format/FantasyGameStatsByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "A simple list of fantasy points awarded to players who took part in a given competition's games on a given date."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Soccer v4 Odds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pre-Game Odds Line Movement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/GameOddsLineMovement/:competition/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of a Soccer game.  GameIDs can be found in the Games API.  Valid entries are <code>14060</code>, <code>14061</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns the non-full-game odds (spread, moneyline, total) for games on a given date. Non-full-game means 1st-half or 1st-quarter, for example, rather than full game. Returns the full line movement for the given game within a competition. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds Line Movement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/LiveGameOddsLineMovement/:competition/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of a Soccer game.  GameIDs can be found in the Games API.  Valid entries are <code>14060</code>, <code>14061</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for a given game in a given competition. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line."
+        },
+        {
+          "info": {
+            "name": "Pre-Game Odds - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/GameOddsByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). \n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns full game odds (spread, moneyline, total) for games from a given competition on a given date. Only returns the most recently seen odds, not inclusive of line movement."
+        },
+        {
+          "info": {
+            "name": "Sportsbooks - by Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/ActiveSportsbooks",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "A list of all available sportsbooks with their associated unique IDs."
+        },
+        {
+          "info": {
+            "name": "Betting Events - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingEventsBySeason/:competition/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc."
+              }
+            ]
+          },
+          "docs": "The list of current BettingEvents for the given season within a given competition, from which Betting Market data can be gathered via the Betting Markets by Event endpoint, for all available Betting Market types (e.g. Player Props, Team Props.)"
+        },
+        {
+          "info": {
+            "name": "Betting Futures - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingFuturesBySeason/:competition/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns available Futures markets for the given season and a given competition. Does not include line movement."
+        },
+        {
+          "info": {
+            "name": "Betting Market",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingMarket/:competition/:marketId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets."
+              }
+            ]
+          },
+          "docs": "Returns full line movement for a given BettingMarket. Due to the sheer size of the output and the level of detail, it is intended for historical data purposes and not for the most up-to-the-second lines."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingMarkets/:competition/:eventId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).\n"
+              }
+            ]
+          },
+          "docs": "Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given BettingEventID within a given competition."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingMarketsByGameID/:competition/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of the desired game for which to pull all betting markets (includes outcomes/bets)."
+              }
+            ]
+          },
+          "docs": "Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given GameID within a given competition."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Market Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingMarketsByMarketType/:competition/:eventId/:marketTypeID",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "marketTypeID",
+                "value": "",
+                "type": "path",
+                "description": "The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for Game Lines, <code>2</code> for Player Props, <code>3</code> for Team Props, <code>6</code> for Game Props"
+              }
+            ]
+          },
+          "docs": "Returns Markets and available outcomes for a given event (within a competition) and market type requested. A lighter call than by BettingEventID as it only includes markets tagged with the specific MarketType, a full list of which is available for each sport in its Betting Metadata endpoint."
+        },
+        {
+          "info": {
+            "name": "Betting Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingMetadata",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns the list of MarketTypes, BetTypes, PeriodTypes, OutcomeTypes, and ResultTypes to map the IDs to descriptive names. Also includes a list of the MarketType, BetType & PeriodType combinations which we will have resulting for."
+        },
+        {
+          "info": {
+            "name": "Betting Events - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingEventsByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2018-11-20</code>, <code>2018-11-23</code>."
+              }
+            ]
+          },
+          "docs": "The list of current BettingEvents for the given date and competition, from which Betting Market data can be gathered via the Betting Markets by Event endpoint, for all available Betting Market types (e.g. Player Props, Team Props.)"
+        },
+        {
+          "info": {
+            "name": "Betting Player Props - by Game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingPlayerPropsByGameID/:competition/:gameId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "gameId",
+                "value": "",
+                "type": "path",
+                "description": "The unique GameID of the game in question."
+              }
+            ]
+          },
+          "docs": "This works in the same way as Betting Markets by Market Type but is prefiltered to the Player Props type only. Ideal if your application will only ever require Player Props, but if you also want Team Props etc. it is recommended to use the by Market Type endpoint."
+        },
+        {
+          "info": {
+            "name": "Period Game Odds Line Movement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/AlternateMarketGameOddsLineMovement/:competition/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of a Soccer game.  GameIDs can be found in the Games API.  Valid entries are <code>41323</code>"
+              }
+            ]
+          },
+          "docs": "Returns the non-full-game odds (spread, moneyline, total) for games on a given date. Non-full-game means 1st-half or 1st-quarter, for example, rather than full game. Returns the full line movement for the given game within a competition. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/LiveGameOddsByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2018-06-20</code>, <code>2018-06-23</code>."
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games on a given date in a given competition. Only returns the most recently seen odds, not inclusive of line movement. As this is in-game, it will only return results while the game is in progress."
+        },
+        {
+          "info": {
+            "name": "Period Game Odds - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/AlternateMarketGameOddsByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). \n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns the non-full-game odds (spread, moneyline, total) for games on a given date in a given competition. Non-full-game means 1st-half or 1st-quarter, for example, rather than full game. Only returns the most recently seen odds, not inclusive of line movement."
+        },
+        {
+          "info": {
+            "name": "Pre-Game and Period Game Odds - by Date [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/PreGameOddsByDate/:competition/:date/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). \n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns the full-game and non-full-game odds (spread, moneyline, total) for games on a given date for a given competition. Only returns the most recently seen odds, not inclusive of line movement. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds - by Date [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/InGameOddsByDate/:competition/:date/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2018-06-20</code>, <code>2018-06-23</code>."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games on a given date and competition. Only returns the most recently seen odds, not inclusive of line movement. As this is in-game, it will only return results while the game is in progress. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Pre-Game and Period Game Odds Line Movement [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/PreGameOddsLineMovement/:competition/:gameid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of a Soccer game.  GameIDs can be found in the Games API.  Valid entries are <code>14060</code>, <code>14061</code>, etc."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns the game odds for a given game in a given competition. In this endpoint both full-game and partial-game odds are included. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds Line Movement [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/InGameOddsLineMovement/:competition/:gameid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of a Soccer game.  GameIDs can be found in the Games API.  Valid entries are <code>14060</code>, <code>14061</code>, etc."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for a given game and competition. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Pre-Game and Period Game Odds Line Movement with Resulting [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/PreGameOddsLineMovementWithResulting/:competition/:gameid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of a Soccer game.  GameIDs can be found in the Games API.  Valid entries are <code>14060</code>, <code>14061</code>, etc."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns the game odds for a given game and competition. In this endpoint both full-game and partial-game odds are included. This also includes Resulting: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL p"
+        },
+        {
+          "info": {
+            "name": "In-Game Odds Line Movement with Resulting [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/InGameOddsLineMovementWithResulting/:competition/:gameid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of a Soccer game.  GameIDs can be found in the Games API.  Valid entries are <code>14060</code>, <code>14061</code>, etc."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for a given game in a competition. This also includes Resulting: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Futures - by Season [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingFuturesBySeason/:competition/:season/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns available Futures markets for the given season. Does not include line movement. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Market [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingMarket/:competition/:marketId/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns full line movement for a given BettingMarket. Due to the sheer size of the output and the level of detail, it is intended for historical data purposes and not for the most up-to-the-second lines. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Event [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingMarketsByEvent/:competition/:eventId/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).\n"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns the markets and available outcomes for a given BettingEventID. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Game [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingMarketsByGameID/:competition/:gameid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of the desired game for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given GameID in a competition. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Market Type [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingMarketsByMarketType/:competition/:eventId/:marketTypeID/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "marketTypeID",
+                "value": "",
+                "type": "path",
+                "description": "The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for Game Lines, <code>2</code> for Player Props, <code>3</code> for Team Props, <code>6</code> for Game Props"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns Markets and available outcomes for a given event and market type requested. A lighter call than by BettingEventID as it only includes markets tagged with the specific MarketType, a full list of which is available for each sport in its Betting Metadata endpoint. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Player Props - by Game [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/odds/:format/BettingPlayerPropsByGameID/:competition/:gameId/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "gameId",
+                "value": "",
+                "type": "path",
+                "description": "The unique GameID of the game in question."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "This works in the same way as Betting Markets by Market Type but is prefiltered to the Player Props type only. Ideal if your application will only ever require Player Props, but if you also want Team Props etc. it is recommended to use the by Market Type endpoint. A Sportsbook Group must be specified as a URL parameter."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

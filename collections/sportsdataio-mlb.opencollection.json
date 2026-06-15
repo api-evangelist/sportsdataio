@@ -1,0 +1,2482 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MLB API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MLB v3 Scores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Team Profiles - by Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/teams",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full team information: team name and city, league and division, and colors. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns the teams currently active in the league."
+        },
+        {
+          "info": {
+            "name": "Stadiums",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/Stadiums",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns all stadiums in the league with capacity, surface, latitude/longitude, city and state (and where applicable country.)"
+        },
+        {
+          "info": {
+            "name": "Schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/Games/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc."
+              }
+            ]
+          },
+          "docs": "Home and away teams, date and time, season type and week etc. are included. Also includes gameday information. This includes full stadium information (capacity, lat/long, surface etc.), top-line betting information (spread, moneyline, total), weather conditions, and broadcast information."
+        },
+        {
+          "info": {
+            "name": "Games - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/GamesByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info delivered live and post-game. Live data includes innings, scores, pitch count etc. Gameday info includes referee, weather, TV channel etc."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/Players",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full player bio and details, including injury notes, for all active players."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Free Agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/FreeAgents",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full player bio and details, including injury notes, for all available free agents unattached to a team."
+        },
+        {
+          "info": {
+            "name": "Players Details - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/Players/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "The abbreviation of the requested team.\n<br>Examples: <code>SF</code>, <code>NYY</code>."
+              }
+            ]
+          },
+          "docs": "Full player bio and details, including injury notes, for all available players by team."
+        },
+        {
+          "info": {
+            "name": "Team Game Stats - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/TeamGameStatsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record team-wide (aggregated from all players) for a given team's game in a given week, both live and post-game."
+        },
+        {
+          "info": {
+            "name": "Team Season Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/TeamSeasonStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2017</code>, <code>2018</code>."
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for all teams (aggregated from all players) for a given season."
+        },
+        {
+          "info": {
+            "name": "News - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/NewsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the news.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Basic RotoBaller news feed, with limited stories available - usually 0-1 stories per day. Ideal for test purposes."
+        },
+        {
+          "info": {
+            "name": "News",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/News",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Basic RotoBaller news feed, with limited stories available - usually 0-1 stories per day. Ideal for test purposes."
+        },
+        {
+          "info": {
+            "name": "News - by Player",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/NewsByPlayerID/:playerid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "playerid",
+                "value": "",
+                "type": "path",
+                "description": "Unique FantasyData Player ID.\nExample:<code>10000507</code>."
+              }
+            ]
+          },
+          "docs": "Basic RotoBaller news feed, with limited stories available - usually 0-1 stories per day. Ideal for test purposes."
+        },
+        {
+          "info": {
+            "name": "Are Games In Progress",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/AreAnyGamesInProgress",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns <code>true</code> if there is at least one game being played at the time of the request or <code>false</code> if there are none."
+        },
+        {
+          "info": {
+            "name": "Season - Current",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/CurrentSeason",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Year of the current season. This value changes at the start of the new league year. For leagues that run over two years, this is the year the season starts, not ends."
+        },
+        {
+          "info": {
+            "name": "Standings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/Standings/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2017</code>, <code>2018</code>."
+              }
+            ]
+          },
+          "docs": "Includes regular season standings in division and league, from which postseason seeding can be derived."
+        },
+        {
+          "info": {
+            "name": "Team Profiles - All",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/AllTeams",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full team information: team name and city, league and division, and colors. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns all teams regardless of current active status."
+        },
+        {
+          "info": {
+            "name": "Team Game Logs - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/TeamGameStatsBySeason/:season/:teamid/:numberofgames",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Season to get games from. Example <code>2019POST</code>, <code>2020</code>"
+              },
+              {
+                "name": "teamid",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of team.  Example <code> 12 </code>"
+              },
+              {
+                "name": "numberofgames",
+                "value": "",
+                "type": "path",
+                "description": "How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code>"
+              }
+            ]
+          },
+          "docs": "Game by game log of total team statistics."
+        },
+        {
+          "info": {
+            "name": "Schedules (Basic)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/SchedulesBasic/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc."
+              }
+            ]
+          },
+          "docs": "A lightweight schedule endpoint without gameday information. Home and away teams, the date and time of the game, and season type, week etc. are included. Ideal for the most basic information required to build a schedule."
+        },
+        {
+          "info": {
+            "name": "Player Profiles - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/PlayersBasic/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "The abbreviation of the requested team.\n<br>Examples: <code>SF</code>, <code>NYY</code>."
+              }
+            ]
+          },
+          "docs": "A more stripped-down list of players on a given team, for simple applications."
+        },
+        {
+          "info": {
+            "name": "Games (Basic) - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/ScoresBasic/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "This endpoint simply delivers the innings count and total score live; no down and distance and no gameday info such as weather."
+        },
+        {
+          "info": {
+            "name": "Player Profiles - by Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/PlayersByActive",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "A more stripped-down list of players on a given team, for simple applications, including all active players."
+        },
+        {
+          "info": {
+            "name": "Player Profiles - by Free Agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/PlayersByFreeAgents",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "A more stripped-down list of players on a given team, for simple applications, sorted by free agents."
+        },
+        {
+          "info": {
+            "name": "Games (Basic) - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/ScoresBasicFinal/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "A slimmed-down score endpoint, giving just the innings scores and final score, for simple applications. Delivered after the game ends."
+        },
+        {
+          "info": {
+            "name": "Games - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/GamesByDateFinal/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info, including weather, referee, infotainment odds, as well as all of the innings scores and full-time score, delivered as the game ends."
+        },
+        {
+          "info": {
+            "name": "Team Game Stats - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/TeamGameStatsByDateFinal/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record team-wide (aggregated from all players) for all games on a given date after the game has concluded."
+        },
+        {
+          "info": {
+            "name": "Team Profiles - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/teams/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>."
+              }
+            ]
+          },
+          "docs": "List of teams playing in a specified season, with their profile info."
+        },
+        {
+          "info": {
+            "name": "Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/scores/:format/TransactionsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the news.\n<br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "A list of transactions, such as assignments, placement on the injury list, player trades etc., delivered by date."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "MLB v3 Projections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Projected Player Game Stats - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/PlayerGameProjectionStatsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, called by date."
+        },
+        {
+          "info": {
+            "name": "Projected Player Season Stats With ADP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/PlayerSeasonProjectionStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2017</code>, <code>2018</code>."
+              }
+            ]
+          },
+          "docs": "SportsDataIO's proprietary projections, including average draft position, for all active players for the season."
+        },
+        {
+          "info": {
+            "name": "DFS Slates - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/DfsSlatesByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the slates.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns DFS Slates which have not yet started for which we have DFS projections."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Injured",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/InjuredPlayers",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "This endpoint provides all currently injured MLB players, along with injury details."
+        },
+        {
+          "info": {
+            "name": "Starting Lineups - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/StartingLineupsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the slates.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns both projected and confirmed starting lineups for all games on a given date."
+        },
+        {
+          "info": {
+            "name": "Depth Charts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/DepthCharts",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns Depth Charts for all active MLB teams."
+        },
+        {
+          "info": {
+            "name": "DFS Slate Ownership Projections - by Slate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/DfsSlateOwnershipProjectionsBySlateID/:slateId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "slateId",
+                "value": "",
+                "type": "path",
+                "description": "SlateID of the DFS Slate you wish to get ownership projections for. Will have an empty SlateOwnershipProjections if this slate was not projected"
+              }
+            ]
+          },
+          "docs": "Slate Ownership Projections for a specific slate. Projections are for Guaranteed Prize Pool (GPP) format ownership. Will return an empty list if the slate is not yet projected or not a slate we have projections for."
+        },
+        {
+          "info": {
+            "name": "DFS Slate Ownership Projections - Upcoming",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/UpcomingDfsSlateOwnershipProjections",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns DFS Slates which have not yet started for which we have DFS Ownership projections."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "MLB v3 RotoBaller Premium News",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Premium News",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/news-rotoballer/:format/RotoBallerPremiumNews",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "RotoBaller's Premium News feed, with the latest updated stories in greater detail."
+        },
+        {
+          "info": {
+            "name": "Premium News - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/news-rotoballer/:format/RotoBallerPremiumNewsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the news.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "RotoBaller's Premium News feed, with the latest updated stories in greater detail called by date."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "MLB v3 Odds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pre-Game Odds - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/GameOddsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2018-06-20</code>, <code>2018-06-23</code>."
+              }
+            ]
+          },
+          "docs": "Returns full game odds (spread, moneyline, total) for games on a given date. Only returns the most recently seen odds, not inclusive of line movement."
+        },
+        {
+          "info": {
+            "name": "Pre-Game Odds Line Movement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/GameOddsLineMovement/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>"
+              }
+            ]
+          },
+          "docs": "Returns the non-full-game odds (spread, moneyline, total) for games in a given week and season. Non-full-game means 1st-half or 1st-quarter, for example, rather than full game. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/LiveGameOddsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2018-06-20</code>, <code>2018-06-23</code>."
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games on a given date. Only returns the most recently seen odds, not inclusive of line movement. As this is in-game, it will only return results while the game is in progress."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds Line Movement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/LiveGameOddsLineMovement/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>"
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games on a given date. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line."
+        },
+        {
+          "info": {
+            "name": "Period Game Odds - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/AlternateMarketGameOddsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2018-06-20</code>, <code>2018-06-23</code>."
+              }
+            ]
+          },
+          "docs": "Returns the non-full-game odds (spread, moneyline, total) for games on a given date. Non-full-game means first five innings, for example, rather than full game. Only returns the most recently seen odds, not inclusive of line movement."
+        },
+        {
+          "info": {
+            "name": "Period Game Odds Line Movement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/AlternateMarketGameOddsLineMovement/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>"
+              }
+            ]
+          },
+          "docs": "Returns the non-full-game odds (spread, moneyline, total) for games on a given date. Non-full-game means first five innings, for example, rather than full game. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line."
+        },
+        {
+          "info": {
+            "name": "Betting Trends - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/TeamTrends/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "The abbreviation of the requested team. <br> Examples: <code>PHI</code>, <code>MIN</code>, <code>DET</code>, etc."
+              }
+            ]
+          },
+          "docs": "Describes recent team trends and performance against betting data in recent sets of games."
+        },
+        {
+          "info": {
+            "name": "Betting Trends - by Matchup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/MatchupTrends/:team/:opponent",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "The abbreviation of the requested team. <br> Examples: <code>PHI</code>, <code>MIN</code>, <code>DET</code>, etc."
+              },
+              {
+                "name": "opponent",
+                "value": "",
+                "type": "path",
+                "description": "The abbreviation of the requested opponent. <br> Examples: <code>PHI</code>, <code>MIN</code>, <code>DET</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns trends data for a given pairing of teams. Will return data even if the teams are not set to play this season. Intended for use on a specific game, though it will work for other comparisons if applicable."
+        },
+        {
+          "info": {
+            "name": "Betting Events - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingEventsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2020-08-20</code>, <code>2020-08-23</code>."
+              }
+            ]
+          },
+          "docs": "The list of current BettingEvents for the given date, from which Betting Market data can be gathered via the Betting Markets by Event endpoint, for all available Betting Market types (e.g. Player Props, Team Props.)"
+        },
+        {
+          "info": {
+            "name": "Betting Events - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingEvents/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2020</code>, <code>2020PRE</code>, <code>2020POST</code>, <code>2020STAR</code>, <code>2021</code>, etc."
+              }
+            ]
+          },
+          "docs": "The list of current BettingEvents for the given season, from which Betting Market data can be gathered via the Betting Markets by Event endpoint, for all available Betting Market types (e.g. Player Props, Team Props.)"
+        },
+        {
+          "info": {
+            "name": "Betting Futures - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingFuturesBySeason/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2020</code>, <code>2020PRE</code>, <code>2020POST</code>, <code>2020STAR</code>, <code>2021</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns available Futures markets for the given season. Does not include line movement."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingMarkets/:eventId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given BettingEventID."
+        },
+        {
+          "info": {
+            "name": "Betting Market",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingMarket/:marketId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets."
+              }
+            ]
+          },
+          "docs": "Returns full line movement for a given BettingMarket. Due to the sheer size of the output and the level of detail, it is intended for historical data purposes and not for the most up-to-the-second lines."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Market Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingMarketsByMarketType/:eventId/:marketTypeID",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "marketTypeID",
+                "value": "",
+                "type": "path",
+                "description": "The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for Game Lines, <code>2</code> for Player Props, <code>3</code> for Team Props, <code>6</code> for Game Props"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns Markets and available outcomes for a given event and market type requested. A lighter call than by BettingEventID as it only includes markets tagged with the specific MarketType, a full list of which is available for each sport in its Betting Metadata endpoint."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingMarketsByGameID/:gameID",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameID",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of the desired game for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given GameID."
+        },
+        {
+          "info": {
+            "name": "Betting Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingMetadata",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns the list of MarketTypes, BetTypes, PeriodTypes, OutcomeTypes, and ResultTypes to map the IDs to descriptive names. Also includes a list of the MarketType, BetType & PeriodType combinations which we will have resulting for."
+        },
+        {
+          "info": {
+            "name": "Sportsbooks - by Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/ActiveSportsbooks",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "A list of all available sportsbooks with their associated unique IDs."
+        },
+        {
+          "info": {
+            "name": "Betting Results - by Market",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingMarketResults/:marketId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets. Valid IDs include <code>837872</code>, <code>841068</code>"
+              }
+            ]
+          },
+          "docs": "Returns all outcomes under this market which have a result type associated. Will return empty list if resulting has not yet processed for the given game. Resulting processes shortly after game closing."
+        },
+        {
+          "info": {
+            "name": "Betting Splits by - Betting Market",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingSplitsByMarketId/:marketId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull splits.. Valid IDs include <code>837872</code>"
+              }
+            ]
+          },
+          "docs": "List of Money and Bet Percentage splits for each outcome type available in this market. This specific endpoint will return the movement from this market as well as the most recent."
+        },
+        {
+          "info": {
+            "name": "Betting Splits - by Game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingSplitsByGameId/:gameId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the game for which you want to receive splits for. Example <code>63266</code>."
+              }
+            ]
+          },
+          "docs": "List of Money and Bet Percentage splits for each market and their respective outcome types available in this game. This specific endpoint will return current splits for each available market and no line movement."
+        },
+        {
+          "info": {
+            "name": "Betting Player Props - by Game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingPlayerPropsByGameID/:gameId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameId",
+                "value": "",
+                "type": "path",
+                "description": "The unique GameID of the game in question."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "This works in the same way as Betting Markets by Market Type but is prefiltered to the Player Props type only. Ideal if your application will only ever require Player Props, but if you also want Team Props etc. it is recommended to use the by Market Type endpoint."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Event [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingMarketsByEvent/:eventId/:sportsbookGroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "sportsbookGroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the sportsbook group that will filter outcomes."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns the markets and available outcomes for a given BettingEventID. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Game [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingMarketsByGameID/:gameID/:sportsbookGroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameID",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of the desired game for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "sportsbookGroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the sportsbook group that will filter outcomes."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given GameID. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Market - [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingMarket/:marketId/:sportsbookGroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets."
+              },
+              {
+                "name": "sportsbookGroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the sportsbook group that will filter outcomes."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br>\n\n<b>Important Note:</b> the default parameter of available is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>\n\nPossible values include: <br><br>\n<code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br>\n<code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns full line movement for a given BettingMarket. Due to the sheer size of the output and the level of detail, it is intended for historical data purposes and not for the most up-to-the-second lines. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Futures - by Season [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingFuturesBySeason/:season/:sportsbookGroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2020</code>, <code>2020PRE</code>, <code>2020POST</code>, <code>2020STAR</code>, <code>2021</code>, etc."
+              },
+              {
+                "name": "sportsbookGroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the sportsbook group that will filter outcomes."
+              }
+            ]
+          },
+          "docs": "Returns available Futures markets for the given season. Does not include line movement. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Market Type [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingMarketsByMarketType/:eventID/:marketTypeID/:sportsbookGroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "eventID",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets)."
+              },
+              {
+                "name": "marketTypeID",
+                "value": "",
+                "type": "path",
+                "description": "The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for Game Lines, <code>2</code> for Player Props, <code>3</code> for Team Props, <code>6</code> for Game Props"
+              },
+              {
+                "name": "sportsbookGroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the sportsbook group that will filter outcomes."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns Markets and available outcomes for a given event and market type requested. A lighter call than by BettingEventID as it only includes markets tagged with the specific MarketType, a full list of which is available for each sport in its Betting Metadata endpoint. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Player Props - by Game [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingPlayerPropsByGameID/:gameId/:sportsbookGroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameId",
+                "value": "",
+                "type": "path",
+                "description": "The unique GameID of the game in question."
+              },
+              {
+                "name": "sportsbookGroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the sportsbook group that will filter outcomes."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "This works in the same way as Betting Markets by Market Type but is prefiltered to the Player Props type only. Ideal if your application will only ever require Player Props, but if you also want Team Props etc. it is recommended to use the by Market Type endpoint. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Results - by Market [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/BettingResultsByMarket/:marketID/:sportsbookGroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketID",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets. Valid IDs include <code>837872</code>, <code>841068</code>"
+              },
+              {
+                "name": "sportsbookGroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the sportsbook group that will filter outcomes."
+              }
+            ]
+          },
+          "docs": "Provide a market ID that supports resulting (i.e. has a ResultType) and this endpoint will return a result: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Pre-Game and Period Game Odds - by Date [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/PreGameOddsByDate/:date/:sportsbookGroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2018-06-20</code>, <code>2018-06-23</code>."
+              },
+              {
+                "name": "sportsbookGroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the sportsbook group that will filter outcomes."
+              }
+            ]
+          },
+          "docs": "Returns the full-game and non-full-game odds (spread, moneyline, total) for games on a given date. Only returns the most recently seen odds, not inclusive of line movement. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Pre-Game and Period Game Odds Line Movement [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/PreGameOddsLineMovement/:gameid/:sportsbookGroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>"
+              },
+              {
+                "name": "sportsbookGroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the sportsbook group that will filter outcomes."
+              }
+            ]
+          },
+          "docs": "Returns the game odds ( for games in a given week and season. In this endpoint both full-game and partial-game odds are included. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds - by Date [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/InGameOddsByDate/:date/:sportsbookGroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2018-06-20</code>, <code>2018-06-23</code>."
+              },
+              {
+                "name": "sportsbookGroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the sportsbook group that will filter outcomes."
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games on a given date. Only returns the most recently seen odds, not inclusive of line movement. As this is in-game, it will only return results while the game is in progress. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds Line Movement [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/InGameOddsLineMovement/:gameid/:sportsbookGroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>"
+              },
+              {
+                "name": "sportsbookGroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the sportsbook group that will filter outcomes."
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games in a given week and season. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds Line Movement with Resulting [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/InGameOddsLineMovementWithResulting/:gameid/:sportsbookGroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>"
+              },
+              {
+                "name": "sportsbookGroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the sportsbook group that will filter outcomes."
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games in a given week and season. This also includes Resulting: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Pre-Game and Period Game Odds Line Movement with Resulting [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/odds/:format/PreGameOddsLineMovementWithResulting/:gameid/:sportsbookGroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>"
+              },
+              {
+                "name": "sportsbookGroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the sportsbook group that will filter outcomes."
+              }
+            ]
+          },
+          "docs": "Returns the game odds ( for games in a given week and season. In this endpoint both full-game and partial-game odds are included. This also includes Resulting: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "MLB v3 Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Player Game Stats - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/PlayerGameStatsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players across a given date, updated live as the game takes place."
+        },
+        {
+          "info": {
+            "name": "Player Season Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/PlayerSeasonStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2017</code>, <code>2018</code>."
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for all players for a given season."
+        },
+        {
+          "info": {
+            "name": "Player Season Stats - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/PlayerSeasonStatsByTeam/:season/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2017</code>, <code>2018</code>.\n"
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "The abbreviation of the requested team.\n<br>Examples: <code>SF</code>, <code>NYY</code>."
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for a given team's players in a given season."
+        },
+        {
+          "info": {
+            "name": "Box Scores - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/BoxScores/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered live during the game, called for all games on a given date."
+        },
+        {
+          "info": {
+            "name": "Box Score [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/BoxScore/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered live during the game, called per individual game."
+        },
+        {
+          "info": {
+            "name": "Box Scores Delta - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/BoxScoresDelta/:date/:minutes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              },
+              {
+                "name": "minutes",
+                "value": "",
+                "type": "path",
+                "description": "Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back. Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
+              }
+            ]
+          },
+          "docs": "This method returns all box scores for a given date, but only returns player stats that have changed in the last X minutes as specified in your API call. By definition this is a live endpoint, not final."
+        },
+        {
+          "info": {
+            "name": "Player Season Split Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/PlayerSeasonSplitStats/:season/:split",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2017</code>, <code>2018</code>."
+              },
+              {
+                "name": "split",
+                "value": "",
+                "type": "path",
+                "description": "The desired split of stats. Currently, we support vs. Left/Right/Switch handed pitchers/hitters. Possible values are: <code>L</code>, <code>R</code> and <code>S</code>"
+              }
+            ]
+          },
+          "docs": "All players' split stats for the season. Split stats are available for left, right, and switch-handed pitchers and hitters."
+        },
+        {
+          "info": {
+            "name": "Batter vs. Pitcher Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/HitterVsPitcher/:hitterid/:pitcherid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "hitterid",
+                "value": "",
+                "type": "path",
+                "description": "Unique FantasyData Player ID.\nExample:<code>10000031</code>."
+              },
+              {
+                "name": "pitcherid",
+                "value": "",
+                "type": "path",
+                "description": "Unique FantasyData Player ID.\nExample:<code>10000618</code>."
+              }
+            ]
+          },
+          "docs": "Stat records for a given hitter and a given pitcher, called by PlayerId in both cases."
+        },
+        {
+          "info": {
+            "name": "Player Season Stats Split - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/PlayerSeasonStatsSplitByTeam/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2017</code>, <code>2018</code>."
+              }
+            ]
+          },
+          "docs": "All a given team's players' split stats for the season. Split stats are available for left, right, and switch-handed pitchers and hitters."
+        },
+        {
+          "info": {
+            "name": "Player Season Stats - by Home",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/PlayerSeasonHomeStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2017</code>, <code>2018</code>."
+              }
+            ]
+          },
+          "docs": "All players' stats for the season taken only from their home games."
+        },
+        {
+          "info": {
+            "name": "Player Season Stats - by Away",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/PlayerSeasonAwayStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2017</code>, <code>2018</code>."
+              }
+            ]
+          },
+          "docs": "All players' stats for the season taken only from their road games."
+        },
+        {
+          "info": {
+            "name": "Team Hitting vs. Starting Pitcher",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/TeamHittersVsPitcher/:gameid/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "The abbreviation of the requested team.\n<br>Examples: <code>SF</code>, <code>NYY</code>."
+              }
+            ]
+          },
+          "docs": "For a given game, returns a team's hitting record versus the projected or confirmed starting pitcher for the game in question."
+        },
+        {
+          "info": {
+            "name": "Player Game Logs - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/PlayerGameStatsBySeason/:season/:playerid/:numberofgames",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Season to get games from. Example <code>2019POST</code>, <code>2020</code>"
+              },
+              {
+                "name": "playerid",
+                "value": "",
+                "type": "path",
+                "description": "Unique SportsDataIO Player ID.\nExample:<code>10001365</code>."
+              },
+              {
+                "name": "numberofgames",
+                "value": "",
+                "type": "path",
+                "description": "How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code>"
+              }
+            ]
+          },
+          "docs": "Specify a season, a player, and number of games (either an integer or <code>all</code>) to see all of their box score logs. Refreshed after their most recent game is complete."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/PlayerGameStatsByDateFinal/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players across all teams' games on a given date after each game has concluded."
+        },
+        {
+          "info": {
+            "name": "Box Score [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/BoxScoreFinal/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered after the game is complete."
+        },
+        {
+          "info": {
+            "name": "Box Scores - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/BoxScoresFinal/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified date for each game that took place, down to the team and player stat level, delivered after the game is complete."
+        },
+        {
+          "info": {
+            "name": "Fantasy Points - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/stats/:format/FantasyGameStatsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns a simple list of fantasy points and stats for each player for a given date."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "MLB v3 Play-by-Play",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Play By Play [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/pbp/:format/PlayByPlay/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+              }
+            ]
+          },
+          "docs": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by game."
+        },
+        {
+          "info": {
+            "name": "Play By Play Delta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/pbp/:format/PlayByPlayDelta/:date/:minutes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              },
+              {
+                "name": "minutes",
+                "value": "",
+                "type": "path",
+                "description": "Only returns plays that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
+              }
+            ]
+          },
+          "docs": "This method returns all play-by-plays for a given season and week, but only returns plays that have changed in the last X minutes as specified in your API call. By definition this is a live endpoint, not final."
+        },
+        {
+          "info": {
+            "name": "Play By Play [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/pbp/:format/PlayByPlayFinal/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+              }
+            ]
+          },
+          "docs": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by game."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "MLB v3 Headshots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Headshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/headshots/:format/Headshots",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "USA Today/IMAGN cropped action headshots for all active NFL players, delivered shortly after the season starts."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

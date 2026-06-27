@@ -145,7 +145,7 @@ common:
     url: https://sportsdata.io/pricing
   - type: Login
     url: https://sportsdata.io/login
-  - type: SignUp
+  - type: Signup
     url: https://sportsdata.io/signup
   - type: Support
     url: https://support.sportsdata.io/

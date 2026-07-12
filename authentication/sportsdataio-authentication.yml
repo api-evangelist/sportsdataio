@@ -1,0 +1,31 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/sportsdataio-mlb-openapi.yml, openapi/sportsdataio-nba-openapi.yml, openapi/sportsdataio-nfl-openapi.yml,
+  openapi/sportsdataio-nhl-openapi.yml, openapi/sportsdataio-soccer-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: apiKeyHeader
+  type: apiKey
+  in: header
+  parameter: Ocp-Apim-Subscription-Key
+  sources:
+  - openapi/sportsdataio-mlb-openapi.yml
+  - openapi/sportsdataio-nba-openapi.yml
+  - openapi/sportsdataio-nfl-openapi.yml
+  - openapi/sportsdataio-nhl-openapi.yml
+  - openapi/sportsdataio-soccer-openapi.yml
+- name: apiKeyQuery
+  type: apiKey
+  in: query
+  parameter: key
+  sources:
+  - openapi/sportsdataio-mlb-openapi.yml
+  - openapi/sportsdataio-nba-openapi.yml
+  - openapi/sportsdataio-nfl-openapi.yml
+  - openapi/sportsdataio-nhl-openapi.yml
+  - openapi/sportsdataio-soccer-openapi.yml

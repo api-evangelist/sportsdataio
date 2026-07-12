@@ -131,6 +131,10 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/sportsdataio/refs/heads/main/openapi/sportsdataio-soccer-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/sportsdataio-domain-security.yml
+  - type: Authentication
+    url: authentication/sportsdataio-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/fantasydata
   - type: LinkedIn

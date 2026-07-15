@@ -1,0 +1,4685 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/sportsdataio-mlb-openapi.yml, openapi/sportsdataio-nba-openapi.yml, openapi/sportsdataio-nfl-openapi.yml,
+  openapi/sportsdataio-nhl-openapi.yml, openapi/sportsdataio-soccer-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 467
+  by_action_class:
+    connected: 467
+  by_consequence:
+    read: 467
+  human_in_the_loop_required: 0
+operations:
+- path: /v3/mlb/scores/{format}/teams
+  method: get
+  operationId: mlb_v3_scores_team_profiles___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/Stadiums
+  method: get
+  operationId: mlb_v3_scores_stadiums
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/Games/{season}
+  method: get
+  operationId: mlb_v3_scores_schedules
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/GamesByDate/{date}
+  method: get
+  operationId: mlb_v3_scores_games___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/Players
+  method: get
+  operationId: mlb_v3_scores_player_details___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/FreeAgents
+  method: get
+  operationId: mlb_v3_scores_player_details___by_free_agents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/Players/{team}
+  method: get
+  operationId: mlb_v3_scores_players_details___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/TeamGameStatsByDate/{date}
+  method: get
+  operationId: mlb_v3_scores_team_game_stats___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/TeamSeasonStats/{season}
+  method: get
+  operationId: mlb_v3_scores_team_season_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/NewsByDate/{date}
+  method: get
+  operationId: mlb_v3_scores_news___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/News
+  method: get
+  operationId: mlb_v3_scores_news
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/NewsByPlayerID/{playerid}
+  method: get
+  operationId: mlb_v3_scores_news___by_player
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/AreAnyGamesInProgress
+  method: get
+  operationId: mlb_v3_scores_are_games_in_progress
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/CurrentSeason
+  method: get
+  operationId: mlb_v3_scores_season___current
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/Standings/{season}
+  method: get
+  operationId: mlb_v3_scores_standings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/AllTeams
+  method: get
+  operationId: mlb_v3_scores_team_profiles___all
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}
+  method: get
+  operationId: mlb_v3_scores_team_game_logs___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/SchedulesBasic/{season}
+  method: get
+  operationId: mlb_v3_scores_schedules__basic
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/PlayersBasic/{team}
+  method: get
+  operationId: mlb_v3_scores_player_profiles___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/ScoresBasic/{date}
+  method: get
+  operationId: mlb_v3_scores_games__basic____by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/PlayersByActive
+  method: get
+  operationId: mlb_v3_scores_player_profiles___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/PlayersByFreeAgents
+  method: get
+  operationId: mlb_v3_scores_player_profiles___by_free_agents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/ScoresBasicFinal/{date}
+  method: get
+  operationId: mlb_v3_scores_games__basic____by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/GamesByDateFinal/{date}
+  method: get
+  operationId: mlb_v3_scores_games___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/TeamGameStatsByDateFinal/{date}
+  method: get
+  operationId: mlb_v3_scores_team_game_stats___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/teams/{season}
+  method: get
+  operationId: mlb_v3_scores_team_profiles___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/scores/{format}/TransactionsByDate/{date}
+  method: get
+  operationId: mlb_v3_scores_transactions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/projections/{format}/PlayerGameProjectionStatsByDate/{date}
+  method: get
+  operationId: mlb_v3_projections_projected_player_game_stats___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/projections/{format}/PlayerSeasonProjectionStats/{season}
+  method: get
+  operationId: mlb_v3_projections_projected_player_season_stats_with_adp
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/projections/{format}/DfsSlatesByDate/{date}
+  method: get
+  operationId: mlb_v3_projections_dfs_slates___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/projections/{format}/InjuredPlayers
+  method: get
+  operationId: mlb_v3_projections_player_details___by_injured
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/projections/{format}/StartingLineupsByDate/{date}
+  method: get
+  operationId: mlb_v3_projections_starting_lineups___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/projections/{format}/DepthCharts
+  method: get
+  operationId: mlb_v3_projections_depth_charts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/projections/{format}/DfsSlateOwnershipProjectionsBySlateID/{slateId}
+  method: get
+  operationId: mlb_v3_projections_dfs_slate_ownership_projections___by_slate
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/projections/{format}/UpcomingDfsSlateOwnershipProjections
+  method: get
+  operationId: mlb_v3_projections_dfs_slate_ownership_projections___upcoming
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/news-rotoballer/{format}/RotoBallerPremiumNews
+  method: get
+  operationId: mlb_v3_news_rotoballer_premium_news
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/news-rotoballer/{format}/RotoBallerPremiumNewsByDate/{date}
+  method: get
+  operationId: mlb_v3_news_rotoballer_premium_news___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/GameOddsByDate/{date}
+  method: get
+  operationId: mlb_v3_odds_pre_game_odds___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/GameOddsLineMovement/{gameid}
+  method: get
+  operationId: mlb_v3_odds_pre_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/LiveGameOddsByDate/{date}
+  method: get
+  operationId: mlb_v3_odds_in_game_odds___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/LiveGameOddsLineMovement/{gameid}
+  method: get
+  operationId: mlb_v3_odds_in_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/AlternateMarketGameOddsByDate/{date}
+  method: get
+  operationId: mlb_v3_odds_period_game_odds___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/AlternateMarketGameOddsLineMovement/{gameid}
+  method: get
+  operationId: mlb_v3_odds_period_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/TeamTrends/{team}
+  method: get
+  operationId: mlb_v3_odds_betting_trends___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/MatchupTrends/{team}/{opponent}
+  method: get
+  operationId: mlb_v3_odds_betting_trends___by_matchup
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingEventsByDate/{date}
+  method: get
+  operationId: mlb_v3_odds_betting_events___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingEvents/{season}
+  method: get
+  operationId: mlb_v3_odds_betting_events___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingFuturesBySeason/{season}
+  method: get
+  operationId: mlb_v3_odds_betting_futures___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingMarkets/{eventId}
+  method: get
+  operationId: mlb_v3_odds_betting_markets___by_event
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingMarket/{marketId}
+  method: get
+  operationId: mlb_v3_odds_betting_market
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}
+  method: get
+  operationId: mlb_v3_odds_betting_markets___by_market_type
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingMarketsByGameID/{gameID}
+  method: get
+  operationId: mlb_v3_odds_betting_markets___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingMetadata
+  method: get
+  operationId: mlb_v3_odds_betting_metadata
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/ActiveSportsbooks
+  method: get
+  operationId: mlb_v3_odds_sportsbooks___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingMarketResults/{marketId}
+  method: get
+  operationId: mlb_v3_odds_betting_results___by_market
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingSplitsByMarketId/{marketId}
+  method: get
+  operationId: mlb_v3_odds_betting_splits_by___betting_market
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingSplitsByGameId/{gameId}
+  method: get
+  operationId: mlb_v3_odds_betting_splits___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingPlayerPropsByGameID/{gameId}
+  method: get
+  operationId: mlb_v3_odds_betting_player_props___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingMarketsByEvent/{eventId}/{sportsbookGroup}
+  method: get
+  operationId: mlb_v3_odds_betting_markets___by_event__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingMarketsByGameID/{gameID}/{sportsbookGroup}
+  method: get
+  operationId: mlb_v3_odds_betting_markets___by_game__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingMarket/{marketId}/{sportsbookGroup}
+  method: get
+  operationId: mlb_v3_odds_betting_market____sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingFuturesBySeason/{season}/{sportsbookGroup}
+  method: get
+  operationId: mlb_v3_odds_betting_futures___by_season__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingMarketsByMarketType/{eventID}/{marketTypeID}/{sportsbookGroup}
+  method: get
+  operationId: mlb_v3_odds_betting_markets___by_market_type__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingPlayerPropsByGameID/{gameId}/{sportsbookGroup}
+  method: get
+  operationId: mlb_v3_odds_betting_player_props___by_game__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/BettingResultsByMarket/{marketID}/{sportsbookGroup}
+  method: get
+  operationId: mlb_v3_odds_betting_results___by_market__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/PreGameOddsByDate/{date}/{sportsbookGroup}
+  method: get
+  operationId: mlb_v3_odds_pre_game_and_period_game_odds___by_date__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/PreGameOddsLineMovement/{gameid}/{sportsbookGroup}
+  method: get
+  operationId: mlb_v3_odds_pre_game_and_period_game_odds_line_movement__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/InGameOddsByDate/{date}/{sportsbookGroup}
+  method: get
+  operationId: mlb_v3_odds_in_game_odds___by_date__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/InGameOddsLineMovement/{gameid}/{sportsbookGroup}
+  method: get
+  operationId: mlb_v3_odds_in_game_odds_line_movement__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/InGameOddsLineMovementWithResulting/{gameid}/{sportsbookGroup}
+  method: get
+  operationId: mlb_v3_odds_in_game_odds_line_movement_with_resulting__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/odds/{format}/PreGameOddsLineMovementWithResulting/{gameid}/{sportsbookGroup}
+  method: get
+  operationId: mlb_v3_odds_pre_game_and_period_game_odds_line_movement_with_resulting__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/PlayerGameStatsByDate/{date}
+  method: get
+  operationId: mlb_v3_stats_player_game_stats___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/PlayerSeasonStats/{season}
+  method: get
+  operationId: mlb_v3_stats_player_season_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/PlayerSeasonStatsByTeam/{season}/{team}
+  method: get
+  operationId: mlb_v3_stats_player_season_stats___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/BoxScores/{date}
+  method: get
+  operationId: mlb_v3_stats_box_scores___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/BoxScore/{gameid}
+  method: get
+  operationId: mlb_v3_stats_box_score__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/BoxScoresDelta/{date}/{minutes}
+  method: get
+  operationId: mlb_v3_stats_box_scores_delta___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/PlayerSeasonSplitStats/{season}/{split}
+  method: get
+  operationId: mlb_v3_stats_player_season_split_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/HitterVsPitcher/{hitterid}/{pitcherid}
+  method: get
+  operationId: mlb_v3_stats_batter_vs__pitcher_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/PlayerSeasonStatsSplitByTeam/{season}
+  method: get
+  operationId: mlb_v3_stats_player_season_stats_split___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/PlayerSeasonHomeStats/{season}
+  method: get
+  operationId: mlb_v3_stats_player_season_stats___by_home
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/PlayerSeasonAwayStats/{season}
+  method: get
+  operationId: mlb_v3_stats_player_season_stats___by_away
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/TeamHittersVsPitcher/{gameid}/{team}
+  method: get
+  operationId: mlb_v3_stats_team_hitting_vs__starting_pitcher
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/PlayerGameStatsBySeason/{season}/{playerid}/{numberofgames}
+  method: get
+  operationId: mlb_v3_stats_player_game_logs___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/PlayerGameStatsByDateFinal/{date}
+  method: get
+  operationId: mlb_v3_stats_player_game_stats___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/BoxScoreFinal/{gameid}
+  method: get
+  operationId: mlb_v3_stats_box_score__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/BoxScoresFinal/{date}
+  method: get
+  operationId: mlb_v3_stats_box_scores___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/stats/{format}/FantasyGameStatsByDate/{date}
+  method: get
+  operationId: mlb_v3_stats_fantasy_points___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/pbp/{format}/PlayByPlay/{gameid}
+  method: get
+  operationId: mlb_v3_pbp_play_by_play__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/pbp/{format}/PlayByPlayDelta/{date}/{minutes}
+  method: get
+  operationId: mlb_v3_pbp_play_by_play_delta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/pbp/{format}/PlayByPlayFinal/{gameid}
+  method: get
+  operationId: mlb_v3_pbp_play_by_play__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/mlb/headshots/{format}/Headshots
+  method: get
+  operationId: mlb_v3_headshots_headshots
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/teams
+  method: get
+  operationId: nba_v3_scores_team_profiles___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/GamesByDate/{date}
+  method: get
+  operationId: nba_v3_scores_games___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/Games/{season}
+  method: get
+  operationId: nba_v3_scores_schedules
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/News
+  method: get
+  operationId: nba_v3_scores_news
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/NewsByDate/{date}
+  method: get
+  operationId: nba_v3_scores_news___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/NewsByPlayerID/{playerid}
+  method: get
+  operationId: nba_v3_scores_news___by_player
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/Stadiums
+  method: get
+  operationId: nba_v3_scores_stadiums
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/TeamGameStatsByDate/{date}
+  method: get
+  operationId: nba_v3_scores_team_game_stats___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/TeamSeasonStats/{season}
+  method: get
+  operationId: nba_v3_scores_team_season_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/AreAnyGamesInProgress
+  method: get
+  operationId: nba_v3_scores_are_games_in_progress
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/CurrentSeason
+  method: get
+  operationId: nba_v3_scores_season___current
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/Standings/{season}
+  method: get
+  operationId: nba_v3_scores_standings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/AllTeams
+  method: get
+  operationId: nba_v3_scores_team_profiles___all
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/Players
+  method: get
+  operationId: nba_v3_scores_player_details___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/FreeAgents
+  method: get
+  operationId: nba_v3_scores_player_details___by_free_agent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/Referees
+  method: get
+  operationId: nba_v3_scores_referees
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/Players/{team}
+  method: get
+  operationId: nba_v3_scores_player_details___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}
+  method: get
+  operationId: nba_v3_scores_team_game_logs___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/DepthCharts
+  method: get
+  operationId: nba_v3_scores_depth_charts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/SchedulesBasic/{season}
+  method: get
+  operationId: nba_v3_scores_schedules__basic
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/ScoresBasic/{date}
+  method: get
+  operationId: nba_v3_scores_games__basic____by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/PlayersBasic/{team}
+  method: get
+  operationId: nba_v3_scores_players_profiles___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/PlayersActiveBasic
+  method: get
+  operationId: nba_v3_scores_player_profiles___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/PlayersByFreeAgents
+  method: get
+  operationId: nba_v3_scores_player_profiles___by_free_agent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/TransactionsByDate/{date}
+  method: get
+  operationId: nba_v3_scores_transactions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/teams/{season}
+  method: get
+  operationId: nba_v3_scores_team_profiles___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/GamesByDateFinal/{date}
+  method: get
+  operationId: nba_v3_scores_games___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/scores/{format}/ScoresBasicFinal/{date}
+  method: get
+  operationId: nba_v3_scores_games__basic____by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/projections/{format}/PlayerGameProjectionStatsByDate/{date}
+  method: get
+  operationId: nba_v3_projections_projected_player_game_stats___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/projections/{format}/DfsSlatesByDate/{date}
+  method: get
+  operationId: nba_v3_projections_dfs_slates___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/projections/{format}/PlayerSeasonProjectionStats/{season}
+  method: get
+  operationId: nba_v3_projections_projected_player_season_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/projections/{format}/PlayerSeasonProjectionStatsByTeam/{season}/{team}
+  method: get
+  operationId: nba_v3_projections_projected_player_season_stats___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/projections/{format}/StartingLineupsByDate/{date}
+  method: get
+  operationId: nba_v3_projections_starting_lineups___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/projections/{format}/InjuredPlayers
+  method: get
+  operationId: nba_v3_projections_player_details___by_injured
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/news-rotoballer/{format}/RotoBallerPremiumNews
+  method: get
+  operationId: nba_v3_news_rotoballer_premium_news
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/news-rotoballer/{format}/RotoBallerPremiumNewsByDate/{date}
+  method: get
+  operationId: nba_v3_news_rotoballer_premium_news___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/GameOddsByDate/{date}
+  method: get
+  operationId: nba_v3_odds_pre_game_odds___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/GameOddsLineMovement/{gameid}
+  method: get
+  operationId: nba_v3_odds_pre_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/LiveGameOddsByDate/{date}
+  method: get
+  operationId: nba_v3_odds_in_game_odds___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/LiveGameOddsLineMovement/{gameid}
+  method: get
+  operationId: nba_v3_odds_in_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/AlternateMarketGameOddsByDate/{date}
+  method: get
+  operationId: nba_v3_odds_period_game_odds___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/AlternateMarketGameOddsLineMovement/{gameid}
+  method: get
+  operationId: nba_v3_odds_period_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingEventsByDate/{date}
+  method: get
+  operationId: nba_v3_odds_betting_events___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingEvents/{season}
+  method: get
+  operationId: nba_v3_odds_betting_events___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingMarkets/{eventId}
+  method: get
+  operationId: nba_v3_odds_betting_markets___by_event
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingMarket/{marketId}
+  method: get
+  operationId: nba_v3_odds_betting_market
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingFuturesBySeason/{season}
+  method: get
+  operationId: nba_v3_odds_betting_futures___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}
+  method: get
+  operationId: nba_v3_odds_betting_markets___by_market_type
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingMarketsByGameID/{gameID}
+  method: get
+  operationId: nba_v3_odds_betting_markets___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/TeamTrends/{team}
+  method: get
+  operationId: nba_v3_odds_betting_trends___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/MatchupTrends/{team}/{opponent}
+  method: get
+  operationId: nba_v3_odds_betting_trends___by_matchup
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingMetadata
+  method: get
+  operationId: nba_v3_odds_betting_metadata
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/ActiveSportsbooks
+  method: get
+  operationId: nba_v3_odds_sportsbooks___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingMarketResults/{marketId}
+  method: get
+  operationId: nba_v3_odds_betting_results___by_market
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingSplitsByMarketId/{marketId}
+  method: get
+  operationId: nba_v3_odds_betting_splits___by_betting_market
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingSplitsByGameId/{gameId}
+  method: get
+  operationId: nba_v3_odds_betting_splits___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingPlayerPropsByGameID/{gameId}
+  method: get
+  operationId: nba_v3_odds_betting_player_props___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/PreGameOddsByDate/{date}/{sportsbookgroup}
+  method: get
+  operationId: nba_v3_odds_pre_game_and_period_game_odds___by_date__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/PreGameOddsLineMovement/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: nba_v3_odds_pre_game_and_period_game_odds_line_movement__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/InGameOddsByDate/{date}/{sportsbookgroup}
+  method: get
+  operationId: nba_v3_odds_in_game_odds___by_date__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/InGameLineMovement/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: nba_v3_odds_in_game_odds_line_movement__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingPlayerPropsByGameID/{gameId}/{sportsbookgroup}
+  method: get
+  operationId: nba_v3_odds_betting_player_props___by_game__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}/{sportsbookgroup}
+  method: get
+  operationId: nba_v3_odds_betting_markets___by_market_type__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingMarketsByGameID/{gameID}/{sportsbookgroup}
+  method: get
+  operationId: nba_v3_odds_betting_markets___by_game__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingMarketsByEvent/{eventId}/{sportsbookgroup}
+  method: get
+  operationId: nba_v3_odds_betting_markets___by_event__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingMarket/{marketId}/{sportsbookgroup}
+  method: get
+  operationId: nba_v3_odds_betting_market__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingResultsByMarket/{marketId}/{sportsbookgroup}
+  method: get
+  operationId: nba_v3_odds_betting_results___by_market__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/BettingFuturesBySeason/{season}/{sportsbookgroup}
+  method: get
+  operationId: nba_v3_odds_betting_futures___by_season__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/InGameLineMovementWithResulting/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: nba_v3_odds_in_game_odds_line_movement_with_resulting__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/odds/{format}/PreGameOddsLineMovementWithResulting/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: nba_v3_odds_pre_game_and_period_game_odds_line_movement_with_resulting__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/BoxScore/{gameid}
+  method: get
+  operationId: nba_v3_stats_box_score__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/BoxScores/{date}
+  method: get
+  operationId: nba_v3_stats_box_scores___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/BoxScoresDelta/{date}/{minutes}
+  method: get
+  operationId: nba_v3_stats_box_scores_delta___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/PlayerGameStatsByDate/{date}
+  method: get
+  operationId: nba_v3_stats_player_game_stats___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/PlayerSeasonStats/{season}
+  method: get
+  operationId: nba_v3_stats_player_season_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/PlayerSeasonStatsByTeam/{season}/{team}
+  method: get
+  operationId: nba_v3_stats_player_season_stats___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/TeamStatsAllowedByPosition/{season}
+  method: get
+  operationId: nba_v3_stats_team_stats_allowed___by_position
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/AllStars/{season}
+  method: get
+  operationId: nba_v3_stats_all_stars
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/PlayerGameStatsBySeason/{season}/{playerid}/{numberofgames}
+  method: get
+  operationId: nba_v3_stats_player_game_logs___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/TeamGameStatsByDateFinal/{date}
+  method: get
+  operationId: nba_v3_stats_team_game_stats___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/PlayerGameStatsByDateFinal/{date}
+  method: get
+  operationId: nba_v3_stats_player_game_stats___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/BoxScoreFinal/{gameid}
+  method: get
+  operationId: nba_v3_stats_box_score__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/BoxScoresFinal/{date}
+  method: get
+  operationId: nba_v3_stats_box_scores___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/stats/{format}/FantasyGameStatsByDate/{date}
+  method: get
+  operationId: nba_v3_stats_fantasy_points___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/pbp/{format}/PlayByPlay/{gameid}
+  method: get
+  operationId: nba_v3_pbp_play_by_play__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/pbp/{format}/PlayByPlayDelta/{date}/{minutes}
+  method: get
+  operationId: nba_v3_pbp_play_by_play_delta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/pbp/{format}/PlayByPlayFinal/{gameid}
+  method: get
+  operationId: nba_v3_pbp_play_by_play__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nba/headshots/{format}/Headshots
+  method: get
+  operationId: nba_v3_headshots_headshots
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/AreAnyGamesInProgress
+  method: get
+  operationId: nfl_v3_scores_are_games_in_progress
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/Teams
+  method: get
+  operationId: nfl_v3_scores_team_profiles___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/Byes/{season}
+  method: get
+  operationId: nfl_v3_scores_bye_weeks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/CurrentSeason
+  method: get
+  operationId: nfl_v3_scores_season___current
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/CurrentWeek
+  method: get
+  operationId: nfl_v3_scores_week___current
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/Scores/{season}
+  method: get
+  operationId: nfl_v3_scores_games___by_season__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/LastCompletedSeason
+  method: get
+  operationId: nfl_v3_scores_season___last_completed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/LastCompletedWeek
+  method: get
+  operationId: nfl_v3_scores_week___last_completed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/News
+  method: get
+  operationId: nfl_v3_scores_news
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/NewsByPlayerID/{playerid}
+  method: get
+  operationId: nfl_v3_scores_news___by_player
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/NewsByTeam/{team}
+  method: get
+  operationId: nfl_v3_scores_news___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/Schedules/{season}
+  method: get
+  operationId: nfl_v3_scores_schedules
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/ScoresByWeek/{season}/{week}
+  method: get
+  operationId: nfl_v3_scores_games___by_week__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/Stadiums
+  method: get
+  operationId: nfl_v3_scores_stadiums
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/Standings/{season}
+  method: get
+  operationId: nfl_v3_scores_standings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/Teams/{season}
+  method: get
+  operationId: nfl_v3_scores_team_profiles___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/Timeframes/{type}
+  method: get
+  operationId: nfl_v3_scores_timeframes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/UpcomingSeason
+  method: get
+  operationId: nfl_v3_scores_season___upcoming
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/UpcomingWeek
+  method: get
+  operationId: nfl_v3_scores_week___upcoming
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/TeamGameStats/{season}/{week}
+  method: get
+  operationId: nfl_v3_scores_team_game_stats__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/TeamSeasonStats/{season}
+  method: get
+  operationId: nfl_v3_scores_team_season_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/AllTeams
+  method: get
+  operationId: nfl_v3_scores_team_profiles___all
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/NewsByDate/{date}
+  method: get
+  operationId: nfl_v3_scores_news___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/SimulatedScores/{numberofplays}
+  method: get
+  operationId: nfl_v3_scores_scores_by_week_simulation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/Players
+  method: get
+  operationId: nfl_v3_scores_player_details___all
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/FreeAgents
+  method: get
+  operationId: nfl_v3_scores_player_details___by_free_agents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/Players/{team}
+  method: get
+  operationId: nfl_v3_scores_player_details___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/Rookies/{season}
+  method: get
+  operationId: nfl_v3_scores_player_details___by_rookie_draft_year
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/Referees
+  method: get
+  operationId: nfl_v3_scores_referees
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/ScoresByDate/{date}
+  method: get
+  operationId: nfl_v3_scores_games___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}
+  method: get
+  operationId: nfl_v3_scores_player_game_logs___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/DepthCharts
+  method: get
+  operationId: nfl_v3_scores_depth_charts___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/SchedulesBasic/{season}
+  method: get
+  operationId: nfl_v3_scores_schedules__basic
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/ScoresBasic/{season}/{week}
+  method: get
+  operationId: nfl_v3_scores_games__basic____by_week__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/TeamsBasic
+  method: get
+  operationId: nfl_v3_scores_team_profiles__basic____all
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/PlayersBasic/{team}
+  method: get
+  operationId: nfl_v3_scores_player_profiles___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/PlayersByAvailable
+  method: get
+  operationId: nfl_v3_scores_player_profiles___all
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/PlayersByFreeAgents
+  method: get
+  operationId: nfl_v3_scores_player_profiles___by_free_agent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/PlayersByRookieDraftYear/{season}
+  method: get
+  operationId: nfl_v3_scores_player_profiles___by_rookie_draft_year
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/TransactionsByDate/{date}
+  method: get
+  operationId: nfl_v3_scores_transactions___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/ScoresByWeekFinal/{season}/{week}
+  method: get
+  operationId: nfl_v3_scores_games___by_week__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/ScoresByDateFinal/{date}
+  method: get
+  operationId: nfl_v3_scores_games___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/ScoresBasicFinal/{season}/{week}
+  method: get
+  operationId: nfl_v3_scores_games__basic____by_week__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/DepthChartsAll
+  method: get
+  operationId: nfl_v3_scores_depth_charts___all
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/scores/{format}/DepthChartsByWeek/{season}/{week}
+  method: get
+  operationId: nfl_v3_scores_depth_charts___by_week
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/projections/{format}/FantasyDefenseProjectionsBySeason/{season}
+  method: get
+  operationId: nfl_v3_projections_projected_fantasy_defense_season_stats_with_adp
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/projections/{format}/FantasyDefenseProjectionsByGame/{season}/{week}
+  method: get
+  operationId: nfl_v3_projections_projected_fantasy_defense_game_stats_with_dfs_salaries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/projections/{format}/PlayerGameProjectionStatsByTeam/{season}/{week}/{team}
+  method: get
+  operationId: nfl_v3_projections_projected_player_game_stats___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/projections/{format}/PlayerSeasonProjectionStats/{season}
+  method: get
+  operationId: nfl_v3_projections_projected_player_season_stats_with_adp
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/projections/{format}/PlayerSeasonProjectionStatsByTeam/{season}/{team}
+  method: get
+  operationId: nfl_v3_projections_projected_player_season_stats_with_adp___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/projections/{format}/PlayerGameProjectionStatsByWeek/{season}/{week}
+  method: get
+  operationId: nfl_v3_projections_projected_player_game_stats___by_week
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/projections/{format}/DfsSlatesByDate/{date}
+  method: get
+  operationId: nfl_v3_projections_dfs_slates___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/projections/{format}/DfsSlatesByWeek/{season}/{week}
+  method: get
+  operationId: nfl_v3_projections_dfs_slates___by_week
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/projections/{format}/IdpPlayerGameProjectionStatsByWeek/{season}/{week}
+  method: get
+  operationId: nfl_v3_projections_idp_projected_player_game_stats___by_week
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/projections/{format}/IdpPlayerGameProjectionStatsByTeam/{season}/{week}/{team}
+  method: get
+  operationId: nfl_v3_projections_idp_projected_player_game_stats___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/projections/{format}/UpcomingDfsSlateOwnershipProjections
+  method: get
+  operationId: nfl_v3_projections_dfs_slate_ownership_projections___upcoming
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/projections/{format}/DfsSlateOwnershipProjectionsBySlateID/{slateId}
+  method: get
+  operationId: nfl_v3_projections_dfs_slate_ownership_projections___by_slate
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/projections/{format}/InjuredPlayers
+  method: get
+  operationId: nfl_v3_projections_player_details___by_injured
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/news-rotoballer/{format}/RotoBallerPremiumNews
+  method: get
+  operationId: nfl_v3_news_rotoballer_premium_news
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/news-rotoballer/{format}/RotoBallerPremiumNewsByDate/{date}
+  method: get
+  operationId: nfl_v3_news_rotoballer_premium_news___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/news-rotoballer/{format}/RotoBallerPremiumNewsByTeam/{team}
+  method: get
+  operationId: nfl_v3_news_rotoballer_premium_news___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/GameOddsByWeek/{season}/{week}
+  method: get
+  operationId: nfl_v3_odds_pre_game_odds___by_week
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/GameOddsLineMovement/{scoreid}
+  method: get
+  operationId: nfl_v3_odds_pre_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/LiveGameOddsByWeek/{season}/{week}
+  method: get
+  operationId: nfl_v3_odds_in_game_odds___by_week
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/LiveGameOddsLineMovement/{scoreid}
+  method: get
+  operationId: nfl_v3_odds_in_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/AlternateMarketGameOddsByWeek/{season}/{week}
+  method: get
+  operationId: nfl_v3_odds_period_game_odds___by_week
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/AlternateMarketGameOddsLineMovement/{scoreid}
+  method: get
+  operationId: nfl_v3_odds_period_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/TeamTrends/{team}
+  method: get
+  operationId: nfl_v3_odds_betting_trends___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/MatchupTrends/{team}/{opponent}
+  method: get
+  operationId: nfl_v3_odds_betting_trends___by_matchup
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingEventsByDate/{date}
+  method: get
+  operationId: nfl_v3_odds_betting_events___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingEvents/{season}
+  method: get
+  operationId: nfl_v3_odds_betting_events___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingFuturesBySeason/{season}
+  method: get
+  operationId: nfl_v3_odds_betting_futures___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingMarkets/{eventId}
+  method: get
+  operationId: nfl_v3_odds_betting_markets___by_event
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingMarket/{marketId}
+  method: get
+  operationId: nfl_v3_odds_betting_market
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}
+  method: get
+  operationId: nfl_v3_odds_betting_markets___by_market_type
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingMarketsByScoreID/{scoreid}
+  method: get
+  operationId: nfl_v3_odds_betting_markets___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingMetadata
+  method: get
+  operationId: nfl_v3_odds_betting_metadata
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/ActiveSportsbooks
+  method: get
+  operationId: nfl_v3_odds_sportsbooks___active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingSplitsByScoreId/{scoreId}
+  method: get
+  operationId: nfl_v3_odds_betting_splits___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingSplitsByMarketId/{marketId}
+  method: get
+  operationId: nfl_v3_odds_betting_splits___by_betting_market
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingMarketResults/{marketId}
+  method: get
+  operationId: nfl_v3_odds_betting_results___by_market
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingPlayerPropsByScoreID/{scoreid}
+  method: get
+  operationId: nfl_v3_odds_betting_player_props___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/PreGameOddsByWeek/{season}/{week}/{sportsbookgroup}
+  method: get
+  operationId: nfl_v3_odds_pre_game_and_period_game_odds___by_week__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/PreGameOddsLineMovement/{scoreid}/{sportsbookgroup}
+  method: get
+  operationId: nfl_v3_odds_pre_game_and_period_game_odds_line_movement__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/InGameOddsByWeek/{season}/{week}/{sportsbookgroup}
+  method: get
+  operationId: nfl_v3_odds_in_game_odds_by_week__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/InGameLineMovement/{scoreid}/{sportsbookgroup}
+  method: get
+  operationId: nfl_v3_odds_in_game_odds_line_movement__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingPlayerPropsByScoreID/{scoreid}/{sportsbookgroup}
+  method: get
+  operationId: nfl_v3_odds_betting_player_props___by_game__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}/{sportsbookgroup}
+  method: get
+  operationId: nfl_v3_odds_betting_markets___by_market_type__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingMarketsByGameID/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: nfl_v3_odds_betting_markets___by_game__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingMarketsByEvent/{eventId}/{sportsbookgroup}
+  method: get
+  operationId: nfl_v3_odds_betting_markets___by_event__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingMarket/{marketId}/{sportsbookgroup}
+  method: get
+  operationId: nfl_v3_odds_betting_market__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingResultsByMarket/{marketId}/{sportsbookgroup}
+  method: get
+  operationId: nfl_v3_odds_betting_results___by_market__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/BettingFuturesBySeason/{season}/{sportsbookgroup}
+  method: get
+  operationId: nfl_v3_odds_betting_futures___by_season__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/PreGameOddsLineMovementWithResulting/{scoreid}/{sportsbookgroup}
+  method: get
+  operationId: nfl_v3_odds_pre_game_and_period_game_odds_line_movement_with_resulting__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/odds/{format}/InGameLineMovementWithResulting/{scoreid}/{sportsbookgroup}
+  method: get
+  operationId: nfl_v3_odds_in_game_odds_line_movement_with_resulting__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerGameStatsDelta/{minutes}
+  method: get
+  operationId: nfl_v3_stats_player_game_stats_delta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/FantasyDefenseByGame/{season}/{week}
+  method: get
+  operationId: nfl_v3_stats_fantasy_defense_game_stats___all
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/FantasyDefenseBySeason/{season}
+  method: get
+  operationId: nfl_v3_stats_fantasy_defense_season_stats___all
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/Injuries/{season}/{week}
+  method: get
+  operationId: nfl_v3_stats_injuries___all
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/Injuries/{season}/{week}/{team}
+  method: get
+  operationId: nfl_v3_stats_injuries___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerGameStatsByTeam/{season}/{week}/{team}
+  method: get
+  operationId: nfl_v3_stats_player_game_stats___by_team__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerGameStatsByWeekDelta/{season}/{week}/{minutes}
+  method: get
+  operationId: nfl_v3_stats_player_game_stats_delta___by_week
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerSeasonStatsByTeam/{season}/{team}
+  method: get
+  operationId: nfl_v3_stats_player_season_stats___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerGameStatsByWeek/{season}/{week}
+  method: get
+  operationId: nfl_v3_stats_player_game_stats___by_week__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerSeasonStats/{season}
+  method: get
+  operationId: nfl_v3_stats_player_season_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/FantasyDefenseByGameByTeam/{season}/{week}/{team}
+  method: get
+  operationId: nfl_v3_stats_fantasy_defense_game_stats___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/FantasyDefenseBySeasonByTeam/{season}/{team}
+  method: get
+  operationId: nfl_v3_stats_fantasy_defense_season_stats___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerSeasonRedZoneStats/{season}
+  method: get
+  operationId: nfl_v3_stats_player_season_red_zone_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerSeasonThirdDownStats/{season}
+  method: get
+  operationId: nfl_v3_stats_player_season_third_down_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/BoxScoresDeltaV3/{season}/{week}/{playerstoinclude}/{minutes}
+  method: get
+  operationId: nfl_v3_stats_box_scores_delta___by_week
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/BoxScoreV3/{season}/{week}/{hometeam}
+  method: get
+  operationId: nfl_v3_stats_box_score___by_team__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/BoxScoreByScoreIDV3/{scoreid}
+  method: get
+  operationId: nfl_v3_stats_box_score__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerOwnership/{season}/{week}
+  method: get
+  operationId: nfl_v3_stats_fantasy_player_ownership_percentages__season_long____by_week
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerGameRedZoneStats/{season}/{week}
+  method: get
+  operationId: nfl_v3_stats_player_game_red_zone_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/ProBowlers/{season}
+  method: get
+  operationId: nfl_v3_stats_pro_bowlers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/SimulatedBoxScoresV3/{numberofplays}
+  method: get
+  operationId: nfl_v3_stats_box_scores_simulation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerGameRedZoneInsideTenStats/{season}/{week}
+  method: get
+  operationId: nfl_v3_stats_player_game_red_zone_stats__inside_ten
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerSeasonRedZoneInsideTenStats/{season}
+  method: get
+  operationId: nfl_v3_stats_player_season_red_zone_stats__inside_ten
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerGameRedZoneInsideFiveStats/{season}/{week}
+  method: get
+  operationId: nfl_v3_stats_player_game_red_zone_stats__inside_five
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerSeasonRedZoneInsideFiveStats/{season}
+  method: get
+  operationId: nfl_v3_stats_player_season_red_zone_stats__inside_five
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerGameStatsBySeason/{season}/{playerid}/{numberofgames}
+  method: get
+  operationId: nfl_v3_stats_player_game_logs___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/BoxScoreFinal/{scoreid}
+  method: get
+  operationId: nfl_v3_stats_box_score__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/BoxScoresFinal/{season}/{week}
+  method: get
+  operationId: nfl_v3_stats_box_scores___by_week__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/TeamGameStatsFinal/{season}/{week}
+  method: get
+  operationId: nfl_v3_stats_team_game_stats___by_game__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerGameStatsByWeekFinal/{season}/{week}
+  method: get
+  operationId: nfl_v3_stats_player_game_stats___by_week__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/ScoresFinal/{season}
+  method: get
+  operationId: nfl_v3_stats_games___by_season__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/PlayerGameStatsByTeamFinal/{season}/{week}/{team}
+  method: get
+  operationId: nfl_v3_stats_player_game_stats___by_team__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/BoxScoreByTeamFinal/{season}/{week}/{hometeam}
+  method: get
+  operationId: nfl_v3_stats_box_score___by_team__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/stats/{format}/FantasyGameStatsByWeek/{season}/{week}
+  method: get
+  operationId: nfl_v3_stats_fantasy_points___by_week
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/pbp/{format}/PlayByPlay/{season}/{week}/{hometeam}
+  method: get
+  operationId: nfl_v3_pbp_play_by_play___by_team__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/pbp/{format}/SimulatedPlayByPlay/{numberofplays}
+  method: get
+  operationId: nfl_v3_pbp_play_by_play_simulation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/pbp/{format}/PlayByPlayDelta/{season}/{week}/{minutes}
+  method: get
+  operationId: nfl_v3_pbp_play_by_play_delta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/pbp/{format}/PlayByPlayFinal/{gameid}
+  method: get
+  operationId: nfl_v3_pbp_play_by_play__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/pbp/{format}/PlayByPlay/{gameid}
+  method: get
+  operationId: nfl_v3_pbp_play_by_play__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/pbp/{format}/PlayByPlayFinal/{season}/{week}/{hometeam}
+  method: get
+  operationId: nfl_v3_pbp_play_by_play___by_team__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nfl/headshots/{format}/Headshots
+  method: get
+  operationId: nfl_v3_headshots_headshots
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/Players
+  method: get
+  operationId: nhl_v3_scores_player_details___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/teams
+  method: get
+  operationId: nhl_v3_scores_team_profiles___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/AreAnyGamesInProgress
+  method: get
+  operationId: nhl_v3_scores_are_games_in_progress
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/FreeAgents
+  method: get
+  operationId: nhl_v3_scores_player_details___by_free_agents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/GamesByDate/{date}
+  method: get
+  operationId: nhl_v3_scores_games___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/Games/{season}
+  method: get
+  operationId: nhl_v3_scores_schedules
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/News
+  method: get
+  operationId: nhl_v3_scores_news
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/NewsByDate/{date}
+  method: get
+  operationId: nhl_v3_scores_news___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/NewsByPlayerID/{playerid}
+  method: get
+  operationId: nhl_v3_scores_news___by_player
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/Players/{team}
+  method: get
+  operationId: nhl_v3_scores_players_details___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/Stadiums
+  method: get
+  operationId: nhl_v3_scores_stadiums
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/TeamGameStatsByDate/{date}
+  method: get
+  operationId: nhl_v3_scores_team_game_stats___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/TeamSeasonStats/{season}
+  method: get
+  operationId: nhl_v3_scores_team_season_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/CurrentSeason
+  method: get
+  operationId: nhl_v3_scores_season___current
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/Standings/{season}
+  method: get
+  operationId: nhl_v3_scores_standings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/AllTeams
+  method: get
+  operationId: nhl_v3_scores_team_profiles___all
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}
+  method: get
+  operationId: nhl_v3_scores_team_game_logs___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/SchedulesBasic/{season}
+  method: get
+  operationId: nhl_v3_scores_schedules__basic
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/ScoresBasic/{date}
+  method: get
+  operationId: nhl_v3_scores_games__basic____by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/PlayersBasic/{team}
+  method: get
+  operationId: nhl_v3_scores_players_profiles___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/PlayersByActive
+  method: get
+  operationId: nhl_v3_scores_player_details___by_active2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/PlayersByFreeAgents
+  method: get
+  operationId: nhl_v3_scores_player_details___by_free_agents2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/GoalieDepthCharts
+  method: get
+  operationId: nhl_v3_scores_depth_charts___goalies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/TransactionsByDate/{date}
+  method: get
+  operationId: nhl_v3_scores_transactions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/teams/{season}
+  method: get
+  operationId: nhl_v3_scores_team_profiles___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/GamesByDateFinal/{date}
+  method: get
+  operationId: nhl_v3_scores_games___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/ScoresBasicFinal/{date}
+  method: get
+  operationId: nhl_v3_scores_games__basic____by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/scores/{format}/Referees
+  method: get
+  operationId: nhl_v3_scores_referees
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/projections/{format}/PlayerGameProjectionStatsByDate/{date}
+  method: get
+  operationId: nhl_v3_projections_projected_player_game_stats___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/projections/{format}/DfsSlatesByDate/{date}
+  method: get
+  operationId: nhl_v3_projections_dfs_slates___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/projections/{format}/StartingGoaltendersByDate/{date}
+  method: get
+  operationId: nhl_v3_projections_starting_goaltenders___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/projections/{format}/InjuredPlayers
+  method: get
+  operationId: nhl_v3_projections_player_details___by_injured
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/GameOddsByDate/{date}
+  method: get
+  operationId: nhl_v3_odds_pre_game_odds___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/GameOddsLineMovement/{gameid}
+  method: get
+  operationId: nhl_v3_odds_pre_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/LiveGameOddsByDate/{date}
+  method: get
+  operationId: nhl_v3_odds_in_game_odds___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/LiveGameOddsLineMovement/{gameid}
+  method: get
+  operationId: nhl_v3_odds_in_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/AlternateMarketGameOddsByDate/{date}
+  method: get
+  operationId: nhl_v3_odds_period_game_odds___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/AlternateMarketGameOddsLineMovement/{gameid}
+  method: get
+  operationId: nhl_v3_odds_period_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/TeamTrends/{team}
+  method: get
+  operationId: nhl_v3_odds_betting_trends___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/MatchupTrends/{team}/{opponent}
+  method: get
+  operationId: nhl_v3_odds_betting_trends___by_matchup
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingEventsByDate/{date}
+  method: get
+  operationId: nhl_v3_odds_betting_events___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingMarkets/{eventId}
+  method: get
+  operationId: nhl_v3_odds_betting_markets___by_event
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingEvents/{season}
+  method: get
+  operationId: nhl_v3_odds_betting_events___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingMarket/{marketId}
+  method: get
+  operationId: nhl_v3_odds_betting_market
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}
+  method: get
+  operationId: nhl_v3_odds_betting_markets___by_market_type
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingFuturesBySeason/{season}
+  method: get
+  operationId: nhl_v3_odds_betting_futures___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingMarketsByGameID/{gameID}
+  method: get
+  operationId: nhl_v3_odds_betting_markets___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/Bettingmetadata
+  method: get
+  operationId: nhl_v3_odds_betting_metadata
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/ActiveSportsbooks
+  method: get
+  operationId: nhl_v3_odds_sportsbooks___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingSplitsByMarketId/{marketId}
+  method: get
+  operationId: nhl_v3_odds_betting_splits___by_betting_market
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingSplitsByGameId/{gameId}
+  method: get
+  operationId: nhl_v3_odds_betting_splits___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingPlayerPropsByGameID/{gameId}
+  method: get
+  operationId: nhl_v3_odds_betting_player_props___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingMarketResults/{marketId}
+  method: get
+  operationId: nhl_v3_odds_betting_results___by_market
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/PreGameOddsByDate/{date}/{sportsbookgroup}
+  method: get
+  operationId: nhl_v3_odds_pre_game_and_period_game_odds___by_date__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/PreGameOddsLineMovement/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: nhl_v3_odds_pre_game_and_period_game_odds_line_movement__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/InGameOddsByDate/{date}/{sportsbookgroup}
+  method: get
+  operationId: nhl_v3_odds_in_game_odds___by_date__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/InGameLineMovement/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: nhl_v3_odds_in_game_odds_line_movement__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingPlayerPropsByGameID/{gameId}/{sportsbookgroup}
+  method: get
+  operationId: nhl_v3_odds_betting_player_props___by_game__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}/{sportsbookgroup}
+  method: get
+  operationId: nhl_v3_odds_betting_markets___by_market_type__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingMarketsByGameID/{gameID}/{sportsbookgroup}
+  method: get
+  operationId: nhl_v3_odds_betting_markets___by_game__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingMarketsByEvent/{eventId}/{sportsbookgroup}
+  method: get
+  operationId: nhl_v3_odds_betting_markets___by_event__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingMarket/{marketId}/{sportsbookgroup}
+  method: get
+  operationId: nhl_v3_odds_betting_market__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingResultsByMarket/{marketId}/{sportsbookgroup}
+  method: get
+  operationId: nhl_v3_odds_betting_results___by_market__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/BettingFuturesBySeason/{season}/{sportsbookgroup}
+  method: get
+  operationId: nhl_v3_odds_betting_futures___by_season__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/InGameLineMovementWithResulting/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: nhl_v3_odds_in_game_odds_line_movement_with_resulting__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/odds/{format}/PreGameOddsLineMovementWithResulting/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: nhl_v3_odds_pre_game_and_period_game_odds_line_movement_with_resulting__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/BoxScore/{gameid}
+  method: get
+  operationId: nhl_v3_stats_box_score__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/BoxScores/{date}
+  method: get
+  operationId: nhl_v3_stats_box_scores___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/BoxScoresDelta/{date}/{minutes}
+  method: get
+  operationId: nhl_v3_stats_box_scores_delta___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/PlayerGameStatsByDate/{date}
+  method: get
+  operationId: nhl_v3_stats_player_game_stats___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/PlayerSeasonStats/{season}
+  method: get
+  operationId: nhl_v3_stats_player_season_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/PlayerSeasonStatsByTeam/{season}/{team}
+  method: get
+  operationId: nhl_v3_stats_player_season_stats___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/TeamStatsAllowedByPosition/{season}
+  method: get
+  operationId: nhl_v3_stats_team_stats_allowed___by_position
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/LinesBySeason/{season}
+  method: get
+  operationId: nhl_v3_stats_line_combinations___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/PlayerGameStatsBySeason/{season}/{playerid}/{numberofgames}
+  method: get
+  operationId: nhl_v3_stats_player_game_logs___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/BoxScoreFinal/{gameid}
+  method: get
+  operationId: nhl_v3_stats_box_score__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/BoxScoresFinal/{date}
+  method: get
+  operationId: nhl_v3_stats_box_scores___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/TeamGameStatsByDateFinal/{date}
+  method: get
+  operationId: nhl_v3_stats_team_game_stats___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/PlayerGameStatsByDateFinal/{date}
+  method: get
+  operationId: nhl_v3_stats_player_game_stats___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/stats/{format}/FantasyGameStatsByDate/{date}
+  method: get
+  operationId: nhl_v3_stats_fantasy_points___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/pbp/{format}/PlayByPlay/{gameid}
+  method: get
+  operationId: nhl_v3_pbp_play_by_play__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/pbp/{format}/PlayByPlayDelta/{date}/{minutes}
+  method: get
+  operationId: nhl_v3_pbp_play_by_play_delta
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/pbp/{format}/PlayByPlayFinal/{gameid}
+  method: get
+  operationId: nhl_v3_pbp_play_by_play__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/headshots/{format}/Headshots
+  method: get
+  operationId: nhl_v3_headshots_headshots
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/news-rotoballer/{format}/RotoBallerPremiumNews
+  method: get
+  operationId: nhl_v3_news_rotoballer_premium_news
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/nhl/news-rotoballer/{format}/RotoBallerPremiumNewsByDate/{date}
+  method: get
+  operationId: nhl_v3_news_rotoballer_premium_news___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/GamesByDate/{competition}/{date}
+  method: get
+  operationId: soccer_v4_scores_games___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/Areas
+  method: get
+  operationId: soccer_v4_scores_areas__countries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/Competitions
+  method: get
+  operationId: soccer_v4_scores_competitions__leagues
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/Teams/{competition}
+  method: get
+  operationId: soccer_v4_scores_team_profiles___by_competition
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/Venues
+  method: get
+  operationId: soccer_v4_scores_venues
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/SeasonTeams/{competition}/{seasonid}
+  method: get
+  operationId: soccer_v4_scores_team_profiles___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/Schedule/{competition}/{season}
+  method: get
+  operationId: soccer_v4_scores_schedules
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/PlayersByTeam/{competition}/{teamid}
+  method: get
+  operationId: soccer_v4_scores_player_details___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/TeamSeasonStats/{competition}/{season}
+  method: get
+  operationId: soccer_v4_scores_team_season_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/TeamGameStatsByDate/{competition}/{date}
+  method: get
+  operationId: soccer_v4_scores_team_game_stats___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/Standings/{competition}/{season}
+  method: get
+  operationId: soccer_v4_scores_standings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/CompetitionDetails/{competition}
+  method: get
+  operationId: soccer_v4_scores_games___by_competition__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/HistoricalMembershipsByTeam/{competition}/{teamid}
+  method: get
+  operationId: soccer_v4_scores_memberships_historical___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/ActiveMemberships/{competition}
+  method: get
+  operationId: soccer_v4_scores_memberships___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/RecentlyChangedMemberships/{competition}/{days}
+  method: get
+  operationId: soccer_v4_scores_memberships___by_recently_changed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/CanceledMemberships
+  method: get
+  operationId: soccer_v4_scores_memberships___by_canceled
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/SchedulesBasic/{competition}/{season}
+  method: get
+  operationId: soccer_v4_scores_schedules__basic
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/ScoresBasic/{competition}/{date}
+  method: get
+  operationId: soccer_v4_scores_games__basic____by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/PlayersByTeamBasic/{competition}/{teamid}
+  method: get
+  operationId: soccer_v4_scores_player_profiles___by_team
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/GamesByDateFinal/{competition}/{date}
+  method: get
+  operationId: soccer_v4_scores_games___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/scores/{format}/ScoresBasicFinal/{competition}/{date}
+  method: get
+  operationId: soccer_v4_scores_games__basic____by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/headshots/{format}/Headshots
+  method: get
+  operationId: soccer_v4_headshots_headshots
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/projections/{format}/PlayerGameProjectionStatsByDate/{competition}/{date}
+  method: get
+  operationId: soccer_v4_projections_projected_player_game_stats___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/projections/{format}/DfsSlatesByDate/{competition}/{date}
+  method: get
+  operationId: soccer_v4_projections_dfs_slates___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/projections/{format}/UpcomingDfsSlatesByCompetition/{competition}
+  method: get
+  operationId: soccer_v4_projections_upcoming_dfs_slates___by_competition
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/projections/{format}/InjuredPlayers/{competition}
+  method: get
+  operationId: soccer_v4_projections_player_details___by_injured
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/stats/{format}/BoxScoresByDate/{competition}/{date}
+  method: get
+  operationId: soccer_v4_stats_box_scores___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/stats/{format}/BoxScoresDeltaByDate/{competition}/{date}/{minutes}
+  method: get
+  operationId: soccer_v4_stats_box_scores_delta___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/stats/{format}/BoxScore/{competition}/{gameid}
+  method: get
+  operationId: soccer_v4_stats_box_score__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/stats/{format}/PlayerGameStatsByDate/{competition}/{date}
+  method: get
+  operationId: soccer_v4_stats_player_game_stats___by_date__live___final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/stats/{format}/PlayerSeasonStats/{competition}/{season}
+  method: get
+  operationId: soccer_v4_stats_player_season_stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/stats/{format}/BoxScoreFinal/{competition}/{gameid}
+  method: get
+  operationId: soccer_v4_stats_box_score__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/stats/{format}/BoxScoresFinal/{competition}/{date}
+  method: get
+  operationId: soccer_v4_stats_box_scores___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/stats/{format}/LineupsByDate/{competition}/{date}
+  method: get
+  operationId: soccer_v4_stats_lineups___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/stats/{format}/PlayerGameStatsByDateFinal/{competition}/{date}
+  method: get
+  operationId: soccer_v4_stats_player_game_stats___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/stats/{format}/TeamGameStatsByDateFinal/{competition}/{date}
+  method: get
+  operationId: soccer_v4_stats_team_game_stats___by_date__final
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/stats/{format}/FantasyGameStatsByDate/{competition}/{date}
+  method: get
+  operationId: soccer_v4_stats_fantasy_points___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/GameOddsLineMovement/{competition}/{gameid}
+  method: get
+  operationId: soccer_v4_odds_pre_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/LiveGameOddsLineMovement/{competition}/{gameid}
+  method: get
+  operationId: soccer_v4_odds_in_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/GameOddsByDate/{competition}/{date}
+  method: get
+  operationId: soccer_v4_odds_pre_game_odds___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/ActiveSportsbooks
+  method: get
+  operationId: soccer_v4_odds_sportsbooks___by_active
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingEventsBySeason/{competition}/{season}
+  method: get
+  operationId: soccer_v4_odds_betting_events___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingFuturesBySeason/{competition}/{season}
+  method: get
+  operationId: soccer_v4_odds_betting_futures___by_season
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingMarket/{competition}/{marketId}
+  method: get
+  operationId: soccer_v4_odds_betting_market
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingMarkets/{competition}/{eventId}
+  method: get
+  operationId: soccer_v4_odds_betting_markets___by_event
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingMarketsByGameID/{competition}/{gameid}
+  method: get
+  operationId: soccer_v4_odds_betting_markets___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingMarketsByMarketType/{competition}/{eventId}/{marketTypeID}
+  method: get
+  operationId: soccer_v4_odds_betting_markets___by_market_type
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingMetadata
+  method: get
+  operationId: soccer_v4_odds_betting_metadata
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingEventsByDate/{competition}/{date}
+  method: get
+  operationId: soccer_v4_odds_betting_events___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingPlayerPropsByGameID/{competition}/{gameId}
+  method: get
+  operationId: soccer_v4_odds_betting_player_props___by_game
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/AlternateMarketGameOddsLineMovement/{competition}/{gameid}
+  method: get
+  operationId: soccer_v4_odds_period_game_odds_line_movement
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/LiveGameOddsByDate/{competition}/{date}
+  method: get
+  operationId: soccer_v4_odds_in_game_odds___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/AlternateMarketGameOddsByDate/{competition}/{date}
+  method: get
+  operationId: soccer_v4_odds_period_game_odds___by_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/PreGameOddsByDate/{competition}/{date}/{sportsbookgroup}
+  method: get
+  operationId: soccer_v4_odds_pre_game_and_period_game_odds___by_date__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/InGameOddsByDate/{competition}/{date}/{sportsbookgroup}
+  method: get
+  operationId: soccer_v4_odds_in_game_odds___by_date__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/PreGameOddsLineMovement/{competition}/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: soccer_v4_odds_pre_game_and_period_game_odds_line_movement__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/InGameOddsLineMovement/{competition}/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: soccer_v4_odds_in_game_odds_line_movement__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/PreGameOddsLineMovementWithResulting/{competition}/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: soccer_v4_odds_pre_game_and_period_game_odds_line_movement_with_resulting__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/InGameOddsLineMovementWithResulting/{competition}/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: soccer_v4_odds_in_game_odds_line_movement_with_resulting__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingFuturesBySeason/{competition}/{season}/{sportsbookgroup}
+  method: get
+  operationId: soccer_v4_odds_betting_futures___by_season__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingMarket/{competition}/{marketId}/{sportsbookgroup}
+  method: get
+  operationId: soccer_v4_odds_betting_market__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingMarketsByEvent/{competition}/{eventId}/{sportsbookgroup}
+  method: get
+  operationId: soccer_v4_odds_betting_markets___by_event__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingMarketsByGameID/{competition}/{gameid}/{sportsbookgroup}
+  method: get
+  operationId: soccer_v4_odds_betting_markets___by_game__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingMarketsByMarketType/{competition}/{eventId}/{marketTypeID}/{sportsbookgroup}
+  method: get
+  operationId: soccer_v4_odds_betting_markets___by_market_type__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v4/soccer/odds/{format}/BettingPlayerPropsByGameID/{competition}/{gameId}/{sportsbookgroup}
+  method: get
+  operationId: soccer_v4_odds_betting_player_props___by_game__sportsbook_group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

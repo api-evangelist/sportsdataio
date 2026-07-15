@@ -131,6 +131,8 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/sportsdataio/refs/heads/main/openapi/sportsdataio-soccer-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/sportsdataio-agentic-access.yml
   - type: DomainSecurity
     url: security/sportsdataio-domain-security.yml
   - type: Authentication

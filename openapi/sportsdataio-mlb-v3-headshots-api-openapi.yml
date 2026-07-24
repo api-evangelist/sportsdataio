@@ -1,0 +1,123 @@
+openapi: 3.1.0
+info:
+  title: MLB MLB v3 Headshots API
+  version: '1.0'
+  description: MLB API - OpenAPI 3.1 Specification
+servers:
+- url: https://api.sportsdata.io
+  description: Production server
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: MLB v3 Headshots
+paths:
+  /v3/mlb/headshots/{format}/Headshots:
+    get:
+      description: USA Today/IMAGN cropped action headshots for all active NFL players, delivered shortly after the season starts.
+      operationId: mlb_v3_headshots_headshots
+      summary: Headshots
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Headshot'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Headshots
+components:
+  schemas:
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    Headshot:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Player's full name
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position associated with the given game or season. Possible values: 1B; 2B; 3B; C; CF; DH; IF; LF; OF; P; PH; PR; RF; RP; SP; SS'
+        PreferredHostedHeadshotUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's preferred hosted headshot URL. This returns the headshot with transparent background, if available.
+        PreferredHostedHeadshotUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated date of the player's preferred hosted headshot.
+        HostedHeadshotWithBackgroundUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's hosted headshot URL
+        HostedHeadshotWithBackgroundUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last date and time the player's hosted headshot was updated in US Eastern Time
+        HostedHeadshotNoBackgroundUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's transparent background hosted headshot URL
+        HostedHeadshotNoBackgroundUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last date and time the player's transparent background hosted headshot was updated in US Eastern Time
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: key
+      in: query

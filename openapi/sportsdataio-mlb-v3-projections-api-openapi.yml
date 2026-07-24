@@ -1,0 +1,2675 @@
+openapi: 3.1.0
+info:
+  title: MLB MLB v3 Headshots MLB v3 Projections API
+  version: '1.0'
+  description: MLB API - OpenAPI 3.1 Specification
+servers:
+- url: https://api.sportsdata.io
+  description: Production server
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: MLB v3 Projections
+paths:
+  /v3/mlb/projections/{format}/PlayerGameProjectionStatsByDate/{date}:
+    get:
+      description: SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, called by date.
+      operationId: mlb_v3_projections_projected_player_game_stats___by_date
+      summary: Projected Player Game Stats - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerGameProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Projections
+  /v3/mlb/projections/{format}/PlayerSeasonProjectionStats/{season}:
+    get:
+      description: SportsDataIO's proprietary projections, including average draft position, for all active players for the season.
+      operationId: mlb_v3_projections_projected_player_season_stats_with_adp
+      summary: Projected Player Season Stats With ADP
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: 'Year of the season.
+
+          <br>Examples: <code>2017</code>, <code>2018</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerSeasonProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Projections
+  /v3/mlb/projections/{format}/DfsSlatesByDate/{date}:
+    get:
+      description: Returns DFS Slates which have not yet started for which we have DFS projections.
+      operationId: mlb_v3_projections_dfs_slates___by_date
+      summary: DFS Slates - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the slates.
+
+          <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DfsSlate'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Projections
+  /v3/mlb/projections/{format}/InjuredPlayers:
+    get:
+      description: This endpoint provides all currently injured MLB players, along with injury details.
+      operationId: mlb_v3_projections_player_details___by_injured
+      summary: Player Details - by Injured
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Projections
+  /v3/mlb/projections/{format}/StartingLineupsByDate/{date}:
+    get:
+      description: Returns both projected and confirmed starting lineups for all games on a given date.
+      operationId: mlb_v3_projections_starting_lineups___by_date
+      summary: Starting Lineups - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the slates.
+
+          <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StartingLineups'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Projections
+  /v3/mlb/projections/{format}/DepthCharts:
+    get:
+      description: Returns Depth Charts for all active MLB teams.
+      operationId: mlb_v3_projections_depth_charts
+      summary: Depth Charts
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamDepthChart'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Projections
+  /v3/mlb/projections/{format}/DfsSlateOwnershipProjectionsBySlateID/{slateId}:
+    get:
+      description: Slate Ownership Projections for a specific slate. Projections are for Guaranteed Prize Pool (GPP) format ownership. Will return an empty list if the slate is not yet projected or not a slate we have projections for.
+      operationId: mlb_v3_projections_dfs_slate_ownership_projections___by_slate
+      summary: DFS Slate Ownership Projections - by Slate
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: slateId
+        in: path
+        description: SlateID of the DFS Slate you wish to get ownership projections for. Will have an empty SlateOwnershipProjections if this slate was not projected
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DfsSlateWithOwnershipProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Projections
+  /v3/mlb/projections/{format}/UpcomingDfsSlateOwnershipProjections:
+    get:
+      description: Returns DFS Slates which have not yet started for which we have DFS Ownership projections.
+      operationId: mlb_v3_projections_dfs_slate_ownership_projections___upcoming
+      summary: DFS Slate Ownership Projections - Upcoming
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DfsSlateWithOwnershipProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Projections
+components:
+  schemas:
+    DepthChart:
+      properties:
+        DepthChartID:
+          type: integer
+          description: The unique ID of the Depth Chard record
+        TeamID:
+          type: integer
+          description: The team's unique TeamID as assigned by SportsDataIO
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Player's full name
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position category. Possible values: DH; IF; OF; P; PH; PR'
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'Player''s position in the depth chart. Note: a player can be listed in multiple positions of the depth chart'
+        DepthOrder:
+          type:
+          - integer
+          - 'null'
+          description: The Depth Chart order of the player and where they are placed in the depth chart
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the last update made to this depth chart (in US Eastern Time)
+    PlayerSeasonProjection:
+      properties:
+        StatID:
+          type: integer
+          description: The unique ID of the stat
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career'
+        SeasonType:
+          type:
+          - integer
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar)
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The MLB season for which these totals apply
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Player's full name
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position associated with the given game or season. Possible values: 1B; 2B; 3B; C; CF; DH; IF; LF; OF; P; PH; PR; RF; RP; SP; SS'
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position category. Possible values: DH; IF; OF; P; PH; PR'
+        Started:
+          type:
+          - integer
+          - 'null'
+          description: Number of games started in the season
+        BattingOrder:
+          type:
+          - integer
+          - 'null'
+          description: This field is expected to be NULL
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        AverageDraftPosition:
+          type:
+          - number
+          - 'null'
+          description: The auction value for this player as it pertains to auction-style drafts for season-long fantasy baseball
+        AuctionValue:
+          type:
+          - integer
+          - 'null'
+          description: The auction value for this player as it pertains to auction-style drafts for season-long fantasy baseball
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time).
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played.
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        AtBats:
+          type:
+          - number
+          - 'null'
+          description: At bats while hitting
+        Runs:
+          type:
+          - number
+          - 'null'
+          description: Total runs scored.
+        Hits:
+          type:
+          - number
+          - 'null'
+          description: Total hits
+        Singles:
+          type:
+          - number
+          - 'null'
+          description: Total singles
+        Doubles:
+          type:
+          - number
+          - 'null'
+          description: Total doubles
+        Triples:
+          type:
+          - number
+          - 'null'
+          description: Total triples
+        HomeRuns:
+          type:
+          - number
+          - 'null'
+          description: Total home runs
+        RunsBattedIn:
+          type:
+          - number
+          - 'null'
+          description: Total runs batted in
+        BattingAverage:
+          type:
+          - number
+          - 'null'
+          description: Total batting average
+        Outs:
+          type:
+          - number
+          - 'null'
+          description: Total outs
+        Strikeouts:
+          type:
+          - number
+          - 'null'
+          description: Total strikeouts
+        Walks:
+          type:
+          - number
+          - 'null'
+          description: Total walks
+        HitByPitch:
+          type:
+          - number
+          - 'null'
+          description: Total times hit by pitch
+        Sacrifices:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifices
+        SacrificeFlies:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifice flies
+        GroundIntoDoublePlay:
+          type:
+          - number
+          - 'null'
+          description: Total times grounded into double play
+        StolenBases:
+          type:
+          - number
+          - 'null'
+          description: Total stolen bases
+        CaughtStealing:
+          type:
+          - number
+          - 'null'
+          description: Total caught stealing
+        PitchesSeen:
+          type:
+          - number
+          - 'null'
+          description: Total pitches seen
+        OnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total on base percentage
+        SluggingPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total slugging percentage
+        OnBasePlusSlugging:
+          type:
+          - number
+          - 'null'
+          description: Total on base plus percentage 
+        Errors:
+          type:
+          - number
+          - 'null'
+          description: Total errors
+        Wins:
+          type:
+          - number
+          - 'null'
+          description: Total wins by the team/player
+        Losses:
+          type:
+          - number
+          - 'null'
+          description: Total losses by the team/player
+        Saves:
+          type:
+          - number
+          - 'null'
+          description: Total saves by team/player
+        InningsPitchedDecimal:
+          type:
+          - number
+          - 'null'
+          description: Decimal representation of total innings pitched (e.g. 1.33, 7.66, etc)
+        TotalOutsPitched:
+          type:
+          - number
+          - 'null'
+          description: Total outs pitched by team/player
+        InningsPitchedFull:
+          type:
+          - number
+          - 'null'
+          description: Total full innings pitched (e.g. 6, 71, 89, etc)
+        InningsPitchedOuts:
+          type:
+          - number
+          - 'null'
+          description: 'Outs pitched beyond InningsPitchedFull (possible values: 0, 1, 2)'
+        EarnedRunAverage:
+          type:
+          - number
+          - 'null'
+          description: Total earned run average by team/player
+        PitchingHits:
+          type:
+          - number
+          - 'null'
+          description: Hits allowed while pitching
+        PitchingRuns:
+          type:
+          - number
+          - 'null'
+          description: Runs allowed while pitching
+        PitchingEarnedRuns:
+          type:
+          - number
+          - 'null'
+          description: Earned runs allowed while pitching
+        PitchingWalks:
+          type:
+          - number
+          - 'null'
+          description: Walks allowed while pitching
+        PitchingStrikeouts:
+          type:
+          - number
+          - 'null'
+          description: Strikeouts allowed while pitching
+        PitchingHomeRuns:
+          type:
+          - number
+          - 'null'
+          description: Home runs allowed while pitching
+        PitchesThrown:
+          type:
+          - number
+          - 'null'
+          description: Total pitches thrown while pitching
+        PitchesThrownStrikes:
+          type:
+          - number
+          - 'null'
+          description: Total pitches thrown for strikes while pitching
+        WalksHitsPerInningsPitched:
+          type:
+          - number
+          - 'null'
+          description: Walks plus hits per innings pitched (WHIP) while pitching
+        PitchingBattingAverageAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total batting average against (BAA) while pitching
+        GrandSlams:
+          type:
+          - number
+          - 'null'
+          description: Total grand slams
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total FanDuel fantasy points
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings fantasy points
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points
+        PlateAppearances:
+          type:
+          - number
+          - 'null'
+          description: Total plate appearances
+        TotalBases:
+          type:
+          - number
+          - 'null'
+          description: Number of total bases
+        FlyOuts:
+          type:
+          - number
+          - 'null'
+          description: Total fly outs
+        GroundOuts:
+          type:
+          - number
+          - 'null'
+          description: Total ground outs
+        LineOuts:
+          type:
+          - number
+          - 'null'
+          description: Total line outs
+        PopOuts:
+          type:
+          - number
+          - 'null'
+          description: Total pop outs
+        IntentionalWalks:
+          type:
+          - number
+          - 'null'
+          description: Total intentional walks
+        ReachedOnError:
+          type:
+          - number
+          - 'null'
+          description: Total times reached on error
+        BallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total balls in play
+        BattingAverageOnBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total batting average on balls in play (BABIP)
+        WeightedOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total weight on base percentage
+        PitchingSingles:
+          type:
+          - number
+          - 'null'
+          description: Total singles allowed while pitching
+        PitchingDoubles:
+          type:
+          - number
+          - 'null'
+          description: Total doubles allowed while pitching
+        PitchingTriples:
+          type:
+          - number
+          - 'null'
+          description: Total triples allowed while pitching
+        PitchingGrandSlams:
+          type:
+          - number
+          - 'null'
+          description: Total grand slams allowed while pitching
+        PitchingHitByPitch:
+          type:
+          - number
+          - 'null'
+          description: Total batters hit by pitch while pitching
+        PitchingSacrifices:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifices while pitching
+        PitchingSacrificeFlies:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifice flies while pitching
+        PitchingGroundIntoDoublePlay:
+          type:
+          - number
+          - 'null'
+          description: Total grounded into double plays while pitching
+        PitchingCompleteGames:
+          type:
+          - number
+          - 'null'
+          description: Total complete games while pitching
+        PitchingShutOuts:
+          type:
+          - number
+          - 'null'
+          description: Total shuouts while pitching
+        PitchingNoHitters:
+          type:
+          - number
+          - 'null'
+          description: Total no hitters while pitching
+        PitchingPerfectGames:
+          type:
+          - number
+          - 'null'
+          description: Total perfect games while pitching
+        PitchingPlateAppearances:
+          type:
+          - number
+          - 'null'
+          description: Total plate appearances while pitching
+        PitchingTotalBases:
+          type:
+          - number
+          - 'null'
+          description: Total bases while pitching
+        PitchingFlyOuts:
+          type:
+          - number
+          - 'null'
+          description: Total fly outs while pitching
+        PitchingGroundOuts:
+          type:
+          - number
+          - 'null'
+          description: Total ground outs while pitching
+        PitchingLineOuts:
+          type:
+          - number
+          - 'null'
+          description: Total line outs while pitching
+        PitchingPopOuts:
+          type:
+          - number
+          - 'null'
+          description: Total pop outs while pitching
+        PitchingIntentionalWalks:
+          type:
+          - number
+          - 'null'
+          description: Total intentional walks while pitching
+        PitchingReachedOnError:
+          type:
+          - number
+          - 'null'
+          description: Total times reached on error while pitching
+        PitchingCatchersInterference:
+          type:
+          - number
+          - 'null'
+          description: Total catchers interference while pitching
+        PitchingBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total balls in play while pitching
+        PitchingOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total on base percentage (OBP) while pitching
+        PitchingSluggingPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total slugging percentage (SLG) while pitching
+        PitchingOnBasePlusSlugging:
+          type:
+          - number
+          - 'null'
+          description: Total on base plus slugging (OPS) while pitching
+        PitchingStrikeoutsPerNineInnings:
+          type:
+          - number
+          - 'null'
+          description: Total strikeouts per nine innings (K/9) while pitching
+        PitchingWalksPerNineInnings:
+          type:
+          - number
+          - 'null'
+          description: Total walks per nine innings (BB/9) while pitching
+        PitchingBattingAverageOnBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total batting average on balls in play (BABIP) while pitching
+        PitchingWeightedOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total weighted on base percentage while pitching 
+        DoublePlays:
+          type:
+          - number
+          - 'null'
+          description: 'Total double plays, defined as one of: Bunted into Double Play, Fly into Double Play, Fouled into Double Play, Ground into Double Pla,y Line into Double Play, Popped into Double Play'
+        PitchingDoublePlays:
+          type:
+          - number
+          - 'null'
+          description: Total double plays while pitching
+        BattingOrderConfirmed:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the batting order is confirmed (true/false)
+        IsolatedPower:
+          type:
+          - number
+          - 'null'
+          description: Total isolated power (ISO)
+        FieldingIndependentPitching:
+          type:
+          - number
+          - 'null'
+          description: Total fielding independent pitching (FIP)
+        PitchingQualityStarts:
+          type:
+          - number
+          - 'null'
+          description: Total quality starts pitched
+        PitchingInningStarted:
+          type:
+          - integer
+          - 'null'
+          description: The inning that the pitcher entered the game (if any).
+        LeftOnBase:
+          type:
+          - number
+          - 'null'
+          description: Total left on base percentage 
+        PitchingHolds:
+          type:
+          - number
+          - 'null'
+          description: Total holds pitched
+        PitchingBlownSaves:
+          type:
+          - number
+          - 'null'
+          description: Total blown saves pitched
+        SubstituteBattingOrder:
+          type:
+          - integer
+          - 'null'
+          description: The position in the batting order where this player was substituted into the game (does not include players in the starting lineup)
+        SubstituteBattingOrderSequence:
+          type:
+          - integer
+          - 'null'
+          description: The sequence in which this player was substituted into the game, within the particular batting order
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Total FantasyDraft fantasy points
+        FantasyPointsBatting:
+          type:
+          - number
+          - 'null'
+          description: Total batting fantasy points
+        FantasyPointsPitching:
+          type:
+          - number
+          - 'null'
+          description: Total pitching fantasy points
+    StartingLineups:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of the game tied to the StartingLineups
+        Season:
+          type: integer
+          description: The MLB season of the game
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar)
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in US Eastern Time
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled; InProgress; Final; Suspended; Delayed; Postponed; Canceled; Forfeit; NotNecessary.'
+        HomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the home team tied to these StartingLineups
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the Home Team
+        AwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique TeamID of the away team
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeStartingPitcher:
+          $ref: '#/components/schemas/Lineup'
+          description: 'Home team starting pitcher. Note: this is a probable pitcher until confirmed field = TRUE.'
+        HomeBattingLineup:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lineup'
+          description: The batting lineup of the home team
+        AwayStartingPitcher:
+          $ref: '#/components/schemas/Lineup'
+          description: 'Away team starting pitcher. Note: this is a probable pitcher until confirmed field = TRUE.'
+        AwayBattingLineup:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lineup'
+          description: Away team batting lineup for the game
+        HomeTeamOpener:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether the home team will use an Opener as the starting pitcher. NOTE: An opener is a pitcher (typically a relief pitcher) that is only scheduled to pitch the first 1-3 innings of the game.'
+        AwayTeamOpener:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether the away team will use an Opener as the starting pitcher. NOTE: An opener is a pitcher (typically a relief pitcher) that is only scheduled to pitch the first 1-3 innings of the game.'
+    Inning:
+      properties:
+        InningID:
+          type: integer
+          description: The unique ID of this specific inning
+        GameID:
+          type: integer
+          description: The unique ID of the game tied to this Inning
+        InningNumber:
+          type: integer
+          description: The current inning number of the game
+        AwayTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the away team in the specific inning
+        HomeTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the home team in the specific inning
+    DfsSlatePlayerOwnershipProjection:
+      properties:
+        SlateID:
+          type: integer
+          description: Unique ID of a Slate (assigned by SportsDataIO).
+        PlayerID:
+          type: integer
+          description: Unique ID of the Associated Player.
+        ProjectedOwnershipPercentage:
+          type: number
+          description: Projected Ownership Percentage (0-100)
+        IsCaptain:
+          type: boolean
+          description: Indicates if this is the MVP/Captain slot for single game slates
+    Lineup:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO Note: this ID will stay with the player throughout their MLB career'
+        TeamID:
+          type: integer
+          description: The team's unique TeamID as assigned by SportsDataIO
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        FirstName:
+          type:
+          - string
+          - 'null'
+          description: The player's first name
+        LastName:
+          type:
+          - string
+          - 'null'
+          description: The player's last name
+        BattingOrder:
+          type:
+          - integer
+          - 'null'
+          description: Where the player batted in the lineup for the game (1;2;3; etc.)
+        Position:
+          type:
+          - string
+          - 'null'
+          description: Player's position in the starting lineup (if started); otherwise the position he substituted for
+        Starting:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates if this player is starting. Note: started = 1 and non starting= 0'
+        Confirmed:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates if batting order has been confirmed (true/false)
+    DfsSlateGame:
+      properties:
+        SlateGameID:
+          type: integer
+          description: The SlateGameID that this SlatePlayer refers to
+        SlateID:
+          type: integer
+          description: The SlateID that this SlateGame refers to
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the game tied to this SlateGame
+        Game:
+          $ref: '#/components/schemas/Game'
+          description: The details of the Game that this SlateGame refers to
+        OperatorGameID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of a SlateGame (assigned by the operator)
+        RemovedByOperator:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this game was removed/deleted by the operator.
+    Game:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The MLB season of the game
+        SeasonType:
+          type: integer
+          description: The type of season stage the game belongs to, e.g. Regular season, Post-season. For a description of possible values and how they work, see <a href="https://support.sportsdata.io/hc/en-us/articles/15196612633623-Process-Guide-Season-Types-and-Parameters" target="_blank">here.
+        Status:
+          type:
+          - string
+          - 'null'
+          description: The status of the game. For a description of possible values, see <a href="https://support.sportsdata.io/hc/en-us/articles/14287629964567-Process-Guide-Game-Status" target="_blank">here.</a> For how suspended and postponed games are handled specifically, see <a href="https://support.sportsdata.io/hc/en-us/articles/4404845580567-Postponed-and-Rescheduled-Games" target="_blank">here</a>.
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        AwayTeamID:
+          type: integer
+          description: The unique TeamID of the away team
+        HomeTeamID:
+          type: integer
+          description: The unique ID of the home team
+        RescheduledGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the stadium
+        Channel:
+          type:
+          - string
+          - 'null'
+          description: The television station broadcasting the game
+        Inning:
+          type:
+          - integer
+          - 'null'
+          description: 'The inning that the game is currently in, or the inning in which the game ended. Possible values include: NULL, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, etc)'
+        InningHalf:
+          type:
+          - string
+          - 'null'
+          description: 'The inning half that the game is currently in; or the inning half in which the game ended (possible values: T; B; E: M: NULL)'
+        AwayTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the away team in the game
+        HomeTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the home team in the game
+        AwayTeamHits:
+          type:
+          - integer
+          - 'null'
+          description: Total hits by the away team in the game
+        HomeTeamHits:
+          type:
+          - integer
+          - 'null'
+          description: Total hits by the home team in the game
+        AwayTeamErrors:
+          type:
+          - integer
+          - 'null'
+          description: Total errors committed by the away team in the game
+        HomeTeamErrors:
+          type:
+          - integer
+          - 'null'
+          description: Total errors committed by the home team in the game
+        WinningPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the pitcher who recorded the win in the game
+        LosingPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the losing pitcher in the game
+        SavingPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the pitcher who recorded the save in the game
+        Attendance:
+          type:
+          - integer
+          - 'null'
+          description: Total number of people who attended the game
+        AwayTeamProbablePitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the away team's probable pitcher
+        HomeTeamProbablePitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the home team's probable pitcher
+        Outs:
+          type:
+          - integer
+          - 'null'
+          description: The number of outs recorded in the current inning of the game
+        Balls:
+          type:
+          - integer
+          - 'null'
+          description: The number of balls thrown for the current at bat
+        Strikes:
+          type:
+          - integer
+          - 'null'
+          description: The number of strikes thrown for the current at bat
+        CurrentPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the current pitcher
+        CurrentHitterID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the current hitter
+        AwayTeamStartingPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the away team's starting pitcher
+        HomeTeamStartingPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the home team starting pitcher in the game
+        CurrentPitchingTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the current pitcher's team
+        CurrentHittingTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the current hitter's team
+        PointSpread:
+          type:
+          - number
+          - 'null'
+          description: 'The consensus Run Line at game start from the perspective of the HomeTeam (in the Game table, the PointSpread field''s negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored. Note that this rule does not hold in betting-related tables, where the run line is contingent on the bet line). Note: In MLB, Point Spread may also be referred to as Run Line'
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The oddsmaker total points line at game start
+        AwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Moneyline from the perspective of the away team
+        HomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Moneyline from the perspective of the home team
+        ForecastTempLow:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted low temperature on game day at this venue (in Fahrenheit)
+        ForecastTempHigh:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted high temperature on game day at this venue (in Fahrenheit)
+        ForecastDescription:
+          type:
+          - string
+          - 'null'
+          description: 'The description of the weather forecast. Posible values include: Broken Clouds, Clear Sky, Few Clouds, Heavy Intensity Rain, Light Rain, Moderate Rain, Mostly Cloudy, Mostly Sunny, Overcast Clouds, Partly Cloudy, Scattered Clouds, Showers, Thunderstorms'
+        ForecastWindChill:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted wind chill on game day at this venue.
+        ForecastWindSpeed:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted wind speed on game day at this venue.
+        ForecastWindDirection:
+          type:
+          - integer
+          - 'null'
+          description: The wind direction isn't baseball specific.  It refers to the direction that the wind is coming from.  90 would be wind coming from the east.  180 is wind from the south.  270 is a wind from the west ... and so on.
+        RescheduledFromGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as "make up" games.
+        RunnerOnFirst:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates if there is a runner on first base
+        RunnerOnSecond:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates if there is a runner on second base
+        RunnerOnThird:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates if there is a runner on third base
+        AwayTeamStartingPitcher:
+          type:
+          - string
+          - 'null'
+          description: The first and last name of the away team's starting pitcher for the game
+        HomeTeamStartingPitcher:
+          type:
+          - string
+          - 'null'
+          description: The first and last name of the home team starting pitcher for the game
+        CurrentPitcher:
+          type:
+          - string
+          - 'null'
+          description: Indicates the current pitcher's name
+        CurrentHitter:
+          type:
+          - string
+          - 'null'
+          description: Indicates the current hitter's name
+        WinningPitcher:
+          type:
+          - string
+          - 'null'
+          description: The name of the pitcher who recorded the win in the game
+        LosingPitcher:
+          type:
+          - string
+          - 'null'
+          description: The first and last name of the losing pitcher in the game
+        SavingPitcher:
+          type:
+          - string
+          - 'null'
+          description: The name of the pitcher who recorded the save in the game
+        DueUpHitterID1:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the hitter due up first from the current hitter
+        DueUpHitterID2:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the hitter due up second from the current hitter
+        DueUpHitterID3:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the hitter due up third from the current hitter
+        GlobalGameID:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues
+        GlobalAwayTeamID:
+          type: integer
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues
+        GlobalHomeTeamID:
+          type: integer
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        PointSpreadAwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The moneyline payout odds when betting on the away team with the run line
+        PointSpreadHomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The moneyline payout odds when betting on the home team with the run line
+        LastPlay:
+          type:
+          - string
+          - 'null'
+          description: The description of the most recent play/event of the game. This is for display purposes and does not include corresponding data points.
+        IsClosed:
+          type: boolean
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the late update made to this record (in US Eastern Time)
+        Innings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Inning'
+          description: The inning details associated with the game
+        GameEndDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time that the game ended in US Eastern Time
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of home team for this game
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of away team for this game
+        NeutralVenue:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether this game is played in a neutral venue. Note: Neutral = True, not neutral = False'
+        InningDescription:
+          type:
+          - string
+          - 'null'
+          description: 'The current status of the inning for display purposes (possible values: Top 2, Mid 2, Bot 2, End 2, etc)'
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the over
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under
+        SeriesInfo:
+          $ref: '#/components/schemas/Series'
+          description: Contains relevant series data for postseason series only - HomeTeamWins; AwayTeamWins; GameNumber; and MaxLength
+        DateTimeUTC:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in UTC
+        HomeTeamOpener:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether the home team will use an opener as the starting pitcher. NOTE: An opener is a pitcher (typically a relief pitcher) that is only scheduled to pitch the first 1-3 innings of the game'
+        AwayTeamOpener:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether the away team will use an opener as the starting pitcher.. NOTE: An opener is a pitcher (typically a relief pitcher) that is only scheduled to pitch the first 1-3 innings of the game'
+        SuspensionResumeDay:
+          type:
+          - string
+          - 'null'
+          description: The date a game that was suspended in play will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status.
+        SuspensionResumeDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and start-time that the suspended in play game will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status.
+    PlayerGameProjection:
+      properties:
+        StatID:
+          type: integer
+          description: The unique ID of the stat
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career'
+        SeasonType:
+          type:
+          - integer
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar)
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The MLB season of the game
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Player's full name
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position associated with the given game or season. Possible values: 1B, 2B, 3B, C, CF, DH, IF, LF, OF, P, PH, PR, RF, RP, SP, SS'
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position category. Possible values: DH; IF; OF; P; PH; PR'
+        Started:
+          type:
+          - integer
+          - 'null'
+          description: 'Whether the player started in the game. Note: started = 1 and not starting = 0'
+        BattingOrder:
+          type:
+          - integer
+          - 'null'
+          description: Where the player batted in the lineup for the game (1;2;3; etc.)
+        FanDuelSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for FanDuel daily fantasy contests.
+        DraftKingsSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for DraftKings daily fantasy contests.
+        FantasyDataSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary as calculated by SportsDataIO (formerly known as FantasyData). Based on the same salary cap as DraftKings contests ($50,000)
+        YahooSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Yahoo daily fantasy contests
+        InjuryStatus:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s current injury status; in the form of likelihood that player plays. Possible values: Probable; Questionable; Doubtful; Out'
+        InjuryBodyPart:
+          type:
+          - string
+          - 'null'
+          description: Indicates the player's injured body part. (e.g. ankle; knee; elbow; etc.)
+        InjuryStartDate:
+          type:
+          - string
+          - 'null'
+          description: The day that the injury started or first discovered.
+        InjuryNotes:
+          type:
+          - string
+          - 'null'
+          description: Brief description of the player's injury and expected availability
+        FanDuelPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in FanDuel's daily fantasy sports platform.
+        DraftKingsPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in DraftKings' daily fantasy sports platform.
+        YahooPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Yahoo's daily fantasy sports platform
+        OpponentRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the player's opponent with regards to fantasy points allowed
+        OpponentPositionRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the player's opponent by position with regards to fantasy points allowed
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        FantasyDraftSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Fantasy Draft daily fantasy contests.
+        FantasyDraftPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Fantasy Drafts daily fantasy sports platform.
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this game
+        OpponentID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team's opponent
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The name of the opponent 
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        IsGameOver:
+          type: boolean
+          description: Whether the game is over (true/false)
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalOpponentID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time).
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played.
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        AtBats:
+          type:
+          - number
+          - 'null'
+          description: At bats while hitting
+        Runs:
+          type:
+          - number
+          - 'null'
+          description: Total runs scored.
+        Hits:
+          type:
+          - number
+          - 'null'
+          description: Total hits
+        Singles:
+          type:
+          - number
+          - 'null'
+          description: Total singles
+        Doubles:
+          type:
+          - number
+          - 'null'
+          description: Total doubles
+        Triples:
+          type:
+          - number
+          - 'null'
+          description: Total triples
+        HomeRuns:
+          type:
+          - number
+          - 'null'
+          description: Total home runs
+        RunsBattedIn:
+          type:
+          - number
+          - 'null'
+          description: Total runs batted in
+        BattingAverage:
+          type:
+          - number
+          - 'null'
+          description: Total batting average
+        Outs:
+          type:
+          - number
+          - 'null'
+          description: Total outs
+        Strikeouts:
+          type:
+          - number
+          - 'null'
+          description: Total strikeouts
+        Walks:
+          type:
+          - number
+          - 'null'
+          description: Total walks
+        HitByPitch:
+          type:
+          - number
+          - 'null'
+          description: Total times hit by pitch
+        Sacrifices:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifices
+        SacrificeFlies:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifice flies
+        GroundIntoDoublePlay:
+          type:
+          - number
+          - 'null'
+          description: Total times grounded into double play
+        StolenBases:
+          type:
+          - number
+          - 'null'
+          description: Total stolen bases
+        CaughtStealing:
+          type:
+          - number
+          - 'null'
+          description: Total caught stealing
+        PitchesSeen:
+          type:
+          - number
+          - 'null'
+          description: Total pitches seen
+        OnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total on base percentage
+        SluggingPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total slugging percentage
+        OnBasePlusSlugging:
+          type:
+          - number
+          - 'null'
+          description: Total on base plus percentage 
+        Errors:
+          type:
+          - number
+          - 'null'
+          description: Total errors
+        Wins:
+          type:
+          - number
+          - 'null'
+          description: Total wins by the team/player
+        Losses:
+          type:
+          - number
+          - 'null'
+          description: Total losses by the team/player
+        Saves:
+          type:
+          - number
+          - 'null'
+          description: Total saves by team/player
+        InningsPitchedDecimal:
+          type:
+          - number
+          - 'null'
+          description: Decimal representation of total innings pitched (e.g. 1.33, 7.66, etc)
+        TotalOutsPitched:
+          type:
+          - number
+          - 'null'
+          description: Total outs pitched by team/player
+        InningsPitchedFull:
+          type:
+          - number
+          - 'null'
+          description: Total full innings pitched (e.g. 6, 71, 89, etc)
+        InningsPitchedOuts:
+          type:
+          - number
+          - 'null'
+          description: 'Outs pitched beyond InningsPitchedFull (possible values: 0, 1, 2)'
+        EarnedRunAverage:
+          type:
+          - number
+          - 'null'
+          description: Total earned run average by team/player
+        PitchingHits:
+          type:
+          - number
+          - 'null'
+          description: Hits allowed while pitching
+        PitchingRuns:
+          type:
+          - number
+          - 'null'
+          description: Runs allowed while pitching
+        PitchingEarnedRuns:
+          type:
+          - number
+          - 'null'
+          description: Earned runs allowed while pitching
+        PitchingWalks:
+          type:
+          - number
+          - 'null'
+          description: Walks allowed while pitching
+        PitchingStrikeouts:
+          type:
+          - number
+          - 'null'
+          description: Strikeouts allowed while pitching
+        PitchingHomeRuns:
+          type:
+          - number
+          - 'null'
+          description: Home runs allowed while pitching
+        PitchesThrown:
+          type:
+          - number
+          - 'null'
+          description: Total pitches thrown while pitching
+        PitchesThrownStrikes:
+          type:
+          - number
+          - 'null'
+          description: Total pitches thrown for strikes while pitching
+        WalksHitsPerInningsPitched:
+          type:
+          - number
+          - 'null'
+          description: Walks plus hits per innings pitched (WHIP) while pitching
+        PitchingBattingAverageAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total batting average against (BAA) while pitching
+        GrandSlams:
+          type:
+          - number
+          - 'null'
+          description: Total grand slams
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total FanDuel fantasy points
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings fantasy points
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points
+        PlateAppearances:
+          type:
+          - number
+          - 'null'
+          description: Total plate appearances
+        TotalBases:
+          type:
+          - number
+          - 'null'
+          description: Number of total bases
+        FlyOuts:
+          type:
+          - number
+          - 'null'
+          description: Total fly outs
+        GroundOuts:
+          type:
+          - number
+          - 'null'
+          description: Total ground outs
+        LineOuts:
+          type:
+          - number
+          - 'null'
+          description: Total line outs
+        PopOuts:
+          type:
+          - number
+          - 'null'
+          description: Total pop outs
+        IntentionalWalks:
+          type:
+          - number
+          - 'null'
+          description: Total intentional walks
+        ReachedOnError:
+          type:
+          - number
+          - 'null'
+          description: Total times reached on error
+        BallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total balls in play
+        BattingAverageOnBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total batting average on balls in play (BABIP)
+        WeightedOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total weight on base percentage
+        PitchingSingles:
+          type:
+          - number
+          - 'null'
+          description: Total singles allowed while pitching
+        PitchingDoubles:
+          type:
+          - number
+          - 'null'
+          description: Total doubles allowed while pitching
+        PitchingTriples:
+          type:
+          - number
+          - 'null'
+          description: Total triples allowed while pitching
+        PitchingGrandSlams:
+          type:
+          - number
+          - 'null'
+          description: Total grand slams allowed while pitching
+        PitchingHitByPitch:
+          type:
+          - number
+          - 'null'
+          description: Total batters hit by pitch while pitching
+        PitchingSacrifices:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifices while pitching
+        PitchingSacrificeFlies:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifice flies while pitching
+        PitchingGroundIntoDoublePlay:
+          type:
+          - number
+          - 'null'
+          description: Total grounded into double plays while pitching
+        PitchingCompleteGames:
+          type:
+          - number
+          - 'null'
+          description: Total complete games while pitching
+        PitchingShutOuts:
+          type:
+          - number
+          - 'null'
+          description: Total shuouts while pitching
+        PitchingNoHitters:
+          type:
+          - number
+          - 'null'
+          description: Total no hitters while pitching
+        PitchingPerfectGames:
+          type:
+          - number
+          - 'null'
+          description: Total perfect games while pitching
+        PitchingPlateAppearances:
+          type:
+          - number
+          - 'null'
+          description: Total plate appearances while pitching
+        PitchingTotalBases:
+          type:
+          - number
+          - 'null'
+          description: Total bases while pitching
+        PitchingFlyOuts:
+          type:
+          - number
+          - 'null'
+          description: Total fly outs while pitching
+        PitchingGroundOuts:
+          type:
+          - number
+          - 'null'
+          description: Total ground outs while pitching
+        PitchingLineOuts:
+          type:
+          - number
+          - 'null'
+          description: Total line outs while pitching
+        PitchingPopOuts:
+          type:
+          - number
+          - 'null'
+          description: Total pop outs while pitching
+        PitchingIntentionalWalks:
+          type:
+          - number
+          - 'null'
+          description: Total intentional walks while pitching
+        PitchingReachedOnError:
+          type:
+          - number
+          - 'null'
+          description: Total times reached on error while pitching
+        PitchingCatchersInterference:
+          type:
+          - number
+          - 'null'
+          description: Total catchers interference while pitching
+        PitchingBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total balls in play while pitching
+        PitchingOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total on base percentage (OBP) while pitching
+        PitchingSluggingPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total slugging percentage (SLG) while pitching
+        PitchingOnBasePlusSlugging:
+          type:
+          - number
+          - 'null'
+          description: Total on base plus slugging (OPS) while pitching
+        PitchingStrikeoutsPerNineInnings:
+          type:
+          - number
+          - 'null'
+          description: Total strikeouts per nine innings (K/9) while pitching
+        PitchingWalksPerNineInnings:
+          type:
+          - number
+          - 'null'
+          description: Total walks per nine innings (BB/9) while pitching
+        PitchingBattingAverageOnBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total batting average on balls in play (BABIP) while pitching
+        PitchingWeightedOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total weighted on base percentage while pitching 
+        DoublePlays:
+          type:
+          - number
+          - 'null'
+          description: 'Total double plays, defined as one of: Bunted into Double Play, Fly into Double Play, Fouled into Double Play, Ground into Double Pla,y Line into Double Play, Popped into Double Play'
+        PitchingDoublePlays:
+          type:
+          - number
+          - 'null'
+          description: Total double plays while pitching
+        BattingOrderConfirmed:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the batting order is confirmed (true/false)
+        IsolatedPower:
+          type:
+          - number
+          - 'null'
+          description: Total isolated power (ISO)
+        FieldingIndependentPitching:
+          type:
+          - number
+          - 'null'
+          description: Total fielding independent pitching (FIP)
+        PitchingQualityStarts:
+          type:
+          - number
+          - 'null'
+          description: Total quality starts pitched
+        PitchingInningStarted:
+          type:
+          - integer
+          - 'null'
+          description: The inning that the pitcher entered the game (if any).
+        LeftOnBase:
+          type:
+          - number
+          - 'null'
+          description: Total left on base percentage 
+        PitchingHolds:
+          type:
+          - number
+          - 'null'
+          description: Total holds pitched
+        PitchingBlownSaves:
+          type:
+          - number
+          - 'null'
+          description: Total blown saves pitched
+        SubstituteBattingOrder:
+          type:
+          - integer
+          - 'null'
+          description: The position in the batting order where this player was substituted into the game (does not include players in the starting lineup)
+        SubstituteBattingOrderSequence:
+          type:
+          - integer
+          - 'null'
+          description: The sequence in which this player was substituted into the game, within the particular batting order
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Total FantasyDraft fantasy points
+        FantasyPointsBatting:
+          type:
+          - number
+          - 'null'
+          description: Total batting fantasy points
+        FantasyPointsPitching:
+          type:
+          - number
+          - 'null'
+          description: Total pitching fantasy points
+    DfsSlate:
+      properties:
+        SlateID:
+          type: integer
+          description: The SlateID that this SlateGame refers to
+        Operator:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the operator who is running contests for this slate Possible values: FanDuel; DraftKings; Yahoo; FantasyDraft; etc.'
+        OperatorSlateID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of a slate (assigned by the operator).
+        OperatorName:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the slate (assigned by the operator). Possible values: Main, Express, Arcade, Late Night, etc.'
+        OperatorDay:
+          type:
+          - string
+          - 'null'
+          description: The day (in EST/EDT) that the slate begins (assigned by the operator)
+        OperatorStartTime:
+          type:
+          - string
+          - 'null'
+          description: The date/time (in EST/EDT) that the slate begins (assigned by the operator).
+        NumberOfGames:
+          type:
+          - integer
+          - 'null'
+          description: The number of actual games that this slate covers
+        IsMultiDaySlate:
+          type:
+          - boolean
+          - 'null'
+          description: Whether or not this slate uses games that take place on different days (true/false)
+        RemovedByOperator:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this slate was removed/deleted by the operator.
+        OperatorGameType:
+          type:
+          - string
+          - 'null'
+          description: 'The game type of the slate. Note: Will often be null as most operators only have one game type'
+        DfsSlateGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/DfsSlateGame'
+          description: The games that are included in this slate
+        DfsSlatePlayers:
+          type: array
+          items:
+            $ref: '#/components/schemas/DfsSlatePlayer'
+          description: The players that are included in this slate
+        SlateRosterSlots:
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+          description: The positions that need to be filled for this particular slate
+        SalaryCap:
+          type:
+          - integer
+          - 'null'
+          description: The salary cap for the current slate (is null for slates with no salary cap such a Tiers gametypes)
+    DfsSlatePlayer:
+      properties:
+        SlatePlayerID:
+          type: integer
+          description: Unique ID of a SlatePlayer (assigned by SportsDataIO)
+        SlateID:
+          type: integer
+          description: The SlateID that this SlatePlayer refers to
+        SlateGameID:
+          type:
+          - integer
+          - 'null'
+          description: The SlateGameID that this SlatePlayer refers to
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career'
+        PlayerGameProjectionStatID:
+          type:
+          - integer
+          - 'null'
+          description: The SportsDataIO StatID that this SlatePlayer refers to. This points to data in the respective sports' projected player game stats feeds.
+        OperatorPlayerID:
+          type:
+          - string
+          - 'null'
+          description: Unique ID of the Player (assigned by the operator)
+        OperatorSlatePlayerID:
+          type:
+          - string
+          - 'null'
+          description: Unique ID of the SlatePlayer (assigned by the operator)
+        OperatorPlayerName:
+          type:
+          - string
+          - 'null'
+          description: The player's name (assigned by the operator)
+        OperatorPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible positions for the contest (assigned by the operator)
+        OperatorSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for the contest (assigned by the operator)
+        OperatorRosterSlots:
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+          description: 'The player''s eligible positions to be played in the contest (assigned by the operator).  Note: this would include UTIL; etc plays for those that are eligible.'
+        RemovedByOperator:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this player was removed/deleted by the operator
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO
+    Series:
+      properties:
+        HomeTeamWins:
+          type: integer
+          description: 'Number of wins by the home team on in the series. Note: this is for postseason series only.'
+        AwayTeamWins:
+          type: integer
+          description: 'Number of wins by the away team in the series. Note: This is for postseason series only.'
+        GameNumber:
+          type: integer
+          description: 'Game number in series. Note: this applies to postseason series only.'
+        MaxLength:
+          type: integer
+          description: 'Maximum number of games in the series. Note: this is for postseason series only.'
+    DfsSlateWithOwnershipProjection:
+      properties:
+        SlateID:
+          type: integer
+          description: Unique ID of a Slate (assigned by SportsDataIO).
+        Operator:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the operator who is running contests for this slate. Possible values: FanDuel, DraftKings, Yahoo, FantasyDraft, etc.'
+        OperatorSlateID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of a slate (assigned by the operator).
+        OperatorName:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the slate (assigned by the operator). Possible values: Main, Express, Arcade, Late Night, etc.'
+        OperatorDay:
+          type:
+          - string
+          - 'null'
+          description: The day (in EST/EDT) that the slate begins (assigned by the operator).
+        OperatorStartTime:
+          type:
+          - string
+          - 'null'
+          description: The date/time (in EST/EDT) that the slate begins (assigned by the operator).
+        SlateOwnershipProjections:
+          type: array
+          items:
+            $ref: '#/components/schemas/DfsSlatePlayerOwnershipProjection'
+          description: The list of projected ownership
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    Player:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career'
+        SportsDataID:
+          type:
+          - string
+          - 'null'
+          description: Deprecated. Use SportRadarPlayerID instead.
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the player''s status of being on an Major League Active Roster. Possible values include: Active, 40 Man Active, Non-Roster Invitee, Minors, Inactive, 7 Day Injury List, 10 Day Injury List, 15 Day Injury List, 60 Day Injury List, Restricted List, Paternity List, Bereavement List, Military List'
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team that the player belongs to
+        Jersey:
+          type:
+          - integer
+          - 'null'
+          description: The player's jersey number.
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position category. Possible values: DH, IF, OF, P, PH, PR'
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position associated with the given game or season. Possible values: 1B; 2B; 3B; C; CF; DH; IF; LF; OF; P; PH; PR; RF; RP; SP; SS'
+        MLBAMID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with MLB AM
+        FirstName:
+          type:
+          - string
+          - 'null'
+          description: The player's first name
+        LastName:
+          type:
+          - string
+          - 'null'
+          description: The player's last name
+        BatHand:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s batting hand. Possible values: R, L, S'
+        ThrowHand:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s throwing hand. Possible values: R, L, S'
+        Height:
+          type:
+          - integer
+          - 'null'
+          description: The player's height in inches
+        Weight:
+          type:
+          - integer
+          - 'null'
+          description: The weight of the player in pounds (lbs).
+        BirthDate:
+          type:
+          - string
+          - 'null'
+          description: The player's date of birth
+        BirthCity:
+          type:
+          - string
+          - 'null'
+          description: The city in which the player was born
+        BirthState:
+          type:
+          - string
+          - 'null'
+          description: 'The state in which the player was born. Note: State will be NULL for all countries outside of North America and Australia'
+        BirthCountry:
+          type:
+          - string
+          - 'null'
+          description: The country in which the player was born
+        HighSchool:
+          type:
+          - string
+          - 'null'
+          description: 'The high school that the player attended. Note: If the player attended a college, this field will be NULL'
+        College:
+          type:
+          - string
+          - 'null'
+          description: 'The college that the player attended. Note: If player did not attend college this field will contain "None" and a high school will be added if applicable'
+        ProDebut:
+          type:
+          - string
+          - 'null'
+          description: The date that this player made his MLB debut.
+        Salary:
+          type:
+          - integer
+          - 'null'
+          description: Field is expected to be NULL
+        PhotoUrl:
+          type:
+          - string
+          - 'null'
+          description: Field is expected to be NULL
+        SportRadarPlayerID:
+          type:
+          - string
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with Stats Player
+        RotoworldPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with Rotoworld.
+        RotoWirePlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with RotoWire.
+        FantasyAlarmPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with FantasyAlarm
+        StatsPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with Stats Player.
+        SportsDirectPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the SportsDirect data feeds, now part of Nielsen GraceNote.
+        XmlTeamPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with Xml Team
+        InjuryStatus:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s current injury status; in the form of likelihood that player plays. Possible values: Probable; Questionable; Doubtful; Out'
+        InjuryBodyPart:
+          type:
+          - string
+          - 'null'
+          description: Indicates the player's injured body part. (e.g. ankle; knee; elbow; etc.)
+        InjuryStartDate:
+          type:
+          - string
+          - 'null'
+          description: The day that the injury started or first discovered.
+        InjuryNotes:
+          type:
+          - string
+          - 'null'
+          description: Brief description of the player's injury and expected availability
+        FanDuelPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with FanDuel
+        DraftKingsPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with DraftKings.
+        YahooPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with Yahoo
+        UpcomingGameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of a player's next upcoming game
+        FanDuelName:
+          type:
+          - string
+          - 'null'
+          description: The player's name on FanDuel
+        DraftKingsName:
+          type:
+          - string
+          - 'null'
+          description: The player's name on DraftKings
+        YahooName:
+          type:
+          - string
+          - 'null'
+          description: The player's name as displayed on/by Yahoo
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        FantasyDraftName:
+          type:
+          - string
+          - 'null'
+          description: The player's name on Fantasy Draft
+        FantasyDraftPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with Fantasy Draft
+        Experience:
+          type:
+          - string
+          - 'null'
+          description: The player's years of experience
+        UsaTodayPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to USA Today headshot data feeds.
+        UsaTodayHeadshotUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's headshot URL as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotNoBackgroundUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's transparent background headshot URL as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated date of the player's headshot as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotNoBackgroundUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated date of the player's transparent background headshot as provided by USA Today. License from USA Today is required.
+    TeamDepthChart:
+      properties:
+        DepthCharts:
+          type: array
+          items:
+            $ref: '#/components/schemas/DepthChart'
+          description: List of Depth Chart Records for Team
+        TeamID:
+          type: integer
+          description: The team's unique TeamID as assigned by SportsDataIO
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: key
+      in: query

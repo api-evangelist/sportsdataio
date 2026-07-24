@@ -1,0 +1,601 @@
+openapi: 3.1.0
+info:
+  title: MLB MLB v3 Headshots NBA v3 Play-by-Play API
+  version: '1.0'
+  description: MLB API - OpenAPI 3.1 Specification
+servers:
+- url: https://api.sportsdata.io
+  description: Production server
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: NBA v3 Play-by-Play
+paths:
+  /v3/nba/pbp/{format}/PlayByPlay/{gameid}:
+    get:
+      description: Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by game.
+      operationId: nba_v3_pbp_play_by_play__live___final
+      summary: Play By Play [Live & Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameid
+        in: path
+        description: The GameID of an NBA game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code>, <code>16905</code>, etc.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayByPlay'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Play-by-Play
+  /v3/nba/pbp/{format}/PlayByPlayDelta/{date}/{minutes}:
+    get:
+      description: This method returns all play-by-plays for a given season and week, but only returns plays that have changed in the last X minutes as specified in your API call. By definition this is a live endpoint, not final.
+      operationId: nba_v3_pbp_play_by_play_delta
+      summary: Play By Play Delta
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2016-OCT-31</code>, <code>2017-JAN-15</code>.'
+        required: true
+        schema:
+          type: string
+      - name: minutes
+        in: path
+        description: 'Only returns plays that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:
+
+          <code>1</code>, <code>2</code> ... <code>all</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayByPlay'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Play-by-Play
+  /v3/nba/pbp/{format}/PlayByPlayFinal/{gameid}:
+    get:
+      description: Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by game.
+      operationId: nba_v3_pbp_play_by_play__final
+      summary: Play By Play [Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameid
+        in: path
+        description: The GameID of an NBA game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code>, <code>16905</code>, etc.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayByPlay'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Play-by-Play
+components:
+  schemas:
+    Game:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The NBA season of the game
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition)
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, F/OT, Suspended, Postponed, Delayed, Canceled, Forfeit, NotNecessary'
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        AwayTeamID:
+          type: integer
+          description: The unique ID of the away team
+        HomeTeamID:
+          type: integer
+          description: The unique ID of the home team
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the stadium
+        Channel:
+          type:
+          - string
+          - 'null'
+          description: The television station broadcasting the game
+        Attendance:
+          type:
+          - integer
+          - 'null'
+          description: The total number of people in attendance at the game
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the away team scored in the game
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the home team scored in this game
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when this game was last updated (in US Eastern Time)
+        Quarter:
+          type:
+          - string
+          - 'null'
+          description: 'The current quarter in the game. Possible values include: 1, 2, 3, 4, Half, OT, NULL'
+        TimeRemainingMinutes:
+          type:
+          - integer
+          - 'null'
+          description: The number of minutes remaining in the quarter
+        TimeRemainingSeconds:
+          type:
+          - integer
+          - 'null'
+          description: The number of seconds remaining in the quarter
+        PointSpread:
+          type:
+          - number
+          - 'null'
+          description: The oddsmaker Point Spread at game start from the perspective of the HomeTeam (negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored)
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's total points scored over under for the game
+        AwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Money line from the perspective of the away team
+        HomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Money line from the perspective of the home team
+        GlobalGameID:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalAwayTeamID:
+          type: integer
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
+        GlobalHomeTeamID:
+          type: integer
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        PointSpreadAwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The money line payout odds when betting on the away team with the point spread.
+        PointSpreadHomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The money line payout odds when betting on the away team with the point spread.
+        LastPlay:
+          type:
+          - string
+          - 'null'
+          description: The description of the most recent play/event of the game. This is for display purposes and does not include corresponding data points.
+        IsClosed:
+          type: boolean
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
+        Quarters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quarter'
+          description: The details of the quarters (including overtime periods) for this game.
+        GameEndDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time that the game ended (in US Eastern Time)
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the home team for this game
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the away team for this game
+        NeutralVenue:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this game is played in a neutral venue
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the over on the total points line
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under on the total points line
+        CrewChiefID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of officiating Crew Chief
+        UmpireID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of officiating Umpire referee
+        RefereeID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of officiating referee
+        AlternateID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of officiating Alternate referee
+        DateTimeUTC:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in UTC
+        SeriesInfo:
+          $ref: '#/components/schemas/Series'
+          description: Contains relevant series data for playoff series only - HomeTeamWins, AwayTeamWins, GameNumber, and MaxLength
+        InseasonTournament:
+          type:
+          - boolean
+          - 'null'
+          description: A flag to indicate this game is part of the inseason NBA tournament (can be considered a part of regular season still) - a null would also indicate false
+        RescheduledFromGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as "make up" games.
+        RescheduledGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
+    PlayByPlay:
+      properties:
+        Game:
+          $ref: '#/components/schemas/Game'
+          description: The details of the game associated with this play-by-play
+        Quarters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quarter'
+          description: The details of the quarters associated with this play-by-play
+        Plays:
+          type: array
+          items:
+            $ref: '#/components/schemas/Play'
+          description: The details of the plays associated with this play-by-play
+    Play:
+      properties:
+        PlayID:
+          type: integer
+          description: The unique identifier of the play.
+        QuarterID:
+          type: integer
+          description: The unique identifier of the Quarter that this play occurred in.
+        QuarterName:
+          type:
+          - string
+          - 'null'
+          description: The name of the quarter that this play occurred in
+        Sequence:
+          type: integer
+          description: The order in which this play happened over the course of the game.
+        TimeRemainingMinutes:
+          type:
+          - integer
+          - 'null'
+          description: The number of minutes remaining in the quarter when this play occurred
+        TimeRemainingSeconds:
+          type:
+          - integer
+          - 'null'
+          description: The number of seconds remaining in the quarter when the play occurred
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the away team scored after this play completed
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total points scored by the home team after the completion of this play
+        PotentialPoints:
+          type:
+          - integer
+          - 'null'
+          description: The points that would have been potentially scored by the shot attempt (if any).
+        Points:
+          type:
+          - integer
+          - 'null'
+          description: The points scores by the shot attempt (if any).
+        ShotMade:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the shot was made (if any).
+        Category:
+          type:
+          - string
+          - 'null'
+          description: 'The category the play. Possible values: Period, Timeout, JumpBall, Shot, Rebound, Foul, Substitution, Turnover, Challenge.'
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'The type of the play. Possible values: None, Period, Timeout, JumpBall, FieldGoalMade, FieldGoalMissed, FreeThrowMade, FreeThrowMissed, Rebound, Steal, Turnover, Foul, PersonalFoul, ShootingFoul, OffensiveFoul, LooseBallFoul, TechnicalFoul, FlagrantFoul, Traveling, Palming, Goaltending, KickedBall, LaneViolation, DelayOfGame, Substitution, Ejection, and Challenge.'
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team associated with this play
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team associated with this play
+        OpponentID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the opponent team associated with this play
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: Abbreviation [Key] of the opponent team (e.g. LAL; PHI; BOS; CHI; etc.)
+        ReceivingTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the team that won the jump ball.
+        ReceivingTeam:
+          type:
+          - string
+          - 'null'
+          description: The team abbreviation [Key] of the team that won the jump ball
+        Description:
+          type:
+          - string
+          - 'null'
+          description: The description of the play.
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        AssistedByPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who recorded an assist on a made field goal by another player (if applicable)
+        BlockedByPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who blocked the field goal attempt on this play (if any).
+        FastBreak:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this play happened on a fast break.
+        SideOfBasket:
+          type:
+          - string
+          - 'null'
+          description: 'The side of the basket that the field goal was attempted from (if any). Possible values: L, R'
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when this play was last updated (in US Eastern Time)
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this play was first created (in US Eastern Time)
+        SubstituteInPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who substituted into the game.
+        SubstituteOutPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who substituted out of the game.
+        AwayPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who is involved in the play from the away team (if applicable)
+        HomePlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who is involved in the play from the home team
+        ReceivingPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who received the ball
+        BaselineOffsetPercentage:
+          type:
+          - number
+          - 'null'
+          description: The baseline offset percentage of where the ball was shot/passed
+        SidelineOffsetPercentage:
+          type:
+          - number
+          - 'null'
+          description: The sideline offset percentage of where the ball was shot/passed
+        Coordinates:
+          type:
+          - string
+          - 'null'
+          description: The x/y coordinates of where the ball was shot/passed
+        StolenByPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who stole the ball (if applicable)
+    Quarter:
+      properties:
+        QuarterID:
+          type: integer
+          description: Unique identifier for each Quarter.
+        GameID:
+          type: integer
+          description: The unique ID of the game associated with this quarter
+        Number:
+          type: integer
+          description: The Number (Order) of the Quarter in the scope of the Game.
+        Name:
+          type:
+          - string
+          - 'null'
+          description: 'The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)'
+        AwayScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the away team in the given period only
+        HomeScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the home team in the given period only
+    Series:
+      properties:
+        HomeTeamWins:
+          type: integer
+          description: Total number of wins by the home team in the series
+        AwayTeamWins:
+          type: integer
+          description: Total wins in the series by the away team
+        GameNumber:
+          type: integer
+          description: The game number in the series
+        MaxLength:
+          type: integer
+          description: The maximum number of games that can be played in a series
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: key
+      in: query

@@ -1,0 +1,3572 @@
+openapi: 3.1.0
+info:
+  title: MLB MLB v3 Headshots NFL v3 Projections API
+  version: '1.0'
+  description: MLB API - OpenAPI 3.1 Specification
+servers:
+- url: https://api.sportsdata.io
+  description: Production server
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: NFL v3 Projections
+paths:
+  /v3/nfl/projections/{format}/FantasyDefenseProjectionsBySeason/{season}:
+    get:
+      description: SportsDataIO's proprietary projections, including average draft position, for all fantasy defense teams for the season. Does not contain Individual Defensive Players (IDP), which have their own endpoint.
+      operationId: nfl_v3_projections_projected_fantasy_defense_season_stats_with_adp
+      summary: Projected Fantasy Defense Season Stats With ADP
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FantasyDefenseSeasonProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Projections
+  /v3/nfl/projections/{format}/FantasyDefenseProjectionsByGame/{season}/{week}:
+    get:
+      description: SportsDataIO's proprietary projections, including DFS salary information, for all fantasy defense teams. Called by season and week. Does not contain Individual Defensive Players (IDP), which have their own endpoint.
+      operationId: nfl_v3_projections_projected_fantasy_defense_game_stats_with_dfs_salaries
+      summary: Projected Fantasy Defense Game Stats With DFS Salaries
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+        required: true
+        schema:
+          type: string
+      - name: week
+        in: path
+        description: "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FantasyDefenseGameProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Projections
+  /v3/nfl/projections/{format}/PlayerGameProjectionStatsByTeam/{season}/{week}/{team}:
+    get:
+      description: SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, for a given game, called by team.
+      operationId: nfl_v3_projections_projected_player_game_stats___by_team
+      summary: Projected Player Game Stats - by Team
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+        required: true
+        schema:
+          type: string
+      - name: week
+        in: path
+        description: "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+        required: true
+        schema:
+          type: string
+      - name: team
+        in: path
+        description: 'Abbreviation of the team. Example: <code>WAS</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerGameProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Projections
+  /v3/nfl/projections/{format}/PlayerSeasonProjectionStats/{season}:
+    get:
+      description: SportsDataIO's proprietary projections on a season-long basis, including Average Draft Position (ADP), for fantasy players, for a given season.
+      operationId: nfl_v3_projections_projected_player_season_stats_with_adp
+      summary: Projected Player Season Stats With ADP
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerSeasonProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Projections
+  /v3/nfl/projections/{format}/PlayerSeasonProjectionStatsByTeam/{season}/{team}:
+    get:
+      description: SportsDataIO's proprietary projections on a season-long basis, including ADP, for fantasy players, for a given season and team.
+      operationId: nfl_v3_projections_projected_player_season_stats_with_adp___by_team
+      summary: Projected Player Season Stats With ADP - by Team
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+        required: true
+        schema:
+          type: string
+      - name: team
+        in: path
+        description: 'Abbreviation of the team. Example: <code>WAS</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerSeasonProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Projections
+  /v3/nfl/projections/{format}/PlayerGameProjectionStatsByWeek/{season}/{week}:
+    get:
+      description: SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, called by week.
+      operationId: nfl_v3_projections_projected_player_game_stats___by_week
+      summary: Projected Player Game Stats - by Week
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+        required: true
+        schema:
+          type: string
+      - name: week
+        in: path
+        description: "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerGameProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Projections
+  /v3/nfl/projections/{format}/DfsSlatesByDate/{date}:
+    get:
+      description: Returns DFS slates, including eligible games, positions, captain mode, players and salaries, for a given date.
+      operationId: nfl_v3_projections_dfs_slates___by_date
+      summary: DFS Slates - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the slates.
+
+          <br>Examples: <code>2017-SEP-25</code>, <code>2017-10-31</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DfsSlate'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Projections
+  /v3/nfl/projections/{format}/DfsSlatesByWeek/{season}/{week}:
+    get:
+      description: Returns DFS slates, including eligible games, positions, captain mode, players and salaries, for a given week.
+      operationId: nfl_v3_projections_dfs_slates___by_week
+      summary: DFS Slates - by Week
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>"
+        required: true
+        schema:
+          type: string
+      - name: week
+        in: path
+        description: "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>"
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DfsSlate'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Projections
+  /v3/nfl/projections/{format}/IdpPlayerGameProjectionStatsByWeek/{season}/{week}:
+    get:
+      description: Individual Defensive Player (IDP stats, including DFS salary information and injuries, for fantasy players, called by week.
+      operationId: nfl_v3_projections_idp_projected_player_game_stats___by_week
+      summary: IDP Projected Player Game Stats - by Week
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+        required: true
+        schema:
+          type: string
+      - name: week
+        in: path
+        description: "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerGameProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Projections
+  /v3/nfl/projections/{format}/IdpPlayerGameProjectionStatsByTeam/{season}/{week}/{team}:
+    get:
+      description: Individual Defensive Player (IDP stats, including DFS salary information and injuries, for fantasy players, called by team.
+      operationId: nfl_v3_projections_idp_projected_player_game_stats___by_team
+      summary: IDP Projected Player Game Stats - by Team
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+        required: true
+        schema:
+          type: string
+      - name: week
+        in: path
+        description: "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+        required: true
+        schema:
+          type: string
+      - name: team
+        in: path
+        description: 'Abbreviation of the team. Example: <code>WAS</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerGameProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Projections
+  /v3/nfl/projections/{format}/UpcomingDfsSlateOwnershipProjections:
+    get:
+      description: Returns DFS Slates which have not yet started for which we have DFS Ownership projections.
+      operationId: nfl_v3_projections_dfs_slate_ownership_projections___upcoming
+      summary: DFS Slate Ownership Projections - Upcoming
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DfsSlateWithOwnershipProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Projections
+  /v3/nfl/projections/{format}/DfsSlateOwnershipProjectionsBySlateID/{slateId}:
+    get:
+      description: Slate Ownership Projections for a specific slate. Projections are for Guaranteed Prize Pool (GPP) format ownership. Will return an empty list if the slate is not yet projected or not a slate we have projections for.
+      operationId: nfl_v3_projections_dfs_slate_ownership_projections___by_slate
+      summary: DFS Slate Ownership Projections - by Slate
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: slateId
+        in: path
+        description: SlateID of the DFS Slate you wish to get ownership projections for. Will have an empty SlateOwnershipProjections if this slate was not projected
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DfsSlateWithOwnershipProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Projections
+  /v3/nfl/projections/{format}/InjuredPlayers:
+    get:
+      description: This endpoint provides all currently injured NFL players, along with injury details.
+      operationId: nfl_v3_projections_player_details___by_injured
+      summary: Player Details - by Injured
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Projections
+components:
+  schemas:
+    FantasyDefenseGameProjection:
+      properties:
+        GameKey:
+          type:
+          - string
+          - 'null'
+          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks'
+        SeasonType:
+          type: integer
+          description: The type of season that this player corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+        Season:
+          type: integer
+          description: The NFL season of the game
+        Week:
+          type:
+          - integer
+          - 'null'
+          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
+        Date:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the opponent team
+        PointsAllowed:
+          type: number
+          description: Total points allowed by the team during the game
+        TouchdownsScored:
+          type: number
+          description: Total defensive and special teams touchdowns scored by the team in the game
+        SoloTackles:
+          type: number
+          description: Total defensive solo (unassisted) tackles by the team in the game
+        AssistedTackles:
+          type: number
+          description: Total defensive assisted tackles by the team in the game
+        Sacks:
+          type: number
+          description: Total defensive sacks by the team in the game
+        SackYards:
+          type: number
+          description: Total defensive sack yards by the team in the game
+        PassesDefended:
+          type: number
+          description: Total passes defended by the team in the game
+        FumblesForced:
+          type: number
+          description: Total fumbles forced on defense by the team in the game
+        FumblesRecovered:
+          type: number
+          description: Total defensive fumble recoveries by the team in the game
+        FumbleReturnYards:
+          type: number
+          description: Total fumble return yards by the team in the game
+        FumbleReturnTouchdowns:
+          type: number
+          description: Total fumble return touchdowns by the team in the game
+        Interceptions:
+          type: number
+          description: Total defensive interceptions by the team in the game
+        InterceptionReturnYards:
+          type: number
+          description: Total defensive interception return yards by the team in the game
+        InterceptionReturnTouchdowns:
+          type: number
+          description: Total defensive interception return touchdowns by the team in the game
+        BlockedKicks:
+          type: number
+          description: 'Total blocked kicks by team in the game. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points'
+        Safeties:
+          type: number
+          description: Total defensive safeties scored by the team in the game
+        PuntReturns:
+          type: number
+          description: Total punt returns by the team in the game
+        PuntReturnYards:
+          type: number
+          description: Total punt return yards by the team in the game
+        PuntReturnTouchdowns:
+          type: number
+          description: Total punt return touchdowns by the team in the game
+        PuntReturnLong:
+          type: number
+          description: The longest punt return by the team in the game
+        KickReturns:
+          type: number
+          description: Total kickoff returns by the team in the game
+        KickReturnYards:
+          type: number
+          description: Total kickoff return yards by the team in the game
+        KickReturnTouchdowns:
+          type: number
+          description: Total kickoff return touchdowns by the team in the game
+        KickReturnLong:
+          type: number
+          description: Longest kick return by the team in the game
+        BlockedKickReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return touchdowns for the team in the game
+        FieldGoalReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return touchdowns by the team in the game. Note: This field excludes blocked field goals'
+        FantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'Fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
+        QuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opposing quarterbacks by the team in the game
+        RunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points allowed to opposing running backs by the team in the game
+        WideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opposing wide receivers
+        TightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opposing tight ends by the team in the game
+        KickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opponent kickers by the team in the game
+        BlockedKickReturnYards:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return yards for the team in the game
+        FieldGoalReturnYards:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return yards by the team in the game. Note: This field excludes blocked field goals'
+        QuarterbackHits:
+          type:
+          - number
+          - 'null'
+          description: 'Total quarterback hits by the team in the game. Note: This is a defensive stat that includes sacks'
+        TacklesForLoss:
+          type:
+          - number
+          - 'null'
+          description: 'Total tackles for loss by the team in the game. Note: These are tackles behind the line of scrimmage for loss of yards (including sacks)'
+        DefensiveTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total touchdowns scored by the defense
+        SpecialTeamsTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total special teams touchdowns scored by the team in the game
+        IsGameOver:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the game is over (true/false)
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points scored based on basic fantasy scoring system by the team's D/ST in the game
+        Stadium:
+          type:
+          - string
+          - 'null'
+          description: Stadium of the event
+        Temperature:
+          type:
+          - integer
+          - 'null'
+          description: Temperature at game start (Fahrenheit)
+        Humidity:
+          type:
+          - integer
+          - 'null'
+          description: The humidity percentage at the start of the game
+        WindSpeed:
+          type:
+          - integer
+          - 'null'
+          description: The wind speed at the start of the game (in MPH)
+        ThirdDownAttempts:
+          type:
+          - number
+          - 'null'
+          description: Total third down attempts against the team in the game
+        ThirdDownConversions:
+          type:
+          - number
+          - 'null'
+          description: Total third down conversions against the team in the game
+        FourthDownAttempts:
+          type:
+          - number
+          - 'null'
+          description: Opponent's fourth down attempts against the team in the game
+        FourthDownConversions:
+          type:
+          - number
+          - 'null'
+          description: Opponent's fourth down conversions against the team in the game
+        PointsAllowedByDefenseSpecialTeams:
+          type:
+          - number
+          - 'null'
+          description: 'Total number of points allowed by the team in the game to the opposing offense and special teams. Note: This field excludes points scored by the opponent''s defense'
+        FanDuelSalary:
+          type:
+          - integer
+          - 'null'
+          description: The team's D/ST salary for FanDuel daily fantasy contests
+        DraftKingsSalary:
+          type:
+          - integer
+          - 'null'
+          description: The team's D/ST salary for DraftKings daily fantasy contests.
+        FantasyDataSalary:
+          type:
+          - integer
+          - 'null'
+          description: The team's D/ST salary as calculated by SportsDataIO (formerly known as FantasyData). Based on the same salary cap as DraftKings contests ($50,000)
+        VictivSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Victiv daily fantasy contests.
+        TwoPointConversionReturns:
+          type:
+          - number
+          - 'null'
+          description: Total successful two point conversion returns by the team in the game
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FanDuel's scoring system by the team in the game
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on DraftKings' scoring system by the team in the game
+        OffensiveYardsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Offensive yards allowed by the team's defense in the game
+        YahooSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Yahoo daily fantasy contests
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO for use when combining with player feeds. Note: this ID will stay with the player throughout their entire career'
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on Yahoo's daily fantasy scoring system by the team in the game
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        OpponentRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the opposing team's offense with regards to fantasy points allowed to fantasy DST
+        OpponentPositionRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the opposing team's offense with regards to fantasy points allowed to fantasy DST
+        FantasyDraftSalary:
+          type:
+          - integer
+          - 'null'
+          description: The team's D/ST salary for FantasyDraft daily fantasy contests.
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        OpponentID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this opponent team
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game (in US Eastern Time)
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        GlobalOpponentID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team's opponent. This value is guaranteed to be unique across all sports/leagues
+        DraftKingsPosition:
+          type:
+          - string
+          - 'null'
+          description: The position of this team's D/ST; as listed by DraftKings.
+        FanDuelPosition:
+          type:
+          - string
+          - 'null'
+          description: The position of this team's D/ST; as listed by FanDuel.
+        FantasyDraftPosition:
+          type:
+          - string
+          - 'null'
+          description: The position of this team's D/ST; as listed by FantasyDraft
+        YahooPosition:
+          type:
+          - string
+          - 'null'
+          description: The position of the team's defense/special teams unit, as listed on Yahoo's daily fantasy sports platform
+        FantasyDefenseID:
+          type:
+          - integer
+          - 'null'
+          description: '"Unique ID of FantasyDefense record (subject to change; although it very rarely does).  Note: For a guaranteed static ID; use a combination of GameKey and Team"'
+        ScoreID:
+          type: integer
+          description: Unique ID of the score/game
+        FanDuelFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'FanDuel fantasy points allowed to opposing offensive players in the game. Note: positions include: QB; RB; WR; TE'
+        FanDuelQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing quarterbacks in the game
+        FanDuelRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing running backs in the game
+        FanDuelWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing wide receivers in the game
+        FanDuelTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing tight ends in the game
+        FanDuelKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing kickers in the game
+        DraftKingsFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'DraftKings fantasy points allowed to opposing offensive players in the game. Note: positions include: QB; RB; WR; TE'
+        DraftKingsQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent quarterbacks in the game
+        DraftKingsRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent running backs in the game
+        DraftKingsWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent wide receivers in the game
+        DraftKingsTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent tight ends in the game
+        DraftKingsKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed to opposing kickers
+        YahooFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'Total Yahoo fantasy points allowed to opposing offensive players by the team in the game. Note: Offensive players include: QB, RB, WR, & TE'
+        YahooQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing quarterbacks by the team in the game
+        YahooRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing running backs by the team in the game
+        YahooWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing wide receivers by the team in the game
+        YahooTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing tight ends by the team in the game
+        YahooKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing kickers by the team in the game
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FantasyDraft's scoring system by the team in the game
+        FantasyDraftFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'FantasyDraft fantasy points allowed to opposing offensive players in the game. Note: positions include: QB; RB; WR; TE'
+        FantasyDraftQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing quarterbacks in the game
+        FantasyDraftRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing running backs in the game
+        FantasyDraftWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing wide receivers in the game
+        FantasyDraftTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing tight ends in the game
+        FantasyDraftKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing kickers in the game
+        ScoringDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoringDetail'
+          description: The details of the scoring plays this team DST recorded in the game
+    ScoringDetail:
+      properties:
+        GameKey:
+          type:
+          - string
+          - 'null'
+          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks'
+        SeasonType:
+          type: integer
+          description: The type of season that this game corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO tied to this scoring detail. Note: this ID will stay with the player throughout their entire career'
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Season:
+          type: integer
+          description: The season during which the score happened
+        Week:
+          type: integer
+          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
+        ScoringType:
+          type:
+          - string
+          - 'null'
+          description: The type of scoring play (e.g. BlockedFieldGoalReturnTouchdown, BlockedPuntReturnTouchdown, FieldGoalMade, FieldGoalReturnTouchdown, FumbleReturnTouchdown, InterceptionReturnTouchdown, KickoffReturnTouchdown, PassingTouchdown, PuntReturnTouchdown, ReceivingTouchdown, RushingTouchdown, Safety)
+        Length:
+          type: integer
+          description: The length in yards of the score
+        ScoringDetailID:
+          type: integer
+          description: Unique ID of this scoring detail
+        PlayerGameID:
+          type: integer
+          description: Unique ID of the PlayerGame record tied to this scoring detail
+        ScoreID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of the score/game
+        ScoringPlayID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of the scoring play
+    PlayerSeasonProjection:
+      properties:
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        SeasonType:
+          type: integer
+          description: The type of season that this player corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+        Season:
+          type: integer
+          description: The NFL season for which these totals apply
+        Team:
+          type:
+          - string
+          - 'null'
+          description: 'The abbreviation [Key] of the team that the player is on. Note: If this player is a free agent; this field is NULL'
+        Number:
+          type: integer
+          description: Player's jersey number
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Player's full name
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The primary position of the player. Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR'
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: The category of the player's position (OFF; DEF; ST)
+        Activated:
+          type: integer
+          description: The total number of games that the player was active for in the season
+        Played:
+          type: integer
+          description: The total number of games played by the the player in the season
+        Started:
+          type: integer
+          description: Total games started (on offense or defense) by the player in the season
+        PassingAttempts:
+          type: number
+          description: Total passes thrown by the player in the season
+        PassingCompletions:
+          type: number
+          description: Total passes completed by the player in the season
+        PassingYards:
+          type: number
+          description: Total passing yards by the player in the season
+        PassingCompletionPercentage:
+          type: number
+          description: The percentage of passes completed by the player in the season
+        PassingYardsPerAttempt:
+          type: number
+          description: Total average passing yards per attempt by the player in the season
+        PassingYardsPerCompletion:
+          type: number
+          description: Total average passing yards per completion by the player in the season
+        PassingTouchdowns:
+          type: number
+          description: Total passing touchdowns by the player in the season
+        PassingInterceptions:
+          type: number
+          description: Total interceptions thrown by the player in the season
+        PassingRating:
+          type: number
+          description: The passer rating of the player in the season
+        PassingLong:
+          type: number
+          description: Total yards of longest completion by the player in the season
+        PassingSacks:
+          type: number
+          description: The total number of times the player was sacked in the season
+        PassingSackYards:
+          type: number
+          description: Total yards lost by the player in the season as a result of being sacked
+        RushingAttempts:
+          type: number
+          description: Total rushing attempts by the player in the season
+        RushingYards:
+          type: number
+          description: Total rushing yards by the player in the season
+        RushingYardsPerAttempt:
+          type: number
+          description: Total rushing yards per attempt by the player in the season
+        RushingTouchdowns:
+          type: number
+          description: Total rushing touchdowns by the player in the season
+        RushingLong:
+          type: number
+          description: The longest rush by the player in the season
+        ReceivingTargets:
+          type:
+          - number
+          - 'null'
+          description: Total receiving targets by the player in the season
+        Receptions:
+          type: number
+          description: Total receptions by the player in the season
+        ReceivingYards:
+          type: number
+          description: Total receiving yards by the player in the season
+        ReceivingYardsPerReception:
+          type: number
+          description: Average receiving yards per reception by the player in the season
+        ReceivingTouchdowns:
+          type: number
+          description: Total receiving touchdowns by the player in the season
+        ReceivingLong:
+          type: number
+          description: The longest reception by the player in the season
+        Fumbles:
+          type: number
+          description: Total fumbles by the player in the season
+        FumblesLost:
+          type:
+          - number
+          - 'null'
+          description: Total fumbles lost by the player in the season
+        PuntReturns:
+          type: number
+          description: Total punt returns by the player in the season
+        PuntReturnYards:
+          type: number
+          description: Total punt return yards by the player in the season
+        PuntReturnYardsPerAttempt:
+          type: number
+          description: Total average yards gained per punt return by the player in the season
+        PuntReturnTouchdowns:
+          type: number
+          description: Total punt return touchdowns by the player in the season
+        PuntReturnLong:
+          type: number
+          description: The longest punt return by the player in the season
+        KickReturns:
+          type: number
+          description: Total kickoff returns by the player in the season
+        KickReturnYards:
+          type: number
+          description: Total kickoff return yards by the player in the season
+        KickReturnYardsPerAttempt:
+          type: number
+          description: Average yards gained per kick return by the player in the season
+        KickReturnTouchdowns:
+          type: number
+          description: Total kickoff return touchdowns by the player in the season
+        KickReturnLong:
+          type: number
+          description: Longest kick return by the player in the season
+        SoloTackles:
+          type: number
+          description: Total defensive solo (unassisted) tackles by the player in the season
+        AssistedTackles:
+          type: number
+          description: Total defensive assisted tackles by the player in the season
+        TacklesForLoss:
+          type:
+          - number
+          - 'null'
+          description: 'Total tackles for loss by the player in the season. Note: these are tackles behind the line of scrimmage for loss of yards (including sacks)'
+        Sacks:
+          type: number
+          description: Total defensive sacks by the player in the season
+        SackYards:
+          type: number
+          description: Total defensive safeties scored by the player in the season
+        QuarterbackHits:
+          type:
+          - number
+          - 'null'
+          description: 'Total quarterback hits by the player in the season. Note: This is a defensive stat that includes sacks'
+        PassesDefended:
+          type: number
+          description: Total passes defended by the player in the season
+        FumblesForced:
+          type: number
+          description: Total fumbles forced on defense by the player in the season
+        FumblesRecovered:
+          type: number
+          description: Total defensive fumble recoveries by the player in the season
+        FumbleReturnYards:
+          type: number
+          description: Total fumble return yards by the player in the season
+        FumbleReturnTouchdowns:
+          type: number
+          description: Total fumble return touchdowns by the player in the season
+        Interceptions:
+          type: number
+          description: Total defensive interceptions by the player in the season
+        InterceptionReturnYards:
+          type: number
+          description: Total defensive interception return yards by the player in the season
+        InterceptionReturnTouchdowns:
+          type: number
+          description: Total defensive interception return touchdowns by the player in the season
+        BlockedKicks:
+          type: number
+          description: 'Total blocked kicks by the player in the season. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points'
+        SpecialTeamsSoloTackles:
+          type: number
+          description: This field is deprecated
+        SpecialTeamsAssistedTackles:
+          type: number
+          description: This field is deprecated
+        MiscSoloTackles:
+          type: number
+          description: This field is deprecated
+        MiscAssistedTackles:
+          type: number
+          description: This field is deprecated
+        Punts:
+          type: number
+          description: Total number of punts by the player in the season
+        PuntYards:
+          type: number
+          description: Total punt yards by the player in the season
+        PuntAverage:
+          type: number
+          description: The average number of yards per punt by the player in the season
+        FieldGoalsAttempted:
+          type: number
+          description: Total field goals attempted by the player in the season
+        FieldGoalsMade:
+          type: number
+          description: Total field goals made by the player in season
+        FieldGoalsLongestMade:
+          type: number
+          description: Longest field goal made by the player in the season
+        ExtraPointsMade:
+          type: number
+          description: Total extra points made by the player in the season
+        TwoPointConversionPasses:
+          type: number
+          description: Total successful two point conversion passes by the player in the season
+        TwoPointConversionRuns:
+          type: number
+          description: Total successful two point conversion rushes by the player in the season
+        TwoPointConversionReceptions:
+          type: number
+          description: Total successful two point conversion receptions by the player in the season
+        FantasyPoints:
+          type: number
+          description: Fantasy points scored based on basic fantasy scoring system by the player in the season
+        FantasyPointsPPR:
+          type: number
+          description: Fantasy points scored based on basic PPR fantasy scoring system by the player in the season
+        ReceptionPercentage:
+          type: number
+          description: Total percentage of receiving targets that were receptions by the player in the season
+        ReceivingYardsPerTarget:
+          type: number
+          description: Average receiving yards per target by the player in the season
+        Tackles:
+          type: number
+          description: Total tackles (solo & assisted) by the player in the season
+        OffensiveTouchdowns:
+          type: number
+          description: Total offensive touchdowns scored by the player in the season
+        DefensiveTouchdowns:
+          type: number
+          description: Total defensive touchdowns scored by the player in the season
+        SpecialTeamsTouchdowns:
+          type: number
+          description: Total special teams touchdowns scored by the player in the season
+        Touchdowns:
+          type: number
+          description: Total touchdowns scored by the player in the season
+        FantasyPosition:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s fantasy football position. Possible values: QB, RB, WR, TE, DL, LB, DB, K, P, OL'
+        FieldGoalPercentage:
+          type: number
+          description: Total field goal attempts made by the player in the season
+        PlayerSeasonID:
+          type: integer
+          description: Unique ID of PlayerSeason record (subject to change, although it very rarely does).  For a static ID, use a combination of SeasonType, Season and PlayerID.
+        FumblesOwnRecoveries:
+          type:
+          - number
+          - 'null'
+          description: 'Total own fumble recoveries by the player in the season. Note: this fumble doesn''t result in a turnover - the fumbling team recovers the fumble'
+        FumblesOutOfBounds:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        KickReturnFairCatches:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        PuntReturnFairCatches:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated.
+        PuntTouchbacks:
+          type:
+          - number
+          - 'null'
+          description: Total punts that resulted in touchbacks by the player in the season
+        PuntInside20:
+          type:
+          - number
+          - 'null'
+          description: Total punts downed inside the 20 yard line by the player in the season
+        PuntNetAverage:
+          type:
+          - number
+          - 'null'
+          description: The average net yards per punt by the player in the season
+        ExtraPointsAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total extra point kicks attempted by the player in the season
+        BlockedKickReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return touchdowns for the player in the season
+        FieldGoalReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return touchdowns by the player in the season. Note: This field excludes blocked field goals'
+        Safeties:
+          type:
+          - number
+          - 'null'
+          description: Defensive safeties (sacks in end zone, solo tackles in end zone, blocked kicks that went out of bounds in the end zone)
+        FieldGoalsHadBlocked:
+          type:
+          - number
+          - 'null'
+          description: Total field goals by the player that were blocked in the season
+        PuntsHadBlocked:
+          type:
+          - number
+          - 'null'
+          description: Total punts by the player that were blocked in the season
+        ExtraPointsHadBlocked:
+          type:
+          - number
+          - 'null'
+          description: Total extra point kick attempts by the player that were blocked in the season
+        PuntLong:
+          type:
+          - number
+          - 'null'
+          description: The longest punt by the player in the season
+        BlockedKickReturnYards:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return yards for the player in the season
+        FieldGoalReturnYards:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return yards by the player in the season. Note: This field excludes blocked field goals'
+        PuntNetYards:
+          type:
+          - number
+          - 'null'
+          description: The net yards of the punts by the player in the season
+        SpecialTeamsFumblesForced:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        SpecialTeamsFumblesRecovered:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        MiscFumblesForced:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        MiscFumblesRecovered:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        ShortName:
+          type:
+          - string
+          - 'null'
+          description: The first initial and last name of the player (J. Doe)
+        SafetiesAllowed:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        Temperature:
+          type:
+          - integer
+          - 'null'
+          description: Temperature at game start (Fahrenheit)
+        Humidity:
+          type:
+          - integer
+          - 'null'
+          description: The humidity percentage at the start of the game
+        WindSpeed:
+          type:
+          - integer
+          - 'null'
+          description: The wind speed at the start of the game (in MPH)
+        OffensiveSnapsPlayed:
+          type:
+          - integer
+          - 'null'
+          description: 'Total snaps this player played on offensive in the season. Note: Snap counts are available the morning after the game.'
+        DefensiveSnapsPlayed:
+          type:
+          - integer
+          - 'null'
+          description: 'Total snaps this player played on defense in the season. Note: Snap counts are available the morning after the game.'
+        SpecialTeamsSnapsPlayed:
+          type:
+          - integer
+          - 'null'
+          description: 'Total snaps this player played on special teams in the season. Note: Snap counts are available the morning after the game.'
+        OffensiveTeamSnaps:
+          type:
+          - integer
+          - 'null'
+          description: 'Total offensive snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
+        DefensiveTeamSnaps:
+          type:
+          - integer
+          - 'null'
+          description: 'Total defensive snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
+        SpecialTeamsTeamSnaps:
+          type:
+          - integer
+          - 'null'
+          description: 'Total special teams snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
+        AuctionValue:
+          type:
+          - number
+          - 'null'
+          description: Player's dollar value in a $200 salary cap auction draft.
+        AuctionValuePPR:
+          type:
+          - number
+          - 'null'
+          description: Player's dollar value in a $200 salary cap PPR auction draft.
+        TwoPointConversionReturns:
+          type:
+          - number
+          - 'null'
+          description: Total successful two point conversion returns by the player in the season
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FanDuel's scoring system by the player in the season
+        FieldGoalsMade0to19:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 0 to 19 yards made by the player in season
+        FieldGoalsMade20to29:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 20 to 29 yards made by the player in season
+        FieldGoalsMade30to39:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 30 to 39 yards made by the player in season
+        FieldGoalsMade40to49:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 40 to 49 yards made by the player in season
+        FieldGoalsMade50Plus:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 50+ yards made by the player in season
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on DraftKings' scoring system by the player in the season
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on Yahoo's daily fantasy scoring system by the player in the season
+        AverageDraftPosition:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of the player in re-draft leagues
+        AverageDraftPositionPPR:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of this player in Points Per Reception (PPR) leagues.
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL'
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FantasyDraft's scoring system by the player in the season
+        ScoringDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoringDetail'
+          description: The details of the scoring plays this player recorded in the season
+        AverageDraftPositionRookie:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of this rookie in Points Per Reception (PPR) leagues.
+        AverageDraftPositionDynasty:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of this player in dynasty drafts leagues
+        AverageDraftPosition2QB:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of this player in 2 Quarterback leagues
+        OffensiveFumbleRecoveryTouchdowns:
+          type:
+          - integer
+          - 'null'
+          description: This field is deprecated
+    Schedule:
+      properties:
+        GameKey:
+          type:
+          - string
+          - 'null'
+          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks'
+        SeasonType:
+          type: integer
+          description: The type of season that this game corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+        Season:
+          type: integer
+          description: The NFL season of the game
+        Week:
+          type: integer
+          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
+        Date:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        Channel:
+          type:
+          - string
+          - 'null'
+          description: The television station broadcasting the game
+        PointSpread:
+          type:
+          - number
+          - 'null'
+          description: The oddsmaker point spread at game start from the perspective of the team (negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored)
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The total points line (over/under) at game start
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team's current home stadium
+        Canceled:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether the game was canceled
+        GeoLat:
+          type:
+          - number
+          - 'null'
+          description: The geographic latitude coordinate of the venue where the game is taking place
+        GeoLong:
+          type:
+          - number
+          - 'null'
+          description: The geographic longitude coordinate of the venue where the game is taking place
+        ForecastTempLow:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted low temperature on game day at this venue (Fahrenheit).
+        ForecastTempHigh:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted high temperature on game day at this venue (Fahrenheit).
+        ForecastDescription:
+          type:
+          - string
+          - 'null'
+          description: The forecast description on game day at this venue.
+        ForecastWindChill:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted wind chill on game day at this venue.
+        ForecastWindSpeed:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted wind speed on game day at this venue.
+        AwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's moneyline for the away team
+        HomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's moneyline for the home team
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game (in US Eastern Time)
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues
+        GlobalAwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues
+        GlobalHomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues
+        ScoreID:
+          type: integer
+          description: Unique ID of the score/game
+        StadiumDetails:
+          $ref: '#/components/schemas/Stadium'
+          description: The details of the stadium where this game is played
+        Status:
+          type:
+          - string
+          - 'null'
+          description: The status of the game. For a description of possible values, see <a href="https://support.sportsdata.io/hc/en-us/articles/14287629964567-Process-Guide-Game-Status" target="_blank">here.</a> For how suspended and postponed games are handled specifically, see <a href="https://support.sportsdata.io/hc/en-us/articles/4404845580567-Postponed-and-Rescheduled-Games" target="_blank">here</a>.
+        IsClosed:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether the game is over and the final score has been verified and closed out.
+        DateTimeUTC:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in UTC)
+    DfsSlatePlayerOwnershipProjection:
+      properties:
+        SlateID:
+          type: integer
+          description: Unique ID of a Slate (assigned by SportsDataIO).
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of the Associated Player (can be null when it is a Team Defense)
+        FantasyDefensePlayerID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of the Team Defense (only set for Team Defenses)
+        ProjectedOwnershipPercentage:
+          type: number
+          description: Projected Ownership Percentage (0-100)
+        IsCaptain:
+          type: boolean
+          description: Indicates if this is the MVP/Captain slot for single game slates
+    DfsSlateGame:
+      properties:
+        SlateGameID:
+          type: integer
+          description: Unique ID of a SlateGame (assigned by SportsDataIO).
+        SlateID:
+          type: integer
+          description: Unique ID of a Slate (assigned by SportsDataIO).
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this game tied to this SlateGame
+        OperatorGameID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of a SlateGame (assigned by the operator)
+        RemovedByOperator:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this game was removed/deleted by the operator.
+        ScoreID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of the Score/Game
+        Game:
+          $ref: '#/components/schemas/Schedule'
+          description: The details of the Score/Game that this SlateGame refers to
+    Stadium:
+      properties:
+        StadiumID:
+          type: integer
+          description: The unique ID of the stadium
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The full name of the stadium
+        City:
+          type:
+          - string
+          - 'null'
+          description: The city where the stadium is located
+        State:
+          type:
+          - string
+          - 'null'
+          description: The city where the venue is located
+        Country:
+          type:
+          - string
+          - 'null'
+          description: The 3-digit country code where the stadium is located
+        Capacity:
+          type:
+          - integer
+          - 'null'
+          description: The estimated seating capacity of the stadium
+        PlayingSurface:
+          type:
+          - string
+          - 'null'
+          description: The playing surface of the stadium (Grass, Artificial or Dome)
+        GeoLat:
+          type:
+          - number
+          - 'null'
+          description: The geographic latitude coordinate of this venue
+        GeoLong:
+          type:
+          - number
+          - 'null'
+          description: The geographic longitude coordinate of this venue.
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'The type of the stadium (possible values: Outdoor, Dome, RetractableDome)'
+    PlayerGameProjection:
+      properties:
+        GameKey:
+          type:
+          - string
+          - 'null'
+          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam.. Note: This value will be NULL for bye weeks'
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        SeasonType:
+          type: integer
+          description: The type of season that this player corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+        Season:
+          type: integer
+          description: The NFL season of the game
+        GameDate:
+          type:
+          - string
+          - 'null'
+          description: The date and time the game is scheduled to start
+        Week:
+          type: integer
+          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
+        Team:
+          type:
+          - string
+          - 'null'
+          description: 'The abbreviation [Key] of the team that the player is on. Note: if this player is a free agent; this field is NULL'
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the opponent team
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        Number:
+          type: integer
+          description: Player's jersey number
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Player's full name
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The primary position of the player. Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR'
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: The category of the player's position (OFF; DEF; ST)
+        Activated:
+          type: integer
+          description: Whether or not the player was active for the game
+        Played:
+          type: integer
+          description: 'Whether the player played at least one snap in the game Note: Will return "1" if player played at least one snap and "0" if they did not'
+        Started:
+          type: integer
+          description: 'Whether the player started the game (on offensive or defense). Note: Started = 1 / Did Not Start = 0'
+        PassingAttempts:
+          type: number
+          description: Total passes thrown by the player in the game
+        PassingCompletions:
+          type: number
+          description: Total passes completed by the player in the game
+        PassingYards:
+          type: number
+          description: Total passing yards by the player in the game
+        PassingCompletionPercentage:
+          type: number
+          description: The percentage of passes completed by the player in the game
+        PassingYardsPerAttempt:
+          type: number
+          description: Total average passing yards per attempt by the player in the game
+        PassingYardsPerCompletion:
+          type: number
+          description: Total average passing yards per completion by the player in the game
+        PassingTouchdowns:
+          type: number
+          description: Total passing touchdowns by the player in the game
+        PassingInterceptions:
+          type: number
+          description: Total interceptions thrown by the player in the game
+        PassingRating:
+          type: number
+          description: The passer rating of the player in the game
+        PassingLong:
+          type: number
+          description: Total yards of longest completion by the player in the game
+        PassingSacks:
+          type: number
+          description: The total number of times the player was sacked in the game
+        PassingSackYards:
+          type: number
+          description: Total yards lost by the player in the game as a result of being sacked
+        RushingAttempts:
+          type: number
+          description: Total rushing attempts by the player in the game
+        RushingYards:
+          type: number
+          description: Total rushing yards by the player in the game
+        RushingYardsPerAttempt:
+          type: number
+          description: Total rushing yards per attempt by the player in the game
+        RushingTouchdowns:
+          type: number
+          description: Total rushing touchdowns by the player in the game
+        RushingLong:
+          type: number
+          description: The longest rush by the player in the game
+        ReceivingTargets:
+          type:
+          - number
+          - 'null'
+          description: Total receiving targets by the player in the game
+        Receptions:
+          type: number
+          description: Total receptions by the player in the game
+        ReceivingYards:
+          type: number
+          description: Total receiving yards by the player in the game
+        ReceivingYardsPerReception:
+          type: number
+          description: Average receiving yards per reception by the player in the game
+        ReceivingTouchdowns:
+          type: number
+          description: Total receiving touchdowns by the player in the game
+        ReceivingLong:
+          type: number
+          description: The longest reception by the player in the game
+        Fumbles:
+          type: number
+          description: Total fumbles by the player in the game
+        FumblesLost:
+          type:
+          - number
+          - 'null'
+          description: Total fumbles lost by the player in the game
+        PuntReturns:
+          type: number
+          description: Total punt returns by the player in the game
+        PuntReturnYards:
+          type: number
+          description: Total punt return yards by the player in the game
+        PuntReturnYardsPerAttempt:
+          type: number
+          description: Total average yards gained per punt return by the player in the game
+        PuntReturnTouchdowns:
+          type: number
+          description: Total punt return touchdowns by the player in the game
+        PuntReturnLong:
+          type: number
+          description: The longest punt return by the player in the game
+        KickReturns:
+          type: number
+          description: Total kickoff returns by the player in the game
+        KickReturnYards:
+          type: number
+          description: Total kickoff return yards by the player in the game
+        KickReturnYardsPerAttempt:
+          type: number
+          description: Average yards gained per kick return by the player in the game
+        KickReturnTouchdowns:
+          type: number
+          description: Total kickoff return touchdowns by the player in the game
+        KickReturnLong:
+          type: number
+          description: Longest kick return by the player in the game
+        SoloTackles:
+          type: number
+          description: Total defensive solo (unassisted) tackles by the player in the game
+        AssistedTackles:
+          type: number
+          description: Total defensive assisted tackles by the player in the game
+        TacklesForLoss:
+          type:
+          - number
+          - 'null'
+          description: 'Total tackles for loss by the player in the game. Note: these are tackles behind the line of scrimmage for loss of yards (including sacks)'
+        Sacks:
+          type: number
+          description: Total defensive sacks by the player in the game
+        SackYards:
+          type: number
+          description: Total defensive sacks yards by the player in the game
+        QuarterbackHits:
+          type:
+          - number
+          - 'null'
+          description: 'Total quarterback hits by the player in the game. Note: This is a defensive stat that includes sacks'
+        PassesDefended:
+          type: number
+          description: Total passes defended by the player in the game
+        FumblesForced:
+          type: number
+          description: Total fumbles forced on defense by the player in the game
+        FumblesRecovered:
+          type: number
+          description: Total defensive fumble recoveries by the player in the game
+        FumbleReturnYards:
+          type: number
+          description: Total fumble return yards by the player in the game
+        FumbleReturnTouchdowns:
+          type: number
+          description: Total fumble return touchdowns by the player in the game
+        Interceptions:
+          type: number
+          description: Total defensive interceptions by the player in the game
+        InterceptionReturnYards:
+          type: number
+          description: Total defensive interception return yards by the player in the game
+        InterceptionReturnTouchdowns:
+          type: number
+          description: Total defensive interception return touchdowns by the player in the game
+        BlockedKicks:
+          type: number
+          description: 'Total blocked kicks by the player in the game. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points'
+        SpecialTeamsSoloTackles:
+          type: number
+          description: This field is deprecated
+        SpecialTeamsAssistedTackles:
+          type: number
+          description: This field is deprecated
+        MiscSoloTackles:
+          type: number
+          description: This field is deprecated
+        MiscAssistedTackles:
+          type: number
+          description: This field is deprecated
+        Punts:
+          type: number
+          description: Total number of punts by the player in the game
+        PuntYards:
+          type: number
+          description: Total punt yards by the player in the game
+        PuntAverage:
+          type: number
+          description: The average number of yards per punt by the player in the game
+        FieldGoalsAttempted:
+          type: number
+          description: Total field goals attempted by the player in the game
+        FieldGoalsMade:
+          type: number
+          description: Total field goals made by the player in game
+        FieldGoalsLongestMade:
+          type: number
+          description: Longest field goal made by the player in the game
+        ExtraPointsMade:
+          type: number
+          description: Total extra points made by the player in the game
+        TwoPointConversionPasses:
+          type: number
+          description: Total successful two point conversion passes by the player in the game
+        TwoPointConversionRuns:
+          type: number
+          description: Total successful two point conversion rushes by the player in the game
+        TwoPointConversionReceptions:
+          type: number
+          description: Total successful two point conversion receptions by the player in the game
+        FantasyPoints:
+          type: number
+          description: Fantasy points scored based on basic fantasy scoring system by the player in the game
+        FantasyPointsPPR:
+          type: number
+          description: This field is expected to be NULL
+        ReceptionPercentage:
+          type: number
+          description: Total percentage of receiving targets that were receptions by the player in the game
+        ReceivingYardsPerTarget:
+          type: number
+          description: Average receiving yards per target by the player in the game
+        Tackles:
+          type: number
+          description: Total tackles (solo & assisted) by the player in the game
+        OffensiveTouchdowns:
+          type: number
+          description: Total offensive touchdowns scored by the player in the game
+        DefensiveTouchdowns:
+          type: number
+          description: Total defensive touchdowns scored by the player in the game
+        SpecialTeamsTouchdowns:
+          type: number
+          description: Total special teams touchdowns scored by the player in the game
+        Touchdowns:
+          type: number
+          description: Total touchdowns scored by the player in the game (excludes passing touchdowns)
+        FantasyPosition:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s fantasy football position. Possible values: QB; RB; WR; TE; DL; LB; DB; K; P; OL'
+        FieldGoalPercentage:
+          type: number
+          description: Total field goal attempts made by the player in the game
+        PlayerGameID:
+          type: integer
+          description: Unique ID of PlayerGame record (subject to change, although it very rarely does).  For a static ID, use a combination of GameKey and PlayerID.
+        FumblesOwnRecoveries:
+          type:
+          - number
+          - 'null'
+          description: 'Total own fumble recoveries by the player in the game. Note: this fumble doesn''t result in a turnover - the fumbling team recovers the fumble'
+        FumblesOutOfBounds:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        KickReturnFairCatches:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        PuntReturnFairCatches:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        PuntTouchbacks:
+          type:
+          - number
+          - 'null'
+          description: Total punts that resulted in touchbacks by the player in the game
+        PuntInside20:
+          type:
+          - number
+          - 'null'
+          description: Total punts downed inside the 20 yard line by the player in the game
+        PuntNetAverage:
+          type:
+          - number
+          - 'null'
+          description: The average net yards per punt by the player in the game
+        ExtraPointsAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total extra point kicks attempted by the player in the game
+        BlockedKickReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return touchdowns for the player in the game
+        FieldGoalReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return touchdowns by the player in the game. Note: This field excludes blocked field goals'
+        Safeties:
+          type:
+          - number
+          - 'null'
+          description: Total defensive safeties scored by the player in the game
+        FieldGoalsHadBlocked:
+          type:
+          - number
+          - 'null'
+          description: Total field goals by the player that were blocked in the game
+        PuntsHadBlocked:
+          type:
+          - number
+          - 'null'
+          description: Total punts by the player that were blocked in the game
+        ExtraPointsHadBlocked:
+          type:
+          - number
+          - 'null'
+          description: Total extra point kick attempts by the player that were blocked in the game
+        PuntLong:
+          type:
+          - number
+          - 'null'
+          description: The longest punt by the player in the game
+        BlockedKickReturnYards:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return yards for the player in the game
+        FieldGoalReturnYards:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return yards by the player in the game. Note: This field excludes blocked field goals'
+        PuntNetYards:
+          type:
+          - number
+          - 'null'
+          description: The net yards of the punts by the player in the game
+        SpecialTeamsFumblesForced:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        SpecialTeamsFumblesRecovered:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        MiscFumblesForced:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        MiscFumblesRecovered:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        ShortName:
+          type:
+          - string
+          - 'null'
+          description: The first initial and last name of the player (J. Doe)
+        PlayingSurface:
+          type:
+          - string
+          - 'null'
+          description: The playing surface of the stadium
+        IsGameOver:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the game is over (true/false)
+        SafetiesAllowed:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        Stadium:
+          type:
+          - string
+          - 'null'
+          description: Stadium of the event
+        Temperature:
+          type:
+          - integer
+          - 'null'
+          description: Temperature at game start (Fahrenheit)
+        Humidity:
+          type:
+          - integer
+          - 'null'
+          description: The humidity percentage at the start of the game
+        WindSpeed:
+          type:
+          - integer
+          - 'null'
+          description: The wind speed at the start of the game (in MPH)
+        FanDuelSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for FanDuel daily fantasy contests.
+        DraftKingsSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for DraftKings daily fantasy contests.
+        FantasyDataSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary as calculated by SportsDataIO (formerly known as FantasyData).  Based on the same salary cap as DraftKings contests ($50,000).
+        OffensiveSnapsPlayed:
+          type:
+          - integer
+          - 'null'
+          description: 'Total snaps this player played on offense in the game. Note: Snap counts are available the morning after the game.'
+        DefensiveSnapsPlayed:
+          type:
+          - integer
+          - 'null'
+          description: 'Total snaps this player played on defense in the game. Note: Snap counts are available the morning after the game.'
+        SpecialTeamsSnapsPlayed:
+          type:
+          - integer
+          - 'null'
+          description: 'Total snaps this player played on special teams in the game. Note: Snap counts are available the morning after the game.'
+        OffensiveTeamSnaps:
+          type:
+          - integer
+          - 'null'
+          description: 'Total offensive snaps this player''s team played in the game. Note: Snap counts are available the morning after the game.'
+        DefensiveTeamSnaps:
+          type:
+          - integer
+          - 'null'
+          description: 'Total defensive snaps this player''s team played in the game. Note: Snap counts are available the morning after the game.'
+        SpecialTeamsTeamSnaps:
+          type:
+          - integer
+          - 'null'
+          description: 'Total special teams snaps this player''s team played in the game. Note: Snap counts are available the morning after the game.'
+        VictivSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Victiv daily fantasy contests.
+        TwoPointConversionReturns:
+          type:
+          - number
+          - 'null'
+          description: Total successful two point conversion returns by the player in the game
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FanDuel's scoring system by the player in the game
+        FieldGoalsMade0to19:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 0 to 19 yards made by the player in game
+        FieldGoalsMade20to29:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 20 to 29 yards made by the player in game
+        FieldGoalsMade30to39:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 30 to 39 yards made by the player in game
+        FieldGoalsMade40to49:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 40 to 49 yards made by the player in game
+        FieldGoalsMade50Plus:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 50+ yards made by the player in game
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on DraftKings' scoring system by the player in the game
+        YahooSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Yahoo daily fantasy contests
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on Yahoo's daily fantasy scoring system by the player in the game
+        InjuryStatus:
+          type:
+          - string
+          - 'null'
+          description: The player's current injury status; in the form of likelihood that player plays (Probable; Questionable; Doubtful; Out)
+        InjuryBodyPart:
+          type:
+          - string
+          - 'null'
+          description: The body part that is injured for the player (Knee; Groin; Calf; Hamstring; etc.)
+        InjuryStartDate:
+          type:
+          - string
+          - 'null'
+          description: The day that the player's injury started or was first discovered
+        InjuryNotes:
+          type:
+          - string
+          - 'null'
+          description: A brief description of the player's injury and expected availability
+        FanDuelPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in FanDuel's daily fantasy sports platform.
+        DraftKingsPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in DraftKings' daily fantasy sports platform.
+        YahooPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Yahoo's daily fantasy sports platform
+        OpponentRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the player's opponent with regards to fantasy points allowed.
+        OpponentPositionRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the player's opponent by position with regards to fantasy points allowed.
+        InjuryPractice:
+          type:
+          - string
+          - 'null'
+          description: This field is deprecated
+        InjuryPracticeDescription:
+          type:
+          - string
+          - 'null'
+          description: This field is deprecated
+        DeclaredInactive:
+          type: boolean
+          description: 'Whether the player has been declared inactive. This value is updated in the hours leading up to game start time; as teams announce their inactive players.  Note: This is only updated for offensive skill position players (QB; RB; WR; TE)'
+        FantasyDraftSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for FantasyDraft daily fantasy contests.
+        FantasyDraftPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in FantasyDraft's daily fantasy sports platform.
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique ID of the team that the player is on. Note: if the player is a free agent; this field is NULL'
+        OpponentID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this opponent team
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game (in US Eastern Time)
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        GlobalOpponentID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this opposing team. This value is guaranteed to be unique across all sports/leagues.
+        ScoreID:
+          type: integer
+          description: Unique ID of the score/game
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: This field is no longer in use and will return null.
+        ScoringDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoringDetail'
+          description: The details of the scoring plays this player recorded in the game
+        OffensiveFumbleRecoveryTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        SnapCountsConfirmed:
+          type:
+          - boolean
+          - 'null'
+          description: 'Whether snap count fields are confirmed (true/false). Note: This takes place the morning after the game.'
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: 'Time of last update (in US Eastern time). Note: this does not indicate that stats changed.'
+    DfsSlate:
+      properties:
+        SlateID:
+          type: integer
+          description: Unique ID of a Slate (assigned by SportsDataIO).
+        Operator:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the operator who is running contests for this slate. Possible values: FanDuel, DraftKings, Yahoo, FantasyDraft, etc.'
+        OperatorSlateID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of a slate (assigned by the operator).
+        OperatorName:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the slate (assigned by the operator). Possible values: Main, Express, Arcade, Late Night, etc.'
+        OperatorDay:
+          type:
+          - string
+          - 'null'
+          description: The day (in EST/EDT) that the slate begins (assigned by the operator).
+        OperatorStartTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time that the slate begins; assigned by the operator (in US Eastern Time)
+        NumberOfGames:
+          type:
+          - integer
+          - 'null'
+          description: The day that the slate begins; assigned by the operator (in US Eastern Time)
+        IsMultiDaySlate:
+          type:
+          - boolean
+          - 'null'
+          description: Whether this slate uses games that take place on different days.
+        RemovedByOperator:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this slate was removed/deleted by the operator.
+        OperatorGameType:
+          type:
+          - string
+          - 'null'
+          description: The game type of the slate. Will often be null as most operators only have one game type.
+        DfsSlateGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/DfsSlateGame'
+          description: The games that are included in this slate
+        DfsSlatePlayers:
+          type: array
+          items:
+            $ref: '#/components/schemas/DfsSlatePlayer'
+          description: The players that are included in this slate
+        SlateRosterSlots:
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+          description: The positions that need to be filled for this particular slate
+        SalaryCap:
+          type:
+          - integer
+          - 'null'
+          description: The salary cap for the current slate (is null for slates with no salary cap such a Tiers gametypes)
+    FantasyDefenseSeasonProjection:
+      properties:
+        SeasonType:
+          type: integer
+          description: The type of season that this team corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+        Season:
+          type: integer
+          description: The NFL regular season for which these totals apply
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        PointsAllowed:
+          type: number
+          description: Total points allowed by the team during the season
+        TouchdownsScored:
+          type: number
+          description: Total defensive and special teams touchdowns scored by the team in the season
+        SoloTackles:
+          type: number
+          description: Total defensive solo (unassisted) tackles by the team in the season
+        AssistedTackles:
+          type: number
+          description: Total defensive assisted tackles by the team in the season
+        Sacks:
+          type: number
+          description: Total defensive sacks by the team in the season
+        SackYards:
+          type: number
+          description: Total defensive sack yards by the team in the season
+        PassesDefended:
+          type: number
+          description: Total passes defended by the team in the season
+        FumblesForced:
+          type: number
+          description: Total fumbles forced on defense by the team in the season
+        FumblesRecovered:
+          type: number
+          description: Total defensive fumble recoveries by the team in the season
+        FumbleReturnYards:
+          type: number
+          description: Total fumble return yards by the team in the season
+        FumbleReturnTouchdowns:
+          type: number
+          description: Total fumble return touchdowns by the team in the season
+        Interceptions:
+          type: number
+          description: Total defensive interceptions by the team in the season
+        InterceptionReturnYards:
+          type: number
+          description: Total defensive interception return yards by the team in the season
+        InterceptionReturnTouchdowns:
+          type: number
+          description: Total defensive interception return touchdowns by the team in the season
+        BlockedKicks:
+          type: number
+          description: 'Total blocked kicks by the team in the season. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points'
+        Safeties:
+          type: number
+          description: Total defensive safeties scored by the team in the season
+        PuntReturns:
+          type: number
+          description: Total punt returns by the team in the season
+        PuntReturnYards:
+          type: number
+          description: Total punt return yards by the team in the season
+        PuntReturnTouchdowns:
+          type: number
+          description: Total punt return touchdowns by the team in the season
+        PuntReturnLong:
+          type: number
+          description: The longest punt return by the team in the season
+        KickReturns:
+          type: number
+          description: Total kickoff returns by the team in the season
+        KickReturnYards:
+          type: number
+          description: Total kickoff return yards by the team in the season
+        KickReturnTouchdowns:
+          type: number
+          description: Total kickoff return touchdowns by the team in the season
+        KickReturnLong:
+          type: number
+          description: Longest kick return by the team in the season
+        BlockedKickReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return touchdowns for the team in the season
+        FieldGoalReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return touchdowns by the team in the season. Note: This field excludes blocked field goals'
+        FantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'Fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
+        QuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opposing quarterbacks by the team in the season
+        RunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points allowed to opposing running backs by the team in the season
+        WideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opposing wide receivers
+        TightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opposing tight ends by the team in the season
+        KickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opponent kickers by the team in the season
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The total number of games played by the team in the season
+        BlockedKickReturnYards:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return yards for the team in the season
+        FieldGoalReturnYards:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return yards by the team in the season. Note: This field excludes blocked field goals'
+        QuarterbackHits:
+          type:
+          - number
+          - 'null'
+          description: 'Total quarterback hits by the team in the season. Note: This is a defensive stat that includes sacks'
+        TacklesForLoss:
+          type:
+          - number
+          - 'null'
+          description: 'Total tackles for loss by the team in the season. Note: these are tackles behind the line of scrimmage for loss of yards (including sacks)'
+        DefensiveTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total defensive touchdowns scored by the team in the season
+        SpecialTeamsTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total special teams touchdowns scored by the team in the season
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points scored based on basic fantasy scoring system by the team in the season
+        Temperature:
+          type:
+          - integer
+          - 'null'
+          description: Temperature at game start (Fahrenheit)
+        Humidity:
+          type:
+          - integer
+          - 'null'
+          description: The humidity percentage at the start of the game
+        WindSpeed:
+          type:
+          - integer
+          - 'null'
+          description: The wind speed at the start of the game (in MPH)
+        ThirdDownAttempts:
+          type:
+          - number
+          - 'null'
+          description: Total third down attempts against the team in the season
+        ThirdDownConversions:
+          type:
+          - number
+          - 'null'
+          description: Total third down conversions against the team in the season
+        FourthDownAttempts:
+          type:
+          - number
+          - 'null'
+          description: Opponent's fourth down attempts against the team in the season
+        FourthDownConversions:
+          type:
+          - number
+          - 'null'
+          description: Opponent's fourth down conversions against the team in the season
+        PointsAllowedByDefenseSpecialTeams:
+          type:
+          - number
+          - 'null'
+          description: 'Total number of points allowed by the team in the season to the opposing offense and special teams. Note: This field excludes points scored by the opponent''s defense'
+        AuctionValue:
+          type:
+          - number
+          - 'null'
+          description: Player's dollar value in a $200 salary cap auction draft.
+        AuctionValuePPR:
+          type:
+          - number
+          - 'null'
+          description: Player's dollar value in a $200 salary cap PPR auction draft.
+        TwoPointConversionReturns:
+          type:
+          - number
+          - 'null'
+          description: Total successful two point conversion returns by the team in the season
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FanDuel's scoring system by the team in the season
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on DraftKings' scoring system by the team in the season
+        OffensiveYardsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Offensive yards allowed by the team's defense in the season
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO for use when combining with player feeds. Note: this ID will stay with the player throughout their entire career'
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on Yahoo's daily fantasy scoring system by the team in the season
+        AverageDraftPosition:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of the team's fantasy defense (DST) in re-draft leagues
+        AverageDraftPositionPPR:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of the team (DST) in Points Per Reception (PPR) leagues
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        FanDuelFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'FanDuel fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
+        FanDuelQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing quarterbacks in the season
+        FanDuelRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing running backs in the season
+        FanDuelWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing wide receivers in the season
+        FanDuelTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing tight ends in the season
+        FanDuelKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing kickers in the season
+        DraftKingsFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'DraftKings fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
+        DraftKingsQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent quarterbacks in the season
+        DraftKingsRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent running backs in the season
+        DraftKingsWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent wide receivers in the season
+        DraftKingsTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent tight ends in the season
+        DraftKingsKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent kickers in the season
+        YahooFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'Total Yahoo fantasy points allowed to opposing offensive players by the team in the season. Note: Offensive players include: QB, RB, WR, & TE'
+        YahooQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing quarterbacks by the team in the season
+        YahooRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing running backs by the team in the season
+        YahooWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing wide receivers by the team in the season
+        YahooTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing tight ends by the team in the season
+        YahooKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing kickers by the team in the season
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FanDraft's scoring system by the team in the season
+        FantasyDraftFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'FantasyDraft fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
+        FantasyDraftQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing quarterbacks in the season
+        FantasyDraftRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing running backs in the season
+        FantasyDraftWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing wide receivers in the season
+        FantasyDraftTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing tight ends in the season
+        FantasyDraftKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing kickers in the season
+        ScoringDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoringDetail'
+          description: The details of the scoring plays this team DST recorded in the season
+        AverageDraftPositionDynasty:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of this team (DST) in dynasty drafts leagues
+        AverageDraftPosition2QB:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of the team (DST) in 2 Quarterback leagues
+    DfsSlatePlayer:
+      properties:
+        SlatePlayerID:
+          type: integer
+          description: Unique ID of a SlatePlayer (assigned by SportsDataIO)
+        SlateID:
+          type: integer
+          description: Unique ID of a Slate (assigned by SportsDataIO)
+        SlateGameID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of a SlateGame (assigned by SportsDataIO)
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO tied to this SlatePlayer. This points to data in the respective sports'' player feeds Note: this ID will stay with the player throughout their entire career'
+        PlayerGameProjectionStatID:
+          type:
+          - integer
+          - 'null'
+          description: The SportsDataIO StatID that this SlatePlayer refers to. This points to data in the respective sports' projected player game stats feeds. This field is only filled for Players. For the NFL feeds; this is the PlayerGameProjection.PlayerGameID
+        FantasyDefenseProjectionStatID:
+          type:
+          - integer
+          - 'null'
+          description: The SportsDataIO StatID that this SlatePlayer refers to. This field is only filled for Defense/Special Teams. For the NFL feeds, this is the FantasyDefenseGameProjection.FantasyDefenseID.
+        OperatorPlayerID:
+          type:
+          - string
+          - 'null'
+          description: Unique ID of the Player (assigned by the operator)
+        OperatorSlatePlayerID:
+          type:
+          - string
+          - 'null'
+          description: Unique ID of the SlatePlayer (assigned by the operator)
+        OperatorPlayerName:
+          type:
+          - string
+          - 'null'
+          description: The player's name (assigned by the operator)
+        OperatorPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible positions (assigned by the operator)
+        OperatorRosterSlots:
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+          description: 'The player''s eligible positions to be played in the contest (assigned by the operator).  Note: This would include FLEX; etc plays for those that are eligible'
+        OperatorSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for the contest (assigned by the operator).
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL'
+        RemovedByOperator:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this player was removed/deleted by the operator.
+    DfsSlateWithOwnershipProjection:
+      properties:
+        SlateID:
+          type: integer
+          description: Unique ID of a Slate (assigned by SportsDataIO).
+        Operator:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the operator who is running contests for this slate. Possible values: FanDuel, DraftKings, Yahoo, FantasyDraft, etc.'
+        OperatorSlateID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of a slate (assigned by the operator).
+        OperatorName:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the slate (assigned by the operator). Possible values: Main, Express, Arcade, Late Night, etc.'
+        OperatorDay:
+          type:
+          - string
+          - 'null'
+          description: The day that the slate begins; assigned by the operator (in US Eastern Time)
+        OperatorStartTime:
+          type:
+          - string
+          - 'null'
+          description: The date/time (in EST/EDT) that the slate begins (assigned by the operator).
+        SlateOwnershipProjections:
+          type: array
+          items:
+            $ref: '#/components/schemas/DfsSlatePlayerOwnershipProjection'
+          description: The list of projected ownership
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    Player:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career.'
+        Team:
+          type:
+          - string
+          - 'null'
+          description: 'The abbreviation [Key] of the team that the player is on. Note: If this player is a free agent; this field is NULL.'
+        Number:
+          type:
+          - integer
+          - 'null'
+          description: Player's jersey number
+        FirstName:
+          type:
+          - string
+          - 'null'
+          description: Player's first name
+        LastName:
+          type:
+          - string
+          - 'null'
+          description: Player's last name
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The primary position of the player. Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR.'
+        Status:
+          type:
+          - string
+          - 'null'
+          description: The player's current status.  Possible values include Active, Inactive, Injured Reserve, Physically Unable to Perform, Practice Squad, Suspended, Non Football Injury, Non-Football Illness, Commissioner Exempt List, Exempt/Left Team, Paternity, Bereavement, Reserve/COVID-19, and Voluntary Opt Out. Inactive indicates that this player is a free agent.  Active indicates that this player is on his team's active roster.
+        Height:
+          type:
+          - string
+          - 'null'
+          description: Height in feet, inches
+        Weight:
+          type:
+          - integer
+          - 'null'
+          description: Player's weight in pounds
+        BirthDate:
+          type:
+          - string
+          - 'null'
+          description: Player's date of birth
+        College:
+          type:
+          - string
+          - 'null'
+          description: College team the player played for prior to turning professional
+        Experience:
+          type:
+          - integer
+          - 'null'
+          description: 'Number of years experience.  Note: This number is incremented every year; in the Spring; when we load the rookies following the NFL Draft. Rookies will have Experience = 0; while second year players will have Experience = 2.'
+        FantasyPosition:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s fantasy football position. Possible values: QB; RB; WR; TE; DL; LB; DB; K; P; OL.'
+        Active:
+          type:
+          - boolean
+          - 'null'
+          description: Whether or not the player is on the active roster of the NFL team (True/False)
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: The category of the player's position (OFF; DEF; ST)
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Player's full name
+        Age:
+          type:
+          - integer
+          - 'null'
+          description: The player's current age
+        ExperienceString:
+          type:
+          - string
+          - 'null'
+          description: The player's experience converted to a string
+        BirthDateString:
+          type:
+          - string
+          - 'null'
+          description: The player's date of birth converted to a string
+        PhotoUrl:
+          type:
+          - string
+          - 'null'
+          description: 'This field is deprecated. Note: Headshots are now delivered through IMAGN. Please see our Headshots products for further information.'
+        ByeWeek:
+          type:
+          - integer
+          - 'null'
+          description: The week the player is on bye for the upcoming or current season
+        UpcomingGameOpponent:
+          type:
+          - string
+          - 'null'
+          description: The opposing team the player is playing against in the upcoming week
+        UpcomingGameWeek:
+          type: integer
+          description: The week of the player's upcoming game (this will be the upcoming week unless the player is on Bye that week, which would bump it to the next week)
+        ShortName:
+          type:
+          - string
+          - 'null'
+          description: The first initial and last name of the player (J. Doe)
+        AverageDraftPosition:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of the player in re-draft leagues
+        DepthPositionCategory:
+          type:
+          - string
+          - 'null'
+          description: The category (Offense, Defense or Special Teams) of the players DepthPositionCategory (OFF, DEF, ST)
+        DepthPosition:
+          type:
+          - string
+          - 'null'
+          description: The position this player is listed at on his team's depth chart (e.g. QB; LWR; RDE; LILB, K)
+        DepthOrder:
+          type:
+          - integer
+          - 'null'
+          description: The order this player is at his position (1 = Starter; 2 = Backup; 3 = 3rd String; 4 = 4th String; 5 = 5th String)
+        DepthDisplayOrder:
+          type:
+          - integer
+          - 'null'
+          description: The display order of the positions (for display purposes)
+        CurrentTeam:
+          type:
+          - string
+          - 'null'
+          description: The team who currently employs this player. This value is null when this player is unemployed (for example a free agent or retired player).
+        CollegeDraftTeam:
+          type:
+          - string
+          - 'null'
+          description: 'The team who drafted this player. Note: If this player was an Undrafted Free Agent; then it''s the team who first signed him as a rookie.'
+        CollegeDraftYear:
+          type:
+          - integer
+          - 'null'
+          description: The year this player entered the NFL as a rookie
+        CollegeDraftRound:
+          type:
+          - integer
+          - 'null'
+          description: The round this player was drafted in
+        CollegeDraftPick:
+          type:
+          - integer
+          - 'null'
+          description: The overall pick in the draft this player was selected
+        IsUndraftedFreeAgent:
+          type: boolean
+          description: Whether this player was an undrafted free agent. This value is True if the player was not drafted.
+        HeightFeet:
+          type:
+          - integer
+          - 'null'
+          description: The feet component of a player's height (if player is 6'3", then this value would be 6)
+        HeightInches:
+          type:
+          - integer
+          - 'null'
+          description: The inches component of a player's height (if player is 6'3", then this value would be 3)
+        UpcomingOpponentRank:
+          type:
+          - integer
+          - 'null'
+          description: The player's upcoming opponent's rank in fantasy points allowed
+        UpcomingOpponentPositionRank:
+          type:
+          - integer
+          - 'null'
+          description: The player's upcoming opponent's rank in fantasy points allowed to his fantasy position
+        CurrentStatus:
+          type:
+          - string
+          - 'null'
+          description: The player's current status.  Possible values include Active, Inactive, Injured Reserve, Physically Unable to Perform, Practice Squad, Suspended, Non Football Injury, Non-Football Illness, Commissioner Exempt List, Exempt/Left Team, Paternity, Bereavement, Reserve/COVID-19, and Voluntary Opt Out. Inactive indicates that this player is a free agent.  Active indicates that this player is on his team's active roster.  Can also include injury status.
+        UpcomingSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for the upcoming week in accordance with a $50,000 salary cap. This is used for daily fantasy sports salary cap contests. Salaries represent those published by DraftKings. When DraftKings doesn't publish a salary for a given game; the most recent DraftKings salary is used. We recommend using our new DFS endpoints instead.
+        FantasyAlarmPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the FantasyAlarm news feed
+        SportRadarPlayerID:
+          type:
+          - string
+          - 'null'
+          description: The player's cross reference PlayerID to the SportRadar API
+        RotoworldPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the Rotoworld news feed
+        RotoWirePlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the RotoWire news feed
+        StatsPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the STATS data feeds
+        SportsDirectPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the SportsDirect data feeds, now part of Nielsen GraceNote
+        XmlTeamPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with XML Team data feeds
+        FanDuelPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to FanDuel
+        DraftKingsPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to DraftKings
+        YahooPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with Yahoo
+        InjuryStatus:
+          type:
+          - string
+          - 'null'
+          description: The player's current injury status, in the form of likelihood that player plays (Probable, Questionable, Doubtful, Out)
+        InjuryBodyPart:
+          type:
+          - string
+          - 'null'
+          description: The body part that is injured for the player (Knee; Groin; Calf; Hamstring; etc.)
+        InjuryStartDate:
+          type:
+          - string
+          - 'null'
+          description: The day that the player's injury started or was first discovered
+        InjuryNotes:
+          type:
+          - string
+          - 'null'
+          description: A brief description of the player's injury and expected availability
+        FanDuelName:
+          type:
+          - string
+          - 'null'
+          description: The player's full name in FanDuel's daily fantasy sports platform
+        DraftKingsName:
+          type:
+          - string
+          - 'null'
+          description: The player's full name in DraftKings' daily fantasy sports platform
+        YahooName:
+          type:
+          - string
+          - 'null'
+          description: The player's name in Yahoo's daily fantasy sports platform
+        FantasyPositionDepthOrder:
+          type:
+          - integer
+          - 'null'
+          description: The order this player is at his team's FantasyPosition
+        InjuryPractice:
+          type:
+          - string
+          - 'null'
+          description: This field is deprecated
+        InjuryPracticeDescription:
+          type:
+          - string
+          - 'null'
+          description: This field is deprecated
+        DeclaredInactive:
+          type: boolean
+          description: 'Whether the player has been declared inactive. This value is updated in the hours leading up to game start time; as teams announce their inactive players.  Note: This is only updated for offensive skill position players (QB; RB; WR; TE).'
+        UpcomingFanDuelSalary:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s FanDuel salary for the upcoming week. Note: We recommend using our new DFS endpoints instead.'
+        UpcomingDraftKingsSalary:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s DraftKings salary for the upcoming week. Note: We recommend using our new DFS endpoints instead.'
+        UpcomingYahooSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's Yahoo salary for the upcoming week. We recommend using our new DFS endpoints instead.
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL'
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        FantasyDraftPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to FantasyDraft
+        FantasyDraftName:
+          type:
+          - string
+          - 'null'
+          description: The player's full name in FantasyDraft's daily fantasy sports platform
+        UsaTodayPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to USA Today headshot data feeds
+        UsaTodayHeadshotUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's headshot URL as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotNoBackgroundUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's transparent background headshot URL as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated date of the player's headshot as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotNoBackgroundUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated date of the player's transparent background headshot as provided by USA Today. License from USA Today is required.
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: key
+      in: query

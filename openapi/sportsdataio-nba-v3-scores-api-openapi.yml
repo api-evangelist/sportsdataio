@@ -1,0 +1,3370 @@
+openapi: 3.1.0
+info:
+  title: MLB MLB v3 Headshots NBA v3 Scores API
+  version: '1.0'
+  description: MLB API - OpenAPI 3.1 Specification
+servers:
+- url: https://api.sportsdata.io
+  description: Production server
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: NBA v3 Scores
+paths:
+  /v3/nba/scores/{format}/teams:
+    get:
+      description: 'Full team information: team name and city, conference and division, and colors. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns the teams currently active in the league.'
+      operationId: nba_v3_scores_team_profiles___by_active
+      summary: Team Profiles - by Active
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/GamesByDate/{date}:
+    get:
+      description: Full scores and gameday info delivered live and post-game. Live data includes half and score info. Gameday info includes TV channel etc
+      operationId: nba_v3_scores_games___by_date__live___final
+      summary: Games - by Date [Live & Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Game'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/Games/{season}:
+    get:
+      description: Home and away teams, date and time, season type and week etc. are included. Also includes gameday information. This includes full stadium information (capacity, lat/long, surface etc.), top-line betting information (spread, moneyline, total), weather conditions, and broadcast information.
+      operationId: nba_v3_scores_schedules
+      summary: Schedules
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: 'Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Game'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/News:
+    get:
+      description: Basic RotoBaller news feed, with limited stories available - usually 0-1 stories per day. Ideal for test purposes.
+      operationId: nba_v3_scores_news
+      summary: News
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/News'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/NewsByDate/{date}:
+    get:
+      description: Basic RotoBaller news feed, with limited stories available - usually 0-1 stories per day. Ideal for test purposes.
+      operationId: nba_v3_scores_news___by_date
+      summary: News - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the news.
+
+          <br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/News'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/NewsByPlayerID/{playerid}:
+    get:
+      description: Basic RotoBaller news feed, with limited stories available - usually 0-1 stories per day. Ideal for test purposes.
+      operationId: nba_v3_scores_news___by_player
+      summary: News - by Player
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: playerid
+        in: path
+        description: 'Unique FantasyData Player ID.
+
+          Example:<code>10000507</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/News'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/Stadiums:
+    get:
+      description: Returns all stadiums in the league with capacity, surface, latitude/longitude, city and state (and where applicable country.)
+      operationId: nba_v3_scores_stadiums
+      summary: Stadiums
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stadium'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/TeamGameStatsByDate/{date}:
+    get:
+      description: Returns the box score statistical record team-wide (aggregated from all players) for all games on a given date, both live and post-game.
+      operationId: nba_v3_scores_team_game_stats___by_date__live___final
+      summary: Team Game Stats - by Date [Live & Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamGame'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/TeamSeasonStats/{season}:
+    get:
+      description: Returns all season-long stats (i.e. the season total, not each individual game record) for all teams (aggregated from all players) for a given season.
+      operationId: nba_v3_scores_team_season_stats
+      summary: Team Season Stats
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: 'Year of the season.
+
+          <br>Examples: <code>2015</code>, <code>2016</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamSeason'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/AreAnyGamesInProgress:
+    get:
+      description: Returns <code>true</code> if there is at least one game being played at the time of the request or <code>false</code> if there are none.
+      operationId: nba_v3_scores_are_games_in_progress
+      summary: Are Games In Progress
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/CurrentSeason:
+    get:
+      description: Year of the current season. This value changes at the start of the new league year. For leagues that run over two years, this is the year the season starts, not ends.
+      operationId: nba_v3_scores_season___current
+      summary: Season - Current
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Season'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/Standings/{season}:
+    get:
+      description: Includes regular season standings in division and conference, from which postseason seeding can be derived.
+      operationId: nba_v3_scores_standings
+      summary: Standings
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: 'Year of the season.
+
+          <br>Examples: <code>2015</code>, <code>2016</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Standing'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/AllTeams:
+    get:
+      description: 'Full team information: team name and city, conference and division, and colors. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns all teams regardless of current active status.'
+      operationId: nba_v3_scores_team_profiles___all
+      summary: Team Profiles - All
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/Players:
+    get:
+      description: Full player bio and details, including injury notes, for all active players.
+      operationId: nba_v3_scores_player_details___by_active
+      summary: Player Details - by Active
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/FreeAgents:
+    get:
+      description: Full player bio and details, including injury notes, for all available free agents unattached to a team.
+      operationId: nba_v3_scores_player_details___by_free_agent
+      summary: Player Details - by Free Agent
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/Referees:
+    get:
+      description: Returns the full list of NBA Referees.
+      operationId: nba_v3_scores_referees
+      summary: Referees
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Referee'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/Players/{team}:
+    get:
+      description: Full player bio and details, including injury notes, for all available players by team.
+      operationId: nba_v3_scores_player_details___by_team
+      summary: Player Details - by Team
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: team
+        in: path
+        description: 'The abbreviation of the requested team.<br>Examples: <code>PHI</code>, <code>BKN</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}:
+    get:
+      description: Game by game log of total team statistics.
+      operationId: nba_v3_scores_team_game_logs___by_season
+      summary: Team Game Logs - by Season
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: Season to get games from. Example <code>2019POST</code>, <code>2020</code>
+        required: true
+        schema:
+          type: string
+      - name: teamid
+        in: path
+        description: Unique ID of team.  Example <code> 8 </code>
+        required: true
+        schema:
+          type: string
+      - name: numberofgames
+        in: path
+        description: How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code>
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamGame'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/DepthCharts:
+    get:
+      description: Returns the full list of NBA Depth Charts as of the time of the call.
+      operationId: nba_v3_scores_depth_charts
+      summary: Depth Charts
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamDepthChart'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/SchedulesBasic/{season}:
+    get:
+      description: A lightweight schedule endpoint without gameday information. Home and away teams, the date and time of the game, and season type, week etc. are included. Ideal for the most basic information required to build a schedule.
+      operationId: nba_v3_scores_schedules__basic
+      summary: Schedules (Basic)
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: 'Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ScheduleBasic'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/ScoresBasic/{date}:
+    get:
+      description: This endpoint simply delivers the quarter, time, quarter scores, and total score live; no gameday info is provided.
+      operationId: nba_v3_scores_games__basic____by_date__live___final
+      summary: Games (Basic) - by Date [Live & Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ScoreBasic'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/PlayersBasic/{team}:
+    get:
+      description: Roster information for a given team. Player profiles include basic biographical information, position, college, and current team (if attached to a team.) Specify a team tricode parameter to receive all players currently on that team.
+      operationId: nba_v3_scores_players_profiles___by_team
+      summary: Players Profiles - by Team
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: team
+        in: path
+        description: 'The abbreviation of the requested team.<br>Examples: <code>PHI</code>, <code>BKN</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerBasic'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/PlayersActiveBasic:
+    get:
+      description: Player profiles include basic biographical information, position, college, and current team (if attached to a team.) This returns all players currently active.
+      operationId: nba_v3_scores_player_profiles___by_active
+      summary: Player Profiles - by Active
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerBasic'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/PlayersByFreeAgents:
+    get:
+      description: Player profiles include basic biographical information, position, college, and current team (if attached to a team.) This returns all free agents not currently attached to a team.
+      operationId: nba_v3_scores_player_profiles___by_free_agent
+      summary: Player Profiles - by Free Agent
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerBasic'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/TransactionsByDate/{date}:
+    get:
+      description: A list of transactions, such as player trades, injuries, assignments etc., delivered by date.
+      operationId: nba_v3_scores_transactions
+      summary: Transactions
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the news.
+
+          <br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/teams/{season}:
+    get:
+      description: 'Full team information: team name and city, conference and division, and colors. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns the active teams for a given season.'
+      operationId: nba_v3_scores_team_profiles___by_season
+      summary: Team Profiles - by Season
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>."
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/GamesByDateFinal/{date}:
+    get:
+      description: Full scores and gameday info, including referee, infotainment odds, as well as all of the quarter scores and full-time score, delivered as the game ends.
+      operationId: nba_v3_scores_games___by_date__final
+      summary: Games - by Date [Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Game'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+  /v3/nba/scores/{format}/ScoresBasicFinal/{date}:
+    get:
+      description: A slimmed-down score endpoint, giving just the quarter scores and final score, for simple applications.
+      operationId: nba_v3_scores_games__basic____by_date__final
+      summary: Games (Basic) - by Date [Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ScoreBasic'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 Scores
+components:
+  schemas:
+    News:
+      properties:
+        NewsID:
+          type: integer
+          description: The unique ID of news story
+        Source:
+          type:
+          - string
+          - 'null'
+          description: The source of the story (RotoBaller, NBCSports.com, etc.)
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when this news story was last updated (in US Eastern Time)
+        TimeAgo:
+          type:
+          - string
+          - 'null'
+          description: How long ago this news story was published
+        Title:
+          type:
+          - string
+          - 'null'
+          description: The headline of the news story (typically less than 100 characters)
+        Content:
+          type:
+          - string
+          - 'null'
+          description: The full body content of the story
+        Url:
+          type:
+          - string
+          - 'null'
+          description: The URL of the full news story
+        TermsOfUse:
+          type:
+          - string
+          - 'null'
+          description: The terms of use with using this news item, credit must be given to the originator of the story when specified in the terms of use
+        Author:
+          type:
+          - string
+          - 'null'
+          description: The author responsible for writing the news posting
+        Categories:
+          type:
+          - string
+          - 'null'
+          description: 'Comma delimited meta tags describing the categories of this content. Possible tags include: Top Headlines, Breaking News, Injury, Sit/Start, Waiver Wire, Risers, Fallers, Lineups, Transactions, Free Agents, Prospects/Rookies, Game Recap, Matchup Outlook'
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team that relates to this story
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team that relates to this news story
+        PlayerID2:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the additional player who relates to this story (if applicable)
+        TeamID2:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the additional team that relates to this news story (if applicable)
+        Team2:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the additional team that relates to this story (if applicable)
+        OriginalSource:
+          type:
+          - string
+          - 'null'
+          description: The original source who broke this news (before it was picked up by the publisher of this blurb)
+        OriginalSourceUrl:
+          type:
+          - string
+          - 'null'
+          description: The URL of the original source who broke this news blurb
+    Game:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The NBA season of the game
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition)
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, F/OT, Suspended, Postponed, Delayed, Canceled, Forfeit, NotNecessary'
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        AwayTeamID:
+          type: integer
+          description: The unique ID of the away team
+        HomeTeamID:
+          type: integer
+          description: The unique ID of the home team
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the stadium
+        Channel:
+          type:
+          - string
+          - 'null'
+          description: The television station broadcasting the game
+        Attendance:
+          type:
+          - integer
+          - 'null'
+          description: The total number of people in attendance at the game
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the away team scored in the game
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the home team scored in this game
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when this game was last updated (in US Eastern Time)
+        Quarter:
+          type:
+          - string
+          - 'null'
+          description: 'The current quarter in the game. Possible values include: 1, 2, 3, 4, Half, OT, NULL'
+        TimeRemainingMinutes:
+          type:
+          - integer
+          - 'null'
+          description: The number of minutes remaining in the quarter
+        TimeRemainingSeconds:
+          type:
+          - integer
+          - 'null'
+          description: The number of seconds remaining in the quarter
+        PointSpread:
+          type:
+          - number
+          - 'null'
+          description: The oddsmaker Point Spread at game start from the perspective of the HomeTeam (negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored)
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's total points scored over under for the game
+        AwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Money line from the perspective of the away team
+        HomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Money line from the perspective of the home team
+        GlobalGameID:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalAwayTeamID:
+          type: integer
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
+        GlobalHomeTeamID:
+          type: integer
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        PointSpreadAwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The money line payout odds when betting on the away team with the point spread.
+        PointSpreadHomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The money line payout odds when betting on the away team with the point spread.
+        LastPlay:
+          type:
+          - string
+          - 'null'
+          description: The description of the most recent play/event of the game. This is for display purposes and does not include corresponding data points.
+        IsClosed:
+          type: boolean
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
+        Quarters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quarter'
+          description: The details of the quarters (including overtime periods) for this game.
+        GameEndDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time that the game ended (in US Eastern Time)
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the home team for this game
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the away team for this game
+        NeutralVenue:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this game is played in a neutral venue
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the over on the total points line
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under on the total points line
+        CrewChiefID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of officiating Crew Chief
+        UmpireID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of officiating Umpire referee
+        RefereeID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of officiating referee
+        AlternateID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of officiating Alternate referee
+        DateTimeUTC:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in UTC
+        SeriesInfo:
+          $ref: '#/components/schemas/Series'
+          description: Contains relevant series data for playoff series only - HomeTeamWins, AwayTeamWins, GameNumber, and MaxLength
+        InseasonTournament:
+          type:
+          - boolean
+          - 'null'
+          description: A flag to indicate this game is part of the inseason NBA tournament (can be considered a part of regular season still) - a null would also indicate false
+        RescheduledFromGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as "make up" games.
+        RescheduledGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
+    TeamSeason:
+      properties:
+        StatID:
+          type: integer
+          description: The unique ID of the stat
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        SeasonType:
+          type:
+          - integer
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition).
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The NBA season that these totals apply for
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The name of the team
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Wins:
+          type:
+          - integer
+          - 'null'
+          description: Total number of team wins on the season
+        Losses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of team losses on the season
+        OpponentPosition:
+          type:
+          - string
+          - 'null'
+          description: This field is expected to be NULL
+        Possessions:
+          type:
+          - number
+          - 'null'
+          description: Total number of estimated possessions by the team in the season
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        OpponentStat:
+          $ref: '#/components/schemas/OpponentSeason'
+          description: The aggregated season stats for this team's opponents
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time)
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        Minutes:
+          type:
+          - integer
+          - 'null'
+          description: Total number of minutes played
+        Seconds:
+          type:
+          - integer
+          - 'null'
+          description: Total number of seconds played
+        FieldGoalsMade:
+          type:
+          - number
+          - 'null'
+          description: Total number of field goals made
+        FieldGoalsAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total number of field goals attempted
+        FieldGoalsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total field goal percentage
+        EffectiveFieldGoalsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total effective field goals percentage
+        TwoPointersMade:
+          type:
+          - number
+          - 'null'
+          description: Total two pointers made
+        TwoPointersAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total two pointers attempted
+        TwoPointersPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total two pointers percentage
+        ThreePointersMade:
+          type:
+          - number
+          - 'null'
+          description: Total three pointers made
+        ThreePointersAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total three pointers attempted
+        ThreePointersPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total three pointers percentage
+        FreeThrowsMade:
+          type:
+          - number
+          - 'null'
+          description: Total free throws made
+        FreeThrowsAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total free throws attempted
+        FreeThrowsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total free throws percentage
+        OffensiveRebounds:
+          type:
+          - number
+          - 'null'
+          description: Total offensive rebounds
+        DefensiveRebounds:
+          type:
+          - number
+          - 'null'
+          description: Total defensive rebounds
+        Rebounds:
+          type:
+          - number
+          - 'null'
+          description: Total rebounds
+        OffensiveReboundsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total offensive rebounds percentage
+        DefensiveReboundsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total defensive rebounds percentage
+        TotalReboundsPercentage:
+          type:
+          - number
+          - 'null'
+          description: The player/team total rebounds percentage
+        Assists:
+          type:
+          - number
+          - 'null'
+          description: Total assists
+        Steals:
+          type:
+          - number
+          - 'null'
+          description: Total steals
+        BlockedShots:
+          type:
+          - number
+          - 'null'
+          description: Total blocked shots
+        Turnovers:
+          type:
+          - number
+          - 'null'
+          description: Total turnovers
+        PersonalFouls:
+          type:
+          - number
+          - 'null'
+          description: Total personal fouls
+        Points:
+          type:
+          - number
+          - 'null'
+          description: Total points scored
+        TrueShootingAttempts:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s true shooting attempts as defined here: http://www.basketball-reference.com/about/glossary.html'
+        TrueShootingPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s true shooting percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        PlayerEfficiencyRating:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s linear weight efficiency rating as defined here: http://bleacherreport.com/articles/113144-cracking-the-code-how-to-calculate-hollingers-per-without-all-the-mess'
+        AssistsPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s assist percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        StealsPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s steal percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        BlocksPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s block percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        TurnOversPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s turnover percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        UsageRatePercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s usage rate percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total FanDuel daily fantasy points scored
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings daily fantasy points scored
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo daily fantasy points scored
+        PlusMinus:
+          type:
+          - number
+          - 'null'
+          description: Total plus minus
+        DoubleDoubles:
+          type:
+          - number
+          - 'null'
+          description: Total double-doubles scored
+        TripleDoubles:
+          type:
+          - number
+          - 'null'
+          description: Total triple-doubles scored
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Total FantasyDraft daily fantasy points scored
+        IsClosed:
+          type: boolean
+          description: Indicates whether the game is over and the stats for this player have been verified and closed out.
+        LineupConfirmed:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether starting lineup is confirmed
+        LineupStatus:
+          type:
+          - string
+          - 'null'
+          description: Indicates whether player is starting, active, or inactive
+    Series:
+      properties:
+        HomeTeamWins:
+          type: integer
+          description: Total number of wins by the home team in the series
+        AwayTeamWins:
+          type: integer
+          description: Total wins in the series by the away team
+        GameNumber:
+          type: integer
+          description: The game number in the series
+        MaxLength:
+          type: integer
+          description: The maximum number of games that can be played in a series
+    Player:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        SportsDataID:
+          type:
+          - string
+          - 'null'
+          description: Deprecated. Use SportRadarPlayerID instead.
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the player''s status of being on an active roster. Possible values include: Active, Inactive'
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the player's team
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the player's team
+        Jersey:
+          type:
+          - integer
+          - 'null'
+          description: The player's jersey number.
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position category. Possible values: C, F, G'
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s primary position. Possible values: PG; SG; SF; PF; C'
+        FirstName:
+          type:
+          - string
+          - 'null'
+          description: The player's first name.
+        LastName:
+          type:
+          - string
+          - 'null'
+          description: The player's last name.
+        Height:
+          type:
+          - integer
+          - 'null'
+          description: The player's height in inches.
+        Weight:
+          type:
+          - integer
+          - 'null'
+          description: The player's weight in pounds (lbs).
+        BirthDate:
+          type:
+          - string
+          - 'null'
+          description: The player's date of birth.
+        BirthCity:
+          type:
+          - string
+          - 'null'
+          description: The city in which the player was born.
+        BirthState:
+          type:
+          - string
+          - 'null'
+          description: The state in which the player was born.
+        BirthCountry:
+          type:
+          - string
+          - 'null'
+          description: The country in which the player was born.
+        HighSchool:
+          type:
+          - string
+          - 'null'
+          description: The high school that the player attended.
+        College:
+          type:
+          - string
+          - 'null'
+          description: The college that the player attended.
+        Salary:
+          type:
+          - integer
+          - 'null'
+          description: Deprecated (do not use)
+        PhotoUrl:
+          type:
+          - string
+          - 'null'
+          description: This field is deprecated. Photos are no longer available through it. Headshots are now delivered through IMAGN. Please see our Headshots products for further information.
+        Experience:
+          type:
+          - integer
+          - 'null'
+          description: The number of years experience the player has in the NBA.
+        SportRadarPlayerID:
+          type:
+          - string
+          - 'null'
+          description: The player's cross reference PlayerID to the SportRadar API.
+        RotoworldPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the Rotoworld news feed.
+        RotoWirePlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the RotoWire news feed.
+        FantasyAlarmPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the FantasyAlarm news feed.
+        StatsPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the STATS data feeds.
+        SportsDirectPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the SportsDirect data feeds, now part of Nielsen GraceNote.
+        XmlTeamPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the XML Team data feeds.
+        InjuryStatus:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s current injury status; in the form of likelihood that player plays  Possible values: Probable; Questionable; Doubtful; Out'
+        InjuryBodyPart:
+          type:
+          - string
+          - 'null'
+          description: The body part that is injured (Knee, Groin, Calf, Hamstring, etc.)
+        InjuryStartDate:
+          type:
+          - string
+          - 'null'
+          description: The day that the injury started or first discovered.
+        InjuryNotes:
+          type:
+          - string
+          - 'null'
+          description: Brief description of the player's injury and expected availability.
+        FanDuelPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to FanDuel.
+        DraftKingsPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to DraftKings.
+        YahooPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to Yahoo Daily Fantasy Sports Contests.
+        FanDuelName:
+          type:
+          - string
+          - 'null'
+          description: The player's full name in FanDuel's daily fantasy sports platform.
+        DraftKingsName:
+          type:
+          - string
+          - 'null'
+          description: The player's full name in DraftKings' daily fantasy sports platform.
+        YahooName:
+          type:
+          - string
+          - 'null'
+          description: The player's full name in Yahoo's daily fantasy sports platform.
+        DepthChartPosition:
+          type:
+          - string
+          - 'null'
+          description: The position of the player on the depth chart.
+        DepthChartOrder:
+          type:
+          - integer
+          - 'null'
+          description: The order of the player on the depth chart.
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        FantasyDraftName:
+          type:
+          - string
+          - 'null'
+          description: The player's full name in FantasyDraft's daily fantasy sports platform.
+        FantasyDraftPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to Fantasy Draft.
+        UsaTodayPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to USA Today headshot data feeds.
+        UsaTodayHeadshotUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's headshot URL as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotNoBackgroundUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's transparent background headshot URL as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated date of the player's headshot as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotNoBackgroundUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated date of the player's transparent background headshot as provided by USA Today. License from USA Today is required.
+        NbaDotComPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's personID on nba dot com
+    TeamGame:
+      properties:
+        StatID:
+          type: integer
+          description: The unique ID of the stat
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        SeasonType:
+          type:
+          - integer
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition)
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The NBA season of the game
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Team's name
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Wins:
+          type:
+          - integer
+          - 'null'
+          description: Total number of team wins
+        Losses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of team losses
+        Possessions:
+          type:
+          - number
+          - 'null'
+          description: Total number of estimated possessions by the team in the game
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this game
+        OpponentID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team's opponent
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The name of the opponent 
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        IsGameOver:
+          type: boolean
+          description: Whether the game is over (true/false)
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalOpponentID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time)
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        Minutes:
+          type:
+          - integer
+          - 'null'
+          description: Total number of minutes played
+        Seconds:
+          type:
+          - integer
+          - 'null'
+          description: Total number of seconds played
+        FieldGoalsMade:
+          type:
+          - number
+          - 'null'
+          description: Total number of field goals made
+        FieldGoalsAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total number of field goals attempted
+        FieldGoalsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total field goal percentage
+        EffectiveFieldGoalsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total effective field goals percentage
+        TwoPointersMade:
+          type:
+          - number
+          - 'null'
+          description: Total two pointers made
+        TwoPointersAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total two pointers attempted
+        TwoPointersPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total two pointers percentage
+        ThreePointersMade:
+          type:
+          - number
+          - 'null'
+          description: Total three pointers made
+        ThreePointersAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total three pointers attempted
+        ThreePointersPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total three pointers percentage
+        FreeThrowsMade:
+          type:
+          - number
+          - 'null'
+          description: Total free throws made
+        FreeThrowsAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total free throws attempted
+        FreeThrowsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total free throws percentage
+        OffensiveRebounds:
+          type:
+          - number
+          - 'null'
+          description: Total offensive rebounds
+        DefensiveRebounds:
+          type:
+          - number
+          - 'null'
+          description: Total defensive rebounds
+        Rebounds:
+          type:
+          - number
+          - 'null'
+          description: Total rebounds
+        OffensiveReboundsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total offensive rebounds percentage
+        DefensiveReboundsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total defensive rebounds percentage
+        TotalReboundsPercentage:
+          type:
+          - number
+          - 'null'
+          description: The player/team total rebounds percentage
+        Assists:
+          type:
+          - number
+          - 'null'
+          description: Total assists
+        Steals:
+          type:
+          - number
+          - 'null'
+          description: Total steals
+        BlockedShots:
+          type:
+          - number
+          - 'null'
+          description: Total blocked shots
+        Turnovers:
+          type:
+          - number
+          - 'null'
+          description: Total turnovers
+        PersonalFouls:
+          type:
+          - number
+          - 'null'
+          description: Total personal fouls
+        Points:
+          type:
+          - number
+          - 'null'
+          description: Total points scored
+        TrueShootingAttempts:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s true shooting attempts as defined here: http://www.basketball-reference.com/about/glossary.html'
+        TrueShootingPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s true shooting percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        PlayerEfficiencyRating:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s linear weight efficiency rating as defined here: http://bleacherreport.com/articles/113144-cracking-the-code-how-to-calculate-hollingers-per-without-all-the-mess'
+        AssistsPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s assist percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        StealsPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s steal percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        BlocksPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s block percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        TurnOversPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s turnover percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        UsageRatePercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s usage rate percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total FanDuel daily fantasy points scored
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings daily fantasy points scored
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo daily fantasy points scored
+        PlusMinus:
+          type:
+          - number
+          - 'null'
+          description: Total plus minus
+        DoubleDoubles:
+          type:
+          - number
+          - 'null'
+          description: Total double-doubles scored
+        TripleDoubles:
+          type:
+          - number
+          - 'null'
+          description: Total triple-doubles scored
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Total FantasyDraft daily fantasy points scored
+        IsClosed:
+          type: boolean
+          description: Indicates whether the game is over and the stats for this player have been verified and closed out.
+        LineupConfirmed:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether starting lineup is confirmed
+        LineupStatus:
+          type:
+          - string
+          - 'null'
+          description: Indicates whether player is starting, active, or inactive
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    Team:
+      properties:
+        TeamID:
+          type: integer
+          description: The unique ID of the team
+        Key:
+          type:
+          - string
+          - 'null'
+          description: Abbreviation of the team (e.g. LAL; PHI; BOS; CHI; etc.)
+        Active:
+          type: boolean
+          description: Whether or not this team is active
+        City:
+          type:
+          - string
+          - 'null'
+          description: The city/location of the team (e.g. Los Angeles, Philadelphia, Boston, Chicago, etc.)
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The mascot of the team (e.g. Lakers, 76ers, Celtics, Bulls, etc.)
+        LeagueID:
+          type:
+          - integer
+          - 'null'
+          description: This is no longer used (deprecated)
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team's current home stadium
+        Conference:
+          type:
+          - string
+          - 'null'
+          description: 'The conference of the team (possible values: Eastern, Western)'
+        Division:
+          type:
+          - string
+          - 'null'
+          description: The division of the team (e.g. Atlantic, Central, Southeast, etc)
+        PrimaryColor:
+          type:
+          - string
+          - 'null'
+          description: The team's first color. (This is not licensed for public or commercial use)
+        SecondaryColor:
+          type:
+          - string
+          - 'null'
+          description: The team's second color. (This is not licensed for public or commercial use)
+        TertiaryColor:
+          type:
+          - string
+          - 'null'
+          description: The team's third color. (This is not licensed for public or commercial use)
+        QuaternaryColor:
+          type:
+          - string
+          - 'null'
+          description: The team's fourth color. (This is not licensed for public or commercial use)
+        WikipediaLogoUrl:
+          type:
+          - string
+          - 'null'
+          description: The link to the team's logo hosted on Wikipedia. (This is not licensed for public or commercial use)
+        WikipediaWordMarkUrl:
+          type:
+          - string
+          - 'null'
+          description: The link to the team's wordmark logo hosted on Wikipedia. (This is not licensed for public or commercial use)
+        GlobalTeamID:
+          type: integer
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        NbaDotComTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's ID on NBAdotCom
+        HeadCoach:
+          type:
+          - string
+          - 'null'
+          description: The current head coach of the team
+    OpponentSeason:
+      properties:
+        StatID:
+          type: integer
+          description: The unique ID of the stat
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        SeasonType:
+          type:
+          - integer
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition).
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The NBA season that these totals apply for
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The name of the team
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Wins:
+          type:
+          - integer
+          - 'null'
+          description: Total number of team wins on the season
+        Losses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of team losses on the season
+        OpponentPosition:
+          type:
+          - string
+          - 'null'
+          description: This field is expected to be NULL
+        Possessions:
+          type:
+          - number
+          - 'null'
+          description: Total number of estimated possessions by the team in the season
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time)
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        Minutes:
+          type:
+          - integer
+          - 'null'
+          description: Total number of minutes played
+        Seconds:
+          type:
+          - integer
+          - 'null'
+          description: Total number of seconds played
+        FieldGoalsMade:
+          type:
+          - number
+          - 'null'
+          description: Total number of field goals made
+        FieldGoalsAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total number of field goals attempted
+        FieldGoalsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total field goal percentage
+        EffectiveFieldGoalsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total effective field goals percentage
+        TwoPointersMade:
+          type:
+          - number
+          - 'null'
+          description: Total two pointers made
+        TwoPointersAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total two pointers attempted
+        TwoPointersPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total two pointers percentage
+        ThreePointersMade:
+          type:
+          - number
+          - 'null'
+          description: Total three pointers made
+        ThreePointersAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total three pointers attempted
+        ThreePointersPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total three pointers percentage
+        FreeThrowsMade:
+          type:
+          - number
+          - 'null'
+          description: Total free throws made
+        FreeThrowsAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total free throws attempted
+        FreeThrowsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total free throws percentage
+        OffensiveRebounds:
+          type:
+          - number
+          - 'null'
+          description: Total offensive rebounds
+        DefensiveRebounds:
+          type:
+          - number
+          - 'null'
+          description: Total defensive rebounds
+        Rebounds:
+          type:
+          - number
+          - 'null'
+          description: Total rebounds
+        OffensiveReboundsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total offensive rebounds percentage
+        DefensiveReboundsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total defensive rebounds percentage
+        TotalReboundsPercentage:
+          type:
+          - number
+          - 'null'
+          description: The player/team total rebounds percentage
+        Assists:
+          type:
+          - number
+          - 'null'
+          description: Total assists
+        Steals:
+          type:
+          - number
+          - 'null'
+          description: Total steals
+        BlockedShots:
+          type:
+          - number
+          - 'null'
+          description: Total blocked shots
+        Turnovers:
+          type:
+          - number
+          - 'null'
+          description: Total turnovers
+        PersonalFouls:
+          type:
+          - number
+          - 'null'
+          description: Total personal fouls
+        Points:
+          type:
+          - number
+          - 'null'
+          description: Total points scored
+        TrueShootingAttempts:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s true shooting attempts as defined here: http://www.basketball-reference.com/about/glossary.html'
+        TrueShootingPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s true shooting percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        PlayerEfficiencyRating:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s linear weight efficiency rating as defined here: http://bleacherreport.com/articles/113144-cracking-the-code-how-to-calculate-hollingers-per-without-all-the-mess'
+        AssistsPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s assist percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        StealsPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s steal percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        BlocksPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s block percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        TurnOversPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s turnover percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        UsageRatePercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s usage rate percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total FanDuel daily fantasy points scored
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings daily fantasy points scored
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo daily fantasy points scored
+        PlusMinus:
+          type:
+          - number
+          - 'null'
+          description: Total plus minus
+        DoubleDoubles:
+          type:
+          - number
+          - 'null'
+          description: Total double-doubles scored
+        TripleDoubles:
+          type:
+          - number
+          - 'null'
+          description: Total triple-doubles scored
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Total FantasyDraft daily fantasy points scored
+        IsClosed:
+          type: boolean
+          description: Indicates whether the game is over and the stats for this player have been verified and closed out.
+        LineupConfirmed:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether starting lineup is confirmed
+        LineupStatus:
+          type:
+          - string
+          - 'null'
+          description: Indicates whether player is starting, active, or inactive
+    Quarter:
+      properties:
+        QuarterID:
+          type: integer
+          description: Unique identifier for each Quarter.
+        GameID:
+          type: integer
+          description: The unique ID of the game associated with this quarter
+        Number:
+          type: integer
+          description: The Number (Order) of the Quarter in the scope of the Game.
+        Name:
+          type:
+          - string
+          - 'null'
+          description: 'The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)'
+        AwayScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the away team in the given period only
+        HomeScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the home team in the given period only
+    Transaction:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The player's full name
+        FormerTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the player's former team
+        FormerTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the player's former team
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the player's team
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'The type of transaction that occurred for a player. Transaction types can be: Released; Waived; Signed; Promoted; Elevated; Demoted; and Traded.'
+        Date:
+          type:
+          - string
+          - 'null'
+          description: The date this transaction was created
+        Note:
+          type:
+          - string
+          - 'null'
+          description: A short summary of the transaction that occurred (e.g. "Harris has signed with the Pelicans.")
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time this transaction took place
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time that this transaction was last updated (US Eastern Time)
+    Referee:
+      properties:
+        RefereeID:
+          type: integer
+          description: Unique ID of Referee
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The referee's full name
+        Number:
+          type:
+          - integer
+          - 'null'
+          description: The number of the referee
+        Position:
+          type:
+          - string
+          - 'null'
+          description: The position of the referee in the crew
+        College:
+          type:
+          - string
+          - 'null'
+          description: The college of the referee
+        Experience:
+          type:
+          - integer
+          - 'null'
+          description: The number of years of experience the referee has in the NBA
+    TeamDepthChart:
+      properties:
+        DepthCharts:
+          type: array
+          items:
+            $ref: '#/components/schemas/DepthChart'
+          description: List of Depth Chart Records for Team
+        TeamID:
+          type: integer
+          description: The unique ID of the team
+    DepthChart:
+      properties:
+        TeamID:
+          type: integer
+          description: The unique ID of the team
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The player's full name
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position category. Possible values: C; F; G'
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s primary position. Possible values: C; PF; PG; SF; SG'
+        DepthOrder:
+          type:
+          - integer
+          - 'null'
+          description: Depth Chart Order
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time that this depth chart was last updated (in US Eastern Time)
+        DepthChartID:
+          type: integer
+          description: Unique ID of Depth Chart Record
+    Stadium:
+      properties:
+        StadiumID:
+          type: integer
+          description: The unique ID of the stadium
+        Active:
+          type: boolean
+          description: Whether or not this stadium is the home venue for an active team
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The full name of the stadium
+        Address:
+          type:
+          - string
+          - 'null'
+          description: The address where the stadium is located
+        City:
+          type:
+          - string
+          - 'null'
+          description: The city where the stadium is located
+        State:
+          type:
+          - string
+          - 'null'
+          description: 'The US state in which the stadium is located. Note: If the stadium is outside of the US, this value is NULL'
+        Zip:
+          type:
+          - string
+          - 'null'
+          description: The zip code of the stadium
+        Country:
+          type:
+          - string
+          - 'null'
+          description: The 2-digit country code where the stadium is located
+        Capacity:
+          type:
+          - integer
+          - 'null'
+          description: The estimated seating capacity of the stadium
+        GeoLat:
+          type:
+          - number
+          - 'null'
+          description: The geographic latitude coordinate of this venue.
+        GeoLong:
+          type:
+          - number
+          - 'null'
+          description: The geographic longitude coordinate of this venue.
+    Standing:
+      properties:
+        Season:
+          type: integer
+          description: The NBA season that these totals apply for
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition).
+        TeamID:
+          type: integer
+          description: The unique ID for the team
+        Key:
+          type:
+          - string
+          - 'null'
+          description: The key (short team name) of the team
+        City:
+          type:
+          - string
+          - 'null'
+          description: The city/location of the team (e.g. Los Angeles; Philadelphia; Boston; Chicago; etc.)
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The team's full name
+        Conference:
+          type:
+          - string
+          - 'null'
+          description: The conference of the team (can either be Eastern or Western)
+        Division:
+          type:
+          - string
+          - 'null'
+          description: The division of the team (e.g. Atlantic, Central, Southeast, etc.)
+        Wins:
+          type:
+          - integer
+          - 'null'
+          description: Total wins by the team
+        Losses:
+          type:
+          - integer
+          - 'null'
+          description: Total losses by the team
+        Percentage:
+          type:
+          - number
+          - 'null'
+          description: The team's winning percentage
+        ConferenceWins:
+          type:
+          - integer
+          - 'null'
+          description: Total conference wins
+        ConferenceLosses:
+          type:
+          - integer
+          - 'null'
+          description: Total conference losses
+        DivisionWins:
+          type:
+          - integer
+          - 'null'
+          description: Total number of division wins
+        DivisionLosses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of division losses
+        HomeWins:
+          type:
+          - integer
+          - 'null'
+          description: Total number of home game wins
+        HomeLosses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of home game losses
+        AwayWins:
+          type:
+          - integer
+          - 'null'
+          description: Total number of away game wins
+        AwayLosses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of away game losses
+        LastTenWins:
+          type:
+          - integer
+          - 'null'
+          description: Total wins in the last 10 games
+        LastTenLosses:
+          type:
+          - integer
+          - 'null'
+          description: Total losses in the last 10 games
+        PointsPerGameFor:
+          type:
+          - number
+          - 'null'
+          description: Average points scored by the team per game
+        PointsPerGameAgainst:
+          type:
+          - number
+          - 'null'
+          description: Average points scored against the team per game
+        Streak:
+          type:
+          - integer
+          - 'null'
+          description: Total games that the streak (winning or losing) has lasted
+        GamesBack:
+          type:
+          - number
+          - 'null'
+          description: Total number of games behind the top ranked team for a given team
+        StreakDescription:
+          type:
+          - string
+          - 'null'
+          description: The winning or losing streak written in the form W5 or L1
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        ConferenceRank:
+          type:
+          - integer
+          - 'null'
+          description: Team rank at the conference level
+        DivisionRank:
+          type:
+          - integer
+          - 'null'
+          description: Team rank at the division level
+        ClinchedDivision:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if a team has clinched their division; FALSE if not
+        ClinchedPlayoffBerth:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if a team has clinched a playoff spot; FALSE if not
+        WonPlayInTournament:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if a team has clinched a playoff spot through the play-in; FALSE if not
+        ClinchedPlayInTournamentBerth:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if a team has clinched a spot in the play-in; FALSE if not
+        EliminatedFromPlayoffContention:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if a team has been eliminated from playoff contention; FALSE if not
+        ClinchedConference:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if a team has clinched their conference; FALSE if not
+    PlayerBasic:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        SportsDataID:
+          type:
+          - string
+          - 'null'
+          description: Deprecated. Use SportRadarPlayerID instead.
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the player''s status of being on an active roster. Possible values include: Active, Inactive'
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the player's team
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the player's team
+        Jersey:
+          type:
+          - integer
+          - 'null'
+          description: The player's jersey number.
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position category. Possible values: C, F, G'
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s primary position. Possible values: PG; SG; SF; PF; C'
+        FirstName:
+          type:
+          - string
+          - 'null'
+          description: The player's first name.
+        LastName:
+          type:
+          - string
+          - 'null'
+          description: The player's last name.
+        BirthDate:
+          type:
+          - string
+          - 'null'
+          description: The player's date of birth.
+        BirthCity:
+          type:
+          - string
+          - 'null'
+          description: The city in which the player was born.
+        BirthState:
+          type:
+          - string
+          - 'null'
+          description: The state in which the player was born.
+        BirthCountry:
+          type:
+          - string
+          - 'null'
+          description: The country in which the player was born.
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        Height:
+          type:
+          - integer
+          - 'null'
+          description: The player's height in inches.
+        Weight:
+          type:
+          - integer
+          - 'null'
+          description: The player's weight in pounds (lbs).
+    ScoreBasic:
+      properties:
+        GameEndDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time that the game ended in US Eastern Time
+        SeriesInfo:
+          $ref: '#/components/schemas/Series'
+          description: Contains relevant series data for playoff series only - HomeTeamWins, AwayTeamWins, GameNumber, and MaxLength
+        AwayTeamScore2:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the away team scored in the game
+        HomeTeamScore2:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the home team scored in this game
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The NBA season of the game
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition).
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, F/OT, Suspended, Postponed, Delayed, Canceled, Forfeit, NotNecessary'
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        AwayTeamID:
+          type: integer
+          description: The unique ID of the away team
+        HomeTeamID:
+          type: integer
+          description: The unique ID of the home team
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the stadium
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the away team scored in the game
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the home team scored in this game
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time).
+        GlobalGameID:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalAwayTeamID:
+          type: integer
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
+        GlobalHomeTeamID:
+          type: integer
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        IsClosed:
+          type: boolean
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
+        NeutralVenue:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this game is played in a neutral venue or not
+        DateTimeUTC:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in UTC
+        GameEndDateTIme:
+          type:
+          - string
+          - 'null'
+          description: The date and time that the game ended in US Eastern Time
+        RescheduledFromGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as "make up" games.
+        RescheduledGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
+    Season:
+      properties:
+        Season:
+          type: integer
+          description: The NBA season that these totals apply for
+        StartYear:
+          type: integer
+          description: The year in which the season started
+        EndYear:
+          type: integer
+          description: The year in which the season ended
+        Description:
+          type:
+          - string
+          - 'null'
+          description: 'The description of the season for display purposes (possible values include: 2017-18, 2018-19, etc)'
+        RegularSeasonStartDate:
+          type:
+          - string
+          - 'null'
+          description: The start date of the regular season
+        PostSeasonStartDate:
+          type:
+          - string
+          - 'null'
+          description: The start date of the postseason
+        SeasonType:
+          type:
+          - string
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition).
+        ApiSeason:
+          type:
+          - string
+          - 'null'
+          description: The string to pass into subsequent API calls in the season parameter (e.g. 2025REG, 2025POST, etc.)
+    ScheduleBasic:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The NBA season of the game
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition).
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, F/OT, Suspended, Postponed, Delayed, Canceled, Forfeit, NotNecessary'
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        AwayTeamID:
+          type: integer
+          description: The unique ID of the away team
+        HomeTeamID:
+          type: integer
+          description: The unique ID of the home team
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the stadium
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the away team scored in the game
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the home team scored in this game
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time).
+        GlobalGameID:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalAwayTeamID:
+          type: integer
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
+        GlobalHomeTeamID:
+          type: integer
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        IsClosed:
+          type: boolean
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
+        NeutralVenue:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this game is played in a neutral venue or not
+        DateTimeUTC:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in UTC
+        GameEndDateTIme:
+          type:
+          - string
+          - 'null'
+          description: The date and time that the game ended in US Eastern Time
+        RescheduledFromGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as "make up" games.
+        RescheduledGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: key
+      in: query

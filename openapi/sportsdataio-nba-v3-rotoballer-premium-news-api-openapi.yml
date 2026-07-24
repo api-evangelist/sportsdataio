@@ -1,0 +1,199 @@
+openapi: 3.1.0
+info:
+  title: MLB MLB v3 Headshots NBA v3 RotoBaller Premium News API
+  version: '1.0'
+  description: MLB API - OpenAPI 3.1 Specification
+servers:
+- url: https://api.sportsdata.io
+  description: Production server
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: NBA v3 RotoBaller Premium News
+paths:
+  /v3/nba/news-rotoballer/{format}/RotoBallerPremiumNews:
+    get:
+      description: RotoBaller's Premium News feed, with the latest updated stories in greater detail.
+      operationId: nba_v3_news_rotoballer_premium_news
+      summary: Premium News
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/News'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 RotoBaller Premium News
+  /v3/nba/news-rotoballer/{format}/RotoBallerPremiumNewsByDate/{date}:
+    get:
+      description: RotoBaller's Premium News feed, with the latest updated stories in greater detail called by date.
+      operationId: nba_v3_news_rotoballer_premium_news___by_date
+      summary: Premium News - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the news.
+
+          <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/News'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NBA v3 RotoBaller Premium News
+components:
+  schemas:
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    News:
+      properties:
+        NewsID:
+          type: integer
+          description: The unique ID of news story
+        Source:
+          type:
+          - string
+          - 'null'
+          description: The source of the story (RotoBaller, NBCSports.com, etc.)
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when this news story was last updated (in US Eastern Time)
+        TimeAgo:
+          type:
+          - string
+          - 'null'
+          description: How long ago this news story was published
+        Title:
+          type:
+          - string
+          - 'null'
+          description: The headline of the news story (typically less than 100 characters)
+        Content:
+          type:
+          - string
+          - 'null'
+          description: The full body content of the story
+        Url:
+          type:
+          - string
+          - 'null'
+          description: The URL of the full news story
+        TermsOfUse:
+          type:
+          - string
+          - 'null'
+          description: The terms of use with using this news item, credit must be given to the originator of the story when specified in the terms of use
+        Author:
+          type:
+          - string
+          - 'null'
+          description: The author responsible for writing the news posting
+        Categories:
+          type:
+          - string
+          - 'null'
+          description: 'Comma delimited meta tags describing the categories of this content. Possible tags include: Top Headlines, Breaking News, Injury, Sit/Start, Waiver Wire, Risers, Fallers, Lineups, Transactions, Free Agents, Prospects/Rookies, Game Recap, Matchup Outlook'
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team that relates to this story
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team that relates to this news story
+        PlayerID2:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the additional player who relates to this story (if applicable)
+        TeamID2:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the additional team that relates to this news story (if applicable)
+        Team2:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the additional team that relates to this story (if applicable)
+        OriginalSource:
+          type:
+          - string
+          - 'null'
+          description: The original source who broke this news (before it was picked up by the publisher of this blurb)
+        OriginalSourceUrl:
+          type:
+          - string
+          - 'null'
+          description: The URL of the original source who broke this news blurb
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: key
+      in: query

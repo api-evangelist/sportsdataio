@@ -1,0 +1,2943 @@
+openapi: 3.1.0
+info:
+  title: MLB MLB v3 Headshots Soccer v4 Stats API
+  version: '1.0'
+  description: MLB API - OpenAPI 3.1 Specification
+servers:
+- url: https://api.sportsdata.io
+  description: Production server
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Soccer v4 Stats
+paths:
+  /v4/soccer/stats/{format}/BoxScoresByDate/{competition}/{date}:
+    get:
+      description: Full statistical information for a specified game, down to the team and player stat level, delivered live during the games, called for all games on a given date within a competition.
+      operationId: soccer_v4_stats_box_scores___by_date__live___final
+      summary: Box Scores - by Date [Live & Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BoxScore'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Stats
+  /v4/soccer/stats/{format}/BoxScoresDeltaByDate/{competition}/{date}/{minutes}:
+    get:
+      description: This method returns all box scores for a given date in a given competition, but only returns player stats that have changed in the last X minutes as specified in your API call. By definition this is a live endpoint, not final.
+      operationId: soccer_v4_stats_box_scores_delta___by_date
+      summary: Box Scores Delta - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.'
+        required: true
+        schema:
+          type: string
+      - name: minutes
+        in: path
+        description: 'Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back. Valid entries are:
+
+          <code>1</code>, <code>2</code> ... <code>all</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BoxScore'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Stats
+  /v4/soccer/stats/{format}/BoxScore/{competition}/{gameid}:
+    get:
+      description: Full statistical information for a specified game, down to the team and player stat level, delivered live during the game, called per individual game.
+      operationId: soccer_v4_stats_box_score__live___final
+      summary: Box Score [Live & Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: gameid
+        in: path
+        description: The GameID of a Soccer game.  GameIDs can be found in the Games API.  Valid entries are <code>702</code>, <code>1274</code>, etc.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BoxScore'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Stats
+  /v4/soccer/stats/{format}/PlayerGameStatsByDate/{competition}/{date}:
+    get:
+      description: Returns the box score statistical record for all involved players across all teams' games on a given date in a given competition, both live and after each game has concluded.
+      operationId: soccer_v4_stats_player_game_stats___by_date__live___final
+      summary: Player Game Stats - by Date [Live & Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerGame'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Stats
+  /v4/soccer/stats/{format}/PlayerSeasonStats/{competition}/{season}:
+    get:
+      description: Returns all season-long stats (i.e. the season total, not each individual game record) for all players for a given season.
+      operationId: soccer_v4_stats_player_season_stats
+      summary: Player Season Stats
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: season
+        in: path
+        description: 'Year of the season<br>Examples: <code>2020</code>, <code>2021</code>, etc.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Round'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Stats
+  /v4/soccer/stats/{format}/BoxScoreFinal/{competition}/{gameid}:
+    get:
+      description: Full statistical information for a specified game, down to the team and player stat level, delivered after the game is complete.
+      operationId: soccer_v4_stats_box_score__final
+      summary: Box Score [Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: gameid
+        in: path
+        description: The GameID of a Soccer game.  GameIDs can be found in the Games API.  Valid entries are <code>702</code>, <code>1274</code>, etc.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BoxScore'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Stats
+  /v4/soccer/stats/{format}/BoxScoresFinal/{competition}/{date}:
+    get:
+      description: Full statistical information for a specified date for each game that took place, down to the team and player stat level, delivered after the game is complete.
+      operationId: soccer_v4_stats_box_scores___by_date__final
+      summary: Box Scores - by Date [Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BoxScore'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Stats
+  /v4/soccer/stats/{format}/LineupsByDate/{competition}/{date}:
+    get:
+      description: Projected and confirmed starting XIs and substitute benches for a given competition on a given date.
+      operationId: soccer_v4_stats_lineups___by_date
+      summary: Lineups - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerGameBasic'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Stats
+  /v4/soccer/stats/{format}/PlayerGameStatsByDateFinal/{competition}/{date}:
+    get:
+      description: Returns the box score statistical record for all involved players across all teams' games for a given competition on a given date after each game has concluded.
+      operationId: soccer_v4_stats_player_game_stats___by_date__final
+      summary: Player Game Stats - by Date [Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerGame'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Stats
+  /v4/soccer/stats/{format}/TeamGameStatsByDateFinal/{competition}/{date}:
+    get:
+      description: Returns the box score statistical record team-wide (aggregated from all players) for a games in a given competition on a given date, updated as each game has concluded.
+      operationId: soccer_v4_stats_team_game_stats___by_date__final
+      summary: Team Game Stats - by Date [Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamGame'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Stats
+  /v4/soccer/stats/{format}/FantasyGameStatsByDate/{competition}/{date}:
+    get:
+      description: A simple list of fantasy points awarded to players who took part in a given competition's games on a given date.
+      operationId: soccer_v4_stats_fantasy_points___by_date
+      summary: Fantasy Points - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FantasyGame'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Stats
+components:
+  schemas:
+    Standing:
+      properties:
+        StandingId:
+          type: integer
+          description: The unique ID of the standing
+        RoundId:
+          type: integer
+          description: The unique ID of the round that this team is associated with
+        TeamId:
+          type: integer
+          description: The unique ID of the team
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The team's full name
+        ShortName:
+          type:
+          - string
+          - 'null'
+          description: The short name of the team
+        Scope:
+          type:
+          - string
+          - 'null'
+          description: 'The scope of the standing (possible values: Total, Away, Home)'
+        Order:
+          type:
+          - integer
+          - 'null'
+          description: The order of the teams in the standing (e.g 1; 2; 3; 4; etc.)
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: Total number of games played by the team in the season
+        Wins:
+          type:
+          - integer
+          - 'null'
+          description: Number of wins by the team in the season
+        Losses:
+          type:
+          - integer
+          - 'null'
+          description: The number of losses for the team
+        Draws:
+          type:
+          - integer
+          - 'null'
+          description: Number of draws by the team in the season
+        GoalsScored:
+          type:
+          - integer
+          - 'null'
+          description: Total number of goals scored by the team in the season
+        GoalsAgainst:
+          type:
+          - integer
+          - 'null'
+          description: Total number of goals against by the team in the season
+        GoalsDifferential:
+          type:
+          - integer
+          - 'null'
+          description: 'The goal differential of the team in the season. Note: GoalDifferential = GoalsScored - GoalsAgainst'
+        Points:
+          type:
+          - integer
+          - 'null'
+          description: Total points accumulated by the team
+        Group:
+          type:
+          - string
+          - 'null'
+          description: The name of the group (when applicable)
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+    PlayerGame:
+      properties:
+        StatId:
+          type: integer
+          description: The unique ID of the stat associated with this player
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        Season:
+          type: integer
+          description: The soccer regular season for which these totals apply
+        RoundId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the round that this player is associated with
+        TeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        PlayerId:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career.'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The player's full name
+        ShortName:
+          type:
+          - string
+          - 'null'
+          description: The short name of the player
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The name of the team
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: The player's position category
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The position of the player. Possible values include: A (Attacker); M (Midfielder); D (Defender); GK (Goalkeeper).'
+        Jersey:
+          type:
+          - integer
+          - 'null'
+          description: The player's jersey number
+        Started:
+          type:
+          - integer
+          - 'null'
+          description: The total number of games the player started
+        Captain:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the player is a captain (true/false)
+        Suspension:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the player is suspended or not (true/false)
+        SuspensionReason:
+          type:
+          - string
+          - 'null'
+          description: The reason given for the player's suspension
+        FanDuelSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for FanDuel daily fantasy contests.
+        DraftKingsSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for DraftKings daily fantasy contests.
+        YahooSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Yahoo daily fantasy contests
+        MondogoalSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Mondogoal's daily fantasy contests
+        FanDuelPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in FanDuel's daily fantasy sports platform.
+        DraftKingsPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in DraftKings' daily fantasy sports platform.
+        YahooPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Yahoo's daily fantasy sports platform
+        MondogoalPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Mondogoal's daily fantasy sports platform.
+        InjuryStatus:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the player''s injury status. Possible values: Questionable; Out.'
+        InjuryBodyPart:
+          type:
+          - string
+          - 'null'
+          description: The body part of the player that is injured (Knee; Groin; Calf; Hamstring; etc.)
+        InjuryNotes:
+          type:
+          - string
+          - 'null'
+          description: Not yet supported; will be null
+        InjuryStartDate:
+          type:
+          - string
+          - 'null'
+          description: The date that the injury started or was first discovered
+        GlobalTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        Corners:
+          type:
+          - number
+          - 'null'
+          description: Total number of corner kicks taken by the player in the game
+        GameId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this game
+        OpponentId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team's opponent
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The name of the opponent 
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (UTC)
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        IsGameOver:
+          type: boolean
+          description: Whether the game is over (true/false)
+        GlobalGameId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalOpponentId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time)
+        UpdatedUtc:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (UTC Time)
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total Fan Duel daily fantasy points scored
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total Draft Kings daily fantasy points scored
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo daily fantasy points scored
+        FantasyPointsMondogoal:
+          type:
+          - number
+          - 'null'
+          description: Total Mondogoal fantasy points scored
+        Minutes:
+          type:
+          - number
+          - 'null'
+          description: Total minutes played
+        Goals:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored
+        Assists:
+          type:
+          - number
+          - 'null'
+          description: Total assists scored
+        Shots:
+          type:
+          - number
+          - 'null'
+          description: Total shots attempted
+        ShotsOnGoal:
+          type:
+          - number
+          - 'null'
+          description: Total shots on goal attempted
+        YellowCards:
+          type:
+          - number
+          - 'null'
+          description: Total yellow cards against
+        RedCards:
+          type:
+          - number
+          - 'null'
+          description: Total red cards against
+        YellowRedCards:
+          type:
+          - number
+          - 'null'
+          description: Total double yellow cards against (which result in a red card)
+        Crosses:
+          type:
+          - number
+          - 'null'
+          description: Total passes from a wide area of the field towards the center of the field near the opponent's goal
+        TacklesWon:
+          type:
+          - number
+          - 'null'
+          description: Total tackles won
+        Interceptions:
+          type:
+          - number
+          - 'null'
+          description: Total interceptions made
+        OwnGoals:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored against own team (accidentally)
+        Fouls:
+          type:
+          - number
+          - 'null'
+          description: Total fouls made
+        Fouled:
+          type:
+          - number
+          - 'null'
+          description: Total times fouled
+        Offsides:
+          type:
+          - number
+          - 'null'
+          description: Total offsides against
+        Passes:
+          type:
+          - number
+          - 'null'
+          description: Total passes attempted
+        PassesCompleted:
+          type:
+          - number
+          - 'null'
+          description: Total passes completed successfully to teammate
+        LastManTackle:
+          type:
+          - number
+          - 'null'
+          description: Total tackles made when there is no one else available to stop the opponent from scoring (this can be the goalkeeper)
+        CornersWon:
+          type:
+          - number
+          - 'null'
+          description: Total corner kicks awarded
+        BlockedShots:
+          type:
+          - number
+          - 'null'
+          description: Total shots blocked
+        Touches:
+          type:
+          - number
+          - 'null'
+          description: Total times this player touched the ball
+        DefenderCleanSheets:
+          type:
+          - number
+          - 'null'
+          description: Total defender clean sheets (awarded when zero goals were allowed to the opponent and the player played at least 60 minutes)
+        GoalkeeperSaves:
+          type:
+          - number
+          - 'null'
+          description: Total saves made by goalkeeper
+        GoalkeeperGoalsAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total goals allowed by goalkeeper
+        GoalkeeperSingleGoalAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total games where this goalkeeper allowed exactly one goal
+        GoalkeeperCleanSheets:
+          type:
+          - number
+          - 'null'
+          description: Total goalkeeper clean sheets (awarded when zero goals were allowed to the opponent and the player played at least 60 minutes)
+        GoalkeeperWins:
+          type:
+          - number
+          - 'null'
+          description: Total goalkeeper wins (awarded when zero goals were allowed to the opponent and the player played at least 45 minutes)
+        PenaltyKickGoals:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick goals
+        PenaltyKickMisses:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick misses
+        PenaltyKickSaves:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick saves
+        PenaltiesWon:
+          type:
+          - number
+          - 'null'
+          description: Total penalties won
+        PenaltiesConceded:
+          type:
+          - number
+          - 'null'
+          description: 'Total penalties conceded '
+        Score:
+          type:
+          - number
+          - 'null'
+          description: Goals scored by entire team
+        OpponentScore:
+          type:
+          - number
+          - 'null'
+          description: Goals allowed to opponent
+        Tackles:
+          type:
+          - number
+          - 'null'
+          description: Total Tackles
+    Lineup:
+      properties:
+        LineupId:
+          type: integer
+          description: The unique ID of this lineup
+        GameId:
+          type: integer
+          description: The unique ID of the game tied to this lineup
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s status in the lineup. Possible values: Substitute In; Starter; Bench.'
+        TeamId:
+          type: integer
+          description: The unique ID of the team associated with this lineup
+        PlayerId:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career.'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The player's full name
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The position of the player. Possible values include: A (Attacker); M (Midfielder); D (Defender); GK (Goalkeeper).'
+        ReplacedPlayerId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the replaced player
+        ReplacedPlayerName:
+          type:
+          - string
+          - 'null'
+          description: The name of the replaced player
+        GameMinute:
+          type:
+          - integer
+          - 'null'
+          description: The minute of the game
+        GameMinuteExtra:
+          type:
+          - integer
+          - 'null'
+          description: The extra minute of the game
+        PitchPositionHorizontal:
+          type:
+          - integer
+          - 'null'
+          description: 'The pitch position of where this player lined up on the field. Note: This is used for rendering an image of a soccer/football field with the players marked as such. This will be a number between 0 and 50.'
+        PitchPositionVertical:
+          type:
+          - integer
+          - 'null'
+          description: 'The pitch position of where this player lined up on the field. Note: This is used for rendering an image of a soccer/football field with the players marked as such. This will be a number between 0 and 50.'
+    PlayerGameBasic:
+      properties:
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (in US Eastern Time)
+        UpdatedUtc:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (in UTC Time)
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: Total number of games played by the player in the game
+        Minutes:
+          type:
+          - number
+          - 'null'
+          description: Total minutes played by the player in the game
+        Goals:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored by the player in the game
+        Assists:
+          type:
+          - number
+          - 'null'
+          description: Total assists scored by the player in the game
+        Shots:
+          type:
+          - number
+          - 'null'
+          description: Total shots attempted by the player in the game
+        ShotsOnGoal:
+          type:
+          - number
+          - 'null'
+          description: Total shots on goal attempted by the player in the game
+        YellowCards:
+          type:
+          - number
+          - 'null'
+          description: Total yellow cards against the player in the game
+        RedCards:
+          type:
+          - number
+          - 'null'
+          description: Total red cards against by the player in the game
+        YellowRedCards:
+          type:
+          - number
+          - 'null'
+          description: 'Total double yellow cards against the player in the game. Note: A double yellow card results in a red card'
+        Crosses:
+          type:
+          - number
+          - 'null'
+          description: 'Total crosses by the player in the game. Note: a cross means a pass from a wide area of the field towards the center of the field near the opponent''s goal.'
+        TacklesWon:
+          type:
+          - number
+          - 'null'
+          description: Total tackles won by the player in the game
+        Interceptions:
+          type:
+          - number
+          - 'null'
+          description: Total interceptions made by the player in the game
+        OwnGoals:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored against own team (accidentally)
+        Fouls:
+          type:
+          - number
+          - 'null'
+          description: Total fouls made by the player in the game
+        Fouled:
+          type:
+          - number
+          - 'null'
+          description: Total times the player was fouled in the game
+        Offsides:
+          type:
+          - number
+          - 'null'
+          description: Total offsides against by the player in the game
+        Passes:
+          type:
+          - number
+          - 'null'
+          description: Total passes attempted by the player in the game
+        PassesCompleted:
+          type:
+          - number
+          - 'null'
+          description: Total passes completed by the player in the game
+        LastManTackle:
+          type:
+          - number
+          - 'null'
+          description: Total tackles made by the player when there is no one else available to stop the opponent from scoring in the game
+        CornersWon:
+          type:
+          - number
+          - 'null'
+          description: Total corner kicks awarded to the player in the game
+        BlockedShots:
+          type:
+          - number
+          - 'null'
+          description: Total shots blocked by the player in the game
+        Touches:
+          type:
+          - number
+          - 'null'
+          description: Total times the player touched the ball in the game
+        DefenderCleanSheets:
+          type:
+          - number
+          - 'null'
+          description: 'Total defender clean sheets by the player in the game. Note: clean sheets are awarded when zero goals were allowed to the opponent and the player played at least 60 minutes).'
+        GoalkeeperSaves:
+          type:
+          - number
+          - 'null'
+          description: Total saves made by goalkeeper in the game
+        GoalkeeperGoalsAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total goals allowed by goalkeeper in the game
+        GoalkeeperSingleGoalAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total games where the goalkeeper allowed exactly one goal in the game
+        GoalkeeperCleanSheets:
+          type:
+          - number
+          - 'null'
+          description: 'Total number of clean sheets by the goalkeeper in the game. Note: Awarded when zero goals were allowed to the opponent and the player played at least 60 minutes'
+        GoalkeeperWins:
+          type:
+          - number
+          - 'null'
+          description: Total wins by the goalkeeper in the game
+        PenaltyKickGoals:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick goals scored by the player in the game
+        PenaltyKickMisses:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kicks missed by the player in the game
+        PenaltyKickSaves:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kicks saved by the player in the game
+        PenaltiesWon:
+          type:
+          - number
+          - 'null'
+          description: Total penalties won by the player in the game
+        PenaltiesConceded:
+          type:
+          - number
+          - 'null'
+          description: Total penalties conceded by the player in the game
+        Score:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored by the player's team in the game
+        OpponentScore:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored against own team by the player in the game
+        Tackles:
+          type:
+          - number
+          - 'null'
+          description: Total tackles by the player in the game
+        GameId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the game
+        OpponentId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team's opponent
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The name of the opponent team
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in UTC)
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is the home team or away team
+        IsGameOver:
+          type: boolean
+          description: Whether the game is over (true) or not (false)
+        GlobalGameId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalOpponentId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.
+        StatId:
+          type: integer
+          description: The unique ID of the stat associated with this player
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        Season:
+          type: integer
+          description: The soccer regular season for which these totals apply
+        RoundId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the round that this player is associated with
+        TeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        PlayerId:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The player's full name
+        ShortName:
+          type:
+          - string
+          - 'null'
+          description: The short name of the player
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the player's team
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: The player's position category
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The position of the player. Possible values include: A (Attacker); M (Midfielder); D (Defender); GK (Goalkeeper)'
+        Jersey:
+          type: integer
+          description: The player's jersey number
+        Started:
+          type:
+          - integer
+          - 'null'
+          description: The total number of games the player started
+        Captain:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the player is a captain (true/false)
+        Suspension:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the player is suspended or not (true/false)
+        SuspensionReason:
+          type:
+          - string
+          - 'null'
+          description: The reason given for the player's suspension
+        GlobalTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+    Booking:
+      properties:
+        BookingId:
+          type: integer
+          description: The unique ID of the booking
+        GameId:
+          type: integer
+          description: The unique ID of the game tied to this booking
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'The type of booking. Possible values: Yellow Card, Red Card, Yellow Red Card'
+        TeamId:
+          type: integer
+          description: The unique ID of the team associated with this booking
+        PlayerId:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The full name of the player who was booked
+        GameMinute:
+          type:
+          - integer
+          - 'null'
+          description: The minute in the game in which the booking occurred
+        GameMinuteExtra:
+          type:
+          - integer
+          - 'null'
+          description: The extra minute in the game in which the booking occurred
+    Coach:
+      properties:
+        CoachId:
+          type: integer
+          description: The unique ID of the coach
+        FirstName:
+          type:
+          - string
+          - 'null'
+          description: Coach's first name
+        LastName:
+          type:
+          - string
+          - 'null'
+          description: The last name of the coach
+        ShortName:
+          type:
+          - string
+          - 'null'
+          description: The short name of the coach
+        Nationality:
+          type:
+          - string
+          - 'null'
+          description: Coach's nationality
+    Goal:
+      properties:
+        GoalId:
+          type: integer
+          description: The unique ID of the goal
+        GameId:
+          type: integer
+          description: The unique ID of the game tied to this goal
+        TeamId:
+          type: integer
+          description: The unique ID of the team associated with this goal
+        PlayerId:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career.'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The full name of the player who scored the goal
+        Type:
+          type:
+          - string
+          - 'null'
+          description: The type of goal scored
+        AssistedByPlayerId1:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the first assisted player
+        AssistedByPlayerName1:
+          type:
+          - string
+          - 'null'
+          description: The player's name of the first assisted player
+        AssistedByPlayerId2:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the second assisted player
+        AssistedByPlayerName2:
+          type:
+          - string
+          - 'null'
+          description: The player's name of the second assisted player
+        GameMinute:
+          type:
+          - integer
+          - 'null'
+          description: The minute in the game in which the goal was scored
+        GameMinuteExtra:
+          type:
+          - integer
+          - 'null'
+          description: The extra minute in the game in which the goal was scored
+    PenaltyShootout:
+      properties:
+        PenaltyShootoutId:
+          type: integer
+          description: The unique ID of the penalty shootout
+        GameId:
+          type: integer
+          description: The unique ID of the game tied to this penalty shootout
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'The result of this penalty shootout kick. Possible values: Goal; Miss.'
+        TeamId:
+          type: integer
+          description: The unique ID of the team
+        PlayerId:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career.'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The name of the player in the penalty shootout
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The position of the player. Possible values include: A (Attacker); M (Midfielder); D (Defender); GK (Goalkeeper).'
+        Order:
+          type: integer
+          description: The order of the penalty shootout
+    BoxScore:
+      properties:
+        Game:
+          $ref: '#/components/schemas/Game'
+          description: The game details associated with this box score
+        AwayTeamCoach:
+          $ref: '#/components/schemas/Coach'
+          description: The coach of the away team
+        HomeTeamCoach:
+          $ref: '#/components/schemas/Coach'
+          description: The coach of the home team
+        MainReferee:
+          $ref: '#/components/schemas/Referee'
+          description: The main referee
+        AssistantReferee1:
+          $ref: '#/components/schemas/Referee'
+          description: The first assistant referee
+        AssistantReferee2:
+          $ref: '#/components/schemas/Referee'
+          description: The second assistant referee
+        FourthReferee:
+          $ref: '#/components/schemas/Referee'
+          description: The information about the fourth referee working the match
+        AdditionalAssistantReferee1:
+          $ref: '#/components/schemas/Referee'
+          description: The first additional assistant referee
+        AdditionalAssistantReferee2:
+          $ref: '#/components/schemas/Referee'
+          description: The second additional assistant referee
+        Lineups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lineup'
+          description: The details of the lineups for each team
+        Goals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Goal'
+          description: The details of the goals scored during this game
+        Bookings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Booking'
+          description: The details of the bookings (yellow/red cards) recorded during this game
+        PenaltyShootouts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PenaltyShootout'
+          description: The details of the penalty shootouts recorded during this game
+        TeamGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamGame'
+          description: The stats by the team in the game
+        PlayerGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlayerGame'
+          description: The player stats for this game
+        VideoAssistantReferee:
+          $ref: '#/components/schemas/Referee'
+          description: The name of the referee in charge of the video reviews (VAR)
+    Game:
+      properties:
+        GameId:
+          type: integer
+          description: The unique ID of the game
+        RoundId:
+          type: integer
+          description: The unique ID of the round that this game is associated with.
+        Season:
+          type: integer
+          description: The soccer regular season for which these totals apply
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        Group:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the group in which this game occurs. Note: This is used in tournaments & cups'
+        AwayTeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the away team
+        HomeTeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the home team
+        VenueId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the venue
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in UTC)
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Break, Final, Awarded, Postponed, Canceled, Suspended. If a game is called off before it starts, the Status is set to Postponed, until a new date/time is scheduled, at which point, the DateTime is updated, and the Status is set back to Scheduled. If a game has already started, and temporarily interrupted, it''s Status is set to Suspended, until it either resumes, or gets postponed and replayed at a later date. If the game is at halftime, then the Status will be Break. Awarded is used in cases where a game is decided on the so called "green table." That means that a game was decided by the Federation/League to one team for a reason. This can include situations like riots, where the opponent team gets 3:0 win awarded as punishment. Awarded is also used when a club withdraws during the season from the competition then all the remaining matches getting awarded 3:0.'
+        Week:
+          type:
+          - integer
+          - 'null'
+          description: The week during the season/round in which this game occurs
+        Period:
+          type:
+          - string
+          - 'null'
+          description: 'The final period of the game. Possible values: Regular = Game ended in 90 minutes of regular time; ExtraTime = Game ended in extra time / overtime; PenaltyShootout = Game finished in penalty shootout time'
+        Clock:
+          type:
+          - integer
+          - 'null'
+          description: 'The clock for the game if it is in progress.  Note: if the game hasn''t started or the game is over; then this will be NULL'
+        Winner:
+          type:
+          - string
+          - 'null'
+          description: 'The winner of the game. Possible values: AwayTeam; HomeTeam; Draw'
+        VenueType:
+          type:
+          - string
+          - 'null'
+          description: 'Shows which team has home field advantage. Possible values: Home; Away; Neutral'
+        AwayTeamKey:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        AwayTeamName:
+          type:
+          - string
+          - 'null'
+          description: The name of the away team
+        AwayTeamCountryCode:
+          type:
+          - string
+          - 'null'
+          description: The country code of the away team.
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: The final score of the away team
+        AwayTeamScorePeriod1:
+          type:
+          - integer
+          - 'null'
+          description: The first period score of the away team.
+        AwayTeamScorePeriod2:
+          type:
+          - integer
+          - 'null'
+          description: The second period score of the away team.
+        AwayTeamScoreExtraTime:
+          type:
+          - integer
+          - 'null'
+          description: The extra time (overtime) score of the away team (if applicable).
+        AwayTeamScorePenalty:
+          type:
+          - integer
+          - 'null'
+          description: The penalty shootout score of the away team (if applicable).
+        HomeTeamKey:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        HomeTeamName:
+          type:
+          - string
+          - 'null'
+          description: The name of the home team
+        HomeTeamCountryCode:
+          type:
+          - string
+          - 'null'
+          description: The country code of the home team
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: The final score of the home team
+        HomeTeamScorePeriod1:
+          type:
+          - integer
+          - 'null'
+          description: The first period score of the home team
+        HomeTeamScorePeriod2:
+          type:
+          - integer
+          - 'null'
+          description: The second period score of the home team
+        HomeTeamScoreExtraTime:
+          type:
+          - integer
+          - 'null'
+          description: The extra time (overtime) score of the home team (if applicable)
+        HomeTeamScorePenalty:
+          type:
+          - integer
+          - 'null'
+          description: The penalty shootout score of the home team (if applicable)
+        HomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Payout on a bet that the away home wins
+        AwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Payout on a bet that the away team wins.
+        DrawMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's money line for a draw
+        PointSpread:
+          type:
+          - number
+          - 'null'
+          description: Point spread for the home team
+        HomeTeamPointSpreadPayout:
+          type:
+          - integer
+          - 'null'
+          description: Payout if the home team covers the spread
+        AwayTeamPointSpreadPayout:
+          type:
+          - integer
+          - 'null'
+          description: Payout if the away team covers the spread
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's total goals line (over/under) for the game
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the over bet on the total goals line
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under
+        Attendance:
+          type:
+          - integer
+          - 'null'
+          description: The attendance for the game.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time)
+        UpdatedUtc:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when this record was updated (in UTC)
+        GlobalGameId:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalAwayTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
+        GlobalHomeTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        ClockExtra:
+          type:
+          - integer
+          - 'null'
+          description: 'The added stoppage time minute the game is currently in.  Note: will be null when game is not in stoppage time'
+        ClockDisplay:
+          type:
+          - string
+          - 'null'
+          description: 'A convenient string display of the current clock with format Clock+ClockExtra (example: 90+3)'
+        IsClosed:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether the game is over and the final score and stats have been verified and closed out
+        HomeTeamFormation:
+          type:
+          - string
+          - 'null'
+          description: The formation for the home team (4-4-2; 4-3-3; etc.)
+        AwayTeamFormation:
+          type:
+          - string
+          - 'null'
+          description: The formation for the away team (4-4-2, 4-3-3, etc.)
+        PlayoffAggregateScore:
+          $ref: '#/components/schemas/PlayoffAggregateScore'
+          description: Aggregate scoring information for 2-leg/home-and-home games (i.e. Champions League Round of 16). Team A is determined by the first legs home team.
+    Round:
+      properties:
+        RoundId:
+          type: integer
+          description: The unique ID of the round
+        SeasonId:
+          type: integer
+          description: The unique ID of the season this round is associated with
+        Season:
+          type: integer
+          description: The soccer regular season for which these totals apply
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        Name:
+          type:
+          - string
+          - 'null'
+          description: 'The display name of the round (examples: Regular Season, Semi-finals, Final, etc)'
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'The type of this round. Possible values: Cup; Table'
+        StartDate:
+          type:
+          - string
+          - 'null'
+          description: The start date of the round
+        EndDate:
+          type:
+          - string
+          - 'null'
+          description: The end date of the round
+        CurrentWeek:
+          type:
+          - integer
+          - 'null'
+          description: The current week that this round is in
+        CurrentRound:
+          type: boolean
+          description: Indicates whether or not this round is the current round of the competition/season
+        Games:
+          type: array
+          items:
+            $ref: '#/components/schemas/Game'
+          description: The games and their details that are apart of this round
+        Standings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Standing'
+          description: The standings details associated with this round of the competition
+        TeamSeasons:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamSeason'
+          description: The team stat records associated with this round
+        PlayerSeasons:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlayerSeason'
+          description: Player Season stat records associated with this round
+    PlayoffAggregateScore:
+      properties:
+        TeamA_Id:
+          type: integer
+          description: 'The TeamID of Team A. Note: Team A is determined by the home team in the first leg, and remains set through the life of the record'
+        TeamA_AggregateScore:
+          type: integer
+          description: 'The score, on aggregate, of Team A in the matchup. Note: Team A is determined by the home team in the first leg, and remains set through the life of the record'
+        TeamB_Id:
+          type: integer
+          description: 'The TeamID of Team B. Note: Team B is determined by the away team in the first leg, and remains set through the life of the record'
+        TeamB_AggregateScore:
+          type: integer
+          description: 'The score, on aggregate, of Team B in the matchup. Note: Team B is determined by the away team in the first leg, and remains set through the life of the record'
+        WinningTeamId:
+          type: integer
+          description: The ID of the team that wins the home-and-home matchup
+        Created:
+          type:
+          - string
+          - 'null'
+          description: Date and time the record was created (in US Eastern Time)
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (in US Eastern Time)
+    FantasyGame:
+      properties:
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the game
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career'
+        SeasonType:
+          type:
+          - integer
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The soccer regular season for which these totals apply
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in UTC)
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The name of the opponent team
+        Jersey:
+          type:
+          - integer
+          - 'null'
+          description: The player's jersey number
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The player's full name
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The position of the player.  Possible values include: A (Attacker); M (Midfielder); D (Defender); GK (Goalkeeper)'
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: The player's position category
+        Started:
+          type:
+          - integer
+          - 'null'
+          description: The total number of games the player started
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        IsGameOver:
+          type: boolean
+          description: Whether the game is over (true) or not (false)
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: This field is expected to be NULL
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: This field is expected to be NULL
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings daily fantasy points scored by the player in the game
+        FanDuelPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in FanDuel's daily fantasy sports platform.
+        DraftKingsPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in DraftKings' daily fantasy sports platform.
+        YahooPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Yahoo's daily fantasy sports platform
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time)
+    PlayerSeason:
+      properties:
+        StatId:
+          type: integer
+          description: The unique ID of the stat associated with this player
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        Season:
+          type: integer
+          description: The soccer regular season for which these totals apply
+        RoundId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the round that this player is associated with
+        TeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the player's team
+        PlayerId:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The player's full name
+        ShortName:
+          type:
+          - string
+          - 'null'
+          description: The short name of the player
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: The player's position category
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The position of the player. Possible values include: A (Attacker), M (Midfielder), D (Defender), GK (Goalkeeper)'
+        Started:
+          type:
+          - integer
+          - 'null'
+          description: The total number of games the player started in the season
+        GlobalTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time)
+        UpdatedUtc:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (UTC Time)
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total Fan Duel daily fantasy points scored
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total Draft Kings daily fantasy points scored
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo daily fantasy points scored
+        FantasyPointsMondogoal:
+          type:
+          - number
+          - 'null'
+          description: Total Mondogoal fantasy points scored
+        Minutes:
+          type:
+          - number
+          - 'null'
+          description: Total minutes played
+        Goals:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored
+        Assists:
+          type:
+          - number
+          - 'null'
+          description: Total assists scored
+        Shots:
+          type:
+          - number
+          - 'null'
+          description: Total shots attempted
+        ShotsOnGoal:
+          type:
+          - number
+          - 'null'
+          description: Total shots on goal attempted
+        YellowCards:
+          type:
+          - number
+          - 'null'
+          description: Total yellow cards against
+        RedCards:
+          type:
+          - number
+          - 'null'
+          description: Total red cards against
+        YellowRedCards:
+          type:
+          - number
+          - 'null'
+          description: Total double yellow cards against (which result in a red card)
+        Crosses:
+          type:
+          - number
+          - 'null'
+          description: Total passes from a wide area of the field towards the center of the field near the opponent's goal
+        TacklesWon:
+          type:
+          - number
+          - 'null'
+          description: Total tackles won
+        Interceptions:
+          type:
+          - number
+          - 'null'
+          description: Total interceptions made
+        OwnGoals:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored against own team (accidentally)
+        Fouls:
+          type:
+          - number
+          - 'null'
+          description: Total fouls made
+        Fouled:
+          type:
+          - number
+          - 'null'
+          description: Total times fouled
+        Offsides:
+          type:
+          - number
+          - 'null'
+          description: Total offsides against
+        Passes:
+          type:
+          - number
+          - 'null'
+          description: Total passes attempted
+        PassesCompleted:
+          type:
+          - number
+          - 'null'
+          description: Total passes completed successfully to teammate
+        LastManTackle:
+          type:
+          - number
+          - 'null'
+          description: Total tackles made when there is no one else available to stop the opponent from scoring (this can be the goalkeeper)
+        CornersWon:
+          type:
+          - number
+          - 'null'
+          description: Total corner kicks awarded
+        BlockedShots:
+          type:
+          - number
+          - 'null'
+          description: Total shots blocked
+        Touches:
+          type:
+          - number
+          - 'null'
+          description: Total times this player touched the ball
+        DefenderCleanSheets:
+          type:
+          - number
+          - 'null'
+          description: Total defender clean sheets (awarded when zero goals were allowed to the opponent and the player played at least 60 minutes)
+        GoalkeeperSaves:
+          type:
+          - number
+          - 'null'
+          description: Total saves made by goalkeeper
+        GoalkeeperGoalsAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total goals allowed by goalkeeper
+        GoalkeeperSingleGoalAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total games where this goalkeeper allowed exactly one goal
+        GoalkeeperCleanSheets:
+          type:
+          - number
+          - 'null'
+          description: Total goalkeeper clean sheets (awarded when zero goals were allowed to the opponent and the player played at least 60 minutes)
+        GoalkeeperWins:
+          type:
+          - number
+          - 'null'
+          description: Total goalkeeper wins (awarded when zero goals were allowed to the opponent and the player played at least 45 minutes)
+        PenaltyKickGoals:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick goals
+        PenaltyKickMisses:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick misses
+        PenaltyKickSaves:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick saves
+        PenaltiesWon:
+          type:
+          - number
+          - 'null'
+          description: Total penalties won
+        PenaltiesConceded:
+          type:
+          - number
+          - 'null'
+          description: 'Total penalties conceded '
+        Score:
+          type:
+          - number
+          - 'null'
+          description: Goals scored by entire team
+        OpponentScore:
+          type:
+          - number
+          - 'null'
+          description: Goals allowed to opponent
+        Tackles:
+          type:
+          - number
+          - 'null'
+          description: Total Tackles
+    TeamSeason:
+      properties:
+        StatId:
+          type: integer
+          description: The unique ID of the stat associated with this team
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        Season:
+          type: integer
+          description: The soccer regular season for which these totals apply
+        RoundId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the round that this team is associated with
+        TeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The team's full name
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        GlobalTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        Possession:
+          type:
+          - number
+          - 'null'
+          description: Percentage of ball possession by the team in the season
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time)
+        UpdatedUtc:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (UTC Time)
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total Fan Duel daily fantasy points scored
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total Draft Kings daily fantasy points scored
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo daily fantasy points scored
+        FantasyPointsMondogoal:
+          type:
+          - number
+          - 'null'
+          description: Total Mondogoal fantasy points scored
+        Minutes:
+          type:
+          - number
+          - 'null'
+          description: Total minutes played
+        Goals:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored
+        Assists:
+          type:
+          - number
+          - 'null'
+          description: Total assists scored
+        Shots:
+          type:
+          - number
+          - 'null'
+          description: Total shots attempted
+        ShotsOnGoal:
+          type:
+          - number
+          - 'null'
+          description: Total shots on goal attempted
+        YellowCards:
+          type:
+          - number
+          - 'null'
+          description: Total yellow cards against
+        RedCards:
+          type:
+          - number
+          - 'null'
+          description: Total red cards against
+        YellowRedCards:
+          type:
+          - number
+          - 'null'
+          description: Total double yellow cards against (which result in a red card)
+        Crosses:
+          type:
+          - number
+          - 'null'
+          description: Total passes from a wide area of the field towards the center of the field near the opponent's goal
+        TacklesWon:
+          type:
+          - number
+          - 'null'
+          description: Total tackles won
+        Interceptions:
+          type:
+          - number
+          - 'null'
+          description: Total interceptions made
+        OwnGoals:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored against own team (accidentally)
+        Fouls:
+          type:
+          - number
+          - 'null'
+          description: Total fouls made
+        Fouled:
+          type:
+          - number
+          - 'null'
+          description: Total times fouled
+        Offsides:
+          type:
+          - number
+          - 'null'
+          description: Total offsides against
+        Passes:
+          type:
+          - number
+          - 'null'
+          description: Total passes attempted
+        PassesCompleted:
+          type:
+          - number
+          - 'null'
+          description: Total passes completed successfully to teammate
+        LastManTackle:
+          type:
+          - number
+          - 'null'
+          description: Total tackles made when there is no one else available to stop the opponent from scoring (this can be the goalkeeper)
+        CornersWon:
+          type:
+          - number
+          - 'null'
+          description: Total corner kicks awarded
+        BlockedShots:
+          type:
+          - number
+          - 'null'
+          description: Total shots blocked
+        Touches:
+          type:
+          - number
+          - 'null'
+          description: Total times this player touched the ball
+        DefenderCleanSheets:
+          type:
+          - number
+          - 'null'
+          description: Total defender clean sheets (awarded when zero goals were allowed to the opponent and the player played at least 60 minutes)
+        GoalkeeperSaves:
+          type:
+          - number
+          - 'null'
+          description: Total saves made by goalkeeper
+        GoalkeeperGoalsAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total goals allowed by goalkeeper
+        GoalkeeperSingleGoalAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total games where this goalkeeper allowed exactly one goal
+        GoalkeeperCleanSheets:
+          type:
+          - number
+          - 'null'
+          description: Total goalkeeper clean sheets (awarded when zero goals were allowed to the opponent and the player played at least 60 minutes)
+        GoalkeeperWins:
+          type:
+          - number
+          - 'null'
+          description: Total goalkeeper wins (awarded when zero goals were allowed to the opponent and the player played at least 45 minutes)
+        PenaltyKickGoals:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick goals
+        PenaltyKickMisses:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick misses
+        PenaltyKickSaves:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick saves
+        PenaltiesWon:
+          type:
+          - number
+          - 'null'
+          description: Total penalties won
+        PenaltiesConceded:
+          type:
+          - number
+          - 'null'
+          description: 'Total penalties conceded '
+        Score:
+          type:
+          - number
+          - 'null'
+          description: Goals scored by entire team
+        OpponentScore:
+          type:
+          - number
+          - 'null'
+          description: Goals allowed to opponent
+        Tackles:
+          type:
+          - number
+          - 'null'
+          description: Total Tackles
+    TeamGame:
+      properties:
+        StatId:
+          type: integer
+          description: The unique ID of the stat associated with this team
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        Season:
+          type: integer
+          description: The soccer regular season for which these totals apply
+        RoundId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the round that this team is associated with
+        TeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The team's full name
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        GlobalTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        Possession:
+          type:
+          - number
+          - 'null'
+          description: Percentage of ball possession by the team in the game
+        Corners:
+          type:
+          - number
+          - 'null'
+          description: Total number of corner kicks taken by the team in the game
+        GameId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this game
+        OpponentId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team's opponent
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The name of the opponent 
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (UTC)
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        IsGameOver:
+          type: boolean
+          description: Whether the game is over (true/false)
+        GlobalGameId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalOpponentId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time)
+        UpdatedUtc:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (UTC Time)
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total Fan Duel daily fantasy points scored
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total Draft Kings daily fantasy points scored
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo daily fantasy points scored
+        FantasyPointsMondogoal:
+          type:
+          - number
+          - 'null'
+          description: Total Mondogoal fantasy points scored
+        Minutes:
+          type:
+          - number
+          - 'null'
+          description: Total minutes played
+        Goals:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored
+        Assists:
+          type:
+          - number
+          - 'null'
+          description: Total assists scored
+        Shots:
+          type:
+          - number
+          - 'null'
+          description: Total shots attempted
+        ShotsOnGoal:
+          type:
+          - number
+          - 'null'
+          description: Total shots on goal attempted
+        YellowCards:
+          type:
+          - number
+          - 'null'
+          description: Total yellow cards against
+        RedCards:
+          type:
+          - number
+          - 'null'
+          description: Total red cards against
+        YellowRedCards:
+          type:
+          - number
+          - 'null'
+          description: Total double yellow cards against (which result in a red card)
+        Crosses:
+          type:
+          - number
+          - 'null'
+          description: Total passes from a wide area of the field towards the center of the field near the opponent's goal
+        TacklesWon:
+          type:
+          - number
+          - 'null'
+          description: Total tackles won
+        Interceptions:
+          type:
+          - number
+          - 'null'
+          description: Total interceptions made
+        OwnGoals:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored against own team (accidentally)
+        Fouls:
+          type:
+          - number
+          - 'null'
+          description: Total fouls made
+        Fouled:
+          type:
+          - number
+          - 'null'
+          description: Total times fouled
+        Offsides:
+          type:
+          - number
+          - 'null'
+          description: Total offsides against
+        Passes:
+          type:
+          - number
+          - 'null'
+          description: Total passes attempted
+        PassesCompleted:
+          type:
+          - number
+          - 'null'
+          description: Total passes completed successfully to teammate
+        LastManTackle:
+          type:
+          - number
+          - 'null'
+          description: Total tackles made when there is no one else available to stop the opponent from scoring (this can be the goalkeeper)
+        CornersWon:
+          type:
+          - number
+          - 'null'
+          description: Total corner kicks awarded
+        BlockedShots:
+          type:
+          - number
+          - 'null'
+          description: Total shots blocked
+        Touches:
+          type:
+          - number
+          - 'null'
+          description: Total times this player touched the ball
+        DefenderCleanSheets:
+          type:
+          - number
+          - 'null'
+          description: Total defender clean sheets (awarded when zero goals were allowed to the opponent and the player played at least 60 minutes)
+        GoalkeeperSaves:
+          type:
+          - number
+          - 'null'
+          description: Total saves made by goalkeeper
+        GoalkeeperGoalsAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total goals allowed by goalkeeper
+        GoalkeeperSingleGoalAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total games where this goalkeeper allowed exactly one goal
+        GoalkeeperCleanSheets:
+          type:
+          - number
+          - 'null'
+          description: Total goalkeeper clean sheets (awarded when zero goals were allowed to the opponent and the player played at least 60 minutes)
+        GoalkeeperWins:
+          type:
+          - number
+          - 'null'
+          description: Total goalkeeper wins (awarded when zero goals were allowed to the opponent and the player played at least 45 minutes)
+        PenaltyKickGoals:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick goals
+        PenaltyKickMisses:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick misses
+        PenaltyKickSaves:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick saves
+        PenaltiesWon:
+          type:
+          - number
+          - 'null'
+          description: Total penalties won
+        PenaltiesConceded:
+          type:
+          - number
+          - 'null'
+          description: 'Total penalties conceded '
+        Score:
+          type:
+          - number
+          - 'null'
+          description: Goals scored by entire team
+        OpponentScore:
+          type:
+          - number
+          - 'null'
+          description: Goals allowed to opponent
+        Tackles:
+          type:
+          - number
+          - 'null'
+          description: Total Tackles
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    Referee:
+      properties:
+        RefereeId:
+          type: integer
+          description: The last name of the referee
+        FirstName:
+          type:
+          - string
+          - 'null'
+          description: The first name of the referee
+        LastName:
+          type:
+          - string
+          - 'null'
+          description: The last name of the referee
+        ShortName:
+          type:
+          - string
+          - 'null'
+          description: The short name of the referee
+        Nationality:
+          type:
+          - string
+          - 'null'
+          description: The nationality of the referee
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: key
+      in: query

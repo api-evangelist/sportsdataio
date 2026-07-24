@@ -1,0 +1,3769 @@
+openapi: 3.1.0
+info:
+  title: MLB MLB v3 Headshots MLB v3 Scores API
+  version: '1.0'
+  description: MLB API - OpenAPI 3.1 Specification
+servers:
+- url: https://api.sportsdata.io
+  description: Production server
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: MLB v3 Scores
+paths:
+  /v3/mlb/scores/{format}/teams:
+    get:
+      description: 'Full team information: team name and city, league and division, and colors. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns the teams currently active in the league.'
+      operationId: mlb_v3_scores_team_profiles___by_active
+      summary: Team Profiles - by Active
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/Stadiums:
+    get:
+      description: Returns all stadiums in the league with capacity, surface, latitude/longitude, city and state (and where applicable country.)
+      operationId: mlb_v3_scores_stadiums
+      summary: Stadiums
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stadium'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/Games/{season}:
+    get:
+      description: Home and away teams, date and time, season type and week etc. are included. Also includes gameday information. This includes full stadium information (capacity, lat/long, surface etc.), top-line betting information (spread, moneyline, total), weather conditions, and broadcast information.
+      operationId: mlb_v3_scores_schedules
+      summary: Schedules
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: 'Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Game'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/GamesByDate/{date}:
+    get:
+      description: Full scores and gameday info delivered live and post-game. Live data includes innings, scores, pitch count etc. Gameday info includes referee, weather, TV channel etc.
+      operationId: mlb_v3_scores_games___by_date__live___final
+      summary: Games - by Date [Live & Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Game'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/Players:
+    get:
+      description: Full player bio and details, including injury notes, for all active players.
+      operationId: mlb_v3_scores_player_details___by_active
+      summary: Player Details - by Active
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/FreeAgents:
+    get:
+      description: Full player bio and details, including injury notes, for all available free agents unattached to a team.
+      operationId: mlb_v3_scores_player_details___by_free_agents
+      summary: Player Details - by Free Agents
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/Players/{team}:
+    get:
+      description: Full player bio and details, including injury notes, for all available players by team.
+      operationId: mlb_v3_scores_players_details___by_team
+      summary: Players Details - by Team
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: team
+        in: path
+        description: 'The abbreviation of the requested team.
+
+          <br>Examples: <code>SF</code>, <code>NYY</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/TeamGameStatsByDate/{date}:
+    get:
+      description: Returns the box score statistical record team-wide (aggregated from all players) for a given team's game in a given week, both live and post-game.
+      operationId: mlb_v3_scores_team_game_stats___by_date__live___final
+      summary: Team Game Stats - by Date [Live & Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamGame'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/TeamSeasonStats/{season}:
+    get:
+      description: Returns all season-long stats (i.e. the season total, not each individual game record) for all teams (aggregated from all players) for a given season.
+      operationId: mlb_v3_scores_team_season_stats
+      summary: Team Season Stats
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: 'Year of the season.
+
+          <br>Examples: <code>2017</code>, <code>2018</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamSeason'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/NewsByDate/{date}:
+    get:
+      description: Basic RotoBaller news feed, with limited stories available - usually 0-1 stories per day. Ideal for test purposes.
+      operationId: mlb_v3_scores_news___by_date
+      summary: News - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the news.
+
+          <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/News'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/News:
+    get:
+      description: Basic RotoBaller news feed, with limited stories available - usually 0-1 stories per day. Ideal for test purposes.
+      operationId: mlb_v3_scores_news
+      summary: News
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/News'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/NewsByPlayerID/{playerid}:
+    get:
+      description: Basic RotoBaller news feed, with limited stories available - usually 0-1 stories per day. Ideal for test purposes.
+      operationId: mlb_v3_scores_news___by_player
+      summary: News - by Player
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: playerid
+        in: path
+        description: 'Unique FantasyData Player ID.
+
+          Example:<code>10000507</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/News'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/AreAnyGamesInProgress:
+    get:
+      description: Returns <code>true</code> if there is at least one game being played at the time of the request or <code>false</code> if there are none.
+      operationId: mlb_v3_scores_are_games_in_progress
+      summary: Are Games In Progress
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/CurrentSeason:
+    get:
+      description: Year of the current season. This value changes at the start of the new league year. For leagues that run over two years, this is the year the season starts, not ends.
+      operationId: mlb_v3_scores_season___current
+      summary: Season - Current
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Season'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/Standings/{season}:
+    get:
+      description: Includes regular season standings in division and league, from which postseason seeding can be derived.
+      operationId: mlb_v3_scores_standings
+      summary: Standings
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: 'Year of the season.
+
+          <br>Examples: <code>2017</code>, <code>2018</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Standing'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/AllTeams:
+    get:
+      description: 'Full team information: team name and city, league and division, and colors. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns all teams regardless of current active status.'
+      operationId: mlb_v3_scores_team_profiles___all
+      summary: Team Profiles - All
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/TeamGameStatsBySeason/{season}/{teamid}/{numberofgames}:
+    get:
+      description: Game by game log of total team statistics.
+      operationId: mlb_v3_scores_team_game_logs___by_season
+      summary: Team Game Logs - by Season
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: Season to get games from. Example <code>2019POST</code>, <code>2020</code>
+        required: true
+        schema:
+          type: string
+      - name: teamid
+        in: path
+        description: Unique ID of team.  Example <code> 12 </code>
+        required: true
+        schema:
+          type: string
+      - name: numberofgames
+        in: path
+        description: How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code>
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamGame'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/SchedulesBasic/{season}:
+    get:
+      description: A lightweight schedule endpoint without gameday information. Home and away teams, the date and time of the game, and season type, week etc. are included. Ideal for the most basic information required to build a schedule.
+      operationId: mlb_v3_scores_schedules__basic
+      summary: Schedules (Basic)
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: 'Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ScheduleBasic'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/PlayersBasic/{team}:
+    get:
+      description: A more stripped-down list of players on a given team, for simple applications.
+      operationId: mlb_v3_scores_player_profiles___by_team
+      summary: Player Profiles - by Team
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: team
+        in: path
+        description: 'The abbreviation of the requested team.
+
+          <br>Examples: <code>SF</code>, <code>NYY</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerBasic'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/ScoresBasic/{date}:
+    get:
+      description: This endpoint simply delivers the innings count and total score live; no down and distance and no gameday info such as weather.
+      operationId: mlb_v3_scores_games__basic____by_date__live___final
+      summary: Games (Basic) - by Date [Live & Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ScoreBasic'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/PlayersByActive:
+    get:
+      description: A more stripped-down list of players on a given team, for simple applications, including all active players.
+      operationId: mlb_v3_scores_player_profiles___by_active
+      summary: Player Profiles - by Active
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerBasic'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/PlayersByFreeAgents:
+    get:
+      description: A more stripped-down list of players on a given team, for simple applications, sorted by free agents.
+      operationId: mlb_v3_scores_player_profiles___by_free_agents
+      summary: Player Profiles - by Free Agents
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerBasic'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/ScoresBasicFinal/{date}:
+    get:
+      description: A slimmed-down score endpoint, giving just the innings scores and final score, for simple applications. Delivered after the game ends.
+      operationId: mlb_v3_scores_games__basic____by_date__final
+      summary: Games (Basic) - by Date [Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ScoreBasic'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/GamesByDateFinal/{date}:
+    get:
+      description: Full scores and gameday info, including weather, referee, infotainment odds, as well as all of the innings scores and full-time score, delivered as the game ends.
+      operationId: mlb_v3_scores_games___by_date__final
+      summary: Games - by Date [Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Game'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/TeamGameStatsByDateFinal/{date}:
+    get:
+      description: Returns the box score statistical record team-wide (aggregated from all players) for all games on a given date after the game has concluded.
+      operationId: mlb_v3_scores_team_game_stats___by_date__final
+      summary: Team Game Stats - by Date [Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamGame'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/teams/{season}:
+    get:
+      description: List of teams playing in a specified season, with their profile info.
+      operationId: mlb_v3_scores_team_profiles___by_season
+      summary: Team Profiles - by Season
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>."
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+  /v3/mlb/scores/{format}/TransactionsByDate/{date}:
+    get:
+      description: A list of transactions, such as assignments, placement on the injury list, player trades etc., delivered by date.
+      operationId: mlb_v3_scores_transactions
+      summary: Transactions
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the news.
+
+          <br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Scores
+components:
+  schemas:
+    PlayerBasic:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career'
+        SportsDataID:
+          type:
+          - string
+          - 'null'
+          description: Deprecated. Use SportRadarPlayerID instead.
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the player''s status of being on an Major League Active Roster. Possible values include: Active, 40 Man Active, Non-Roster Invitee, Minors, Inactive, 7 Day Injury List, 10 Day Injury List, 15 Day Injury List, 60 Day Injury List, Restricted List, Paternity List, Bereavement List, Military List'
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Jersey:
+          type:
+          - integer
+          - 'null'
+          description: The player's jersey number
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position category. Possible values: DH, IF, OF, P, PH, PR'
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position associated with the given game or season. Possible values: 1B; 2B; 3B; C; CF; DH; IF; LF; OF; P; PH; PR; RF; RP; SP; SS'
+        FirstName:
+          type:
+          - string
+          - 'null'
+          description: The player's first name
+        LastName:
+          type:
+          - string
+          - 'null'
+          description: The player's last name
+        BirthDate:
+          type:
+          - string
+          - 'null'
+          description: The player's date of birth
+        BirthCity:
+          type:
+          - string
+          - 'null'
+          description: The city in which the player was born
+        BirthState:
+          type:
+          - string
+          - 'null'
+          description: 'The state in which the player was born. Note: State will be NULL for all countries outside of North America and Australia'
+        BirthCountry:
+          type:
+          - string
+          - 'null'
+          description: The country in which the player was born
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        BatHand:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s batting hand. Possible values: R, L, S'
+        ThrowHand:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s throwing hand. Possible values: R, L, S'
+        Height:
+          type:
+          - integer
+          - 'null'
+          description: The player's height in inches
+        Weight:
+          type:
+          - integer
+          - 'null'
+          description: The weight of the player in pounds (lbs.)
+    Inning:
+      properties:
+        InningID:
+          type: integer
+          description: The unique ID of this specific inning
+        GameID:
+          type: integer
+          description: The unique ID of the game tied to this Inning
+        InningNumber:
+          type: integer
+          description: The current inning number of the game
+        AwayTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the away team in the specific inning
+        HomeTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the home team in the specific inning
+    Team:
+      properties:
+        TeamID:
+          type: integer
+          description: The team's unique TeamID as assigned by SportsDataIO
+        Key:
+          type:
+          - string
+          - 'null'
+          description: Abbreviation of the team (e.g. LAD, PHI, BOS, CHC, etc.)
+        Active:
+          type: boolean
+          description: Whether or not this team is active
+        City:
+          type:
+          - string
+          - 'null'
+          description: The city/location of the team (e.g. Los Angeles, Philadelphia, Boston, Chicago, etc.)
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The mascot of the team (e.g. Dodgers, Phillies, Red Sox, Cubs, etc.)
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team's current home stadium
+        League:
+          type:
+          - string
+          - 'null'
+          description: 'The league of the team (possible values: AL, NL)'
+        Division:
+          type:
+          - string
+          - 'null'
+          description: The division of the team (e.g. East; Central; West)
+        PrimaryColor:
+          type:
+          - string
+          - 'null'
+          description: The team's primary color. (This is not licensed for public or commercial use)
+        SecondaryColor:
+          type:
+          - string
+          - 'null'
+          description: The team's secondary color. (This is not licensed for public or commercial use)
+        TertiaryColor:
+          type:
+          - string
+          - 'null'
+          description: The team's tertiary color. (This is not licensed for public or commercial use)
+        QuaternaryColor:
+          type:
+          - string
+          - 'null'
+          description: The team's quaternary color. (This is not licensed for public or commercial use)
+        WikipediaLogoUrl:
+          type:
+          - string
+          - 'null'
+          description: The link to the team's logo hosted on Wikipedia. (This is not licensed for public or commercial use)
+        WikipediaWordMarkUrl:
+          type:
+          - string
+          - 'null'
+          description: The link to the team's wordmark logo hosted on Wikipedia. (This is not licensed for public or commercial use)
+        GlobalTeamID:
+          type: integer
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        HeadCoach:
+          type:
+          - string
+          - 'null'
+          description: The current head coach (manager) of the team
+        HittingCoach:
+          type:
+          - string
+          - 'null'
+          description: 'The current hitting coach of the team. Note: some teams may have multiple or no hitting coaches'
+        PitchingCoach:
+          type:
+          - string
+          - 'null'
+          description: 'The current pitching coach of the team. Note: some teams may have multiple or no pitching coaches'
+    News:
+      properties:
+        NewsID:
+          type: integer
+          description: The unique ID assigned to this news story
+        Source:
+          type:
+          - string
+          - 'null'
+          description: The source of the story (RotoBaller, NBCSports.com, etc.)
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when this news story was published
+        TimeAgo:
+          type:
+          - string
+          - 'null'
+          description: A description of how long ago this content was published
+        Title:
+          type:
+          - string
+          - 'null'
+          description: The brief title of the news story (typically less than 100 characters)
+        Content:
+          type:
+          - string
+          - 'null'
+          description: The entirety of the content of the news story
+        Url:
+          type:
+          - string
+          - 'null'
+          description: The website URL of the full news story
+        TermsOfUse:
+          type:
+          - string
+          - 'null'
+          description: The terms of use with using this news item, credit must be given to the originator of the story when specified in the terms of use
+        Author:
+          type:
+          - string
+          - 'null'
+          description: The author of the content
+        Categories:
+          type:
+          - string
+          - 'null'
+          description: 'Comma delimited meta tags describing the categories of this content. Possible tags include: Top Headlines, Breaking News, Injury, Sit/Start, Waiver Wire, Risers, Fallers, Lineups, Transactions, Free Agents, Prospects/Rookies, Game Recap, Matchup Outlook'
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career'
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team that relates to this story
+        PlayerID2:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who relates to this story
+        TeamID2:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the second team that relates to this story
+        Team2:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the second team that relates to this story
+        OriginalSource:
+          type:
+          - string
+          - 'null'
+          description: The original source who broke this news (before it was picked up by the publisher of this story)
+        OriginalSourceUrl:
+          type:
+          - string
+          - 'null'
+          description: The URL of the original source who broke this news story
+    ScoreBasic:
+      properties:
+        AwayTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the away team in the game
+        HomeTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the home team in the game
+        AwayTeamHits:
+          type:
+          - integer
+          - 'null'
+          description: Total hits by the away team in the game
+        HomeTeamHits:
+          type:
+          - integer
+          - 'null'
+          description: Total hits by the home team in the game
+        AwayTeamErrors:
+          type:
+          - integer
+          - 'null'
+          description: Total errors committed by the away team in the game
+        HomeTeamErrors:
+          type:
+          - integer
+          - 'null'
+          description: Total errors committed by the home team in the game
+        Attendance:
+          type:
+          - integer
+          - 'null'
+          description: Total number of people who attended the game
+        GlobalGameID:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalAwayTeamID:
+          type: integer
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
+        GlobalHomeTeamID:
+          type: integer
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        NeutralVenue:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this game is played in a neutral venue
+        Inning:
+          type:
+          - integer
+          - 'null'
+          description: 'The inning that the game is currently in, or the inning in which the game ended. Possible values include: NULL, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, etc)'
+        InningHalf:
+          type:
+          - string
+          - 'null'
+          description: 'The inning half that the game is currently in; or the inning half in which the game ended (possible values: T; B; E: M: NULL)'
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The MLB season of the game
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, Suspended, Delayed, Postponed, Canceled, Forfeit, NotNecessary'
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in US Eastern Time
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the Home Team
+        AwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique TeamID of the away team
+        HomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the home team
+        RescheduledGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the stadium
+        IsClosed:
+          type: boolean
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status.'
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the late update made to this record (in US Eastern Time)
+        GameEndDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time that the game ended in US Eastern Time
+        DateTimeUTC:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in UTC
+        SeriesInfo:
+          $ref: '#/components/schemas/Series'
+          description: Contains relevant series data for postseason series only - HomeTeamWins; AwayTeamWins; GameNumber; and MaxLength
+        RescheduledFromGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as "make up" games.
+        SuspensionResumeDay:
+          type:
+          - string
+          - 'null'
+          description: The date a game that was suspended in play will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status.
+        SuspensionResumeDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and start-time that the suspended in play game will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status.
+    ScheduleBasic:
+      properties:
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The MLB season of the game
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, Suspended, Delayed, Postponed, Canceled, Forfeit, NotNecessary'
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in US Eastern Time
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the Home Team
+        AwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique TeamID of the away team
+        HomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the home team
+        RescheduledGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the stadium
+        IsClosed:
+          type: boolean
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status.'
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the late update made to this record (in US Eastern Time)
+        GameEndDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time that the game ended in US Eastern Time
+        DateTimeUTC:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in UTC
+        SeriesInfo:
+          $ref: '#/components/schemas/Series'
+          description: Contains relevant series data for postseason series only - HomeTeamWins; AwayTeamWins; GameNumber; and MaxLength
+        RescheduledFromGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as "make up" games.
+        SuspensionResumeDay:
+          type:
+          - string
+          - 'null'
+          description: The date a game that was suspended in play will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status.
+        SuspensionResumeDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and start-time that the suspended in play game will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status.
+    Standing:
+      properties:
+        Season:
+          type: integer
+          description: The MLB season for which these totals apply
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)
+        TeamID:
+          type: integer
+          description: The team's unique TeamID as assigned by SportsDataIO
+        Key:
+          type:
+          - string
+          - 'null'
+          description: Abbreviation of the team (e.g. LAD; PHI; BOS; CHC; etc.)
+        City:
+          type:
+          - string
+          - 'null'
+          description: The city/location of the team (e.g. Los Angeles; Philadelphia; Boston; Chicago; etc.)
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Team's full name (city and mascot)
+        League:
+          type:
+          - string
+          - 'null'
+          description: 'The league of the team (possible values: AL; NL)'
+        Division:
+          type:
+          - string
+          - 'null'
+          description: The division of the team (e.g. East, Central, West)
+        Wins:
+          type:
+          - integer
+          - 'null'
+          description: The total number of wins by a team in the season
+        Losses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of losses by the team in the season
+        Percentage:
+          type:
+          - number
+          - 'null'
+          description: Winning percentage of a team
+        DivisionWins:
+          type:
+          - integer
+          - 'null'
+          description: Total number of division wins in the season
+        DivisionLosses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of division losses in a season
+        GamesBehind:
+          type:
+          - number
+          - 'null'
+          description: Number of games behind the first place team
+        LastTenGamesWins:
+          type:
+          - integer
+          - 'null'
+          description: Total number of wins in the last ten games
+        LastTenGamesLosses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of losses in the last ten games
+        Streak:
+          type:
+          - string
+          - 'null'
+          description: Current streak the team is on (e.g. Win 3, Lost 3)
+        LeagueRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking in the league
+        DivisionRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking in the division (e.g. 1, 2, 3, 4, 5)
+        WildCardRank:
+          type:
+          - integer
+          - 'null'
+          description: The rank of the team in terms of Wild Card standings only
+        WildCardGamesBehind:
+          type:
+          - number
+          - 'null'
+          description: The number of games behind a team is of the final Wild Card spot
+        HomeWins:
+          type:
+          - integer
+          - 'null'
+          description: Total number of home wins in the season
+        HomeLosses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of home losses in the season
+        AwayWins:
+          type:
+          - integer
+          - 'null'
+          description: Total number of away wins in the season
+        AwayLosses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of away losses in the season
+        DayWins:
+          type:
+          - integer
+          - 'null'
+          description: Total number of wins in daytime games
+        DayLosses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of losses in daytime games
+        NightWins:
+          type:
+          - integer
+          - 'null'
+          description: Total number of wins in nighttime games
+        NightLosses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of losses in nighttime games
+        RunsScored:
+          type:
+          - integer
+          - 'null'
+          description: Total runs scored by the team in the season
+        RunsAgainst:
+          type:
+          - integer
+          - 'null'
+          description: Total number of runs scored by the opponents of a specified team
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        ClinchedBestLeagueRecord:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if team has clinched the best record in their respective league; FALSE if not
+        ClinchedWildCard:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if team has clinched Wild Card spot; FALSE if not
+        ClinchedDivision:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if team has clinched their division; FALSE if not
+        EliminatedFromPlayoffContention:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if team has been eliminated from playoff contention; FALSE if not
+    Game:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The MLB season of the game
+        SeasonType:
+          type: integer
+          description: The type of season stage the game belongs to, e.g. Regular season, Post-season. For a description of possible values and how they work, see <a href="https://support.sportsdata.io/hc/en-us/articles/15196612633623-Process-Guide-Season-Types-and-Parameters" target="_blank">here.
+        Status:
+          type:
+          - string
+          - 'null'
+          description: The status of the game. For a description of possible values, see <a href="https://support.sportsdata.io/hc/en-us/articles/14287629964567-Process-Guide-Game-Status" target="_blank">here.</a> For how suspended and postponed games are handled specifically, see <a href="https://support.sportsdata.io/hc/en-us/articles/4404845580567-Postponed-and-Rescheduled-Games" target="_blank">here</a>.
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        AwayTeamID:
+          type: integer
+          description: The unique TeamID of the away team
+        HomeTeamID:
+          type: integer
+          description: The unique ID of the home team
+        RescheduledGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the stadium
+        Channel:
+          type:
+          - string
+          - 'null'
+          description: The television station broadcasting the game
+        Inning:
+          type:
+          - integer
+          - 'null'
+          description: 'The inning that the game is currently in, or the inning in which the game ended. Possible values include: NULL, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, etc)'
+        InningHalf:
+          type:
+          - string
+          - 'null'
+          description: 'The inning half that the game is currently in; or the inning half in which the game ended (possible values: T; B; E: M: NULL)'
+        AwayTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the away team in the game
+        HomeTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the home team in the game
+        AwayTeamHits:
+          type:
+          - integer
+          - 'null'
+          description: Total hits by the away team in the game
+        HomeTeamHits:
+          type:
+          - integer
+          - 'null'
+          description: Total hits by the home team in the game
+        AwayTeamErrors:
+          type:
+          - integer
+          - 'null'
+          description: Total errors committed by the away team in the game
+        HomeTeamErrors:
+          type:
+          - integer
+          - 'null'
+          description: Total errors committed by the home team in the game
+        WinningPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the pitcher who recorded the win in the game
+        LosingPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the losing pitcher in the game
+        SavingPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the pitcher who recorded the save in the game
+        Attendance:
+          type:
+          - integer
+          - 'null'
+          description: Total number of people who attended the game
+        AwayTeamProbablePitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the away team's probable pitcher
+        HomeTeamProbablePitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the home team's probable pitcher
+        Outs:
+          type:
+          - integer
+          - 'null'
+          description: The number of outs recorded in the current inning of the game
+        Balls:
+          type:
+          - integer
+          - 'null'
+          description: The number of balls thrown for the current at bat
+        Strikes:
+          type:
+          - integer
+          - 'null'
+          description: The number of strikes thrown for the current at bat
+        CurrentPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the current pitcher
+        CurrentHitterID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the current hitter
+        AwayTeamStartingPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the away team's starting pitcher
+        HomeTeamStartingPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the home team starting pitcher in the game
+        CurrentPitchingTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the current pitcher's team
+        CurrentHittingTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the current hitter's team
+        PointSpread:
+          type:
+          - number
+          - 'null'
+          description: 'The consensus Run Line at game start from the perspective of the HomeTeam (in the Game table, the PointSpread field''s negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored. Note that this rule does not hold in betting-related tables, where the run line is contingent on the bet line). Note: In MLB, Point Spread may also be referred to as Run Line'
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The oddsmaker total points line at game start
+        AwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Moneyline from the perspective of the away team
+        HomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Moneyline from the perspective of the home team
+        ForecastTempLow:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted low temperature on game day at this venue (in Fahrenheit)
+        ForecastTempHigh:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted high temperature on game day at this venue (in Fahrenheit)
+        ForecastDescription:
+          type:
+          - string
+          - 'null'
+          description: 'The description of the weather forecast. Posible values include: Broken Clouds, Clear Sky, Few Clouds, Heavy Intensity Rain, Light Rain, Moderate Rain, Mostly Cloudy, Mostly Sunny, Overcast Clouds, Partly Cloudy, Scattered Clouds, Showers, Thunderstorms'
+        ForecastWindChill:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted wind chill on game day at this venue.
+        ForecastWindSpeed:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted wind speed on game day at this venue.
+        ForecastWindDirection:
+          type:
+          - integer
+          - 'null'
+          description: The wind direction isn't baseball specific.  It refers to the direction that the wind is coming from.  90 would be wind coming from the east.  180 is wind from the south.  270 is a wind from the west ... and so on.
+        RescheduledFromGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as "make up" games.
+        RunnerOnFirst:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates if there is a runner on first base
+        RunnerOnSecond:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates if there is a runner on second base
+        RunnerOnThird:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates if there is a runner on third base
+        AwayTeamStartingPitcher:
+          type:
+          - string
+          - 'null'
+          description: The first and last name of the away team's starting pitcher for the game
+        HomeTeamStartingPitcher:
+          type:
+          - string
+          - 'null'
+          description: The first and last name of the home team starting pitcher for the game
+        CurrentPitcher:
+          type:
+          - string
+          - 'null'
+          description: Indicates the current pitcher's name
+        CurrentHitter:
+          type:
+          - string
+          - 'null'
+          description: Indicates the current hitter's name
+        WinningPitcher:
+          type:
+          - string
+          - 'null'
+          description: The name of the pitcher who recorded the win in the game
+        LosingPitcher:
+          type:
+          - string
+          - 'null'
+          description: The first and last name of the losing pitcher in the game
+        SavingPitcher:
+          type:
+          - string
+          - 'null'
+          description: The name of the pitcher who recorded the save in the game
+        DueUpHitterID1:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the hitter due up first from the current hitter
+        DueUpHitterID2:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the hitter due up second from the current hitter
+        DueUpHitterID3:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the hitter due up third from the current hitter
+        GlobalGameID:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues
+        GlobalAwayTeamID:
+          type: integer
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues
+        GlobalHomeTeamID:
+          type: integer
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        PointSpreadAwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The moneyline payout odds when betting on the away team with the run line
+        PointSpreadHomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The moneyline payout odds when betting on the home team with the run line
+        LastPlay:
+          type:
+          - string
+          - 'null'
+          description: The description of the most recent play/event of the game. This is for display purposes and does not include corresponding data points.
+        IsClosed:
+          type: boolean
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the late update made to this record (in US Eastern Time)
+        Innings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Inning'
+          description: The inning details associated with the game
+        GameEndDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time that the game ended in US Eastern Time
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of home team for this game
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of away team for this game
+        NeutralVenue:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether this game is played in a neutral venue. Note: Neutral = True, not neutral = False'
+        InningDescription:
+          type:
+          - string
+          - 'null'
+          description: 'The current status of the inning for display purposes (possible values: Top 2, Mid 2, Bot 2, End 2, etc)'
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the over
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under
+        SeriesInfo:
+          $ref: '#/components/schemas/Series'
+          description: Contains relevant series data for postseason series only - HomeTeamWins; AwayTeamWins; GameNumber; and MaxLength
+        DateTimeUTC:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in UTC
+        HomeTeamOpener:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether the home team will use an opener as the starting pitcher. NOTE: An opener is a pitcher (typically a relief pitcher) that is only scheduled to pitch the first 1-3 innings of the game'
+        AwayTeamOpener:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether the away team will use an opener as the starting pitcher.. NOTE: An opener is a pitcher (typically a relief pitcher) that is only scheduled to pitch the first 1-3 innings of the game'
+        SuspensionResumeDay:
+          type:
+          - string
+          - 'null'
+          description: The date a game that was suspended in play will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status.
+        SuspensionResumeDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and start-time that the suspended in play game will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status.
+    Stadium:
+      properties:
+        StadiumID:
+          type: integer
+          description: The unique ID of the stadium
+        Active:
+          type: boolean
+          description: Whether or not this stadium is active
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The full name of the stadium
+        City:
+          type:
+          - string
+          - 'null'
+          description: The city where the stadium is located
+        State:
+          type:
+          - string
+          - 'null'
+          description: The state where the stadium is located (only US and Canadian stadiums will have values)
+        Country:
+          type:
+          - string
+          - 'null'
+          description: The 3-digit country code where the stadium is located
+        Capacity:
+          type:
+          - integer
+          - 'null'
+          description: The estimated seating capacity of the stadium
+        Surface:
+          type:
+          - string
+          - 'null'
+          description: The playing surface of the stadium (Grass, Artificial or Dome)
+        LeftField:
+          type:
+          - integer
+          - 'null'
+          description: The estimated distance between home plate and the left field wall
+        MidLeftField:
+          type:
+          - integer
+          - 'null'
+          description: The estimated distance between home plate and the mid left field wall
+        LeftCenterField:
+          type:
+          - integer
+          - 'null'
+          description: The estimated distance between home plate and the left center field wall
+        MidLeftCenterField:
+          type:
+          - integer
+          - 'null'
+          description: The estimated distance between home plate and the mid left center field wall
+        CenterField:
+          type:
+          - integer
+          - 'null'
+          description: The estimated distance between home plate and the center field wall
+        MidRightCenterField:
+          type:
+          - integer
+          - 'null'
+          description: The estimated distance between home plate and the mid right center field wall
+        RightCenterField:
+          type:
+          - integer
+          - 'null'
+          description: The estimated distance between home plate and the right center field wall
+        MidRightField:
+          type:
+          - integer
+          - 'null'
+          description: The estimated distance between home plate and the mid right field wall
+        RightField:
+          type:
+          - integer
+          - 'null'
+          description: The estimated distance between home plate and the right field wall
+        GeoLat:
+          type:
+          - number
+          - 'null'
+          description: The geographic latitude coordinate of this venue
+        GeoLong:
+          type:
+          - number
+          - 'null'
+          description: The geographic longitude coordinate of this venue
+        Altitude:
+          type:
+          - integer
+          - 'null'
+          description: The altitude of the stadium in feet
+        HomePlateDirection:
+          type:
+          - integer
+          - 'null'
+          description: The direction that the batter is facing while looking at the pitcher's mound. If the home plate is at the north of the stadium, the batter is facing south, so the value is given as 180 degrees. If home plate is at the east the batter faces west, so it's 270 degrees. If the home plate is at the south the batter faces north, so it's 0 degrees. If the home plate is at the west the batter faces east, so it's 90 degrees.
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'The type of the stadium (possible values: Outdoor, Dome, RetractableDome)'
+    TeamSeason:
+      properties:
+        StatID:
+          type: integer
+          description: The unique ID of the stat
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO
+        SeasonType:
+          type:
+          - integer
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar)
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The MLB season for which these totals apply
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Team's full name (city and mascot)
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time).
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played.
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        AtBats:
+          type:
+          - number
+          - 'null'
+          description: At bats while hitting
+        Runs:
+          type:
+          - number
+          - 'null'
+          description: Total runs scored.
+        Hits:
+          type:
+          - number
+          - 'null'
+          description: Total hits
+        Singles:
+          type:
+          - number
+          - 'null'
+          description: Total singles
+        Doubles:
+          type:
+          - number
+          - 'null'
+          description: Total doubles
+        Triples:
+          type:
+          - number
+          - 'null'
+          description: Total triples
+        HomeRuns:
+          type:
+          - number
+          - 'null'
+          description: Total home runs
+        RunsBattedIn:
+          type:
+          - number
+          - 'null'
+          description: Total runs batted in
+        BattingAverage:
+          type:
+          - number
+          - 'null'
+          description: Total batting average
+        Outs:
+          type:
+          - number
+          - 'null'
+          description: Total outs
+        Strikeouts:
+          type:
+          - number
+          - 'null'
+          description: Total strikeouts
+        Walks:
+          type:
+          - number
+          - 'null'
+          description: Total walks
+        HitByPitch:
+          type:
+          - number
+          - 'null'
+          description: Total times hit by pitch
+        Sacrifices:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifices
+        SacrificeFlies:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifice flies
+        GroundIntoDoublePlay:
+          type:
+          - number
+          - 'null'
+          description: Total times grounded into double play
+        StolenBases:
+          type:
+          - number
+          - 'null'
+          description: Total stolen bases
+        CaughtStealing:
+          type:
+          - number
+          - 'null'
+          description: Total caught stealing
+        PitchesSeen:
+          type:
+          - number
+          - 'null'
+          description: Total pitches seen
+        OnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total on base percentage
+        SluggingPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total slugging percentage
+        OnBasePlusSlugging:
+          type:
+          - number
+          - 'null'
+          description: Total on base plus percentage 
+        Errors:
+          type:
+          - number
+          - 'null'
+          description: Total errors
+        Wins:
+          type:
+          - number
+          - 'null'
+          description: Total wins by the team/player
+        Losses:
+          type:
+          - number
+          - 'null'
+          description: Total losses by the team/player
+        Saves:
+          type:
+          - number
+          - 'null'
+          description: Total saves by team/player
+        InningsPitchedDecimal:
+          type:
+          - number
+          - 'null'
+          description: Decimal representation of total innings pitched (e.g. 1.33, 7.66, etc)
+        TotalOutsPitched:
+          type:
+          - number
+          - 'null'
+          description: Total outs pitched by team/player
+        InningsPitchedFull:
+          type:
+          - number
+          - 'null'
+          description: Total full innings pitched (e.g. 6, 71, 89, etc)
+        InningsPitchedOuts:
+          type:
+          - number
+          - 'null'
+          description: 'Outs pitched beyond InningsPitchedFull (possible values: 0, 1, 2)'
+        EarnedRunAverage:
+          type:
+          - number
+          - 'null'
+          description: Total earned run average by team/player
+        PitchingHits:
+          type:
+          - number
+          - 'null'
+          description: Hits allowed while pitching
+        PitchingRuns:
+          type:
+          - number
+          - 'null'
+          description: Runs allowed while pitching
+        PitchingEarnedRuns:
+          type:
+          - number
+          - 'null'
+          description: Earned runs allowed while pitching
+        PitchingWalks:
+          type:
+          - number
+          - 'null'
+          description: Walks allowed while pitching
+        PitchingStrikeouts:
+          type:
+          - number
+          - 'null'
+          description: Strikeouts allowed while pitching
+        PitchingHomeRuns:
+          type:
+          - number
+          - 'null'
+          description: Home runs allowed while pitching
+        PitchesThrown:
+          type:
+          - number
+          - 'null'
+          description: Total pitches thrown while pitching
+        PitchesThrownStrikes:
+          type:
+          - number
+          - 'null'
+          description: Total pitches thrown for strikes while pitching
+        WalksHitsPerInningsPitched:
+          type:
+          - number
+          - 'null'
+          description: Walks plus hits per innings pitched (WHIP) while pitching
+        PitchingBattingAverageAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total batting average against (BAA) while pitching
+        GrandSlams:
+          type:
+          - number
+          - 'null'
+          description: Total grand slams
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total FanDuel fantasy points
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings fantasy points
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points
+        PlateAppearances:
+          type:
+          - number
+          - 'null'
+          description: Total plate appearances
+        TotalBases:
+          type:
+          - number
+          - 'null'
+          description: Number of total bases
+        FlyOuts:
+          type:
+          - number
+          - 'null'
+          description: Total fly outs
+        GroundOuts:
+          type:
+          - number
+          - 'null'
+          description: Total ground outs
+        LineOuts:
+          type:
+          - number
+          - 'null'
+          description: Total line outs
+        PopOuts:
+          type:
+          - number
+          - 'null'
+          description: Total pop outs
+        IntentionalWalks:
+          type:
+          - number
+          - 'null'
+          description: Total intentional walks
+        ReachedOnError:
+          type:
+          - number
+          - 'null'
+          description: Total times reached on error
+        BallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total balls in play
+        BattingAverageOnBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total batting average on balls in play (BABIP)
+        WeightedOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total weight on base percentage
+        PitchingSingles:
+          type:
+          - number
+          - 'null'
+          description: Total singles allowed while pitching
+        PitchingDoubles:
+          type:
+          - number
+          - 'null'
+          description: Total doubles allowed while pitching
+        PitchingTriples:
+          type:
+          - number
+          - 'null'
+          description: Total triples allowed while pitching
+        PitchingGrandSlams:
+          type:
+          - number
+          - 'null'
+          description: Total grand slams allowed while pitching
+        PitchingHitByPitch:
+          type:
+          - number
+          - 'null'
+          description: Total batters hit by pitch while pitching
+        PitchingSacrifices:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifices while pitching
+        PitchingSacrificeFlies:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifice flies while pitching
+        PitchingGroundIntoDoublePlay:
+          type:
+          - number
+          - 'null'
+          description: Total grounded into double plays while pitching
+        PitchingCompleteGames:
+          type:
+          - number
+          - 'null'
+          description: Total complete games while pitching
+        PitchingShutOuts:
+          type:
+          - number
+          - 'null'
+          description: Total shuouts while pitching
+        PitchingNoHitters:
+          type:
+          - number
+          - 'null'
+          description: Total no hitters while pitching
+        PitchingPerfectGames:
+          type:
+          - number
+          - 'null'
+          description: Total perfect games while pitching
+        PitchingPlateAppearances:
+          type:
+          - number
+          - 'null'
+          description: Total plate appearances while pitching
+        PitchingTotalBases:
+          type:
+          - number
+          - 'null'
+          description: Total bases while pitching
+        PitchingFlyOuts:
+          type:
+          - number
+          - 'null'
+          description: Total fly outs while pitching
+        PitchingGroundOuts:
+          type:
+          - number
+          - 'null'
+          description: Total ground outs while pitching
+        PitchingLineOuts:
+          type:
+          - number
+          - 'null'
+          description: Total line outs while pitching
+        PitchingPopOuts:
+          type:
+          - number
+          - 'null'
+          description: Total pop outs while pitching
+        PitchingIntentionalWalks:
+          type:
+          - number
+          - 'null'
+          description: Total intentional walks while pitching
+        PitchingReachedOnError:
+          type:
+          - number
+          - 'null'
+          description: Total times reached on error while pitching
+        PitchingCatchersInterference:
+          type:
+          - number
+          - 'null'
+          description: Total catchers interference while pitching
+        PitchingBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total balls in play while pitching
+        PitchingOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total on base percentage (OBP) while pitching
+        PitchingSluggingPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total slugging percentage (SLG) while pitching
+        PitchingOnBasePlusSlugging:
+          type:
+          - number
+          - 'null'
+          description: Total on base plus slugging (OPS) while pitching
+        PitchingStrikeoutsPerNineInnings:
+          type:
+          - number
+          - 'null'
+          description: Total strikeouts per nine innings (K/9) while pitching
+        PitchingWalksPerNineInnings:
+          type:
+          - number
+          - 'null'
+          description: Total walks per nine innings (BB/9) while pitching
+        PitchingBattingAverageOnBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total batting average on balls in play (BABIP) while pitching
+        PitchingWeightedOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total weighted on base percentage while pitching 
+        DoublePlays:
+          type:
+          - number
+          - 'null'
+          description: 'Total double plays, defined as one of: Bunted into Double Play, Fly into Double Play, Fouled into Double Play, Ground into Double Pla,y Line into Double Play, Popped into Double Play'
+        PitchingDoublePlays:
+          type:
+          - number
+          - 'null'
+          description: Total double plays while pitching
+        BattingOrderConfirmed:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the batting order is confirmed (true/false)
+        IsolatedPower:
+          type:
+          - number
+          - 'null'
+          description: Total isolated power (ISO)
+        FieldingIndependentPitching:
+          type:
+          - number
+          - 'null'
+          description: Total fielding independent pitching (FIP)
+        PitchingQualityStarts:
+          type:
+          - number
+          - 'null'
+          description: Total quality starts pitched
+        PitchingInningStarted:
+          type:
+          - integer
+          - 'null'
+          description: The inning that the pitcher entered the game (if any).
+        LeftOnBase:
+          type:
+          - number
+          - 'null'
+          description: Total left on base percentage 
+        PitchingHolds:
+          type:
+          - number
+          - 'null'
+          description: Total holds pitched
+        PitchingBlownSaves:
+          type:
+          - number
+          - 'null'
+          description: Total blown saves pitched
+        SubstituteBattingOrder:
+          type:
+          - integer
+          - 'null'
+          description: The position in the batting order where this player was substituted into the game (does not include players in the starting lineup)
+        SubstituteBattingOrderSequence:
+          type:
+          - integer
+          - 'null'
+          description: The sequence in which this player was substituted into the game, within the particular batting order
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Total FantasyDraft fantasy points
+        FantasyPointsBatting:
+          type:
+          - number
+          - 'null'
+          description: Total batting fantasy points
+        FantasyPointsPitching:
+          type:
+          - number
+          - 'null'
+          description: Total pitching fantasy points
+    Season:
+      properties:
+        Season:
+          type: integer
+          description: The MLB season for which these totals apply
+        RegularSeasonStartDate:
+          type:
+          - string
+          - 'null'
+          description: The start date of the regular season
+        PostSeasonStartDate:
+          type:
+          - string
+          - 'null'
+          description: The start date of the postseason
+        SeasonType:
+          type:
+          - string
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        ApiSeason:
+          type:
+          - string
+          - 'null'
+          description: The string to pass into subsequent API calls in the season parameter (e.g. 2025REG, 2025POST, etc.).
+    Series:
+      properties:
+        HomeTeamWins:
+          type: integer
+          description: 'Number of wins by the home team on in the series. Note: this is for postseason series only.'
+        AwayTeamWins:
+          type: integer
+          description: 'Number of wins by the away team in the series. Note: This is for postseason series only.'
+        GameNumber:
+          type: integer
+          description: 'Game number in series. Note: this applies to postseason series only.'
+        MaxLength:
+          type: integer
+          description: 'Maximum number of games in the series. Note: this is for postseason series only.'
+    Transaction:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career.'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Player's full name
+        FormerTeamID:
+          type:
+          - integer
+          - 'null'
+          description: TeamID of player's former team
+        FormerTeam:
+          type:
+          - string
+          - 'null'
+          description: Player's former team in abbreviated format [Key] (e.g. SD; PHI; LAD; ATL etc.)
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Type:
+          type:
+          - string
+          - 'null'
+          description: Type of Transaction. Released, Waived, Signed, Promoted, Elevated, Demoted, and Traded.
+        Date:
+          type:
+          - string
+          - 'null'
+          description: The date that this transaction took place
+        Note:
+          type:
+          - string
+          - 'null'
+          description: A summary of the transaction (e.g. "Harris has signed with the Diamondbacks.")
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time this transaction was created in US Eastern Time
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the last update made to this transaction (in US Eastern Time)
+    TeamGame:
+      properties:
+        StatID:
+          type: integer
+          description: The unique ID of the stat
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO
+        SeasonType:
+          type:
+          - integer
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The MLB season of the game
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Team's full name (city and mascot)
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this game
+        OpponentID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team's opponent
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The name of the opponent 
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        IsGameOver:
+          type: boolean
+          description: Whether the game is over (true/false)
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalOpponentID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time).
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played.
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        AtBats:
+          type:
+          - number
+          - 'null'
+          description: At bats while hitting
+        Runs:
+          type:
+          - number
+          - 'null'
+          description: Total runs scored.
+        Hits:
+          type:
+          - number
+          - 'null'
+          description: Total hits
+        Singles:
+          type:
+          - number
+          - 'null'
+          description: Total singles
+        Doubles:
+          type:
+          - number
+          - 'null'
+          description: Total doubles
+        Triples:
+          type:
+          - number
+          - 'null'
+          description: Total triples
+        HomeRuns:
+          type:
+          - number
+          - 'null'
+          description: Total home runs
+        RunsBattedIn:
+          type:
+          - number
+          - 'null'
+          description: Total runs batted in
+        BattingAverage:
+          type:
+          - number
+          - 'null'
+          description: Total batting average
+        Outs:
+          type:
+          - number
+          - 'null'
+          description: Total outs
+        Strikeouts:
+          type:
+          - number
+          - 'null'
+          description: Total strikeouts
+        Walks:
+          type:
+          - number
+          - 'null'
+          description: Total walks
+        HitByPitch:
+          type:
+          - number
+          - 'null'
+          description: Total times hit by pitch
+        Sacrifices:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifices
+        SacrificeFlies:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifice flies
+        GroundIntoDoublePlay:
+          type:
+          - number
+          - 'null'
+          description: Total times grounded into double play
+        StolenBases:
+          type:
+          - number
+          - 'null'
+          description: Total stolen bases
+        CaughtStealing:
+          type:
+          - number
+          - 'null'
+          description: Total caught stealing
+        PitchesSeen:
+          type:
+          - number
+          - 'null'
+          description: Total pitches seen
+        OnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total on base percentage
+        SluggingPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total slugging percentage
+        OnBasePlusSlugging:
+          type:
+          - number
+          - 'null'
+          description: Total on base plus percentage 
+        Errors:
+          type:
+          - number
+          - 'null'
+          description: Total errors
+        Wins:
+          type:
+          - number
+          - 'null'
+          description: Total wins by the team/player
+        Losses:
+          type:
+          - number
+          - 'null'
+          description: Total losses by the team/player
+        Saves:
+          type:
+          - number
+          - 'null'
+          description: Total saves by team/player
+        InningsPitchedDecimal:
+          type:
+          - number
+          - 'null'
+          description: Decimal representation of total innings pitched (e.g. 1.33, 7.66, etc)
+        TotalOutsPitched:
+          type:
+          - number
+          - 'null'
+          description: Total outs pitched by team/player
+        InningsPitchedFull:
+          type:
+          - number
+          - 'null'
+          description: Total full innings pitched (e.g. 6, 71, 89, etc)
+        InningsPitchedOuts:
+          type:
+          - number
+          - 'null'
+          description: 'Outs pitched beyond InningsPitchedFull (possible values: 0, 1, 2)'
+        EarnedRunAverage:
+          type:
+          - number
+          - 'null'
+          description: Total earned run average by team/player
+        PitchingHits:
+          type:
+          - number
+          - 'null'
+          description: Hits allowed while pitching
+        PitchingRuns:
+          type:
+          - number
+          - 'null'
+          description: Runs allowed while pitching
+        PitchingEarnedRuns:
+          type:
+          - number
+          - 'null'
+          description: Earned runs allowed while pitching
+        PitchingWalks:
+          type:
+          - number
+          - 'null'
+          description: Walks allowed while pitching
+        PitchingStrikeouts:
+          type:
+          - number
+          - 'null'
+          description: Strikeouts allowed while pitching
+        PitchingHomeRuns:
+          type:
+          - number
+          - 'null'
+          description: Home runs allowed while pitching
+        PitchesThrown:
+          type:
+          - number
+          - 'null'
+          description: Total pitches thrown while pitching
+        PitchesThrownStrikes:
+          type:
+          - number
+          - 'null'
+          description: Total pitches thrown for strikes while pitching
+        WalksHitsPerInningsPitched:
+          type:
+          - number
+          - 'null'
+          description: Walks plus hits per innings pitched (WHIP) while pitching
+        PitchingBattingAverageAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total batting average against (BAA) while pitching
+        GrandSlams:
+          type:
+          - number
+          - 'null'
+          description: Total grand slams
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total FanDuel fantasy points
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings fantasy points
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points
+        PlateAppearances:
+          type:
+          - number
+          - 'null'
+          description: Total plate appearances
+        TotalBases:
+          type:
+          - number
+          - 'null'
+          description: Number of total bases
+        FlyOuts:
+          type:
+          - number
+          - 'null'
+          description: Total fly outs
+        GroundOuts:
+          type:
+          - number
+          - 'null'
+          description: Total ground outs
+        LineOuts:
+          type:
+          - number
+          - 'null'
+          description: Total line outs
+        PopOuts:
+          type:
+          - number
+          - 'null'
+          description: Total pop outs
+        IntentionalWalks:
+          type:
+          - number
+          - 'null'
+          description: Total intentional walks
+        ReachedOnError:
+          type:
+          - number
+          - 'null'
+          description: Total times reached on error
+        BallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total balls in play
+        BattingAverageOnBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total batting average on balls in play (BABIP)
+        WeightedOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total weight on base percentage
+        PitchingSingles:
+          type:
+          - number
+          - 'null'
+          description: Total singles allowed while pitching
+        PitchingDoubles:
+          type:
+          - number
+          - 'null'
+          description: Total doubles allowed while pitching
+        PitchingTriples:
+          type:
+          - number
+          - 'null'
+          description: Total triples allowed while pitching
+        PitchingGrandSlams:
+          type:
+          - number
+          - 'null'
+          description: Total grand slams allowed while pitching
+        PitchingHitByPitch:
+          type:
+          - number
+          - 'null'
+          description: Total batters hit by pitch while pitching
+        PitchingSacrifices:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifices while pitching
+        PitchingSacrificeFlies:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifice flies while pitching
+        PitchingGroundIntoDoublePlay:
+          type:
+          - number
+          - 'null'
+          description: Total grounded into double plays while pitching
+        PitchingCompleteGames:
+          type:
+          - number
+          - 'null'
+          description: Total complete games while pitching
+        PitchingShutOuts:
+          type:
+          - number
+          - 'null'
+          description: Total shuouts while pitching
+        PitchingNoHitters:
+          type:
+          - number
+          - 'null'
+          description: Total no hitters while pitching
+        PitchingPerfectGames:
+          type:
+          - number
+          - 'null'
+          description: Total perfect games while pitching
+        PitchingPlateAppearances:
+          type:
+          - number
+          - 'null'
+          description: Total plate appearances while pitching
+        PitchingTotalBases:
+          type:
+          - number
+          - 'null'
+          description: Total bases while pitching
+        PitchingFlyOuts:
+          type:
+          - number
+          - 'null'
+          description: Total fly outs while pitching
+        PitchingGroundOuts:
+          type:
+          - number
+          - 'null'
+          description: Total ground outs while pitching
+        PitchingLineOuts:
+          type:
+          - number
+          - 'null'
+          description: Total line outs while pitching
+        PitchingPopOuts:
+          type:
+          - number
+          - 'null'
+          description: Total pop outs while pitching
+        PitchingIntentionalWalks:
+          type:
+          - number
+          - 'null'
+          description: Total intentional walks while pitching
+        PitchingReachedOnError:
+          type:
+          - number
+          - 'null'
+          description: Total times reached on error while pitching
+        PitchingCatchersInterference:
+          type:
+          - number
+          - 'null'
+          description: Total catchers interference while pitching
+        PitchingBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total balls in play while pitching
+        PitchingOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total on base percentage (OBP) while pitching
+        PitchingSluggingPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total slugging percentage (SLG) while pitching
+        PitchingOnBasePlusSlugging:
+          type:
+          - number
+          - 'null'
+          description: Total on base plus slugging (OPS) while pitching
+        PitchingStrikeoutsPerNineInnings:
+          type:
+          - number
+          - 'null'
+          description: Total strikeouts per nine innings (K/9) while pitching
+        PitchingWalksPerNineInnings:
+          type:
+          - number
+          - 'null'
+          description: Total walks per nine innings (BB/9) while pitching
+        PitchingBattingAverageOnBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total batting average on balls in play (BABIP) while pitching
+        PitchingWeightedOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total weighted on base percentage while pitching 
+        DoublePlays:
+          type:
+          - number
+          - 'null'
+          description: 'Total double plays, defined as one of: Bunted into Double Play, Fly into Double Play, Fouled into Double Play, Ground into Double Pla,y Line into Double Play, Popped into Double Play'
+        PitchingDoublePlays:
+          type:
+          - number
+          - 'null'
+          description: Total double plays while pitching
+        BattingOrderConfirmed:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the batting order is confirmed (true/false)
+        IsolatedPower:
+          type:
+          - number
+          - 'null'
+          description: Total isolated power (ISO)
+        FieldingIndependentPitching:
+          type:
+          - number
+          - 'null'
+          description: Total fielding independent pitching (FIP)
+        PitchingQualityStarts:
+          type:
+          - number
+          - 'null'
+          description: Total quality starts pitched
+        PitchingInningStarted:
+          type:
+          - integer
+          - 'null'
+          description: The inning that the pitcher entered the game (if any).
+        LeftOnBase:
+          type:
+          - number
+          - 'null'
+          description: Total left on base percentage 
+        PitchingHolds:
+          type:
+          - number
+          - 'null'
+          description: Total holds pitched
+        PitchingBlownSaves:
+          type:
+          - number
+          - 'null'
+          description: Total blown saves pitched
+        SubstituteBattingOrder:
+          type:
+          - integer
+          - 'null'
+          description: The position in the batting order where this player was substituted into the game (does not include players in the starting lineup)
+        SubstituteBattingOrderSequence:
+          type:
+          - integer
+          - 'null'
+          description: The sequence in which this player was substituted into the game, within the particular batting order
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Total FantasyDraft fantasy points
+        FantasyPointsBatting:
+          type:
+          - number
+          - 'null'
+          description: Total batting fantasy points
+        FantasyPointsPitching:
+          type:
+          - number
+          - 'null'
+          description: Total pitching fantasy points
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    Player:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career'
+        SportsDataID:
+          type:
+          - string
+          - 'null'
+          description: Deprecated. Use SportRadarPlayerID instead.
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the player''s status of being on an Major League Active Roster. Possible values include: Active, 40 Man Active, Non-Roster Invitee, Minors, Inactive, 7 Day Injury List, 10 Day Injury List, 15 Day Injury List, 60 Day Injury List, Restricted List, Paternity List, Bereavement List, Military List'
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team that the player belongs to
+        Jersey:
+          type:
+          - integer
+          - 'null'
+          description: The player's jersey number.
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position category. Possible values: DH, IF, OF, P, PH, PR'
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position associated with the given game or season. Possible values: 1B; 2B; 3B; C; CF; DH; IF; LF; OF; P; PH; PR; RF; RP; SP; SS'
+        MLBAMID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with MLB AM
+        FirstName:
+          type:
+          - string
+          - 'null'
+          description: The player's first name
+        LastName:
+          type:
+          - string
+          - 'null'
+          description: The player's last name
+        BatHand:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s batting hand. Possible values: R, L, S'
+        ThrowHand:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s throwing hand. Possible values: R, L, S'
+        Height:
+          type:
+          - integer
+          - 'null'
+          description: The player's height in inches
+        Weight:
+          type:
+          - integer
+          - 'null'
+          description: The weight of the player in pounds (lbs).
+        BirthDate:
+          type:
+          - string
+          - 'null'
+          description: The player's date of birth
+        BirthCity:
+          type:
+          - string
+          - 'null'
+          description: The city in which the player was born
+        BirthState:
+          type:
+          - string
+          - 'null'
+          description: 'The state in which the player was born. Note: State will be NULL for all countries outside of North America and Australia'
+        BirthCountry:
+          type:
+          - string
+          - 'null'
+          description: The country in which the player was born
+        HighSchool:
+          type:
+          - string
+          - 'null'
+          description: 'The high school that the player attended. Note: If the player attended a college, this field will be NULL'
+        College:
+          type:
+          - string
+          - 'null'
+          description: 'The college that the player attended. Note: If player did not attend college this field will contain "None" and a high school will be added if applicable'
+        ProDebut:
+          type:
+          - string
+          - 'null'
+          description: The date that this player made his MLB debut.
+        Salary:
+          type:
+          - integer
+          - 'null'
+          description: Field is expected to be NULL
+        PhotoUrl:
+          type:
+          - string
+          - 'null'
+          description: Field is expected to be NULL
+        SportRadarPlayerID:
+          type:
+          - string
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with Stats Player
+        RotoworldPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with Rotoworld.
+        RotoWirePlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with RotoWire.
+        FantasyAlarmPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with FantasyAlarm
+        StatsPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with Stats Player.
+        SportsDirectPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the SportsDirect data feeds, now part of Nielsen GraceNote.
+        XmlTeamPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with Xml Team
+        InjuryStatus:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s current injury status; in the form of likelihood that player plays. Possible values: Probable; Questionable; Doubtful; Out'
+        InjuryBodyPart:
+          type:
+          - string
+          - 'null'
+          description: Indicates the player's injured body part. (e.g. ankle; knee; elbow; etc.)
+        InjuryStartDate:
+          type:
+          - string
+          - 'null'
+          description: The day that the injury started or first discovered.
+        InjuryNotes:
+          type:
+          - string
+          - 'null'
+          description: Brief description of the player's injury and expected availability
+        FanDuelPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with FanDuel
+        DraftKingsPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with DraftKings.
+        YahooPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with Yahoo
+        UpcomingGameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of a player's next upcoming game
+        FanDuelName:
+          type:
+          - string
+          - 'null'
+          description: The player's name on FanDuel
+        DraftKingsName:
+          type:
+          - string
+          - 'null'
+          description: The player's name on DraftKings
+        YahooName:
+          type:
+          - string
+          - 'null'
+          description: The player's name as displayed on/by Yahoo
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        FantasyDraftName:
+          type:
+          - string
+          - 'null'
+          description: The player's name on Fantasy Draft
+        FantasyDraftPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's unique PlayerID for cross reference use with Fantasy Draft
+        Experience:
+          type:
+          - string
+          - 'null'
+          description: The player's years of experience
+        UsaTodayPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to USA Today headshot data feeds.
+        UsaTodayHeadshotUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's headshot URL as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotNoBackgroundUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's transparent background headshot URL as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated date of the player's headshot as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotNoBackgroundUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated date of the player's transparent background headshot as provided by USA Today. License from USA Today is required.
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: key
+      in: query

@@ -1,0 +1,3226 @@
+openapi: 3.1.0
+info:
+  title: MLB MLB v3 Headshots MLB v3 Odds API
+  version: '1.0'
+  description: MLB API - OpenAPI 3.1 Specification
+servers:
+- url: https://api.sportsdata.io
+  description: Production server
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: MLB v3 Odds
+paths:
+  /v3/mlb/odds/{format}/GameOddsByDate/{date}:
+    get:
+      description: Returns full game odds (spread, moneyline, total) for games on a given date. Only returns the most recently seen odds, not inclusive of line movement.
+      operationId: mlb_v3_odds_pre_game_odds___by_date
+      summary: Pre-Game Odds - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s). <br>Examples: <code>2018-06-20</code>, <code>2018-06-23</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GameInfo'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/GameOddsLineMovement/{gameid}:
+    get:
+      description: Returns the non-full-game odds (spread, moneyline, total) for games in a given week and season. Non-full-game means 1st-half or 1st-quarter, for example, rather than full game. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line.
+      operationId: mlb_v3_odds_pre_game_odds_line_movement
+      summary: Pre-Game Odds Line Movement
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameid
+        in: path
+        description: The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GameInfo'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/LiveGameOddsByDate/{date}:
+    get:
+      description: Returns in-play game odds (spread, moneyline, total) for games on a given date. Only returns the most recently seen odds, not inclusive of line movement. As this is in-game, it will only return results while the game is in progress.
+      operationId: mlb_v3_odds_in_game_odds___by_date
+      summary: In-Game Odds - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s). <br>Examples: <code>2018-06-20</code>, <code>2018-06-23</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GameInfo'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/LiveGameOddsLineMovement/{gameid}:
+    get:
+      description: Returns in-play game odds (spread, moneyline, total) for games on a given date. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line.
+      operationId: mlb_v3_odds_in_game_odds_line_movement
+      summary: In-Game Odds Line Movement
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameid
+        in: path
+        description: The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GameInfo'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/AlternateMarketGameOddsByDate/{date}:
+    get:
+      description: Returns the non-full-game odds (spread, moneyline, total) for games on a given date. Non-full-game means first five innings, for example, rather than full game. Only returns the most recently seen odds, not inclusive of line movement.
+      operationId: mlb_v3_odds_period_game_odds___by_date
+      summary: Period Game Odds - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s). <br>Examples: <code>2018-06-20</code>, <code>2018-06-23</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GameInfo'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/AlternateMarketGameOddsLineMovement/{gameid}:
+    get:
+      description: Returns the non-full-game odds (spread, moneyline, total) for games on a given date. Non-full-game means first five innings, for example, rather than full game. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line.
+      operationId: mlb_v3_odds_period_game_odds_line_movement
+      summary: Period Game Odds Line Movement
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameid
+        in: path
+        description: The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GameInfo'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/TeamTrends/{team}:
+    get:
+      description: Describes recent team trends and performance against betting data in recent sets of games.
+      operationId: mlb_v3_odds_betting_trends___by_team
+      summary: Betting Trends - by Team
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: team
+        in: path
+        description: 'The abbreviation of the requested team. <br> Examples: <code>PHI</code>, <code>MIN</code>, <code>DET</code>, etc.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamTrends'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/MatchupTrends/{team}/{opponent}:
+    get:
+      description: Returns trends data for a given pairing of teams. Will return data even if the teams are not set to play this season. Intended for use on a specific game, though it will work for other comparisons if applicable.
+      operationId: mlb_v3_odds_betting_trends___by_matchup
+      summary: Betting Trends - by Matchup
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: team
+        in: path
+        description: 'The abbreviation of the requested team. <br> Examples: <code>PHI</code>, <code>MIN</code>, <code>DET</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: opponent
+        in: path
+        description: 'The abbreviation of the requested opponent. <br> Examples: <code>PHI</code>, <code>MIN</code>, <code>DET</code>, etc.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchupTrends'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingEventsByDate/{date}:
+    get:
+      description: The list of current BettingEvents for the given date, from which Betting Market data can be gathered via the Betting Markets by Event endpoint, for all available Betting Market types (e.g. Player Props, Team Props.)
+      operationId: mlb_v3_odds_betting_events___by_date
+      summary: Betting Events - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s). <br>Examples: <code>2020-08-20</code>, <code>2020-08-23</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BettingEvent'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingEvents/{season}:
+    get:
+      description: The list of current BettingEvents for the given season, from which Betting Market data can be gathered via the Betting Markets by Event endpoint, for all available Betting Market types (e.g. Player Props, Team Props.)
+      operationId: mlb_v3_odds_betting_events___by_season
+      summary: Betting Events - by Season
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: 'Year of the season (with optional season type).<br>Examples: <code>2020</code>, <code>2020PRE</code>, <code>2020POST</code>, <code>2020STAR</code>, <code>2021</code>, etc.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BettingEvent'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingFuturesBySeason/{season}:
+    get:
+      description: Returns available Futures markets for the given season. Does not include line movement.
+      operationId: mlb_v3_odds_betting_futures___by_season
+      summary: Betting Futures - by Season
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: 'Year of the season (with optional season type).<br>Examples: <code>2020</code>, <code>2020PRE</code>, <code>2020POST</code>, <code>2020STAR</code>, <code>2021</code>, etc.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BettingEvent'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingMarkets/{eventId}:
+    get:
+      description: Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given BettingEventID.
+      operationId: mlb_v3_odds_betting_markets___by_event
+      summary: Betting Markets - by Event
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: eventId
+        in: path
+        description: The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).
+        required: true
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: 'This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it''s cached for much longer than available. <br><br>'
+        schema:
+          type: string
+          enum:
+          - available
+          - unlisted
+          default: available
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BettingMarket'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingMarket/{marketId}:
+    get:
+      description: Returns full line movement for a given BettingMarket. Due to the sheer size of the output and the level of detail, it is intended for historical data purposes and not for the most up-to-the-second lines.
+      operationId: mlb_v3_odds_betting_market
+      summary: Betting Market
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: marketId
+        in: path
+        description: The MarketId of the desired market for which to pull all outcomes/bets.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BettingMarket'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingMarketsByMarketType/{eventId}/{marketTypeID}:
+    get:
+      description: Returns Markets and available outcomes for a given event and market type requested. A lighter call than by BettingEventID as it only includes markets tagged with the specific MarketType, a full list of which is available for each sport in its Betting Metadata endpoint.
+      operationId: mlb_v3_odds_betting_markets___by_market_type
+      summary: Betting Markets - by Market Type
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: eventId
+        in: path
+        description: The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).
+        required: true
+        schema:
+          type: string
+      - name: marketTypeID
+        in: path
+        description: 'The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for Game Lines, <code>2</code> for Player Props, <code>3</code> for Team Props, <code>6</code> for Game Props'
+        required: true
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: 'This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it''s cached for much longer than available. <br><br>'
+        schema:
+          type: string
+          enum:
+          - available
+          - unlisted
+          default: available
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BettingMarket'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingMarketsByGameID/{gameID}:
+    get:
+      description: Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given GameID.
+      operationId: mlb_v3_odds_betting_markets___by_game
+      summary: Betting Markets - by Game
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameID
+        in: path
+        description: The GameID of the desired game for which to pull all betting markets (includes outcomes/bets).
+        required: true
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: 'This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it''s cached for much longer than available. <br><br>'
+        schema:
+          type: string
+          enum:
+          - available
+          - unlisted
+          default: available
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BettingMarket'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingMetadata:
+    get:
+      description: Returns the list of MarketTypes, BetTypes, PeriodTypes, OutcomeTypes, and ResultTypes to map the IDs to descriptive names. Also includes a list of the MarketType, BetType & PeriodType combinations which we will have resulting for.
+      operationId: mlb_v3_odds_betting_metadata
+      summary: Betting Metadata
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BettingEntityMetadataCollection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/ActiveSportsbooks:
+    get:
+      description: A list of all available sportsbooks with their associated unique IDs.
+      operationId: mlb_v3_odds_sportsbooks___by_active
+      summary: Sportsbooks - by Active
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Sportsbook'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingMarketResults/{marketId}:
+    get:
+      description: Returns all outcomes under this market which have a result type associated. Will return empty list if resulting has not yet processed for the given game. Resulting processes shortly after game closing.
+      operationId: mlb_v3_odds_betting_results___by_market
+      summary: Betting Results - by Market
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: marketId
+        in: path
+        description: The MarketId of the desired market for which to pull all outcomes/bets. Valid IDs include <code>837872</code>, <code>841068</code>
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BettingMarketResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingSplitsByMarketId/{marketId}:
+    get:
+      description: List of Money and Bet Percentage splits for each outcome type available in this market. This specific endpoint will return the movement from this market as well as the most recent.
+      operationId: mlb_v3_odds_betting_splits_by___betting_market
+      summary: Betting Splits by - Betting Market
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: marketId
+        in: path
+        description: The MarketId of the desired market for which to pull splits.. Valid IDs include <code>837872</code>
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BettingMarketSplit'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingSplitsByGameId/{gameId}:
+    get:
+      description: List of Money and Bet Percentage splits for each market and their respective outcome types available in this game. This specific endpoint will return current splits for each available market and no line movement.
+      operationId: mlb_v3_odds_betting_splits___by_game
+      summary: Betting Splits - by Game
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameId
+        in: path
+        description: The ID of the game for which you want to receive splits for. Example <code>63266</code>.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameBettingSplit'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingPlayerPropsByGameID/{gameId}:
+    get:
+      description: This works in the same way as Betting Markets by Market Type but is prefiltered to the Player Props type only. Ideal if your application will only ever require Player Props, but if you also want Team Props etc. it is recommended to use the by Market Type endpoint.
+      operationId: mlb_v3_odds_betting_player_props___by_game
+      summary: Betting Player Props - by Game
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameId
+        in: path
+        description: The unique GameID of the game in question.
+        required: true
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: 'This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it''s cached for much longer than available. <br><br>'
+        schema:
+          type: string
+          enum:
+          - available
+          - unlisted
+          default: available
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BettingMarket'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingMarketsByEvent/{eventId}/{sportsbookGroup}:
+    get:
+      description: Returns the markets and available outcomes for a given BettingEventID. A Sportsbook Group must be specified as a URL parameter.
+      operationId: mlb_v3_odds_betting_markets___by_event__sportsbook_group
+      summary: Betting Markets - by Event [Sportsbook Group]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: eventId
+        in: path
+        description: The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).
+        required: true
+        schema:
+          type: string
+      - name: sportsbookGroup
+        in: path
+        description: The name of the sportsbook group that will filter outcomes.
+        required: true
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: 'This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it''s cached for much longer than available. <br><br>'
+        schema:
+          type: string
+          enum:
+          - available
+          - unlisted
+          default: available
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BettingMarket'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingMarketsByGameID/{gameID}/{sportsbookGroup}:
+    get:
+      description: Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given GameID. A Sportsbook Group must be specified as a URL parameter.
+      operationId: mlb_v3_odds_betting_markets___by_game__sportsbook_group
+      summary: Betting Markets - by Game [Sportsbook Group]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameID
+        in: path
+        description: The GameID of the desired game for which to pull all betting markets (includes outcomes/bets).
+        required: true
+        schema:
+          type: string
+      - name: sportsbookGroup
+        in: path
+        description: The name of the sportsbook group that will filter outcomes.
+        required: true
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: 'This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it''s cached for much longer than available. <br><br>'
+        schema:
+          type: string
+          enum:
+          - available
+          - unlisted
+          default: available
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BettingMarket'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingMarket/{marketId}/{sportsbookGroup}:
+    get:
+      description: Returns full line movement for a given BettingMarket. Due to the sheer size of the output and the level of detail, it is intended for historical data purposes and not for the most up-to-the-second lines. A Sportsbook Group must be specified as a URL parameter.
+      operationId: mlb_v3_odds_betting_market____sportsbook_group
+      summary: Betting Market - [Sportsbook Group]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: marketId
+        in: path
+        description: The MarketId of the desired market for which to pull all outcomes/bets.
+        required: true
+        schema:
+          type: string
+      - name: sportsbookGroup
+        in: path
+        description: The name of the sportsbook group that will filter outcomes.
+        required: true
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: 'This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br>
+
+
+          <b>Important Note:</b> the default parameter of available is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>
+
+
+          Possible values include: <br><br>
+
+          <code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br>
+
+          <code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it''s cached for much longer than available. <br><br>'
+        schema:
+          type: string
+          enum:
+          - available
+          - unlisted
+          default: available
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BettingMarket'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingFuturesBySeason/{season}/{sportsbookGroup}:
+    get:
+      description: Returns available Futures markets for the given season. Does not include line movement. A Sportsbook Group must be specified as a URL parameter.
+      operationId: mlb_v3_odds_betting_futures___by_season__sportsbook_group
+      summary: Betting Futures - by Season [Sportsbook Group]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: 'Year of the season (with optional season type).<br>Examples: <code>2020</code>, <code>2020PRE</code>, <code>2020POST</code>, <code>2020STAR</code>, <code>2021</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: sportsbookGroup
+        in: path
+        description: The name of the sportsbook group that will filter outcomes.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BettingEvent'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingMarketsByMarketType/{eventID}/{marketTypeID}/{sportsbookGroup}:
+    get:
+      description: Returns Markets and available outcomes for a given event and market type requested. A lighter call than by BettingEventID as it only includes markets tagged with the specific MarketType, a full list of which is available for each sport in its Betting Metadata endpoint. A Sportsbook Group must be specified as a URL parameter.
+      operationId: mlb_v3_odds_betting_markets___by_market_type__sportsbook_group
+      summary: Betting Markets - by Market Type [Sportsbook Group]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: eventID
+        in: path
+        description: The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets).
+        required: true
+        schema:
+          type: string
+      - name: marketTypeID
+        in: path
+        description: 'The Market Type ID of the desired MarketTypes to pull. Some common types include: <code>1</code> for Game Lines, <code>2</code> for Player Props, <code>3</code> for Team Props, <code>6</code> for Game Props'
+        required: true
+        schema:
+          type: string
+      - name: sportsbookGroup
+        in: path
+        description: The name of the sportsbook group that will filter outcomes.
+        required: true
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: 'This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it''s cached for much longer than available. <br><br>'
+        schema:
+          type: string
+          enum:
+          - available
+          - unlisted
+          default: available
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BettingMarket'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingPlayerPropsByGameID/{gameId}/{sportsbookGroup}:
+    get:
+      description: This works in the same way as Betting Markets by Market Type but is prefiltered to the Player Props type only. Ideal if your application will only ever require Player Props, but if you also want Team Props etc. it is recommended to use the by Market Type endpoint. A Sportsbook Group must be specified as a URL parameter.
+      operationId: mlb_v3_odds_betting_player_props___by_game__sportsbook_group
+      summary: Betting Player Props - by Game [Sportsbook Group]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameId
+        in: path
+        description: The unique GameID of the game in question.
+        required: true
+        schema:
+          type: string
+      - name: sportsbookGroup
+        in: path
+        description: The name of the sportsbook group that will filter outcomes.
+        required: true
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: 'This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it''s cached for much longer than available. <br><br>'
+        schema:
+          type: string
+          enum:
+          - available
+          - unlisted
+          default: available
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BettingMarket'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/BettingResultsByMarket/{marketID}/{sportsbookGroup}:
+    get:
+      description: 'Provide a market ID that supports resulting (i.e. has a ResultType) and this endpoint will return a result: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost. A Sportsbook Group must be specified as a URL parameter.'
+      operationId: mlb_v3_odds_betting_results___by_market__sportsbook_group
+      summary: Betting Results - by Market [Sportsbook Group]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: marketID
+        in: path
+        description: The MarketId of the desired market for which to pull all outcomes/bets. Valid IDs include <code>837872</code>, <code>841068</code>
+        required: true
+        schema:
+          type: string
+      - name: sportsbookGroup
+        in: path
+        description: The name of the sportsbook group that will filter outcomes.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BettingMarketResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/PreGameOddsByDate/{date}/{sportsbookGroup}:
+    get:
+      description: Returns the full-game and non-full-game odds (spread, moneyline, total) for games on a given date. Only returns the most recently seen odds, not inclusive of line movement. A Sportsbook Group must be specified as a URL parameter.
+      operationId: mlb_v3_odds_pre_game_and_period_game_odds___by_date__sportsbook_group
+      summary: Pre-Game and Period Game Odds - by Date [Sportsbook Group]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s). <br>Examples: <code>2018-06-20</code>, <code>2018-06-23</code>.'
+        required: true
+        schema:
+          type: string
+      - name: sportsbookGroup
+        in: path
+        description: The name of the sportsbook group that will filter outcomes.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GameInfo'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/PreGameOddsLineMovement/{gameid}/{sportsbookGroup}:
+    get:
+      description: Returns the game odds ( for games in a given week and season. In this endpoint both full-game and partial-game odds are included. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter.
+      operationId: mlb_v3_odds_pre_game_and_period_game_odds_line_movement__sportsbook_group
+      summary: Pre-Game and Period Game Odds Line Movement [Sportsbook Group]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameid
+        in: path
+        description: The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>
+        required: true
+        schema:
+          type: string
+      - name: sportsbookGroup
+        in: path
+        description: The name of the sportsbook group that will filter outcomes.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GameInfo'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/InGameOddsByDate/{date}/{sportsbookGroup}:
+    get:
+      description: Returns in-play game odds (spread, moneyline, total) for games on a given date. Only returns the most recently seen odds, not inclusive of line movement. As this is in-game, it will only return results while the game is in progress. A Sportsbook Group must be specified as a URL parameter.
+      operationId: mlb_v3_odds_in_game_odds___by_date__sportsbook_group
+      summary: In-Game Odds - by Date [Sportsbook Group]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: date
+        in: path
+        description: 'The date of the game(s). <br>Examples: <code>2018-06-20</code>, <code>2018-06-23</code>.'
+        required: true
+        schema:
+          type: string
+      - name: sportsbookGroup
+        in: path
+        description: The name of the sportsbook group that will filter outcomes.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GameInfo'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/InGameOddsLineMovement/{gameid}/{sportsbookGroup}:
+    get:
+      description: Returns in-play game odds (spread, moneyline, total) for games in a given week and season. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter.
+      operationId: mlb_v3_odds_in_game_odds_line_movement__sportsbook_group
+      summary: In-Game Odds Line Movement [Sportsbook Group]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameid
+        in: path
+        description: The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>
+        required: true
+        schema:
+          type: string
+      - name: sportsbookGroup
+        in: path
+        description: The name of the sportsbook group that will filter outcomes.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GameInfo'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/InGameOddsLineMovementWithResulting/{gameid}/{sportsbookGroup}:
+    get:
+      description: 'Returns in-play game odds (spread, moneyline, total) for games in a given week and season. This also includes Resulting: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter.'
+      operationId: mlb_v3_odds_in_game_odds_line_movement_with_resulting__sportsbook_group
+      summary: In-Game Odds Line Movement with Resulting [Sportsbook Group]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameid
+        in: path
+        description: The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>
+        required: true
+        schema:
+          type: string
+      - name: sportsbookGroup
+        in: path
+        description: The name of the sportsbook group that will filter outcomes.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GameInfoResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+  /v3/mlb/odds/{format}/PreGameOddsLineMovementWithResulting/{gameid}/{sportsbookGroup}:
+    get:
+      description: 'Returns the game odds ( for games in a given week and season. In this endpoint both full-game and partial-game odds are included. This also includes Resulting: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter.'
+      operationId: mlb_v3_odds_pre_game_and_period_game_odds_line_movement_with_resulting__sportsbook_group
+      summary: Pre-Game and Period Game Odds Line Movement with Resulting [Sportsbook Group]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameid
+        in: path
+        description: The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>51735</code> or <code>51745</code>
+        required: true
+        schema:
+          type: string
+      - name: sportsbookGroup
+        in: path
+        description: The name of the sportsbook group that will filter outcomes.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GameInfoResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - MLB v3 Odds
+components:
+  schemas:
+    BettingEntityMetadataCollection:
+      properties:
+        BettingBetTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingEntityMetadata'
+          description: The list of the bet types that can be found within a market
+        BettingMarketTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingEntityMetadata'
+          description: A list of the possible Market Types within a Betting Event (e.g. Game Line, Team prop, Player Future, etc.)
+        BettingPeriodTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingEntityMetadata'
+          description: A list of the possible BettingPeriodTypes (e.g. Full Game; 1st-5th Inning; 1st Inning)
+        BettingEventTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingEntityMetadata'
+          description: A list of the possible BettingEventTypes (e.g. Game, Future)
+        BettingOutcomeTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingEntityMetadata'
+          description: A list of the possible BettingOutcomeTypes (e.g. Home; Away; Under; Over)
+        ResultedMarketMetaData:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingResultingMetadata'
+          description: A list of the combinations of MarketType, BetType, & PeriodType which we willl provide automated resulting for
+        BettingResultTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingEntityMetadata'
+          description: A list of the possible BettingResultTypes (e.g. Win; Loss; Push; Not Resulted; Incomplete)
+    BettingOutcomeResult:
+      properties:
+        BettingOutcomeID:
+          type: integer
+          description: The unique ID associated with the betting outcome
+        BettingResultTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The BettingResultTypeID of this outcome
+        BettingResultType:
+          type:
+          - string
+          - 'null'
+          description: The string identifier of the BettingResultType of this outcome (e.g. Win; Loss; Push; Not Resulted; Incomplete)
+        BettingOutcomeTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID associated with this BettingOutcomeType
+        BettingOutcomeType:
+          type:
+          - string
+          - 'null'
+          description: The name of BettingOutcomeType (e.g. Home; Away; Under; Over)
+        BetValue:
+          type:
+          - number
+          - 'null'
+          description: The offered betting line from a sportsbook for a game (i.e. If a team won a game by 2 and the run line was -1.5, the actual value would be 2 and the bet value would be -1.5)
+        ActualValue:
+          type:
+          - number
+          - 'null'
+          description: The value of the actual result that occured in game (i.e. If a team won a game by 2 and the spread was -1.5, the actual value would be 2 and the bet value would be -1.5)
+    MatchupTrends:
+      properties:
+        UpcomingGame:
+          $ref: '#/components/schemas/Game'
+          description: Next scheduled game for the team with a specified opposing team
+        TeamTrends:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamTrends'
+          description: The collection of team trends between each team
+        TeamMatchupTrends:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamGameTrends'
+          description: The collection of team game trends against opponent
+        OpponentMatchupTrends:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamGameTrends'
+          description: The collection of opponent game trends against the team
+        PreviousGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/Game'
+          description: The collection of last 10 game scores between each team
+    Game:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The MLB season of the game
+        SeasonType:
+          type: integer
+          description: The type of season stage the game belongs to, e.g. Regular season, Post-season. For a description of possible values and how they work, see <a href="https://support.sportsdata.io/hc/en-us/articles/15196612633623-Process-Guide-Season-Types-and-Parameters" target="_blank">here.
+        Status:
+          type:
+          - string
+          - 'null'
+          description: The status of the game. For a description of possible values, see <a href="https://support.sportsdata.io/hc/en-us/articles/14287629964567-Process-Guide-Game-Status" target="_blank">here.</a> For how suspended and postponed games are handled specifically, see <a href="https://support.sportsdata.io/hc/en-us/articles/4404845580567-Postponed-and-Rescheduled-Games" target="_blank">here</a>.
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        AwayTeamID:
+          type: integer
+          description: The unique TeamID of the away team
+        HomeTeamID:
+          type: integer
+          description: The unique ID of the home team
+        RescheduledGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the stadium
+        Channel:
+          type:
+          - string
+          - 'null'
+          description: The television station broadcasting the game
+        Inning:
+          type:
+          - integer
+          - 'null'
+          description: 'The inning that the game is currently in, or the inning in which the game ended. Possible values include: NULL, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, etc)'
+        InningHalf:
+          type:
+          - string
+          - 'null'
+          description: 'The inning half that the game is currently in; or the inning half in which the game ended (possible values: T; B; E: M: NULL)'
+        AwayTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the away team in the game
+        HomeTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the home team in the game
+        AwayTeamHits:
+          type:
+          - integer
+          - 'null'
+          description: Total hits by the away team in the game
+        HomeTeamHits:
+          type:
+          - integer
+          - 'null'
+          description: Total hits by the home team in the game
+        AwayTeamErrors:
+          type:
+          - integer
+          - 'null'
+          description: Total errors committed by the away team in the game
+        HomeTeamErrors:
+          type:
+          - integer
+          - 'null'
+          description: Total errors committed by the home team in the game
+        WinningPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the pitcher who recorded the win in the game
+        LosingPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the losing pitcher in the game
+        SavingPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the pitcher who recorded the save in the game
+        Attendance:
+          type:
+          - integer
+          - 'null'
+          description: Total number of people who attended the game
+        AwayTeamProbablePitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the away team's probable pitcher
+        HomeTeamProbablePitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the home team's probable pitcher
+        Outs:
+          type:
+          - integer
+          - 'null'
+          description: The number of outs recorded in the current inning of the game
+        Balls:
+          type:
+          - integer
+          - 'null'
+          description: The number of balls thrown for the current at bat
+        Strikes:
+          type:
+          - integer
+          - 'null'
+          description: The number of strikes thrown for the current at bat
+        CurrentPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the current pitcher
+        CurrentHitterID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the current hitter
+        AwayTeamStartingPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the away team's starting pitcher
+        HomeTeamStartingPitcherID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the home team starting pitcher in the game
+        CurrentPitchingTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the current pitcher's team
+        CurrentHittingTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the current hitter's team
+        PointSpread:
+          type:
+          - number
+          - 'null'
+          description: 'The consensus Run Line at game start from the perspective of the HomeTeam (in the Game table, the PointSpread field''s negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored. Note that this rule does not hold in betting-related tables, where the run line is contingent on the bet line). Note: In MLB, Point Spread may also be referred to as Run Line'
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The oddsmaker total points line at game start
+        AwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Moneyline from the perspective of the away team
+        HomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Moneyline from the perspective of the home team
+        ForecastTempLow:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted low temperature on game day at this venue (in Fahrenheit)
+        ForecastTempHigh:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted high temperature on game day at this venue (in Fahrenheit)
+        ForecastDescription:
+          type:
+          - string
+          - 'null'
+          description: 'The description of the weather forecast. Posible values include: Broken Clouds, Clear Sky, Few Clouds, Heavy Intensity Rain, Light Rain, Moderate Rain, Mostly Cloudy, Mostly Sunny, Overcast Clouds, Partly Cloudy, Scattered Clouds, Showers, Thunderstorms'
+        ForecastWindChill:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted wind chill on game day at this venue.
+        ForecastWindSpeed:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted wind speed on game day at this venue.
+        ForecastWindDirection:
+          type:
+          - integer
+          - 'null'
+          description: The wind direction isn't baseball specific.  It refers to the direction that the wind is coming from.  90 would be wind coming from the east.  180 is wind from the south.  270 is a wind from the west ... and so on.
+        RescheduledFromGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as "make up" games.
+        RunnerOnFirst:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates if there is a runner on first base
+        RunnerOnSecond:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates if there is a runner on second base
+        RunnerOnThird:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates if there is a runner on third base
+        AwayTeamStartingPitcher:
+          type:
+          - string
+          - 'null'
+          description: The first and last name of the away team's starting pitcher for the game
+        HomeTeamStartingPitcher:
+          type:
+          - string
+          - 'null'
+          description: The first and last name of the home team starting pitcher for the game
+        CurrentPitcher:
+          type:
+          - string
+          - 'null'
+          description: Indicates the current pitcher's name
+        CurrentHitter:
+          type:
+          - string
+          - 'null'
+          description: Indicates the current hitter's name
+        WinningPitcher:
+          type:
+          - string
+          - 'null'
+          description: The name of the pitcher who recorded the win in the game
+        LosingPitcher:
+          type:
+          - string
+          - 'null'
+          description: The first and last name of the losing pitcher in the game
+        SavingPitcher:
+          type:
+          - string
+          - 'null'
+          description: The name of the pitcher who recorded the save in the game
+        DueUpHitterID1:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the hitter due up first from the current hitter
+        DueUpHitterID2:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the hitter due up second from the current hitter
+        DueUpHitterID3:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the hitter due up third from the current hitter
+        GlobalGameID:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues
+        GlobalAwayTeamID:
+          type: integer
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues
+        GlobalHomeTeamID:
+          type: integer
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        PointSpreadAwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The moneyline payout odds when betting on the away team with the run line
+        PointSpreadHomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The moneyline payout odds when betting on the home team with the run line
+        LastPlay:
+          type:
+          - string
+          - 'null'
+          description: The description of the most recent play/event of the game. This is for display purposes and does not include corresponding data points.
+        IsClosed:
+          type: boolean
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the late update made to this record (in US Eastern Time)
+        Innings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Inning'
+          description: The inning details associated with the game
+        GameEndDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time that the game ended in US Eastern Time
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of home team for this game
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of away team for this game
+        NeutralVenue:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether this game is played in a neutral venue. Note: Neutral = True, not neutral = False'
+        InningDescription:
+          type:
+          - string
+          - 'null'
+          description: 'The current status of the inning for display purposes (possible values: Top 2, Mid 2, Bot 2, End 2, etc)'
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the over
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under
+        SeriesInfo:
+          $ref: '#/components/schemas/Series'
+          description: Contains relevant series data for postseason series only - HomeTeamWins; AwayTeamWins; GameNumber; and MaxLength
+        DateTimeUTC:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in UTC
+        HomeTeamOpener:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether the home team will use an opener as the starting pitcher. NOTE: An opener is a pitcher (typically a relief pitcher) that is only scheduled to pitch the first 1-3 innings of the game'
+        AwayTeamOpener:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether the away team will use an opener as the starting pitcher.. NOTE: An opener is a pitcher (typically a relief pitcher) that is only scheduled to pitch the first 1-3 innings of the game'
+        SuspensionResumeDay:
+          type:
+          - string
+          - 'null'
+          description: The date a game that was suspended in play will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status.
+        SuspensionResumeDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and start-time that the suspended in play game will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status.
+    Sportsbook:
+      properties:
+        SportsbookID:
+          type: integer
+          description: Unique ID of the sportsbook
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The name of the sportsbook(s)
+    Series:
+      properties:
+        HomeTeamWins:
+          type: integer
+          description: 'Number of wins by the home team on in the series. Note: this is for postseason series only.'
+        AwayTeamWins:
+          type: integer
+          description: 'Number of wins by the away team in the series. Note: This is for postseason series only.'
+        GameNumber:
+          type: integer
+          description: 'Game number in series. Note: this applies to postseason series only.'
+        MaxLength:
+          type: integer
+          description: 'Maximum number of games in the series. Note: this is for postseason series only.'
+    BettingResultingMetadata:
+      properties:
+        BettingMarketTypeId:
+          type: integer
+          description: The unique ID associated with the market type of the betting market
+        BettingBetTypeId:
+          type: integer
+          description: The ID associated with the name of the bet type within a market
+        BettingPeriodTypeId:
+          type: integer
+          description: The BettingPeriodTypeID of this market
+    TeamTrends:
+      properties:
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO
+        UpcomingGame:
+          $ref: '#/components/schemas/Game'
+          description: Next scheduled game for the team
+        TeamGameTrends:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamGameTrends'
+          description: The collection of Game Trends for this team
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    TeamGameTrends:
+      properties:
+        Scope:
+          type:
+          - string
+          - 'null'
+          description: The type of trend (e.g. Last 5 games; Last 10 games; Last 5 home games; etc.)
+        TeamID:
+          type: integer
+          description: The team's unique TeamID as assigned by SportsDataIO
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        OpponentID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the opposing team related to the scop of the search
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The name [Key] of the team's opponent related to the scop of the search
+        Wins:
+          type: integer
+          description: The total number of wins by the team relating to the scope
+        Losses:
+          type: integer
+          description: Team losses relating to the scope
+        Ties:
+          type: integer
+          description: Ties by a team relating to the scope of the search
+        WinsAgainstTheSpread:
+          type:
+          - integer
+          - 'null'
+          description: Total number of wins against the run line relating to the scope
+        LossesAgainstTheSpread:
+          type:
+          - integer
+          - 'null'
+          description: Team losses against the run line relating to the scope
+        PushesAgainstTheSpread:
+          type:
+          - integer
+          - 'null'
+          description: The amount of times a given team's final score of their game has pushed the run line (a push is neither a win nor a loss)
+        Overs:
+          type:
+          - integer
+          - 'null'
+          description: Amount of times the total score goes over the OverUnder
+        Unders:
+          type:
+          - integer
+          - 'null'
+          description: Amount of times the total score goes under the OverUnder
+        OverUnderPushes:
+          type:
+          - integer
+          - 'null'
+          description: The amount of times a given team's final score of their game has pushed the point total (a push is neither a win nor a loss)
+        AverageScore:
+          type:
+          - number
+          - 'null'
+          description: Average score of team
+        AverageOpponentScore:
+          type:
+          - number
+          - 'null'
+          description: Average score of the opposing team
+    BettingSplit:
+      properties:
+        BettingMarketSplitID:
+          type: integer
+          description: The unique ID assciated with the betting split
+        BettingMarketID:
+          type: integer
+          description: The unique ID associated with the betting market
+        BettingOutcomeTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID associated with this BettingOutcomeType
+        BettingOutcomeType:
+          type:
+          - string
+          - 'null'
+          description: The name of BettingOutcomeType (e.g. Home; Away; Under; Over)
+        BetPercentage:
+          type:
+          - integer
+          - 'null'
+          description: Percentage of bets placed on a specific outcome
+        MoneyPercentage:
+          type:
+          - integer
+          - 'null'
+          description: The percentage of the money placed in wagers on this market taken by this type of bet
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time this betting split was created in US Eastern Time
+        LastSeen:
+          type:
+          - string
+          - 'null'
+          description: The date and time this set of values was last seen
+    GameInfoResult:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The MLB season of the game
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in US Eastern Time
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled; InProgress; Final; Suspended; Delayed; Postponed; Canceled; Forfeit; NotNecessary'
+        AwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique TeamID of the away team
+        HomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique TeamID of the home team
+        AwayTeamName:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeamName:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        GlobalGameID:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalAwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues
+        GlobalHomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        PregameOdds:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOddResult'
+          description: List of Pregame GameOdds from different sportsbooks with results
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Score of the home team (updated after game ends to allow for resolving bets)
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Score of the away team (updated after game ends to allow for resolving bets)
+        TotalScore:
+          type:
+          - integer
+          - 'null'
+          description: The combined scores of the home and away team of the game tied to this event (post-game)
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of home team for this game
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of away team for this game
+        AlternateMarketPregameOdds:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOddResult'
+          description: List of Alternate Market Game Odds from different sportsbooks with results
+        Inning:
+          type:
+          - integer
+          - 'null'
+          description: 'The inning that the game is currently in, or the inning in which the game ended. Possible values include: NULL, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, etc)'
+        InningHalf:
+          type:
+          - string
+          - 'null'
+          description: 'The inning half that the game is currently in; or the inning half in which the game ended (possible values: T; B; E: M: NULL)'
+        IsClosed:
+          type: boolean
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
+        Innings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Inning'
+          description: The inning details associated with the game
+        LiveOdds:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOddResult'
+          description: Shows a list of live odds from different sportsbooks with results
+    ConsensusOutcome:
+      properties:
+        NumberOfSportsbooks:
+          type: integer
+          description: The number of sportsbooks odds that went into creating this consensus outcome
+        BettingOutcomeID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID associated with the betting outcome
+        BettingMarketID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID associated with the betting market
+        SportsBook:
+          $ref: '#/components/schemas/Sportsbook'
+          description: Name of sportsbook
+        BettingOutcomeTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID associated with this BettingOutcomeType
+        BettingOutcomeType:
+          type:
+          - string
+          - 'null'
+          description: The name of BettingOutcomeType (e.g. Home; Away; Under; Over)
+        PayoutAmerican:
+          type:
+          - integer
+          - 'null'
+          description: The payout of the bet, shown in American odds format
+        PayoutDecimal:
+          type:
+          - number
+          - 'null'
+          description: The payout of the bet, shown in decimal odds format
+        Value:
+          type:
+          - number
+          - 'null'
+          description: The number associated with the outcome of a market (e.g. the run line, game total, etc.)
+        Participant:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the participant (typically team or player) associated with the outcome. NOTE: This is provided by the sportsbook. In the case of Player odds, we highly recommend using PlayerID as names of players can be inconsistent between sportsbooks.'
+        IsAvailable:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether a BettingOutcome is available for betting or not (true/false)
+        IsAlternate:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this is an alternate value or the core value (true/false)
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time when this betting outcome was created in US Eastern Time.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the last update made to this betting outcome (in US Eastern Time)
+        Unlisted:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when these odds were first made unavailable to be bet on any further (In US Eastern Time)
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO tied this outcome (if applicable)
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO tied to this outcome (if applicable) Note: this ID will stay with the player throughout their MLB career'
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team tied to this outcome. This value is guaranteed to be unique across all sports/leagues (where applicable)
+        SportsbookUrl:
+          type:
+          - string
+          - 'null'
+          description: The URL for sportsbook event
+        IsInPlay:
+          type:
+          - boolean
+          - 'null'
+          description: Was this outcome created after the start time of the game (only applies when the betting event is of type game; true/false)
+        SportsbookMarketID:
+          type:
+          - string
+          - 'null'
+          description: The market ID on the given sportsbook for deeplinking (when available)
+        SportsbookOutcomeID:
+          type:
+          - string
+          - 'null'
+          description: The outcome ID on the given sportsbook for deeplinking (when available)
+    BettingEntityMetadata:
+      properties:
+        RecordId:
+          type: integer
+          description: The ID of the record; unique only within the same entity type (i.e. BettingMarketType IDs overlap with BettingBetType IDs)
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Denotes the name of the Type  (e.g. Betting Market Type, Betting Event Type, Betting Period Type)
+        Active:
+          type:
+          - boolean
+          - 'null'
+          description: Whether or not this betting entity is active
+    GameBettingSplit:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of the game tied to the BettingSplits
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar).
+        Season:
+          type: integer
+          description: The MLB season of the betting split
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the Home Team
+        BettingMarketSplits:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingMarketSplit'
+          description: Shows the BettingMarkets that have splits included for them in a given game
+    GameOdd:
+      properties:
+        GameOddId:
+          type: integer
+          description: Unique ID of this odd
+        Sportsbook:
+          type:
+          - string
+          - 'null'
+          description: Name of sportsbook
+        GameId:
+          type: integer
+          description: The unique ID of this game
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time when these odds were first created in US Eastern Time
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of when these odds were last updated (in US Eatern Time) If these are the latest odds for this game; and they have not been updated within the last few minutes; then it indicates that there were problems connecting to the sportsbook.
+        HomeMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's moneyline for the home team
+        AwayMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's moneyline for the away team
+        HomePointSpread:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's run line for the home team
+        AwayPointSpread:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's run line for the away team
+        HomePointSpreadPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's run line payout for the home team
+        AwayPointSpreadPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's run line payout for the away team
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The total points line as given by the sportsbook
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the over
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under
+        SportsbookId:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of the sportsbook
+        SportsbookUrl:
+          type:
+          - string
+          - 'null'
+          description: The URL for sportsbook event
+        OddType:
+          type:
+          - string
+          - 'null'
+          description: 'The market type of the odd (ex: live; pregame; 1st inning; etc)'
+        Unlisted:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when these odds were first made unavailable to be bet on any further (In US Eastern Time)
+    Inning:
+      properties:
+        InningID:
+          type: integer
+          description: The unique ID of this specific inning
+        GameID:
+          type: integer
+          description: The unique ID of the game tied to this Inning
+        InningNumber:
+          type: integer
+          description: The current inning number of the game
+        AwayTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the away team in the specific inning
+        HomeTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the home team in the specific inning
+    BettingOutcome:
+      properties:
+        BettingOutcomeID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID associated with the betting outcome
+        BettingMarketID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID associated with the betting market
+        SportsBook:
+          $ref: '#/components/schemas/Sportsbook'
+          description: Name of sportsbook
+        BettingOutcomeTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID associated with this BettingOutcomeType
+        BettingOutcomeType:
+          type:
+          - string
+          - 'null'
+          description: The name of BettingOutcomeType (e.g. Home; Away; Under; Over)
+        PayoutAmerican:
+          type:
+          - integer
+          - 'null'
+          description: The payout of the bet, shown in American odds format
+        PayoutDecimal:
+          type:
+          - number
+          - 'null'
+          description: The payout of the bet, shown in decimal odds format
+        Value:
+          type:
+          - number
+          - 'null'
+          description: The number associated with the outcome of a market (e.g. the run line, game total, etc.)
+        Participant:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the participant (typically team or player) associated with the outcome. NOTE: This is provided by the sportsbook. In the case of Player odds, we highly recommend using PlayerID as names of players can be inconsistent between sportsbooks.'
+        IsAvailable:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether a BettingOutcome is available for betting or not (true/false)
+        IsAlternate:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this is an alternate value or the core value (true/false)
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time when this betting outcome was created in US Eastern Time.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the last update made to this betting outcome (in US Eastern Time)
+        Unlisted:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when these odds were first made unavailable to be bet on any further (In US Eastern Time)
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO tied this outcome (if applicable)
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO tied to this outcome (if applicable) Note: this ID will stay with the player throughout their MLB career'
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team tied to this outcome. This value is guaranteed to be unique across all sports/leagues (where applicable)
+        SportsbookUrl:
+          type:
+          - string
+          - 'null'
+          description: The URL for sportsbook event
+        IsInPlay:
+          type:
+          - boolean
+          - 'null'
+          description: Was this outcome created after the start time of the game (only applies when the betting event is of type game; true/false)
+        SportsbookMarketID:
+          type:
+          - string
+          - 'null'
+          description: The market ID on the given sportsbook for deeplinking (when available)
+        SportsbookOutcomeID:
+          type:
+          - string
+          - 'null'
+          description: The outcome ID on the given sportsbook for deeplinking (when available)
+    BettingEvent:
+      properties:
+        BettingEventID:
+          type: integer
+          description: The unique ID assocated with the betting event
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The name of this betting event
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The MLB season of the betting event
+        BettingEventTypeID:
+          type: integer
+          description: The ID associated with the type of betting event
+        BettingEventType:
+          type:
+          - string
+          - 'null'
+          description: Indicates the type of betting event - Game or Future
+        StartDate:
+          type:
+          - string
+          - 'null'
+          description: The furthest forward time any book has a market set to close for this betting event
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time when this betting event was created in US Eastern Time
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the last update made to this betting event (in US Eastern Time)
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the game tied to this BettingEvent
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the game tied to this BettingEvent. This value is guaranteed to be unique across all sports/leagues.
+        GameStatus:
+          type:
+          - string
+          - 'null'
+          description: The status of the game in tied to this event
+        Quarter:
+          type:
+          - string
+          - 'null'
+          description: The quarter of the game tied to this event
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the Home Team
+        AwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique TeamID of the away team in the game tied to this BettingEvent
+        HomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the home team tied to this BettingEvent
+        GlobalAwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the away team tied to this BettingEvent This value is guaranteed to be unique across all sports/leagues
+        GlobalHomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the home team tied to this BettingEvent. This value is guaranteed to be unique across all sports/leagues.
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Score of the away team tied to this betting event (updated after game ends to allow for resolving bets)
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Score of the home team tied to this betting event (updated after game ends to allow for resolving bets)
+        TotalScore:
+          type:
+          - integer
+          - 'null'
+          description: The combined scores of the home and away team of the game tied to this event (post-game)
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of away team for this game
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of home team for this game
+        BettingMarkets:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingMarket'
+          description: The list of betting markets for this event
+        GameStartTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time the game starts
+    BettingMarket:
+      properties:
+        BettingMarketID:
+          type: integer
+          description: The unique ID associated with the betting market
+        BettingEventID:
+          type: integer
+          description: The unique ID assocated with the betting event
+        BettingMarketTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID associated with the market type of the betting market
+        BettingMarketType:
+          type:
+          - string
+          - 'null'
+          description: The name of the market type within a market (e.g. Player Prop, Team Prop, Game Prop, etc.)
+        BettingBetTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The ID associated with the name of the bet type within a market
+        BettingBetType:
+          type:
+          - string
+          - 'null'
+          description: The name of the bet type within a market (e.g. Total Runs, Moneyline, Run Line, etc.)
+        BettingPeriodTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The BettingPeriodTypeID of this market
+        BettingPeriodType:
+          type:
+          - string
+          - 'null'
+          description: The BettingPeriodType of this market (e.g. Full Game; 1st-5th Inning; 2nd Inning; Regular Season)
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The generic name of this market
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO tied this market (if applicable)
+        TeamKey:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team tied to this market (if applicable)
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO tied to this market (if applicable) Note: this ID will stay with the player throughout their MLB career'
+        PlayerName:
+          type:
+          - string
+          - 'null'
+          description: The full name of the player associated with this market
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time when this betting market was created in US Eastern Time
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the last update made to this betting market (in US Eastern Time)
+        AvailableSportsbooks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sportsbook'
+          description: The sportsbooks that have had odds in this market
+        AnyBetsAvailable:
+          type:
+          - boolean
+          - 'null'
+          description: A field that returns "True" if there are any available bets to make within the market in question. If there are no bets available to make, the field returns "False"
+        BettingOutcomes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingOutcome'
+          description: The list of betting outcomes from each sportsbook in this market
+        ConsensusOutcomes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConsensusOutcome'
+          description: The single set of consensus outcomes of this market
+        IsArchived:
+          type: boolean
+          description: Indicates whether a BettingOutcome has been archived or not (true/false)
+        ArchiveLocation:
+          type:
+          - string
+          - 'null'
+          description: If IsArchived is true, this returns the URL that can be used to retrieve the archived BettingOutcomes. An API Key and Sportsbook Grouping will be required to retrieve this information. If IsArchived is false, this returns an emtpy string
+    BettingMarketResult:
+      properties:
+        BettingMarketID:
+          type: integer
+          description: The unique ID associated with the betting market
+        BettingMarketTypeID:
+          type: integer
+          description: The unique ID associated with the market type of the betting market
+        BettingMarketType:
+          type:
+          - string
+          - 'null'
+          description: The name of the market type within a market (e.g. Player Prop, Team Prop, Game Prop, etc.)
+        BettingBetTypeID:
+          type: integer
+          description: The ID associated with the name of the bet type within a market
+        BettingBetType:
+          type:
+          - string
+          - 'null'
+          description: The name of the bet type within a market (e.g. Total Runs, Moneyline, Run Line, etc.)
+        BettingPeriodTypeID:
+          type: integer
+          description: The BettingPeriodTypeID of this market
+        BettingPeriodType:
+          type:
+          - string
+          - 'null'
+          description: The BettingPeriodType of this market (e.g. Full Game; 1st-5th Inning; 2nd Inning; Regular Season)
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The generic name of this market
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO tied this market (if applicable)
+        TeamKey:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key]  of the team tied to this market (if applicable)
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO tied to this result (if applicable) Note: this ID will stay with the player throughout their MLB career'
+        PlayerName:
+          type:
+          - string
+          - 'null'
+          description: The full name of the player associated with this market
+        BettingOutcomeResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingOutcomeResult'
+          description: The list of outcomes under this market with results
+        IsMarketResultingSupported:
+          type: boolean
+          description: Indicates whether resulting is supported for this kind of BettingMarket  (true/false)
+    GameOddOutcome:
+      properties:
+        GameOddId:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of this odd
+        GameOddResultTypeId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this GameOddResultType
+        GameOddResultType:
+          type:
+          - string
+          - 'null'
+          description: The result/outcome of a bet (e.g. Won; Lost; Push; Not Resulted; Incomplete)
+        OddType:
+          type:
+          - string
+          - 'null'
+          description: 'The market type of the odd (ex: live; pregame; 1st inning; etc)'
+        GameOddType:
+          type:
+          - string
+          - 'null'
+          description: The GameOddResultType of an outcome in the form of a string
+        BetValue:
+          type:
+          - number
+          - 'null'
+          description: The offered betting line from a sportsbook for a game (i.e. If a team won a game by 2 and the run line was -1.5, the actual value would be 2 and the bet value would be -1.5)
+        ActualValue:
+          type:
+          - number
+          - 'null'
+          description: The value of the actual result that occured in game (i.e. If a team won a game by 2 and the spread was -1.5, the actual value would be 2 and the bet value would be -1.5)
+    GameOddResult:
+      properties:
+        GameOddID:
+          type: integer
+          description: Unique ID of this odd
+        Sportsbook:
+          type:
+          - string
+          - 'null'
+          description: Name of sportsbook
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time when these odds were first created in US Eastern Time
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of when these odds were last updated (in US Eatern Time). If these are the latest odds for this game; and they have not been updated within the last few minutes; then it indicates that there were problems connecting to the sportsbook.
+        HomeMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's moneyline for the home team
+        AwayMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's moneyline for the away team
+        HomePointSpread:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's run line for the home team
+        AwayPointSpread:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's run line for the away team
+        HomePointSpreadPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's run line payout for the home team
+        AwayPointSpreadPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's run line payout for the away team
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The total points line as given by the sportsbook
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the over
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under
+        SportsbookID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of the sportsbook
+        SportsbookUrl:
+          type:
+          - string
+          - 'null'
+          description: The URL for sportsbook event
+        OddType:
+          type:
+          - string
+          - 'null'
+          description: 'The market type of the odd (ex: live; pregame; 1st inning; etc)'
+        GameOddOutcomeResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOddOutcome'
+          description: List of outcomes showing results of betting markets that were bet on for the given game
+    GameInfo:
+      properties:
+        GameId:
+          type: integer
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The MLB season of the game
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in US Eastern Time
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled; InProgress; Final; Suspended; Delayed; Postponed; Canceled; Forfeit; NotNecessary'
+        AwayTeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique TeamID of the away team
+        HomeTeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the home team
+        AwayTeamName:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeamName:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        GlobalGameId:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalAwayTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues
+        GlobalHomeTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        PregameOdds:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOdd'
+          description: List of Pregame GameOdds from different sportsbooks
+        LiveOdds:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOdd'
+          description: Shows a list of live odds from different sportsbooks
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Score of the home team (updated after game ends to allow for resolving bets)
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Score of the away team (updated after game ends to allow for resolving bets)
+        TotalScore:
+          type:
+          - integer
+          - 'null'
+          description: The combined scores of the home and away team of the game tied to this event (post-game)
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of home team for this game
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of away team for this game
+        AlternateMarketPregameOdds:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOdd'
+          description: List of Alternate Market Game Odds from different sportsbooks.
+    BettingMarketSplit:
+      properties:
+        BettingMarketID:
+          type: integer
+          description: The unique ID associated with the betting market
+        BettingEventID:
+          type: integer
+          description: The unique id of the associated betting event
+        BettingMarketTypeID:
+          type: integer
+          description: The unique ID associated with the market type of the betting market
+        BettingMarketType:
+          type:
+          - string
+          - 'null'
+          description: The name of the market type within a market (e.g. Player Prop, Team Prop, Game Prop, etc.)
+        BettingBetTypeID:
+          type: integer
+          description: The ID associated with the name of the bet type within a market
+        BettingBetType:
+          type:
+          - string
+          - 'null'
+          description: The name of the bet type within a market (e.g. Total Runs, Moneyline, Run Line, etc.)
+        BettingPeriodTypeID:
+          type: integer
+          description: The BettingPeriodTypeID of this market
+        BettingPeriodType:
+          type:
+          - string
+          - 'null'
+          description: The BettingPeriodType of this market (e.g. Full Game; 1st-5th Inning; 2nd Inning; Regular Season)
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO tied this market (if applicable)
+        TeamKey:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key]  of the team tied to this market (if applicable)
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO tied to this market (if applicable) Note: this ID will stay with the player throughout their MLB career'
+        PlayerName:
+          type:
+          - string
+          - 'null'
+          description: The full name of the player associated with this market
+        BettingSplits:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingSplit'
+          description: A list of betting splits for the BettingMarket
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: key
+      in: query

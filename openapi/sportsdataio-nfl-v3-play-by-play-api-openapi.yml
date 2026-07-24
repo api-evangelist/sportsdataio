@@ -1,0 +1,1314 @@
+openapi: 3.1.0
+info:
+  title: MLB MLB v3 Headshots NFL v3 Play-by-Play API
+  version: '1.0'
+  description: MLB API - OpenAPI 3.1 Specification
+servers:
+- url: https://api.sportsdata.io
+  description: Production server
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: NFL v3 Play-by-Play
+paths:
+  /v3/nfl/pbp/{format}/PlayByPlay/{season}/{week}/{hometeam}:
+    get:
+      description: Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by team.
+      operationId: nfl_v3_pbp_play_by_play___by_team__live___final
+      summary: Play By Play - by Team [Live & Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+        required: true
+        schema:
+          type: string
+      - name: week
+        in: path
+        description: "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+        required: true
+        schema:
+          type: string
+      - name: hometeam
+        in: path
+        description: 'Abbreviation of the home team. Example: <code>WAS</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayByPlay'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Play-by-Play
+  /v3/nfl/pbp/{format}/SimulatedPlayByPlay/{numberofplays}:
+    get:
+      description: Gets simulated live play-by-play of NFL games, covering the Conference Championship games on January 21, 2018.
+      operationId: nfl_v3_pbp_play_by_play_simulation
+      summary: Play By Play Simulation
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: numberofplays
+        in: path
+        description: The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>150</code>, <code>200</code>, etc.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayByPlay'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Play-by-Play
+  /v3/nfl/pbp/{format}/PlayByPlayDelta/{season}/{week}/{minutes}:
+    get:
+      description: This method returns all play-by-plays for a given season and week, but only returnsplays that have changed in the last X minutes as specified in your API call. by definition this is a live endpoint, not final.
+      operationId: nfl_v3_pbp_play_by_play_delta
+      summary: Play By Play Delta
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+        required: true
+        schema:
+          type: string
+      - name: week
+        in: path
+        description: "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+        required: true
+        schema:
+          type: string
+      - name: minutes
+        in: path
+        description: "Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:<br>\n          <code>1</code> or <code>2</code>.\n        "
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayByPlay'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Play-by-Play
+  /v3/nfl/pbp/{format}/PlayByPlayFinal/{gameid}:
+    get:
+      description: Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by team.
+      operationId: nfl_v3_pbp_play_by_play__final
+      summary: Play By Play [Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameid
+        in: path
+        description: The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayByPlay'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Play-by-Play
+  /v3/nfl/pbp/{format}/PlayByPlay/{gameid}:
+    get:
+      description: Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by game.
+      operationId: nfl_v3_pbp_play_by_play__live___final
+      summary: Play By Play [Live & Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: gameid
+        in: path
+        description: The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayByPlay'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Play-by-Play
+  /v3/nfl/pbp/{format}/PlayByPlayFinal/{season}/{week}/{hometeam}:
+    get:
+      description: Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by team.
+      operationId: nfl_v3_pbp_play_by_play___by_team__final
+      summary: Play By Play - by Team [Final]
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: season
+        in: path
+        description: "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+        required: true
+        schema:
+          type: string
+      - name: week
+        in: path
+        description: "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+        required: true
+        schema:
+          type: string
+      - name: hometeam
+        in: path
+        description: 'Abbreviation of the home team. Example: <code>WAS</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayByPlay'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - NFL v3 Play-by-Play
+components:
+  schemas:
+    ScoringPlay:
+      properties:
+        GameKey:
+          type:
+          - string
+          - 'null'
+          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks'
+        SeasonType:
+          type: integer
+          description: The type of season that this game corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+        ScoringPlayID:
+          type: integer
+          description: Unique ID of the scoring play
+        Season:
+          type: integer
+          description: The NFL season of the game
+        Week:
+          type: integer
+          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key} of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        Date:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        Sequence:
+          type:
+          - integer
+          - 'null'
+          description: The order in which the scoring play happened
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Quarter:
+          type:
+          - string
+          - 'null'
+          description: The quarter of the scoring play (1; 2; 3; 4; OT)
+        TimeRemaining:
+          type:
+          - string
+          - 'null'
+          description: The amount of time remaining in the current quarter when the scoring play occurred (e.g. 11:23; 5:34; NULL if game is not in progress or at halftime)
+        PlayDescription:
+          type:
+          - string
+          - 'null'
+          description: The detailed description of the play for display purposes
+        AwayScore:
+          type:
+          - integer
+          - 'null'
+          description: The away team's score as a result of the scoring play (includes point after)
+        HomeScore:
+          type:
+          - integer
+          - 'null'
+          description: The home team's score as a result of the scoring play (includes point after)
+        ScoreID:
+          type: integer
+          description: Unique ID of the score/game
+    Score:
+      properties:
+        GameKey:
+          type:
+          - string
+          - 'null'
+          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks'
+        SeasonType:
+          type: integer
+          description: The type of season that this game corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=All-Star).
+        Season:
+          type: integer
+          description: The NFL season of the game
+        Week:
+          type: integer
+          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
+        Date:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key} of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        AwayScore:
+          type:
+          - integer
+          - 'null'
+          description: The final score of the Away Team
+        HomeScore:
+          type:
+          - integer
+          - 'null'
+          description: The final score of the Home Team
+        Channel:
+          type:
+          - string
+          - 'null'
+          description: The television station broadcasting the game
+        PointSpread:
+          type:
+          - number
+          - 'null'
+          description: The oddsmaker point spread at game start from the perspective of the team (negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored)
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The total points line (over/under) at game start
+        Quarter:
+          type:
+          - string
+          - 'null'
+          description: The current quarter of the game (1, 2, 3, 4, HALF, OT, F, F/OT or NULL if game has not yet started)
+        TimeRemaining:
+          type:
+          - string
+          - 'null'
+          description: The amount of time remaining in the current quarter (e.g. 11:23; 5:34; NULL if game is not in progress or at halftime)
+        Possession:
+          type:
+          - string
+          - 'null'
+          description: The team that currently has possession of the ball (Ex. PHI; NE; NULL if game is not in progress or at halftime)
+        Down:
+          type:
+          - integer
+          - 'null'
+          description: The current down in the game (1, 2, 3, 4 or NULL)
+        Distance:
+          type:
+          - string
+          - 'null'
+          description: The yards to go for a first down (this can be any positive number or "Goal")
+        YardLine:
+          type:
+          - integer
+          - 'null'
+          description: the yard line of the ball's current position on the field as of the most recently completed play
+        YardLineTerritory:
+          type:
+          - string
+          - 'null'
+          description: The team's side of the field that the ball is on when the play occurred
+        RedZone:
+          type:
+          - string
+          - 'null'
+          description: 'The team abbreviation [Key] that currently has the ball in the opponent''s red zone (Ex: "SF"; "BAL" or NULL)'
+        AwayScoreQuarter1:
+          type:
+          - integer
+          - 'null'
+          description: Points scored by the away team in Quarter 1
+        AwayScoreQuarter2:
+          type:
+          - integer
+          - 'null'
+          description: Points scored by the away team in Quarter 2
+        AwayScoreQuarter3:
+          type:
+          - integer
+          - 'null'
+          description: Points scored by the away team in Quarter 3
+        AwayScoreQuarter4:
+          type:
+          - integer
+          - 'null'
+          description: Points scored by the away team in Quarter 4
+        AwayScoreOvertime:
+          type:
+          - integer
+          - 'null'
+          description: Points scored by the away team in overtime
+        HomeScoreQuarter1:
+          type:
+          - integer
+          - 'null'
+          description: Points scored by the home team in Quarter 1
+        HomeScoreQuarter2:
+          type:
+          - integer
+          - 'null'
+          description: Points scored by the home team in Quarter 2
+        HomeScoreQuarter3:
+          type:
+          - integer
+          - 'null'
+          description: Points scored by the home team in Quarter 3
+        HomeScoreQuarter4:
+          type:
+          - integer
+          - 'null'
+          description: Points scored by the home team in Quarter 4
+        HomeScoreOvertime:
+          type:
+          - integer
+          - 'null'
+          description: Points scored by the home team in overtime
+        HasStarted:
+          type: boolean
+          description: Whether the game has started (true/false)
+        IsInProgress:
+          type: boolean
+          description: Whether the game is currently in progress (true/false)
+        IsOver:
+          type: boolean
+          description: Whether the game is over (true/false)
+        Has1stQuarterStarted:
+          type: boolean
+          description: Whether the 1st quarter has started
+        Has2ndQuarterStarted:
+          type: boolean
+          description: Whether the 2nd quarter has started
+        Has3rdQuarterStarted:
+          type: boolean
+          description: Whether the 3rd quarter has started
+        Has4thQuarterStarted:
+          type: boolean
+          description: Whether the 4th quarter has started
+        IsOvertime:
+          type: boolean
+          description: Whether this game went into overtime
+        DownAndDistance:
+          type:
+          - string
+          - 'null'
+          description: The description of the down and distance for display purposes
+        QuarterDescription:
+          type:
+          - string
+          - 'null'
+          description: Description of the current quarter for display purposes
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team's current home stadium
+        LastUpdated:
+          type:
+          - string
+          - 'null'
+          description: The date and time that this game was last updated (in US Eastern Time)
+        GeoLat:
+          type:
+          - number
+          - 'null'
+          description: The geographic latitude coordinate of the venue where the game is taking place
+        GeoLong:
+          type:
+          - number
+          - 'null'
+          description: The geographic longitude coordinate of the venue where the game is taking place
+        ForecastTempLow:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted low temperature on game day at this venue (Fahrenheit)
+        ForecastTempHigh:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted high temperature on game day at this venue (Fahrenheit)
+        ForecastDescription:
+          type:
+          - string
+          - 'null'
+          description: The forecast description on game day at this venue.
+        ForecastWindChill:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted wind chill on game day at this venue.
+        ForecastWindSpeed:
+          type:
+          - integer
+          - 'null'
+          description: The forecasted wind speed on game day at this venue.
+        AwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's moneyline for the away team
+        HomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's moneyline for the home team
+        Canceled:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether the game was canceled
+        Closed:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
+        LastPlay:
+          type:
+          - string
+          - 'null'
+          description: 'The description of the most recent play/event of the game. Note: This is for display purposes and does not include corresponding data points'
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game (in US Eastern Time)
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        AwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the away team
+        HomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the home team
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues
+        GlobalAwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues
+        GlobalHomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues
+        PointSpreadAwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The payout on the away team's spread
+        PointSpreadHomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The payout on the home team's spread
+        ScoreID:
+          type: integer
+          description: Unique ID of the Score/Game
+        StadiumDetails:
+          $ref: '#/components/schemas/Stadium'
+          description: The details of the stadium where this game is played
+        Status:
+          type:
+          - string
+          - 'null'
+          description: The status of the game. For a description of possible values, see <a href="https://support.sportsdata.io/hc/en-us/articles/14287629964567-Process-Guide-Game-Status" target="_blank">here.</a> For how suspended and postponed games are handled specifically, see <a href="https://support.sportsdata.io/hc/en-us/articles/4404845580567-Postponed-and-Rescheduled-Games" target="_blank">here</a>.
+        GameEndDateTime:
+          type:
+          - string
+          - 'null'
+          description: 'The date and time of when the game officially ended. Note: This field is populated after the game and score are finalized'
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of home team in this game
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: Rotation number of away team in this game
+        NeutralVenue:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this game is played in a neutral venue
+        RefereeID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the head referee
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for over the total points line
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under
+        HomeTimeouts:
+          type:
+          - integer
+          - 'null'
+          description: The number of timeouts remaining for the Home Team
+        AwayTimeouts:
+          type:
+          - integer
+          - 'null'
+          description: The number of timeouts remaining for the Away Team
+        DateTimeUTC:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in UTC)
+        Attendance:
+          type: integer
+          description: The total attendance for the game
+        IsClosed:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether the game is over and the final score has been verified and closed out.
+    PlayStat:
+      properties:
+        PlayStatID:
+          type: integer
+          description: The unique ID of the PlayStat on the play
+        PlayID:
+          type: integer
+          description: The unique ID of the play in which the PlayStat occurred
+        Sequence:
+          type: integer
+          description: The order in which the play stat was registered to the Play.
+        PlayerID:
+          type: integer
+          description: 'The unique PlayerID of the player whose stats are tied to the play. Note: this ID will stay with the player throughout their entire career'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The Name of the Player whose stats this represents.
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team the player belongs to
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the opponent team of the player who recorded the stat
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: 'Whether the Player was Home or Away (possible values: HOME, AWAY)'
+        Direction:
+          type:
+          - string
+          - 'null'
+          description: 'The Direction this Play occurred (possible values: Left, Middle, Right)'
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this PlayStat was last updated (in US Eastern time)
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this PlayStat was first created (in US Eastern Time)
+        PassingAttempts:
+          type:
+          - integer
+          - 'null'
+          description: Total passes thrown by the player on the play
+        PassingCompletions:
+          type:
+          - integer
+          - 'null'
+          description: Total passing completions by the player on the play
+        PassingYards:
+          type:
+          - integer
+          - 'null'
+          description: Total passing yards by the player on the play
+        PassingTouchdowns:
+          type:
+          - integer
+          - 'null'
+          description: Total passing touchdowns thrown by the player on the play
+        PassingInterceptions:
+          type:
+          - integer
+          - 'null'
+          description: Total interceptions thrown by the player on the play
+        PassingSacks:
+          type:
+          - integer
+          - 'null'
+          description: The total number of times the player was sacked on the play
+        PassingSackYards:
+          type:
+          - integer
+          - 'null'
+          description: Total yards lost by the player as a result of being sacked on the play
+        RushingAttempts:
+          type:
+          - integer
+          - 'null'
+          description: 'Rushing attempts by the player on the play. Note: this field is expected to be 1 or 0'
+        RushingYards:
+          type:
+          - integer
+          - 'null'
+          description: Total rushing yards by the player on the play
+        RushingTouchdowns:
+          type:
+          - integer
+          - 'null'
+          description: 'Total rushing touchdowns by the player on the play. Note: this field is expected to be 1 or 0'
+        ReceivingTargets:
+          type:
+          - integer
+          - 'null'
+          description: 'Total receiving targets by the player on the play. Note: this field is expected to be 1 or 0'
+        Receptions:
+          type:
+          - integer
+          - 'null'
+          description: 'Total receptions by the player on the play. Note: this field is expected to be 1 or 0'
+        ReceivingYards:
+          type:
+          - integer
+          - 'null'
+          description: Total receiving yards by the player on the play
+        ReceivingTouchdowns:
+          type:
+          - integer
+          - 'null'
+          description: 'Total receiving touchdowns by the player on the play. Note: this field is expected to be 1 or 0'
+        Fumbles:
+          type:
+          - integer
+          - 'null'
+          description: Times the player fumbled on the play
+        FumblesLost:
+          type:
+          - integer
+          - 'null'
+          description: Fumbles lost by the player on the play
+        TwoPointConversionAttempts:
+          type:
+          - integer
+          - 'null'
+          description: 'Total two point conversion attempts by the player on the play. Note: this field is expected to be 1 or 0'
+        TwoPointConversionPasses:
+          type:
+          - integer
+          - 'null'
+          description: 'Total successful two point conversion passes by the player on the play. Note: this field is expected to be 1 or 0'
+        TwoPointConversionRuns:
+          type:
+          - integer
+          - 'null'
+          description: 'Total two point conversion rushes by the player on the play. Note: this field is expected to be 1 or 0'
+        TwoPointConversionReceptions:
+          type:
+          - integer
+          - 'null'
+          description: 'Total successful two point conversion receptions by the player on the play. Note: this field is expected to be 1 or 0'
+        TwoPointConversionReturns:
+          type:
+          - integer
+          - 'null'
+          description: 'Total successful two point conversion returns by the player on the play. Note: this field is expected to be 1 or 0'
+        SoloTackles:
+          type:
+          - integer
+          - 'null'
+          description: 'Total defensive solo (unassisted) tackles by the player on the play. Note: this field is expected to be 1 or 0'
+        AssistedTackles:
+          type:
+          - integer
+          - 'null'
+          description: Total defensive assisted tackles by the player on the play
+        TacklesForLoss:
+          type:
+          - integer
+          - 'null'
+          description: 'Tackles for loss of yards by the player on the play. Note: These are tackles behind the line of scrimmage for loss of yards (including sacks) - also this field is expected to be 1 or 0'
+        Sacks:
+          type:
+          - number
+          - 'null'
+          description: 'Total Sacks by this player on the play. Note: this field is expected to be 1 or 0'
+        SackYards:
+          type:
+          - number
+          - 'null'
+          description: Total sack yards by this player on the play
+        PassesDefended:
+          type:
+          - integer
+          - 'null'
+          description: Total passes defended by the player on the play
+        Safeties:
+          type:
+          - integer
+          - 'null'
+          description: 'Total defensive safeties by the player on the play. Note: this field is expected to be 1 or 0'
+        FumblesForced:
+          type:
+          - integer
+          - 'null'
+          description: Fumbles forced by the player on the play
+        FumblesRecovered:
+          type:
+          - integer
+          - 'null'
+          description: Defensive fumbles recovered by the player on the play
+        FumbleReturnYards:
+          type:
+          - integer
+          - 'null'
+          description: Fumble recoveries returned yards by the player on the play
+        FumbleReturnTouchdowns:
+          type:
+          - integer
+          - 'null'
+          description: Fumble recoveries returned for touchdowns by the player on the play
+        Interceptions:
+          type:
+          - integer
+          - 'null'
+          description: Interceptions by the player on the play
+        InterceptionReturnYards:
+          type:
+          - integer
+          - 'null'
+          description: Interception return yards by the player on the play
+        InterceptionReturnTouchdowns:
+          type:
+          - integer
+          - 'null'
+          description: Interception return touchdowns by the player on the play
+        PuntReturns:
+          type:
+          - integer
+          - 'null'
+          description: Total punts returned by the player on the play
+        PuntReturnYards:
+          type:
+          - integer
+          - 'null'
+          description: Total punt return yards by the player on the play
+        PuntReturnTouchdowns:
+          type:
+          - integer
+          - 'null'
+          description: 'Punt returns for touchdowns by the player on the play. Note: this field is expected to be 1 or 0'
+        KickReturns:
+          type:
+          - integer
+          - 'null'
+          description: Kicks returned by the player on the play
+        KickReturnYards:
+          type:
+          - integer
+          - 'null'
+          description: Kicks return yards by the player on the play
+        KickReturnTouchdowns:
+          type:
+          - integer
+          - 'null'
+          description: Kicks returned for touchdowns by the player on the play
+        BlockedKicks:
+          type:
+          - integer
+          - 'null'
+          description: 'Blocked kicks by the player on the play. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points'
+        BlockedKickReturns:
+          type:
+          - integer
+          - 'null'
+          description: Blocked kick recovery returns by the player on the play
+        BlockedKickReturnYards:
+          type:
+          - integer
+          - 'null'
+          description: Blocked kick recovery return yards by the player on the play
+        BlockedKickReturnTouchdowns:
+          type:
+          - integer
+          - 'null'
+          description: Blocked kick recovery return touchdowns by the player on the play
+        FieldGoalReturns:
+          type:
+          - integer
+          - 'null'
+          description: Field goal returns by the player on the play
+        FieldGoalReturnYards:
+          type:
+          - integer
+          - 'null'
+          description: 'Field goal return yards by the player on the play. Note: This field excludes blocked field goals'
+        FieldGoalReturnTouchdowns:
+          type:
+          - integer
+          - 'null'
+          description: 'Field goal return touchdowns by the player on the play. Note: This field excludes blocked field goals'
+        Kickoffs:
+          type:
+          - integer
+          - 'null'
+          description: Total kickoffs by this player on the play
+        KickoffYards:
+          type:
+          - integer
+          - 'null'
+          description: Gross kickoff yards by the player on the play
+        KickoffTouchbacks:
+          type:
+          - integer
+          - 'null'
+          description: Kickoff touchbacks by the player on the play
+        Punts:
+          type:
+          - integer
+          - 'null'
+          description: 'Total number of punts by the player on the play. Note: this field is expected to be 1 or 0'
+        PuntYards:
+          type:
+          - integer
+          - 'null'
+          description: Total gross punt yards by the player on the play
+        PuntTouchbacks:
+          type:
+          - integer
+          - 'null'
+          description: 'Total punt touchbacks by the player on the play. Note: this field is expected to be either 1 or 0'
+        PuntsHadBlocked:
+          type:
+          - integer
+          - 'null'
+          description: 'Total punts by the player that were blocked on the play. Note: this field is expected to be 1 or 0'
+        FieldGoalsAttempted:
+          type:
+          - integer
+          - 'null'
+          description: Field goals attempted by the player on the play
+        FieldGoalsMade:
+          type:
+          - integer
+          - 'null'
+          description: Field goals made by the player on the play
+        FieldGoalsYards:
+          type:
+          - integer
+          - 'null'
+          description: Field goal yards attempted by the player on the play
+        FieldGoalsHadBlocked:
+          type:
+          - integer
+          - 'null'
+          description: Field goals attempted by the player that were blocked on the play
+        ExtraPointsAttempted:
+          type:
+          - integer
+          - 'null'
+          description: Extra points attempted by the player on the play
+        ExtraPointsMade:
+          type:
+          - integer
+          - 'null'
+          description: Extra points made by the player on the play
+        ExtraPointsHadBlocked:
+          type:
+          - integer
+          - 'null'
+          description: Extra point attempts by the player that were blocked on the play
+        Penalties:
+          type:
+          - integer
+          - 'null'
+          description: 'Indicates the number of penalties against a player on a play. Note: This serves as a placeholder for data intended to be added in the future'
+        PenaltyYards:
+          type:
+          - integer
+          - 'null'
+          description: Total penalty yards enforced against the player on the play
+    Stadium:
+      properties:
+        StadiumID:
+          type: integer
+          description: The unique ID of the stadium
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The full name of the stadium
+        City:
+          type:
+          - string
+          - 'null'
+          description: The city where the stadium is located
+        State:
+          type:
+          - string
+          - 'null'
+          description: The city where the venue is located
+        Country:
+          type:
+          - string
+          - 'null'
+          description: The 3-digit country code where the stadium is located
+        Capacity:
+          type:
+          - integer
+          - 'null'
+          description: The estimated seating capacity of the stadium
+        PlayingSurface:
+          type:
+          - string
+          - 'null'
+          description: The playing surface of the stadium (Grass, Artificial or Dome)
+        GeoLat:
+          type:
+          - number
+          - 'null'
+          description: The geographic latitude coordinate of this venue
+        GeoLong:
+          type:
+          - number
+          - 'null'
+          description: The geographic longitude coordinate of this venue.
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'The type of the stadium (possible values: Outdoor, Dome, RetractableDome)'
+    PlayByPlay:
+      properties:
+        Score:
+          $ref: '#/components/schemas/Score'
+          description: The score object and other game details of the given game
+        Quarters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quarter'
+          description: The details of the quarters (including overtime periods) for the given game
+        Plays:
+          type: array
+          items:
+            $ref: '#/components/schemas/Play'
+          description: The list of plays for the given game
+    Play:
+      properties:
+        PlayID:
+          type: integer
+          description: The unique ID of the play
+        QuarterID:
+          type: integer
+          description: The unique ID of the quarter in which the play occurred
+        QuarterName:
+          type:
+          - string
+          - 'null'
+          description: The name of the quarter in which the play occurred
+        Sequence:
+          type:
+          - integer
+          - 'null'
+          description: The order in which this play and/or event happened over the course of the game
+        TimeRemainingMinutes:
+          type:
+          - integer
+          - 'null'
+          description: The minutes of the time remaining in the Quarter, when this play occurred.
+        TimeRemainingSeconds:
+          type:
+          - integer
+          - 'null'
+          description: The seconds of the time remaining in the Quarter, when this play occurred.
+        PlayTime:
+          type:
+          - string
+          - 'null'
+          description: The estimated timestamp of when this Play occurred on the field. Please note that we do not have scouts at the venue; so this is an estimate based on our TV feed and estimated TV feed delay
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this Play was last updated (in US Eastern time)
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this Play was first created (in US Eastern Time)
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team that completed the play
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the opponent of the team that this play relates to
+        Down:
+          type:
+          - integer
+          - 'null'
+          description: The Down when this Play occurred.
+        Distance:
+          type:
+          - integer
+          - 'null'
+          description: 'The yards to go for a first down. Note: this can be any positive number or "Goal"'
+        YardLine:
+          type:
+          - integer
+          - 'null'
+          description: the yard line of the ball's current position on the field when this play occurred
+        YardLineTerritory:
+          type:
+          - string
+          - 'null'
+          description: The team's side of the field that the ball is on when the play occurred
+        YardsToEndZone:
+          type:
+          - integer
+          - 'null'
+          description: The number of yards to go to reach the end zone at the start of the play
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'The Type of Play that occurred (possible values: Rush, PassCompleted, PassIncomplete, PassIntercepted, TwoPointConversion, Punt, Kickoff, FieldGoal, ExtraPoint, Fumble, Penalty, Sack, Timeout, Period)'
+        YardsGained:
+          type:
+          - integer
+          - 'null'
+          description: The number of yards gained or lost on the play
+        Description:
+          type:
+          - string
+          - 'null'
+          description: The description of the Play.
+        IsScoringPlay:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this Play was a scoring play.
+        ScoringPlay:
+          $ref: '#/components/schemas/ScoringPlay'
+          description: The details of the scoring play attached to this play (if any).
+        PlayStats:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlayStat'
+          description: The list of player stats accumulated during the play
+    Quarter:
+      properties:
+        QuarterID:
+          type: integer
+          description: The unique ID of the quarter
+        ScoreID:
+          type: integer
+          description: The unique ID of the score this quarter belongs to
+        Number:
+          type: integer
+          description: The Number (Order) of the Quarter in the scope of the Game.
+        Name:
+          type:
+          - string
+          - 'null'
+          description: 'The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)'
+        Description:
+          type:
+          - string
+          - 'null'
+          description: The long description of the quarter
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the away team in this Quarter.
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the home team in this Quarter.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this Quarter was last updated (in US Eastern time)
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this Quarter was first created (in US Eastern Time)
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: key
+      in: query

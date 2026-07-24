@@ -1,0 +1,1213 @@
+openapi: 3.1.0
+info:
+  title: MLB MLB v3 Headshots Soccer v4 Projections API
+  version: '1.0'
+  description: MLB API - OpenAPI 3.1 Specification
+servers:
+- url: https://api.sportsdata.io
+  description: Production server
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Soccer v4 Projections
+paths:
+  /v4/soccer/projections/{format}/PlayerGameProjectionStatsByDate/{competition}/{date}:
+    get:
+      description: SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, called by date.
+      operationId: soccer_v4_projections_projected_player_game_stats___by_date
+      summary: Projected Player Game Stats - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerGameProjection'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Projections
+  /v4/soccer/projections/{format}/DfsSlatesByDate/{competition}/{date}:
+    get:
+      description: Returns DFS Slates which have not yet started, with their player and salary information.
+      operationId: soccer_v4_projections_dfs_slates___by_date
+      summary: DFS Slates - by Date
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      - name: date
+        in: path
+        description: 'The date of the game(s).
+
+          <br>Examples: <code>2020-02-18</code>
+
+          '
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DfsSlate'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Projections
+  /v4/soccer/projections/{format}/UpcomingDfsSlatesByCompetition/{competition}:
+    get:
+      description: Returns upcoming DFS Slates which have not yet started, with their player and salary information, by competition.
+      operationId: soccer_v4_projections_upcoming_dfs_slates___by_competition
+      summary: Upcoming DFS Slates - by Competition
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DfsSlate'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Projections
+  /v4/soccer/projections/{format}/InjuredPlayers/{competition}:
+    get:
+      description: This endpoint provides all currently injured soccer players by competition, along with injury details.
+      operationId: soccer_v4_projections_player_details___by_injured
+      summary: Player Details - by Injured
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      - name: competition
+        in: path
+        description: 'An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Projections
+components:
+  schemas:
+    DfsSlateGame:
+      properties:
+        SlateGameID:
+          type: integer
+          description: The unique ID of the SlateGame as assigned by SportsDataIO
+        SlateID:
+          type: integer
+          description: The unique ID of the slate that this SlateGame refers to
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the game that this SlateGame refers to
+        Game:
+          $ref: '#/components/schemas/Game'
+          description: The details of the Game that this SlateGame refers to
+        OperatorGameID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of a SlateGame (assigned by the operator).
+        RemovedByOperator:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this game was removed/deleted by the operator.
+    Game:
+      properties:
+        GameId:
+          type: integer
+          description: The unique ID of the game
+        RoundId:
+          type: integer
+          description: The unique ID of the round that this game is associated with.
+        Season:
+          type: integer
+          description: The soccer regular season for which these totals apply
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        Group:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the group in which this game occurs. Note: This is used in tournaments & cups'
+        AwayTeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the away team
+        HomeTeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the home team
+        VenueId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the venue
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in UTC)
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Break, Final, Awarded, Postponed, Canceled, Suspended. If a game is called off before it starts, the Status is set to Postponed, until a new date/time is scheduled, at which point, the DateTime is updated, and the Status is set back to Scheduled. If a game has already started, and temporarily interrupted, it''s Status is set to Suspended, until it either resumes, or gets postponed and replayed at a later date. If the game is at halftime, then the Status will be Break. Awarded is used in cases where a game is decided on the so called "green table." That means that a game was decided by the Federation/League to one team for a reason. This can include situations like riots, where the opponent team gets 3:0 win awarded as punishment. Awarded is also used when a club withdraws during the season from the competition then all the remaining matches getting awarded 3:0.'
+        Week:
+          type:
+          - integer
+          - 'null'
+          description: The week during the season/round in which this game occurs
+        Period:
+          type:
+          - string
+          - 'null'
+          description: 'The final period of the game. Possible values: Regular = Game ended in 90 minutes of regular time; ExtraTime = Game ended in extra time / overtime; PenaltyShootout = Game finished in penalty shootout time'
+        Clock:
+          type:
+          - integer
+          - 'null'
+          description: 'The clock for the game if it is in progress.  Note: if the game hasn''t started or the game is over; then this will be NULL'
+        Winner:
+          type:
+          - string
+          - 'null'
+          description: 'The winner of the game. Possible values: AwayTeam; HomeTeam; Draw'
+        VenueType:
+          type:
+          - string
+          - 'null'
+          description: 'Shows which team has home field advantage. Possible values: Home; Away; Neutral'
+        AwayTeamKey:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        AwayTeamName:
+          type:
+          - string
+          - 'null'
+          description: The name of the away team
+        AwayTeamCountryCode:
+          type:
+          - string
+          - 'null'
+          description: The country code of the away team.
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: The final score of the away team
+        AwayTeamScorePeriod1:
+          type:
+          - integer
+          - 'null'
+          description: The first period score of the away team.
+        AwayTeamScorePeriod2:
+          type:
+          - integer
+          - 'null'
+          description: The second period score of the away team.
+        AwayTeamScoreExtraTime:
+          type:
+          - integer
+          - 'null'
+          description: The extra time (overtime) score of the away team (if applicable).
+        AwayTeamScorePenalty:
+          type:
+          - integer
+          - 'null'
+          description: The penalty shootout score of the away team (if applicable).
+        HomeTeamKey:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        HomeTeamName:
+          type:
+          - string
+          - 'null'
+          description: The name of the home team
+        HomeTeamCountryCode:
+          type:
+          - string
+          - 'null'
+          description: The country code of the home team
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: The final score of the home team
+        HomeTeamScorePeriod1:
+          type:
+          - integer
+          - 'null'
+          description: The first period score of the home team
+        HomeTeamScorePeriod2:
+          type:
+          - integer
+          - 'null'
+          description: The second period score of the home team
+        HomeTeamScoreExtraTime:
+          type:
+          - integer
+          - 'null'
+          description: The extra time (overtime) score of the home team (if applicable)
+        HomeTeamScorePenalty:
+          type:
+          - integer
+          - 'null'
+          description: The penalty shootout score of the home team (if applicable)
+        HomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Payout on a bet that the away home wins
+        AwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Payout on a bet that the away team wins.
+        DrawMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's money line for a draw
+        PointSpread:
+          type:
+          - number
+          - 'null'
+          description: Point spread for the home team
+        HomeTeamPointSpreadPayout:
+          type:
+          - integer
+          - 'null'
+          description: Payout if the home team covers the spread
+        AwayTeamPointSpreadPayout:
+          type:
+          - integer
+          - 'null'
+          description: Payout if the away team covers the spread
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's total goals line (over/under) for the game
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the over bet on the total goals line
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under
+        Attendance:
+          type:
+          - integer
+          - 'null'
+          description: The attendance for the game.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time)
+        UpdatedUtc:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when this record was updated (in UTC)
+        GlobalGameId:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalAwayTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
+        GlobalHomeTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        ClockExtra:
+          type:
+          - integer
+          - 'null'
+          description: 'The added stoppage time minute the game is currently in.  Note: will be null when game is not in stoppage time'
+        ClockDisplay:
+          type:
+          - string
+          - 'null'
+          description: 'A convenient string display of the current clock with format Clock+ClockExtra (example: 90+3)'
+        IsClosed:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether the game is over and the final score and stats have been verified and closed out
+        HomeTeamFormation:
+          type:
+          - string
+          - 'null'
+          description: The formation for the home team (4-4-2; 4-3-3; etc.)
+        AwayTeamFormation:
+          type:
+          - string
+          - 'null'
+          description: The formation for the away team (4-4-2, 4-3-3, etc.)
+        PlayoffAggregateScore:
+          $ref: '#/components/schemas/PlayoffAggregateScore'
+          description: Aggregate scoring information for 2-leg/home-and-home games (i.e. Champions League Round of 16). Team A is determined by the first legs home team.
+    PlayerGameProjection:
+      properties:
+        StatId:
+          type: integer
+          description: The unique ID of the stat associated with this player
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        Season:
+          type: integer
+          description: The soccer regular season for which these totals apply
+        RoundId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the round that this player is associated with
+        TeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        PlayerId:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career.'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The player's full name
+        ShortName:
+          type:
+          - string
+          - 'null'
+          description: The short name of the player
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The name of the team
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: The player's position category
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The position of the player. Possible values include: A (Attacker); M (Midfielder); D (Defender); GK (Goalkeeper).'
+        Jersey:
+          type:
+          - integer
+          - 'null'
+          description: The player's jersey number
+        Started:
+          type:
+          - integer
+          - 'null'
+          description: The total number of games the player started
+        Captain:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the player is a captain (true/false)
+        Suspension:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the player is suspended or not (true/false)
+        SuspensionReason:
+          type:
+          - string
+          - 'null'
+          description: The reason given for the player's suspension
+        FanDuelSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for FanDuel daily fantasy contests.
+        DraftKingsSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for DraftKings daily fantasy contests.
+        YahooSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Yahoo daily fantasy contests
+        MondogoalSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Mondogoal's daily fantasy contests
+        FanDuelPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in FanDuel's daily fantasy sports platform.
+        DraftKingsPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in DraftKings' daily fantasy sports platform.
+        YahooPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Yahoo's daily fantasy sports platform
+        MondogoalPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Mondogoal's daily fantasy sports platform.
+        InjuryStatus:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the player''s injury status. Possible values: Questionable; Out.'
+        InjuryBodyPart:
+          type:
+          - string
+          - 'null'
+          description: The body part of the player that is injured (Knee; Groin; Calf; Hamstring; etc.)
+        InjuryNotes:
+          type:
+          - string
+          - 'null'
+          description: Not yet supported; will be null
+        InjuryStartDate:
+          type:
+          - string
+          - 'null'
+          description: The date that the injury started or was first discovered
+        GlobalTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        Corners:
+          type:
+          - number
+          - 'null'
+          description: Total number of corner kicks taken by the player in the game
+        GameId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this game
+        OpponentId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team's opponent
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The name of the opponent 
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (UTC)
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        IsGameOver:
+          type: boolean
+          description: Whether the game is over (true/false)
+        GlobalGameId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalOpponentId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time)
+        UpdatedUtc:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (UTC Time)
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total Fan Duel daily fantasy points scored
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total Draft Kings daily fantasy points scored
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo daily fantasy points scored
+        FantasyPointsMondogoal:
+          type:
+          - number
+          - 'null'
+          description: Total Mondogoal fantasy points scored
+        Minutes:
+          type:
+          - number
+          - 'null'
+          description: Total minutes played
+        Goals:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored
+        Assists:
+          type:
+          - number
+          - 'null'
+          description: Total assists scored
+        Shots:
+          type:
+          - number
+          - 'null'
+          description: Total shots attempted
+        ShotsOnGoal:
+          type:
+          - number
+          - 'null'
+          description: Total shots on goal attempted
+        YellowCards:
+          type:
+          - number
+          - 'null'
+          description: Total yellow cards against
+        RedCards:
+          type:
+          - number
+          - 'null'
+          description: Total red cards against
+        YellowRedCards:
+          type:
+          - number
+          - 'null'
+          description: Total double yellow cards against (which result in a red card)
+        Crosses:
+          type:
+          - number
+          - 'null'
+          description: Total passes from a wide area of the field towards the center of the field near the opponent's goal
+        TacklesWon:
+          type:
+          - number
+          - 'null'
+          description: Total tackles won
+        Interceptions:
+          type:
+          - number
+          - 'null'
+          description: Total interceptions made
+        OwnGoals:
+          type:
+          - number
+          - 'null'
+          description: Total goals scored against own team (accidentally)
+        Fouls:
+          type:
+          - number
+          - 'null'
+          description: Total fouls made
+        Fouled:
+          type:
+          - number
+          - 'null'
+          description: Total times fouled
+        Offsides:
+          type:
+          - number
+          - 'null'
+          description: Total offsides against
+        Passes:
+          type:
+          - number
+          - 'null'
+          description: Total passes attempted
+        PassesCompleted:
+          type:
+          - number
+          - 'null'
+          description: Total passes completed successfully to teammate
+        LastManTackle:
+          type:
+          - number
+          - 'null'
+          description: Total tackles made when there is no one else available to stop the opponent from scoring (this can be the goalkeeper)
+        CornersWon:
+          type:
+          - number
+          - 'null'
+          description: Total corner kicks awarded
+        BlockedShots:
+          type:
+          - number
+          - 'null'
+          description: Total shots blocked
+        Touches:
+          type:
+          - number
+          - 'null'
+          description: Total times this player touched the ball
+        DefenderCleanSheets:
+          type:
+          - number
+          - 'null'
+          description: Total defender clean sheets (awarded when zero goals were allowed to the opponent and the player played at least 60 minutes)
+        GoalkeeperSaves:
+          type:
+          - number
+          - 'null'
+          description: Total saves made by goalkeeper
+        GoalkeeperGoalsAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total goals allowed by goalkeeper
+        GoalkeeperSingleGoalAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total games where this goalkeeper allowed exactly one goal
+        GoalkeeperCleanSheets:
+          type:
+          - number
+          - 'null'
+          description: Total goalkeeper clean sheets (awarded when zero goals were allowed to the opponent and the player played at least 60 minutes)
+        GoalkeeperWins:
+          type:
+          - number
+          - 'null'
+          description: Total goalkeeper wins (awarded when zero goals were allowed to the opponent and the player played at least 45 minutes)
+        PenaltyKickGoals:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick goals
+        PenaltyKickMisses:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick misses
+        PenaltyKickSaves:
+          type:
+          - number
+          - 'null'
+          description: Total penalty kick saves
+        PenaltiesWon:
+          type:
+          - number
+          - 'null'
+          description: Total penalties won
+        PenaltiesConceded:
+          type:
+          - number
+          - 'null'
+          description: 'Total penalties conceded '
+        Score:
+          type:
+          - number
+          - 'null'
+          description: Goals scored by entire team
+        OpponentScore:
+          type:
+          - number
+          - 'null'
+          description: Goals allowed to opponent
+        Tackles:
+          type:
+          - number
+          - 'null'
+          description: Total Tackles
+    DfsSlate:
+      properties:
+        SlateID:
+          type: integer
+          description: The unique ID of the slate as assigned by SportsDataIO
+        Operator:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the operator who is running contests for this slate. Possible values: FanDuel; DraftKings; Yahoo; FantasyDraft; etc.'
+        OperatorSlateID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of a slate (assigned by the operator).
+        OperatorName:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the slate (assigned by the operator). Possible values: Main, Express, Arcade, Late Night, etc.'
+        OperatorDay:
+          type:
+          - string
+          - 'null'
+          description: The day (in UTC) that the slate begins (assigned by the operator).
+        OperatorStartTime:
+          type:
+          - string
+          - 'null'
+          description: The date/time (in UTC) that the slate begins (assigned by the operator).
+        NumberOfGames:
+          type:
+          - integer
+          - 'null'
+          description: The number of actual games that this slate covers
+        IsMultiDaySlate:
+          type:
+          - boolean
+          - 'null'
+          description: Whether this slate uses games that take place on different days
+        RemovedByOperator:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this slate was removed/deleted by the operator.
+        OperatorGameType:
+          type:
+          - string
+          - 'null'
+          description: The game type of the slate. Will often be null as most operators only have one game type.
+        DfsSlateGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/DfsSlateGame'
+          description: The games that are included in this slate
+        DfsSlatePlayers:
+          type: array
+          items:
+            $ref: '#/components/schemas/DfsSlatePlayer'
+          description: The players that are included in this slate
+        SlateRosterSlots:
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+          description: The positions that need to be filled for this particular slate
+        SalaryCap:
+          type:
+          - integer
+          - 'null'
+          description: The salary cap for the current slate (is null for slates with no salary cap such a Tiers gametypes)
+        CompetitionId:
+          type:
+          - integer
+          - 'null'
+          description: The Id of the competition related to this slate (Premier League, Champions League, etc.)
+    PlayoffAggregateScore:
+      properties:
+        TeamA_Id:
+          type: integer
+          description: 'The TeamID of Team A. Note: Team A is determined by the home team in the first leg, and remains set through the life of the record'
+        TeamA_AggregateScore:
+          type: integer
+          description: 'The score, on aggregate, of Team A in the matchup. Note: Team A is determined by the home team in the first leg, and remains set through the life of the record'
+        TeamB_Id:
+          type: integer
+          description: 'The TeamID of Team B. Note: Team B is determined by the away team in the first leg, and remains set through the life of the record'
+        TeamB_AggregateScore:
+          type: integer
+          description: 'The score, on aggregate, of Team B in the matchup. Note: Team B is determined by the away team in the first leg, and remains set through the life of the record'
+        WinningTeamId:
+          type: integer
+          description: The ID of the team that wins the home-and-home matchup
+        Created:
+          type:
+          - string
+          - 'null'
+          description: Date and time the record was created (in US Eastern Time)
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (in US Eastern Time)
+    DfsSlatePlayer:
+      properties:
+        SlatePlayerID:
+          type: integer
+          description: The unique ID of the SlatePlayer as assigned by SportsDataIO
+        SlateID:
+          type: integer
+          description: The unique ID of the slate that this SlatePlayer refers to
+        SlateGameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the SlateGame that this SlatePlayer refers to
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career'
+        PlayerGameProjectionStatID:
+          type:
+          - integer
+          - 'null'
+          description: The SportsDataIO StatID that this SlatePlayer refers to. This points to data in the respective sports' projected player game stats feeds.
+        OperatorPlayerID:
+          type:
+          - string
+          - 'null'
+          description: Unique ID of the Player (assigned by the operator).
+        OperatorSlatePlayerID:
+          type:
+          - string
+          - 'null'
+          description: Unique ID of the SlatePlayer (assigned by the operator).
+        OperatorPlayerName:
+          type:
+          - string
+          - 'null'
+          description: The player's name (assigned by the operator).
+        OperatorPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible positions for the contest (assigned by the operator).
+        OperatorSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for the contest (assigned by the operator).
+        OperatorRosterSlots:
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+          description: The player's eligible positions to be played in the contest (assigned by the operator). This would include UTIL plays for those that are eligible.
+        RemovedByOperator:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this player was removed/deleted by the operator.
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team associated with this SlatePlayer record
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    Player:
+      properties:
+        PlayerId:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career.'
+        FirstName:
+          type:
+          - string
+          - 'null'
+          description: The player's first name
+        LastName:
+          type:
+          - string
+          - 'null'
+          description: The last name of the player
+        CommonName:
+          type:
+          - string
+          - 'null'
+          description: The player's common name
+        ShortName:
+          type:
+          - string
+          - 'null'
+          description: The short name of the player
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The position of the player. Possible values include: A (Attacker); M (Midfielder); D (Defender); GK (Goalkeeper).'
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: The player's position category
+        Jersey:
+          type:
+          - integer
+          - 'null'
+          description: The player's jersey number
+        Foot:
+          type:
+          - string
+          - 'null'
+          description: 'The primary foot of the player. Possible values: left or right.'
+        Height:
+          type:
+          - integer
+          - 'null'
+          description: The height of the player in centimeters (cm)
+        Weight:
+          type:
+          - integer
+          - 'null'
+          description: The player's weight in kilograms (kg)
+        Gender:
+          type:
+          - string
+          - 'null'
+          description: 'The gender of this player on the team. Possible Values: Male; Female.'
+        BirthDate:
+          type:
+          - string
+          - 'null'
+          description: The player's date of birth
+        BirthCity:
+          type:
+          - string
+          - 'null'
+          description: The city in which the player was born
+        BirthCountry:
+          type:
+          - string
+          - 'null'
+          description: The country in which the player was born
+        Nationality:
+          type:
+          - string
+          - 'null'
+          description: The nationality of the player
+        InjuryStatus:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the player''s injury status. Possible values: Questionable; Out.'
+        InjuryBodyPart:
+          type:
+          - string
+          - 'null'
+          description: The body part of the player that is injured (Knee; Groin; Calf; Hamstring; etc.)
+        InjuryNotes:
+          type:
+          - string
+          - 'null'
+          description: Not yet supported; will be null
+        InjuryStartDate:
+          type:
+          - string
+          - 'null'
+          description: The date that the injury started or was first discovered
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time)
+        PhotoUrl:
+          type:
+          - string
+          - 'null'
+          description: 'This field is deprecated. Note: Photos are no longer available through this field. Headshots are now delivered through IMAGN. Please see our Headshots products for further information.'
+        RotoWirePlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the RotoWire news feed.
+        DraftKingsPosition:
+          type:
+          - string
+          - 'null'
+          description: The position of the player according to DraftKings
+        UsaTodayPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to USA Today headshot data feeds
+        UsaTodayHeadshotUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's headshot URL as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotNoBackgroundUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's transparent background headshot URL as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated timestamp of the player's headshot as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotNoBackgroundUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated timestamp of the player's transparent background headshot as provided by USA Today. License from USA Today is required.
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: key
+      in: query

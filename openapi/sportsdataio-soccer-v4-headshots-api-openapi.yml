@@ -1,0 +1,123 @@
+openapi: 3.1.0
+info:
+  title: MLB MLB v3 Headshots Soccer v4 Headshots API
+  version: '1.0'
+  description: MLB API - OpenAPI 3.1 Specification
+servers:
+- url: https://api.sportsdata.io
+  description: Production server
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Soccer v4 Headshots
+paths:
+  /v4/soccer/headshots/{format}/Headshots:
+    get:
+      description: USA Today/IMAGN cropped action headshots for all active MLS players only, delivered shortly after the season starts.
+      operationId: soccer_v4_headshots_headshots
+      summary: Headshots
+      parameters:
+      - name: format
+        in: path
+        description: Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>.
+        required: true
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          default: JSON
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Headshot'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+      tags:
+      - Soccer v4 Headshots
+components:
+  schemas:
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    Headshot:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID stays with the player their entire career.'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The player's full name
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team associated with this player headshot
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The position of the player. Possible values include: A (Attacker); M (Midfielder); D (Defender); GK (Goalkeeper).'
+        PreferredHostedHeadshotUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's preferred hosted headshot URL. This returns the headshot with transparent background if available.
+        PreferredHostedHeadshotUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated date of the player's preferred hosted headshot.
+        HostedHeadshotWithBackgroundUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's hosted headshot URL
+        HostedHeadshotWithBackgroundUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated timestamp of the player's hosted headshot
+        HostedHeadshotNoBackgroundUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's transparent background hosted headshot URL
+        HostedHeadshotNoBackgroundUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated timestamp of the player's transparent background hosted headshot
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: key
+      in: query

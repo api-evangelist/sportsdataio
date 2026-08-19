@@ -1,0 +1,666 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MLB MLB v3 Headshots NHL v3 Scores API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NHL v3 Scores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Player Details - by Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/Players",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full player bio and details, including injury notes, for all active players."
+        },
+        {
+          "info": {
+            "name": "Team Profiles - by Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/teams",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full team information: team name and city, conference and division, and colors. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns the teams currently active in the league."
+        },
+        {
+          "info": {
+            "name": "Are Games In Progress",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/AreAnyGamesInProgress",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns <code>true</code> if there is at least one game being played at the time of the request or <code>false</code> if there are none."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Free Agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/FreeAgents",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full player bio and details, including injury notes, for all available free agents unattached to a team."
+        },
+        {
+          "info": {
+            "name": "Games - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/GamesByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n <br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.\n "
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info delivered live and post-game. Live data includes half and score info. Gameday info includes TV channel etc"
+        },
+        {
+          "info": {
+            "name": "Schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/Games/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc."
+              }
+            ]
+          },
+          "docs": "Home and away teams, date and time, season type and week etc. are included. Also includes gameday information. This includes full stadium information (capacity, lat/long, surface etc.), top-line betting information (spread, moneyline, total), weather conditions, and broadcast information."
+        },
+        {
+          "info": {
+            "name": "News",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/News",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Basic RotoBaller news feed, with limited stories available."
+        },
+        {
+          "info": {
+            "name": "News - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/NewsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the news.\n <br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.\n "
+              }
+            ]
+          },
+          "docs": "Basic RotoBaller news feed, with limited stories available, called by date."
+        },
+        {
+          "info": {
+            "name": "News - by Player",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/NewsByPlayerID/:playerid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "playerid",
+                "value": "",
+                "type": "path",
+                "description": "Unique FantasyData Player ID.\n Example:<code>10000507</code>.\n "
+              }
+            ]
+          },
+          "docs": "Basic RotoBaller news feed, with limited stories available, called by player."
+        },
+        {
+          "info": {
+            "name": "Players Details - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/Players/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "The abbreviation of the requested team.\n <br>Examples: <code>SF</code>, <code>NYY</code>.\n "
+              }
+            ]
+          },
+          "docs": "Full player bio and details, including injury notes, for all players on a given team."
+        },
+        {
+          "info": {
+            "name": "Stadiums",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/Stadiums",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns all stadiums in the league with capacity, surface, latitude/longitude, city and state (and where applicable country.)"
+        },
+        {
+          "info": {
+            "name": "Team Game Stats - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/TeamGameStatsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n <br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.\n "
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record team-wide (aggregated from all players) for all games on a given date, both live and post-game."
+        },
+        {
+          "info": {
+            "name": "Team Season Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/TeamSeasonStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n <br>Examples: <code>2016</code>, <code>2017</code>.\n "
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for all teams (aggregated from all players) for a given season."
+        },
+        {
+          "info": {
+            "name": "Season - Current",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/CurrentSeason",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Year of the current season. This value changes at the start of the new league year. For leagues that run over two years, this is the year the season starts, not ends."
+        },
+        {
+          "info": {
+            "name": "Standings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/Standings/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n <br>Examples: <code>2016</code>, <code>2017</code>.\n "
+              }
+            ]
+          },
+          "docs": "Includes regular season standings in division and conference, from which postseason seeding can be derived."
+        },
+        {
+          "info": {
+            "name": "Team Profiles - All",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/AllTeams",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full team information: team name and city, conference and division, and colors. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns all teams regardless of current active status."
+        },
+        {
+          "info": {
+            "name": "Team Game Logs - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/TeamGameStatsBySeason/:season/:teamid/:numberofgames",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Season to get games from. Example <code>2019POST</code>, <code>2020</code>"
+              },
+              {
+                "name": "teamid",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of team.  Example <code> 8 </code>"
+              },
+              {
+                "name": "numberofgames",
+                "value": "",
+                "type": "path",
+                "description": "How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code>"
+              }
+            ]
+          },
+          "docs": "Game-by-game log of total team statistics for a given season, split up by game (not aggregated into season totals.)"
+        },
+        {
+          "info": {
+            "name": "Schedules (Basic)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/SchedulesBasic/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc."
+              }
+            ]
+          },
+          "docs": "A lightweight schedule endpoint without gameday information. Home and away teams, the date and time of the game, and season type, week etc. are included. Ideal for the most basic information required to build a schedule."
+        },
+        {
+          "info": {
+            "name": "Games (Basic) - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/ScoresBasic/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n <br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.\n "
+              }
+            ]
+          },
+          "docs": "This endpoint simply delivers period, clock, period score and total score live; no gameday info is included."
+        },
+        {
+          "info": {
+            "name": "Players Profiles - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/PlayersBasic/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "The abbreviation of the requested team.\n <br>Examples: <code>SF</code>, <code>NYY</code>.\n "
+              }
+            ]
+          },
+          "docs": "Roster information for a given team. Player profiles include basic biographical information, position, college, and current team (if attached to a team.) Specify a team tricode parameter to receive all players currently on that team."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/PlayersByActive",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full player bio and details, including injury notes, for all active players."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Free Agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/PlayersByFreeAgents",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Full player bio and details, including injury notes, for all available free agents unattached to a team."
+        },
+        {
+          "info": {
+            "name": "Depth Charts - Goalies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/GoalieDepthCharts",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns the full list of NHL Goalies by Team organized into Depth Charts."
+        },
+        {
+          "info": {
+            "name": "Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/TransactionsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the news.\n <br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.\n "
+              }
+            ]
+          },
+          "docs": "Transactions, such as injuries and assignments and trades, are organized here by date."
+        },
+        {
+          "info": {
+            "name": "Team Profiles - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/teams/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>."
+              }
+            ]
+          },
+          "docs": "Full team information: team name and city, conference and division, and colors. Also contains basic fantasy info such as IDs as well as full stadium data. This endpoint returns the active teams for a given season."
+        },
+        {
+          "info": {
+            "name": "Games - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/GamesByDateFinal/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n <br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.\n "
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info, including weather, referee, infotainment odds, as well as all of the period scores and full-time score, delivered as the game ends."
+        },
+        {
+          "info": {
+            "name": "Games (Basic) - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/ScoresBasicFinal/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n <br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.\n "
+              }
+            ]
+          },
+          "docs": "A slimmed-down score endpoint, giving just the period scores and final score, for simple applications."
+        },
+        {
+          "info": {
+            "name": "Referees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/scores/:format/Referees",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns the full list of NHL Referees."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

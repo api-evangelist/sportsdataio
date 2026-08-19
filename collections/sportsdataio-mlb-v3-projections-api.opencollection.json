@@ -1,0 +1,208 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MLB MLB v3 Headshots MLB v3 Projections API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MLB v3 Projections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Projected Player Game Stats - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/PlayerGameProjectionStatsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, called by date."
+        },
+        {
+          "info": {
+            "name": "Projected Player Season Stats With ADP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/PlayerSeasonProjectionStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2017</code>, <code>2018</code>."
+              }
+            ]
+          },
+          "docs": "SportsDataIO's proprietary projections, including average draft position, for all active players for the season."
+        },
+        {
+          "info": {
+            "name": "DFS Slates - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/DfsSlatesByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the slates.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns DFS Slates which have not yet started for which we have DFS projections."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Injured",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/InjuredPlayers",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "This endpoint provides all currently injured MLB players, along with injury details."
+        },
+        {
+          "info": {
+            "name": "Starting Lineups - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/StartingLineupsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the slates.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns both projected and confirmed starting lineups for all games on a given date."
+        },
+        {
+          "info": {
+            "name": "Depth Charts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/DepthCharts",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns Depth Charts for all active MLB teams."
+        },
+        {
+          "info": {
+            "name": "DFS Slate Ownership Projections - by Slate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/DfsSlateOwnershipProjectionsBySlateID/:slateId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "slateId",
+                "value": "",
+                "type": "path",
+                "description": "SlateID of the DFS Slate you wish to get ownership projections for. Will have an empty SlateOwnershipProjections if this slate was not projected"
+              }
+            ]
+          },
+          "docs": "Slate Ownership Projections for a specific slate. Projections are for Guaranteed Prize Pool (GPP) format ownership. Will return an empty list if the slate is not yet projected or not a slate we have projections for."
+        },
+        {
+          "info": {
+            "name": "DFS Slate Ownership Projections - Upcoming",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/mlb/projections/:format/UpcomingDfsSlateOwnershipProjections",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns DFS Slates which have not yet started for which we have DFS Ownership projections."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

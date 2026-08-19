@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MLB MLB v3 Headshots NHL v3 RotoBaller Premium News API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NHL v3 RotoBaller Premium News",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Premium News",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/news-rotoballer/:format/RotoBallerPremiumNews",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "RotoBaller's Premium News feed, with the latest updated stories in greater detail."
+        },
+        {
+          "info": {
+            "name": "Premium News - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/news-rotoballer/:format/RotoBallerPremiumNewsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the news.\n<br>Examples: <code>2021-JAN-06</code>, <code>2021-JAN-31</code>."
+              }
+            ]
+          },
+          "docs": "RotoBaller's Premium News feed, with the latest updated stories in greater detail called by date."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

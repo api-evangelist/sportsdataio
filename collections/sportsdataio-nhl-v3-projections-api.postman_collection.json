@@ -1,0 +1,749 @@
+{
+  "item": [
+    {
+      "id": "34113981-44c2-4d07-83b2-678aa15f67c9",
+      "name": "NHL v3 Projections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "14d54860-1c8f-4527-ab35-b51ee7d4b19e",
+          "name": "Projected Player Game Stats - by Date",
+          "request": {
+            "name": "Projected Player Game Stats - by Date",
+            "description": {
+              "content": "SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, called by date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nhl",
+                "projections",
+                ":format",
+                "PlayerGameProjectionStatsByDate",
+                ":date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "date",
+                  "description": "(Required) The date of the game(s).\n <br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.\n "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "55191c0a-98d7-44f2-8fb6-ee8866643b90",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "projections",
+                    ":format",
+                    "PlayerGameProjectionStatsByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the game(s).\n <br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.\n "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"StatID\": 1125,\n    \"TeamID\": 4548,\n    \"PlayerID\": 3101,\n    \"SeasonType\": 7157,\n    \"Season\": 4256,\n    \"Name\": \"string\",\n    \"Team\": \"string\",\n    \"Position\": \"string\",\n    \"FantasyDataSalary\": 7992,\n    \"FanDuelSalary\": 1317,\n    \"DraftKingsSalary\": 9016,\n    \"YahooSalary\": 7006,\n    \"InjuryStatus\": \"string\",\n    \"InjuryBodyPart\": \"string\",\n    \"InjuryStartDate\": \"string\",\n    \"InjuryNotes\": \"string\",\n    \"FanDuelPosition\": \"string\",\n    \"DraftKingsPosition\": \"string\",\n    \"YahooPosition\": \"string\",\n    \"OpponentRank\": 8713,\n    \"OpponentPositionRank\": 3487,\n    \"GlobalTeamID\": 774,\n    \"FantasyDraftSalary\": 335,\n    \"FantasyDraftPosition\": \"string\",\n    \"EvenStrengthMinutes\": 6946,\n    \"EvenStrengthSeconds\": 1730,\n    \"PowerPlayMinutes\": 4433,\n    \"PowerPlaySeconds\": 1888,\n    \"ShortHandedMinutes\": 5608,\n    \"ShortHandedSeconds\": 2008,\n    \"Points\": 917.5822637575615,\n    \"GameID\": 2778,\n    \"OpponentID\": 2007,\n    \"Opponent\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"HomeOrAway\": \"string\",\n    \"IsGameOver\": true,\n    \"GlobalGameID\": 8224,\n    \"GlobalOpponentID\": 9005,\n    \"Updated\": \"string\",\n    \"Games\": 685,\n    \"FantasyPoints\": 3679.7298383548095,\n    \"FantasyPointsFanDuel\": 3256.7326674791952,\n    \"FantasyPointsDraftKings\": 9381.623174660946,\n    \"FantasyPointsYahoo\": 7167.660162749899,\n    \"Minutes\": 9773,\n    \"Seconds\": 3013,\n    \"Goals\": 6424.279661432173,\n    \"Assists\": 1132.2634103432217,\n    \"ShotsOnGoal\": 1048.9196822887882,\n    \"PowerPlayGoals\": 1776.9754853916452,\n    \"ShortHandedGoals\": 8143.640554066545,\n    \"EmptyNetGoals\": 2885.1797289509173,\n    \"PowerPlayAssists\": 8496.726510773022,\n    \"ShortHandedAssists\": 283.8844658932471,\n    \"HatTricks\": 770.4214175016655,\n    \"ShootoutGoals\": 4545.249287493141,\n    \"PlusMinus\": 4246.973341097834,\n    \"PenaltyMinutes\": 2545.513241238465,\n    \"Blocks\": 8188.100020705649,\n    \"Hits\": 1106.3537674979807,\n    \"Takeaways\": 322.34676869685177,\n    \"Giveaways\": 5014.379483413724,\n    \"FaceoffsWon\": 9384.538813988436,\n    \"FaceoffsLost\": 538.9091002022917,\n    \"Shifts\": 6242.255882789218,\n    \"GoaltendingMinutes\": 8333,\n    \"GoaltendingSeconds\": 8176,\n    \"GoaltendingShotsAgainst\": 9470.549957610521,\n    \"GoaltendingGoalsAgainst\": 5162.732185050361,\n    \"GoaltendingSaves\": 1035.4644411077873,\n    \"GoaltendingWins\": 4204.480060872337,\n    \"GoaltendingLosses\": 2394.250840540929,\n    \"GoaltendingShutouts\": 3187.4671718908075,\n    \"Started\": 8796,\n    \"BenchPenaltyMinutes\": 9456.713967556982,\n    \"GoaltendingOvertimeLosses\": 6307.878146386888,\n    \"FantasyPointsFantasyDraft\": 2486.133246535592\n  },\n  {\n    \"StatID\": 6924,\n    \"TeamID\": 4148,\n    \"PlayerID\": 9980,\n    \"SeasonType\": 5475,\n    \"Season\": 1590,\n    \"Name\": \"string\",\n    \"Team\": \"string\",\n    \"Position\": \"string\",\n    \"FantasyDataSalary\": 892,\n    \"FanDuelSalary\": 9173,\n    \"DraftKingsSalary\": 2489,\n    \"YahooSalary\": 5059,\n    \"InjuryStatus\": \"string\",\n    \"InjuryBodyPart\": \"string\",\n    \"InjuryStartDate\": \"string\",\n    \"InjuryNotes\": \"string\",\n    \"FanDuelPosition\": \"string\",\n    \"DraftKingsPosition\": \"string\",\n    \"YahooPosition\": \"string\",\n    \"OpponentRank\": 5143,\n    \"OpponentPositionRank\": 4122,\n    \"GlobalTeamID\": 5652,\n    \"FantasyDraftSalary\": 7031,\n    \"FantasyDraftPosition\": \"string\",\n    \"EvenStrengthMinutes\": 5924,\n    \"EvenStrengthSeconds\": 566,\n    \"PowerPlayMinutes\": 5181,\n    \"PowerPlaySeconds\": 7168,\n    \"ShortHandedMinutes\": 3106,\n    \"ShortHandedSeconds\": 7407,\n    \"Points\": 1177.511857782053,\n    \"GameID\": 7922,\n    \"OpponentID\": 6426,\n    \"Opponent\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"HomeOrAway\": \"string\",\n    \"IsGameOver\": true,\n    \"GlobalGameID\": 1941,\n    \"GlobalOpponentID\": 9914,\n    \"Updated\": \"string\",\n    \"Games\": 8790,\n    \"FantasyPoints\": 6170.926707410861,\n    \"FantasyPointsFanDuel\": 7724.27845336169,\n    \"FantasyPointsDraftKings\": 2186.7202451849234,\n    \"FantasyPointsYahoo\": 6203.829831980149,\n    \"Minutes\": 6883,\n    \"Seconds\": 4767,\n    \"Goals\": 3828.20543974144,\n    \"Assists\": 6244.360575656858,\n    \"ShotsOnGoal\": 3825.5801738288133,\n    \"PowerPlayGoals\": 5698.167445312983,\n    \"ShortHandedGoals\": 1724.5446903163208,\n    \"EmptyNetGoals\": 8752.083321620486,\n    \"PowerPlayAssists\": 8507.1163827785,\n    \"ShortHandedAssists\": 2297.9864117341253,\n    \"HatTricks\": 6756.803825611583,\n    \"ShootoutGoals\": 7753.990121415515,\n    \"PlusMinus\": 9461.392925323204,\n    \"PenaltyMinutes\": 1778.3170078496435,\n    \"Blocks\": 4615.43199602478,\n    \"Hits\": 3160.0321250027487,\n    \"Takeaways\": 4538.332169282501,\n    \"Giveaways\": 2430.2600558998656,\n    \"FaceoffsWon\": 7428.491540749708,\n    \"FaceoffsLost\": 5678.105133108641,\n    \"Shifts\": 182.0344192083856,\n    \"GoaltendingMinutes\": 6176,\n    \"GoaltendingSeconds\": 2304,\n    \"GoaltendingShotsAgainst\": 581.5186518776671,\n    \"GoaltendingGoalsAgainst\": 8451.709045833371,\n    \"GoaltendingSaves\": 199.75850846064236,\n    \"GoaltendingWins\": 2006.3108308991152,\n    \"GoaltendingLosses\": 3630.688051154999,\n    \"GoaltendingShutouts\": 9834.35846903169,\n    \"Started\": 5953,\n    \"BenchPenaltyMinutes\": 7375.462746069122,\n    \"GoaltendingOvertimeLosses\": 7238.233400275136,\n    \"FantasyPointsFantasyDraft\": 3557.3229369922533\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66937ae6-1127-427f-9b22-3264edd4db45",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "projections",
+                    ":format",
+                    "PlayerGameProjectionStatsByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the game(s).\n <br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>.\n "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 1692,\n  \"Code\": 3610,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "325dd97f-e8c1-4589-a6d4-4a43f96cbf92",
+          "name": "DFS Slates - by Date",
+          "request": {
+            "name": "DFS Slates - by Date",
+            "description": {
+              "content": "Returns DFS Slates which have not yet started, with their player and salary information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nhl",
+                "projections",
+                ":format",
+                "DfsSlatesByDate",
+                ":date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "date",
+                  "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-DEC-01</code>, <code>2018-FEB-15</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "83d80a85-0743-4b74-8e8c-dc3166b17d7c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "projections",
+                    ":format",
+                    "DfsSlatesByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-DEC-01</code>, <code>2018-FEB-15</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"SlateID\": 3955,\n    \"Operator\": \"string\",\n    \"OperatorSlateID\": 491,\n    \"OperatorName\": \"string\",\n    \"OperatorDay\": \"string\",\n    \"OperatorStartTime\": \"string\",\n    \"NumberOfGames\": 1069,\n    \"IsMultiDaySlate\": true,\n    \"RemovedByOperator\": true,\n    \"OperatorGameType\": \"string\",\n    \"DfsSlateGames\": [\n      {\n        \"SlateGameID\": 5476,\n        \"SlateID\": 4856,\n        \"GameID\": 3033,\n        \"Game\": {\n          \"GameID\": 2988,\n          \"Season\": 1717,\n          \"SeasonType\": 5575,\n          \"Status\": \"string\",\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"Updated\": \"string\",\n          \"IsClosed\": true,\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"AwayTeamID\": 4696,\n          \"HomeTeamID\": 6473,\n          \"StadiumID\": 1591,\n          \"Channel\": \"string\",\n          \"Attendance\": 9654,\n          \"AwayTeamScore\": 642,\n          \"HomeTeamScore\": 8256,\n          \"Period\": \"string\",\n          \"TimeRemainingMinutes\": 6967,\n          \"TimeRemainingSeconds\": 2061,\n          \"AwayTeamMoneyLine\": 9623,\n          \"HomeTeamMoneyLine\": 5517,\n          \"PointSpread\": 5373.483866404017,\n          \"OverUnder\": 4860.727545254857,\n          \"GlobalGameID\": 1042,\n          \"GlobalAwayTeamID\": 9017,\n          \"GlobalHomeTeamID\": 170,\n          \"PointSpreadAwayTeamMoneyLine\": 2048,\n          \"PointSpreadHomeTeamMoneyLine\": 7092,\n          \"LastPlay\": \"string\",\n          \"Periods\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"GameEndDateTime\": \"string\",\n          \"HomeRotationNumber\": 4347,\n          \"AwayRotationNumber\": 8000,\n          \"NeutralVenue\": false,\n          \"OverPayout\": 7727,\n          \"UnderPayout\": 3439,\n          \"DateTimeUTC\": \"string\",\n          \"SeriesInfo\": {\n            \"HomeTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"AwayTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"GameNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"MaxLength\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"RescheduledFromGameID\": 6110,\n          \"RescheduledGameID\": 3054,\n          \"Referee1ID\": 6098,\n          \"Referee2ID\": 9171,\n          \"Linesperson1ID\": 9214,\n          \"Linesperson2ID\": 6188\n        },\n        \"OperatorGameID\": 2532,\n        \"RemovedByOperator\": true\n      },\n      {\n        \"SlateGameID\": 2139,\n        \"SlateID\": 8713,\n        \"GameID\": 683,\n        \"Game\": {\n          \"GameID\": 1036,\n          \"Season\": 8824,\n          \"SeasonType\": 3463,\n          \"Status\": \"string\",\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"Updated\": \"string\",\n          \"IsClosed\": false,\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"AwayTeamID\": 2149,\n          \"HomeTeamID\": 1177,\n          \"StadiumID\": 4503,\n          \"Channel\": \"string\",\n          \"Attendance\": 7531,\n          \"AwayTeamScore\": 9449,\n          \"HomeTeamScore\": 2341,\n          \"Period\": \"string\",\n          \"TimeRemainingMinutes\": 6914,\n          \"TimeRemainingSeconds\": 4128,\n          \"AwayTeamMoneyLine\": 162,\n          \"HomeTeamMoneyLine\": 8352,\n          \"PointSpread\": 2480.2612343653864,\n          \"OverUnder\": 3809.586789874053,\n          \"GlobalGameID\": 5946,\n          \"GlobalAwayTeamID\": 2510,\n          \"GlobalHomeTeamID\": 7804,\n          \"PointSpreadAwayTeamMoneyLine\": 2843,\n          \"PointSpreadHomeTeamMoneyLine\": 7616,\n          \"LastPlay\": \"string\",\n          \"Periods\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"GameEndDateTime\": \"string\",\n          \"HomeRotationNumber\": 2500,\n          \"AwayRotationNumber\": 3350,\n          \"NeutralVenue\": false,\n          \"OverPayout\": 9855,\n          \"UnderPayout\": 7722,\n          \"DateTimeUTC\": \"string\",\n          \"SeriesInfo\": {\n            \"HomeTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"AwayTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"GameNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"MaxLength\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"RescheduledFromGameID\": 7794,\n          \"RescheduledGameID\": 5599,\n          \"Referee1ID\": 1555,\n          \"Referee2ID\": 7224,\n          \"Linesperson1ID\": 758,\n          \"Linesperson2ID\": 8521\n        },\n        \"OperatorGameID\": 7886,\n        \"RemovedByOperator\": true\n      }\n    ],\n    \"DfsSlatePlayers\": [\n      {\n        \"SlatePlayerID\": 7900,\n        \"SlateID\": 6723,\n        \"SlateGameID\": 8745,\n        \"PlayerID\": 7123,\n        \"PlayerGameProjectionStatID\": 3353,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 5382,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": false,\n        \"Team\": \"string\",\n        \"TeamID\": 9542\n      },\n      {\n        \"SlatePlayerID\": 1742,\n        \"SlateID\": 4606,\n        \"SlateGameID\": 2907,\n        \"PlayerID\": 2727,\n        \"PlayerGameProjectionStatID\": 4621,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 7068,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": false,\n        \"Team\": \"string\",\n        \"TeamID\": 5181\n      }\n    ],\n    \"SlateRosterSlots\": [\n      \"string\",\n      \"string\"\n    ],\n    \"SalaryCap\": 8137\n  },\n  {\n    \"SlateID\": 6267,\n    \"Operator\": \"string\",\n    \"OperatorSlateID\": 9305,\n    \"OperatorName\": \"string\",\n    \"OperatorDay\": \"string\",\n    \"OperatorStartTime\": \"string\",\n    \"NumberOfGames\": 7375,\n    \"IsMultiDaySlate\": true,\n    \"RemovedByOperator\": false,\n    \"OperatorGameType\": \"string\",\n    \"DfsSlateGames\": [\n      {\n        \"SlateGameID\": 9430,\n        \"SlateID\": 2847,\n        \"GameID\": 9032,\n        \"Game\": {\n          \"GameID\": 1655,\n          \"Season\": 9246,\n          \"SeasonType\": 9590,\n          \"Status\": \"string\",\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"Updated\": \"string\",\n          \"IsClosed\": false,\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"AwayTeamID\": 889,\n          \"HomeTeamID\": 270,\n          \"StadiumID\": 7464,\n          \"Channel\": \"string\",\n          \"Attendance\": 831,\n          \"AwayTeamScore\": 7586,\n          \"HomeTeamScore\": 339,\n          \"Period\": \"string\",\n          \"TimeRemainingMinutes\": 5549,\n          \"TimeRemainingSeconds\": 9676,\n          \"AwayTeamMoneyLine\": 9913,\n          \"HomeTeamMoneyLine\": 3748,\n          \"PointSpread\": 9549.854621043281,\n          \"OverUnder\": 6689.462377028328,\n          \"GlobalGameID\": 1290,\n          \"GlobalAwayTeamID\": 7184,\n          \"GlobalHomeTeamID\": 9769,\n          \"PointSpreadAwayTeamMoneyLine\": 3177,\n          \"PointSpreadHomeTeamMoneyLine\": 6626,\n          \"LastPlay\": \"string\",\n          \"Periods\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"GameEndDateTime\": \"string\",\n          \"HomeRotationNumber\": 5536,\n          \"AwayRotationNumber\": 6692,\n          \"NeutralVenue\": false,\n          \"OverPayout\": 5410,\n          \"UnderPayout\": 5059,\n          \"DateTimeUTC\": \"string\",\n          \"SeriesInfo\": {\n            \"HomeTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"AwayTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"GameNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"MaxLength\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"RescheduledFromGameID\": 3879,\n          \"RescheduledGameID\": 4397,\n          \"Referee1ID\": 6125,\n          \"Referee2ID\": 3161,\n          \"Linesperson1ID\": 9724,\n          \"Linesperson2ID\": 2264\n        },\n        \"OperatorGameID\": 4985,\n        \"RemovedByOperator\": false\n      },\n      {\n        \"SlateGameID\": 4254,\n        \"SlateID\": 4828,\n        \"GameID\": 9226,\n        \"Game\": {\n          \"GameID\": 6588,\n          \"Season\": 2228,\n          \"SeasonType\": 8184,\n          \"Status\": \"string\",\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"Updated\": \"string\",\n          \"IsClosed\": true,\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"AwayTeamID\": 3561,\n          \"HomeTeamID\": 4685,\n          \"StadiumID\": 1978,\n          \"Channel\": \"string\",\n          \"Attendance\": 435,\n          \"AwayTeamScore\": 7103,\n          \"HomeTeamScore\": 1794,\n          \"Period\": \"string\",\n          \"TimeRemainingMinutes\": 7988,\n          \"TimeRemainingSeconds\": 9947,\n          \"AwayTeamMoneyLine\": 9997,\n          \"HomeTeamMoneyLine\": 3125,\n          \"PointSpread\": 198.58863620880408,\n          \"OverUnder\": 7459.793562197064,\n          \"GlobalGameID\": 6185,\n          \"GlobalAwayTeamID\": 2142,\n          \"GlobalHomeTeamID\": 4792,\n          \"PointSpreadAwayTeamMoneyLine\": 9903,\n          \"PointSpreadHomeTeamMoneyLine\": 1343,\n          \"LastPlay\": \"string\",\n          \"Periods\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"GameEndDateTime\": \"string\",\n          \"HomeRotationNumber\": 3134,\n          \"AwayRotationNumber\": 5347,\n          \"NeutralVenue\": true,\n          \"OverPayout\": 949,\n          \"UnderPayout\": 4380,\n          \"DateTimeUTC\": \"string\",\n          \"SeriesInfo\": {\n            \"HomeTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"AwayTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"GameNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"MaxLength\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"RescheduledFromGameID\": 1937,\n          \"RescheduledGameID\": 8215,\n          \"Referee1ID\": 5645,\n          \"Referee2ID\": 5423,\n          \"Linesperson1ID\": 5992,\n          \"Linesperson2ID\": 5974\n        },\n        \"OperatorGameID\": 2656,\n        \"RemovedByOperator\": true\n      }\n    ],\n    \"DfsSlatePlayers\": [\n      {\n        \"SlatePlayerID\": 4147,\n        \"SlateID\": 3763,\n        \"SlateGameID\": 5520,\n        \"PlayerID\": 6767,\n        \"PlayerGameProjectionStatID\": 9228,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 3215,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": false,\n        \"Team\": \"string\",\n        \"TeamID\": 8422\n      },\n      {\n        \"SlatePlayerID\": 2627,\n        \"SlateID\": 7823,\n        \"SlateGameID\": 2554,\n        \"PlayerID\": 8455,\n        \"PlayerGameProjectionStatID\": 7769,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 7986,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": true,\n        \"Team\": \"string\",\n        \"TeamID\": 5318\n      }\n    ],\n    \"SlateRosterSlots\": [\n      \"string\",\n      \"string\"\n    ],\n    \"SalaryCap\": 211\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10138ef3-5e9d-4605-b6d8-6fa84a8d124d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "projections",
+                    ":format",
+                    "DfsSlatesByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-DEC-01</code>, <code>2018-FEB-15</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 1692,\n  \"Code\": 3610,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17b67830-efb7-42ed-94e7-3e580b10c08d",
+          "name": "Starting Goaltenders - by Date",
+          "request": {
+            "name": "Starting Goaltenders - by Date",
+            "description": {
+              "content": "This endpoint provides the projected and confirmed starting goaltenders for NHL games on a given date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nhl",
+                "projections",
+                ":format",
+                "StartingGoaltendersByDate",
+                ":date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "date",
+                  "description": "(Required) The date of the game(s).\n<br>Examples: <code>2021-OCT-12</code>, <code>2021-DEC-09</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "35d2a292-8625-494f-82b0-b2a1aea80390",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "projections",
+                    ":format",
+                    "StartingGoaltendersByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2021-OCT-12</code>, <code>2021-DEC-09</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"GameID\": 8586,\n    \"Season\": 2310,\n    \"SeasonType\": 6711,\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"Status\": \"string\",\n    \"HomeTeamID\": 647,\n    \"HomeTeam\": \"string\",\n    \"AwayTeamID\": 4255,\n    \"AwayTeam\": \"string\",\n    \"HomeGoaltender\": {\n      \"PlayerID\": 4228,\n      \"TeamID\": 8743,\n      \"Team\": \"string\",\n      \"FirstName\": \"string\",\n      \"LastName\": \"string\",\n      \"Jersey\": 9544,\n      \"Confirmed\": true\n    },\n    \"AwayGoaltender\": {\n      \"PlayerID\": 3372,\n      \"TeamID\": 3052,\n      \"Team\": \"string\",\n      \"FirstName\": \"string\",\n      \"LastName\": \"string\",\n      \"Jersey\": 4706,\n      \"Confirmed\": false\n    }\n  },\n  {\n    \"GameID\": 5069,\n    \"Season\": 8790,\n    \"SeasonType\": 4699,\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"Status\": \"string\",\n    \"HomeTeamID\": 2780,\n    \"HomeTeam\": \"string\",\n    \"AwayTeamID\": 6240,\n    \"AwayTeam\": \"string\",\n    \"HomeGoaltender\": {\n      \"PlayerID\": 9225,\n      \"TeamID\": 4493,\n      \"Team\": \"string\",\n      \"FirstName\": \"string\",\n      \"LastName\": \"string\",\n      \"Jersey\": 7905,\n      \"Confirmed\": true\n    },\n    \"AwayGoaltender\": {\n      \"PlayerID\": 2906,\n      \"TeamID\": 2819,\n      \"Team\": \"string\",\n      \"FirstName\": \"string\",\n      \"LastName\": \"string\",\n      \"Jersey\": 3605,\n      \"Confirmed\": false\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc6617f0-a20c-4594-acb9-786fc21c1b2d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "projections",
+                    ":format",
+                    "StartingGoaltendersByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2021-OCT-12</code>, <code>2021-DEC-09</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 1692,\n  \"Code\": 3610,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc313cdc-d0ca-4ce0-a25b-31bb94d9743e",
+          "name": "Player Details - by Injured",
+          "request": {
+            "name": "Player Details - by Injured",
+            "description": {
+              "content": "This endpoint provides all currently injured NHL players, along with injury details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nhl",
+                "projections",
+                ":format",
+                "InjuredPlayers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43d69c93-2b25-4f5b-ad47-cc2653843e78",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "projections",
+                    ":format",
+                    "InjuredPlayers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"PlayerID\": 6668,\n    \"FirstName\": \"string\",\n    \"LastName\": \"string\",\n    \"Status\": \"string\",\n    \"TeamID\": 5336,\n    \"Team\": \"string\",\n    \"Position\": \"string\",\n    \"Jersey\": 898,\n    \"Catches\": \"string\",\n    \"Shoots\": \"string\",\n    \"Height\": 5441,\n    \"Weight\": 9841,\n    \"BirthDate\": \"string\",\n    \"BirthCity\": \"string\",\n    \"BirthState\": \"string\",\n    \"PhotoUrl\": \"string\",\n    \"SportRadarPlayerID\": \"string\",\n    \"RotoworldPlayerID\": 5274,\n    \"RotoWirePlayerID\": 4104,\n    \"FantasyAlarmPlayerID\": 8204,\n    \"StatsPlayerID\": 2715,\n    \"SportsDirectPlayerID\": 6086,\n    \"XmlTeamPlayerID\": 2081,\n    \"InjuryStatus\": \"string\",\n    \"InjuryBodyPart\": \"string\",\n    \"InjuryStartDate\": \"string\",\n    \"InjuryNotes\": \"string\",\n    \"FanDuelPlayerID\": 2420,\n    \"DraftKingsPlayerID\": 7966,\n    \"YahooPlayerID\": 1175,\n    \"FanDuelName\": \"string\",\n    \"DraftKingsName\": \"string\",\n    \"YahooName\": \"string\",\n    \"DepthChartPosition\": \"string\",\n    \"DepthChartOrder\": 10,\n    \"GlobalTeamID\": 7527,\n    \"FantasyDraftName\": \"string\",\n    \"FantasyDraftPlayerID\": 2933,\n    \"UsaTodayPlayerID\": 5501,\n    \"UsaTodayHeadshotUrl\": \"string\",\n    \"UsaTodayHeadshotNoBackgroundUrl\": \"string\",\n    \"UsaTodayHeadshotUpdated\": \"string\",\n    \"UsaTodayHeadshotNoBackgroundUpdated\": \"string\"\n  },\n  {\n    \"PlayerID\": 9391,\n    \"FirstName\": \"string\",\n    \"LastName\": \"string\",\n    \"Status\": \"string\",\n    \"TeamID\": 3740,\n    \"Team\": \"string\",\n    \"Position\": \"string\",\n    \"Jersey\": 828,\n    \"Catches\": \"string\",\n    \"Shoots\": \"string\",\n    \"Height\": 804,\n    \"Weight\": 9963,\n    \"BirthDate\": \"string\",\n    \"BirthCity\": \"string\",\n    \"BirthState\": \"string\",\n    \"PhotoUrl\": \"string\",\n    \"SportRadarPlayerID\": \"string\",\n    \"RotoworldPlayerID\": 3556,\n    \"RotoWirePlayerID\": 8767,\n    \"FantasyAlarmPlayerID\": 1562,\n    \"StatsPlayerID\": 4359,\n    \"SportsDirectPlayerID\": 5424,\n    \"XmlTeamPlayerID\": 1234,\n    \"InjuryStatus\": \"string\",\n    \"InjuryBodyPart\": \"string\",\n    \"InjuryStartDate\": \"string\",\n    \"InjuryNotes\": \"string\",\n    \"FanDuelPlayerID\": 2352,\n    \"DraftKingsPlayerID\": 1402,\n    \"YahooPlayerID\": 2120,\n    \"FanDuelName\": \"string\",\n    \"DraftKingsName\": \"string\",\n    \"YahooName\": \"string\",\n    \"DepthChartPosition\": \"string\",\n    \"DepthChartOrder\": 1825,\n    \"GlobalTeamID\": 6202,\n    \"FantasyDraftName\": \"string\",\n    \"FantasyDraftPlayerID\": 9613,\n    \"UsaTodayPlayerID\": 7555,\n    \"UsaTodayHeadshotUrl\": \"string\",\n    \"UsaTodayHeadshotNoBackgroundUrl\": \"string\",\n    \"UsaTodayHeadshotUpdated\": \"string\",\n    \"UsaTodayHeadshotNoBackgroundUpdated\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5e97aca-cc96-4449-9a12-47bf1d483aa3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "projections",
+                    ":format",
+                    "InjuredPlayers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 1692,\n  \"Code\": 3610,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sportsdata.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5ecb78c5-4278-4009-bceb-8cefa347a098",
+    "name": "MLB MLB v3 Headshots NHL v3 Projections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "MLB API - OpenAPI 3.1 Specification",
+      "type": "text/plain"
+    }
+  }
+}

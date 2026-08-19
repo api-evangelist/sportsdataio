@@ -1,0 +1,616 @@
+{
+  "item": [
+    {
+      "id": "999f29ee-f275-4632-9a26-b2a98ce5caff",
+      "name": "NBA v3 Play-by-Play",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4b5aa4f2-b823-47e4-aa9b-0877f43f769a",
+          "name": "Play By Play [Live & Final]",
+          "request": {
+            "name": "Play By Play [Live & Final]",
+            "description": {
+              "content": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by game.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nba",
+                "pbp",
+                ":format",
+                "PlayByPlay",
+                ":gameid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gameid",
+                  "description": "(Required) The GameID of an NBA game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code>, <code>16905</code>, etc."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f0cb27d4-48b5-4b35-a7f5-573961ccb976",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nba",
+                    "pbp",
+                    ":format",
+                    "PlayByPlay",
+                    ":gameid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameid",
+                      "description": "(Required) The GameID of an NBA game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code>, <code>16905</code>, etc."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Game\": {\n    \"GameID\": 3937,\n    \"Season\": 1848,\n    \"SeasonType\": 8708,\n    \"Status\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"AwayTeam\": \"string\",\n    \"HomeTeam\": \"string\",\n    \"AwayTeamID\": 5094,\n    \"HomeTeamID\": 8362,\n    \"StadiumID\": 6937,\n    \"Channel\": \"string\",\n    \"Attendance\": 7045,\n    \"AwayTeamScore\": 7878,\n    \"HomeTeamScore\": 9433,\n    \"Updated\": \"string\",\n    \"Quarter\": \"string\",\n    \"TimeRemainingMinutes\": 877,\n    \"TimeRemainingSeconds\": 7331,\n    \"PointSpread\": 9691.310185889472,\n    \"OverUnder\": 9485.53696555296,\n    \"AwayTeamMoneyLine\": 7017,\n    \"HomeTeamMoneyLine\": 2769,\n    \"GlobalGameID\": 553,\n    \"GlobalAwayTeamID\": 2483,\n    \"GlobalHomeTeamID\": 4819,\n    \"PointSpreadAwayTeamMoneyLine\": 2900,\n    \"PointSpreadHomeTeamMoneyLine\": 2549,\n    \"LastPlay\": \"string\",\n    \"IsClosed\": true,\n    \"Quarters\": [\n      {\n        \"QuarterID\": 6412,\n        \"GameID\": 4865,\n        \"Number\": 4990,\n        \"Name\": \"string\",\n        \"AwayScore\": 4513,\n        \"HomeScore\": 7068\n      },\n      {\n        \"QuarterID\": 4132,\n        \"GameID\": 8389,\n        \"Number\": 6150,\n        \"Name\": \"string\",\n        \"AwayScore\": 5020,\n        \"HomeScore\": 6752\n      }\n    ],\n    \"GameEndDateTime\": \"string\",\n    \"HomeRotationNumber\": 6374,\n    \"AwayRotationNumber\": 7412,\n    \"NeutralVenue\": false,\n    \"OverPayout\": 3332,\n    \"UnderPayout\": 8575,\n    \"CrewChiefID\": 753,\n    \"UmpireID\": 7434,\n    \"RefereeID\": 8415,\n    \"AlternateID\": 7510,\n    \"DateTimeUTC\": \"string\",\n    \"SeriesInfo\": {\n      \"HomeTeamWins\": 8675,\n      \"AwayTeamWins\": 233,\n      \"GameNumber\": 1647,\n      \"MaxLength\": 132\n    },\n    \"InseasonTournament\": false,\n    \"RescheduledFromGameID\": 3420,\n    \"RescheduledGameID\": 9345\n  },\n  \"Quarters\": [\n    {\n      \"QuarterID\": 8303,\n      \"GameID\": 5916,\n      \"Number\": 621,\n      \"Name\": \"string\",\n      \"AwayScore\": 4475,\n      \"HomeScore\": 2119\n    },\n    {\n      \"QuarterID\": 8952,\n      \"GameID\": 8852,\n      \"Number\": 353,\n      \"Name\": \"string\",\n      \"AwayScore\": 1480,\n      \"HomeScore\": 1131\n    }\n  ],\n  \"Plays\": [\n    {\n      \"PlayID\": 7366,\n      \"QuarterID\": 2515,\n      \"QuarterName\": \"string\",\n      \"Sequence\": 9129,\n      \"TimeRemainingMinutes\": 6220,\n      \"TimeRemainingSeconds\": 7752,\n      \"AwayTeamScore\": 7275,\n      \"HomeTeamScore\": 5078,\n      \"PotentialPoints\": 2782,\n      \"Points\": 1591,\n      \"ShotMade\": false,\n      \"Category\": \"string\",\n      \"Type\": \"string\",\n      \"TeamID\": 7676,\n      \"Team\": \"string\",\n      \"OpponentID\": 7489,\n      \"Opponent\": \"string\",\n      \"ReceivingTeamID\": 6647,\n      \"ReceivingTeam\": \"string\",\n      \"Description\": \"string\",\n      \"PlayerID\": 2697,\n      \"AssistedByPlayerID\": 2379,\n      \"BlockedByPlayerID\": 9858,\n      \"FastBreak\": false,\n      \"SideOfBasket\": \"string\",\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"SubstituteInPlayerID\": 9052,\n      \"SubstituteOutPlayerID\": 9011,\n      \"AwayPlayerID\": 251,\n      \"HomePlayerID\": 7040,\n      \"ReceivingPlayerID\": 5852,\n      \"BaselineOffsetPercentage\": 3882.5893090378518,\n      \"SidelineOffsetPercentage\": 3070.1230481845796,\n      \"Coordinates\": \"string\",\n      \"StolenByPlayerID\": 8435\n    },\n    {\n      \"PlayID\": 2468,\n      \"QuarterID\": 271,\n      \"QuarterName\": \"string\",\n      \"Sequence\": 6514,\n      \"TimeRemainingMinutes\": 8165,\n      \"TimeRemainingSeconds\": 3594,\n      \"AwayTeamScore\": 7417,\n      \"HomeTeamScore\": 889,\n      \"PotentialPoints\": 5116,\n      \"Points\": 401,\n      \"ShotMade\": false,\n      \"Category\": \"string\",\n      \"Type\": \"string\",\n      \"TeamID\": 6608,\n      \"Team\": \"string\",\n      \"OpponentID\": 986,\n      \"Opponent\": \"string\",\n      \"ReceivingTeamID\": 8463,\n      \"ReceivingTeam\": \"string\",\n      \"Description\": \"string\",\n      \"PlayerID\": 8724,\n      \"AssistedByPlayerID\": 9784,\n      \"BlockedByPlayerID\": 3482,\n      \"FastBreak\": true,\n      \"SideOfBasket\": \"string\",\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"SubstituteInPlayerID\": 8338,\n      \"SubstituteOutPlayerID\": 9382,\n      \"AwayPlayerID\": 662,\n      \"HomePlayerID\": 9276,\n      \"ReceivingPlayerID\": 6243,\n      \"BaselineOffsetPercentage\": 9804.289014845766,\n      \"SidelineOffsetPercentage\": 9481.894117531063,\n      \"Coordinates\": \"string\",\n      \"StolenByPlayerID\": 2651\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03464a11-8849-483b-9f7e-a2921c450486",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nba",
+                    "pbp",
+                    ":format",
+                    "PlayByPlay",
+                    ":gameid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameid",
+                      "description": "(Required) The GameID of an NBA game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code>, <code>16905</code>, etc."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 8412,\n  \"Code\": 757,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "863ba313-0653-4778-8532-45fd34a2cbaa",
+          "name": "Play By Play Delta",
+          "request": {
+            "name": "Play By Play Delta",
+            "description": {
+              "content": "This method returns all play-by-plays for a given season and week, but only returns plays that have changed in the last X minutes as specified in your API call. By definition this is a live endpoint, not final.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nba",
+                "pbp",
+                ":format",
+                "PlayByPlayDelta",
+                ":date",
+                ":minutes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "date",
+                  "description": "(Required) The date of the game(s).\n<br>Examples: <code>2016-OCT-31</code>, <code>2017-JAN-15</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "minutes",
+                  "description": "(Required) Only returns plays that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "901b7e56-79f2-4296-b578-2d659d5e4459",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nba",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayDelta",
+                    ":date",
+                    ":minutes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2016-OCT-31</code>, <code>2017-JAN-15</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "minutes",
+                      "description": "(Required) Only returns plays that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Game\": {\n      \"GameID\": 5816,\n      \"Season\": 9203,\n      \"SeasonType\": 3650,\n      \"Status\": \"string\",\n      \"Day\": \"string\",\n      \"DateTime\": \"string\",\n      \"AwayTeam\": \"string\",\n      \"HomeTeam\": \"string\",\n      \"AwayTeamID\": 1050,\n      \"HomeTeamID\": 9783,\n      \"StadiumID\": 819,\n      \"Channel\": \"string\",\n      \"Attendance\": 92,\n      \"AwayTeamScore\": 1346,\n      \"HomeTeamScore\": 5559,\n      \"Updated\": \"string\",\n      \"Quarter\": \"string\",\n      \"TimeRemainingMinutes\": 6455,\n      \"TimeRemainingSeconds\": 4324,\n      \"PointSpread\": 79.53130984830526,\n      \"OverUnder\": 5780.888259520397,\n      \"AwayTeamMoneyLine\": 1501,\n      \"HomeTeamMoneyLine\": 7522,\n      \"GlobalGameID\": 8678,\n      \"GlobalAwayTeamID\": 4231,\n      \"GlobalHomeTeamID\": 3412,\n      \"PointSpreadAwayTeamMoneyLine\": 1742,\n      \"PointSpreadHomeTeamMoneyLine\": 3593,\n      \"LastPlay\": \"string\",\n      \"IsClosed\": true,\n      \"Quarters\": [\n        {\n          \"QuarterID\": 3087,\n          \"GameID\": 9362,\n          \"Number\": 4602,\n          \"Name\": \"string\",\n          \"AwayScore\": 3543,\n          \"HomeScore\": 8247\n        },\n        {\n          \"QuarterID\": 3402,\n          \"GameID\": 6146,\n          \"Number\": 4945,\n          \"Name\": \"string\",\n          \"AwayScore\": 4887,\n          \"HomeScore\": 927\n        }\n      ],\n      \"GameEndDateTime\": \"string\",\n      \"HomeRotationNumber\": 1529,\n      \"AwayRotationNumber\": 7222,\n      \"NeutralVenue\": true,\n      \"OverPayout\": 5366,\n      \"UnderPayout\": 3440,\n      \"CrewChiefID\": 984,\n      \"UmpireID\": 5803,\n      \"RefereeID\": 6284,\n      \"AlternateID\": 4361,\n      \"DateTimeUTC\": \"string\",\n      \"SeriesInfo\": {\n        \"HomeTeamWins\": 7453,\n        \"AwayTeamWins\": 6476,\n        \"GameNumber\": 7593,\n        \"MaxLength\": 25\n      },\n      \"InseasonTournament\": false,\n      \"RescheduledFromGameID\": 414,\n      \"RescheduledGameID\": 2121\n    },\n    \"Quarters\": [\n      {\n        \"QuarterID\": 5291,\n        \"GameID\": 8843,\n        \"Number\": 4178,\n        \"Name\": \"string\",\n        \"AwayScore\": 8085,\n        \"HomeScore\": 5584\n      },\n      {\n        \"QuarterID\": 7508,\n        \"GameID\": 3779,\n        \"Number\": 2522,\n        \"Name\": \"string\",\n        \"AwayScore\": 5893,\n        \"HomeScore\": 7139\n      }\n    ],\n    \"Plays\": [\n      {\n        \"PlayID\": 9864,\n        \"QuarterID\": 3242,\n        \"QuarterName\": \"string\",\n        \"Sequence\": 5756,\n        \"TimeRemainingMinutes\": 7463,\n        \"TimeRemainingSeconds\": 7214,\n        \"AwayTeamScore\": 4620,\n        \"HomeTeamScore\": 866,\n        \"PotentialPoints\": 9121,\n        \"Points\": 8620,\n        \"ShotMade\": false,\n        \"Category\": \"string\",\n        \"Type\": \"string\",\n        \"TeamID\": 4083,\n        \"Team\": \"string\",\n        \"OpponentID\": 2900,\n        \"Opponent\": \"string\",\n        \"ReceivingTeamID\": 6652,\n        \"ReceivingTeam\": \"string\",\n        \"Description\": \"string\",\n        \"PlayerID\": 6344,\n        \"AssistedByPlayerID\": 303,\n        \"BlockedByPlayerID\": 8400,\n        \"FastBreak\": true,\n        \"SideOfBasket\": \"string\",\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"SubstituteInPlayerID\": 6412,\n        \"SubstituteOutPlayerID\": 2822,\n        \"AwayPlayerID\": 8872,\n        \"HomePlayerID\": 1401,\n        \"ReceivingPlayerID\": 3530,\n        \"BaselineOffsetPercentage\": 1551.0674526725231,\n        \"SidelineOffsetPercentage\": 3148.0517916723215,\n        \"Coordinates\": \"string\",\n        \"StolenByPlayerID\": 2514\n      },\n      {\n        \"PlayID\": 2277,\n        \"QuarterID\": 8305,\n        \"QuarterName\": \"string\",\n        \"Sequence\": 318,\n        \"TimeRemainingMinutes\": 2387,\n        \"TimeRemainingSeconds\": 5197,\n        \"AwayTeamScore\": 6440,\n        \"HomeTeamScore\": 3543,\n        \"PotentialPoints\": 541,\n        \"Points\": 3492,\n        \"ShotMade\": true,\n        \"Category\": \"string\",\n        \"Type\": \"string\",\n        \"TeamID\": 717,\n        \"Team\": \"string\",\n        \"OpponentID\": 7306,\n        \"Opponent\": \"string\",\n        \"ReceivingTeamID\": 5419,\n        \"ReceivingTeam\": \"string\",\n        \"Description\": \"string\",\n        \"PlayerID\": 7594,\n        \"AssistedByPlayerID\": 4654,\n        \"BlockedByPlayerID\": 9820,\n        \"FastBreak\": true,\n        \"SideOfBasket\": \"string\",\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"SubstituteInPlayerID\": 1363,\n        \"SubstituteOutPlayerID\": 6194,\n        \"AwayPlayerID\": 4506,\n        \"HomePlayerID\": 5015,\n        \"ReceivingPlayerID\": 7868,\n        \"BaselineOffsetPercentage\": 9131.986632043247,\n        \"SidelineOffsetPercentage\": 7073.240537645952,\n        \"Coordinates\": \"string\",\n        \"StolenByPlayerID\": 2886\n      }\n    ]\n  },\n  {\n    \"Game\": {\n      \"GameID\": 7674,\n      \"Season\": 3145,\n      \"SeasonType\": 3250,\n      \"Status\": \"string\",\n      \"Day\": \"string\",\n      \"DateTime\": \"string\",\n      \"AwayTeam\": \"string\",\n      \"HomeTeam\": \"string\",\n      \"AwayTeamID\": 7787,\n      \"HomeTeamID\": 7023,\n      \"StadiumID\": 3658,\n      \"Channel\": \"string\",\n      \"Attendance\": 3091,\n      \"AwayTeamScore\": 9165,\n      \"HomeTeamScore\": 1824,\n      \"Updated\": \"string\",\n      \"Quarter\": \"string\",\n      \"TimeRemainingMinutes\": 9789,\n      \"TimeRemainingSeconds\": 6599,\n      \"PointSpread\": 4356.2155797154155,\n      \"OverUnder\": 7316.30365251516,\n      \"AwayTeamMoneyLine\": 9655,\n      \"HomeTeamMoneyLine\": 5327,\n      \"GlobalGameID\": 8153,\n      \"GlobalAwayTeamID\": 5505,\n      \"GlobalHomeTeamID\": 6098,\n      \"PointSpreadAwayTeamMoneyLine\": 3933,\n      \"PointSpreadHomeTeamMoneyLine\": 8881,\n      \"LastPlay\": \"string\",\n      \"IsClosed\": true,\n      \"Quarters\": [\n        {\n          \"QuarterID\": 3364,\n          \"GameID\": 3402,\n          \"Number\": 9943,\n          \"Name\": \"string\",\n          \"AwayScore\": 6472,\n          \"HomeScore\": 8533\n        },\n        {\n          \"QuarterID\": 708,\n          \"GameID\": 3997,\n          \"Number\": 2594,\n          \"Name\": \"string\",\n          \"AwayScore\": 1686,\n          \"HomeScore\": 6274\n        }\n      ],\n      \"GameEndDateTime\": \"string\",\n      \"HomeRotationNumber\": 6279,\n      \"AwayRotationNumber\": 7192,\n      \"NeutralVenue\": true,\n      \"OverPayout\": 1017,\n      \"UnderPayout\": 1782,\n      \"CrewChiefID\": 1763,\n      \"UmpireID\": 9070,\n      \"RefereeID\": 9228,\n      \"AlternateID\": 6793,\n      \"DateTimeUTC\": \"string\",\n      \"SeriesInfo\": {\n        \"HomeTeamWins\": 2618,\n        \"AwayTeamWins\": 997,\n        \"GameNumber\": 6995,\n        \"MaxLength\": 5057\n      },\n      \"InseasonTournament\": true,\n      \"RescheduledFromGameID\": 702,\n      \"RescheduledGameID\": 1018\n    },\n    \"Quarters\": [\n      {\n        \"QuarterID\": 4178,\n        \"GameID\": 5092,\n        \"Number\": 6483,\n        \"Name\": \"string\",\n        \"AwayScore\": 200,\n        \"HomeScore\": 1993\n      },\n      {\n        \"QuarterID\": 7042,\n        \"GameID\": 4894,\n        \"Number\": 5067,\n        \"Name\": \"string\",\n        \"AwayScore\": 5597,\n        \"HomeScore\": 9249\n      }\n    ],\n    \"Plays\": [\n      {\n        \"PlayID\": 833,\n        \"QuarterID\": 5618,\n        \"QuarterName\": \"string\",\n        \"Sequence\": 9985,\n        \"TimeRemainingMinutes\": 878,\n        \"TimeRemainingSeconds\": 409,\n        \"AwayTeamScore\": 9443,\n        \"HomeTeamScore\": 7582,\n        \"PotentialPoints\": 9988,\n        \"Points\": 9885,\n        \"ShotMade\": true,\n        \"Category\": \"string\",\n        \"Type\": \"string\",\n        \"TeamID\": 7160,\n        \"Team\": \"string\",\n        \"OpponentID\": 8713,\n        \"Opponent\": \"string\",\n        \"ReceivingTeamID\": 1288,\n        \"ReceivingTeam\": \"string\",\n        \"Description\": \"string\",\n        \"PlayerID\": 2851,\n        \"AssistedByPlayerID\": 5574,\n        \"BlockedByPlayerID\": 8788,\n        \"FastBreak\": true,\n        \"SideOfBasket\": \"string\",\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"SubstituteInPlayerID\": 4516,\n        \"SubstituteOutPlayerID\": 8052,\n        \"AwayPlayerID\": 831,\n        \"HomePlayerID\": 9065,\n        \"ReceivingPlayerID\": 7912,\n        \"BaselineOffsetPercentage\": 4628.0454536585,\n        \"SidelineOffsetPercentage\": 5260.033891605897,\n        \"Coordinates\": \"string\",\n        \"StolenByPlayerID\": 2629\n      },\n      {\n        \"PlayID\": 8293,\n        \"QuarterID\": 3497,\n        \"QuarterName\": \"string\",\n        \"Sequence\": 8792,\n        \"TimeRemainingMinutes\": 5536,\n        \"TimeRemainingSeconds\": 8066,\n        \"AwayTeamScore\": 21,\n        \"HomeTeamScore\": 6625,\n        \"PotentialPoints\": 5050,\n        \"Points\": 3909,\n        \"ShotMade\": false,\n        \"Category\": \"string\",\n        \"Type\": \"string\",\n        \"TeamID\": 3660,\n        \"Team\": \"string\",\n        \"OpponentID\": 4589,\n        \"Opponent\": \"string\",\n        \"ReceivingTeamID\": 8865,\n        \"ReceivingTeam\": \"string\",\n        \"Description\": \"string\",\n        \"PlayerID\": 6758,\n        \"AssistedByPlayerID\": 2165,\n        \"BlockedByPlayerID\": 545,\n        \"FastBreak\": true,\n        \"SideOfBasket\": \"string\",\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"SubstituteInPlayerID\": 5977,\n        \"SubstituteOutPlayerID\": 9156,\n        \"AwayPlayerID\": 9302,\n        \"HomePlayerID\": 9982,\n        \"ReceivingPlayerID\": 1130,\n        \"BaselineOffsetPercentage\": 1315.231820086361,\n        \"SidelineOffsetPercentage\": 6718.797768431281,\n        \"Coordinates\": \"string\",\n        \"StolenByPlayerID\": 6858\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "053dfa1f-823f-4b19-9d33-ab9ddb265b52",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nba",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayDelta",
+                    ":date",
+                    ":minutes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2016-OCT-31</code>, <code>2017-JAN-15</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "minutes",
+                      "description": "(Required) Only returns plays that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 8412,\n  \"Code\": 757,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d987158d-30dd-482a-93c3-69c983a5740d",
+          "name": "Play By Play [Final]",
+          "request": {
+            "name": "Play By Play [Final]",
+            "description": {
+              "content": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by game.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nba",
+                "pbp",
+                ":format",
+                "PlayByPlayFinal",
+                ":gameid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gameid",
+                  "description": "(Required) The GameID of an NBA game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code>, <code>16905</code>, etc."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31f8538b-f022-4d41-aca7-031eb4493066",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nba",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayFinal",
+                    ":gameid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameid",
+                      "description": "(Required) The GameID of an NBA game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code>, <code>16905</code>, etc."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Game\": {\n    \"GameID\": 3937,\n    \"Season\": 1848,\n    \"SeasonType\": 8708,\n    \"Status\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"AwayTeam\": \"string\",\n    \"HomeTeam\": \"string\",\n    \"AwayTeamID\": 5094,\n    \"HomeTeamID\": 8362,\n    \"StadiumID\": 6937,\n    \"Channel\": \"string\",\n    \"Attendance\": 7045,\n    \"AwayTeamScore\": 7878,\n    \"HomeTeamScore\": 9433,\n    \"Updated\": \"string\",\n    \"Quarter\": \"string\",\n    \"TimeRemainingMinutes\": 877,\n    \"TimeRemainingSeconds\": 7331,\n    \"PointSpread\": 9691.310185889472,\n    \"OverUnder\": 9485.53696555296,\n    \"AwayTeamMoneyLine\": 7017,\n    \"HomeTeamMoneyLine\": 2769,\n    \"GlobalGameID\": 553,\n    \"GlobalAwayTeamID\": 2483,\n    \"GlobalHomeTeamID\": 4819,\n    \"PointSpreadAwayTeamMoneyLine\": 2900,\n    \"PointSpreadHomeTeamMoneyLine\": 2549,\n    \"LastPlay\": \"string\",\n    \"IsClosed\": true,\n    \"Quarters\": [\n      {\n        \"QuarterID\": 6412,\n        \"GameID\": 4865,\n        \"Number\": 4990,\n        \"Name\": \"string\",\n        \"AwayScore\": 4513,\n        \"HomeScore\": 7068\n      },\n      {\n        \"QuarterID\": 4132,\n        \"GameID\": 8389,\n        \"Number\": 6150,\n        \"Name\": \"string\",\n        \"AwayScore\": 5020,\n        \"HomeScore\": 6752\n      }\n    ],\n    \"GameEndDateTime\": \"string\",\n    \"HomeRotationNumber\": 6374,\n    \"AwayRotationNumber\": 7412,\n    \"NeutralVenue\": false,\n    \"OverPayout\": 3332,\n    \"UnderPayout\": 8575,\n    \"CrewChiefID\": 753,\n    \"UmpireID\": 7434,\n    \"RefereeID\": 8415,\n    \"AlternateID\": 7510,\n    \"DateTimeUTC\": \"string\",\n    \"SeriesInfo\": {\n      \"HomeTeamWins\": 8675,\n      \"AwayTeamWins\": 233,\n      \"GameNumber\": 1647,\n      \"MaxLength\": 132\n    },\n    \"InseasonTournament\": false,\n    \"RescheduledFromGameID\": 3420,\n    \"RescheduledGameID\": 9345\n  },\n  \"Quarters\": [\n    {\n      \"QuarterID\": 8303,\n      \"GameID\": 5916,\n      \"Number\": 621,\n      \"Name\": \"string\",\n      \"AwayScore\": 4475,\n      \"HomeScore\": 2119\n    },\n    {\n      \"QuarterID\": 8952,\n      \"GameID\": 8852,\n      \"Number\": 353,\n      \"Name\": \"string\",\n      \"AwayScore\": 1480,\n      \"HomeScore\": 1131\n    }\n  ],\n  \"Plays\": [\n    {\n      \"PlayID\": 7366,\n      \"QuarterID\": 2515,\n      \"QuarterName\": \"string\",\n      \"Sequence\": 9129,\n      \"TimeRemainingMinutes\": 6220,\n      \"TimeRemainingSeconds\": 7752,\n      \"AwayTeamScore\": 7275,\n      \"HomeTeamScore\": 5078,\n      \"PotentialPoints\": 2782,\n      \"Points\": 1591,\n      \"ShotMade\": false,\n      \"Category\": \"string\",\n      \"Type\": \"string\",\n      \"TeamID\": 7676,\n      \"Team\": \"string\",\n      \"OpponentID\": 7489,\n      \"Opponent\": \"string\",\n      \"ReceivingTeamID\": 6647,\n      \"ReceivingTeam\": \"string\",\n      \"Description\": \"string\",\n      \"PlayerID\": 2697,\n      \"AssistedByPlayerID\": 2379,\n      \"BlockedByPlayerID\": 9858,\n      \"FastBreak\": false,\n      \"SideOfBasket\": \"string\",\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"SubstituteInPlayerID\": 9052,\n      \"SubstituteOutPlayerID\": 9011,\n      \"AwayPlayerID\": 251,\n      \"HomePlayerID\": 7040,\n      \"ReceivingPlayerID\": 5852,\n      \"BaselineOffsetPercentage\": 3882.5893090378518,\n      \"SidelineOffsetPercentage\": 3070.1230481845796,\n      \"Coordinates\": \"string\",\n      \"StolenByPlayerID\": 8435\n    },\n    {\n      \"PlayID\": 2468,\n      \"QuarterID\": 271,\n      \"QuarterName\": \"string\",\n      \"Sequence\": 6514,\n      \"TimeRemainingMinutes\": 8165,\n      \"TimeRemainingSeconds\": 3594,\n      \"AwayTeamScore\": 7417,\n      \"HomeTeamScore\": 889,\n      \"PotentialPoints\": 5116,\n      \"Points\": 401,\n      \"ShotMade\": false,\n      \"Category\": \"string\",\n      \"Type\": \"string\",\n      \"TeamID\": 6608,\n      \"Team\": \"string\",\n      \"OpponentID\": 986,\n      \"Opponent\": \"string\",\n      \"ReceivingTeamID\": 8463,\n      \"ReceivingTeam\": \"string\",\n      \"Description\": \"string\",\n      \"PlayerID\": 8724,\n      \"AssistedByPlayerID\": 9784,\n      \"BlockedByPlayerID\": 3482,\n      \"FastBreak\": true,\n      \"SideOfBasket\": \"string\",\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"SubstituteInPlayerID\": 8338,\n      \"SubstituteOutPlayerID\": 9382,\n      \"AwayPlayerID\": 662,\n      \"HomePlayerID\": 9276,\n      \"ReceivingPlayerID\": 6243,\n      \"BaselineOffsetPercentage\": 9804.289014845766,\n      \"SidelineOffsetPercentage\": 9481.894117531063,\n      \"Coordinates\": \"string\",\n      \"StolenByPlayerID\": 2651\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50f6e20e-c428-4114-9426-48d631c6f0f9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nba",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayFinal",
+                    ":gameid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameid",
+                      "description": "(Required) The GameID of an NBA game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code>, <code>16905</code>, etc."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 8412,\n  \"Code\": 757,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sportsdata.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "90026415-4eb9-4cdb-ac53-3bd8987f2bbe",
+    "name": "MLB MLB v3 Headshots NBA v3 Play-by-Play API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "MLB API - OpenAPI 3.1 Specification",
+      "type": "text/plain"
+    }
+  }
+}

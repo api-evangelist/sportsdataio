@@ -1,0 +1,138 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MLB MLB v3 Headshots Soccer v4 Projections API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Soccer v4 Projections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Projected Player Game Stats - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/projections/:format/PlayerGameProjectionStatsByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+              }
+            ]
+          },
+          "docs": "SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, called by date."
+        },
+        {
+          "info": {
+            "name": "DFS Slates - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/projections/:format/DfsSlatesByDate/:competition/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2020-02-18</code>\n"
+              }
+            ]
+          },
+          "docs": "Returns DFS Slates which have not yet started, with their player and salary information."
+        },
+        {
+          "info": {
+            "name": "Upcoming DFS Slates - by Competition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/projections/:format/UpcomingDfsSlatesByCompetition/:competition",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns upcoming DFS Slates which have not yet started, with their player and salary information, by competition."
+        },
+        {
+          "info": {
+            "name": "Player Details - by Injured",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v4/soccer/projections/:format/InjuredPlayers/:competition",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "competition",
+                "value": "",
+                "type": "path",
+                "description": "An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+              }
+            ]
+          },
+          "docs": "This endpoint provides all currently injured soccer players by competition, along with injury details."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

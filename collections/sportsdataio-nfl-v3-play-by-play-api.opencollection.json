@@ -1,0 +1,212 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MLB MLB v3 Headshots NFL v3 Play-by-Play API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NFL v3 Play-by-Play",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Play By Play - by Team [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/pbp/:format/PlayByPlay/:season/:week/:hometeam",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "hometeam",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the home team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by team."
+        },
+        {
+          "info": {
+            "name": "Play By Play Simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/pbp/:format/SimulatedPlayByPlay/:numberofplays",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "numberofplays",
+                "value": "",
+                "type": "path",
+                "description": "The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>150</code>, <code>200</code>, etc."
+              }
+            ]
+          },
+          "docs": "Gets simulated live play-by-play of NFL games, covering the Conference Championship games on January 21, 2018."
+        },
+        {
+          "info": {
+            "name": "Play By Play Delta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/pbp/:format/PlayByPlayDelta/:season/:week/:minutes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "minutes",
+                "value": "",
+                "type": "path",
+                "description": "Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:<br>\n          <code>1</code> or <code>2</code>.\n        "
+              }
+            ]
+          },
+          "docs": "This method returns all play-by-plays for a given season and week, but only returnsplays that have changed in the last X minutes as specified in your API call. by definition this is a live endpoint, not final."
+        },
+        {
+          "info": {
+            "name": "Play By Play [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/pbp/:format/PlayByPlayFinal/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+              }
+            ]
+          },
+          "docs": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by team."
+        },
+        {
+          "info": {
+            "name": "Play By Play [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/pbp/:format/PlayByPlay/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+              }
+            ]
+          },
+          "docs": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by game."
+        },
+        {
+          "info": {
+            "name": "Play By Play - by Team [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/pbp/:format/PlayByPlayFinal/:season/:week/:hometeam",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "hometeam",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the home team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by team."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

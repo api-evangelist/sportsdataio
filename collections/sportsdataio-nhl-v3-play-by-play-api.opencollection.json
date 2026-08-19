@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MLB MLB v3 Headshots NHL v3 Play-by-Play API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NHL v3 Play-by-Play",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Play By Play [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/pbp/:format/PlayByPlay/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+              }
+            ]
+          },
+          "docs": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by game."
+        },
+        {
+          "info": {
+            "name": "Play By Play Delta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/pbp/:format/PlayByPlayDelta/:date/:minutes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>."
+              },
+              {
+                "name": "minutes",
+                "value": "",
+                "type": "path",
+                "description": "Only returns plays that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
+              }
+            ]
+          },
+          "docs": "This method returns all play-by-plays for a given season and week, but only returns plays that have changed in the last X minutes as specified in your API call. By definition this is a live endpoint, not final."
+        },
+        {
+          "info": {
+            "name": "Play By Play [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/pbp/:format/PlayByPlayFinal/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+              }
+            ]
+          },
+          "docs": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by game."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

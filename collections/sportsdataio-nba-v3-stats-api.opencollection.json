@@ -1,0 +1,400 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MLB MLB v3 Headshots NBA v3 Stats API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NBA v3 Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Box Score [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/BoxScore/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an NBA game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code>, <code>16905</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered live during the game, called per individual game."
+        },
+        {
+          "info": {
+            "name": "Box Scores - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/BoxScores/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered live during the games, called for all games on a given date."
+        },
+        {
+          "info": {
+            "name": "Box Scores Delta - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/BoxScoresDelta/:date/:minutes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>."
+              },
+              {
+                "name": "minutes",
+                "value": "",
+                "type": "path",
+                "description": "Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n<code>1</code> or <code>2</code>."
+              }
+            ]
+          },
+          "docs": "This method returns all box scores for a given date, but only returns player stats that have changed in the last X minutes as specified in your API call. By definition this is a live endpoint, not final."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats - by Date [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/PlayerGameStatsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players across a given date, updated live as the game takes place."
+        },
+        {
+          "info": {
+            "name": "Player Season Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/PlayerSeasonStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2015</code>, <code>2016</code>."
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for all players for a given season."
+        },
+        {
+          "info": {
+            "name": "Player Season Stats - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/PlayerSeasonStatsByTeam/:season/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2015</code>, <code>2016</code>.\n"
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "The abbreviation of the requested team.\n<br>Examples: <code>MIA</code>, <code>PHI</code>."
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for a given team's players in a given season."
+        },
+        {
+          "info": {
+            "name": "Team Stats Allowed - by Position",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/TeamStatsAllowedByPosition/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2015</code>, <code>2016</code>."
+              }
+            ]
+          },
+          "docs": "For each team, deliveres a season total of statistical records for their opponents' positions (e.g. all field goals made against this team by Centers.)"
+        },
+        {
+          "info": {
+            "name": "All-Stars",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/AllStars/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season.\n<br>Examples: <code>2015</code>, <code>2016</code>."
+              }
+            ]
+          },
+          "docs": "A list of players selected for the All-Star Game for a given season."
+        },
+        {
+          "info": {
+            "name": "Player Game Logs - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/PlayerGameStatsBySeason/:season/:playerid/:numberofgames",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Season to get games from. Example <code>2019POST</code>, <code>2020</code>"
+              },
+              {
+                "name": "playerid",
+                "value": "",
+                "type": "path",
+                "description": "Unique SportsDataIO Player ID.\nExample:<code>20000571</code>."
+              },
+              {
+                "name": "numberofgames",
+                "value": "",
+                "type": "path",
+                "description": "How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code>"
+              }
+            ]
+          },
+          "docs": "Specify a season, a player, and number of games (either an integer or <code>all</code>) to see all of their box score logs. Refreshed after their most recent game is complete."
+        },
+        {
+          "info": {
+            "name": "Team Game Stats - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/TeamGameStatsByDateFinal/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record team-wide (aggregated from all players) for a games on a given date, delivered as each game concludes."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/PlayerGameStatsByDateFinal/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players across all teams' games on a given date after each game has concluded."
+        },
+        {
+          "info": {
+            "name": "Box Score [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/BoxScoreFinal/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an NBA game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code>, <code>16905</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered after the game is complete."
+        },
+        {
+          "info": {
+            "name": "Box Scores - by Date [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/BoxScoresFinal/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified date for each game that took place, down to the team and player stat level, delivered after the game is complete."
+        },
+        {
+          "info": {
+            "name": "Fantasy Points - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nba/stats/:format/FantasyGameStatsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s).\n<br>Examples: <code>2015-JUL-31</code>, <code>2015-SEP-01</code>."
+              }
+            ]
+          },
+          "docs": "A simple list of fantasy points scored for all players who took part in games on a given date."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

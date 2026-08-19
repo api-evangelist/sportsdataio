@@ -1,0 +1,1279 @@
+{
+  "item": [
+    {
+      "id": "0bcac015-3206-47e3-b29e-c97b755caa5b",
+      "name": "NFL v3 Play-by-Play",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53137e3d-d0bc-4c74-b7b9-68e2ed8fd27a",
+          "name": "Play By Play - by Team [Live & Final]",
+          "request": {
+            "name": "Play By Play - by Team [Live & Final]",
+            "description": {
+              "content": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by team.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nfl",
+                "pbp",
+                ":format",
+                "PlayByPlay",
+                ":season",
+                ":week",
+                ":hometeam"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "season",
+                  "description": "(Required) Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "week",
+                  "description": "(Required) Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hometeam",
+                  "description": "(Required) Abbreviation of the home team. Example: <code>WAS</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c48b5373-047f-4236-a673-2c5ed6bc0c70",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nfl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlay",
+                    ":season",
+                    ":week",
+                    ":hometeam"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season",
+                      "description": "(Required) Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "week",
+                      "description": "(Required) Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hometeam",
+                      "description": "(Required) Abbreviation of the home team. Example: <code>WAS</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Score\": {\n    \"GameKey\": \"string\",\n    \"SeasonType\": 9513,\n    \"Season\": 1586,\n    \"Week\": 651,\n    \"Date\": \"string\",\n    \"AwayTeam\": \"string\",\n    \"HomeTeam\": \"string\",\n    \"AwayScore\": 9442,\n    \"HomeScore\": 5905,\n    \"Channel\": \"string\",\n    \"PointSpread\": 3330.418520722186,\n    \"OverUnder\": 2275.4853909131343,\n    \"Quarter\": \"string\",\n    \"TimeRemaining\": \"string\",\n    \"Possession\": \"string\",\n    \"Down\": 2319,\n    \"Distance\": \"string\",\n    \"YardLine\": 6963,\n    \"YardLineTerritory\": \"string\",\n    \"RedZone\": \"string\",\n    \"AwayScoreQuarter1\": 791,\n    \"AwayScoreQuarter2\": 1104,\n    \"AwayScoreQuarter3\": 2102,\n    \"AwayScoreQuarter4\": 7922,\n    \"AwayScoreOvertime\": 1039,\n    \"HomeScoreQuarter1\": 4966,\n    \"HomeScoreQuarter2\": 6374,\n    \"HomeScoreQuarter3\": 4852,\n    \"HomeScoreQuarter4\": 8306,\n    \"HomeScoreOvertime\": 4617,\n    \"HasStarted\": true,\n    \"IsInProgress\": false,\n    \"IsOver\": false,\n    \"Has1stQuarterStarted\": true,\n    \"Has2ndQuarterStarted\": false,\n    \"Has3rdQuarterStarted\": true,\n    \"Has4thQuarterStarted\": false,\n    \"IsOvertime\": true,\n    \"DownAndDistance\": \"string\",\n    \"QuarterDescription\": \"string\",\n    \"StadiumID\": 3845,\n    \"LastUpdated\": \"string\",\n    \"GeoLat\": 189.22037071221644,\n    \"GeoLong\": 4631.842987100101,\n    \"ForecastTempLow\": 930,\n    \"ForecastTempHigh\": 3245,\n    \"ForecastDescription\": \"string\",\n    \"ForecastWindChill\": 6600,\n    \"ForecastWindSpeed\": 286,\n    \"AwayTeamMoneyLine\": 4846,\n    \"HomeTeamMoneyLine\": 6625,\n    \"Canceled\": false,\n    \"Closed\": false,\n    \"LastPlay\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"AwayTeamID\": 7533,\n    \"HomeTeamID\": 7775,\n    \"GlobalGameID\": 6588,\n    \"GlobalAwayTeamID\": 2350,\n    \"GlobalHomeTeamID\": 6227,\n    \"PointSpreadAwayTeamMoneyLine\": 7216,\n    \"PointSpreadHomeTeamMoneyLine\": 8906,\n    \"ScoreID\": 1469,\n    \"StadiumDetails\": {\n      \"StadiumID\": 6624,\n      \"Name\": \"string\",\n      \"City\": \"string\",\n      \"State\": \"string\",\n      \"Country\": \"string\",\n      \"Capacity\": 152,\n      \"PlayingSurface\": \"string\",\n      \"GeoLat\": 4137.346812370963,\n      \"GeoLong\": 2211.3627131298454,\n      \"Type\": \"string\"\n    },\n    \"Status\": \"string\",\n    \"GameEndDateTime\": \"string\",\n    \"HomeRotationNumber\": 4189,\n    \"AwayRotationNumber\": 9214,\n    \"NeutralVenue\": true,\n    \"RefereeID\": 2366,\n    \"OverPayout\": 2238,\n    \"UnderPayout\": 4060,\n    \"HomeTimeouts\": 7001,\n    \"AwayTimeouts\": 22,\n    \"DateTimeUTC\": \"string\",\n    \"Attendance\": 3654,\n    \"IsClosed\": false\n  },\n  \"Quarters\": [\n    {\n      \"QuarterID\": 7462,\n      \"ScoreID\": 4995,\n      \"Number\": 1893,\n      \"Name\": \"string\",\n      \"Description\": \"string\",\n      \"AwayTeamScore\": 7455,\n      \"HomeTeamScore\": 3711,\n      \"Updated\": \"string\",\n      \"Created\": \"string\"\n    },\n    {\n      \"QuarterID\": 5185,\n      \"ScoreID\": 8917,\n      \"Number\": 3621,\n      \"Name\": \"string\",\n      \"Description\": \"string\",\n      \"AwayTeamScore\": 5850,\n      \"HomeTeamScore\": 8835,\n      \"Updated\": \"string\",\n      \"Created\": \"string\"\n    }\n  ],\n  \"Plays\": [\n    {\n      \"PlayID\": 7811,\n      \"QuarterID\": 9386,\n      \"QuarterName\": \"string\",\n      \"Sequence\": 2462,\n      \"TimeRemainingMinutes\": 3155,\n      \"TimeRemainingSeconds\": 8605,\n      \"PlayTime\": \"string\",\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"Team\": \"string\",\n      \"Opponent\": \"string\",\n      \"Down\": 8806,\n      \"Distance\": 3172,\n      \"YardLine\": 4302,\n      \"YardLineTerritory\": \"string\",\n      \"YardsToEndZone\": 3318,\n      \"Type\": \"string\",\n      \"YardsGained\": 1366,\n      \"Description\": \"string\",\n      \"IsScoringPlay\": false,\n      \"ScoringPlay\": {\n        \"GameKey\": \"string\",\n        \"SeasonType\": 5213,\n        \"ScoringPlayID\": 7650,\n        \"Season\": 1877,\n        \"Week\": 1383,\n        \"AwayTeam\": \"string\",\n        \"HomeTeam\": \"string\",\n        \"Date\": \"string\",\n        \"Sequence\": 4569,\n        \"Team\": \"string\",\n        \"Quarter\": \"string\",\n        \"TimeRemaining\": \"string\",\n        \"PlayDescription\": \"string\",\n        \"AwayScore\": 5509,\n        \"HomeScore\": 8312,\n        \"ScoreID\": 8928\n      },\n      \"PlayStats\": [\n        {\n          \"PlayStatID\": 530,\n          \"PlayID\": 9351,\n          \"Sequence\": 86,\n          \"PlayerID\": 3404,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 7645,\n          \"PassingCompletions\": 6320,\n          \"PassingYards\": 5574,\n          \"PassingTouchdowns\": 3402,\n          \"PassingInterceptions\": 2723,\n          \"PassingSacks\": 2628,\n          \"PassingSackYards\": 2814,\n          \"RushingAttempts\": 570,\n          \"RushingYards\": 5358,\n          \"RushingTouchdowns\": 7001,\n          \"ReceivingTargets\": 4188,\n          \"Receptions\": 4863,\n          \"ReceivingYards\": 6466,\n          \"ReceivingTouchdowns\": 4534,\n          \"Fumbles\": 6050,\n          \"FumblesLost\": 594,\n          \"TwoPointConversionAttempts\": 3212,\n          \"TwoPointConversionPasses\": 2625,\n          \"TwoPointConversionRuns\": 8359,\n          \"TwoPointConversionReceptions\": 4395,\n          \"TwoPointConversionReturns\": 7194,\n          \"SoloTackles\": 3918,\n          \"AssistedTackles\": 1278,\n          \"TacklesForLoss\": 9968,\n          \"Sacks\": 3201.4555104454703,\n          \"SackYards\": 7063.68087193951,\n          \"PassesDefended\": 5519,\n          \"Safeties\": 9348,\n          \"FumblesForced\": 7537,\n          \"FumblesRecovered\": 7388,\n          \"FumbleReturnYards\": 9095,\n          \"FumbleReturnTouchdowns\": 6269,\n          \"Interceptions\": 8456,\n          \"InterceptionReturnYards\": 9266,\n          \"InterceptionReturnTouchdowns\": 2817,\n          \"PuntReturns\": 1390,\n          \"PuntReturnYards\": 6661,\n          \"PuntReturnTouchdowns\": 1417,\n          \"KickReturns\": 5267,\n          \"KickReturnYards\": 9059,\n          \"KickReturnTouchdowns\": 9438,\n          \"BlockedKicks\": 5959,\n          \"BlockedKickReturns\": 6540,\n          \"BlockedKickReturnYards\": 3641,\n          \"BlockedKickReturnTouchdowns\": 9453,\n          \"FieldGoalReturns\": 532,\n          \"FieldGoalReturnYards\": 3762,\n          \"FieldGoalReturnTouchdowns\": 6335,\n          \"Kickoffs\": 6509,\n          \"KickoffYards\": 9201,\n          \"KickoffTouchbacks\": 820,\n          \"Punts\": 3235,\n          \"PuntYards\": 9335,\n          \"PuntTouchbacks\": 6798,\n          \"PuntsHadBlocked\": 4727,\n          \"FieldGoalsAttempted\": 1699,\n          \"FieldGoalsMade\": 8857,\n          \"FieldGoalsYards\": 1417,\n          \"FieldGoalsHadBlocked\": 8652,\n          \"ExtraPointsAttempted\": 8000,\n          \"ExtraPointsMade\": 4094,\n          \"ExtraPointsHadBlocked\": 1584,\n          \"Penalties\": 7078,\n          \"PenaltyYards\": 7251\n        },\n        {\n          \"PlayStatID\": 1587,\n          \"PlayID\": 2821,\n          \"Sequence\": 7193,\n          \"PlayerID\": 9224,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 8851,\n          \"PassingCompletions\": 8535,\n          \"PassingYards\": 7954,\n          \"PassingTouchdowns\": 454,\n          \"PassingInterceptions\": 2484,\n          \"PassingSacks\": 6433,\n          \"PassingSackYards\": 4264,\n          \"RushingAttempts\": 7380,\n          \"RushingYards\": 5532,\n          \"RushingTouchdowns\": 9729,\n          \"ReceivingTargets\": 1700,\n          \"Receptions\": 8080,\n          \"ReceivingYards\": 2606,\n          \"ReceivingTouchdowns\": 7451,\n          \"Fumbles\": 2907,\n          \"FumblesLost\": 2649,\n          \"TwoPointConversionAttempts\": 6203,\n          \"TwoPointConversionPasses\": 4090,\n          \"TwoPointConversionRuns\": 7568,\n          \"TwoPointConversionReceptions\": 432,\n          \"TwoPointConversionReturns\": 2400,\n          \"SoloTackles\": 2998,\n          \"AssistedTackles\": 2913,\n          \"TacklesForLoss\": 9764,\n          \"Sacks\": 3775.8433870912245,\n          \"SackYards\": 800.3787727174549,\n          \"PassesDefended\": 3091,\n          \"Safeties\": 2041,\n          \"FumblesForced\": 6929,\n          \"FumblesRecovered\": 1637,\n          \"FumbleReturnYards\": 4950,\n          \"FumbleReturnTouchdowns\": 2221,\n          \"Interceptions\": 7523,\n          \"InterceptionReturnYards\": 4396,\n          \"InterceptionReturnTouchdowns\": 6877,\n          \"PuntReturns\": 489,\n          \"PuntReturnYards\": 1343,\n          \"PuntReturnTouchdowns\": 569,\n          \"KickReturns\": 2507,\n          \"KickReturnYards\": 5149,\n          \"KickReturnTouchdowns\": 6980,\n          \"BlockedKicks\": 4280,\n          \"BlockedKickReturns\": 7994,\n          \"BlockedKickReturnYards\": 5645,\n          \"BlockedKickReturnTouchdowns\": 5737,\n          \"FieldGoalReturns\": 5301,\n          \"FieldGoalReturnYards\": 3846,\n          \"FieldGoalReturnTouchdowns\": 4064,\n          \"Kickoffs\": 4594,\n          \"KickoffYards\": 6282,\n          \"KickoffTouchbacks\": 3428,\n          \"Punts\": 604,\n          \"PuntYards\": 9896,\n          \"PuntTouchbacks\": 1061,\n          \"PuntsHadBlocked\": 5842,\n          \"FieldGoalsAttempted\": 4885,\n          \"FieldGoalsMade\": 3322,\n          \"FieldGoalsYards\": 516,\n          \"FieldGoalsHadBlocked\": 1386,\n          \"ExtraPointsAttempted\": 9238,\n          \"ExtraPointsMade\": 4409,\n          \"ExtraPointsHadBlocked\": 8369,\n          \"Penalties\": 5776,\n          \"PenaltyYards\": 4855\n        }\n      ]\n    },\n    {\n      \"PlayID\": 9893,\n      \"QuarterID\": 4413,\n      \"QuarterName\": \"string\",\n      \"Sequence\": 8826,\n      \"TimeRemainingMinutes\": 1438,\n      \"TimeRemainingSeconds\": 2620,\n      \"PlayTime\": \"string\",\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"Team\": \"string\",\n      \"Opponent\": \"string\",\n      \"Down\": 4445,\n      \"Distance\": 3933,\n      \"YardLine\": 4288,\n      \"YardLineTerritory\": \"string\",\n      \"YardsToEndZone\": 9219,\n      \"Type\": \"string\",\n      \"YardsGained\": 9662,\n      \"Description\": \"string\",\n      \"IsScoringPlay\": false,\n      \"ScoringPlay\": {\n        \"GameKey\": \"string\",\n        \"SeasonType\": 3227,\n        \"ScoringPlayID\": 4811,\n        \"Season\": 265,\n        \"Week\": 1336,\n        \"AwayTeam\": \"string\",\n        \"HomeTeam\": \"string\",\n        \"Date\": \"string\",\n        \"Sequence\": 2350,\n        \"Team\": \"string\",\n        \"Quarter\": \"string\",\n        \"TimeRemaining\": \"string\",\n        \"PlayDescription\": \"string\",\n        \"AwayScore\": 8708,\n        \"HomeScore\": 7559,\n        \"ScoreID\": 8564\n      },\n      \"PlayStats\": [\n        {\n          \"PlayStatID\": 5463,\n          \"PlayID\": 274,\n          \"Sequence\": 5437,\n          \"PlayerID\": 8347,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 4311,\n          \"PassingCompletions\": 3439,\n          \"PassingYards\": 2035,\n          \"PassingTouchdowns\": 2769,\n          \"PassingInterceptions\": 1932,\n          \"PassingSacks\": 2446,\n          \"PassingSackYards\": 2072,\n          \"RushingAttempts\": 4915,\n          \"RushingYards\": 9185,\n          \"RushingTouchdowns\": 5418,\n          \"ReceivingTargets\": 7973,\n          \"Receptions\": 4694,\n          \"ReceivingYards\": 7990,\n          \"ReceivingTouchdowns\": 4579,\n          \"Fumbles\": 8909,\n          \"FumblesLost\": 295,\n          \"TwoPointConversionAttempts\": 8929,\n          \"TwoPointConversionPasses\": 8706,\n          \"TwoPointConversionRuns\": 9722,\n          \"TwoPointConversionReceptions\": 2452,\n          \"TwoPointConversionReturns\": 7121,\n          \"SoloTackles\": 3223,\n          \"AssistedTackles\": 537,\n          \"TacklesForLoss\": 1063,\n          \"Sacks\": 1446.2432878974807,\n          \"SackYards\": 8008.50372590977,\n          \"PassesDefended\": 9592,\n          \"Safeties\": 5514,\n          \"FumblesForced\": 5010,\n          \"FumblesRecovered\": 399,\n          \"FumbleReturnYards\": 854,\n          \"FumbleReturnTouchdowns\": 2759,\n          \"Interceptions\": 8136,\n          \"InterceptionReturnYards\": 5205,\n          \"InterceptionReturnTouchdowns\": 5147,\n          \"PuntReturns\": 2189,\n          \"PuntReturnYards\": 621,\n          \"PuntReturnTouchdowns\": 1749,\n          \"KickReturns\": 8299,\n          \"KickReturnYards\": 9661,\n          \"KickReturnTouchdowns\": 7634,\n          \"BlockedKicks\": 2098,\n          \"BlockedKickReturns\": 4587,\n          \"BlockedKickReturnYards\": 9786,\n          \"BlockedKickReturnTouchdowns\": 197,\n          \"FieldGoalReturns\": 8688,\n          \"FieldGoalReturnYards\": 302,\n          \"FieldGoalReturnTouchdowns\": 3861,\n          \"Kickoffs\": 6162,\n          \"KickoffYards\": 8012,\n          \"KickoffTouchbacks\": 6014,\n          \"Punts\": 9533,\n          \"PuntYards\": 8040,\n          \"PuntTouchbacks\": 2126,\n          \"PuntsHadBlocked\": 2340,\n          \"FieldGoalsAttempted\": 8131,\n          \"FieldGoalsMade\": 6670,\n          \"FieldGoalsYards\": 2374,\n          \"FieldGoalsHadBlocked\": 1555,\n          \"ExtraPointsAttempted\": 2524,\n          \"ExtraPointsMade\": 6921,\n          \"ExtraPointsHadBlocked\": 2486,\n          \"Penalties\": 4281,\n          \"PenaltyYards\": 9704\n        },\n        {\n          \"PlayStatID\": 3160,\n          \"PlayID\": 7839,\n          \"Sequence\": 2192,\n          \"PlayerID\": 8927,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 8652,\n          \"PassingCompletions\": 5893,\n          \"PassingYards\": 2733,\n          \"PassingTouchdowns\": 8386,\n          \"PassingInterceptions\": 8339,\n          \"PassingSacks\": 2407,\n          \"PassingSackYards\": 2745,\n          \"RushingAttempts\": 5281,\n          \"RushingYards\": 3814,\n          \"RushingTouchdowns\": 328,\n          \"ReceivingTargets\": 3692,\n          \"Receptions\": 5969,\n          \"ReceivingYards\": 9159,\n          \"ReceivingTouchdowns\": 6383,\n          \"Fumbles\": 9140,\n          \"FumblesLost\": 932,\n          \"TwoPointConversionAttempts\": 9954,\n          \"TwoPointConversionPasses\": 1461,\n          \"TwoPointConversionRuns\": 8163,\n          \"TwoPointConversionReceptions\": 1924,\n          \"TwoPointConversionReturns\": 7338,\n          \"SoloTackles\": 4046,\n          \"AssistedTackles\": 6307,\n          \"TacklesForLoss\": 3382,\n          \"Sacks\": 6901.0637482122265,\n          \"SackYards\": 6647.857951923715,\n          \"PassesDefended\": 8072,\n          \"Safeties\": 1400,\n          \"FumblesForced\": 302,\n          \"FumblesRecovered\": 225,\n          \"FumbleReturnYards\": 6721,\n          \"FumbleReturnTouchdowns\": 1430,\n          \"Interceptions\": 2695,\n          \"InterceptionReturnYards\": 2148,\n          \"InterceptionReturnTouchdowns\": 294,\n          \"PuntReturns\": 8015,\n          \"PuntReturnYards\": 5252,\n          \"PuntReturnTouchdowns\": 4692,\n          \"KickReturns\": 3978,\n          \"KickReturnYards\": 5201,\n          \"KickReturnTouchdowns\": 4637,\n          \"BlockedKicks\": 3874,\n          \"BlockedKickReturns\": 2112,\n          \"BlockedKickReturnYards\": 3859,\n          \"BlockedKickReturnTouchdowns\": 588,\n          \"FieldGoalReturns\": 319,\n          \"FieldGoalReturnYards\": 5099,\n          \"FieldGoalReturnTouchdowns\": 7937,\n          \"Kickoffs\": 1837,\n          \"KickoffYards\": 1648,\n          \"KickoffTouchbacks\": 1234,\n          \"Punts\": 8877,\n          \"PuntYards\": 4720,\n          \"PuntTouchbacks\": 8651,\n          \"PuntsHadBlocked\": 6829,\n          \"FieldGoalsAttempted\": 7109,\n          \"FieldGoalsMade\": 8345,\n          \"FieldGoalsYards\": 1678,\n          \"FieldGoalsHadBlocked\": 6850,\n          \"ExtraPointsAttempted\": 3125,\n          \"ExtraPointsMade\": 463,\n          \"ExtraPointsHadBlocked\": 6649,\n          \"Penalties\": 5844,\n          \"PenaltyYards\": 9890\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e9a1775-f163-40b2-b9ef-c8b7f22fd324",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nfl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlay",
+                    ":season",
+                    ":week",
+                    ":hometeam"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season",
+                      "description": "(Required) Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "week",
+                      "description": "(Required) Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hometeam",
+                      "description": "(Required) Abbreviation of the home team. Example: <code>WAS</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 2707,\n  \"Code\": 561,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c998818-3c2b-4dc0-8172-bdb4f819a330",
+          "name": "Play By Play Simulation",
+          "request": {
+            "name": "Play By Play Simulation",
+            "description": {
+              "content": "Gets simulated live play-by-play of NFL games, covering the Conference Championship games on January 21, 2018.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nfl",
+                "pbp",
+                ":format",
+                "SimulatedPlayByPlay",
+                ":numberofplays"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "numberofplays",
+                  "description": "(Required) The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>150</code>, <code>200</code>, etc."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e76df556-ce10-4208-aaf5-a4b7a2c437fb",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nfl",
+                    "pbp",
+                    ":format",
+                    "SimulatedPlayByPlay",
+                    ":numberofplays"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "numberofplays",
+                      "description": "(Required) The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>150</code>, <code>200</code>, etc."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Score\": {\n      \"GameKey\": \"string\",\n      \"SeasonType\": 7847,\n      \"Season\": 5174,\n      \"Week\": 2476,\n      \"Date\": \"string\",\n      \"AwayTeam\": \"string\",\n      \"HomeTeam\": \"string\",\n      \"AwayScore\": 4490,\n      \"HomeScore\": 3190,\n      \"Channel\": \"string\",\n      \"PointSpread\": 5197.206262008731,\n      \"OverUnder\": 6677.752812278604,\n      \"Quarter\": \"string\",\n      \"TimeRemaining\": \"string\",\n      \"Possession\": \"string\",\n      \"Down\": 7870,\n      \"Distance\": \"string\",\n      \"YardLine\": 5228,\n      \"YardLineTerritory\": \"string\",\n      \"RedZone\": \"string\",\n      \"AwayScoreQuarter1\": 2980,\n      \"AwayScoreQuarter2\": 6800,\n      \"AwayScoreQuarter3\": 8619,\n      \"AwayScoreQuarter4\": 5148,\n      \"AwayScoreOvertime\": 6758,\n      \"HomeScoreQuarter1\": 5390,\n      \"HomeScoreQuarter2\": 5734,\n      \"HomeScoreQuarter3\": 7683,\n      \"HomeScoreQuarter4\": 1307,\n      \"HomeScoreOvertime\": 2046,\n      \"HasStarted\": false,\n      \"IsInProgress\": false,\n      \"IsOver\": true,\n      \"Has1stQuarterStarted\": false,\n      \"Has2ndQuarterStarted\": true,\n      \"Has3rdQuarterStarted\": false,\n      \"Has4thQuarterStarted\": false,\n      \"IsOvertime\": true,\n      \"DownAndDistance\": \"string\",\n      \"QuarterDescription\": \"string\",\n      \"StadiumID\": 6791,\n      \"LastUpdated\": \"string\",\n      \"GeoLat\": 4049.4563227061385,\n      \"GeoLong\": 2905.769151022448,\n      \"ForecastTempLow\": 3112,\n      \"ForecastTempHigh\": 2361,\n      \"ForecastDescription\": \"string\",\n      \"ForecastWindChill\": 2640,\n      \"ForecastWindSpeed\": 1996,\n      \"AwayTeamMoneyLine\": 676,\n      \"HomeTeamMoneyLine\": 9275,\n      \"Canceled\": false,\n      \"Closed\": true,\n      \"LastPlay\": \"string\",\n      \"Day\": \"string\",\n      \"DateTime\": \"string\",\n      \"AwayTeamID\": 7639,\n      \"HomeTeamID\": 3369,\n      \"GlobalGameID\": 3468,\n      \"GlobalAwayTeamID\": 7455,\n      \"GlobalHomeTeamID\": 9221,\n      \"PointSpreadAwayTeamMoneyLine\": 1259,\n      \"PointSpreadHomeTeamMoneyLine\": 3299,\n      \"ScoreID\": 6567,\n      \"StadiumDetails\": {\n        \"StadiumID\": 6134,\n        \"Name\": \"string\",\n        \"City\": \"string\",\n        \"State\": \"string\",\n        \"Country\": \"string\",\n        \"Capacity\": 3279,\n        \"PlayingSurface\": \"string\",\n        \"GeoLat\": 6045.28454634133,\n        \"GeoLong\": 7870.0699317892795,\n        \"Type\": \"string\"\n      },\n      \"Status\": \"string\",\n      \"GameEndDateTime\": \"string\",\n      \"HomeRotationNumber\": 1054,\n      \"AwayRotationNumber\": 5316,\n      \"NeutralVenue\": true,\n      \"RefereeID\": 5057,\n      \"OverPayout\": 3113,\n      \"UnderPayout\": 1722,\n      \"HomeTimeouts\": 8731,\n      \"AwayTimeouts\": 3609,\n      \"DateTimeUTC\": \"string\",\n      \"Attendance\": 9097,\n      \"IsClosed\": true\n    },\n    \"Quarters\": [\n      {\n        \"QuarterID\": 9498,\n        \"ScoreID\": 3569,\n        \"Number\": 674,\n        \"Name\": \"string\",\n        \"Description\": \"string\",\n        \"AwayTeamScore\": 9990,\n        \"HomeTeamScore\": 1541,\n        \"Updated\": \"string\",\n        \"Created\": \"string\"\n      },\n      {\n        \"QuarterID\": 3371,\n        \"ScoreID\": 7000,\n        \"Number\": 3575,\n        \"Name\": \"string\",\n        \"Description\": \"string\",\n        \"AwayTeamScore\": 9263,\n        \"HomeTeamScore\": 9324,\n        \"Updated\": \"string\",\n        \"Created\": \"string\"\n      }\n    ],\n    \"Plays\": [\n      {\n        \"PlayID\": 4950,\n        \"QuarterID\": 1301,\n        \"QuarterName\": \"string\",\n        \"Sequence\": 4873,\n        \"TimeRemainingMinutes\": 3500,\n        \"TimeRemainingSeconds\": 3527,\n        \"PlayTime\": \"string\",\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"Team\": \"string\",\n        \"Opponent\": \"string\",\n        \"Down\": 9904,\n        \"Distance\": 9698,\n        \"YardLine\": 3375,\n        \"YardLineTerritory\": \"string\",\n        \"YardsToEndZone\": 3240,\n        \"Type\": \"string\",\n        \"YardsGained\": 1558,\n        \"Description\": \"string\",\n        \"IsScoringPlay\": true,\n        \"ScoringPlay\": {\n          \"GameKey\": \"string\",\n          \"SeasonType\": 2914,\n          \"ScoringPlayID\": 8370,\n          \"Season\": 2556,\n          \"Week\": 9723,\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"Date\": \"string\",\n          \"Sequence\": 1025,\n          \"Team\": \"string\",\n          \"Quarter\": \"string\",\n          \"TimeRemaining\": \"string\",\n          \"PlayDescription\": \"string\",\n          \"AwayScore\": 1589,\n          \"HomeScore\": 2372,\n          \"ScoreID\": 1821\n        },\n        \"PlayStats\": [\n          {\n            \"PlayStatID\": 2866,\n            \"PlayID\": 495,\n            \"Sequence\": 9753,\n            \"PlayerID\": 5673,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 8006,\n            \"PassingCompletions\": 4693,\n            \"PassingYards\": 3004,\n            \"PassingTouchdowns\": 3513,\n            \"PassingInterceptions\": 7357,\n            \"PassingSacks\": 3810,\n            \"PassingSackYards\": 9977,\n            \"RushingAttempts\": 106,\n            \"RushingYards\": 4907,\n            \"RushingTouchdowns\": 9157,\n            \"ReceivingTargets\": 1719,\n            \"Receptions\": 7376,\n            \"ReceivingYards\": 8918,\n            \"ReceivingTouchdowns\": 4909,\n            \"Fumbles\": 4647,\n            \"FumblesLost\": 4521,\n            \"TwoPointConversionAttempts\": 2863,\n            \"TwoPointConversionPasses\": 9114,\n            \"TwoPointConversionRuns\": 7718,\n            \"TwoPointConversionReceptions\": 266,\n            \"TwoPointConversionReturns\": 4402,\n            \"SoloTackles\": 313,\n            \"AssistedTackles\": 9976,\n            \"TacklesForLoss\": 5552,\n            \"Sacks\": 8291.444921697896,\n            \"SackYards\": 2706.4468588541567,\n            \"PassesDefended\": 4006,\n            \"Safeties\": 4929,\n            \"FumblesForced\": 7937,\n            \"FumblesRecovered\": 2448,\n            \"FumbleReturnYards\": 1710,\n            \"FumbleReturnTouchdowns\": 9795,\n            \"Interceptions\": 6319,\n            \"InterceptionReturnYards\": 9762,\n            \"InterceptionReturnTouchdowns\": 9942,\n            \"PuntReturns\": 1174,\n            \"PuntReturnYards\": 5272,\n            \"PuntReturnTouchdowns\": 8235,\n            \"KickReturns\": 5517,\n            \"KickReturnYards\": 3058,\n            \"KickReturnTouchdowns\": 7487,\n            \"BlockedKicks\": 7723,\n            \"BlockedKickReturns\": 1262,\n            \"BlockedKickReturnYards\": 3101,\n            \"BlockedKickReturnTouchdowns\": 7656,\n            \"FieldGoalReturns\": 609,\n            \"FieldGoalReturnYards\": 7709,\n            \"FieldGoalReturnTouchdowns\": 6225,\n            \"Kickoffs\": 21,\n            \"KickoffYards\": 2729,\n            \"KickoffTouchbacks\": 7239,\n            \"Punts\": 6869,\n            \"PuntYards\": 7781,\n            \"PuntTouchbacks\": 4967,\n            \"PuntsHadBlocked\": 1106,\n            \"FieldGoalsAttempted\": 704,\n            \"FieldGoalsMade\": 5092,\n            \"FieldGoalsYards\": 2578,\n            \"FieldGoalsHadBlocked\": 5596,\n            \"ExtraPointsAttempted\": 3581,\n            \"ExtraPointsMade\": 7256,\n            \"ExtraPointsHadBlocked\": 5286,\n            \"Penalties\": 1999,\n            \"PenaltyYards\": 2241\n          },\n          {\n            \"PlayStatID\": 3248,\n            \"PlayID\": 7908,\n            \"Sequence\": 881,\n            \"PlayerID\": 3715,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 7926,\n            \"PassingCompletions\": 7180,\n            \"PassingYards\": 2055,\n            \"PassingTouchdowns\": 8101,\n            \"PassingInterceptions\": 7548,\n            \"PassingSacks\": 6542,\n            \"PassingSackYards\": 7768,\n            \"RushingAttempts\": 5627,\n            \"RushingYards\": 5241,\n            \"RushingTouchdowns\": 7622,\n            \"ReceivingTargets\": 3452,\n            \"Receptions\": 8454,\n            \"ReceivingYards\": 1633,\n            \"ReceivingTouchdowns\": 3464,\n            \"Fumbles\": 5996,\n            \"FumblesLost\": 8641,\n            \"TwoPointConversionAttempts\": 1318,\n            \"TwoPointConversionPasses\": 7947,\n            \"TwoPointConversionRuns\": 6227,\n            \"TwoPointConversionReceptions\": 1668,\n            \"TwoPointConversionReturns\": 4190,\n            \"SoloTackles\": 3690,\n            \"AssistedTackles\": 7070,\n            \"TacklesForLoss\": 2212,\n            \"Sacks\": 4080.8816232286927,\n            \"SackYards\": 5703.793374630573,\n            \"PassesDefended\": 5419,\n            \"Safeties\": 9853,\n            \"FumblesForced\": 7844,\n            \"FumblesRecovered\": 4330,\n            \"FumbleReturnYards\": 7584,\n            \"FumbleReturnTouchdowns\": 5681,\n            \"Interceptions\": 6833,\n            \"InterceptionReturnYards\": 1332,\n            \"InterceptionReturnTouchdowns\": 5881,\n            \"PuntReturns\": 7328,\n            \"PuntReturnYards\": 663,\n            \"PuntReturnTouchdowns\": 3243,\n            \"KickReturns\": 9829,\n            \"KickReturnYards\": 4029,\n            \"KickReturnTouchdowns\": 8038,\n            \"BlockedKicks\": 8529,\n            \"BlockedKickReturns\": 6419,\n            \"BlockedKickReturnYards\": 1774,\n            \"BlockedKickReturnTouchdowns\": 6751,\n            \"FieldGoalReturns\": 5929,\n            \"FieldGoalReturnYards\": 8850,\n            \"FieldGoalReturnTouchdowns\": 3292,\n            \"Kickoffs\": 7241,\n            \"KickoffYards\": 7073,\n            \"KickoffTouchbacks\": 2282,\n            \"Punts\": 4262,\n            \"PuntYards\": 6637,\n            \"PuntTouchbacks\": 32,\n            \"PuntsHadBlocked\": 6652,\n            \"FieldGoalsAttempted\": 4493,\n            \"FieldGoalsMade\": 6329,\n            \"FieldGoalsYards\": 8614,\n            \"FieldGoalsHadBlocked\": 6774,\n            \"ExtraPointsAttempted\": 3440,\n            \"ExtraPointsMade\": 8599,\n            \"ExtraPointsHadBlocked\": 174,\n            \"Penalties\": 4529,\n            \"PenaltyYards\": 7339\n          }\n        ]\n      },\n      {\n        \"PlayID\": 5171,\n        \"QuarterID\": 1330,\n        \"QuarterName\": \"string\",\n        \"Sequence\": 7734,\n        \"TimeRemainingMinutes\": 3573,\n        \"TimeRemainingSeconds\": 7097,\n        \"PlayTime\": \"string\",\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"Team\": \"string\",\n        \"Opponent\": \"string\",\n        \"Down\": 66,\n        \"Distance\": 9184,\n        \"YardLine\": 1557,\n        \"YardLineTerritory\": \"string\",\n        \"YardsToEndZone\": 970,\n        \"Type\": \"string\",\n        \"YardsGained\": 4033,\n        \"Description\": \"string\",\n        \"IsScoringPlay\": false,\n        \"ScoringPlay\": {\n          \"GameKey\": \"string\",\n          \"SeasonType\": 7867,\n          \"ScoringPlayID\": 5987,\n          \"Season\": 9153,\n          \"Week\": 6652,\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"Date\": \"string\",\n          \"Sequence\": 9535,\n          \"Team\": \"string\",\n          \"Quarter\": \"string\",\n          \"TimeRemaining\": \"string\",\n          \"PlayDescription\": \"string\",\n          \"AwayScore\": 9539,\n          \"HomeScore\": 9429,\n          \"ScoreID\": 1400\n        },\n        \"PlayStats\": [\n          {\n            \"PlayStatID\": 3549,\n            \"PlayID\": 98,\n            \"Sequence\": 5335,\n            \"PlayerID\": 449,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 722,\n            \"PassingCompletions\": 4706,\n            \"PassingYards\": 7117,\n            \"PassingTouchdowns\": 8841,\n            \"PassingInterceptions\": 8402,\n            \"PassingSacks\": 2508,\n            \"PassingSackYards\": 4491,\n            \"RushingAttempts\": 667,\n            \"RushingYards\": 4628,\n            \"RushingTouchdowns\": 8142,\n            \"ReceivingTargets\": 4567,\n            \"Receptions\": 2995,\n            \"ReceivingYards\": 7502,\n            \"ReceivingTouchdowns\": 3853,\n            \"Fumbles\": 6342,\n            \"FumblesLost\": 5862,\n            \"TwoPointConversionAttempts\": 5038,\n            \"TwoPointConversionPasses\": 7933,\n            \"TwoPointConversionRuns\": 1474,\n            \"TwoPointConversionReceptions\": 6870,\n            \"TwoPointConversionReturns\": 4270,\n            \"SoloTackles\": 1178,\n            \"AssistedTackles\": 6213,\n            \"TacklesForLoss\": 4311,\n            \"Sacks\": 6463.783826932689,\n            \"SackYards\": 4984.502285073886,\n            \"PassesDefended\": 3498,\n            \"Safeties\": 4362,\n            \"FumblesForced\": 8288,\n            \"FumblesRecovered\": 9444,\n            \"FumbleReturnYards\": 9729,\n            \"FumbleReturnTouchdowns\": 7793,\n            \"Interceptions\": 3659,\n            \"InterceptionReturnYards\": 7749,\n            \"InterceptionReturnTouchdowns\": 4256,\n            \"PuntReturns\": 8076,\n            \"PuntReturnYards\": 8517,\n            \"PuntReturnTouchdowns\": 6698,\n            \"KickReturns\": 3078,\n            \"KickReturnYards\": 83,\n            \"KickReturnTouchdowns\": 4325,\n            \"BlockedKicks\": 7089,\n            \"BlockedKickReturns\": 3771,\n            \"BlockedKickReturnYards\": 8915,\n            \"BlockedKickReturnTouchdowns\": 9837,\n            \"FieldGoalReturns\": 7594,\n            \"FieldGoalReturnYards\": 592,\n            \"FieldGoalReturnTouchdowns\": 5599,\n            \"Kickoffs\": 5287,\n            \"KickoffYards\": 6323,\n            \"KickoffTouchbacks\": 2739,\n            \"Punts\": 8946,\n            \"PuntYards\": 2513,\n            \"PuntTouchbacks\": 9070,\n            \"PuntsHadBlocked\": 5030,\n            \"FieldGoalsAttempted\": 5243,\n            \"FieldGoalsMade\": 3011,\n            \"FieldGoalsYards\": 6577,\n            \"FieldGoalsHadBlocked\": 9386,\n            \"ExtraPointsAttempted\": 2606,\n            \"ExtraPointsMade\": 1537,\n            \"ExtraPointsHadBlocked\": 1473,\n            \"Penalties\": 4577,\n            \"PenaltyYards\": 1164\n          },\n          {\n            \"PlayStatID\": 5236,\n            \"PlayID\": 3623,\n            \"Sequence\": 3002,\n            \"PlayerID\": 4919,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 3305,\n            \"PassingCompletions\": 8766,\n            \"PassingYards\": 2660,\n            \"PassingTouchdowns\": 5449,\n            \"PassingInterceptions\": 5831,\n            \"PassingSacks\": 6647,\n            \"PassingSackYards\": 1127,\n            \"RushingAttempts\": 9508,\n            \"RushingYards\": 2053,\n            \"RushingTouchdowns\": 9759,\n            \"ReceivingTargets\": 16,\n            \"Receptions\": 7962,\n            \"ReceivingYards\": 4547,\n            \"ReceivingTouchdowns\": 5834,\n            \"Fumbles\": 8048,\n            \"FumblesLost\": 2436,\n            \"TwoPointConversionAttempts\": 1718,\n            \"TwoPointConversionPasses\": 6267,\n            \"TwoPointConversionRuns\": 5812,\n            \"TwoPointConversionReceptions\": 822,\n            \"TwoPointConversionReturns\": 2319,\n            \"SoloTackles\": 2235,\n            \"AssistedTackles\": 9455,\n            \"TacklesForLoss\": 3283,\n            \"Sacks\": 89.30875215741985,\n            \"SackYards\": 5374.917508685932,\n            \"PassesDefended\": 1733,\n            \"Safeties\": 7090,\n            \"FumblesForced\": 9658,\n            \"FumblesRecovered\": 4778,\n            \"FumbleReturnYards\": 8782,\n            \"FumbleReturnTouchdowns\": 3668,\n            \"Interceptions\": 5345,\n            \"InterceptionReturnYards\": 6206,\n            \"InterceptionReturnTouchdowns\": 1805,\n            \"PuntReturns\": 3071,\n            \"PuntReturnYards\": 1014,\n            \"PuntReturnTouchdowns\": 7086,\n            \"KickReturns\": 1401,\n            \"KickReturnYards\": 8254,\n            \"KickReturnTouchdowns\": 3137,\n            \"BlockedKicks\": 291,\n            \"BlockedKickReturns\": 7512,\n            \"BlockedKickReturnYards\": 6251,\n            \"BlockedKickReturnTouchdowns\": 343,\n            \"FieldGoalReturns\": 1228,\n            \"FieldGoalReturnYards\": 3857,\n            \"FieldGoalReturnTouchdowns\": 6430,\n            \"Kickoffs\": 788,\n            \"KickoffYards\": 5119,\n            \"KickoffTouchbacks\": 5827,\n            \"Punts\": 1564,\n            \"PuntYards\": 1236,\n            \"PuntTouchbacks\": 6745,\n            \"PuntsHadBlocked\": 1210,\n            \"FieldGoalsAttempted\": 6134,\n            \"FieldGoalsMade\": 6645,\n            \"FieldGoalsYards\": 4534,\n            \"FieldGoalsHadBlocked\": 7305,\n            \"ExtraPointsAttempted\": 2862,\n            \"ExtraPointsMade\": 5187,\n            \"ExtraPointsHadBlocked\": 8997,\n            \"Penalties\": 5148,\n            \"PenaltyYards\": 2946\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"Score\": {\n      \"GameKey\": \"string\",\n      \"SeasonType\": 2953,\n      \"Season\": 2965,\n      \"Week\": 2166,\n      \"Date\": \"string\",\n      \"AwayTeam\": \"string\",\n      \"HomeTeam\": \"string\",\n      \"AwayScore\": 4818,\n      \"HomeScore\": 3903,\n      \"Channel\": \"string\",\n      \"PointSpread\": 8180.286651319022,\n      \"OverUnder\": 5478.574609314433,\n      \"Quarter\": \"string\",\n      \"TimeRemaining\": \"string\",\n      \"Possession\": \"string\",\n      \"Down\": 1384,\n      \"Distance\": \"string\",\n      \"YardLine\": 1126,\n      \"YardLineTerritory\": \"string\",\n      \"RedZone\": \"string\",\n      \"AwayScoreQuarter1\": 1453,\n      \"AwayScoreQuarter2\": 2092,\n      \"AwayScoreQuarter3\": 6969,\n      \"AwayScoreQuarter4\": 9900,\n      \"AwayScoreOvertime\": 1425,\n      \"HomeScoreQuarter1\": 5580,\n      \"HomeScoreQuarter2\": 6178,\n      \"HomeScoreQuarter3\": 4061,\n      \"HomeScoreQuarter4\": 1993,\n      \"HomeScoreOvertime\": 4863,\n      \"HasStarted\": false,\n      \"IsInProgress\": false,\n      \"IsOver\": true,\n      \"Has1stQuarterStarted\": true,\n      \"Has2ndQuarterStarted\": true,\n      \"Has3rdQuarterStarted\": false,\n      \"Has4thQuarterStarted\": true,\n      \"IsOvertime\": true,\n      \"DownAndDistance\": \"string\",\n      \"QuarterDescription\": \"string\",\n      \"StadiumID\": 1989,\n      \"LastUpdated\": \"string\",\n      \"GeoLat\": 4502.556774278195,\n      \"GeoLong\": 8764.476772567983,\n      \"ForecastTempLow\": 5559,\n      \"ForecastTempHigh\": 9289,\n      \"ForecastDescription\": \"string\",\n      \"ForecastWindChill\": 946,\n      \"ForecastWindSpeed\": 5107,\n      \"AwayTeamMoneyLine\": 6999,\n      \"HomeTeamMoneyLine\": 4538,\n      \"Canceled\": false,\n      \"Closed\": false,\n      \"LastPlay\": \"string\",\n      \"Day\": \"string\",\n      \"DateTime\": \"string\",\n      \"AwayTeamID\": 3390,\n      \"HomeTeamID\": 4606,\n      \"GlobalGameID\": 2803,\n      \"GlobalAwayTeamID\": 3208,\n      \"GlobalHomeTeamID\": 1580,\n      \"PointSpreadAwayTeamMoneyLine\": 7265,\n      \"PointSpreadHomeTeamMoneyLine\": 5589,\n      \"ScoreID\": 7279,\n      \"StadiumDetails\": {\n        \"StadiumID\": 9906,\n        \"Name\": \"string\",\n        \"City\": \"string\",\n        \"State\": \"string\",\n        \"Country\": \"string\",\n        \"Capacity\": 9483,\n        \"PlayingSurface\": \"string\",\n        \"GeoLat\": 6216.004740883533,\n        \"GeoLong\": 3607.0717570716547,\n        \"Type\": \"string\"\n      },\n      \"Status\": \"string\",\n      \"GameEndDateTime\": \"string\",\n      \"HomeRotationNumber\": 6196,\n      \"AwayRotationNumber\": 4990,\n      \"NeutralVenue\": true,\n      \"RefereeID\": 6348,\n      \"OverPayout\": 9098,\n      \"UnderPayout\": 5396,\n      \"HomeTimeouts\": 1521,\n      \"AwayTimeouts\": 6947,\n      \"DateTimeUTC\": \"string\",\n      \"Attendance\": 2523,\n      \"IsClosed\": false\n    },\n    \"Quarters\": [\n      {\n        \"QuarterID\": 2937,\n        \"ScoreID\": 5115,\n        \"Number\": 9117,\n        \"Name\": \"string\",\n        \"Description\": \"string\",\n        \"AwayTeamScore\": 9949,\n        \"HomeTeamScore\": 8115,\n        \"Updated\": \"string\",\n        \"Created\": \"string\"\n      },\n      {\n        \"QuarterID\": 9802,\n        \"ScoreID\": 804,\n        \"Number\": 4114,\n        \"Name\": \"string\",\n        \"Description\": \"string\",\n        \"AwayTeamScore\": 7459,\n        \"HomeTeamScore\": 5986,\n        \"Updated\": \"string\",\n        \"Created\": \"string\"\n      }\n    ],\n    \"Plays\": [\n      {\n        \"PlayID\": 297,\n        \"QuarterID\": 2036,\n        \"QuarterName\": \"string\",\n        \"Sequence\": 1524,\n        \"TimeRemainingMinutes\": 8073,\n        \"TimeRemainingSeconds\": 6313,\n        \"PlayTime\": \"string\",\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"Team\": \"string\",\n        \"Opponent\": \"string\",\n        \"Down\": 2777,\n        \"Distance\": 9768,\n        \"YardLine\": 5536,\n        \"YardLineTerritory\": \"string\",\n        \"YardsToEndZone\": 7015,\n        \"Type\": \"string\",\n        \"YardsGained\": 1396,\n        \"Description\": \"string\",\n        \"IsScoringPlay\": false,\n        \"ScoringPlay\": {\n          \"GameKey\": \"string\",\n          \"SeasonType\": 9280,\n          \"ScoringPlayID\": 7148,\n          \"Season\": 2314,\n          \"Week\": 1640,\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"Date\": \"string\",\n          \"Sequence\": 8944,\n          \"Team\": \"string\",\n          \"Quarter\": \"string\",\n          \"TimeRemaining\": \"string\",\n          \"PlayDescription\": \"string\",\n          \"AwayScore\": 319,\n          \"HomeScore\": 8925,\n          \"ScoreID\": 6777\n        },\n        \"PlayStats\": [\n          {\n            \"PlayStatID\": 5015,\n            \"PlayID\": 9569,\n            \"Sequence\": 8402,\n            \"PlayerID\": 3566,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 8244,\n            \"PassingCompletions\": 4571,\n            \"PassingYards\": 7771,\n            \"PassingTouchdowns\": 1279,\n            \"PassingInterceptions\": 1522,\n            \"PassingSacks\": 5869,\n            \"PassingSackYards\": 52,\n            \"RushingAttempts\": 8739,\n            \"RushingYards\": 6685,\n            \"RushingTouchdowns\": 5151,\n            \"ReceivingTargets\": 7631,\n            \"Receptions\": 6042,\n            \"ReceivingYards\": 7848,\n            \"ReceivingTouchdowns\": 2770,\n            \"Fumbles\": 7286,\n            \"FumblesLost\": 1781,\n            \"TwoPointConversionAttempts\": 9524,\n            \"TwoPointConversionPasses\": 5937,\n            \"TwoPointConversionRuns\": 3200,\n            \"TwoPointConversionReceptions\": 4525,\n            \"TwoPointConversionReturns\": 8668,\n            \"SoloTackles\": 1248,\n            \"AssistedTackles\": 467,\n            \"TacklesForLoss\": 9371,\n            \"Sacks\": 8956.206138320736,\n            \"SackYards\": 9431.92797834202,\n            \"PassesDefended\": 3501,\n            \"Safeties\": 5744,\n            \"FumblesForced\": 3291,\n            \"FumblesRecovered\": 2534,\n            \"FumbleReturnYards\": 1883,\n            \"FumbleReturnTouchdowns\": 9526,\n            \"Interceptions\": 4983,\n            \"InterceptionReturnYards\": 5509,\n            \"InterceptionReturnTouchdowns\": 5090,\n            \"PuntReturns\": 2900,\n            \"PuntReturnYards\": 3625,\n            \"PuntReturnTouchdowns\": 6414,\n            \"KickReturns\": 8556,\n            \"KickReturnYards\": 1852,\n            \"KickReturnTouchdowns\": 5180,\n            \"BlockedKicks\": 9722,\n            \"BlockedKickReturns\": 8089,\n            \"BlockedKickReturnYards\": 5120,\n            \"BlockedKickReturnTouchdowns\": 7181,\n            \"FieldGoalReturns\": 135,\n            \"FieldGoalReturnYards\": 3054,\n            \"FieldGoalReturnTouchdowns\": 2598,\n            \"Kickoffs\": 2350,\n            \"KickoffYards\": 3207,\n            \"KickoffTouchbacks\": 1577,\n            \"Punts\": 651,\n            \"PuntYards\": 4894,\n            \"PuntTouchbacks\": 3075,\n            \"PuntsHadBlocked\": 8070,\n            \"FieldGoalsAttempted\": 3737,\n            \"FieldGoalsMade\": 5469,\n            \"FieldGoalsYards\": 1625,\n            \"FieldGoalsHadBlocked\": 5133,\n            \"ExtraPointsAttempted\": 6208,\n            \"ExtraPointsMade\": 9530,\n            \"ExtraPointsHadBlocked\": 1702,\n            \"Penalties\": 5392,\n            \"PenaltyYards\": 5221\n          },\n          {\n            \"PlayStatID\": 9186,\n            \"PlayID\": 6026,\n            \"Sequence\": 1026,\n            \"PlayerID\": 4597,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 8776,\n            \"PassingCompletions\": 1993,\n            \"PassingYards\": 2228,\n            \"PassingTouchdowns\": 417,\n            \"PassingInterceptions\": 1960,\n            \"PassingSacks\": 5681,\n            \"PassingSackYards\": 7706,\n            \"RushingAttempts\": 989,\n            \"RushingYards\": 9118,\n            \"RushingTouchdowns\": 5527,\n            \"ReceivingTargets\": 6945,\n            \"Receptions\": 7843,\n            \"ReceivingYards\": 8305,\n            \"ReceivingTouchdowns\": 6395,\n            \"Fumbles\": 7284,\n            \"FumblesLost\": 1613,\n            \"TwoPointConversionAttempts\": 5967,\n            \"TwoPointConversionPasses\": 9825,\n            \"TwoPointConversionRuns\": 9005,\n            \"TwoPointConversionReceptions\": 331,\n            \"TwoPointConversionReturns\": 7455,\n            \"SoloTackles\": 7123,\n            \"AssistedTackles\": 829,\n            \"TacklesForLoss\": 5782,\n            \"Sacks\": 6089.218322117857,\n            \"SackYards\": 9539.510201226565,\n            \"PassesDefended\": 8588,\n            \"Safeties\": 2772,\n            \"FumblesForced\": 8618,\n            \"FumblesRecovered\": 6192,\n            \"FumbleReturnYards\": 8746,\n            \"FumbleReturnTouchdowns\": 6931,\n            \"Interceptions\": 143,\n            \"InterceptionReturnYards\": 8621,\n            \"InterceptionReturnTouchdowns\": 714,\n            \"PuntReturns\": 4654,\n            \"PuntReturnYards\": 2803,\n            \"PuntReturnTouchdowns\": 2629,\n            \"KickReturns\": 4489,\n            \"KickReturnYards\": 1494,\n            \"KickReturnTouchdowns\": 873,\n            \"BlockedKicks\": 447,\n            \"BlockedKickReturns\": 9596,\n            \"BlockedKickReturnYards\": 4079,\n            \"BlockedKickReturnTouchdowns\": 98,\n            \"FieldGoalReturns\": 1864,\n            \"FieldGoalReturnYards\": 9378,\n            \"FieldGoalReturnTouchdowns\": 8599,\n            \"Kickoffs\": 8964,\n            \"KickoffYards\": 4038,\n            \"KickoffTouchbacks\": 6476,\n            \"Punts\": 2664,\n            \"PuntYards\": 359,\n            \"PuntTouchbacks\": 6426,\n            \"PuntsHadBlocked\": 9070,\n            \"FieldGoalsAttempted\": 2805,\n            \"FieldGoalsMade\": 6390,\n            \"FieldGoalsYards\": 4679,\n            \"FieldGoalsHadBlocked\": 1623,\n            \"ExtraPointsAttempted\": 5970,\n            \"ExtraPointsMade\": 4231,\n            \"ExtraPointsHadBlocked\": 8872,\n            \"Penalties\": 143,\n            \"PenaltyYards\": 7720\n          }\n        ]\n      },\n      {\n        \"PlayID\": 3149,\n        \"QuarterID\": 9665,\n        \"QuarterName\": \"string\",\n        \"Sequence\": 7370,\n        \"TimeRemainingMinutes\": 5466,\n        \"TimeRemainingSeconds\": 6581,\n        \"PlayTime\": \"string\",\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"Team\": \"string\",\n        \"Opponent\": \"string\",\n        \"Down\": 2431,\n        \"Distance\": 1587,\n        \"YardLine\": 6040,\n        \"YardLineTerritory\": \"string\",\n        \"YardsToEndZone\": 9676,\n        \"Type\": \"string\",\n        \"YardsGained\": 3259,\n        \"Description\": \"string\",\n        \"IsScoringPlay\": true,\n        \"ScoringPlay\": {\n          \"GameKey\": \"string\",\n          \"SeasonType\": 7151,\n          \"ScoringPlayID\": 9744,\n          \"Season\": 8619,\n          \"Week\": 6616,\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"Date\": \"string\",\n          \"Sequence\": 9737,\n          \"Team\": \"string\",\n          \"Quarter\": \"string\",\n          \"TimeRemaining\": \"string\",\n          \"PlayDescription\": \"string\",\n          \"AwayScore\": 9311,\n          \"HomeScore\": 9536,\n          \"ScoreID\": 2896\n        },\n        \"PlayStats\": [\n          {\n            \"PlayStatID\": 7788,\n            \"PlayID\": 931,\n            \"Sequence\": 5321,\n            \"PlayerID\": 4921,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 8147,\n            \"PassingCompletions\": 1667,\n            \"PassingYards\": 9242,\n            \"PassingTouchdowns\": 9827,\n            \"PassingInterceptions\": 5214,\n            \"PassingSacks\": 8333,\n            \"PassingSackYards\": 9054,\n            \"RushingAttempts\": 3557,\n            \"RushingYards\": 6935,\n            \"RushingTouchdowns\": 1562,\n            \"ReceivingTargets\": 7843,\n            \"Receptions\": 5176,\n            \"ReceivingYards\": 4981,\n            \"ReceivingTouchdowns\": 6131,\n            \"Fumbles\": 9027,\n            \"FumblesLost\": 3062,\n            \"TwoPointConversionAttempts\": 1502,\n            \"TwoPointConversionPasses\": 56,\n            \"TwoPointConversionRuns\": 7432,\n            \"TwoPointConversionReceptions\": 6941,\n            \"TwoPointConversionReturns\": 2266,\n            \"SoloTackles\": 8737,\n            \"AssistedTackles\": 6661,\n            \"TacklesForLoss\": 6227,\n            \"Sacks\": 932.5007007893615,\n            \"SackYards\": 8339.272032373401,\n            \"PassesDefended\": 2584,\n            \"Safeties\": 4628,\n            \"FumblesForced\": 2452,\n            \"FumblesRecovered\": 4646,\n            \"FumbleReturnYards\": 4797,\n            \"FumbleReturnTouchdowns\": 4401,\n            \"Interceptions\": 3211,\n            \"InterceptionReturnYards\": 6168,\n            \"InterceptionReturnTouchdowns\": 8536,\n            \"PuntReturns\": 4752,\n            \"PuntReturnYards\": 8475,\n            \"PuntReturnTouchdowns\": 3265,\n            \"KickReturns\": 2825,\n            \"KickReturnYards\": 6097,\n            \"KickReturnTouchdowns\": 4195,\n            \"BlockedKicks\": 440,\n            \"BlockedKickReturns\": 4607,\n            \"BlockedKickReturnYards\": 6330,\n            \"BlockedKickReturnTouchdowns\": 3628,\n            \"FieldGoalReturns\": 5643,\n            \"FieldGoalReturnYards\": 5876,\n            \"FieldGoalReturnTouchdowns\": 757,\n            \"Kickoffs\": 1577,\n            \"KickoffYards\": 4398,\n            \"KickoffTouchbacks\": 1404,\n            \"Punts\": 8603,\n            \"PuntYards\": 5316,\n            \"PuntTouchbacks\": 5227,\n            \"PuntsHadBlocked\": 3898,\n            \"FieldGoalsAttempted\": 3892,\n            \"FieldGoalsMade\": 8758,\n            \"FieldGoalsYards\": 6432,\n            \"FieldGoalsHadBlocked\": 43,\n            \"ExtraPointsAttempted\": 171,\n            \"ExtraPointsMade\": 3004,\n            \"ExtraPointsHadBlocked\": 5205,\n            \"Penalties\": 3367,\n            \"PenaltyYards\": 3504\n          },\n          {\n            \"PlayStatID\": 9757,\n            \"PlayID\": 3322,\n            \"Sequence\": 5215,\n            \"PlayerID\": 6948,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 7763,\n            \"PassingCompletions\": 1181,\n            \"PassingYards\": 9518,\n            \"PassingTouchdowns\": 2478,\n            \"PassingInterceptions\": 9596,\n            \"PassingSacks\": 9848,\n            \"PassingSackYards\": 3447,\n            \"RushingAttempts\": 3999,\n            \"RushingYards\": 8998,\n            \"RushingTouchdowns\": 3313,\n            \"ReceivingTargets\": 2408,\n            \"Receptions\": 4618,\n            \"ReceivingYards\": 9883,\n            \"ReceivingTouchdowns\": 4518,\n            \"Fumbles\": 6832,\n            \"FumblesLost\": 3256,\n            \"TwoPointConversionAttempts\": 4699,\n            \"TwoPointConversionPasses\": 1410,\n            \"TwoPointConversionRuns\": 9861,\n            \"TwoPointConversionReceptions\": 4411,\n            \"TwoPointConversionReturns\": 2835,\n            \"SoloTackles\": 5227,\n            \"AssistedTackles\": 1443,\n            \"TacklesForLoss\": 5261,\n            \"Sacks\": 1724.5000582933978,\n            \"SackYards\": 4737.820908397444,\n            \"PassesDefended\": 3528,\n            \"Safeties\": 4469,\n            \"FumblesForced\": 6312,\n            \"FumblesRecovered\": 3226,\n            \"FumbleReturnYards\": 5957,\n            \"FumbleReturnTouchdowns\": 4635,\n            \"Interceptions\": 3284,\n            \"InterceptionReturnYards\": 7348,\n            \"InterceptionReturnTouchdowns\": 396,\n            \"PuntReturns\": 7508,\n            \"PuntReturnYards\": 5980,\n            \"PuntReturnTouchdowns\": 8894,\n            \"KickReturns\": 155,\n            \"KickReturnYards\": 1904,\n            \"KickReturnTouchdowns\": 4454,\n            \"BlockedKicks\": 3482,\n            \"BlockedKickReturns\": 4734,\n            \"BlockedKickReturnYards\": 5307,\n            \"BlockedKickReturnTouchdowns\": 6605,\n            \"FieldGoalReturns\": 2263,\n            \"FieldGoalReturnYards\": 5105,\n            \"FieldGoalReturnTouchdowns\": 9868,\n            \"Kickoffs\": 9981,\n            \"KickoffYards\": 8673,\n            \"KickoffTouchbacks\": 2020,\n            \"Punts\": 386,\n            \"PuntYards\": 3296,\n            \"PuntTouchbacks\": 1100,\n            \"PuntsHadBlocked\": 6240,\n            \"FieldGoalsAttempted\": 6012,\n            \"FieldGoalsMade\": 5641,\n            \"FieldGoalsYards\": 6202,\n            \"FieldGoalsHadBlocked\": 4823,\n            \"ExtraPointsAttempted\": 2521,\n            \"ExtraPointsMade\": 5867,\n            \"ExtraPointsHadBlocked\": 946,\n            \"Penalties\": 2252,\n            \"PenaltyYards\": 9056\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "635b68fa-4585-4ef8-8997-06ae81fb8d6c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nfl",
+                    "pbp",
+                    ":format",
+                    "SimulatedPlayByPlay",
+                    ":numberofplays"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "numberofplays",
+                      "description": "(Required) The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>150</code>, <code>200</code>, etc."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 2707,\n  \"Code\": 561,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc0aae41-2baa-437c-bafb-8ed5ac5f5c8d",
+          "name": "Play By Play Delta",
+          "request": {
+            "name": "Play By Play Delta",
+            "description": {
+              "content": "This method returns all play-by-plays for a given season and week, but only returnsplays that have changed in the last X minutes as specified in your API call. by definition this is a live endpoint, not final.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nfl",
+                "pbp",
+                ":format",
+                "PlayByPlayDelta",
+                ":season",
+                ":week",
+                ":minutes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "season",
+                  "description": "(Required) Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "week",
+                  "description": "(Required) Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "minutes",
+                  "description": "(Required) Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:<br>\n          <code>1</code> or <code>2</code>.\n        "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "539c99bf-5aff-462f-9aef-66cb31d75588",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nfl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayDelta",
+                    ":season",
+                    ":week",
+                    ":minutes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season",
+                      "description": "(Required) Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "week",
+                      "description": "(Required) Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "minutes",
+                      "description": "(Required) Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:<br>\n          <code>1</code> or <code>2</code>.\n        "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Score\": {\n      \"GameKey\": \"string\",\n      \"SeasonType\": 7847,\n      \"Season\": 5174,\n      \"Week\": 2476,\n      \"Date\": \"string\",\n      \"AwayTeam\": \"string\",\n      \"HomeTeam\": \"string\",\n      \"AwayScore\": 4490,\n      \"HomeScore\": 3190,\n      \"Channel\": \"string\",\n      \"PointSpread\": 5197.206262008731,\n      \"OverUnder\": 6677.752812278604,\n      \"Quarter\": \"string\",\n      \"TimeRemaining\": \"string\",\n      \"Possession\": \"string\",\n      \"Down\": 7870,\n      \"Distance\": \"string\",\n      \"YardLine\": 5228,\n      \"YardLineTerritory\": \"string\",\n      \"RedZone\": \"string\",\n      \"AwayScoreQuarter1\": 2980,\n      \"AwayScoreQuarter2\": 6800,\n      \"AwayScoreQuarter3\": 8619,\n      \"AwayScoreQuarter4\": 5148,\n      \"AwayScoreOvertime\": 6758,\n      \"HomeScoreQuarter1\": 5390,\n      \"HomeScoreQuarter2\": 5734,\n      \"HomeScoreQuarter3\": 7683,\n      \"HomeScoreQuarter4\": 1307,\n      \"HomeScoreOvertime\": 2046,\n      \"HasStarted\": false,\n      \"IsInProgress\": false,\n      \"IsOver\": true,\n      \"Has1stQuarterStarted\": false,\n      \"Has2ndQuarterStarted\": true,\n      \"Has3rdQuarterStarted\": false,\n      \"Has4thQuarterStarted\": false,\n      \"IsOvertime\": true,\n      \"DownAndDistance\": \"string\",\n      \"QuarterDescription\": \"string\",\n      \"StadiumID\": 6791,\n      \"LastUpdated\": \"string\",\n      \"GeoLat\": 4049.4563227061385,\n      \"GeoLong\": 2905.769151022448,\n      \"ForecastTempLow\": 3112,\n      \"ForecastTempHigh\": 2361,\n      \"ForecastDescription\": \"string\",\n      \"ForecastWindChill\": 2640,\n      \"ForecastWindSpeed\": 1996,\n      \"AwayTeamMoneyLine\": 676,\n      \"HomeTeamMoneyLine\": 9275,\n      \"Canceled\": false,\n      \"Closed\": true,\n      \"LastPlay\": \"string\",\n      \"Day\": \"string\",\n      \"DateTime\": \"string\",\n      \"AwayTeamID\": 7639,\n      \"HomeTeamID\": 3369,\n      \"GlobalGameID\": 3468,\n      \"GlobalAwayTeamID\": 7455,\n      \"GlobalHomeTeamID\": 9221,\n      \"PointSpreadAwayTeamMoneyLine\": 1259,\n      \"PointSpreadHomeTeamMoneyLine\": 3299,\n      \"ScoreID\": 6567,\n      \"StadiumDetails\": {\n        \"StadiumID\": 6134,\n        \"Name\": \"string\",\n        \"City\": \"string\",\n        \"State\": \"string\",\n        \"Country\": \"string\",\n        \"Capacity\": 3279,\n        \"PlayingSurface\": \"string\",\n        \"GeoLat\": 6045.28454634133,\n        \"GeoLong\": 7870.0699317892795,\n        \"Type\": \"string\"\n      },\n      \"Status\": \"string\",\n      \"GameEndDateTime\": \"string\",\n      \"HomeRotationNumber\": 1054,\n      \"AwayRotationNumber\": 5316,\n      \"NeutralVenue\": true,\n      \"RefereeID\": 5057,\n      \"OverPayout\": 3113,\n      \"UnderPayout\": 1722,\n      \"HomeTimeouts\": 8731,\n      \"AwayTimeouts\": 3609,\n      \"DateTimeUTC\": \"string\",\n      \"Attendance\": 9097,\n      \"IsClosed\": true\n    },\n    \"Quarters\": [\n      {\n        \"QuarterID\": 9498,\n        \"ScoreID\": 3569,\n        \"Number\": 674,\n        \"Name\": \"string\",\n        \"Description\": \"string\",\n        \"AwayTeamScore\": 9990,\n        \"HomeTeamScore\": 1541,\n        \"Updated\": \"string\",\n        \"Created\": \"string\"\n      },\n      {\n        \"QuarterID\": 3371,\n        \"ScoreID\": 7000,\n        \"Number\": 3575,\n        \"Name\": \"string\",\n        \"Description\": \"string\",\n        \"AwayTeamScore\": 9263,\n        \"HomeTeamScore\": 9324,\n        \"Updated\": \"string\",\n        \"Created\": \"string\"\n      }\n    ],\n    \"Plays\": [\n      {\n        \"PlayID\": 4950,\n        \"QuarterID\": 1301,\n        \"QuarterName\": \"string\",\n        \"Sequence\": 4873,\n        \"TimeRemainingMinutes\": 3500,\n        \"TimeRemainingSeconds\": 3527,\n        \"PlayTime\": \"string\",\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"Team\": \"string\",\n        \"Opponent\": \"string\",\n        \"Down\": 9904,\n        \"Distance\": 9698,\n        \"YardLine\": 3375,\n        \"YardLineTerritory\": \"string\",\n        \"YardsToEndZone\": 3240,\n        \"Type\": \"string\",\n        \"YardsGained\": 1558,\n        \"Description\": \"string\",\n        \"IsScoringPlay\": true,\n        \"ScoringPlay\": {\n          \"GameKey\": \"string\",\n          \"SeasonType\": 2914,\n          \"ScoringPlayID\": 8370,\n          \"Season\": 2556,\n          \"Week\": 9723,\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"Date\": \"string\",\n          \"Sequence\": 1025,\n          \"Team\": \"string\",\n          \"Quarter\": \"string\",\n          \"TimeRemaining\": \"string\",\n          \"PlayDescription\": \"string\",\n          \"AwayScore\": 1589,\n          \"HomeScore\": 2372,\n          \"ScoreID\": 1821\n        },\n        \"PlayStats\": [\n          {\n            \"PlayStatID\": 2866,\n            \"PlayID\": 495,\n            \"Sequence\": 9753,\n            \"PlayerID\": 5673,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 8006,\n            \"PassingCompletions\": 4693,\n            \"PassingYards\": 3004,\n            \"PassingTouchdowns\": 3513,\n            \"PassingInterceptions\": 7357,\n            \"PassingSacks\": 3810,\n            \"PassingSackYards\": 9977,\n            \"RushingAttempts\": 106,\n            \"RushingYards\": 4907,\n            \"RushingTouchdowns\": 9157,\n            \"ReceivingTargets\": 1719,\n            \"Receptions\": 7376,\n            \"ReceivingYards\": 8918,\n            \"ReceivingTouchdowns\": 4909,\n            \"Fumbles\": 4647,\n            \"FumblesLost\": 4521,\n            \"TwoPointConversionAttempts\": 2863,\n            \"TwoPointConversionPasses\": 9114,\n            \"TwoPointConversionRuns\": 7718,\n            \"TwoPointConversionReceptions\": 266,\n            \"TwoPointConversionReturns\": 4402,\n            \"SoloTackles\": 313,\n            \"AssistedTackles\": 9976,\n            \"TacklesForLoss\": 5552,\n            \"Sacks\": 8291.444921697896,\n            \"SackYards\": 2706.4468588541567,\n            \"PassesDefended\": 4006,\n            \"Safeties\": 4929,\n            \"FumblesForced\": 7937,\n            \"FumblesRecovered\": 2448,\n            \"FumbleReturnYards\": 1710,\n            \"FumbleReturnTouchdowns\": 9795,\n            \"Interceptions\": 6319,\n            \"InterceptionReturnYards\": 9762,\n            \"InterceptionReturnTouchdowns\": 9942,\n            \"PuntReturns\": 1174,\n            \"PuntReturnYards\": 5272,\n            \"PuntReturnTouchdowns\": 8235,\n            \"KickReturns\": 5517,\n            \"KickReturnYards\": 3058,\n            \"KickReturnTouchdowns\": 7487,\n            \"BlockedKicks\": 7723,\n            \"BlockedKickReturns\": 1262,\n            \"BlockedKickReturnYards\": 3101,\n            \"BlockedKickReturnTouchdowns\": 7656,\n            \"FieldGoalReturns\": 609,\n            \"FieldGoalReturnYards\": 7709,\n            \"FieldGoalReturnTouchdowns\": 6225,\n            \"Kickoffs\": 21,\n            \"KickoffYards\": 2729,\n            \"KickoffTouchbacks\": 7239,\n            \"Punts\": 6869,\n            \"PuntYards\": 7781,\n            \"PuntTouchbacks\": 4967,\n            \"PuntsHadBlocked\": 1106,\n            \"FieldGoalsAttempted\": 704,\n            \"FieldGoalsMade\": 5092,\n            \"FieldGoalsYards\": 2578,\n            \"FieldGoalsHadBlocked\": 5596,\n            \"ExtraPointsAttempted\": 3581,\n            \"ExtraPointsMade\": 7256,\n            \"ExtraPointsHadBlocked\": 5286,\n            \"Penalties\": 1999,\n            \"PenaltyYards\": 2241\n          },\n          {\n            \"PlayStatID\": 3248,\n            \"PlayID\": 7908,\n            \"Sequence\": 881,\n            \"PlayerID\": 3715,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 7926,\n            \"PassingCompletions\": 7180,\n            \"PassingYards\": 2055,\n            \"PassingTouchdowns\": 8101,\n            \"PassingInterceptions\": 7548,\n            \"PassingSacks\": 6542,\n            \"PassingSackYards\": 7768,\n            \"RushingAttempts\": 5627,\n            \"RushingYards\": 5241,\n            \"RushingTouchdowns\": 7622,\n            \"ReceivingTargets\": 3452,\n            \"Receptions\": 8454,\n            \"ReceivingYards\": 1633,\n            \"ReceivingTouchdowns\": 3464,\n            \"Fumbles\": 5996,\n            \"FumblesLost\": 8641,\n            \"TwoPointConversionAttempts\": 1318,\n            \"TwoPointConversionPasses\": 7947,\n            \"TwoPointConversionRuns\": 6227,\n            \"TwoPointConversionReceptions\": 1668,\n            \"TwoPointConversionReturns\": 4190,\n            \"SoloTackles\": 3690,\n            \"AssistedTackles\": 7070,\n            \"TacklesForLoss\": 2212,\n            \"Sacks\": 4080.8816232286927,\n            \"SackYards\": 5703.793374630573,\n            \"PassesDefended\": 5419,\n            \"Safeties\": 9853,\n            \"FumblesForced\": 7844,\n            \"FumblesRecovered\": 4330,\n            \"FumbleReturnYards\": 7584,\n            \"FumbleReturnTouchdowns\": 5681,\n            \"Interceptions\": 6833,\n            \"InterceptionReturnYards\": 1332,\n            \"InterceptionReturnTouchdowns\": 5881,\n            \"PuntReturns\": 7328,\n            \"PuntReturnYards\": 663,\n            \"PuntReturnTouchdowns\": 3243,\n            \"KickReturns\": 9829,\n            \"KickReturnYards\": 4029,\n            \"KickReturnTouchdowns\": 8038,\n            \"BlockedKicks\": 8529,\n            \"BlockedKickReturns\": 6419,\n            \"BlockedKickReturnYards\": 1774,\n            \"BlockedKickReturnTouchdowns\": 6751,\n            \"FieldGoalReturns\": 5929,\n            \"FieldGoalReturnYards\": 8850,\n            \"FieldGoalReturnTouchdowns\": 3292,\n            \"Kickoffs\": 7241,\n            \"KickoffYards\": 7073,\n            \"KickoffTouchbacks\": 2282,\n            \"Punts\": 4262,\n            \"PuntYards\": 6637,\n            \"PuntTouchbacks\": 32,\n            \"PuntsHadBlocked\": 6652,\n            \"FieldGoalsAttempted\": 4493,\n            \"FieldGoalsMade\": 6329,\n            \"FieldGoalsYards\": 8614,\n            \"FieldGoalsHadBlocked\": 6774,\n            \"ExtraPointsAttempted\": 3440,\n            \"ExtraPointsMade\": 8599,\n            \"ExtraPointsHadBlocked\": 174,\n            \"Penalties\": 4529,\n            \"PenaltyYards\": 7339\n          }\n        ]\n      },\n      {\n        \"PlayID\": 5171,\n        \"QuarterID\": 1330,\n        \"QuarterName\": \"string\",\n        \"Sequence\": 7734,\n        \"TimeRemainingMinutes\": 3573,\n        \"TimeRemainingSeconds\": 7097,\n        \"PlayTime\": \"string\",\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"Team\": \"string\",\n        \"Opponent\": \"string\",\n        \"Down\": 66,\n        \"Distance\": 9184,\n        \"YardLine\": 1557,\n        \"YardLineTerritory\": \"string\",\n        \"YardsToEndZone\": 970,\n        \"Type\": \"string\",\n        \"YardsGained\": 4033,\n        \"Description\": \"string\",\n        \"IsScoringPlay\": false,\n        \"ScoringPlay\": {\n          \"GameKey\": \"string\",\n          \"SeasonType\": 7867,\n          \"ScoringPlayID\": 5987,\n          \"Season\": 9153,\n          \"Week\": 6652,\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"Date\": \"string\",\n          \"Sequence\": 9535,\n          \"Team\": \"string\",\n          \"Quarter\": \"string\",\n          \"TimeRemaining\": \"string\",\n          \"PlayDescription\": \"string\",\n          \"AwayScore\": 9539,\n          \"HomeScore\": 9429,\n          \"ScoreID\": 1400\n        },\n        \"PlayStats\": [\n          {\n            \"PlayStatID\": 3549,\n            \"PlayID\": 98,\n            \"Sequence\": 5335,\n            \"PlayerID\": 449,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 722,\n            \"PassingCompletions\": 4706,\n            \"PassingYards\": 7117,\n            \"PassingTouchdowns\": 8841,\n            \"PassingInterceptions\": 8402,\n            \"PassingSacks\": 2508,\n            \"PassingSackYards\": 4491,\n            \"RushingAttempts\": 667,\n            \"RushingYards\": 4628,\n            \"RushingTouchdowns\": 8142,\n            \"ReceivingTargets\": 4567,\n            \"Receptions\": 2995,\n            \"ReceivingYards\": 7502,\n            \"ReceivingTouchdowns\": 3853,\n            \"Fumbles\": 6342,\n            \"FumblesLost\": 5862,\n            \"TwoPointConversionAttempts\": 5038,\n            \"TwoPointConversionPasses\": 7933,\n            \"TwoPointConversionRuns\": 1474,\n            \"TwoPointConversionReceptions\": 6870,\n            \"TwoPointConversionReturns\": 4270,\n            \"SoloTackles\": 1178,\n            \"AssistedTackles\": 6213,\n            \"TacklesForLoss\": 4311,\n            \"Sacks\": 6463.783826932689,\n            \"SackYards\": 4984.502285073886,\n            \"PassesDefended\": 3498,\n            \"Safeties\": 4362,\n            \"FumblesForced\": 8288,\n            \"FumblesRecovered\": 9444,\n            \"FumbleReturnYards\": 9729,\n            \"FumbleReturnTouchdowns\": 7793,\n            \"Interceptions\": 3659,\n            \"InterceptionReturnYards\": 7749,\n            \"InterceptionReturnTouchdowns\": 4256,\n            \"PuntReturns\": 8076,\n            \"PuntReturnYards\": 8517,\n            \"PuntReturnTouchdowns\": 6698,\n            \"KickReturns\": 3078,\n            \"KickReturnYards\": 83,\n            \"KickReturnTouchdowns\": 4325,\n            \"BlockedKicks\": 7089,\n            \"BlockedKickReturns\": 3771,\n            \"BlockedKickReturnYards\": 8915,\n            \"BlockedKickReturnTouchdowns\": 9837,\n            \"FieldGoalReturns\": 7594,\n            \"FieldGoalReturnYards\": 592,\n            \"FieldGoalReturnTouchdowns\": 5599,\n            \"Kickoffs\": 5287,\n            \"KickoffYards\": 6323,\n            \"KickoffTouchbacks\": 2739,\n            \"Punts\": 8946,\n            \"PuntYards\": 2513,\n            \"PuntTouchbacks\": 9070,\n            \"PuntsHadBlocked\": 5030,\n            \"FieldGoalsAttempted\": 5243,\n            \"FieldGoalsMade\": 3011,\n            \"FieldGoalsYards\": 6577,\n            \"FieldGoalsHadBlocked\": 9386,\n            \"ExtraPointsAttempted\": 2606,\n            \"ExtraPointsMade\": 1537,\n            \"ExtraPointsHadBlocked\": 1473,\n            \"Penalties\": 4577,\n            \"PenaltyYards\": 1164\n          },\n          {\n            \"PlayStatID\": 5236,\n            \"PlayID\": 3623,\n            \"Sequence\": 3002,\n            \"PlayerID\": 4919,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 3305,\n            \"PassingCompletions\": 8766,\n            \"PassingYards\": 2660,\n            \"PassingTouchdowns\": 5449,\n            \"PassingInterceptions\": 5831,\n            \"PassingSacks\": 6647,\n            \"PassingSackYards\": 1127,\n            \"RushingAttempts\": 9508,\n            \"RushingYards\": 2053,\n            \"RushingTouchdowns\": 9759,\n            \"ReceivingTargets\": 16,\n            \"Receptions\": 7962,\n            \"ReceivingYards\": 4547,\n            \"ReceivingTouchdowns\": 5834,\n            \"Fumbles\": 8048,\n            \"FumblesLost\": 2436,\n            \"TwoPointConversionAttempts\": 1718,\n            \"TwoPointConversionPasses\": 6267,\n            \"TwoPointConversionRuns\": 5812,\n            \"TwoPointConversionReceptions\": 822,\n            \"TwoPointConversionReturns\": 2319,\n            \"SoloTackles\": 2235,\n            \"AssistedTackles\": 9455,\n            \"TacklesForLoss\": 3283,\n            \"Sacks\": 89.30875215741985,\n            \"SackYards\": 5374.917508685932,\n            \"PassesDefended\": 1733,\n            \"Safeties\": 7090,\n            \"FumblesForced\": 9658,\n            \"FumblesRecovered\": 4778,\n            \"FumbleReturnYards\": 8782,\n            \"FumbleReturnTouchdowns\": 3668,\n            \"Interceptions\": 5345,\n            \"InterceptionReturnYards\": 6206,\n            \"InterceptionReturnTouchdowns\": 1805,\n            \"PuntReturns\": 3071,\n            \"PuntReturnYards\": 1014,\n            \"PuntReturnTouchdowns\": 7086,\n            \"KickReturns\": 1401,\n            \"KickReturnYards\": 8254,\n            \"KickReturnTouchdowns\": 3137,\n            \"BlockedKicks\": 291,\n            \"BlockedKickReturns\": 7512,\n            \"BlockedKickReturnYards\": 6251,\n            \"BlockedKickReturnTouchdowns\": 343,\n            \"FieldGoalReturns\": 1228,\n            \"FieldGoalReturnYards\": 3857,\n            \"FieldGoalReturnTouchdowns\": 6430,\n            \"Kickoffs\": 788,\n            \"KickoffYards\": 5119,\n            \"KickoffTouchbacks\": 5827,\n            \"Punts\": 1564,\n            \"PuntYards\": 1236,\n            \"PuntTouchbacks\": 6745,\n            \"PuntsHadBlocked\": 1210,\n            \"FieldGoalsAttempted\": 6134,\n            \"FieldGoalsMade\": 6645,\n            \"FieldGoalsYards\": 4534,\n            \"FieldGoalsHadBlocked\": 7305,\n            \"ExtraPointsAttempted\": 2862,\n            \"ExtraPointsMade\": 5187,\n            \"ExtraPointsHadBlocked\": 8997,\n            \"Penalties\": 5148,\n            \"PenaltyYards\": 2946\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"Score\": {\n      \"GameKey\": \"string\",\n      \"SeasonType\": 2953,\n      \"Season\": 2965,\n      \"Week\": 2166,\n      \"Date\": \"string\",\n      \"AwayTeam\": \"string\",\n      \"HomeTeam\": \"string\",\n      \"AwayScore\": 4818,\n      \"HomeScore\": 3903,\n      \"Channel\": \"string\",\n      \"PointSpread\": 8180.286651319022,\n      \"OverUnder\": 5478.574609314433,\n      \"Quarter\": \"string\",\n      \"TimeRemaining\": \"string\",\n      \"Possession\": \"string\",\n      \"Down\": 1384,\n      \"Distance\": \"string\",\n      \"YardLine\": 1126,\n      \"YardLineTerritory\": \"string\",\n      \"RedZone\": \"string\",\n      \"AwayScoreQuarter1\": 1453,\n      \"AwayScoreQuarter2\": 2092,\n      \"AwayScoreQuarter3\": 6969,\n      \"AwayScoreQuarter4\": 9900,\n      \"AwayScoreOvertime\": 1425,\n      \"HomeScoreQuarter1\": 5580,\n      \"HomeScoreQuarter2\": 6178,\n      \"HomeScoreQuarter3\": 4061,\n      \"HomeScoreQuarter4\": 1993,\n      \"HomeScoreOvertime\": 4863,\n      \"HasStarted\": false,\n      \"IsInProgress\": false,\n      \"IsOver\": true,\n      \"Has1stQuarterStarted\": true,\n      \"Has2ndQuarterStarted\": true,\n      \"Has3rdQuarterStarted\": false,\n      \"Has4thQuarterStarted\": true,\n      \"IsOvertime\": true,\n      \"DownAndDistance\": \"string\",\n      \"QuarterDescription\": \"string\",\n      \"StadiumID\": 1989,\n      \"LastUpdated\": \"string\",\n      \"GeoLat\": 4502.556774278195,\n      \"GeoLong\": 8764.476772567983,\n      \"ForecastTempLow\": 5559,\n      \"ForecastTempHigh\": 9289,\n      \"ForecastDescription\": \"string\",\n      \"ForecastWindChill\": 946,\n      \"ForecastWindSpeed\": 5107,\n      \"AwayTeamMoneyLine\": 6999,\n      \"HomeTeamMoneyLine\": 4538,\n      \"Canceled\": false,\n      \"Closed\": false,\n      \"LastPlay\": \"string\",\n      \"Day\": \"string\",\n      \"DateTime\": \"string\",\n      \"AwayTeamID\": 3390,\n      \"HomeTeamID\": 4606,\n      \"GlobalGameID\": 2803,\n      \"GlobalAwayTeamID\": 3208,\n      \"GlobalHomeTeamID\": 1580,\n      \"PointSpreadAwayTeamMoneyLine\": 7265,\n      \"PointSpreadHomeTeamMoneyLine\": 5589,\n      \"ScoreID\": 7279,\n      \"StadiumDetails\": {\n        \"StadiumID\": 9906,\n        \"Name\": \"string\",\n        \"City\": \"string\",\n        \"State\": \"string\",\n        \"Country\": \"string\",\n        \"Capacity\": 9483,\n        \"PlayingSurface\": \"string\",\n        \"GeoLat\": 6216.004740883533,\n        \"GeoLong\": 3607.0717570716547,\n        \"Type\": \"string\"\n      },\n      \"Status\": \"string\",\n      \"GameEndDateTime\": \"string\",\n      \"HomeRotationNumber\": 6196,\n      \"AwayRotationNumber\": 4990,\n      \"NeutralVenue\": true,\n      \"RefereeID\": 6348,\n      \"OverPayout\": 9098,\n      \"UnderPayout\": 5396,\n      \"HomeTimeouts\": 1521,\n      \"AwayTimeouts\": 6947,\n      \"DateTimeUTC\": \"string\",\n      \"Attendance\": 2523,\n      \"IsClosed\": false\n    },\n    \"Quarters\": [\n      {\n        \"QuarterID\": 2937,\n        \"ScoreID\": 5115,\n        \"Number\": 9117,\n        \"Name\": \"string\",\n        \"Description\": \"string\",\n        \"AwayTeamScore\": 9949,\n        \"HomeTeamScore\": 8115,\n        \"Updated\": \"string\",\n        \"Created\": \"string\"\n      },\n      {\n        \"QuarterID\": 9802,\n        \"ScoreID\": 804,\n        \"Number\": 4114,\n        \"Name\": \"string\",\n        \"Description\": \"string\",\n        \"AwayTeamScore\": 7459,\n        \"HomeTeamScore\": 5986,\n        \"Updated\": \"string\",\n        \"Created\": \"string\"\n      }\n    ],\n    \"Plays\": [\n      {\n        \"PlayID\": 297,\n        \"QuarterID\": 2036,\n        \"QuarterName\": \"string\",\n        \"Sequence\": 1524,\n        \"TimeRemainingMinutes\": 8073,\n        \"TimeRemainingSeconds\": 6313,\n        \"PlayTime\": \"string\",\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"Team\": \"string\",\n        \"Opponent\": \"string\",\n        \"Down\": 2777,\n        \"Distance\": 9768,\n        \"YardLine\": 5536,\n        \"YardLineTerritory\": \"string\",\n        \"YardsToEndZone\": 7015,\n        \"Type\": \"string\",\n        \"YardsGained\": 1396,\n        \"Description\": \"string\",\n        \"IsScoringPlay\": false,\n        \"ScoringPlay\": {\n          \"GameKey\": \"string\",\n          \"SeasonType\": 9280,\n          \"ScoringPlayID\": 7148,\n          \"Season\": 2314,\n          \"Week\": 1640,\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"Date\": \"string\",\n          \"Sequence\": 8944,\n          \"Team\": \"string\",\n          \"Quarter\": \"string\",\n          \"TimeRemaining\": \"string\",\n          \"PlayDescription\": \"string\",\n          \"AwayScore\": 319,\n          \"HomeScore\": 8925,\n          \"ScoreID\": 6777\n        },\n        \"PlayStats\": [\n          {\n            \"PlayStatID\": 5015,\n            \"PlayID\": 9569,\n            \"Sequence\": 8402,\n            \"PlayerID\": 3566,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 8244,\n            \"PassingCompletions\": 4571,\n            \"PassingYards\": 7771,\n            \"PassingTouchdowns\": 1279,\n            \"PassingInterceptions\": 1522,\n            \"PassingSacks\": 5869,\n            \"PassingSackYards\": 52,\n            \"RushingAttempts\": 8739,\n            \"RushingYards\": 6685,\n            \"RushingTouchdowns\": 5151,\n            \"ReceivingTargets\": 7631,\n            \"Receptions\": 6042,\n            \"ReceivingYards\": 7848,\n            \"ReceivingTouchdowns\": 2770,\n            \"Fumbles\": 7286,\n            \"FumblesLost\": 1781,\n            \"TwoPointConversionAttempts\": 9524,\n            \"TwoPointConversionPasses\": 5937,\n            \"TwoPointConversionRuns\": 3200,\n            \"TwoPointConversionReceptions\": 4525,\n            \"TwoPointConversionReturns\": 8668,\n            \"SoloTackles\": 1248,\n            \"AssistedTackles\": 467,\n            \"TacklesForLoss\": 9371,\n            \"Sacks\": 8956.206138320736,\n            \"SackYards\": 9431.92797834202,\n            \"PassesDefended\": 3501,\n            \"Safeties\": 5744,\n            \"FumblesForced\": 3291,\n            \"FumblesRecovered\": 2534,\n            \"FumbleReturnYards\": 1883,\n            \"FumbleReturnTouchdowns\": 9526,\n            \"Interceptions\": 4983,\n            \"InterceptionReturnYards\": 5509,\n            \"InterceptionReturnTouchdowns\": 5090,\n            \"PuntReturns\": 2900,\n            \"PuntReturnYards\": 3625,\n            \"PuntReturnTouchdowns\": 6414,\n            \"KickReturns\": 8556,\n            \"KickReturnYards\": 1852,\n            \"KickReturnTouchdowns\": 5180,\n            \"BlockedKicks\": 9722,\n            \"BlockedKickReturns\": 8089,\n            \"BlockedKickReturnYards\": 5120,\n            \"BlockedKickReturnTouchdowns\": 7181,\n            \"FieldGoalReturns\": 135,\n            \"FieldGoalReturnYards\": 3054,\n            \"FieldGoalReturnTouchdowns\": 2598,\n            \"Kickoffs\": 2350,\n            \"KickoffYards\": 3207,\n            \"KickoffTouchbacks\": 1577,\n            \"Punts\": 651,\n            \"PuntYards\": 4894,\n            \"PuntTouchbacks\": 3075,\n            \"PuntsHadBlocked\": 8070,\n            \"FieldGoalsAttempted\": 3737,\n            \"FieldGoalsMade\": 5469,\n            \"FieldGoalsYards\": 1625,\n            \"FieldGoalsHadBlocked\": 5133,\n            \"ExtraPointsAttempted\": 6208,\n            \"ExtraPointsMade\": 9530,\n            \"ExtraPointsHadBlocked\": 1702,\n            \"Penalties\": 5392,\n            \"PenaltyYards\": 5221\n          },\n          {\n            \"PlayStatID\": 9186,\n            \"PlayID\": 6026,\n            \"Sequence\": 1026,\n            \"PlayerID\": 4597,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 8776,\n            \"PassingCompletions\": 1993,\n            \"PassingYards\": 2228,\n            \"PassingTouchdowns\": 417,\n            \"PassingInterceptions\": 1960,\n            \"PassingSacks\": 5681,\n            \"PassingSackYards\": 7706,\n            \"RushingAttempts\": 989,\n            \"RushingYards\": 9118,\n            \"RushingTouchdowns\": 5527,\n            \"ReceivingTargets\": 6945,\n            \"Receptions\": 7843,\n            \"ReceivingYards\": 8305,\n            \"ReceivingTouchdowns\": 6395,\n            \"Fumbles\": 7284,\n            \"FumblesLost\": 1613,\n            \"TwoPointConversionAttempts\": 5967,\n            \"TwoPointConversionPasses\": 9825,\n            \"TwoPointConversionRuns\": 9005,\n            \"TwoPointConversionReceptions\": 331,\n            \"TwoPointConversionReturns\": 7455,\n            \"SoloTackles\": 7123,\n            \"AssistedTackles\": 829,\n            \"TacklesForLoss\": 5782,\n            \"Sacks\": 6089.218322117857,\n            \"SackYards\": 9539.510201226565,\n            \"PassesDefended\": 8588,\n            \"Safeties\": 2772,\n            \"FumblesForced\": 8618,\n            \"FumblesRecovered\": 6192,\n            \"FumbleReturnYards\": 8746,\n            \"FumbleReturnTouchdowns\": 6931,\n            \"Interceptions\": 143,\n            \"InterceptionReturnYards\": 8621,\n            \"InterceptionReturnTouchdowns\": 714,\n            \"PuntReturns\": 4654,\n            \"PuntReturnYards\": 2803,\n            \"PuntReturnTouchdowns\": 2629,\n            \"KickReturns\": 4489,\n            \"KickReturnYards\": 1494,\n            \"KickReturnTouchdowns\": 873,\n            \"BlockedKicks\": 447,\n            \"BlockedKickReturns\": 9596,\n            \"BlockedKickReturnYards\": 4079,\n            \"BlockedKickReturnTouchdowns\": 98,\n            \"FieldGoalReturns\": 1864,\n            \"FieldGoalReturnYards\": 9378,\n            \"FieldGoalReturnTouchdowns\": 8599,\n            \"Kickoffs\": 8964,\n            \"KickoffYards\": 4038,\n            \"KickoffTouchbacks\": 6476,\n            \"Punts\": 2664,\n            \"PuntYards\": 359,\n            \"PuntTouchbacks\": 6426,\n            \"PuntsHadBlocked\": 9070,\n            \"FieldGoalsAttempted\": 2805,\n            \"FieldGoalsMade\": 6390,\n            \"FieldGoalsYards\": 4679,\n            \"FieldGoalsHadBlocked\": 1623,\n            \"ExtraPointsAttempted\": 5970,\n            \"ExtraPointsMade\": 4231,\n            \"ExtraPointsHadBlocked\": 8872,\n            \"Penalties\": 143,\n            \"PenaltyYards\": 7720\n          }\n        ]\n      },\n      {\n        \"PlayID\": 3149,\n        \"QuarterID\": 9665,\n        \"QuarterName\": \"string\",\n        \"Sequence\": 7370,\n        \"TimeRemainingMinutes\": 5466,\n        \"TimeRemainingSeconds\": 6581,\n        \"PlayTime\": \"string\",\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"Team\": \"string\",\n        \"Opponent\": \"string\",\n        \"Down\": 2431,\n        \"Distance\": 1587,\n        \"YardLine\": 6040,\n        \"YardLineTerritory\": \"string\",\n        \"YardsToEndZone\": 9676,\n        \"Type\": \"string\",\n        \"YardsGained\": 3259,\n        \"Description\": \"string\",\n        \"IsScoringPlay\": true,\n        \"ScoringPlay\": {\n          \"GameKey\": \"string\",\n          \"SeasonType\": 7151,\n          \"ScoringPlayID\": 9744,\n          \"Season\": 8619,\n          \"Week\": 6616,\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"Date\": \"string\",\n          \"Sequence\": 9737,\n          \"Team\": \"string\",\n          \"Quarter\": \"string\",\n          \"TimeRemaining\": \"string\",\n          \"PlayDescription\": \"string\",\n          \"AwayScore\": 9311,\n          \"HomeScore\": 9536,\n          \"ScoreID\": 2896\n        },\n        \"PlayStats\": [\n          {\n            \"PlayStatID\": 7788,\n            \"PlayID\": 931,\n            \"Sequence\": 5321,\n            \"PlayerID\": 4921,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 8147,\n            \"PassingCompletions\": 1667,\n            \"PassingYards\": 9242,\n            \"PassingTouchdowns\": 9827,\n            \"PassingInterceptions\": 5214,\n            \"PassingSacks\": 8333,\n            \"PassingSackYards\": 9054,\n            \"RushingAttempts\": 3557,\n            \"RushingYards\": 6935,\n            \"RushingTouchdowns\": 1562,\n            \"ReceivingTargets\": 7843,\n            \"Receptions\": 5176,\n            \"ReceivingYards\": 4981,\n            \"ReceivingTouchdowns\": 6131,\n            \"Fumbles\": 9027,\n            \"FumblesLost\": 3062,\n            \"TwoPointConversionAttempts\": 1502,\n            \"TwoPointConversionPasses\": 56,\n            \"TwoPointConversionRuns\": 7432,\n            \"TwoPointConversionReceptions\": 6941,\n            \"TwoPointConversionReturns\": 2266,\n            \"SoloTackles\": 8737,\n            \"AssistedTackles\": 6661,\n            \"TacklesForLoss\": 6227,\n            \"Sacks\": 932.5007007893615,\n            \"SackYards\": 8339.272032373401,\n            \"PassesDefended\": 2584,\n            \"Safeties\": 4628,\n            \"FumblesForced\": 2452,\n            \"FumblesRecovered\": 4646,\n            \"FumbleReturnYards\": 4797,\n            \"FumbleReturnTouchdowns\": 4401,\n            \"Interceptions\": 3211,\n            \"InterceptionReturnYards\": 6168,\n            \"InterceptionReturnTouchdowns\": 8536,\n            \"PuntReturns\": 4752,\n            \"PuntReturnYards\": 8475,\n            \"PuntReturnTouchdowns\": 3265,\n            \"KickReturns\": 2825,\n            \"KickReturnYards\": 6097,\n            \"KickReturnTouchdowns\": 4195,\n            \"BlockedKicks\": 440,\n            \"BlockedKickReturns\": 4607,\n            \"BlockedKickReturnYards\": 6330,\n            \"BlockedKickReturnTouchdowns\": 3628,\n            \"FieldGoalReturns\": 5643,\n            \"FieldGoalReturnYards\": 5876,\n            \"FieldGoalReturnTouchdowns\": 757,\n            \"Kickoffs\": 1577,\n            \"KickoffYards\": 4398,\n            \"KickoffTouchbacks\": 1404,\n            \"Punts\": 8603,\n            \"PuntYards\": 5316,\n            \"PuntTouchbacks\": 5227,\n            \"PuntsHadBlocked\": 3898,\n            \"FieldGoalsAttempted\": 3892,\n            \"FieldGoalsMade\": 8758,\n            \"FieldGoalsYards\": 6432,\n            \"FieldGoalsHadBlocked\": 43,\n            \"ExtraPointsAttempted\": 171,\n            \"ExtraPointsMade\": 3004,\n            \"ExtraPointsHadBlocked\": 5205,\n            \"Penalties\": 3367,\n            \"PenaltyYards\": 3504\n          },\n          {\n            \"PlayStatID\": 9757,\n            \"PlayID\": 3322,\n            \"Sequence\": 5215,\n            \"PlayerID\": 6948,\n            \"Name\": \"string\",\n            \"Team\": \"string\",\n            \"Opponent\": \"string\",\n            \"HomeOrAway\": \"string\",\n            \"Direction\": \"string\",\n            \"Updated\": \"string\",\n            \"Created\": \"string\",\n            \"PassingAttempts\": 7763,\n            \"PassingCompletions\": 1181,\n            \"PassingYards\": 9518,\n            \"PassingTouchdowns\": 2478,\n            \"PassingInterceptions\": 9596,\n            \"PassingSacks\": 9848,\n            \"PassingSackYards\": 3447,\n            \"RushingAttempts\": 3999,\n            \"RushingYards\": 8998,\n            \"RushingTouchdowns\": 3313,\n            \"ReceivingTargets\": 2408,\n            \"Receptions\": 4618,\n            \"ReceivingYards\": 9883,\n            \"ReceivingTouchdowns\": 4518,\n            \"Fumbles\": 6832,\n            \"FumblesLost\": 3256,\n            \"TwoPointConversionAttempts\": 4699,\n            \"TwoPointConversionPasses\": 1410,\n            \"TwoPointConversionRuns\": 9861,\n            \"TwoPointConversionReceptions\": 4411,\n            \"TwoPointConversionReturns\": 2835,\n            \"SoloTackles\": 5227,\n            \"AssistedTackles\": 1443,\n            \"TacklesForLoss\": 5261,\n            \"Sacks\": 1724.5000582933978,\n            \"SackYards\": 4737.820908397444,\n            \"PassesDefended\": 3528,\n            \"Safeties\": 4469,\n            \"FumblesForced\": 6312,\n            \"FumblesRecovered\": 3226,\n            \"FumbleReturnYards\": 5957,\n            \"FumbleReturnTouchdowns\": 4635,\n            \"Interceptions\": 3284,\n            \"InterceptionReturnYards\": 7348,\n            \"InterceptionReturnTouchdowns\": 396,\n            \"PuntReturns\": 7508,\n            \"PuntReturnYards\": 5980,\n            \"PuntReturnTouchdowns\": 8894,\n            \"KickReturns\": 155,\n            \"KickReturnYards\": 1904,\n            \"KickReturnTouchdowns\": 4454,\n            \"BlockedKicks\": 3482,\n            \"BlockedKickReturns\": 4734,\n            \"BlockedKickReturnYards\": 5307,\n            \"BlockedKickReturnTouchdowns\": 6605,\n            \"FieldGoalReturns\": 2263,\n            \"FieldGoalReturnYards\": 5105,\n            \"FieldGoalReturnTouchdowns\": 9868,\n            \"Kickoffs\": 9981,\n            \"KickoffYards\": 8673,\n            \"KickoffTouchbacks\": 2020,\n            \"Punts\": 386,\n            \"PuntYards\": 3296,\n            \"PuntTouchbacks\": 1100,\n            \"PuntsHadBlocked\": 6240,\n            \"FieldGoalsAttempted\": 6012,\n            \"FieldGoalsMade\": 5641,\n            \"FieldGoalsYards\": 6202,\n            \"FieldGoalsHadBlocked\": 4823,\n            \"ExtraPointsAttempted\": 2521,\n            \"ExtraPointsMade\": 5867,\n            \"ExtraPointsHadBlocked\": 946,\n            \"Penalties\": 2252,\n            \"PenaltyYards\": 9056\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4708262b-ae54-4466-b4b8-1ec7b7f7ee39",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nfl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayDelta",
+                    ":season",
+                    ":week",
+                    ":minutes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season",
+                      "description": "(Required) Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "week",
+                      "description": "(Required) Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "minutes",
+                      "description": "(Required) Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:<br>\n          <code>1</code> or <code>2</code>.\n        "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 2707,\n  \"Code\": 561,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "713a7e97-7470-4c5d-a330-32585e768ef9",
+          "name": "Play By Play [Final]",
+          "request": {
+            "name": "Play By Play [Final]",
+            "description": {
+              "content": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by team.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nfl",
+                "pbp",
+                ":format",
+                "PlayByPlayFinal",
+                ":gameid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gameid",
+                  "description": "(Required) The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68d04c74-6cee-46cf-b025-624b6b81a30f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nfl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayFinal",
+                    ":gameid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameid",
+                      "description": "(Required) The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Score\": {\n    \"GameKey\": \"string\",\n    \"SeasonType\": 9513,\n    \"Season\": 1586,\n    \"Week\": 651,\n    \"Date\": \"string\",\n    \"AwayTeam\": \"string\",\n    \"HomeTeam\": \"string\",\n    \"AwayScore\": 9442,\n    \"HomeScore\": 5905,\n    \"Channel\": \"string\",\n    \"PointSpread\": 3330.418520722186,\n    \"OverUnder\": 2275.4853909131343,\n    \"Quarter\": \"string\",\n    \"TimeRemaining\": \"string\",\n    \"Possession\": \"string\",\n    \"Down\": 2319,\n    \"Distance\": \"string\",\n    \"YardLine\": 6963,\n    \"YardLineTerritory\": \"string\",\n    \"RedZone\": \"string\",\n    \"AwayScoreQuarter1\": 791,\n    \"AwayScoreQuarter2\": 1104,\n    \"AwayScoreQuarter3\": 2102,\n    \"AwayScoreQuarter4\": 7922,\n    \"AwayScoreOvertime\": 1039,\n    \"HomeScoreQuarter1\": 4966,\n    \"HomeScoreQuarter2\": 6374,\n    \"HomeScoreQuarter3\": 4852,\n    \"HomeScoreQuarter4\": 8306,\n    \"HomeScoreOvertime\": 4617,\n    \"HasStarted\": true,\n    \"IsInProgress\": false,\n    \"IsOver\": false,\n    \"Has1stQuarterStarted\": true,\n    \"Has2ndQuarterStarted\": false,\n    \"Has3rdQuarterStarted\": true,\n    \"Has4thQuarterStarted\": false,\n    \"IsOvertime\": true,\n    \"DownAndDistance\": \"string\",\n    \"QuarterDescription\": \"string\",\n    \"StadiumID\": 3845,\n    \"LastUpdated\": \"string\",\n    \"GeoLat\": 189.22037071221644,\n    \"GeoLong\": 4631.842987100101,\n    \"ForecastTempLow\": 930,\n    \"ForecastTempHigh\": 3245,\n    \"ForecastDescription\": \"string\",\n    \"ForecastWindChill\": 6600,\n    \"ForecastWindSpeed\": 286,\n    \"AwayTeamMoneyLine\": 4846,\n    \"HomeTeamMoneyLine\": 6625,\n    \"Canceled\": false,\n    \"Closed\": false,\n    \"LastPlay\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"AwayTeamID\": 7533,\n    \"HomeTeamID\": 7775,\n    \"GlobalGameID\": 6588,\n    \"GlobalAwayTeamID\": 2350,\n    \"GlobalHomeTeamID\": 6227,\n    \"PointSpreadAwayTeamMoneyLine\": 7216,\n    \"PointSpreadHomeTeamMoneyLine\": 8906,\n    \"ScoreID\": 1469,\n    \"StadiumDetails\": {\n      \"StadiumID\": 6624,\n      \"Name\": \"string\",\n      \"City\": \"string\",\n      \"State\": \"string\",\n      \"Country\": \"string\",\n      \"Capacity\": 152,\n      \"PlayingSurface\": \"string\",\n      \"GeoLat\": 4137.346812370963,\n      \"GeoLong\": 2211.3627131298454,\n      \"Type\": \"string\"\n    },\n    \"Status\": \"string\",\n    \"GameEndDateTime\": \"string\",\n    \"HomeRotationNumber\": 4189,\n    \"AwayRotationNumber\": 9214,\n    \"NeutralVenue\": true,\n    \"RefereeID\": 2366,\n    \"OverPayout\": 2238,\n    \"UnderPayout\": 4060,\n    \"HomeTimeouts\": 7001,\n    \"AwayTimeouts\": 22,\n    \"DateTimeUTC\": \"string\",\n    \"Attendance\": 3654,\n    \"IsClosed\": false\n  },\n  \"Quarters\": [\n    {\n      \"QuarterID\": 7462,\n      \"ScoreID\": 4995,\n      \"Number\": 1893,\n      \"Name\": \"string\",\n      \"Description\": \"string\",\n      \"AwayTeamScore\": 7455,\n      \"HomeTeamScore\": 3711,\n      \"Updated\": \"string\",\n      \"Created\": \"string\"\n    },\n    {\n      \"QuarterID\": 5185,\n      \"ScoreID\": 8917,\n      \"Number\": 3621,\n      \"Name\": \"string\",\n      \"Description\": \"string\",\n      \"AwayTeamScore\": 5850,\n      \"HomeTeamScore\": 8835,\n      \"Updated\": \"string\",\n      \"Created\": \"string\"\n    }\n  ],\n  \"Plays\": [\n    {\n      \"PlayID\": 7811,\n      \"QuarterID\": 9386,\n      \"QuarterName\": \"string\",\n      \"Sequence\": 2462,\n      \"TimeRemainingMinutes\": 3155,\n      \"TimeRemainingSeconds\": 8605,\n      \"PlayTime\": \"string\",\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"Team\": \"string\",\n      \"Opponent\": \"string\",\n      \"Down\": 8806,\n      \"Distance\": 3172,\n      \"YardLine\": 4302,\n      \"YardLineTerritory\": \"string\",\n      \"YardsToEndZone\": 3318,\n      \"Type\": \"string\",\n      \"YardsGained\": 1366,\n      \"Description\": \"string\",\n      \"IsScoringPlay\": false,\n      \"ScoringPlay\": {\n        \"GameKey\": \"string\",\n        \"SeasonType\": 5213,\n        \"ScoringPlayID\": 7650,\n        \"Season\": 1877,\n        \"Week\": 1383,\n        \"AwayTeam\": \"string\",\n        \"HomeTeam\": \"string\",\n        \"Date\": \"string\",\n        \"Sequence\": 4569,\n        \"Team\": \"string\",\n        \"Quarter\": \"string\",\n        \"TimeRemaining\": \"string\",\n        \"PlayDescription\": \"string\",\n        \"AwayScore\": 5509,\n        \"HomeScore\": 8312,\n        \"ScoreID\": 8928\n      },\n      \"PlayStats\": [\n        {\n          \"PlayStatID\": 530,\n          \"PlayID\": 9351,\n          \"Sequence\": 86,\n          \"PlayerID\": 3404,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 7645,\n          \"PassingCompletions\": 6320,\n          \"PassingYards\": 5574,\n          \"PassingTouchdowns\": 3402,\n          \"PassingInterceptions\": 2723,\n          \"PassingSacks\": 2628,\n          \"PassingSackYards\": 2814,\n          \"RushingAttempts\": 570,\n          \"RushingYards\": 5358,\n          \"RushingTouchdowns\": 7001,\n          \"ReceivingTargets\": 4188,\n          \"Receptions\": 4863,\n          \"ReceivingYards\": 6466,\n          \"ReceivingTouchdowns\": 4534,\n          \"Fumbles\": 6050,\n          \"FumblesLost\": 594,\n          \"TwoPointConversionAttempts\": 3212,\n          \"TwoPointConversionPasses\": 2625,\n          \"TwoPointConversionRuns\": 8359,\n          \"TwoPointConversionReceptions\": 4395,\n          \"TwoPointConversionReturns\": 7194,\n          \"SoloTackles\": 3918,\n          \"AssistedTackles\": 1278,\n          \"TacklesForLoss\": 9968,\n          \"Sacks\": 3201.4555104454703,\n          \"SackYards\": 7063.68087193951,\n          \"PassesDefended\": 5519,\n          \"Safeties\": 9348,\n          \"FumblesForced\": 7537,\n          \"FumblesRecovered\": 7388,\n          \"FumbleReturnYards\": 9095,\n          \"FumbleReturnTouchdowns\": 6269,\n          \"Interceptions\": 8456,\n          \"InterceptionReturnYards\": 9266,\n          \"InterceptionReturnTouchdowns\": 2817,\n          \"PuntReturns\": 1390,\n          \"PuntReturnYards\": 6661,\n          \"PuntReturnTouchdowns\": 1417,\n          \"KickReturns\": 5267,\n          \"KickReturnYards\": 9059,\n          \"KickReturnTouchdowns\": 9438,\n          \"BlockedKicks\": 5959,\n          \"BlockedKickReturns\": 6540,\n          \"BlockedKickReturnYards\": 3641,\n          \"BlockedKickReturnTouchdowns\": 9453,\n          \"FieldGoalReturns\": 532,\n          \"FieldGoalReturnYards\": 3762,\n          \"FieldGoalReturnTouchdowns\": 6335,\n          \"Kickoffs\": 6509,\n          \"KickoffYards\": 9201,\n          \"KickoffTouchbacks\": 820,\n          \"Punts\": 3235,\n          \"PuntYards\": 9335,\n          \"PuntTouchbacks\": 6798,\n          \"PuntsHadBlocked\": 4727,\n          \"FieldGoalsAttempted\": 1699,\n          \"FieldGoalsMade\": 8857,\n          \"FieldGoalsYards\": 1417,\n          \"FieldGoalsHadBlocked\": 8652,\n          \"ExtraPointsAttempted\": 8000,\n          \"ExtraPointsMade\": 4094,\n          \"ExtraPointsHadBlocked\": 1584,\n          \"Penalties\": 7078,\n          \"PenaltyYards\": 7251\n        },\n        {\n          \"PlayStatID\": 1587,\n          \"PlayID\": 2821,\n          \"Sequence\": 7193,\n          \"PlayerID\": 9224,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 8851,\n          \"PassingCompletions\": 8535,\n          \"PassingYards\": 7954,\n          \"PassingTouchdowns\": 454,\n          \"PassingInterceptions\": 2484,\n          \"PassingSacks\": 6433,\n          \"PassingSackYards\": 4264,\n          \"RushingAttempts\": 7380,\n          \"RushingYards\": 5532,\n          \"RushingTouchdowns\": 9729,\n          \"ReceivingTargets\": 1700,\n          \"Receptions\": 8080,\n          \"ReceivingYards\": 2606,\n          \"ReceivingTouchdowns\": 7451,\n          \"Fumbles\": 2907,\n          \"FumblesLost\": 2649,\n          \"TwoPointConversionAttempts\": 6203,\n          \"TwoPointConversionPasses\": 4090,\n          \"TwoPointConversionRuns\": 7568,\n          \"TwoPointConversionReceptions\": 432,\n          \"TwoPointConversionReturns\": 2400,\n          \"SoloTackles\": 2998,\n          \"AssistedTackles\": 2913,\n          \"TacklesForLoss\": 9764,\n          \"Sacks\": 3775.8433870912245,\n          \"SackYards\": 800.3787727174549,\n          \"PassesDefended\": 3091,\n          \"Safeties\": 2041,\n          \"FumblesForced\": 6929,\n          \"FumblesRecovered\": 1637,\n          \"FumbleReturnYards\": 4950,\n          \"FumbleReturnTouchdowns\": 2221,\n          \"Interceptions\": 7523,\n          \"InterceptionReturnYards\": 4396,\n          \"InterceptionReturnTouchdowns\": 6877,\n          \"PuntReturns\": 489,\n          \"PuntReturnYards\": 1343,\n          \"PuntReturnTouchdowns\": 569,\n          \"KickReturns\": 2507,\n          \"KickReturnYards\": 5149,\n          \"KickReturnTouchdowns\": 6980,\n          \"BlockedKicks\": 4280,\n          \"BlockedKickReturns\": 7994,\n          \"BlockedKickReturnYards\": 5645,\n          \"BlockedKickReturnTouchdowns\": 5737,\n          \"FieldGoalReturns\": 5301,\n          \"FieldGoalReturnYards\": 3846,\n          \"FieldGoalReturnTouchdowns\": 4064,\n          \"Kickoffs\": 4594,\n          \"KickoffYards\": 6282,\n          \"KickoffTouchbacks\": 3428,\n          \"Punts\": 604,\n          \"PuntYards\": 9896,\n          \"PuntTouchbacks\": 1061,\n          \"PuntsHadBlocked\": 5842,\n          \"FieldGoalsAttempted\": 4885,\n          \"FieldGoalsMade\": 3322,\n          \"FieldGoalsYards\": 516,\n          \"FieldGoalsHadBlocked\": 1386,\n          \"ExtraPointsAttempted\": 9238,\n          \"ExtraPointsMade\": 4409,\n          \"ExtraPointsHadBlocked\": 8369,\n          \"Penalties\": 5776,\n          \"PenaltyYards\": 4855\n        }\n      ]\n    },\n    {\n      \"PlayID\": 9893,\n      \"QuarterID\": 4413,\n      \"QuarterName\": \"string\",\n      \"Sequence\": 8826,\n      \"TimeRemainingMinutes\": 1438,\n      \"TimeRemainingSeconds\": 2620,\n      \"PlayTime\": \"string\",\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"Team\": \"string\",\n      \"Opponent\": \"string\",\n      \"Down\": 4445,\n      \"Distance\": 3933,\n      \"YardLine\": 4288,\n      \"YardLineTerritory\": \"string\",\n      \"YardsToEndZone\": 9219,\n      \"Type\": \"string\",\n      \"YardsGained\": 9662,\n      \"Description\": \"string\",\n      \"IsScoringPlay\": false,\n      \"ScoringPlay\": {\n        \"GameKey\": \"string\",\n        \"SeasonType\": 3227,\n        \"ScoringPlayID\": 4811,\n        \"Season\": 265,\n        \"Week\": 1336,\n        \"AwayTeam\": \"string\",\n        \"HomeTeam\": \"string\",\n        \"Date\": \"string\",\n        \"Sequence\": 2350,\n        \"Team\": \"string\",\n        \"Quarter\": \"string\",\n        \"TimeRemaining\": \"string\",\n        \"PlayDescription\": \"string\",\n        \"AwayScore\": 8708,\n        \"HomeScore\": 7559,\n        \"ScoreID\": 8564\n      },\n      \"PlayStats\": [\n        {\n          \"PlayStatID\": 5463,\n          \"PlayID\": 274,\n          \"Sequence\": 5437,\n          \"PlayerID\": 8347,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 4311,\n          \"PassingCompletions\": 3439,\n          \"PassingYards\": 2035,\n          \"PassingTouchdowns\": 2769,\n          \"PassingInterceptions\": 1932,\n          \"PassingSacks\": 2446,\n          \"PassingSackYards\": 2072,\n          \"RushingAttempts\": 4915,\n          \"RushingYards\": 9185,\n          \"RushingTouchdowns\": 5418,\n          \"ReceivingTargets\": 7973,\n          \"Receptions\": 4694,\n          \"ReceivingYards\": 7990,\n          \"ReceivingTouchdowns\": 4579,\n          \"Fumbles\": 8909,\n          \"FumblesLost\": 295,\n          \"TwoPointConversionAttempts\": 8929,\n          \"TwoPointConversionPasses\": 8706,\n          \"TwoPointConversionRuns\": 9722,\n          \"TwoPointConversionReceptions\": 2452,\n          \"TwoPointConversionReturns\": 7121,\n          \"SoloTackles\": 3223,\n          \"AssistedTackles\": 537,\n          \"TacklesForLoss\": 1063,\n          \"Sacks\": 1446.2432878974807,\n          \"SackYards\": 8008.50372590977,\n          \"PassesDefended\": 9592,\n          \"Safeties\": 5514,\n          \"FumblesForced\": 5010,\n          \"FumblesRecovered\": 399,\n          \"FumbleReturnYards\": 854,\n          \"FumbleReturnTouchdowns\": 2759,\n          \"Interceptions\": 8136,\n          \"InterceptionReturnYards\": 5205,\n          \"InterceptionReturnTouchdowns\": 5147,\n          \"PuntReturns\": 2189,\n          \"PuntReturnYards\": 621,\n          \"PuntReturnTouchdowns\": 1749,\n          \"KickReturns\": 8299,\n          \"KickReturnYards\": 9661,\n          \"KickReturnTouchdowns\": 7634,\n          \"BlockedKicks\": 2098,\n          \"BlockedKickReturns\": 4587,\n          \"BlockedKickReturnYards\": 9786,\n          \"BlockedKickReturnTouchdowns\": 197,\n          \"FieldGoalReturns\": 8688,\n          \"FieldGoalReturnYards\": 302,\n          \"FieldGoalReturnTouchdowns\": 3861,\n          \"Kickoffs\": 6162,\n          \"KickoffYards\": 8012,\n          \"KickoffTouchbacks\": 6014,\n          \"Punts\": 9533,\n          \"PuntYards\": 8040,\n          \"PuntTouchbacks\": 2126,\n          \"PuntsHadBlocked\": 2340,\n          \"FieldGoalsAttempted\": 8131,\n          \"FieldGoalsMade\": 6670,\n          \"FieldGoalsYards\": 2374,\n          \"FieldGoalsHadBlocked\": 1555,\n          \"ExtraPointsAttempted\": 2524,\n          \"ExtraPointsMade\": 6921,\n          \"ExtraPointsHadBlocked\": 2486,\n          \"Penalties\": 4281,\n          \"PenaltyYards\": 9704\n        },\n        {\n          \"PlayStatID\": 3160,\n          \"PlayID\": 7839,\n          \"Sequence\": 2192,\n          \"PlayerID\": 8927,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 8652,\n          \"PassingCompletions\": 5893,\n          \"PassingYards\": 2733,\n          \"PassingTouchdowns\": 8386,\n          \"PassingInterceptions\": 8339,\n          \"PassingSacks\": 2407,\n          \"PassingSackYards\": 2745,\n          \"RushingAttempts\": 5281,\n          \"RushingYards\": 3814,\n          \"RushingTouchdowns\": 328,\n          \"ReceivingTargets\": 3692,\n          \"Receptions\": 5969,\n          \"ReceivingYards\": 9159,\n          \"ReceivingTouchdowns\": 6383,\n          \"Fumbles\": 9140,\n          \"FumblesLost\": 932,\n          \"TwoPointConversionAttempts\": 9954,\n          \"TwoPointConversionPasses\": 1461,\n          \"TwoPointConversionRuns\": 8163,\n          \"TwoPointConversionReceptions\": 1924,\n          \"TwoPointConversionReturns\": 7338,\n          \"SoloTackles\": 4046,\n          \"AssistedTackles\": 6307,\n          \"TacklesForLoss\": 3382,\n          \"Sacks\": 6901.0637482122265,\n          \"SackYards\": 6647.857951923715,\n          \"PassesDefended\": 8072,\n          \"Safeties\": 1400,\n          \"FumblesForced\": 302,\n          \"FumblesRecovered\": 225,\n          \"FumbleReturnYards\": 6721,\n          \"FumbleReturnTouchdowns\": 1430,\n          \"Interceptions\": 2695,\n          \"InterceptionReturnYards\": 2148,\n          \"InterceptionReturnTouchdowns\": 294,\n          \"PuntReturns\": 8015,\n          \"PuntReturnYards\": 5252,\n          \"PuntReturnTouchdowns\": 4692,\n          \"KickReturns\": 3978,\n          \"KickReturnYards\": 5201,\n          \"KickReturnTouchdowns\": 4637,\n          \"BlockedKicks\": 3874,\n          \"BlockedKickReturns\": 2112,\n          \"BlockedKickReturnYards\": 3859,\n          \"BlockedKickReturnTouchdowns\": 588,\n          \"FieldGoalReturns\": 319,\n          \"FieldGoalReturnYards\": 5099,\n          \"FieldGoalReturnTouchdowns\": 7937,\n          \"Kickoffs\": 1837,\n          \"KickoffYards\": 1648,\n          \"KickoffTouchbacks\": 1234,\n          \"Punts\": 8877,\n          \"PuntYards\": 4720,\n          \"PuntTouchbacks\": 8651,\n          \"PuntsHadBlocked\": 6829,\n          \"FieldGoalsAttempted\": 7109,\n          \"FieldGoalsMade\": 8345,\n          \"FieldGoalsYards\": 1678,\n          \"FieldGoalsHadBlocked\": 6850,\n          \"ExtraPointsAttempted\": 3125,\n          \"ExtraPointsMade\": 463,\n          \"ExtraPointsHadBlocked\": 6649,\n          \"Penalties\": 5844,\n          \"PenaltyYards\": 9890\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6b9efd7-9a13-4820-81b6-7e5e8481bfb9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nfl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayFinal",
+                    ":gameid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameid",
+                      "description": "(Required) The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 2707,\n  \"Code\": 561,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74860010-1806-4477-9eaf-dbd32ef6e517",
+          "name": "Play By Play [Live & Final]",
+          "request": {
+            "name": "Play By Play [Live & Final]",
+            "description": {
+              "content": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by game.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nfl",
+                "pbp",
+                ":format",
+                "PlayByPlay",
+                ":gameid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gameid",
+                  "description": "(Required) The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b0b757bd-adf3-4e9c-a58d-632e39039f92",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nfl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlay",
+                    ":gameid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameid",
+                      "description": "(Required) The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Score\": {\n    \"GameKey\": \"string\",\n    \"SeasonType\": 9513,\n    \"Season\": 1586,\n    \"Week\": 651,\n    \"Date\": \"string\",\n    \"AwayTeam\": \"string\",\n    \"HomeTeam\": \"string\",\n    \"AwayScore\": 9442,\n    \"HomeScore\": 5905,\n    \"Channel\": \"string\",\n    \"PointSpread\": 3330.418520722186,\n    \"OverUnder\": 2275.4853909131343,\n    \"Quarter\": \"string\",\n    \"TimeRemaining\": \"string\",\n    \"Possession\": \"string\",\n    \"Down\": 2319,\n    \"Distance\": \"string\",\n    \"YardLine\": 6963,\n    \"YardLineTerritory\": \"string\",\n    \"RedZone\": \"string\",\n    \"AwayScoreQuarter1\": 791,\n    \"AwayScoreQuarter2\": 1104,\n    \"AwayScoreQuarter3\": 2102,\n    \"AwayScoreQuarter4\": 7922,\n    \"AwayScoreOvertime\": 1039,\n    \"HomeScoreQuarter1\": 4966,\n    \"HomeScoreQuarter2\": 6374,\n    \"HomeScoreQuarter3\": 4852,\n    \"HomeScoreQuarter4\": 8306,\n    \"HomeScoreOvertime\": 4617,\n    \"HasStarted\": true,\n    \"IsInProgress\": false,\n    \"IsOver\": false,\n    \"Has1stQuarterStarted\": true,\n    \"Has2ndQuarterStarted\": false,\n    \"Has3rdQuarterStarted\": true,\n    \"Has4thQuarterStarted\": false,\n    \"IsOvertime\": true,\n    \"DownAndDistance\": \"string\",\n    \"QuarterDescription\": \"string\",\n    \"StadiumID\": 3845,\n    \"LastUpdated\": \"string\",\n    \"GeoLat\": 189.22037071221644,\n    \"GeoLong\": 4631.842987100101,\n    \"ForecastTempLow\": 930,\n    \"ForecastTempHigh\": 3245,\n    \"ForecastDescription\": \"string\",\n    \"ForecastWindChill\": 6600,\n    \"ForecastWindSpeed\": 286,\n    \"AwayTeamMoneyLine\": 4846,\n    \"HomeTeamMoneyLine\": 6625,\n    \"Canceled\": false,\n    \"Closed\": false,\n    \"LastPlay\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"AwayTeamID\": 7533,\n    \"HomeTeamID\": 7775,\n    \"GlobalGameID\": 6588,\n    \"GlobalAwayTeamID\": 2350,\n    \"GlobalHomeTeamID\": 6227,\n    \"PointSpreadAwayTeamMoneyLine\": 7216,\n    \"PointSpreadHomeTeamMoneyLine\": 8906,\n    \"ScoreID\": 1469,\n    \"StadiumDetails\": {\n      \"StadiumID\": 6624,\n      \"Name\": \"string\",\n      \"City\": \"string\",\n      \"State\": \"string\",\n      \"Country\": \"string\",\n      \"Capacity\": 152,\n      \"PlayingSurface\": \"string\",\n      \"GeoLat\": 4137.346812370963,\n      \"GeoLong\": 2211.3627131298454,\n      \"Type\": \"string\"\n    },\n    \"Status\": \"string\",\n    \"GameEndDateTime\": \"string\",\n    \"HomeRotationNumber\": 4189,\n    \"AwayRotationNumber\": 9214,\n    \"NeutralVenue\": true,\n    \"RefereeID\": 2366,\n    \"OverPayout\": 2238,\n    \"UnderPayout\": 4060,\n    \"HomeTimeouts\": 7001,\n    \"AwayTimeouts\": 22,\n    \"DateTimeUTC\": \"string\",\n    \"Attendance\": 3654,\n    \"IsClosed\": false\n  },\n  \"Quarters\": [\n    {\n      \"QuarterID\": 7462,\n      \"ScoreID\": 4995,\n      \"Number\": 1893,\n      \"Name\": \"string\",\n      \"Description\": \"string\",\n      \"AwayTeamScore\": 7455,\n      \"HomeTeamScore\": 3711,\n      \"Updated\": \"string\",\n      \"Created\": \"string\"\n    },\n    {\n      \"QuarterID\": 5185,\n      \"ScoreID\": 8917,\n      \"Number\": 3621,\n      \"Name\": \"string\",\n      \"Description\": \"string\",\n      \"AwayTeamScore\": 5850,\n      \"HomeTeamScore\": 8835,\n      \"Updated\": \"string\",\n      \"Created\": \"string\"\n    }\n  ],\n  \"Plays\": [\n    {\n      \"PlayID\": 7811,\n      \"QuarterID\": 9386,\n      \"QuarterName\": \"string\",\n      \"Sequence\": 2462,\n      \"TimeRemainingMinutes\": 3155,\n      \"TimeRemainingSeconds\": 8605,\n      \"PlayTime\": \"string\",\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"Team\": \"string\",\n      \"Opponent\": \"string\",\n      \"Down\": 8806,\n      \"Distance\": 3172,\n      \"YardLine\": 4302,\n      \"YardLineTerritory\": \"string\",\n      \"YardsToEndZone\": 3318,\n      \"Type\": \"string\",\n      \"YardsGained\": 1366,\n      \"Description\": \"string\",\n      \"IsScoringPlay\": false,\n      \"ScoringPlay\": {\n        \"GameKey\": \"string\",\n        \"SeasonType\": 5213,\n        \"ScoringPlayID\": 7650,\n        \"Season\": 1877,\n        \"Week\": 1383,\n        \"AwayTeam\": \"string\",\n        \"HomeTeam\": \"string\",\n        \"Date\": \"string\",\n        \"Sequence\": 4569,\n        \"Team\": \"string\",\n        \"Quarter\": \"string\",\n        \"TimeRemaining\": \"string\",\n        \"PlayDescription\": \"string\",\n        \"AwayScore\": 5509,\n        \"HomeScore\": 8312,\n        \"ScoreID\": 8928\n      },\n      \"PlayStats\": [\n        {\n          \"PlayStatID\": 530,\n          \"PlayID\": 9351,\n          \"Sequence\": 86,\n          \"PlayerID\": 3404,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 7645,\n          \"PassingCompletions\": 6320,\n          \"PassingYards\": 5574,\n          \"PassingTouchdowns\": 3402,\n          \"PassingInterceptions\": 2723,\n          \"PassingSacks\": 2628,\n          \"PassingSackYards\": 2814,\n          \"RushingAttempts\": 570,\n          \"RushingYards\": 5358,\n          \"RushingTouchdowns\": 7001,\n          \"ReceivingTargets\": 4188,\n          \"Receptions\": 4863,\n          \"ReceivingYards\": 6466,\n          \"ReceivingTouchdowns\": 4534,\n          \"Fumbles\": 6050,\n          \"FumblesLost\": 594,\n          \"TwoPointConversionAttempts\": 3212,\n          \"TwoPointConversionPasses\": 2625,\n          \"TwoPointConversionRuns\": 8359,\n          \"TwoPointConversionReceptions\": 4395,\n          \"TwoPointConversionReturns\": 7194,\n          \"SoloTackles\": 3918,\n          \"AssistedTackles\": 1278,\n          \"TacklesForLoss\": 9968,\n          \"Sacks\": 3201.4555104454703,\n          \"SackYards\": 7063.68087193951,\n          \"PassesDefended\": 5519,\n          \"Safeties\": 9348,\n          \"FumblesForced\": 7537,\n          \"FumblesRecovered\": 7388,\n          \"FumbleReturnYards\": 9095,\n          \"FumbleReturnTouchdowns\": 6269,\n          \"Interceptions\": 8456,\n          \"InterceptionReturnYards\": 9266,\n          \"InterceptionReturnTouchdowns\": 2817,\n          \"PuntReturns\": 1390,\n          \"PuntReturnYards\": 6661,\n          \"PuntReturnTouchdowns\": 1417,\n          \"KickReturns\": 5267,\n          \"KickReturnYards\": 9059,\n          \"KickReturnTouchdowns\": 9438,\n          \"BlockedKicks\": 5959,\n          \"BlockedKickReturns\": 6540,\n          \"BlockedKickReturnYards\": 3641,\n          \"BlockedKickReturnTouchdowns\": 9453,\n          \"FieldGoalReturns\": 532,\n          \"FieldGoalReturnYards\": 3762,\n          \"FieldGoalReturnTouchdowns\": 6335,\n          \"Kickoffs\": 6509,\n          \"KickoffYards\": 9201,\n          \"KickoffTouchbacks\": 820,\n          \"Punts\": 3235,\n          \"PuntYards\": 9335,\n          \"PuntTouchbacks\": 6798,\n          \"PuntsHadBlocked\": 4727,\n          \"FieldGoalsAttempted\": 1699,\n          \"FieldGoalsMade\": 8857,\n          \"FieldGoalsYards\": 1417,\n          \"FieldGoalsHadBlocked\": 8652,\n          \"ExtraPointsAttempted\": 8000,\n          \"ExtraPointsMade\": 4094,\n          \"ExtraPointsHadBlocked\": 1584,\n          \"Penalties\": 7078,\n          \"PenaltyYards\": 7251\n        },\n        {\n          \"PlayStatID\": 1587,\n          \"PlayID\": 2821,\n          \"Sequence\": 7193,\n          \"PlayerID\": 9224,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 8851,\n          \"PassingCompletions\": 8535,\n          \"PassingYards\": 7954,\n          \"PassingTouchdowns\": 454,\n          \"PassingInterceptions\": 2484,\n          \"PassingSacks\": 6433,\n          \"PassingSackYards\": 4264,\n          \"RushingAttempts\": 7380,\n          \"RushingYards\": 5532,\n          \"RushingTouchdowns\": 9729,\n          \"ReceivingTargets\": 1700,\n          \"Receptions\": 8080,\n          \"ReceivingYards\": 2606,\n          \"ReceivingTouchdowns\": 7451,\n          \"Fumbles\": 2907,\n          \"FumblesLost\": 2649,\n          \"TwoPointConversionAttempts\": 6203,\n          \"TwoPointConversionPasses\": 4090,\n          \"TwoPointConversionRuns\": 7568,\n          \"TwoPointConversionReceptions\": 432,\n          \"TwoPointConversionReturns\": 2400,\n          \"SoloTackles\": 2998,\n          \"AssistedTackles\": 2913,\n          \"TacklesForLoss\": 9764,\n          \"Sacks\": 3775.8433870912245,\n          \"SackYards\": 800.3787727174549,\n          \"PassesDefended\": 3091,\n          \"Safeties\": 2041,\n          \"FumblesForced\": 6929,\n          \"FumblesRecovered\": 1637,\n          \"FumbleReturnYards\": 4950,\n          \"FumbleReturnTouchdowns\": 2221,\n          \"Interceptions\": 7523,\n          \"InterceptionReturnYards\": 4396,\n          \"InterceptionReturnTouchdowns\": 6877,\n          \"PuntReturns\": 489,\n          \"PuntReturnYards\": 1343,\n          \"PuntReturnTouchdowns\": 569,\n          \"KickReturns\": 2507,\n          \"KickReturnYards\": 5149,\n          \"KickReturnTouchdowns\": 6980,\n          \"BlockedKicks\": 4280,\n          \"BlockedKickReturns\": 7994,\n          \"BlockedKickReturnYards\": 5645,\n          \"BlockedKickReturnTouchdowns\": 5737,\n          \"FieldGoalReturns\": 5301,\n          \"FieldGoalReturnYards\": 3846,\n          \"FieldGoalReturnTouchdowns\": 4064,\n          \"Kickoffs\": 4594,\n          \"KickoffYards\": 6282,\n          \"KickoffTouchbacks\": 3428,\n          \"Punts\": 604,\n          \"PuntYards\": 9896,\n          \"PuntTouchbacks\": 1061,\n          \"PuntsHadBlocked\": 5842,\n          \"FieldGoalsAttempted\": 4885,\n          \"FieldGoalsMade\": 3322,\n          \"FieldGoalsYards\": 516,\n          \"FieldGoalsHadBlocked\": 1386,\n          \"ExtraPointsAttempted\": 9238,\n          \"ExtraPointsMade\": 4409,\n          \"ExtraPointsHadBlocked\": 8369,\n          \"Penalties\": 5776,\n          \"PenaltyYards\": 4855\n        }\n      ]\n    },\n    {\n      \"PlayID\": 9893,\n      \"QuarterID\": 4413,\n      \"QuarterName\": \"string\",\n      \"Sequence\": 8826,\n      \"TimeRemainingMinutes\": 1438,\n      \"TimeRemainingSeconds\": 2620,\n      \"PlayTime\": \"string\",\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"Team\": \"string\",\n      \"Opponent\": \"string\",\n      \"Down\": 4445,\n      \"Distance\": 3933,\n      \"YardLine\": 4288,\n      \"YardLineTerritory\": \"string\",\n      \"YardsToEndZone\": 9219,\n      \"Type\": \"string\",\n      \"YardsGained\": 9662,\n      \"Description\": \"string\",\n      \"IsScoringPlay\": false,\n      \"ScoringPlay\": {\n        \"GameKey\": \"string\",\n        \"SeasonType\": 3227,\n        \"ScoringPlayID\": 4811,\n        \"Season\": 265,\n        \"Week\": 1336,\n        \"AwayTeam\": \"string\",\n        \"HomeTeam\": \"string\",\n        \"Date\": \"string\",\n        \"Sequence\": 2350,\n        \"Team\": \"string\",\n        \"Quarter\": \"string\",\n        \"TimeRemaining\": \"string\",\n        \"PlayDescription\": \"string\",\n        \"AwayScore\": 8708,\n        \"HomeScore\": 7559,\n        \"ScoreID\": 8564\n      },\n      \"PlayStats\": [\n        {\n          \"PlayStatID\": 5463,\n          \"PlayID\": 274,\n          \"Sequence\": 5437,\n          \"PlayerID\": 8347,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 4311,\n          \"PassingCompletions\": 3439,\n          \"PassingYards\": 2035,\n          \"PassingTouchdowns\": 2769,\n          \"PassingInterceptions\": 1932,\n          \"PassingSacks\": 2446,\n          \"PassingSackYards\": 2072,\n          \"RushingAttempts\": 4915,\n          \"RushingYards\": 9185,\n          \"RushingTouchdowns\": 5418,\n          \"ReceivingTargets\": 7973,\n          \"Receptions\": 4694,\n          \"ReceivingYards\": 7990,\n          \"ReceivingTouchdowns\": 4579,\n          \"Fumbles\": 8909,\n          \"FumblesLost\": 295,\n          \"TwoPointConversionAttempts\": 8929,\n          \"TwoPointConversionPasses\": 8706,\n          \"TwoPointConversionRuns\": 9722,\n          \"TwoPointConversionReceptions\": 2452,\n          \"TwoPointConversionReturns\": 7121,\n          \"SoloTackles\": 3223,\n          \"AssistedTackles\": 537,\n          \"TacklesForLoss\": 1063,\n          \"Sacks\": 1446.2432878974807,\n          \"SackYards\": 8008.50372590977,\n          \"PassesDefended\": 9592,\n          \"Safeties\": 5514,\n          \"FumblesForced\": 5010,\n          \"FumblesRecovered\": 399,\n          \"FumbleReturnYards\": 854,\n          \"FumbleReturnTouchdowns\": 2759,\n          \"Interceptions\": 8136,\n          \"InterceptionReturnYards\": 5205,\n          \"InterceptionReturnTouchdowns\": 5147,\n          \"PuntReturns\": 2189,\n          \"PuntReturnYards\": 621,\n          \"PuntReturnTouchdowns\": 1749,\n          \"KickReturns\": 8299,\n          \"KickReturnYards\": 9661,\n          \"KickReturnTouchdowns\": 7634,\n          \"BlockedKicks\": 2098,\n          \"BlockedKickReturns\": 4587,\n          \"BlockedKickReturnYards\": 9786,\n          \"BlockedKickReturnTouchdowns\": 197,\n          \"FieldGoalReturns\": 8688,\n          \"FieldGoalReturnYards\": 302,\n          \"FieldGoalReturnTouchdowns\": 3861,\n          \"Kickoffs\": 6162,\n          \"KickoffYards\": 8012,\n          \"KickoffTouchbacks\": 6014,\n          \"Punts\": 9533,\n          \"PuntYards\": 8040,\n          \"PuntTouchbacks\": 2126,\n          \"PuntsHadBlocked\": 2340,\n          \"FieldGoalsAttempted\": 8131,\n          \"FieldGoalsMade\": 6670,\n          \"FieldGoalsYards\": 2374,\n          \"FieldGoalsHadBlocked\": 1555,\n          \"ExtraPointsAttempted\": 2524,\n          \"ExtraPointsMade\": 6921,\n          \"ExtraPointsHadBlocked\": 2486,\n          \"Penalties\": 4281,\n          \"PenaltyYards\": 9704\n        },\n        {\n          \"PlayStatID\": 3160,\n          \"PlayID\": 7839,\n          \"Sequence\": 2192,\n          \"PlayerID\": 8927,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 8652,\n          \"PassingCompletions\": 5893,\n          \"PassingYards\": 2733,\n          \"PassingTouchdowns\": 8386,\n          \"PassingInterceptions\": 8339,\n          \"PassingSacks\": 2407,\n          \"PassingSackYards\": 2745,\n          \"RushingAttempts\": 5281,\n          \"RushingYards\": 3814,\n          \"RushingTouchdowns\": 328,\n          \"ReceivingTargets\": 3692,\n          \"Receptions\": 5969,\n          \"ReceivingYards\": 9159,\n          \"ReceivingTouchdowns\": 6383,\n          \"Fumbles\": 9140,\n          \"FumblesLost\": 932,\n          \"TwoPointConversionAttempts\": 9954,\n          \"TwoPointConversionPasses\": 1461,\n          \"TwoPointConversionRuns\": 8163,\n          \"TwoPointConversionReceptions\": 1924,\n          \"TwoPointConversionReturns\": 7338,\n          \"SoloTackles\": 4046,\n          \"AssistedTackles\": 6307,\n          \"TacklesForLoss\": 3382,\n          \"Sacks\": 6901.0637482122265,\n          \"SackYards\": 6647.857951923715,\n          \"PassesDefended\": 8072,\n          \"Safeties\": 1400,\n          \"FumblesForced\": 302,\n          \"FumblesRecovered\": 225,\n          \"FumbleReturnYards\": 6721,\n          \"FumbleReturnTouchdowns\": 1430,\n          \"Interceptions\": 2695,\n          \"InterceptionReturnYards\": 2148,\n          \"InterceptionReturnTouchdowns\": 294,\n          \"PuntReturns\": 8015,\n          \"PuntReturnYards\": 5252,\n          \"PuntReturnTouchdowns\": 4692,\n          \"KickReturns\": 3978,\n          \"KickReturnYards\": 5201,\n          \"KickReturnTouchdowns\": 4637,\n          \"BlockedKicks\": 3874,\n          \"BlockedKickReturns\": 2112,\n          \"BlockedKickReturnYards\": 3859,\n          \"BlockedKickReturnTouchdowns\": 588,\n          \"FieldGoalReturns\": 319,\n          \"FieldGoalReturnYards\": 5099,\n          \"FieldGoalReturnTouchdowns\": 7937,\n          \"Kickoffs\": 1837,\n          \"KickoffYards\": 1648,\n          \"KickoffTouchbacks\": 1234,\n          \"Punts\": 8877,\n          \"PuntYards\": 4720,\n          \"PuntTouchbacks\": 8651,\n          \"PuntsHadBlocked\": 6829,\n          \"FieldGoalsAttempted\": 7109,\n          \"FieldGoalsMade\": 8345,\n          \"FieldGoalsYards\": 1678,\n          \"FieldGoalsHadBlocked\": 6850,\n          \"ExtraPointsAttempted\": 3125,\n          \"ExtraPointsMade\": 463,\n          \"ExtraPointsHadBlocked\": 6649,\n          \"Penalties\": 5844,\n          \"PenaltyYards\": 9890\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4dbdd36d-454d-487d-ae2c-0e5f4cbc3dfa",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nfl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlay",
+                    ":gameid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameid",
+                      "description": "(Required) The GameID of a NFL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 2707,\n  \"Code\": 561,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb544e2f-c75a-43be-970b-aa6e5ffce251",
+          "name": "Play By Play - by Team [Final]",
+          "request": {
+            "name": "Play By Play - by Team [Final]",
+            "description": {
+              "content": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by team.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nfl",
+                "pbp",
+                ":format",
+                "PlayByPlayFinal",
+                ":season",
+                ":week",
+                ":hometeam"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "season",
+                  "description": "(Required) Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "week",
+                  "description": "(Required) Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hometeam",
+                  "description": "(Required) Abbreviation of the home team. Example: <code>WAS</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2eaaf566-f327-4e7a-a2f5-5e17611933b9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nfl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayFinal",
+                    ":season",
+                    ":week",
+                    ":hometeam"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season",
+                      "description": "(Required) Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "week",
+                      "description": "(Required) Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hometeam",
+                      "description": "(Required) Abbreviation of the home team. Example: <code>WAS</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Score\": {\n    \"GameKey\": \"string\",\n    \"SeasonType\": 9513,\n    \"Season\": 1586,\n    \"Week\": 651,\n    \"Date\": \"string\",\n    \"AwayTeam\": \"string\",\n    \"HomeTeam\": \"string\",\n    \"AwayScore\": 9442,\n    \"HomeScore\": 5905,\n    \"Channel\": \"string\",\n    \"PointSpread\": 3330.418520722186,\n    \"OverUnder\": 2275.4853909131343,\n    \"Quarter\": \"string\",\n    \"TimeRemaining\": \"string\",\n    \"Possession\": \"string\",\n    \"Down\": 2319,\n    \"Distance\": \"string\",\n    \"YardLine\": 6963,\n    \"YardLineTerritory\": \"string\",\n    \"RedZone\": \"string\",\n    \"AwayScoreQuarter1\": 791,\n    \"AwayScoreQuarter2\": 1104,\n    \"AwayScoreQuarter3\": 2102,\n    \"AwayScoreQuarter4\": 7922,\n    \"AwayScoreOvertime\": 1039,\n    \"HomeScoreQuarter1\": 4966,\n    \"HomeScoreQuarter2\": 6374,\n    \"HomeScoreQuarter3\": 4852,\n    \"HomeScoreQuarter4\": 8306,\n    \"HomeScoreOvertime\": 4617,\n    \"HasStarted\": true,\n    \"IsInProgress\": false,\n    \"IsOver\": false,\n    \"Has1stQuarterStarted\": true,\n    \"Has2ndQuarterStarted\": false,\n    \"Has3rdQuarterStarted\": true,\n    \"Has4thQuarterStarted\": false,\n    \"IsOvertime\": true,\n    \"DownAndDistance\": \"string\",\n    \"QuarterDescription\": \"string\",\n    \"StadiumID\": 3845,\n    \"LastUpdated\": \"string\",\n    \"GeoLat\": 189.22037071221644,\n    \"GeoLong\": 4631.842987100101,\n    \"ForecastTempLow\": 930,\n    \"ForecastTempHigh\": 3245,\n    \"ForecastDescription\": \"string\",\n    \"ForecastWindChill\": 6600,\n    \"ForecastWindSpeed\": 286,\n    \"AwayTeamMoneyLine\": 4846,\n    \"HomeTeamMoneyLine\": 6625,\n    \"Canceled\": false,\n    \"Closed\": false,\n    \"LastPlay\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"AwayTeamID\": 7533,\n    \"HomeTeamID\": 7775,\n    \"GlobalGameID\": 6588,\n    \"GlobalAwayTeamID\": 2350,\n    \"GlobalHomeTeamID\": 6227,\n    \"PointSpreadAwayTeamMoneyLine\": 7216,\n    \"PointSpreadHomeTeamMoneyLine\": 8906,\n    \"ScoreID\": 1469,\n    \"StadiumDetails\": {\n      \"StadiumID\": 6624,\n      \"Name\": \"string\",\n      \"City\": \"string\",\n      \"State\": \"string\",\n      \"Country\": \"string\",\n      \"Capacity\": 152,\n      \"PlayingSurface\": \"string\",\n      \"GeoLat\": 4137.346812370963,\n      \"GeoLong\": 2211.3627131298454,\n      \"Type\": \"string\"\n    },\n    \"Status\": \"string\",\n    \"GameEndDateTime\": \"string\",\n    \"HomeRotationNumber\": 4189,\n    \"AwayRotationNumber\": 9214,\n    \"NeutralVenue\": true,\n    \"RefereeID\": 2366,\n    \"OverPayout\": 2238,\n    \"UnderPayout\": 4060,\n    \"HomeTimeouts\": 7001,\n    \"AwayTimeouts\": 22,\n    \"DateTimeUTC\": \"string\",\n    \"Attendance\": 3654,\n    \"IsClosed\": false\n  },\n  \"Quarters\": [\n    {\n      \"QuarterID\": 7462,\n      \"ScoreID\": 4995,\n      \"Number\": 1893,\n      \"Name\": \"string\",\n      \"Description\": \"string\",\n      \"AwayTeamScore\": 7455,\n      \"HomeTeamScore\": 3711,\n      \"Updated\": \"string\",\n      \"Created\": \"string\"\n    },\n    {\n      \"QuarterID\": 5185,\n      \"ScoreID\": 8917,\n      \"Number\": 3621,\n      \"Name\": \"string\",\n      \"Description\": \"string\",\n      \"AwayTeamScore\": 5850,\n      \"HomeTeamScore\": 8835,\n      \"Updated\": \"string\",\n      \"Created\": \"string\"\n    }\n  ],\n  \"Plays\": [\n    {\n      \"PlayID\": 7811,\n      \"QuarterID\": 9386,\n      \"QuarterName\": \"string\",\n      \"Sequence\": 2462,\n      \"TimeRemainingMinutes\": 3155,\n      \"TimeRemainingSeconds\": 8605,\n      \"PlayTime\": \"string\",\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"Team\": \"string\",\n      \"Opponent\": \"string\",\n      \"Down\": 8806,\n      \"Distance\": 3172,\n      \"YardLine\": 4302,\n      \"YardLineTerritory\": \"string\",\n      \"YardsToEndZone\": 3318,\n      \"Type\": \"string\",\n      \"YardsGained\": 1366,\n      \"Description\": \"string\",\n      \"IsScoringPlay\": false,\n      \"ScoringPlay\": {\n        \"GameKey\": \"string\",\n        \"SeasonType\": 5213,\n        \"ScoringPlayID\": 7650,\n        \"Season\": 1877,\n        \"Week\": 1383,\n        \"AwayTeam\": \"string\",\n        \"HomeTeam\": \"string\",\n        \"Date\": \"string\",\n        \"Sequence\": 4569,\n        \"Team\": \"string\",\n        \"Quarter\": \"string\",\n        \"TimeRemaining\": \"string\",\n        \"PlayDescription\": \"string\",\n        \"AwayScore\": 5509,\n        \"HomeScore\": 8312,\n        \"ScoreID\": 8928\n      },\n      \"PlayStats\": [\n        {\n          \"PlayStatID\": 530,\n          \"PlayID\": 9351,\n          \"Sequence\": 86,\n          \"PlayerID\": 3404,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 7645,\n          \"PassingCompletions\": 6320,\n          \"PassingYards\": 5574,\n          \"PassingTouchdowns\": 3402,\n          \"PassingInterceptions\": 2723,\n          \"PassingSacks\": 2628,\n          \"PassingSackYards\": 2814,\n          \"RushingAttempts\": 570,\n          \"RushingYards\": 5358,\n          \"RushingTouchdowns\": 7001,\n          \"ReceivingTargets\": 4188,\n          \"Receptions\": 4863,\n          \"ReceivingYards\": 6466,\n          \"ReceivingTouchdowns\": 4534,\n          \"Fumbles\": 6050,\n          \"FumblesLost\": 594,\n          \"TwoPointConversionAttempts\": 3212,\n          \"TwoPointConversionPasses\": 2625,\n          \"TwoPointConversionRuns\": 8359,\n          \"TwoPointConversionReceptions\": 4395,\n          \"TwoPointConversionReturns\": 7194,\n          \"SoloTackles\": 3918,\n          \"AssistedTackles\": 1278,\n          \"TacklesForLoss\": 9968,\n          \"Sacks\": 3201.4555104454703,\n          \"SackYards\": 7063.68087193951,\n          \"PassesDefended\": 5519,\n          \"Safeties\": 9348,\n          \"FumblesForced\": 7537,\n          \"FumblesRecovered\": 7388,\n          \"FumbleReturnYards\": 9095,\n          \"FumbleReturnTouchdowns\": 6269,\n          \"Interceptions\": 8456,\n          \"InterceptionReturnYards\": 9266,\n          \"InterceptionReturnTouchdowns\": 2817,\n          \"PuntReturns\": 1390,\n          \"PuntReturnYards\": 6661,\n          \"PuntReturnTouchdowns\": 1417,\n          \"KickReturns\": 5267,\n          \"KickReturnYards\": 9059,\n          \"KickReturnTouchdowns\": 9438,\n          \"BlockedKicks\": 5959,\n          \"BlockedKickReturns\": 6540,\n          \"BlockedKickReturnYards\": 3641,\n          \"BlockedKickReturnTouchdowns\": 9453,\n          \"FieldGoalReturns\": 532,\n          \"FieldGoalReturnYards\": 3762,\n          \"FieldGoalReturnTouchdowns\": 6335,\n          \"Kickoffs\": 6509,\n          \"KickoffYards\": 9201,\n          \"KickoffTouchbacks\": 820,\n          \"Punts\": 3235,\n          \"PuntYards\": 9335,\n          \"PuntTouchbacks\": 6798,\n          \"PuntsHadBlocked\": 4727,\n          \"FieldGoalsAttempted\": 1699,\n          \"FieldGoalsMade\": 8857,\n          \"FieldGoalsYards\": 1417,\n          \"FieldGoalsHadBlocked\": 8652,\n          \"ExtraPointsAttempted\": 8000,\n          \"ExtraPointsMade\": 4094,\n          \"ExtraPointsHadBlocked\": 1584,\n          \"Penalties\": 7078,\n          \"PenaltyYards\": 7251\n        },\n        {\n          \"PlayStatID\": 1587,\n          \"PlayID\": 2821,\n          \"Sequence\": 7193,\n          \"PlayerID\": 9224,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 8851,\n          \"PassingCompletions\": 8535,\n          \"PassingYards\": 7954,\n          \"PassingTouchdowns\": 454,\n          \"PassingInterceptions\": 2484,\n          \"PassingSacks\": 6433,\n          \"PassingSackYards\": 4264,\n          \"RushingAttempts\": 7380,\n          \"RushingYards\": 5532,\n          \"RushingTouchdowns\": 9729,\n          \"ReceivingTargets\": 1700,\n          \"Receptions\": 8080,\n          \"ReceivingYards\": 2606,\n          \"ReceivingTouchdowns\": 7451,\n          \"Fumbles\": 2907,\n          \"FumblesLost\": 2649,\n          \"TwoPointConversionAttempts\": 6203,\n          \"TwoPointConversionPasses\": 4090,\n          \"TwoPointConversionRuns\": 7568,\n          \"TwoPointConversionReceptions\": 432,\n          \"TwoPointConversionReturns\": 2400,\n          \"SoloTackles\": 2998,\n          \"AssistedTackles\": 2913,\n          \"TacklesForLoss\": 9764,\n          \"Sacks\": 3775.8433870912245,\n          \"SackYards\": 800.3787727174549,\n          \"PassesDefended\": 3091,\n          \"Safeties\": 2041,\n          \"FumblesForced\": 6929,\n          \"FumblesRecovered\": 1637,\n          \"FumbleReturnYards\": 4950,\n          \"FumbleReturnTouchdowns\": 2221,\n          \"Interceptions\": 7523,\n          \"InterceptionReturnYards\": 4396,\n          \"InterceptionReturnTouchdowns\": 6877,\n          \"PuntReturns\": 489,\n          \"PuntReturnYards\": 1343,\n          \"PuntReturnTouchdowns\": 569,\n          \"KickReturns\": 2507,\n          \"KickReturnYards\": 5149,\n          \"KickReturnTouchdowns\": 6980,\n          \"BlockedKicks\": 4280,\n          \"BlockedKickReturns\": 7994,\n          \"BlockedKickReturnYards\": 5645,\n          \"BlockedKickReturnTouchdowns\": 5737,\n          \"FieldGoalReturns\": 5301,\n          \"FieldGoalReturnYards\": 3846,\n          \"FieldGoalReturnTouchdowns\": 4064,\n          \"Kickoffs\": 4594,\n          \"KickoffYards\": 6282,\n          \"KickoffTouchbacks\": 3428,\n          \"Punts\": 604,\n          \"PuntYards\": 9896,\n          \"PuntTouchbacks\": 1061,\n          \"PuntsHadBlocked\": 5842,\n          \"FieldGoalsAttempted\": 4885,\n          \"FieldGoalsMade\": 3322,\n          \"FieldGoalsYards\": 516,\n          \"FieldGoalsHadBlocked\": 1386,\n          \"ExtraPointsAttempted\": 9238,\n          \"ExtraPointsMade\": 4409,\n          \"ExtraPointsHadBlocked\": 8369,\n          \"Penalties\": 5776,\n          \"PenaltyYards\": 4855\n        }\n      ]\n    },\n    {\n      \"PlayID\": 9893,\n      \"QuarterID\": 4413,\n      \"QuarterName\": \"string\",\n      \"Sequence\": 8826,\n      \"TimeRemainingMinutes\": 1438,\n      \"TimeRemainingSeconds\": 2620,\n      \"PlayTime\": \"string\",\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"Team\": \"string\",\n      \"Opponent\": \"string\",\n      \"Down\": 4445,\n      \"Distance\": 3933,\n      \"YardLine\": 4288,\n      \"YardLineTerritory\": \"string\",\n      \"YardsToEndZone\": 9219,\n      \"Type\": \"string\",\n      \"YardsGained\": 9662,\n      \"Description\": \"string\",\n      \"IsScoringPlay\": false,\n      \"ScoringPlay\": {\n        \"GameKey\": \"string\",\n        \"SeasonType\": 3227,\n        \"ScoringPlayID\": 4811,\n        \"Season\": 265,\n        \"Week\": 1336,\n        \"AwayTeam\": \"string\",\n        \"HomeTeam\": \"string\",\n        \"Date\": \"string\",\n        \"Sequence\": 2350,\n        \"Team\": \"string\",\n        \"Quarter\": \"string\",\n        \"TimeRemaining\": \"string\",\n        \"PlayDescription\": \"string\",\n        \"AwayScore\": 8708,\n        \"HomeScore\": 7559,\n        \"ScoreID\": 8564\n      },\n      \"PlayStats\": [\n        {\n          \"PlayStatID\": 5463,\n          \"PlayID\": 274,\n          \"Sequence\": 5437,\n          \"PlayerID\": 8347,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 4311,\n          \"PassingCompletions\": 3439,\n          \"PassingYards\": 2035,\n          \"PassingTouchdowns\": 2769,\n          \"PassingInterceptions\": 1932,\n          \"PassingSacks\": 2446,\n          \"PassingSackYards\": 2072,\n          \"RushingAttempts\": 4915,\n          \"RushingYards\": 9185,\n          \"RushingTouchdowns\": 5418,\n          \"ReceivingTargets\": 7973,\n          \"Receptions\": 4694,\n          \"ReceivingYards\": 7990,\n          \"ReceivingTouchdowns\": 4579,\n          \"Fumbles\": 8909,\n          \"FumblesLost\": 295,\n          \"TwoPointConversionAttempts\": 8929,\n          \"TwoPointConversionPasses\": 8706,\n          \"TwoPointConversionRuns\": 9722,\n          \"TwoPointConversionReceptions\": 2452,\n          \"TwoPointConversionReturns\": 7121,\n          \"SoloTackles\": 3223,\n          \"AssistedTackles\": 537,\n          \"TacklesForLoss\": 1063,\n          \"Sacks\": 1446.2432878974807,\n          \"SackYards\": 8008.50372590977,\n          \"PassesDefended\": 9592,\n          \"Safeties\": 5514,\n          \"FumblesForced\": 5010,\n          \"FumblesRecovered\": 399,\n          \"FumbleReturnYards\": 854,\n          \"FumbleReturnTouchdowns\": 2759,\n          \"Interceptions\": 8136,\n          \"InterceptionReturnYards\": 5205,\n          \"InterceptionReturnTouchdowns\": 5147,\n          \"PuntReturns\": 2189,\n          \"PuntReturnYards\": 621,\n          \"PuntReturnTouchdowns\": 1749,\n          \"KickReturns\": 8299,\n          \"KickReturnYards\": 9661,\n          \"KickReturnTouchdowns\": 7634,\n          \"BlockedKicks\": 2098,\n          \"BlockedKickReturns\": 4587,\n          \"BlockedKickReturnYards\": 9786,\n          \"BlockedKickReturnTouchdowns\": 197,\n          \"FieldGoalReturns\": 8688,\n          \"FieldGoalReturnYards\": 302,\n          \"FieldGoalReturnTouchdowns\": 3861,\n          \"Kickoffs\": 6162,\n          \"KickoffYards\": 8012,\n          \"KickoffTouchbacks\": 6014,\n          \"Punts\": 9533,\n          \"PuntYards\": 8040,\n          \"PuntTouchbacks\": 2126,\n          \"PuntsHadBlocked\": 2340,\n          \"FieldGoalsAttempted\": 8131,\n          \"FieldGoalsMade\": 6670,\n          \"FieldGoalsYards\": 2374,\n          \"FieldGoalsHadBlocked\": 1555,\n          \"ExtraPointsAttempted\": 2524,\n          \"ExtraPointsMade\": 6921,\n          \"ExtraPointsHadBlocked\": 2486,\n          \"Penalties\": 4281,\n          \"PenaltyYards\": 9704\n        },\n        {\n          \"PlayStatID\": 3160,\n          \"PlayID\": 7839,\n          \"Sequence\": 2192,\n          \"PlayerID\": 8927,\n          \"Name\": \"string\",\n          \"Team\": \"string\",\n          \"Opponent\": \"string\",\n          \"HomeOrAway\": \"string\",\n          \"Direction\": \"string\",\n          \"Updated\": \"string\",\n          \"Created\": \"string\",\n          \"PassingAttempts\": 8652,\n          \"PassingCompletions\": 5893,\n          \"PassingYards\": 2733,\n          \"PassingTouchdowns\": 8386,\n          \"PassingInterceptions\": 8339,\n          \"PassingSacks\": 2407,\n          \"PassingSackYards\": 2745,\n          \"RushingAttempts\": 5281,\n          \"RushingYards\": 3814,\n          \"RushingTouchdowns\": 328,\n          \"ReceivingTargets\": 3692,\n          \"Receptions\": 5969,\n          \"ReceivingYards\": 9159,\n          \"ReceivingTouchdowns\": 6383,\n          \"Fumbles\": 9140,\n          \"FumblesLost\": 932,\n          \"TwoPointConversionAttempts\": 9954,\n          \"TwoPointConversionPasses\": 1461,\n          \"TwoPointConversionRuns\": 8163,\n          \"TwoPointConversionReceptions\": 1924,\n          \"TwoPointConversionReturns\": 7338,\n          \"SoloTackles\": 4046,\n          \"AssistedTackles\": 6307,\n          \"TacklesForLoss\": 3382,\n          \"Sacks\": 6901.0637482122265,\n          \"SackYards\": 6647.857951923715,\n          \"PassesDefended\": 8072,\n          \"Safeties\": 1400,\n          \"FumblesForced\": 302,\n          \"FumblesRecovered\": 225,\n          \"FumbleReturnYards\": 6721,\n          \"FumbleReturnTouchdowns\": 1430,\n          \"Interceptions\": 2695,\n          \"InterceptionReturnYards\": 2148,\n          \"InterceptionReturnTouchdowns\": 294,\n          \"PuntReturns\": 8015,\n          \"PuntReturnYards\": 5252,\n          \"PuntReturnTouchdowns\": 4692,\n          \"KickReturns\": 3978,\n          \"KickReturnYards\": 5201,\n          \"KickReturnTouchdowns\": 4637,\n          \"BlockedKicks\": 3874,\n          \"BlockedKickReturns\": 2112,\n          \"BlockedKickReturnYards\": 3859,\n          \"BlockedKickReturnTouchdowns\": 588,\n          \"FieldGoalReturns\": 319,\n          \"FieldGoalReturnYards\": 5099,\n          \"FieldGoalReturnTouchdowns\": 7937,\n          \"Kickoffs\": 1837,\n          \"KickoffYards\": 1648,\n          \"KickoffTouchbacks\": 1234,\n          \"Punts\": 8877,\n          \"PuntYards\": 4720,\n          \"PuntTouchbacks\": 8651,\n          \"PuntsHadBlocked\": 6829,\n          \"FieldGoalsAttempted\": 7109,\n          \"FieldGoalsMade\": 8345,\n          \"FieldGoalsYards\": 1678,\n          \"FieldGoalsHadBlocked\": 6850,\n          \"ExtraPointsAttempted\": 3125,\n          \"ExtraPointsMade\": 463,\n          \"ExtraPointsHadBlocked\": 6649,\n          \"Penalties\": 5844,\n          \"PenaltyYards\": 9890\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23946c57-e0fe-4bab-8ede-3137ce1849ae",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nfl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayFinal",
+                    ":season",
+                    ":week",
+                    ":hometeam"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season",
+                      "description": "(Required) Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "week",
+                      "description": "(Required) Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hometeam",
+                      "description": "(Required) Abbreviation of the home team. Example: <code>WAS</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 2707,\n  \"Code\": 561,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sportsdata.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "575578ca-f785-4d41-9e1d-c29ef35c8889",
+    "name": "MLB MLB v3 Headshots NFL v3 Play-by-Play API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "MLB API - OpenAPI 3.1 Specification",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "item": [
+    {
+      "id": "0f10515e-5da2-4c3d-9b8d-f4e7e9e3b6df",
+      "name": "NHL v3 RotoBaller Premium News",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c6ca29d9-f335-4c1a-aef8-537ad0bcecce",
+          "name": "Premium News",
+          "request": {
+            "name": "Premium News",
+            "description": {
+              "content": "RotoBaller's Premium News feed, with the latest updated stories in greater detail.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nhl",
+                "news-rotoballer",
+                ":format",
+                "RotoBallerPremiumNews"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c750d446-a7b8-48b6-b526-aeedb4065708",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "news-rotoballer",
+                    ":format",
+                    "RotoBallerPremiumNews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"NewsID\": 1033,\n    \"PlayerID\": 9388,\n    \"TeamID\": 3189,\n    \"Team\": \"string\",\n    \"Title\": \"string\",\n    \"Content\": \"string\",\n    \"Url\": \"string\",\n    \"Source\": \"string\",\n    \"TermsOfUse\": \"string\",\n    \"Updated\": \"string\",\n    \"TimeAgo\": \"string\"\n  },\n  {\n    \"NewsID\": 6256,\n    \"PlayerID\": 404,\n    \"TeamID\": 9786,\n    \"Team\": \"string\",\n    \"Title\": \"string\",\n    \"Content\": \"string\",\n    \"Url\": \"string\",\n    \"Source\": \"string\",\n    \"TermsOfUse\": \"string\",\n    \"Updated\": \"string\",\n    \"TimeAgo\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90672e4e-80c1-440c-ba93-cf37c2bf9874",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "news-rotoballer",
+                    ":format",
+                    "RotoBallerPremiumNews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 6755,\n  \"Code\": 735,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6346e32e-67c4-46d0-9c98-0f38166843ed",
+          "name": "Premium News - by Date",
+          "request": {
+            "name": "Premium News - by Date",
+            "description": {
+              "content": "RotoBaller's Premium News feed, with the latest updated stories in greater detail called by date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nhl",
+                "news-rotoballer",
+                ":format",
+                "RotoBallerPremiumNewsByDate",
+                ":date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "date",
+                  "description": "(Required) The date of the news.\n<br>Examples: <code>2021-JAN-06</code>, <code>2021-JAN-31</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73bfeae4-7804-47f2-8d2a-42ec6c455683",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "news-rotoballer",
+                    ":format",
+                    "RotoBallerPremiumNewsByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the news.\n<br>Examples: <code>2021-JAN-06</code>, <code>2021-JAN-31</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"NewsID\": 1033,\n    \"PlayerID\": 9388,\n    \"TeamID\": 3189,\n    \"Team\": \"string\",\n    \"Title\": \"string\",\n    \"Content\": \"string\",\n    \"Url\": \"string\",\n    \"Source\": \"string\",\n    \"TermsOfUse\": \"string\",\n    \"Updated\": \"string\",\n    \"TimeAgo\": \"string\"\n  },\n  {\n    \"NewsID\": 6256,\n    \"PlayerID\": 404,\n    \"TeamID\": 9786,\n    \"Team\": \"string\",\n    \"Title\": \"string\",\n    \"Content\": \"string\",\n    \"Url\": \"string\",\n    \"Source\": \"string\",\n    \"TermsOfUse\": \"string\",\n    \"Updated\": \"string\",\n    \"TimeAgo\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f28ed27b-3f94-4cd6-87b6-9262ce3cf593",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "news-rotoballer",
+                    ":format",
+                    "RotoBallerPremiumNewsByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the news.\n<br>Examples: <code>2021-JAN-06</code>, <code>2021-JAN-31</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 6755,\n  \"Code\": 735,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sportsdata.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "dcda4f37-1bcc-4705-904a-f2edf508537b",
+    "name": "MLB MLB v3 Headshots NHL v3 RotoBaller Premium News API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "MLB API - OpenAPI 3.1 Specification",
+      "type": "text/plain"
+    }
+  }
+}

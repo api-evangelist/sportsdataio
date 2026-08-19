@@ -1,0 +1,1008 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MLB MLB v3 Headshots NHL v3 Odds API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NHL v3 Odds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pre-Game Odds - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/GameOddsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2018-11-20</code>, <code>2018-11-23</code>."
+              }
+            ]
+          },
+          "docs": "Returns full game odds (spread, moneyline, total) for games on a given date. Only returns the most recently seen odds, not inclusive of line movement."
+        },
+        {
+          "info": {
+            "name": "Pre-Game Odds Line Movement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/GameOddsLineMovement/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>13096</code> or <code>13110</code>"
+              }
+            ]
+          },
+          "docs": "Returns the non-full-game odds (spread, moneyline, total) for games on a given date. Non-full-game means 1st-half or 1st-quarter, for example, rather than full game. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/LiveGameOddsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2018-11-20</code>, <code>2018-11-23</code>."
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games on a given date. Only returns the most recently seen odds, not inclusive of line movement. As this is in-game, it will only return results while the game is in progress."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds Line Movement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/LiveGameOddsLineMovement/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>13096</code> or <code>13110</code>"
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games on a given date. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line."
+        },
+        {
+          "info": {
+            "name": "Period Game Odds - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/AlternateMarketGameOddsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2018-11-20</code>, <code>2018-11-23</code>."
+              }
+            ]
+          },
+          "docs": "Returns the non-full-game odds (spread, moneyline, total) for games on a given date. Non-full-game means 1st-period or, for example, rather than full game. Only returns the most recently seen odds, not inclusive of line movement."
+        },
+        {
+          "info": {
+            "name": "Period Game Odds Line Movement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/AlternateMarketGameOddsLineMovement/:gameid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>13096</code> or <code>13110</code>"
+              }
+            ]
+          },
+          "docs": "Returns the non-full-game odds (spread, moneyline, total) for games on a given date. Non-full-game means 1st-period, for example, rather than full game. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line."
+        },
+        {
+          "info": {
+            "name": "Betting Trends - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/TeamTrends/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "The abbreviation of the requested team. <br> Examples: <code>PHI</code>, <code>MIN</code>, <code>DET</code>, etc."
+              }
+            ]
+          },
+          "docs": "Describes recent team trends and performance against betting data in recent sets of games."
+        },
+        {
+          "info": {
+            "name": "Betting Trends - by Matchup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/MatchupTrends/:team/:opponent",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "The abbreviation of the requested team. <br> Examples: <code>PHI</code>, <code>MIN</code>, <code>DET</code>, etc."
+              },
+              {
+                "name": "opponent",
+                "value": "",
+                "type": "path",
+                "description": "The abbreviation of the requested opponent. <br> Examples: <code>PHI</code>, <code>MIN</code>, <code>DET</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns trends data for a given pairing of teams. Will return data even if the teams are not set to play this season. Intended for use on a specific game, though it will work for other comparisons if applicable."
+        },
+        {
+          "info": {
+            "name": "Betting Events - by Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingEventsByDate/:date",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2020-02-15</code>, <code>2020-02-23</code>."
+              }
+            ]
+          },
+          "docs": "The list of current BettingEvents for the given date, from which Betting Market data can be gathered via the Betting Markets by Event endpoint, for all available Betting Market types (e.g. Player Props, Team Props.)"
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingMarkets/:eventId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets). Valid entries include: <code>134</code>, <code>155</code>, etc."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given BettingEventID."
+        },
+        {
+          "info": {
+            "name": "Betting Events - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingEvents/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2020</code>, <code>2020PRE</code>, <code>2020POST</code>, <code>2020STAR</code>, <code>2021</code>, etc."
+              }
+            ]
+          },
+          "docs": "The list of current BettingEvents for the given season, from which Betting Market data can be gathered via the Betting Markets by Event endpoint, for all available Betting Market types (e.g. Player Props, Team Props.)"
+        },
+        {
+          "info": {
+            "name": "Betting Market",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingMarket/:marketId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets. Valid entries include: <code>421</code>, <code>1041</code>, etc."
+              }
+            ]
+          },
+          "docs": "Returns full line movement for a given BettingMarket. Due to the sheer size of the output and the level of detail, it is intended for historical data purposes and not for the most up-to-the-second lines."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Market Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingMarketsByMarketType/:eventId/:marketTypeID",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets). Valid entries include: <code>134</code>, <code>155</code>, etc."
+              },
+              {
+                "name": "marketTypeID",
+                "value": "",
+                "type": "path",
+                "description": "The Market Type ID of the desired MarketTypes to pull. Some common types include:\n<code>1</code> for `Game Lines`\n<code>2</code> for `Player Props`\n<code>3</code> for `Team Props`\n<code>6</code> for `Game Props`"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns Markets and available outcomes for a given event and market type requested. A lighter call than by BettingEventID as it only includes markets tagged with the specific MarketType, a full list of which is available for each sport in its Betting Metadata endpoint."
+        },
+        {
+          "info": {
+            "name": "Betting Futures - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingFuturesBySeason/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season <br>Examples: <code>2020</code>, <code>2021</code>, etc"
+              }
+            ]
+          },
+          "docs": "Returns available Futures markets for the given season. Does not include line movement."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingMarketsByGameID/:gameID",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameID",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of the desired game for which to pull all betting markets (includes outcomes/bets). Valid entries include: <code>14814</code>"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given GameID."
+        },
+        {
+          "info": {
+            "name": "Betting Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/Bettingmetadata",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "Returns the list of MarketTypes, BetTypes, PeriodTypes, OutcomeTypes, and ResultTypes to map the IDs to descriptive names. Also includes a list of the MarketType, BetType & PeriodType combinations which we will have resulting for."
+        },
+        {
+          "info": {
+            "name": "Sportsbooks - by Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/ActiveSportsbooks",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              }
+            ]
+          },
+          "docs": "A list of all available sportsbooks with their associated unique IDs."
+        },
+        {
+          "info": {
+            "name": "Betting Splits - by Betting Market",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingSplitsByMarketId/:marketId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull splits. MarketIds are pulled from the Betting Markets endpoints."
+              }
+            ]
+          },
+          "docs": "List of Money and Bet Percentage splits for each outcome type available in this market. This specific endpoint will return the movement from this market as well as the most recent."
+        },
+        {
+          "info": {
+            "name": "Betting Splits - by Game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingSplitsByGameId/:gameId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the game for which you want to receive splits for. GameIds are pulled from the Schedules and Games by Date endpoints."
+              }
+            ]
+          },
+          "docs": "List of Money and Bet Percentage splits for each market and their respective outcome types available in this game. This specific endpoint will return current splits for each available market and no line movement."
+        },
+        {
+          "info": {
+            "name": "Betting Player Props - by Game",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingPlayerPropsByGameID/:gameId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameId",
+                "value": "",
+                "type": "path",
+                "description": "The unique GameID of the game in question."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "This works in the same way as Betting Markets by Market Type but is prefiltered to the Player Props type only. Ideal if your application will only ever require Player Props, but if you also want Team Props etc. it is recommended to use the by Market Type endpoint."
+        },
+        {
+          "info": {
+            "name": "Betting Results - by Market",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingMarketResults/:marketId",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets."
+              }
+            ]
+          },
+          "docs": "Provide a market ID that supports resulting (i.e. has a ResultType) and this endpoint will return a result: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost."
+        },
+        {
+          "info": {
+            "name": "Pre-Game and Period Game Odds - by Date [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/PreGameOddsByDate/:date/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2018-11-20</code>, <code>2018-11-23</code>."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns the full-game and non-full-game odds (spread, moneyline, total) for games in a given week and season. Only returns the most recently seen odds, not inclusive of line movement. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Pre-Game and Period Game Odds Line Movement [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/PreGameOddsLineMovement/:gameid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>13096</code> or <code>13110</code>"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns the game odds ( for games on a given date. In this endpoint both full-game and partial-game odds are included. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds - by Date [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/InGameOddsByDate/:date/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "The date of the game(s). <br>Examples: <code>2018-11-20</code>, <code>2018-11-23</code>."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games on a given date. Only returns the most recently seen odds, not inclusive of line movement. As this is in-game, it will only return results while the game is in progress. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds Line Movement [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/InGameLineMovement/:gameid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>13096</code> or <code>13110</code>"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games on a given date. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Player Props - by Game [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingPlayerPropsByGameID/:gameId/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameId",
+                "value": "",
+                "type": "path",
+                "description": "The unique GameID of the game in question."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "This works in the same way as Betting Markets by Market Type but is prefiltered to the Player Props type only. Ideal if your application will only ever require Player Props, but if you also want Team Props etc. it is recommended to use the by Market Type endpoint. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Market Type [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingMarketsByMarketType/:eventId/:marketTypeID/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets). Valid entries include: <code>134</code>, <code>155</code>, etc."
+              },
+              {
+                "name": "marketTypeID",
+                "value": "",
+                "type": "path",
+                "description": "The Market Type ID of the desired MarketTypes to pull. Some common types include:\n<code>1</code> for `Game Lines`\n<code>2</code> for `Player Props`\n<code>3</code> for `Team Props`\n<code>6</code> for `Game Props`"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns Markets and available outcomes for a given event and market type requested. A lighter call than by BettingEventID as it only includes markets tagged with the specific MarketType, a full list of which is available for each sport in its Betting Metadata endpoint. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Game [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingMarketsByGameID/:gameID/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameID",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of the desired game for which to pull all betting markets (includes outcomes/bets). Valid entries include: <code>14814</code>"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns the markets of all available types (e.g. Player Props, Team Props) and available outcomes for a given GameID. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Markets - by Event [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingMarketsByEvent/:eventId/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "The EventId of the desired event/game for which to pull all betting markets (includes outcomes/bets). Valid entries include: <code>134</code>, <code>155</code>, etc."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "This parameter indicates which <code>BettingOutcome</code> records to return in the payload. By default, this endpoint only returns available outcomes, excluding the unlisted bets. <br><br><b>Important Note:</b> the default parameter of <code>available</code> is much faster and provides the best performance. Passing unlisted will return unlisted odds, but these are cached for much longer and may be several minutes old. For best performance, the default parameter is highly recommended. <br><br>Possible values include: <br><br><code>available</code> - excludes any betting outcomes that have been removed/unlisted by the respective sportsbook. This is more lightweight and delivers odds much faster than using unlisted. <br><br><code>unlisted</code> - includes the most recently available betting outcome per sportsbook, for each listed market, even those outcomes are expired/unlisted or otherwise unavailable from the respective sportsbook. This is a far heavier payload, and it's cached for much longer than available. <br><br>"
+              }
+            ]
+          },
+          "docs": "Returns the markets and available outcomes for a given BettingEventID. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Market [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingMarket/:marketId/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets. Valid entries include: <code>421</code>, <code>1041</code>, etc."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns full line movement for a given BettingMarket. Due to the sheer size of the output and the level of detail, it is intended for historical data purposes and not for the most up-to-the-second lines. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Betting Results - by Market [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingResultsByMarket/:marketId/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "The MarketId of the desired market for which to pull all outcomes/bets."
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns all outcomes under this market which have a result type associated. Will return empty list if resulting has not yet processed for the given game. Resulting processes shortly after game closing."
+        },
+        {
+          "info": {
+            "name": "Betting Futures - by Season [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/BettingFuturesBySeason/:season/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season <br>Examples: <code>2020</code>, <code>2021</code>, etc"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns available Futures markets for the given season. Does not include line movement. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "In-Game Odds Line Movement with Resulting [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/InGameLineMovementWithResulting/:gameid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>13096</code> or <code>13110</code>"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns in-play game odds (spread, moneyline, total) for games on a given date. This also includes Resulting: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parameter."
+        },
+        {
+          "info": {
+            "name": "Pre-Game and Period Game Odds Line Movement with Resulting [Sportsbook Group]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nhl/odds/:format/PreGameOddsLineMovementWithResulting/:gameid/:sportsbookgroup",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "gameid",
+                "value": "",
+                "type": "path",
+                "description": "The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>13096</code> or <code>13110</code>"
+              },
+              {
+                "name": "sportsbookgroup",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Sportsbook grouping.\n<br>Examples: <code>G1100</code>"
+              }
+            ]
+          },
+          "docs": "Returns the game odds ( for games on a given date. In this endpoint both full-game and partial-game odds are included. This also includes Resulting: for markets with a ResultType, each line will be graded and it will be determined whether the bet would have won or lost. Returns the full line movement for the given game. This endpoint has a longer cache as it is meant for historical data/line movement rather than the most up to the second line. A Sportsbook Group must be specified as a URL parame"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

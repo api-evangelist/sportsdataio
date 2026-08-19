@@ -1,0 +1,616 @@
+{
+  "item": [
+    {
+      "id": "473394e5-8e3f-4926-a1bd-488956ddfa9a",
+      "name": "NHL v3 Play-by-Play",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0ab8f0fe-8d69-4328-845a-42daa542a91d",
+          "name": "Play By Play [Live & Final]",
+          "request": {
+            "name": "Play By Play [Live & Final]",
+            "description": {
+              "content": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by game.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nhl",
+                "pbp",
+                ":format",
+                "PlayByPlay",
+                ":gameid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gameid",
+                  "description": "(Required) The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d34fc19-b80f-4c85-8af4-d7298919b696",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlay",
+                    ":gameid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameid",
+                      "description": "(Required) The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Game\": {\n    \"GameID\": 2446,\n    \"Season\": 1943,\n    \"SeasonType\": 381,\n    \"Status\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"Updated\": \"string\",\n    \"IsClosed\": true,\n    \"AwayTeam\": \"string\",\n    \"HomeTeam\": \"string\",\n    \"AwayTeamID\": 4243,\n    \"HomeTeamID\": 5162,\n    \"StadiumID\": 8145,\n    \"Channel\": \"string\",\n    \"Attendance\": 5009,\n    \"AwayTeamScore\": 9312,\n    \"HomeTeamScore\": 2473,\n    \"Period\": \"string\",\n    \"TimeRemainingMinutes\": 2229,\n    \"TimeRemainingSeconds\": 5864,\n    \"AwayTeamMoneyLine\": 4439,\n    \"HomeTeamMoneyLine\": 8587,\n    \"PointSpread\": 8154.977546590213,\n    \"OverUnder\": 6806.4143805539925,\n    \"GlobalGameID\": 5031,\n    \"GlobalAwayTeamID\": 7972,\n    \"GlobalHomeTeamID\": 1399,\n    \"PointSpreadAwayTeamMoneyLine\": 9400,\n    \"PointSpreadHomeTeamMoneyLine\": 5110,\n    \"LastPlay\": \"string\",\n    \"Periods\": [\n      {\n        \"PeriodID\": 67,\n        \"GameID\": 8392,\n        \"Name\": \"string\",\n        \"AwayScore\": 9413,\n        \"HomeScore\": 1934,\n        \"ScoringPlays\": [\n          {\n            \"ScoringPlayID\": 3680,\n            \"PeriodID\": 194,\n            \"Sequence\": 1833,\n            \"TimeRemainingMinutes\": 8018,\n            \"TimeRemainingSeconds\": 147,\n            \"ScoredByTeamID\": 4218,\n            \"AllowedByTeamID\": 3611,\n            \"ScoredByPlayerID\": 2260,\n            \"AssistedByPlayerID1\": 4559,\n            \"AssistedByPlayerID2\": 6796,\n            \"PowerPlay\": true,\n            \"ShortHanded\": true,\n            \"EmptyNet\": true,\n            \"AwayTeamScore\": 1542,\n            \"HomeTeamScore\": 7376\n          },\n          {\n            \"ScoringPlayID\": 284,\n            \"PeriodID\": 3506,\n            \"Sequence\": 71,\n            \"TimeRemainingMinutes\": 2574,\n            \"TimeRemainingSeconds\": 3515,\n            \"ScoredByTeamID\": 5571,\n            \"AllowedByTeamID\": 4915,\n            \"ScoredByPlayerID\": 7225,\n            \"AssistedByPlayerID1\": 5105,\n            \"AssistedByPlayerID2\": 3566,\n            \"PowerPlay\": false,\n            \"ShortHanded\": true,\n            \"EmptyNet\": false,\n            \"AwayTeamScore\": 609,\n            \"HomeTeamScore\": 4984\n          }\n        ],\n        \"Penalties\": [\n          {\n            \"PenaltyID\": 7793,\n            \"PeriodID\": 9836,\n            \"Sequence\": 1622,\n            \"TimeRemainingMinutes\": 6282,\n            \"TimeRemainingSeconds\": 9179,\n            \"Description\": \"string\",\n            \"PenaltyMinutes\": 4393,\n            \"PenalizedTeamID\": 1374,\n            \"PenalizedPlayerID\": 3111,\n            \"DrawnByTeamID\": 1467,\n            \"DrawnByPlayerID\": 2541,\n            \"IsBenchPenalty\": true,\n            \"BenchPenaltyServedByPlayerID\": 1644\n          },\n          {\n            \"PenaltyID\": 654,\n            \"PeriodID\": 9629,\n            \"Sequence\": 6977,\n            \"TimeRemainingMinutes\": 6077,\n            \"TimeRemainingSeconds\": 7685,\n            \"Description\": \"string\",\n            \"PenaltyMinutes\": 6613,\n            \"PenalizedTeamID\": 4624,\n            \"PenalizedPlayerID\": 4497,\n            \"DrawnByTeamID\": 3929,\n            \"DrawnByPlayerID\": 4120,\n            \"IsBenchPenalty\": false,\n            \"BenchPenaltyServedByPlayerID\": 7505\n          }\n        ]\n      },\n      {\n        \"PeriodID\": 4500,\n        \"GameID\": 6201,\n        \"Name\": \"string\",\n        \"AwayScore\": 9735,\n        \"HomeScore\": 3071,\n        \"ScoringPlays\": [\n          {\n            \"ScoringPlayID\": 63,\n            \"PeriodID\": 2135,\n            \"Sequence\": 2574,\n            \"TimeRemainingMinutes\": 3457,\n            \"TimeRemainingSeconds\": 2293,\n            \"ScoredByTeamID\": 941,\n            \"AllowedByTeamID\": 3216,\n            \"ScoredByPlayerID\": 8098,\n            \"AssistedByPlayerID1\": 8365,\n            \"AssistedByPlayerID2\": 1260,\n            \"PowerPlay\": true,\n            \"ShortHanded\": false,\n            \"EmptyNet\": true,\n            \"AwayTeamScore\": 2626,\n            \"HomeTeamScore\": 7073\n          },\n          {\n            \"ScoringPlayID\": 26,\n            \"PeriodID\": 7387,\n            \"Sequence\": 3768,\n            \"TimeRemainingMinutes\": 2912,\n            \"TimeRemainingSeconds\": 3777,\n            \"ScoredByTeamID\": 4054,\n            \"AllowedByTeamID\": 8664,\n            \"ScoredByPlayerID\": 2161,\n            \"AssistedByPlayerID1\": 7670,\n            \"AssistedByPlayerID2\": 1596,\n            \"PowerPlay\": false,\n            \"ShortHanded\": true,\n            \"EmptyNet\": false,\n            \"AwayTeamScore\": 1551,\n            \"HomeTeamScore\": 4535\n          }\n        ],\n        \"Penalties\": [\n          {\n            \"PenaltyID\": 7646,\n            \"PeriodID\": 1721,\n            \"Sequence\": 6521,\n            \"TimeRemainingMinutes\": 8450,\n            \"TimeRemainingSeconds\": 2513,\n            \"Description\": \"string\",\n            \"PenaltyMinutes\": 3348,\n            \"PenalizedTeamID\": 9066,\n            \"PenalizedPlayerID\": 328,\n            \"DrawnByTeamID\": 7277,\n            \"DrawnByPlayerID\": 2030,\n            \"IsBenchPenalty\": true,\n            \"BenchPenaltyServedByPlayerID\": 9493\n          },\n          {\n            \"PenaltyID\": 4060,\n            \"PeriodID\": 7284,\n            \"Sequence\": 521,\n            \"TimeRemainingMinutes\": 8556,\n            \"TimeRemainingSeconds\": 1860,\n            \"Description\": \"string\",\n            \"PenaltyMinutes\": 7432,\n            \"PenalizedTeamID\": 5645,\n            \"PenalizedPlayerID\": 2031,\n            \"DrawnByTeamID\": 2996,\n            \"DrawnByPlayerID\": 6667,\n            \"IsBenchPenalty\": true,\n            \"BenchPenaltyServedByPlayerID\": 9900\n          }\n        ]\n      }\n    ],\n    \"GameEndDateTime\": \"string\",\n    \"HomeRotationNumber\": 7160,\n    \"AwayRotationNumber\": 1239,\n    \"NeutralVenue\": true,\n    \"OverPayout\": 5588,\n    \"UnderPayout\": 9245,\n    \"DateTimeUTC\": \"string\",\n    \"SeriesInfo\": {\n      \"HomeTeamWins\": 6750,\n      \"AwayTeamWins\": 5162,\n      \"GameNumber\": 3056,\n      \"MaxLength\": 3901\n    },\n    \"RescheduledFromGameID\": 5950,\n    \"RescheduledGameID\": 9796,\n    \"Referee1ID\": 3388,\n    \"Referee2ID\": 2510,\n    \"Linesperson1ID\": 2327,\n    \"Linesperson2ID\": 4659\n  },\n  \"Plays\": [\n    {\n      \"PlayID\": 1791,\n      \"PeriodID\": 2008,\n      \"PeriodName\": \"string\",\n      \"Sequence\": 2961,\n      \"ClockMinutes\": 4742,\n      \"ClockSeconds\": 9262,\n      \"AwayTeamScore\": 3583,\n      \"HomeTeamScore\": 8349,\n      \"TeamID\": 5938,\n      \"Team\": \"string\",\n      \"OpponentID\": 8002,\n      \"Opponent\": \"string\",\n      \"Category\": \"string\",\n      \"Type\": \"string\",\n      \"Description\": \"string\",\n      \"PlayerID\": 2884,\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"FirstAssistedByPlayerID\": 9487,\n      \"SecondAssistedByPlayerID\": 9349,\n      \"PowerPlayTeamID\": 9627,\n      \"PowerPlayTeam\": \"string\",\n      \"OpposingPlayerID\": 4129\n    },\n    {\n      \"PlayID\": 2004,\n      \"PeriodID\": 4297,\n      \"PeriodName\": \"string\",\n      \"Sequence\": 6023,\n      \"ClockMinutes\": 2845,\n      \"ClockSeconds\": 592,\n      \"AwayTeamScore\": 4663,\n      \"HomeTeamScore\": 9964,\n      \"TeamID\": 9231,\n      \"Team\": \"string\",\n      \"OpponentID\": 5062,\n      \"Opponent\": \"string\",\n      \"Category\": \"string\",\n      \"Type\": \"string\",\n      \"Description\": \"string\",\n      \"PlayerID\": 7273,\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"FirstAssistedByPlayerID\": 4789,\n      \"SecondAssistedByPlayerID\": 7259,\n      \"PowerPlayTeamID\": 1708,\n      \"PowerPlayTeam\": \"string\",\n      \"OpposingPlayerID\": 2545\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f59e6f7f-4b63-4db1-abb1-e6fdd4c24f98",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlay",
+                    ":gameid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameid",
+                      "description": "(Required) The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 1650,\n  \"Code\": 7309,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f80877b-44c1-4154-bc9a-fdce4370b9e4",
+          "name": "Play By Play Delta",
+          "request": {
+            "name": "Play By Play Delta",
+            "description": {
+              "content": "This method returns all play-by-plays for a given season and week, but only returns plays that have changed in the last X minutes as specified in your API call. By definition this is a live endpoint, not final.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nhl",
+                "pbp",
+                ":format",
+                "PlayByPlayDelta",
+                ":date",
+                ":minutes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "date",
+                  "description": "(Required) The date of the game(s).\n<br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "minutes",
+                  "description": "(Required) Only returns plays that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be8703e5-9e92-429d-b593-ab462bca1a7e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayDelta",
+                    ":date",
+                    ":minutes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "minutes",
+                      "description": "(Required) Only returns plays that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Game\": {\n      \"GameID\": 9823,\n      \"Season\": 7431,\n      \"SeasonType\": 7736,\n      \"Status\": \"string\",\n      \"Day\": \"string\",\n      \"DateTime\": \"string\",\n      \"Updated\": \"string\",\n      \"IsClosed\": true,\n      \"AwayTeam\": \"string\",\n      \"HomeTeam\": \"string\",\n      \"AwayTeamID\": 2562,\n      \"HomeTeamID\": 5419,\n      \"StadiumID\": 4730,\n      \"Channel\": \"string\",\n      \"Attendance\": 6928,\n      \"AwayTeamScore\": 1947,\n      \"HomeTeamScore\": 5390,\n      \"Period\": \"string\",\n      \"TimeRemainingMinutes\": 4320,\n      \"TimeRemainingSeconds\": 6231,\n      \"AwayTeamMoneyLine\": 3593,\n      \"HomeTeamMoneyLine\": 465,\n      \"PointSpread\": 6410.597607171059,\n      \"OverUnder\": 7364.897675239067,\n      \"GlobalGameID\": 1550,\n      \"GlobalAwayTeamID\": 4469,\n      \"GlobalHomeTeamID\": 4676,\n      \"PointSpreadAwayTeamMoneyLine\": 7670,\n      \"PointSpreadHomeTeamMoneyLine\": 3255,\n      \"LastPlay\": \"string\",\n      \"Periods\": [\n        {\n          \"PeriodID\": 2316,\n          \"GameID\": 4008,\n          \"Name\": \"string\",\n          \"AwayScore\": 1970,\n          \"HomeScore\": 8311,\n          \"ScoringPlays\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"Penalties\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"PeriodID\": 8815,\n          \"GameID\": 8160,\n          \"Name\": \"string\",\n          \"AwayScore\": 1331,\n          \"HomeScore\": 3322,\n          \"ScoringPlays\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"Penalties\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"GameEndDateTime\": \"string\",\n      \"HomeRotationNumber\": 2037,\n      \"AwayRotationNumber\": 7518,\n      \"NeutralVenue\": true,\n      \"OverPayout\": 2245,\n      \"UnderPayout\": 7338,\n      \"DateTimeUTC\": \"string\",\n      \"SeriesInfo\": {\n        \"HomeTeamWins\": 3966,\n        \"AwayTeamWins\": 9367,\n        \"GameNumber\": 773,\n        \"MaxLength\": 9122\n      },\n      \"RescheduledFromGameID\": 6408,\n      \"RescheduledGameID\": 4824,\n      \"Referee1ID\": 8880,\n      \"Referee2ID\": 8223,\n      \"Linesperson1ID\": 8221,\n      \"Linesperson2ID\": 4197\n    },\n    \"Plays\": [\n      {\n        \"PlayID\": 9267,\n        \"PeriodID\": 3148,\n        \"PeriodName\": \"string\",\n        \"Sequence\": 9584,\n        \"ClockMinutes\": 9582,\n        \"ClockSeconds\": 7901,\n        \"AwayTeamScore\": 5436,\n        \"HomeTeamScore\": 4424,\n        \"TeamID\": 3768,\n        \"Team\": \"string\",\n        \"OpponentID\": 1684,\n        \"Opponent\": \"string\",\n        \"Category\": \"string\",\n        \"Type\": \"string\",\n        \"Description\": \"string\",\n        \"PlayerID\": 8629,\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"FirstAssistedByPlayerID\": 1589,\n        \"SecondAssistedByPlayerID\": 8704,\n        \"PowerPlayTeamID\": 5134,\n        \"PowerPlayTeam\": \"string\",\n        \"OpposingPlayerID\": 2350\n      },\n      {\n        \"PlayID\": 8601,\n        \"PeriodID\": 2112,\n        \"PeriodName\": \"string\",\n        \"Sequence\": 2348,\n        \"ClockMinutes\": 6615,\n        \"ClockSeconds\": 6134,\n        \"AwayTeamScore\": 721,\n        \"HomeTeamScore\": 9694,\n        \"TeamID\": 2731,\n        \"Team\": \"string\",\n        \"OpponentID\": 7195,\n        \"Opponent\": \"string\",\n        \"Category\": \"string\",\n        \"Type\": \"string\",\n        \"Description\": \"string\",\n        \"PlayerID\": 8468,\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"FirstAssistedByPlayerID\": 1358,\n        \"SecondAssistedByPlayerID\": 3969,\n        \"PowerPlayTeamID\": 3577,\n        \"PowerPlayTeam\": \"string\",\n        \"OpposingPlayerID\": 7412\n      }\n    ]\n  },\n  {\n    \"Game\": {\n      \"GameID\": 4697,\n      \"Season\": 693,\n      \"SeasonType\": 6105,\n      \"Status\": \"string\",\n      \"Day\": \"string\",\n      \"DateTime\": \"string\",\n      \"Updated\": \"string\",\n      \"IsClosed\": true,\n      \"AwayTeam\": \"string\",\n      \"HomeTeam\": \"string\",\n      \"AwayTeamID\": 9198,\n      \"HomeTeamID\": 4654,\n      \"StadiumID\": 9398,\n      \"Channel\": \"string\",\n      \"Attendance\": 2481,\n      \"AwayTeamScore\": 194,\n      \"HomeTeamScore\": 5822,\n      \"Period\": \"string\",\n      \"TimeRemainingMinutes\": 1832,\n      \"TimeRemainingSeconds\": 6900,\n      \"AwayTeamMoneyLine\": 5990,\n      \"HomeTeamMoneyLine\": 1119,\n      \"PointSpread\": 8540.094443408301,\n      \"OverUnder\": 7170.472383433311,\n      \"GlobalGameID\": 3555,\n      \"GlobalAwayTeamID\": 2409,\n      \"GlobalHomeTeamID\": 8910,\n      \"PointSpreadAwayTeamMoneyLine\": 4971,\n      \"PointSpreadHomeTeamMoneyLine\": 748,\n      \"LastPlay\": \"string\",\n      \"Periods\": [\n        {\n          \"PeriodID\": 4440,\n          \"GameID\": 1842,\n          \"Name\": \"string\",\n          \"AwayScore\": 910,\n          \"HomeScore\": 2982,\n          \"ScoringPlays\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"Penalties\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"PeriodID\": 4833,\n          \"GameID\": 7159,\n          \"Name\": \"string\",\n          \"AwayScore\": 4557,\n          \"HomeScore\": 6153,\n          \"ScoringPlays\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"Penalties\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"GameEndDateTime\": \"string\",\n      \"HomeRotationNumber\": 891,\n      \"AwayRotationNumber\": 6608,\n      \"NeutralVenue\": true,\n      \"OverPayout\": 957,\n      \"UnderPayout\": 212,\n      \"DateTimeUTC\": \"string\",\n      \"SeriesInfo\": {\n        \"HomeTeamWins\": 9972,\n        \"AwayTeamWins\": 9636,\n        \"GameNumber\": 9801,\n        \"MaxLength\": 4764\n      },\n      \"RescheduledFromGameID\": 4710,\n      \"RescheduledGameID\": 9862,\n      \"Referee1ID\": 1669,\n      \"Referee2ID\": 8952,\n      \"Linesperson1ID\": 5371,\n      \"Linesperson2ID\": 5879\n    },\n    \"Plays\": [\n      {\n        \"PlayID\": 7125,\n        \"PeriodID\": 6943,\n        \"PeriodName\": \"string\",\n        \"Sequence\": 6091,\n        \"ClockMinutes\": 7359,\n        \"ClockSeconds\": 403,\n        \"AwayTeamScore\": 7099,\n        \"HomeTeamScore\": 4936,\n        \"TeamID\": 9392,\n        \"Team\": \"string\",\n        \"OpponentID\": 9467,\n        \"Opponent\": \"string\",\n        \"Category\": \"string\",\n        \"Type\": \"string\",\n        \"Description\": \"string\",\n        \"PlayerID\": 7217,\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"FirstAssistedByPlayerID\": 8696,\n        \"SecondAssistedByPlayerID\": 8265,\n        \"PowerPlayTeamID\": 9737,\n        \"PowerPlayTeam\": \"string\",\n        \"OpposingPlayerID\": 4328\n      },\n      {\n        \"PlayID\": 1892,\n        \"PeriodID\": 3114,\n        \"PeriodName\": \"string\",\n        \"Sequence\": 192,\n        \"ClockMinutes\": 9836,\n        \"ClockSeconds\": 6570,\n        \"AwayTeamScore\": 3444,\n        \"HomeTeamScore\": 2690,\n        \"TeamID\": 1579,\n        \"Team\": \"string\",\n        \"OpponentID\": 2556,\n        \"Opponent\": \"string\",\n        \"Category\": \"string\",\n        \"Type\": \"string\",\n        \"Description\": \"string\",\n        \"PlayerID\": 1153,\n        \"Updated\": \"string\",\n        \"Created\": \"string\",\n        \"FirstAssistedByPlayerID\": 9592,\n        \"SecondAssistedByPlayerID\": 4941,\n        \"PowerPlayTeamID\": 325,\n        \"PowerPlayTeam\": \"string\",\n        \"OpposingPlayerID\": 4881\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "719df4b1-5345-4c01-a64b-3de253b1bef9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayDelta",
+                    ":date",
+                    ":minutes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2018-JAN-31</code>, <code>2017-OCT-01</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "minutes",
+                      "description": "(Required) Only returns plays that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 1650,\n  \"Code\": 7309,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2af29208-039b-42b0-b894-9a9353dc99e9",
+          "name": "Play By Play [Final]",
+          "request": {
+            "name": "Play By Play [Final]",
+            "description": {
+              "content": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by game.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "nhl",
+                "pbp",
+                ":format",
+                "PlayByPlayFinal",
+                ":gameid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gameid",
+                  "description": "(Required) The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4dcab70-b293-4c82-9edc-7667a685e245",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayFinal",
+                    ":gameid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameid",
+                      "description": "(Required) The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Game\": {\n    \"GameID\": 2446,\n    \"Season\": 1943,\n    \"SeasonType\": 381,\n    \"Status\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"Updated\": \"string\",\n    \"IsClosed\": true,\n    \"AwayTeam\": \"string\",\n    \"HomeTeam\": \"string\",\n    \"AwayTeamID\": 4243,\n    \"HomeTeamID\": 5162,\n    \"StadiumID\": 8145,\n    \"Channel\": \"string\",\n    \"Attendance\": 5009,\n    \"AwayTeamScore\": 9312,\n    \"HomeTeamScore\": 2473,\n    \"Period\": \"string\",\n    \"TimeRemainingMinutes\": 2229,\n    \"TimeRemainingSeconds\": 5864,\n    \"AwayTeamMoneyLine\": 4439,\n    \"HomeTeamMoneyLine\": 8587,\n    \"PointSpread\": 8154.977546590213,\n    \"OverUnder\": 6806.4143805539925,\n    \"GlobalGameID\": 5031,\n    \"GlobalAwayTeamID\": 7972,\n    \"GlobalHomeTeamID\": 1399,\n    \"PointSpreadAwayTeamMoneyLine\": 9400,\n    \"PointSpreadHomeTeamMoneyLine\": 5110,\n    \"LastPlay\": \"string\",\n    \"Periods\": [\n      {\n        \"PeriodID\": 67,\n        \"GameID\": 8392,\n        \"Name\": \"string\",\n        \"AwayScore\": 9413,\n        \"HomeScore\": 1934,\n        \"ScoringPlays\": [\n          {\n            \"ScoringPlayID\": 3680,\n            \"PeriodID\": 194,\n            \"Sequence\": 1833,\n            \"TimeRemainingMinutes\": 8018,\n            \"TimeRemainingSeconds\": 147,\n            \"ScoredByTeamID\": 4218,\n            \"AllowedByTeamID\": 3611,\n            \"ScoredByPlayerID\": 2260,\n            \"AssistedByPlayerID1\": 4559,\n            \"AssistedByPlayerID2\": 6796,\n            \"PowerPlay\": true,\n            \"ShortHanded\": true,\n            \"EmptyNet\": true,\n            \"AwayTeamScore\": 1542,\n            \"HomeTeamScore\": 7376\n          },\n          {\n            \"ScoringPlayID\": 284,\n            \"PeriodID\": 3506,\n            \"Sequence\": 71,\n            \"TimeRemainingMinutes\": 2574,\n            \"TimeRemainingSeconds\": 3515,\n            \"ScoredByTeamID\": 5571,\n            \"AllowedByTeamID\": 4915,\n            \"ScoredByPlayerID\": 7225,\n            \"AssistedByPlayerID1\": 5105,\n            \"AssistedByPlayerID2\": 3566,\n            \"PowerPlay\": false,\n            \"ShortHanded\": true,\n            \"EmptyNet\": false,\n            \"AwayTeamScore\": 609,\n            \"HomeTeamScore\": 4984\n          }\n        ],\n        \"Penalties\": [\n          {\n            \"PenaltyID\": 7793,\n            \"PeriodID\": 9836,\n            \"Sequence\": 1622,\n            \"TimeRemainingMinutes\": 6282,\n            \"TimeRemainingSeconds\": 9179,\n            \"Description\": \"string\",\n            \"PenaltyMinutes\": 4393,\n            \"PenalizedTeamID\": 1374,\n            \"PenalizedPlayerID\": 3111,\n            \"DrawnByTeamID\": 1467,\n            \"DrawnByPlayerID\": 2541,\n            \"IsBenchPenalty\": true,\n            \"BenchPenaltyServedByPlayerID\": 1644\n          },\n          {\n            \"PenaltyID\": 654,\n            \"PeriodID\": 9629,\n            \"Sequence\": 6977,\n            \"TimeRemainingMinutes\": 6077,\n            \"TimeRemainingSeconds\": 7685,\n            \"Description\": \"string\",\n            \"PenaltyMinutes\": 6613,\n            \"PenalizedTeamID\": 4624,\n            \"PenalizedPlayerID\": 4497,\n            \"DrawnByTeamID\": 3929,\n            \"DrawnByPlayerID\": 4120,\n            \"IsBenchPenalty\": false,\n            \"BenchPenaltyServedByPlayerID\": 7505\n          }\n        ]\n      },\n      {\n        \"PeriodID\": 4500,\n        \"GameID\": 6201,\n        \"Name\": \"string\",\n        \"AwayScore\": 9735,\n        \"HomeScore\": 3071,\n        \"ScoringPlays\": [\n          {\n            \"ScoringPlayID\": 63,\n            \"PeriodID\": 2135,\n            \"Sequence\": 2574,\n            \"TimeRemainingMinutes\": 3457,\n            \"TimeRemainingSeconds\": 2293,\n            \"ScoredByTeamID\": 941,\n            \"AllowedByTeamID\": 3216,\n            \"ScoredByPlayerID\": 8098,\n            \"AssistedByPlayerID1\": 8365,\n            \"AssistedByPlayerID2\": 1260,\n            \"PowerPlay\": true,\n            \"ShortHanded\": false,\n            \"EmptyNet\": true,\n            \"AwayTeamScore\": 2626,\n            \"HomeTeamScore\": 7073\n          },\n          {\n            \"ScoringPlayID\": 26,\n            \"PeriodID\": 7387,\n            \"Sequence\": 3768,\n            \"TimeRemainingMinutes\": 2912,\n            \"TimeRemainingSeconds\": 3777,\n            \"ScoredByTeamID\": 4054,\n            \"AllowedByTeamID\": 8664,\n            \"ScoredByPlayerID\": 2161,\n            \"AssistedByPlayerID1\": 7670,\n            \"AssistedByPlayerID2\": 1596,\n            \"PowerPlay\": false,\n            \"ShortHanded\": true,\n            \"EmptyNet\": false,\n            \"AwayTeamScore\": 1551,\n            \"HomeTeamScore\": 4535\n          }\n        ],\n        \"Penalties\": [\n          {\n            \"PenaltyID\": 7646,\n            \"PeriodID\": 1721,\n            \"Sequence\": 6521,\n            \"TimeRemainingMinutes\": 8450,\n            \"TimeRemainingSeconds\": 2513,\n            \"Description\": \"string\",\n            \"PenaltyMinutes\": 3348,\n            \"PenalizedTeamID\": 9066,\n            \"PenalizedPlayerID\": 328,\n            \"DrawnByTeamID\": 7277,\n            \"DrawnByPlayerID\": 2030,\n            \"IsBenchPenalty\": true,\n            \"BenchPenaltyServedByPlayerID\": 9493\n          },\n          {\n            \"PenaltyID\": 4060,\n            \"PeriodID\": 7284,\n            \"Sequence\": 521,\n            \"TimeRemainingMinutes\": 8556,\n            \"TimeRemainingSeconds\": 1860,\n            \"Description\": \"string\",\n            \"PenaltyMinutes\": 7432,\n            \"PenalizedTeamID\": 5645,\n            \"PenalizedPlayerID\": 2031,\n            \"DrawnByTeamID\": 2996,\n            \"DrawnByPlayerID\": 6667,\n            \"IsBenchPenalty\": true,\n            \"BenchPenaltyServedByPlayerID\": 9900\n          }\n        ]\n      }\n    ],\n    \"GameEndDateTime\": \"string\",\n    \"HomeRotationNumber\": 7160,\n    \"AwayRotationNumber\": 1239,\n    \"NeutralVenue\": true,\n    \"OverPayout\": 5588,\n    \"UnderPayout\": 9245,\n    \"DateTimeUTC\": \"string\",\n    \"SeriesInfo\": {\n      \"HomeTeamWins\": 6750,\n      \"AwayTeamWins\": 5162,\n      \"GameNumber\": 3056,\n      \"MaxLength\": 3901\n    },\n    \"RescheduledFromGameID\": 5950,\n    \"RescheduledGameID\": 9796,\n    \"Referee1ID\": 3388,\n    \"Referee2ID\": 2510,\n    \"Linesperson1ID\": 2327,\n    \"Linesperson2ID\": 4659\n  },\n  \"Plays\": [\n    {\n      \"PlayID\": 1791,\n      \"PeriodID\": 2008,\n      \"PeriodName\": \"string\",\n      \"Sequence\": 2961,\n      \"ClockMinutes\": 4742,\n      \"ClockSeconds\": 9262,\n      \"AwayTeamScore\": 3583,\n      \"HomeTeamScore\": 8349,\n      \"TeamID\": 5938,\n      \"Team\": \"string\",\n      \"OpponentID\": 8002,\n      \"Opponent\": \"string\",\n      \"Category\": \"string\",\n      \"Type\": \"string\",\n      \"Description\": \"string\",\n      \"PlayerID\": 2884,\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"FirstAssistedByPlayerID\": 9487,\n      \"SecondAssistedByPlayerID\": 9349,\n      \"PowerPlayTeamID\": 9627,\n      \"PowerPlayTeam\": \"string\",\n      \"OpposingPlayerID\": 4129\n    },\n    {\n      \"PlayID\": 2004,\n      \"PeriodID\": 4297,\n      \"PeriodName\": \"string\",\n      \"Sequence\": 6023,\n      \"ClockMinutes\": 2845,\n      \"ClockSeconds\": 592,\n      \"AwayTeamScore\": 4663,\n      \"HomeTeamScore\": 9964,\n      \"TeamID\": 9231,\n      \"Team\": \"string\",\n      \"OpponentID\": 5062,\n      \"Opponent\": \"string\",\n      \"Category\": \"string\",\n      \"Type\": \"string\",\n      \"Description\": \"string\",\n      \"PlayerID\": 7273,\n      \"Updated\": \"string\",\n      \"Created\": \"string\",\n      \"FirstAssistedByPlayerID\": 4789,\n      \"SecondAssistedByPlayerID\": 7259,\n      \"PowerPlayTeamID\": 1708,\n      \"PowerPlayTeam\": \"string\",\n      \"OpposingPlayerID\": 2545\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3fd0c1a5-4b7b-476b-9f8f-a7d905302332",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "nhl",
+                    "pbp",
+                    ":format",
+                    "PlayByPlayFinal",
+                    ":gameid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gameid",
+                      "description": "(Required) The GameID of an NHL game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 1650,\n  \"Code\": 7309,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sportsdata.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0311523f-fefa-40bd-ad5c-854463b6c71e",
+    "name": "MLB MLB v3 Headshots NHL v3 Play-by-Play API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "MLB API - OpenAPI 3.1 Specification",
+      "type": "text/plain"
+    }
+  }
+}

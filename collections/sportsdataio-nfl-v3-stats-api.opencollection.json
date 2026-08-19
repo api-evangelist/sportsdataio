@@ -1,0 +1,1068 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MLB MLB v3 Headshots NFL v3 Stats API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NFL v3 Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Player Game Stats Delta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsDelta/:minutes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "minutes",
+                "value": "",
+                "type": "path",
+                "description": "\n          Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n          <code>1</code> or <code>2</code>.\n        "
+              }
+            ]
+          },
+          "docs": "This method returns all player game stats, but only returns player stats that have changed in the last X minutes as specified in your API call. By definition this is a live endpoint, not final."
+        },
+        {
+          "info": {
+            "name": "Fantasy Defense Game Stats - All",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/FantasyDefenseByGame/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Returns stats and fantasy points for a given game for the fantasy defense team (not IDP.)"
+        },
+        {
+          "info": {
+            "name": "Fantasy Defense Season Stats - All",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/FantasyDefenseBySeason/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Returns stats and fantasy points for a given season for the fantasy defense team (not IDP.)"
+        },
+        {
+          "info": {
+            "name": "Injuries - All",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/Injuries/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "A list of all injured players and a description of their injuries."
+        },
+        {
+          "info": {
+            "name": "Injuries - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/Injuries/:season/:week/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "A list of all injured players on a specified team and a description of their injuries."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats - by Team [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsByTeam/:season/:week/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players across a given team's game in a given week, updated live as the game takes place."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats Delta - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsByWeekDelta/:season/:week/:minutes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "minutes",
+                "value": "",
+                "type": "path",
+                "description": "Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:<br>\n          <code>1</code> or <code>2</code>.\n        "
+              }
+            ]
+          },
+          "docs": "This method returns all player scores for a given season and week, but only returns player stats that have changed in the last X minutes as specified in your API call. Ideal for live applications."
+        },
+        {
+          "info": {
+            "name": "Player Season Stats - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerSeasonStatsByTeam/:season/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for a given team's players in a given season."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats - by Week [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsByWeek/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players across a given week, updated live as the game takes place."
+        },
+        {
+          "info": {
+            "name": "Player Season Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerSeasonStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for all players for a given season."
+        },
+        {
+          "info": {
+            "name": "Fantasy Defense Game Stats - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/FantasyDefenseByGameByTeam/:season/:week/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Returns stats and fantasy points for a given team's game for the fantasy defense team (not IDP.)"
+        },
+        {
+          "info": {
+            "name": "Fantasy Defense Season Stats - by Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/FantasyDefenseBySeasonByTeam/:season/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Returns stats and fantasy points for a given team and season for the fantasy defense team (not IDP.)"
+        },
+        {
+          "info": {
+            "name": "Player Season Red Zone Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerSeasonRedZoneStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Delivers all offensive stats within the red zone (within the 20-yard line of the defensive team) for all players in a given season (i.e. the season total, not each individual game record.)"
+        },
+        {
+          "info": {
+            "name": "Player Season Third Down Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerSeasonThirdDownStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Returns all season-long stats (i.e. the season total, not each individual game record) for all players on the third down for a given season."
+        },
+        {
+          "info": {
+            "name": "Box Scores Delta - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/BoxScoresDeltaV3/:season/:week/:playerstoinclude/:minutes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "playerstoinclude",
+                "value": "",
+                "type": "path",
+                "description": "The subcategory of players to include in the returned PlayerGame records. Possible values include:<br><br>\n<code>all</code> Returns all players<br>\n<code>fantasy</code> Returns traditional fantasy players (QB, RB, WR, TE, K, DST)<br>\n<code>idp</code> Returns traditional fantasy players and IDP players."
+              },
+              {
+                "name": "minutes",
+                "value": "",
+                "type": "path",
+                "description": "Only returns player statistics that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:<br><code>1</code>,\n <code>2</code>, etc.\n        "
+              }
+            ]
+          },
+          "docs": "This method returns all box scores for a given season and week, but only returns player stats that have changed in the last X minutes as specified in your API call. You can also filter by type of player stats to include, such as traditional fantasy players, IDP players or all players. by definition this is a live endpoint, not final."
+        },
+        {
+          "info": {
+            "name": "Box Score - by Team [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/BoxScoreV3/:season/:week/:hometeam",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "hometeam",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of a team playing in this game. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered live during the game, called for a given team's game in a given week and season."
+        },
+        {
+          "info": {
+            "name": "Box Score [Live & Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/BoxScoreByScoreIDV3/:scoreid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The ScoreID of the game. Possible values include: <code>16247</code>, <code>16245</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered live during the game, called per individual game."
+        },
+        {
+          "info": {
+            "name": "Fantasy Player Ownership Percentages (Season-Long) - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerOwnership/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Projected fantasy ownership of all players for a given season."
+        },
+        {
+          "info": {
+            "name": "Player Game Red Zone Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameRedZoneStats/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Delivers all offensive stats within the red zone (within the 20-yard line of the defensive team) for all players in a given season or week."
+        },
+        {
+          "info": {
+            "name": "Pro Bowlers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/ProBowlers/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season\n<br>Examples: <code>2016</code>, <code>2017</code>"
+              }
+            ]
+          },
+          "docs": "A list of players involved in the Pro Bowl, by season."
+        },
+        {
+          "info": {
+            "name": "Box Scores Simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/SimulatedBoxScoresV3/:numberofplays",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "numberofplays",
+                "value": "",
+                "type": "path",
+                "description": "The number of plays to progress in this NFL live game simulation. Example entries are <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>150</code>, <code>200</code>, etc."
+              }
+            ]
+          },
+          "docs": "Gets simulated live box scores of NFL games, covering the Conference Championship games on January 21, 2018."
+        },
+        {
+          "info": {
+            "name": "Player Game Red Zone Stats (Inside Ten)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameRedZoneInsideTenStats/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Delivers all offensive stats within the 10-yard line of the defensive team for all players in a given season or week."
+        },
+        {
+          "info": {
+            "name": "Player Season Red Zone Stats (Inside Ten)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerSeasonRedZoneInsideTenStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Delivers all offensive stats within the 10-yard line of the defensive team for all players in a given season (i.e. the season total, not each individual game record.)"
+        },
+        {
+          "info": {
+            "name": "Player Game Red Zone Stats (Inside Five)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameRedZoneInsideFiveStats/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Delivers all offensive stats within the 5-yard line of the defensive team for all players in a given season or week."
+        },
+        {
+          "info": {
+            "name": "Player Season Red Zone Stats (Inside Five)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerSeasonRedZoneInsideFiveStats/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              }
+            ]
+          },
+          "docs": "Delivers all offensive stats within the 5-yard line of the defensive team for all players in a given season (i.e. the season total, not each individual game record.)"
+        },
+        {
+          "info": {
+            "name": "Player Game Logs - by Season",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsBySeason/:season/:playerid/:numberofgames",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Season to get games from. Example <code>2019POST</code>, <code>2020</code>"
+              },
+              {
+                "name": "playerid",
+                "value": "",
+                "type": "path",
+                "description": "Unique SportsDataIO Player ID. Example:<code>17920</code>."
+              },
+              {
+                "name": "numberofgames",
+                "value": "",
+                "type": "path",
+                "description": "How many games to return. Example <code>all</code>, <code>10</code>, <code>25</code>"
+              }
+            ]
+          },
+          "docs": "Specify a season, a player, and number of games (either an integer or <code>all</code>) to see all of their box score logs. Refreshed after their most recent game is complete."
+        },
+        {
+          "info": {
+            "name": "Box Score [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/BoxScoreFinal/:scoreid",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "scoreid",
+                "value": "",
+                "type": "path",
+                "description": "The ScoreID of the game. Possible values include: <code>16247</code>, <code>16245</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game, down to the team and player stat level, delivered after the game is complete."
+        },
+        {
+          "info": {
+            "name": "Box Scores - by Week [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/BoxScoresFinal/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Full statistical information for a specified game week for each game that took place, down to the team and player stat level, delivered after the game is complete."
+        },
+        {
+          "info": {
+            "name": "Team Game Stats - by Game [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/TeamGameStatsFinal/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record team-wide (aggregated from all players) for a given team's game in a given week after the game has concluded."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats - by Week [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsByWeekFinal/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players across all teams' games in a given week after the game has concluded."
+        },
+        {
+          "info": {
+            "name": "Games - by Season [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/ScoresFinal/:season",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season (with optional season type).<br>Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc."
+              }
+            ]
+          },
+          "docs": "Full scores and gameday info, including weather, referee, infotainment odds, as well as all of the quarter scores and full-time score."
+        },
+        {
+          "info": {
+            "name": "Player Game Stats - by Team [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/PlayerGameStatsByTeamFinal/:season/:week/:team",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "team",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of the team. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Returns the box score statistical record for all involved players in a given team's game in a given week after the game has concluded."
+        },
+        {
+          "info": {
+            "name": "Box Score - by Team [Final]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/BoxScoreByTeamFinal/:season/:week/:hometeam",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              },
+              {
+                "name": "hometeam",
+                "value": "",
+                "type": "path",
+                "description": "Abbreviation of a team playing in this game. Example: <code>WAS</code>."
+              }
+            ]
+          },
+          "docs": "Full statistical information for a given team's game in a specified season and week, down to the team and player stat level, delivered after the game is complete."
+        },
+        {
+          "info": {
+            "name": "Fantasy Points - by Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sportsdata.io/v3/nfl/stats/:format/FantasyGameStatsByWeek/:season/:week",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "path",
+                "description": "Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+              },
+              {
+                "name": "season",
+                "value": "",
+                "type": "path",
+                "description": "\n          Year of the season and the season type. If no season type is provided, then the default is regular season.\n          <br>Examples: <code>2015REG</code>, <code>2015PRE</code>, <code>2015POST</code>.\n        "
+              },
+              {
+                "name": "week",
+                "value": "",
+                "type": "path",
+                "description": "\n          Week of the season. Valid values are as follows: Preseason 0 to 4, Regular Season 1 to 17, Postseason 1 to 4.\n          Example: <code>1</code>\n        "
+              }
+            ]
+          },
+          "docs": "Returns a simple list of fantasy points and stats for each player for a given week."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

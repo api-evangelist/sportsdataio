@@ -1,0 +1,1425 @@
+{
+  "item": [
+    {
+      "id": "27a5083d-b563-40d7-9657-ab4920a9b0aa",
+      "name": "MLB v3 Projections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8f7994c2-7954-41a7-8511-4686d1f79ea3",
+          "name": "Projected Player Game Stats - by Date",
+          "request": {
+            "name": "Projected Player Game Stats - by Date",
+            "description": {
+              "content": "SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, called by date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "mlb",
+                "projections",
+                ":format",
+                "PlayerGameProjectionStatsByDate",
+                ":date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "date",
+                  "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b0f281c-cf2b-4959-bd4d-7140b8d3cd4c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "PlayerGameProjectionStatsByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"StatID\": 1509,\n    \"TeamID\": 3751,\n    \"PlayerID\": 946,\n    \"SeasonType\": 4715,\n    \"Season\": 1167,\n    \"Name\": \"string\",\n    \"Team\": \"string\",\n    \"Position\": \"string\",\n    \"PositionCategory\": \"string\",\n    \"Started\": 5843,\n    \"BattingOrder\": 9524,\n    \"FanDuelSalary\": 47,\n    \"DraftKingsSalary\": 7473,\n    \"FantasyDataSalary\": 2591,\n    \"YahooSalary\": 1508,\n    \"InjuryStatus\": \"string\",\n    \"InjuryBodyPart\": \"string\",\n    \"InjuryStartDate\": \"string\",\n    \"InjuryNotes\": \"string\",\n    \"FanDuelPosition\": \"string\",\n    \"DraftKingsPosition\": \"string\",\n    \"YahooPosition\": \"string\",\n    \"OpponentRank\": 6042,\n    \"OpponentPositionRank\": 1648,\n    \"GlobalTeamID\": 9607,\n    \"FantasyDraftSalary\": 5002,\n    \"FantasyDraftPosition\": \"string\",\n    \"GameID\": 2187,\n    \"OpponentID\": 4667,\n    \"Opponent\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"HomeOrAway\": \"string\",\n    \"IsGameOver\": false,\n    \"GlobalGameID\": 3598,\n    \"GlobalOpponentID\": 8432,\n    \"Updated\": \"string\",\n    \"Games\": 3998,\n    \"FantasyPoints\": 9978.677320242396,\n    \"AtBats\": 151.74585724960332,\n    \"Runs\": 6337.920702853251,\n    \"Hits\": 9435.770578741744,\n    \"Singles\": 604.3346398175786,\n    \"Doubles\": 2066.4756748877257,\n    \"Triples\": 9779.637580604674,\n    \"HomeRuns\": 4500.118172833497,\n    \"RunsBattedIn\": 4706.1896368849175,\n    \"BattingAverage\": 5266.517683810728,\n    \"Outs\": 1871.3444385438604,\n    \"Strikeouts\": 3035.9103648753394,\n    \"Walks\": 8566.60668996963,\n    \"HitByPitch\": 4260.416780594981,\n    \"Sacrifices\": 6872.631431521448,\n    \"SacrificeFlies\": 102.64969128871759,\n    \"GroundIntoDoublePlay\": 1033.8387187439423,\n    \"StolenBases\": 4511.841601661081,\n    \"CaughtStealing\": 963.4309868431634,\n    \"PitchesSeen\": 9331.630209479035,\n    \"OnBasePercentage\": 5510.369949661138,\n    \"SluggingPercentage\": 8436.712472149227,\n    \"OnBasePlusSlugging\": 8750.870844166446,\n    \"Errors\": 8967.28119730537,\n    \"Wins\": 9858.230438930248,\n    \"Losses\": 8068.65011515838,\n    \"Saves\": 4104.255406144594,\n    \"InningsPitchedDecimal\": 5301.870508598706,\n    \"TotalOutsPitched\": 9642.704555014547,\n    \"InningsPitchedFull\": 4366.80969840368,\n    \"InningsPitchedOuts\": 1935.918950407104,\n    \"EarnedRunAverage\": 9470.385982787775,\n    \"PitchingHits\": 7924.942599514356,\n    \"PitchingRuns\": 728.0066535184937,\n    \"PitchingEarnedRuns\": 8742.68855598674,\n    \"PitchingWalks\": 5615.251063365652,\n    \"PitchingStrikeouts\": 9566.293711649007,\n    \"PitchingHomeRuns\": 3997.371456966532,\n    \"PitchesThrown\": 2605.4348114475324,\n    \"PitchesThrownStrikes\": 6349.054544753481,\n    \"WalksHitsPerInningsPitched\": 5946.574905473361,\n    \"PitchingBattingAverageAgainst\": 2354.4988615407224,\n    \"GrandSlams\": 8650.189235099991,\n    \"FantasyPointsFanDuel\": 525.7745135071434,\n    \"FantasyPointsDraftKings\": 7471.806193727585,\n    \"FantasyPointsYahoo\": 882.2700556640916,\n    \"PlateAppearances\": 6481.185278385121,\n    \"TotalBases\": 5792.9157274628315,\n    \"FlyOuts\": 5495.93120257088,\n    \"GroundOuts\": 4530.861180978416,\n    \"LineOuts\": 7435.731763949397,\n    \"PopOuts\": 7304.274758828049,\n    \"IntentionalWalks\": 7449.7433151765,\n    \"ReachedOnError\": 5681.35908926739,\n    \"BallsInPlay\": 4302.513426397138,\n    \"BattingAverageOnBallsInPlay\": 445.59756437198337,\n    \"WeightedOnBasePercentage\": 4454.161482943183,\n    \"PitchingSingles\": 2395.3420494471934,\n    \"PitchingDoubles\": 332.297174439139,\n    \"PitchingTriples\": 4757.861899530782,\n    \"PitchingGrandSlams\": 6990.990107389257,\n    \"PitchingHitByPitch\": 4313.384860948919,\n    \"PitchingSacrifices\": 6135.9982557689655,\n    \"PitchingSacrificeFlies\": 5140.523140192844,\n    \"PitchingGroundIntoDoublePlay\": 6377.026353947754,\n    \"PitchingCompleteGames\": 5688.763343788525,\n    \"PitchingShutOuts\": 5462.105745505575,\n    \"PitchingNoHitters\": 584.7061663358465,\n    \"PitchingPerfectGames\": 8966.919439210937,\n    \"PitchingPlateAppearances\": 7520.03206530423,\n    \"PitchingTotalBases\": 7659.601772110574,\n    \"PitchingFlyOuts\": 5765.011722006703,\n    \"PitchingGroundOuts\": 2448.0893186370613,\n    \"PitchingLineOuts\": 8695.59371834031,\n    \"PitchingPopOuts\": 6409.869050184096,\n    \"PitchingIntentionalWalks\": 4343.427733586519,\n    \"PitchingReachedOnError\": 512.2660213064079,\n    \"PitchingCatchersInterference\": 4554.5399860500365,\n    \"PitchingBallsInPlay\": 6901.709684425964,\n    \"PitchingOnBasePercentage\": 1844.3055445575662,\n    \"PitchingSluggingPercentage\": 6208.299300435705,\n    \"PitchingOnBasePlusSlugging\": 4611.1680059628825,\n    \"PitchingStrikeoutsPerNineInnings\": 7459.482852746763,\n    \"PitchingWalksPerNineInnings\": 7190.164619276068,\n    \"PitchingBattingAverageOnBallsInPlay\": 7056.2724416948495,\n    \"PitchingWeightedOnBasePercentage\": 6011.780621750433,\n    \"DoublePlays\": 4134.621204604163,\n    \"PitchingDoublePlays\": 5311.305089592258,\n    \"BattingOrderConfirmed\": true,\n    \"IsolatedPower\": 4503.585691089055,\n    \"FieldingIndependentPitching\": 147.6985182832913,\n    \"PitchingQualityStarts\": 8797.713834174237,\n    \"PitchingInningStarted\": 72,\n    \"LeftOnBase\": 1236.3572100866315,\n    \"PitchingHolds\": 5821.9976767465105,\n    \"PitchingBlownSaves\": 9772.171072549781,\n    \"SubstituteBattingOrder\": 1485,\n    \"SubstituteBattingOrderSequence\": 8156,\n    \"FantasyPointsFantasyDraft\": 8291.606062765857,\n    \"FantasyPointsBatting\": 2417.1075852780323,\n    \"FantasyPointsPitching\": 8223.592309855381\n  },\n  {\n    \"StatID\": 9764,\n    \"TeamID\": 3902,\n    \"PlayerID\": 9798,\n    \"SeasonType\": 4929,\n    \"Season\": 6939,\n    \"Name\": \"string\",\n    \"Team\": \"string\",\n    \"Position\": \"string\",\n    \"PositionCategory\": \"string\",\n    \"Started\": 7816,\n    \"BattingOrder\": 4196,\n    \"FanDuelSalary\": 5590,\n    \"DraftKingsSalary\": 4763,\n    \"FantasyDataSalary\": 2203,\n    \"YahooSalary\": 1692,\n    \"InjuryStatus\": \"string\",\n    \"InjuryBodyPart\": \"string\",\n    \"InjuryStartDate\": \"string\",\n    \"InjuryNotes\": \"string\",\n    \"FanDuelPosition\": \"string\",\n    \"DraftKingsPosition\": \"string\",\n    \"YahooPosition\": \"string\",\n    \"OpponentRank\": 9398,\n    \"OpponentPositionRank\": 2554,\n    \"GlobalTeamID\": 8447,\n    \"FantasyDraftSalary\": 440,\n    \"FantasyDraftPosition\": \"string\",\n    \"GameID\": 6283,\n    \"OpponentID\": 6094,\n    \"Opponent\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"HomeOrAway\": \"string\",\n    \"IsGameOver\": false,\n    \"GlobalGameID\": 919,\n    \"GlobalOpponentID\": 4140,\n    \"Updated\": \"string\",\n    \"Games\": 3202,\n    \"FantasyPoints\": 8129.272414794753,\n    \"AtBats\": 4116.558737992767,\n    \"Runs\": 4412.624101536371,\n    \"Hits\": 6825.247847086859,\n    \"Singles\": 3290.748297890138,\n    \"Doubles\": 8233.835273585706,\n    \"Triples\": 6480.26049846367,\n    \"HomeRuns\": 9027.954650078833,\n    \"RunsBattedIn\": 3210.9554870628976,\n    \"BattingAverage\": 8574.467372113653,\n    \"Outs\": 5425.233547668698,\n    \"Strikeouts\": 9720.942425763618,\n    \"Walks\": 4964.550248230811,\n    \"HitByPitch\": 8240.575608573956,\n    \"Sacrifices\": 4324.270645201691,\n    \"SacrificeFlies\": 5138.191726414477,\n    \"GroundIntoDoublePlay\": 4702.089571893727,\n    \"StolenBases\": 5975.1047473145345,\n    \"CaughtStealing\": 9193.76918169338,\n    \"PitchesSeen\": 2668.2431982464727,\n    \"OnBasePercentage\": 8027.159557299384,\n    \"SluggingPercentage\": 7840.803950513427,\n    \"OnBasePlusSlugging\": 3220.7522704429625,\n    \"Errors\": 4009.160811286894,\n    \"Wins\": 4939.587142295451,\n    \"Losses\": 7366.75240936008,\n    \"Saves\": 3999.478144097417,\n    \"InningsPitchedDecimal\": 3077.7878668525937,\n    \"TotalOutsPitched\": 4043.830852677729,\n    \"InningsPitchedFull\": 7290.354880196248,\n    \"InningsPitchedOuts\": 9387.318756454175,\n    \"EarnedRunAverage\": 7492.979195519986,\n    \"PitchingHits\": 3649.387876097575,\n    \"PitchingRuns\": 9441.918982297717,\n    \"PitchingEarnedRuns\": 7442.865941599957,\n    \"PitchingWalks\": 9058.373249802482,\n    \"PitchingStrikeouts\": 7078.133762783725,\n    \"PitchingHomeRuns\": 9599.03623167852,\n    \"PitchesThrown\": 5140.004465536753,\n    \"PitchesThrownStrikes\": 1724.0691901865002,\n    \"WalksHitsPerInningsPitched\": 7042.683475440023,\n    \"PitchingBattingAverageAgainst\": 9863.064836100666,\n    \"GrandSlams\": 4765.332709311496,\n    \"FantasyPointsFanDuel\": 5970.697278504314,\n    \"FantasyPointsDraftKings\": 3702.1866547011296,\n    \"FantasyPointsYahoo\": 7542.0127927216545,\n    \"PlateAppearances\": 7585.4608249663415,\n    \"TotalBases\": 3506.3646795223403,\n    \"FlyOuts\": 9783.392780004415,\n    \"GroundOuts\": 4879.801877409667,\n    \"LineOuts\": 5016.905298180816,\n    \"PopOuts\": 7424.390366933477,\n    \"IntentionalWalks\": 473.3465022260819,\n    \"ReachedOnError\": 6035.570540894013,\n    \"BallsInPlay\": 4509.159366328959,\n    \"BattingAverageOnBallsInPlay\": 1150.2436868818345,\n    \"WeightedOnBasePercentage\": 9104.260017279146,\n    \"PitchingSingles\": 9429.21411836054,\n    \"PitchingDoubles\": 2166.494053506246,\n    \"PitchingTriples\": 8973.690837787442,\n    \"PitchingGrandSlams\": 6023.209805000927,\n    \"PitchingHitByPitch\": 2948.9126404506515,\n    \"PitchingSacrifices\": 4659.579533191366,\n    \"PitchingSacrificeFlies\": 3058.1591482888216,\n    \"PitchingGroundIntoDoublePlay\": 185.48529130410606,\n    \"PitchingCompleteGames\": 4381.557917362401,\n    \"PitchingShutOuts\": 8850.83785360305,\n    \"PitchingNoHitters\": 7900.466673767,\n    \"PitchingPerfectGames\": 9941.975676350372,\n    \"PitchingPlateAppearances\": 4589.862205206421,\n    \"PitchingTotalBases\": 1787.5982182899431,\n    \"PitchingFlyOuts\": 5799.220114807323,\n    \"PitchingGroundOuts\": 6545.980613399502,\n    \"PitchingLineOuts\": 5216.226579004619,\n    \"PitchingPopOuts\": 3776.4213583423166,\n    \"PitchingIntentionalWalks\": 1537.8006658782183,\n    \"PitchingReachedOnError\": 1913.6347946302046,\n    \"PitchingCatchersInterference\": 381.41691689541733,\n    \"PitchingBallsInPlay\": 1096.0130360444941,\n    \"PitchingOnBasePercentage\": 7339.201694663004,\n    \"PitchingSluggingPercentage\": 8674.822648137488,\n    \"PitchingOnBasePlusSlugging\": 6466.3952271422295,\n    \"PitchingStrikeoutsPerNineInnings\": 4858.712257444906,\n    \"PitchingWalksPerNineInnings\": 6131.40770082923,\n    \"PitchingBattingAverageOnBallsInPlay\": 1573.1386793492386,\n    \"PitchingWeightedOnBasePercentage\": 5471.839574003498,\n    \"DoublePlays\": 7506.085237625905,\n    \"PitchingDoublePlays\": 9967.649822977966,\n    \"BattingOrderConfirmed\": true,\n    \"IsolatedPower\": 960.9357248407268,\n    \"FieldingIndependentPitching\": 6539.814640213961,\n    \"PitchingQualityStarts\": 4919.405861034343,\n    \"PitchingInningStarted\": 1442,\n    \"LeftOnBase\": 1892.0768360021368,\n    \"PitchingHolds\": 1933.5274260096746,\n    \"PitchingBlownSaves\": 1728.4007682261793,\n    \"SubstituteBattingOrder\": 8768,\n    \"SubstituteBattingOrderSequence\": 2069,\n    \"FantasyPointsFantasyDraft\": 9809.07073840062,\n    \"FantasyPointsBatting\": 725.0841792422591,\n    \"FantasyPointsPitching\": 1041.6721268669326\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69ce7c34-7be5-4661-b5e2-5217c237aef0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "PlayerGameProjectionStatsByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 4561,\n  \"Code\": 6834,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50f550d5-f150-437b-a538-ac5531c1bcd4",
+          "name": "Projected Player Season Stats With ADP",
+          "request": {
+            "name": "Projected Player Season Stats With ADP",
+            "description": {
+              "content": "SportsDataIO's proprietary projections, including average draft position, for all active players for the season.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "mlb",
+                "projections",
+                ":format",
+                "PlayerSeasonProjectionStats",
+                ":season"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "season",
+                  "description": "(Required) Year of the season.\n<br>Examples: <code>2017</code>, <code>2018</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "824bbc5e-1986-419d-8ac6-a5a62aaf90d3",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "PlayerSeasonProjectionStats",
+                    ":season"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season",
+                      "description": "(Required) Year of the season.\n<br>Examples: <code>2017</code>, <code>2018</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"StatID\": 1547,\n    \"TeamID\": 7616,\n    \"PlayerID\": 7164,\n    \"SeasonType\": 8156,\n    \"Season\": 2840,\n    \"Name\": \"string\",\n    \"Team\": \"string\",\n    \"Position\": \"string\",\n    \"PositionCategory\": \"string\",\n    \"Started\": 9289,\n    \"BattingOrder\": 5185,\n    \"GlobalTeamID\": 3531,\n    \"AverageDraftPosition\": 3525.9512341263235,\n    \"AuctionValue\": 1785,\n    \"Updated\": \"string\",\n    \"Games\": 9649,\n    \"FantasyPoints\": 552.606435979316,\n    \"AtBats\": 4612.256080871727,\n    \"Runs\": 4240.532628067347,\n    \"Hits\": 3422.7947819225656,\n    \"Singles\": 2680.125010780846,\n    \"Doubles\": 1819.450378468661,\n    \"Triples\": 4186.601946065489,\n    \"HomeRuns\": 3213.555115924449,\n    \"RunsBattedIn\": 3688.502983155627,\n    \"BattingAverage\": 3506.9623892264513,\n    \"Outs\": 7081.003551521478,\n    \"Strikeouts\": 876.0905449420209,\n    \"Walks\": 120.27822157245738,\n    \"HitByPitch\": 5758.813789479451,\n    \"Sacrifices\": 8421.685091531574,\n    \"SacrificeFlies\": 8643.204438758858,\n    \"GroundIntoDoublePlay\": 8470.392634812648,\n    \"StolenBases\": 5282.391997625059,\n    \"CaughtStealing\": 8777.98751804532,\n    \"PitchesSeen\": 3549.146176716812,\n    \"OnBasePercentage\": 4513.566124341128,\n    \"SluggingPercentage\": 3619.9989918721562,\n    \"OnBasePlusSlugging\": 8476.254675319557,\n    \"Errors\": 9858.977322566148,\n    \"Wins\": 3452.762214327344,\n    \"Losses\": 1996.564793262422,\n    \"Saves\": 1878.8280419829796,\n    \"InningsPitchedDecimal\": 377.81854584009176,\n    \"TotalOutsPitched\": 1781.5623841285856,\n    \"InningsPitchedFull\": 442.1157520025598,\n    \"InningsPitchedOuts\": 6353.474724851345,\n    \"EarnedRunAverage\": 9341.428772030426,\n    \"PitchingHits\": 2261.022308928763,\n    \"PitchingRuns\": 4302.835733008029,\n    \"PitchingEarnedRuns\": 2633.103684874446,\n    \"PitchingWalks\": 7840.481951937954,\n    \"PitchingStrikeouts\": 1167.8890567111034,\n    \"PitchingHomeRuns\": 9886.557523626956,\n    \"PitchesThrown\": 9471.572945385778,\n    \"PitchesThrownStrikes\": 8469.032345368674,\n    \"WalksHitsPerInningsPitched\": 2709.7930976908947,\n    \"PitchingBattingAverageAgainst\": 8702.47701079578,\n    \"GrandSlams\": 5470.724902083177,\n    \"FantasyPointsFanDuel\": 6966.522380519962,\n    \"FantasyPointsDraftKings\": 9044.04351275229,\n    \"FantasyPointsYahoo\": 3966.5221571512975,\n    \"PlateAppearances\": 7933.986926762947,\n    \"TotalBases\": 2184.5026275442538,\n    \"FlyOuts\": 3363.3398746968137,\n    \"GroundOuts\": 3469.2823675771656,\n    \"LineOuts\": 9036.087148564171,\n    \"PopOuts\": 4637.499130175485,\n    \"IntentionalWalks\": 448.0393661931792,\n    \"ReachedOnError\": 6842.811478111614,\n    \"BallsInPlay\": 736.5513507911614,\n    \"BattingAverageOnBallsInPlay\": 9462.258844665614,\n    \"WeightedOnBasePercentage\": 2540.7418426735117,\n    \"PitchingSingles\": 6344.721598491323,\n    \"PitchingDoubles\": 4962.390645971973,\n    \"PitchingTriples\": 9089.152796268967,\n    \"PitchingGrandSlams\": 4883.56313903936,\n    \"PitchingHitByPitch\": 4299.012906433511,\n    \"PitchingSacrifices\": 6973.799171680657,\n    \"PitchingSacrificeFlies\": 6276.226958342667,\n    \"PitchingGroundIntoDoublePlay\": 2910.6381528687675,\n    \"PitchingCompleteGames\": 9852.366714943675,\n    \"PitchingShutOuts\": 4725.745960032231,\n    \"PitchingNoHitters\": 8652.771199510556,\n    \"PitchingPerfectGames\": 7048.055425169853,\n    \"PitchingPlateAppearances\": 6114.558862229911,\n    \"PitchingTotalBases\": 7343.634592521428,\n    \"PitchingFlyOuts\": 4161.985799696142,\n    \"PitchingGroundOuts\": 5361.647167880004,\n    \"PitchingLineOuts\": 1334.8335565192815,\n    \"PitchingPopOuts\": 6314.567124668067,\n    \"PitchingIntentionalWalks\": 3749.9050206530005,\n    \"PitchingReachedOnError\": 5494.606305518708,\n    \"PitchingCatchersInterference\": 7620.403283092083,\n    \"PitchingBallsInPlay\": 9244.287827383201,\n    \"PitchingOnBasePercentage\": 1330.5164876435872,\n    \"PitchingSluggingPercentage\": 4275.569691781426,\n    \"PitchingOnBasePlusSlugging\": 2155.7908307420716,\n    \"PitchingStrikeoutsPerNineInnings\": 3115.8341269053867,\n    \"PitchingWalksPerNineInnings\": 1989.813661090035,\n    \"PitchingBattingAverageOnBallsInPlay\": 7450.909323776646,\n    \"PitchingWeightedOnBasePercentage\": 705.6358798078321,\n    \"DoublePlays\": 2481.411701192431,\n    \"PitchingDoublePlays\": 7722.17228393446,\n    \"BattingOrderConfirmed\": false,\n    \"IsolatedPower\": 6918.627337764822,\n    \"FieldingIndependentPitching\": 2511.3660815600624,\n    \"PitchingQualityStarts\": 3711.616596425927,\n    \"PitchingInningStarted\": 5055,\n    \"LeftOnBase\": 3636.564836477135,\n    \"PitchingHolds\": 4081.2952478724983,\n    \"PitchingBlownSaves\": 5466.887310519695,\n    \"SubstituteBattingOrder\": 5580,\n    \"SubstituteBattingOrderSequence\": 6150,\n    \"FantasyPointsFantasyDraft\": 3111.681990644326,\n    \"FantasyPointsBatting\": 1693.4319375407235,\n    \"FantasyPointsPitching\": 5792.77274312892\n  },\n  {\n    \"StatID\": 6756,\n    \"TeamID\": 1085,\n    \"PlayerID\": 3151,\n    \"SeasonType\": 1592,\n    \"Season\": 3049,\n    \"Name\": \"string\",\n    \"Team\": \"string\",\n    \"Position\": \"string\",\n    \"PositionCategory\": \"string\",\n    \"Started\": 7961,\n    \"BattingOrder\": 1920,\n    \"GlobalTeamID\": 5592,\n    \"AverageDraftPosition\": 3094.1216684668548,\n    \"AuctionValue\": 9783,\n    \"Updated\": \"string\",\n    \"Games\": 2371,\n    \"FantasyPoints\": 4224.26306835001,\n    \"AtBats\": 2908.4273444375,\n    \"Runs\": 7490.709069301221,\n    \"Hits\": 7789.3057643861275,\n    \"Singles\": 1436.2238835592145,\n    \"Doubles\": 7227.283768767286,\n    \"Triples\": 6401.254889295679,\n    \"HomeRuns\": 5703.476952687843,\n    \"RunsBattedIn\": 5982.760986767105,\n    \"BattingAverage\": 3659.758471888338,\n    \"Outs\": 6177.011661123499,\n    \"Strikeouts\": 5425.405108130148,\n    \"Walks\": 5172.949240761846,\n    \"HitByPitch\": 5565.096062509673,\n    \"Sacrifices\": 9661.267313485163,\n    \"SacrificeFlies\": 2552.6319993617485,\n    \"GroundIntoDoublePlay\": 5613.294042441049,\n    \"StolenBases\": 1554.9636701531788,\n    \"CaughtStealing\": 8845.683995814235,\n    \"PitchesSeen\": 6817.504777170513,\n    \"OnBasePercentage\": 7955.160325348559,\n    \"SluggingPercentage\": 6705.02655210558,\n    \"OnBasePlusSlugging\": 3928.831867417698,\n    \"Errors\": 7454.520000367042,\n    \"Wins\": 1945.0110599600646,\n    \"Losses\": 8450.391870867741,\n    \"Saves\": 6502.232280397735,\n    \"InningsPitchedDecimal\": 5985.17462027275,\n    \"TotalOutsPitched\": 9695.414770990248,\n    \"InningsPitchedFull\": 9291.089507982964,\n    \"InningsPitchedOuts\": 778.8965640200918,\n    \"EarnedRunAverage\": 8576.336323790301,\n    \"PitchingHits\": 5242.290934387873,\n    \"PitchingRuns\": 4627.212385665294,\n    \"PitchingEarnedRuns\": 6885.478348797032,\n    \"PitchingWalks\": 8838.176922324657,\n    \"PitchingStrikeouts\": 8610.292341149185,\n    \"PitchingHomeRuns\": 7796.0546881516275,\n    \"PitchesThrown\": 881.6551137290407,\n    \"PitchesThrownStrikes\": 7507.837220365816,\n    \"WalksHitsPerInningsPitched\": 7487.9266282866665,\n    \"PitchingBattingAverageAgainst\": 7000.253484863956,\n    \"GrandSlams\": 5939.321244671854,\n    \"FantasyPointsFanDuel\": 411.9610813234975,\n    \"FantasyPointsDraftKings\": 2736.743425742054,\n    \"FantasyPointsYahoo\": 3259.6862434556874,\n    \"PlateAppearances\": 2037.6215554485777,\n    \"TotalBases\": 2771.331678046782,\n    \"FlyOuts\": 5181.695973203176,\n    \"GroundOuts\": 3340.163262552904,\n    \"LineOuts\": 3498.2632262882184,\n    \"PopOuts\": 5926.083342090992,\n    \"IntentionalWalks\": 6508.579806142676,\n    \"ReachedOnError\": 4800.942678177559,\n    \"BallsInPlay\": 7489.355848090028,\n    \"BattingAverageOnBallsInPlay\": 2052.2573883171935,\n    \"WeightedOnBasePercentage\": 8201.802026934545,\n    \"PitchingSingles\": 3419.0564390548516,\n    \"PitchingDoubles\": 3359.0609682342456,\n    \"PitchingTriples\": 4625.8830121398105,\n    \"PitchingGrandSlams\": 5307.300288790615,\n    \"PitchingHitByPitch\": 1936.9136287319654,\n    \"PitchingSacrifices\": 8063.758397014825,\n    \"PitchingSacrificeFlies\": 2529.839493303855,\n    \"PitchingGroundIntoDoublePlay\": 3274.5500813488916,\n    \"PitchingCompleteGames\": 6846.323047799055,\n    \"PitchingShutOuts\": 722.9460465072257,\n    \"PitchingNoHitters\": 7313.7407034701555,\n    \"PitchingPerfectGames\": 6614.4265917930015,\n    \"PitchingPlateAppearances\": 9672.727810129954,\n    \"PitchingTotalBases\": 9423.16863954742,\n    \"PitchingFlyOuts\": 4009.917394663216,\n    \"PitchingGroundOuts\": 8783.554477964808,\n    \"PitchingLineOuts\": 2046.747340038828,\n    \"PitchingPopOuts\": 4149.494220468969,\n    \"PitchingIntentionalWalks\": 4741.815119989306,\n    \"PitchingReachedOnError\": 7303.698343203566,\n    \"PitchingCatchersInterference\": 9716.102113764338,\n    \"PitchingBallsInPlay\": 2613.5214266954476,\n    \"PitchingOnBasePercentage\": 4798.059353195965,\n    \"PitchingSluggingPercentage\": 8972.268825447714,\n    \"PitchingOnBasePlusSlugging\": 9788.946911403065,\n    \"PitchingStrikeoutsPerNineInnings\": 3836.521413176879,\n    \"PitchingWalksPerNineInnings\": 4847.523144570516,\n    \"PitchingBattingAverageOnBallsInPlay\": 8879.175132327538,\n    \"PitchingWeightedOnBasePercentage\": 2286.8831835904766,\n    \"DoublePlays\": 2761.9391472945854,\n    \"PitchingDoublePlays\": 1979.6952002730338,\n    \"BattingOrderConfirmed\": true,\n    \"IsolatedPower\": 6542.367360319323,\n    \"FieldingIndependentPitching\": 5280.863030624707,\n    \"PitchingQualityStarts\": 1714.6939913219605,\n    \"PitchingInningStarted\": 393,\n    \"LeftOnBase\": 7333.9474385363155,\n    \"PitchingHolds\": 2099.4955783753944,\n    \"PitchingBlownSaves\": 3652.4694005080228,\n    \"SubstituteBattingOrder\": 7471,\n    \"SubstituteBattingOrderSequence\": 6975,\n    \"FantasyPointsFantasyDraft\": 258.91529076367937,\n    \"FantasyPointsBatting\": 97.74774970272348,\n    \"FantasyPointsPitching\": 2775.31313756768\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df78accd-f259-468f-bfb4-25c1681630d5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "PlayerSeasonProjectionStats",
+                    ":season"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season",
+                      "description": "(Required) Year of the season.\n<br>Examples: <code>2017</code>, <code>2018</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 4561,\n  \"Code\": 6834,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27d12a51-6b56-4f9f-993c-8e16d3e29d4c",
+          "name": "DFS Slates - by Date",
+          "request": {
+            "name": "DFS Slates - by Date",
+            "description": {
+              "content": "Returns DFS Slates which have not yet started for which we have DFS projections.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "mlb",
+                "projections",
+                ":format",
+                "DfsSlatesByDate",
+                ":date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "date",
+                  "description": "(Required) The date of the slates.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78fb3f5a-472a-431f-bb53-d4d0dbaa6990",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "DfsSlatesByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the slates.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"SlateID\": 1233,\n    \"Operator\": \"string\",\n    \"OperatorSlateID\": 4775,\n    \"OperatorName\": \"string\",\n    \"OperatorDay\": \"string\",\n    \"OperatorStartTime\": \"string\",\n    \"NumberOfGames\": 2950,\n    \"IsMultiDaySlate\": true,\n    \"RemovedByOperator\": false,\n    \"OperatorGameType\": \"string\",\n    \"DfsSlateGames\": [\n      {\n        \"SlateGameID\": 3316,\n        \"SlateID\": 6675,\n        \"GameID\": 563,\n        \"Game\": {\n          \"GameID\": 3111,\n          \"Season\": 8332,\n          \"SeasonType\": 6111,\n          \"Status\": \"string\",\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"AwayTeamID\": 3031,\n          \"HomeTeamID\": 2937,\n          \"RescheduledGameID\": 5674,\n          \"StadiumID\": 8584,\n          \"Channel\": \"string\",\n          \"Inning\": 4382,\n          \"InningHalf\": \"string\",\n          \"AwayTeamRuns\": 5726,\n          \"HomeTeamRuns\": 1822,\n          \"AwayTeamHits\": 2367,\n          \"HomeTeamHits\": 2092,\n          \"AwayTeamErrors\": 7094,\n          \"HomeTeamErrors\": 4762,\n          \"WinningPitcherID\": 5950,\n          \"LosingPitcherID\": 3681,\n          \"SavingPitcherID\": 5983,\n          \"Attendance\": 5436,\n          \"AwayTeamProbablePitcherID\": 9966,\n          \"HomeTeamProbablePitcherID\": 4296,\n          \"Outs\": 4192,\n          \"Balls\": 6313,\n          \"Strikes\": 1071,\n          \"CurrentPitcherID\": 2732,\n          \"CurrentHitterID\": 3635,\n          \"AwayTeamStartingPitcherID\": 748,\n          \"HomeTeamStartingPitcherID\": 9289,\n          \"CurrentPitchingTeamID\": 7512,\n          \"CurrentHittingTeamID\": 6611,\n          \"PointSpread\": 526.0811883132344,\n          \"OverUnder\": 2933.8024172163314,\n          \"AwayTeamMoneyLine\": 4012,\n          \"HomeTeamMoneyLine\": 8436,\n          \"ForecastTempLow\": 8431,\n          \"ForecastTempHigh\": 6102,\n          \"ForecastDescription\": \"string\",\n          \"ForecastWindChill\": 9679,\n          \"ForecastWindSpeed\": 4772,\n          \"ForecastWindDirection\": 729,\n          \"RescheduledFromGameID\": 1275,\n          \"RunnerOnFirst\": false,\n          \"RunnerOnSecond\": true,\n          \"RunnerOnThird\": true,\n          \"AwayTeamStartingPitcher\": \"string\",\n          \"HomeTeamStartingPitcher\": \"string\",\n          \"CurrentPitcher\": \"string\",\n          \"CurrentHitter\": \"string\",\n          \"WinningPitcher\": \"string\",\n          \"LosingPitcher\": \"string\",\n          \"SavingPitcher\": \"string\",\n          \"DueUpHitterID1\": 5670,\n          \"DueUpHitterID2\": 91,\n          \"DueUpHitterID3\": 6549,\n          \"GlobalGameID\": 8821,\n          \"GlobalAwayTeamID\": 9187,\n          \"GlobalHomeTeamID\": 9285,\n          \"PointSpreadAwayTeamMoneyLine\": 316,\n          \"PointSpreadHomeTeamMoneyLine\": 5310,\n          \"LastPlay\": \"string\",\n          \"IsClosed\": false,\n          \"Updated\": \"string\",\n          \"Innings\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"GameEndDateTime\": \"string\",\n          \"HomeRotationNumber\": 935,\n          \"AwayRotationNumber\": 6979,\n          \"NeutralVenue\": true,\n          \"InningDescription\": \"string\",\n          \"OverPayout\": 5263,\n          \"UnderPayout\": 2381,\n          \"SeriesInfo\": {\n            \"HomeTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"AwayTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"GameNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"MaxLength\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"DateTimeUTC\": \"string\",\n          \"HomeTeamOpener\": false,\n          \"AwayTeamOpener\": false,\n          \"SuspensionResumeDay\": \"string\",\n          \"SuspensionResumeDateTime\": \"string\"\n        },\n        \"OperatorGameID\": 7920,\n        \"RemovedByOperator\": false\n      },\n      {\n        \"SlateGameID\": 5030,\n        \"SlateID\": 2898,\n        \"GameID\": 1214,\n        \"Game\": {\n          \"GameID\": 3136,\n          \"Season\": 5728,\n          \"SeasonType\": 3369,\n          \"Status\": \"string\",\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"AwayTeamID\": 9428,\n          \"HomeTeamID\": 4697,\n          \"RescheduledGameID\": 2427,\n          \"StadiumID\": 8250,\n          \"Channel\": \"string\",\n          \"Inning\": 7041,\n          \"InningHalf\": \"string\",\n          \"AwayTeamRuns\": 1247,\n          \"HomeTeamRuns\": 3494,\n          \"AwayTeamHits\": 8809,\n          \"HomeTeamHits\": 7123,\n          \"AwayTeamErrors\": 7023,\n          \"HomeTeamErrors\": 918,\n          \"WinningPitcherID\": 9602,\n          \"LosingPitcherID\": 6907,\n          \"SavingPitcherID\": 1048,\n          \"Attendance\": 4099,\n          \"AwayTeamProbablePitcherID\": 179,\n          \"HomeTeamProbablePitcherID\": 5129,\n          \"Outs\": 6659,\n          \"Balls\": 5536,\n          \"Strikes\": 3794,\n          \"CurrentPitcherID\": 6103,\n          \"CurrentHitterID\": 1299,\n          \"AwayTeamStartingPitcherID\": 5801,\n          \"HomeTeamStartingPitcherID\": 1057,\n          \"CurrentPitchingTeamID\": 8811,\n          \"CurrentHittingTeamID\": 3720,\n          \"PointSpread\": 6407.521959217749,\n          \"OverUnder\": 4618.488696962114,\n          \"AwayTeamMoneyLine\": 7182,\n          \"HomeTeamMoneyLine\": 1024,\n          \"ForecastTempLow\": 2744,\n          \"ForecastTempHigh\": 4392,\n          \"ForecastDescription\": \"string\",\n          \"ForecastWindChill\": 5343,\n          \"ForecastWindSpeed\": 9927,\n          \"ForecastWindDirection\": 9968,\n          \"RescheduledFromGameID\": 9461,\n          \"RunnerOnFirst\": true,\n          \"RunnerOnSecond\": true,\n          \"RunnerOnThird\": true,\n          \"AwayTeamStartingPitcher\": \"string\",\n          \"HomeTeamStartingPitcher\": \"string\",\n          \"CurrentPitcher\": \"string\",\n          \"CurrentHitter\": \"string\",\n          \"WinningPitcher\": \"string\",\n          \"LosingPitcher\": \"string\",\n          \"SavingPitcher\": \"string\",\n          \"DueUpHitterID1\": 9676,\n          \"DueUpHitterID2\": 5839,\n          \"DueUpHitterID3\": 6202,\n          \"GlobalGameID\": 8159,\n          \"GlobalAwayTeamID\": 7781,\n          \"GlobalHomeTeamID\": 4386,\n          \"PointSpreadAwayTeamMoneyLine\": 6768,\n          \"PointSpreadHomeTeamMoneyLine\": 1077,\n          \"LastPlay\": \"string\",\n          \"IsClosed\": true,\n          \"Updated\": \"string\",\n          \"Innings\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"GameEndDateTime\": \"string\",\n          \"HomeRotationNumber\": 7849,\n          \"AwayRotationNumber\": 7046,\n          \"NeutralVenue\": false,\n          \"InningDescription\": \"string\",\n          \"OverPayout\": 4081,\n          \"UnderPayout\": 584,\n          \"SeriesInfo\": {\n            \"HomeTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"AwayTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"GameNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"MaxLength\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"DateTimeUTC\": \"string\",\n          \"HomeTeamOpener\": false,\n          \"AwayTeamOpener\": false,\n          \"SuspensionResumeDay\": \"string\",\n          \"SuspensionResumeDateTime\": \"string\"\n        },\n        \"OperatorGameID\": 464,\n        \"RemovedByOperator\": false\n      }\n    ],\n    \"DfsSlatePlayers\": [\n      {\n        \"SlatePlayerID\": 4533,\n        \"SlateID\": 8601,\n        \"SlateGameID\": 2476,\n        \"PlayerID\": 3940,\n        \"PlayerGameProjectionStatID\": 3057,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 9454,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": true,\n        \"Team\": \"string\",\n        \"TeamID\": 7826\n      },\n      {\n        \"SlatePlayerID\": 7933,\n        \"SlateID\": 7932,\n        \"SlateGameID\": 3255,\n        \"PlayerID\": 2505,\n        \"PlayerGameProjectionStatID\": 8133,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 153,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": true,\n        \"Team\": \"string\",\n        \"TeamID\": 4880\n      }\n    ],\n    \"SlateRosterSlots\": [\n      \"string\",\n      \"string\"\n    ],\n    \"SalaryCap\": 6344\n  },\n  {\n    \"SlateID\": 7643,\n    \"Operator\": \"string\",\n    \"OperatorSlateID\": 3838,\n    \"OperatorName\": \"string\",\n    \"OperatorDay\": \"string\",\n    \"OperatorStartTime\": \"string\",\n    \"NumberOfGames\": 5715,\n    \"IsMultiDaySlate\": true,\n    \"RemovedByOperator\": true,\n    \"OperatorGameType\": \"string\",\n    \"DfsSlateGames\": [\n      {\n        \"SlateGameID\": 2003,\n        \"SlateID\": 8050,\n        \"GameID\": 8843,\n        \"Game\": {\n          \"GameID\": 9058,\n          \"Season\": 5254,\n          \"SeasonType\": 3291,\n          \"Status\": \"string\",\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"AwayTeamID\": 2933,\n          \"HomeTeamID\": 8452,\n          \"RescheduledGameID\": 8218,\n          \"StadiumID\": 7338,\n          \"Channel\": \"string\",\n          \"Inning\": 6443,\n          \"InningHalf\": \"string\",\n          \"AwayTeamRuns\": 2383,\n          \"HomeTeamRuns\": 187,\n          \"AwayTeamHits\": 1050,\n          \"HomeTeamHits\": 9233,\n          \"AwayTeamErrors\": 7400,\n          \"HomeTeamErrors\": 3277,\n          \"WinningPitcherID\": 8704,\n          \"LosingPitcherID\": 317,\n          \"SavingPitcherID\": 3682,\n          \"Attendance\": 4504,\n          \"AwayTeamProbablePitcherID\": 2607,\n          \"HomeTeamProbablePitcherID\": 2792,\n          \"Outs\": 1364,\n          \"Balls\": 5208,\n          \"Strikes\": 852,\n          \"CurrentPitcherID\": 9277,\n          \"CurrentHitterID\": 8449,\n          \"AwayTeamStartingPitcherID\": 2483,\n          \"HomeTeamStartingPitcherID\": 7363,\n          \"CurrentPitchingTeamID\": 2318,\n          \"CurrentHittingTeamID\": 4761,\n          \"PointSpread\": 6827.391035455848,\n          \"OverUnder\": 1399.0015276739032,\n          \"AwayTeamMoneyLine\": 8710,\n          \"HomeTeamMoneyLine\": 2712,\n          \"ForecastTempLow\": 3170,\n          \"ForecastTempHigh\": 7126,\n          \"ForecastDescription\": \"string\",\n          \"ForecastWindChill\": 2423,\n          \"ForecastWindSpeed\": 3740,\n          \"ForecastWindDirection\": 7960,\n          \"RescheduledFromGameID\": 9319,\n          \"RunnerOnFirst\": true,\n          \"RunnerOnSecond\": true,\n          \"RunnerOnThird\": true,\n          \"AwayTeamStartingPitcher\": \"string\",\n          \"HomeTeamStartingPitcher\": \"string\",\n          \"CurrentPitcher\": \"string\",\n          \"CurrentHitter\": \"string\",\n          \"WinningPitcher\": \"string\",\n          \"LosingPitcher\": \"string\",\n          \"SavingPitcher\": \"string\",\n          \"DueUpHitterID1\": 2756,\n          \"DueUpHitterID2\": 6,\n          \"DueUpHitterID3\": 5383,\n          \"GlobalGameID\": 4035,\n          \"GlobalAwayTeamID\": 1005,\n          \"GlobalHomeTeamID\": 4595,\n          \"PointSpreadAwayTeamMoneyLine\": 7566,\n          \"PointSpreadHomeTeamMoneyLine\": 2733,\n          \"LastPlay\": \"string\",\n          \"IsClosed\": true,\n          \"Updated\": \"string\",\n          \"Innings\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"GameEndDateTime\": \"string\",\n          \"HomeRotationNumber\": 3591,\n          \"AwayRotationNumber\": 4415,\n          \"NeutralVenue\": false,\n          \"InningDescription\": \"string\",\n          \"OverPayout\": 3509,\n          \"UnderPayout\": 9799,\n          \"SeriesInfo\": {\n            \"HomeTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"AwayTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"GameNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"MaxLength\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"DateTimeUTC\": \"string\",\n          \"HomeTeamOpener\": false,\n          \"AwayTeamOpener\": false,\n          \"SuspensionResumeDay\": \"string\",\n          \"SuspensionResumeDateTime\": \"string\"\n        },\n        \"OperatorGameID\": 9771,\n        \"RemovedByOperator\": false\n      },\n      {\n        \"SlateGameID\": 6810,\n        \"SlateID\": 7904,\n        \"GameID\": 4783,\n        \"Game\": {\n          \"GameID\": 4816,\n          \"Season\": 228,\n          \"SeasonType\": 7392,\n          \"Status\": \"string\",\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"AwayTeam\": \"string\",\n          \"HomeTeam\": \"string\",\n          \"AwayTeamID\": 5378,\n          \"HomeTeamID\": 4684,\n          \"RescheduledGameID\": 1557,\n          \"StadiumID\": 8219,\n          \"Channel\": \"string\",\n          \"Inning\": 3604,\n          \"InningHalf\": \"string\",\n          \"AwayTeamRuns\": 1457,\n          \"HomeTeamRuns\": 4355,\n          \"AwayTeamHits\": 2118,\n          \"HomeTeamHits\": 686,\n          \"AwayTeamErrors\": 7309,\n          \"HomeTeamErrors\": 7076,\n          \"WinningPitcherID\": 1715,\n          \"LosingPitcherID\": 5983,\n          \"SavingPitcherID\": 1492,\n          \"Attendance\": 4911,\n          \"AwayTeamProbablePitcherID\": 6758,\n          \"HomeTeamProbablePitcherID\": 7666,\n          \"Outs\": 7929,\n          \"Balls\": 971,\n          \"Strikes\": 1791,\n          \"CurrentPitcherID\": 3373,\n          \"CurrentHitterID\": 2422,\n          \"AwayTeamStartingPitcherID\": 6962,\n          \"HomeTeamStartingPitcherID\": 875,\n          \"CurrentPitchingTeamID\": 7772,\n          \"CurrentHittingTeamID\": 8646,\n          \"PointSpread\": 5684.112394505886,\n          \"OverUnder\": 6020.212141998371,\n          \"AwayTeamMoneyLine\": 9285,\n          \"HomeTeamMoneyLine\": 468,\n          \"ForecastTempLow\": 5976,\n          \"ForecastTempHigh\": 2028,\n          \"ForecastDescription\": \"string\",\n          \"ForecastWindChill\": 1270,\n          \"ForecastWindSpeed\": 8681,\n          \"ForecastWindDirection\": 6709,\n          \"RescheduledFromGameID\": 5058,\n          \"RunnerOnFirst\": false,\n          \"RunnerOnSecond\": false,\n          \"RunnerOnThird\": false,\n          \"AwayTeamStartingPitcher\": \"string\",\n          \"HomeTeamStartingPitcher\": \"string\",\n          \"CurrentPitcher\": \"string\",\n          \"CurrentHitter\": \"string\",\n          \"WinningPitcher\": \"string\",\n          \"LosingPitcher\": \"string\",\n          \"SavingPitcher\": \"string\",\n          \"DueUpHitterID1\": 4024,\n          \"DueUpHitterID2\": 9818,\n          \"DueUpHitterID3\": 4970,\n          \"GlobalGameID\": 8400,\n          \"GlobalAwayTeamID\": 9234,\n          \"GlobalHomeTeamID\": 4492,\n          \"PointSpreadAwayTeamMoneyLine\": 8656,\n          \"PointSpreadHomeTeamMoneyLine\": 721,\n          \"LastPlay\": \"string\",\n          \"IsClosed\": false,\n          \"Updated\": \"string\",\n          \"Innings\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"GameEndDateTime\": \"string\",\n          \"HomeRotationNumber\": 3860,\n          \"AwayRotationNumber\": 4744,\n          \"NeutralVenue\": true,\n          \"InningDescription\": \"string\",\n          \"OverPayout\": 3759,\n          \"UnderPayout\": 2436,\n          \"SeriesInfo\": {\n            \"HomeTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"AwayTeamWins\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"GameNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"MaxLength\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"DateTimeUTC\": \"string\",\n          \"HomeTeamOpener\": false,\n          \"AwayTeamOpener\": true,\n          \"SuspensionResumeDay\": \"string\",\n          \"SuspensionResumeDateTime\": \"string\"\n        },\n        \"OperatorGameID\": 9401,\n        \"RemovedByOperator\": true\n      }\n    ],\n    \"DfsSlatePlayers\": [\n      {\n        \"SlatePlayerID\": 9111,\n        \"SlateID\": 6807,\n        \"SlateGameID\": 496,\n        \"PlayerID\": 7218,\n        \"PlayerGameProjectionStatID\": 4214,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 3422,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": false,\n        \"Team\": \"string\",\n        \"TeamID\": 3376\n      },\n      {\n        \"SlatePlayerID\": 7896,\n        \"SlateID\": 8408,\n        \"SlateGameID\": 234,\n        \"PlayerID\": 8568,\n        \"PlayerGameProjectionStatID\": 8567,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 4163,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": true,\n        \"Team\": \"string\",\n        \"TeamID\": 2995\n      }\n    ],\n    \"SlateRosterSlots\": [\n      \"string\",\n      \"string\"\n    ],\n    \"SalaryCap\": 7697\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ccbdc81-81eb-4807-9c7f-3d40c3a19278",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "DfsSlatesByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the slates.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 4561,\n  \"Code\": 6834,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92c666ba-17da-40fa-875c-d14d3189bad0",
+          "name": "Player Details - by Injured",
+          "request": {
+            "name": "Player Details - by Injured",
+            "description": {
+              "content": "This endpoint provides all currently injured MLB players, along with injury details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "mlb",
+                "projections",
+                ":format",
+                "InjuredPlayers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1dbc5036-85be-4012-855f-0e30330f2059",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "InjuredPlayers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"PlayerID\": 4751,\n    \"SportsDataID\": \"string\",\n    \"Status\": \"string\",\n    \"TeamID\": 8430,\n    \"Team\": \"string\",\n    \"Jersey\": 2464,\n    \"PositionCategory\": \"string\",\n    \"Position\": \"string\",\n    \"MLBAMID\": 9814,\n    \"FirstName\": \"string\",\n    \"LastName\": \"string\",\n    \"BatHand\": \"string\",\n    \"ThrowHand\": \"string\",\n    \"Height\": 3048,\n    \"Weight\": 1493,\n    \"BirthDate\": \"string\",\n    \"BirthCity\": \"string\",\n    \"BirthState\": \"string\",\n    \"BirthCountry\": \"string\",\n    \"HighSchool\": \"string\",\n    \"College\": \"string\",\n    \"ProDebut\": \"string\",\n    \"Salary\": 8303,\n    \"PhotoUrl\": \"string\",\n    \"SportRadarPlayerID\": \"string\",\n    \"RotoworldPlayerID\": 3110,\n    \"RotoWirePlayerID\": 6716,\n    \"FantasyAlarmPlayerID\": 5320,\n    \"StatsPlayerID\": 189,\n    \"SportsDirectPlayerID\": 3168,\n    \"XmlTeamPlayerID\": 616,\n    \"InjuryStatus\": \"string\",\n    \"InjuryBodyPart\": \"string\",\n    \"InjuryStartDate\": \"string\",\n    \"InjuryNotes\": \"string\",\n    \"FanDuelPlayerID\": 3884,\n    \"DraftKingsPlayerID\": 8454,\n    \"YahooPlayerID\": 8793,\n    \"UpcomingGameID\": 49,\n    \"FanDuelName\": \"string\",\n    \"DraftKingsName\": \"string\",\n    \"YahooName\": \"string\",\n    \"GlobalTeamID\": 453,\n    \"FantasyDraftName\": \"string\",\n    \"FantasyDraftPlayerID\": 1106,\n    \"Experience\": \"string\",\n    \"UsaTodayPlayerID\": 5596,\n    \"UsaTodayHeadshotUrl\": \"string\",\n    \"UsaTodayHeadshotNoBackgroundUrl\": \"string\",\n    \"UsaTodayHeadshotUpdated\": \"string\",\n    \"UsaTodayHeadshotNoBackgroundUpdated\": \"string\"\n  },\n  {\n    \"PlayerID\": 4214,\n    \"SportsDataID\": \"string\",\n    \"Status\": \"string\",\n    \"TeamID\": 5239,\n    \"Team\": \"string\",\n    \"Jersey\": 6358,\n    \"PositionCategory\": \"string\",\n    \"Position\": \"string\",\n    \"MLBAMID\": 361,\n    \"FirstName\": \"string\",\n    \"LastName\": \"string\",\n    \"BatHand\": \"string\",\n    \"ThrowHand\": \"string\",\n    \"Height\": 7698,\n    \"Weight\": 6934,\n    \"BirthDate\": \"string\",\n    \"BirthCity\": \"string\",\n    \"BirthState\": \"string\",\n    \"BirthCountry\": \"string\",\n    \"HighSchool\": \"string\",\n    \"College\": \"string\",\n    \"ProDebut\": \"string\",\n    \"Salary\": 152,\n    \"PhotoUrl\": \"string\",\n    \"SportRadarPlayerID\": \"string\",\n    \"RotoworldPlayerID\": 665,\n    \"RotoWirePlayerID\": 7681,\n    \"FantasyAlarmPlayerID\": 2880,\n    \"StatsPlayerID\": 7164,\n    \"SportsDirectPlayerID\": 1812,\n    \"XmlTeamPlayerID\": 4788,\n    \"InjuryStatus\": \"string\",\n    \"InjuryBodyPart\": \"string\",\n    \"InjuryStartDate\": \"string\",\n    \"InjuryNotes\": \"string\",\n    \"FanDuelPlayerID\": 5579,\n    \"DraftKingsPlayerID\": 7939,\n    \"YahooPlayerID\": 2759,\n    \"UpcomingGameID\": 4329,\n    \"FanDuelName\": \"string\",\n    \"DraftKingsName\": \"string\",\n    \"YahooName\": \"string\",\n    \"GlobalTeamID\": 7016,\n    \"FantasyDraftName\": \"string\",\n    \"FantasyDraftPlayerID\": 9942,\n    \"Experience\": \"string\",\n    \"UsaTodayPlayerID\": 4910,\n    \"UsaTodayHeadshotUrl\": \"string\",\n    \"UsaTodayHeadshotNoBackgroundUrl\": \"string\",\n    \"UsaTodayHeadshotUpdated\": \"string\",\n    \"UsaTodayHeadshotNoBackgroundUpdated\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc92fcba-2ed2-4106-ac90-ef197234abb3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "InjuredPlayers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 4561,\n  \"Code\": 6834,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b55d3ca2-4ba8-472f-9afe-4ba43e411029",
+          "name": "Starting Lineups - by Date",
+          "request": {
+            "name": "Starting Lineups - by Date",
+            "description": {
+              "content": "Returns both projected and confirmed starting lineups for all games on a given date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "mlb",
+                "projections",
+                ":format",
+                "StartingLineupsByDate",
+                ":date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "date",
+                  "description": "(Required) The date of the slates.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab69e742-7388-4220-8739-63dcd4fba4bb",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "StartingLineupsByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the slates.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"GameID\": 9195,\n    \"Season\": 7885,\n    \"SeasonType\": 5322,\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"Status\": \"string\",\n    \"HomeTeamID\": 352,\n    \"HomeTeam\": \"string\",\n    \"AwayTeamID\": 5862,\n    \"AwayTeam\": \"string\",\n    \"HomeStartingPitcher\": {\n      \"PlayerID\": 5568,\n      \"TeamID\": 3177,\n      \"Team\": \"string\",\n      \"FirstName\": \"string\",\n      \"LastName\": \"string\",\n      \"BattingOrder\": 1281,\n      \"Position\": \"string\",\n      \"Starting\": true,\n      \"Confirmed\": false\n    },\n    \"HomeBattingLineup\": [\n      {\n        \"PlayerID\": 1932,\n        \"TeamID\": 3746,\n        \"Team\": \"string\",\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"BattingOrder\": 1504,\n        \"Position\": \"string\",\n        \"Starting\": false,\n        \"Confirmed\": true\n      },\n      {\n        \"PlayerID\": 8919,\n        \"TeamID\": 9853,\n        \"Team\": \"string\",\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"BattingOrder\": 3728,\n        \"Position\": \"string\",\n        \"Starting\": true,\n        \"Confirmed\": false\n      }\n    ],\n    \"AwayStartingPitcher\": {\n      \"PlayerID\": 9589,\n      \"TeamID\": 6756,\n      \"Team\": \"string\",\n      \"FirstName\": \"string\",\n      \"LastName\": \"string\",\n      \"BattingOrder\": 6474,\n      \"Position\": \"string\",\n      \"Starting\": true,\n      \"Confirmed\": false\n    },\n    \"AwayBattingLineup\": [\n      {\n        \"PlayerID\": 339,\n        \"TeamID\": 99,\n        \"Team\": \"string\",\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"BattingOrder\": 2125,\n        \"Position\": \"string\",\n        \"Starting\": true,\n        \"Confirmed\": true\n      },\n      {\n        \"PlayerID\": 6485,\n        \"TeamID\": 5333,\n        \"Team\": \"string\",\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"BattingOrder\": 6013,\n        \"Position\": \"string\",\n        \"Starting\": false,\n        \"Confirmed\": false\n      }\n    ],\n    \"HomeTeamOpener\": true,\n    \"AwayTeamOpener\": false\n  },\n  {\n    \"GameID\": 6576,\n    \"Season\": 2951,\n    \"SeasonType\": 6517,\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"Status\": \"string\",\n    \"HomeTeamID\": 6966,\n    \"HomeTeam\": \"string\",\n    \"AwayTeamID\": 4466,\n    \"AwayTeam\": \"string\",\n    \"HomeStartingPitcher\": {\n      \"PlayerID\": 966,\n      \"TeamID\": 954,\n      \"Team\": \"string\",\n      \"FirstName\": \"string\",\n      \"LastName\": \"string\",\n      \"BattingOrder\": 5801,\n      \"Position\": \"string\",\n      \"Starting\": false,\n      \"Confirmed\": true\n    },\n    \"HomeBattingLineup\": [\n      {\n        \"PlayerID\": 6816,\n        \"TeamID\": 6321,\n        \"Team\": \"string\",\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"BattingOrder\": 9925,\n        \"Position\": \"string\",\n        \"Starting\": false,\n        \"Confirmed\": false\n      },\n      {\n        \"PlayerID\": 9626,\n        \"TeamID\": 7626,\n        \"Team\": \"string\",\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"BattingOrder\": 5489,\n        \"Position\": \"string\",\n        \"Starting\": true,\n        \"Confirmed\": false\n      }\n    ],\n    \"AwayStartingPitcher\": {\n      \"PlayerID\": 9424,\n      \"TeamID\": 2194,\n      \"Team\": \"string\",\n      \"FirstName\": \"string\",\n      \"LastName\": \"string\",\n      \"BattingOrder\": 5682,\n      \"Position\": \"string\",\n      \"Starting\": false,\n      \"Confirmed\": false\n    },\n    \"AwayBattingLineup\": [\n      {\n        \"PlayerID\": 663,\n        \"TeamID\": 5098,\n        \"Team\": \"string\",\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"BattingOrder\": 7785,\n        \"Position\": \"string\",\n        \"Starting\": true,\n        \"Confirmed\": false\n      },\n      {\n        \"PlayerID\": 1619,\n        \"TeamID\": 4752,\n        \"Team\": \"string\",\n        \"FirstName\": \"string\",\n        \"LastName\": \"string\",\n        \"BattingOrder\": 8340,\n        \"Position\": \"string\",\n        \"Starting\": false,\n        \"Confirmed\": true\n      }\n    ],\n    \"HomeTeamOpener\": false,\n    \"AwayTeamOpener\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77daa104-bbf1-4491-a42f-65a4a53dce50",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "StartingLineupsByDate",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date of the slates.\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 4561,\n  \"Code\": 6834,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86c58188-012a-4b46-8356-bd9e9e47df04",
+          "name": "Depth Charts",
+          "request": {
+            "name": "Depth Charts",
+            "description": {
+              "content": "Returns Depth Charts for all active MLB teams.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "mlb",
+                "projections",
+                ":format",
+                "DepthCharts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0ea538e-1c5c-4358-bae0-185708b15d07",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "DepthCharts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"DepthCharts\": [\n      {\n        \"DepthChartID\": 4159,\n        \"TeamID\": 9325,\n        \"PlayerID\": 9670,\n        \"Name\": \"string\",\n        \"PositionCategory\": \"string\",\n        \"Position\": \"string\",\n        \"DepthOrder\": 173,\n        \"Updated\": \"string\"\n      },\n      {\n        \"DepthChartID\": 4985,\n        \"TeamID\": 148,\n        \"PlayerID\": 6617,\n        \"Name\": \"string\",\n        \"PositionCategory\": \"string\",\n        \"Position\": \"string\",\n        \"DepthOrder\": 6536,\n        \"Updated\": \"string\"\n      }\n    ],\n    \"TeamID\": 7422\n  },\n  {\n    \"DepthCharts\": [\n      {\n        \"DepthChartID\": 2290,\n        \"TeamID\": 9846,\n        \"PlayerID\": 1995,\n        \"Name\": \"string\",\n        \"PositionCategory\": \"string\",\n        \"Position\": \"string\",\n        \"DepthOrder\": 8320,\n        \"Updated\": \"string\"\n      },\n      {\n        \"DepthChartID\": 930,\n        \"TeamID\": 709,\n        \"PlayerID\": 3840,\n        \"Name\": \"string\",\n        \"PositionCategory\": \"string\",\n        \"Position\": \"string\",\n        \"DepthOrder\": 3577,\n        \"Updated\": \"string\"\n      }\n    ],\n    \"TeamID\": 7815\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9766f952-4847-4ad3-b6b6-ea4516a1564c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "DepthCharts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 4561,\n  \"Code\": 6834,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b08152f1-a96c-413d-ae4b-27543a625316",
+          "name": "DFS Slate Ownership Projections - by Slate",
+          "request": {
+            "name": "DFS Slate Ownership Projections - by Slate",
+            "description": {
+              "content": "Slate Ownership Projections for a specific slate. Projections are for Guaranteed Prize Pool (GPP) format ownership. Will return an empty list if the slate is not yet projected or not a slate we have projections for.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "mlb",
+                "projections",
+                ":format",
+                "DfsSlateOwnershipProjectionsBySlateID",
+                ":slateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "slateId",
+                  "description": "(Required) SlateID of the DFS Slate you wish to get ownership projections for. Will have an empty SlateOwnershipProjections if this slate was not projected"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "891a2d57-d1c6-440d-913a-8c6f726a4223",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "DfsSlateOwnershipProjectionsBySlateID",
+                    ":slateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "slateId",
+                      "description": "(Required) SlateID of the DFS Slate you wish to get ownership projections for. Will have an empty SlateOwnershipProjections if this slate was not projected"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SlateID\": 8162,\n  \"Operator\": \"string\",\n  \"OperatorSlateID\": 5095,\n  \"OperatorName\": \"string\",\n  \"OperatorDay\": \"string\",\n  \"OperatorStartTime\": \"string\",\n  \"SlateOwnershipProjections\": [\n    {\n      \"SlateID\": 8857,\n      \"PlayerID\": 4428,\n      \"ProjectedOwnershipPercentage\": 375.0717668729675,\n      \"IsCaptain\": false\n    },\n    {\n      \"SlateID\": 2135,\n      \"PlayerID\": 3683,\n      \"ProjectedOwnershipPercentage\": 7966.297938721103,\n      \"IsCaptain\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15db74af-4b37-49a8-800a-5e3ca7e8b038",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "DfsSlateOwnershipProjectionsBySlateID",
+                    ":slateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "slateId",
+                      "description": "(Required) SlateID of the DFS Slate you wish to get ownership projections for. Will have an empty SlateOwnershipProjections if this slate was not projected"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 4561,\n  \"Code\": 6834,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7413d89f-5bb8-43ff-b18a-eb4b0a8a470e",
+          "name": "DFS Slate Ownership Projections - Upcoming",
+          "request": {
+            "name": "DFS Slate Ownership Projections - Upcoming",
+            "description": {
+              "content": "Returns DFS Slates which have not yet started for which we have DFS Ownership projections.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "mlb",
+                "projections",
+                ":format",
+                "UpcomingDfsSlateOwnershipProjections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "JSON",
+                  "key": "format",
+                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "313fbecf-792a-48e1-b2b0-9be14ad60f8f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "UpcomingDfsSlateOwnershipProjections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"SlateID\": 6082,\n    \"Operator\": \"string\",\n    \"OperatorSlateID\": 9489,\n    \"OperatorName\": \"string\",\n    \"OperatorDay\": \"string\",\n    \"OperatorStartTime\": \"string\",\n    \"SlateOwnershipProjections\": [\n      {\n        \"SlateID\": 1715,\n        \"PlayerID\": 5133,\n        \"ProjectedOwnershipPercentage\": 9334.652305775966,\n        \"IsCaptain\": false\n      },\n      {\n        \"SlateID\": 2739,\n        \"PlayerID\": 8230,\n        \"ProjectedOwnershipPercentage\": 5675.367931230963,\n        \"IsCaptain\": true\n      }\n    ]\n  },\n  {\n    \"SlateID\": 3145,\n    \"Operator\": \"string\",\n    \"OperatorSlateID\": 793,\n    \"OperatorName\": \"string\",\n    \"OperatorDay\": \"string\",\n    \"OperatorStartTime\": \"string\",\n    \"SlateOwnershipProjections\": [\n      {\n        \"SlateID\": 4805,\n        \"PlayerID\": 446,\n        \"ProjectedOwnershipPercentage\": 1808.3812319220017,\n        \"IsCaptain\": false\n      },\n      {\n        \"SlateID\": 9506,\n        \"PlayerID\": 4041,\n        \"ProjectedOwnershipPercentage\": 9491.79241821439,\n        \"IsCaptain\": true\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76ea85c2-36d7-4f27-9d85-ff2a0c1f8451",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "mlb",
+                    "projections",
+                    ":format",
+                    "UpcomingDfsSlateOwnershipProjections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "JSON",
+                      "key": "format",
+                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HttpStatusCode\": 4561,\n  \"Code\": 6834,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sportsdata.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5b776a7b-a462-40b1-aa39-66033e7e07a9",
+    "name": "MLB MLB v3 Headshots MLB v3 Projections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "MLB API - OpenAPI 3.1 Specification",
+      "type": "text/plain"
+    }
+  }
+}

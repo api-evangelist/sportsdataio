@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: MLB MLB v3 Headshots NBA v3 Stats API
+  title: NBA v3 Stats API
   version: '1.0'
-  description: MLB API - OpenAPI 3.1 Specification
+  description: NBA API - OpenAPI 3.1 Specification
 servers:
 - url: https://api.sportsdata.io
   description: Production server
@@ -356,7 +356,7 @@ paths:
       - NBA v3 Stats
   /v3/nba/stats/{format}/PlayerGameStatsBySeason/{season}/{playerid}/{numberofgames}:
     get:
-      description: Specify a season, a player, and number of games (either an integer or <code>all</code>) to see all of their box score logs. Refreshed after their most recent game is complete.
+      description: Specify a season, a player, and number of games (either an integer or all) to see all of their box score logs. Refreshed after their most recent game is complete.
       operationId: nba_v3_stats_player_game_logs___by_season
       summary: Player Game Logs - by Season
       parameters:
@@ -610,7 +610,17 @@ paths:
       - NBA v3 Stats
 components:
   schemas:
-    PlayerGame:
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    TeamGame:
       properties:
         StatID:
           type: integer
@@ -620,11 +630,6 @@ components:
           - integer
           - 'null'
           description: The unique ID of the team
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
         SeasonType:
           type:
           - integer
@@ -639,102 +644,32 @@ components:
           type:
           - string
           - 'null'
-          description: The name of the player
+          description: Team's name
         Team:
           type:
           - string
           - 'null'
-          description: The abbreviation [Key] of the player's team
-        Position:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s position associated with the given game or season. Possible values: C, F, FC, G, GF, PF, PG, SF, SG'
-        Started:
+          description: The abbreviation [Key] of the team
+        Wins:
           type:
           - integer
           - 'null'
-          description: 'Indicates whether or not the player started the game Note: this will be one or zero for single game feeds'
-        FanDuelSalary:
+          description: Total number of team wins
+        Losses:
           type:
           - integer
           - 'null'
-          description: The player's salary for FanDuel daily fantasy contests.
-        DraftKingsSalary:
+          description: Total number of team losses
+        Possessions:
           type:
-          - integer
+          - number
           - 'null'
-          description: The player's salary for DraftKings daily fantasy contests.
-        FantasyDataSalary:
-          type:
-          - integer
-          - 'null'
-          description: The player's salary as calculated by SportsDataIO (formerly known as FantasyData).  Based on the same salary cap as DraftKings contests ($50,000).
-        YahooSalary:
-          type:
-          - integer
-          - 'null'
-          description: The player's salary for Yahoo daily fantasy contests.
-        InjuryStatus:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s current injury status; in the form of likelihood that player plays. Possible values: Probable; Questionable; Doubtful; Out'
-        InjuryBodyPart:
-          type:
-          - string
-          - 'null'
-          description: The body part that is injured (Knee, Groin, Calf, Hamstring, etc.)
-        InjuryStartDate:
-          type:
-          - string
-          - 'null'
-          description: The day that the injury started or was first discovered.
-        InjuryNotes:
-          type:
-          - string
-          - 'null'
-          description: Brief description of the player's injury and expected availability.
-        FanDuelPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in FanDuel's daily fantasy sports platform.
-        DraftKingsPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in DraftKings' daily fantasy sports platform.
-        YahooPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in Yahoo's daily fantasy sports platform.
-        OpponentRank:
-          type:
-          - integer
-          - 'null'
-          description: The ranking of the player's opponent with regards to fantasy points allowed.
-        OpponentPositionRank:
-          type:
-          - integer
-          - 'null'
-          description: The ranking of the player's opponent by position with regards to fantasy points allowed.
+          description: Total number of estimated possessions by the team in the game
         GlobalTeamID:
           type:
           - integer
           - 'null'
           description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
-        FantasyDraftSalary:
-          type:
-          - integer
-          - 'null'
-          description: The player's salary for Fantasy Draft's daily fantasy contests.
-        FantasyDraftPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in Fantasy Draft's daily fantasy sports platform.
         GameID:
           type:
           - integer
@@ -778,6 +713,314 @@ components:
           - integer
           - 'null'
           description: A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time)
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        Minutes:
+          type:
+          - integer
+          - 'null'
+          description: Total number of minutes played
+        Seconds:
+          type:
+          - integer
+          - 'null'
+          description: Total number of seconds played
+        FieldGoalsMade:
+          type:
+          - number
+          - 'null'
+          description: Total number of field goals made
+        FieldGoalsAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total number of field goals attempted
+        FieldGoalsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total field goal percentage
+        EffectiveFieldGoalsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total effective field goals percentage
+        TwoPointersMade:
+          type:
+          - number
+          - 'null'
+          description: Total two pointers made
+        TwoPointersAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total two pointers attempted
+        TwoPointersPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total two pointers percentage
+        ThreePointersMade:
+          type:
+          - number
+          - 'null'
+          description: Total three pointers made
+        ThreePointersAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total three pointers attempted
+        ThreePointersPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total three pointers percentage
+        FreeThrowsMade:
+          type:
+          - number
+          - 'null'
+          description: Total free throws made
+        FreeThrowsAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total free throws attempted
+        FreeThrowsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total free throws percentage
+        OffensiveRebounds:
+          type:
+          - number
+          - 'null'
+          description: Total offensive rebounds
+        DefensiveRebounds:
+          type:
+          - number
+          - 'null'
+          description: Total defensive rebounds
+        Rebounds:
+          type:
+          - number
+          - 'null'
+          description: Total rebounds
+        OffensiveReboundsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total offensive rebounds percentage
+        DefensiveReboundsPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total defensive rebounds percentage
+        TotalReboundsPercentage:
+          type:
+          - number
+          - 'null'
+          description: The player/team total rebounds percentage
+        Assists:
+          type:
+          - number
+          - 'null'
+          description: Total assists
+        Steals:
+          type:
+          - number
+          - 'null'
+          description: Total steals
+        BlockedShots:
+          type:
+          - number
+          - 'null'
+          description: Total blocked shots
+        Turnovers:
+          type:
+          - number
+          - 'null'
+          description: Total turnovers
+        PersonalFouls:
+          type:
+          - number
+          - 'null'
+          description: Total personal fouls
+        Points:
+          type:
+          - number
+          - 'null'
+          description: Total points scored
+        TrueShootingAttempts:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s true shooting attempts as defined here: http://www.basketball-reference.com/about/glossary.html'
+        TrueShootingPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s true shooting percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        PlayerEfficiencyRating:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s linear weight efficiency rating as defined here: http://bleacherreport.com/articles/113144-cracking-the-code-how-to-calculate-hollingers-per-without-all-the-mess'
+        AssistsPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s assist percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        StealsPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s steal percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        BlocksPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s block percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        TurnOversPercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s turnover percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        UsageRatePercentage:
+          type:
+          - number
+          - 'null'
+          description: 'The player''s usage rate percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total FanDuel daily fantasy points scored
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings daily fantasy points scored
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo daily fantasy points scored
+        PlusMinus:
+          type:
+          - number
+          - 'null'
+          description: Total plus minus
+        DoubleDoubles:
+          type:
+          - number
+          - 'null'
+          description: Total double-doubles scored
+        TripleDoubles:
+          type:
+          - number
+          - 'null'
+          description: Total triple-doubles scored
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Total FantasyDraft daily fantasy points scored
+        IsClosed:
+          type: boolean
+          description: Indicates whether the game is over and the stats for this player have been verified and closed out.
+        LineupConfirmed:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether starting lineup is confirmed
+        LineupStatus:
+          type:
+          - string
+          - 'null'
+          description: Indicates whether player is starting, active, or inactive
+    BoxScore:
+      properties:
+        Game:
+          $ref: '#/components/schemas/Game'
+          description: The details of the game associated with this box score
+        Quarters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quarter'
+          description: The details of the quarters associated with this box score
+        TeamGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamGame'
+          description: The team game stats associated with this box score
+        PlayerGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlayerGame'
+          description: The player game stats associated with this box score
+    PlayerSeason:
+      properties:
+        StatID:
+          type: integer
+          description: The unique ID of the stat
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the player's team
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        SeasonType:
+          type:
+          - integer
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition).
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The NBA season in which these totals apply
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The name of the player
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the player's team
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position associated with the given game or season. Possible values: PG; SG; SF; PF; C'
+        Started:
+          type:
+          - integer
+          - 'null'
+          description: Indicates how many games the player has started in the season
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
         Updated:
           type:
           - string
@@ -1309,6 +1552,31 @@ components:
           - string
           - 'null'
           description: Indicates whether player is starting, active, or inactive
+    PlayerInfo:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The player's full name
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the player's team
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the player's team
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s primary position. Possible values: C; PF; PG; SF; SG'
     Game:
       properties:
         GameID:
@@ -1521,26 +1789,181 @@ components:
           - integer
           - 'null'
           description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
-    BoxScore:
+    Quarter:
       properties:
-        Game:
-          $ref: '#/components/schemas/Game'
-          description: The details of the game associated with this box score
-        Quarters:
-          type: array
-          items:
-            $ref: '#/components/schemas/Quarter'
-          description: The details of the quarters associated with this box score
-        TeamGames:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamGame'
-          description: The team game stats associated with this box score
-        PlayerGames:
-          type: array
-          items:
-            $ref: '#/components/schemas/PlayerGame'
-          description: The player game stats associated with this box score
+        QuarterID:
+          type: integer
+          description: Unique identifier for each Quarter.
+        GameID:
+          type: integer
+          description: The unique ID of the game associated with this quarter
+        Number:
+          type: integer
+          description: The Number (Order) of the Quarter in the scope of the Game.
+        Name:
+          type:
+          - string
+          - 'null'
+          description: 'The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)'
+        AwayScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the away team in the given period only
+        HomeScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the home team in the given period only
+    Series:
+      properties:
+        HomeTeamWins:
+          type: integer
+          description: Total number of wins by the home team in the series
+        AwayTeamWins:
+          type: integer
+          description: Total wins in the series by the away team
+        GameNumber:
+          type: integer
+          description: The game number in the series
+        MaxLength:
+          type: integer
+          description: The maximum number of games that can be played in a series
+    FantasyGame:
+      properties:
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this game
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        SeasonType:
+          type:
+          - integer
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition)
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The NBA season of the game
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: Abbreviation [Key] of the opponent team (e.g. LAL; PHI; BOS; CHI; etc.)
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        Jersey:
+          type:
+          - integer
+          - 'null'
+          description: The player's jersey number
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The player's full name
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s primary position. Possible values: PG; SG; SF; PF; C'
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position category. Possible values: C, F, G'
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: 'The number of games played by the player in the game Note: this will be one or zero for single game feeds'
+        Started:
+          type:
+          - integer
+          - 'null'
+          description: 'Indicates whether or not the player started the game Note: this will be one or zero for single game feeds'
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points by the player in the game
+        IsGameOver:
+          type: boolean
+          description: Whether the game is over (true/false)
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total FanDuel daily fantasy points scored
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo daily fantasy points scored
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings daily fantasy points scored
+        FandDuelPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in FanDuel's daily fantasy sports platform.
+        DraftKingsPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in DraftKings' daily fantasy sports platform.
+        YahooPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Yahoo's daily fantasy sports platform.
+        OpponentRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the player's opponent with regards to fantasy points allowed.
+        OpponentPositionRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the player's opponent by position with regards to fantasy points allowed.
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when this game was last updated (in US Eastern Time)
     TeamSeason:
       properties:
         StatID:
@@ -1837,7 +2260,7 @@ components:
           - string
           - 'null'
           description: Indicates whether player is starting, active, or inactive
-    PlayerSeason:
+    PlayerGame:
       properties:
         StatID:
           type: integer
@@ -1846,318 +2269,7 @@ components:
           type:
           - integer
           - 'null'
-          description: The unique ID of the player's team
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        SeasonType:
-          type:
-          - integer
-          - 'null'
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition).
-        Season:
-          type:
-          - integer
-          - 'null'
-          description: The NBA season in which these totals apply
-        Name:
-          type:
-          - string
-          - 'null'
-          description: The name of the player
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the player's team
-        Position:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s position associated with the given game or season. Possible values: PG; SG; SF; PF; C'
-        Started:
-          type:
-          - integer
-          - 'null'
-          description: Indicates how many games the player has started in the season
-        GlobalTeamID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of when the record was last updated (US Eastern Time)
-        Games:
-          type:
-          - integer
-          - 'null'
-          description: The number of games played
-        FantasyPoints:
-          type:
-          - number
-          - 'null'
-          description: Total fantasy points
-        Minutes:
-          type:
-          - integer
-          - 'null'
-          description: Total number of minutes played
-        Seconds:
-          type:
-          - integer
-          - 'null'
-          description: Total number of seconds played
-        FieldGoalsMade:
-          type:
-          - number
-          - 'null'
-          description: Total number of field goals made
-        FieldGoalsAttempted:
-          type:
-          - number
-          - 'null'
-          description: Total number of field goals attempted
-        FieldGoalsPercentage:
-          type:
-          - number
-          - 'null'
-          description: Total field goal percentage
-        EffectiveFieldGoalsPercentage:
-          type:
-          - number
-          - 'null'
-          description: Total effective field goals percentage
-        TwoPointersMade:
-          type:
-          - number
-          - 'null'
-          description: Total two pointers made
-        TwoPointersAttempted:
-          type:
-          - number
-          - 'null'
-          description: Total two pointers attempted
-        TwoPointersPercentage:
-          type:
-          - number
-          - 'null'
-          description: Total two pointers percentage
-        ThreePointersMade:
-          type:
-          - number
-          - 'null'
-          description: Total three pointers made
-        ThreePointersAttempted:
-          type:
-          - number
-          - 'null'
-          description: Total three pointers attempted
-        ThreePointersPercentage:
-          type:
-          - number
-          - 'null'
-          description: Total three pointers percentage
-        FreeThrowsMade:
-          type:
-          - number
-          - 'null'
-          description: Total free throws made
-        FreeThrowsAttempted:
-          type:
-          - number
-          - 'null'
-          description: Total free throws attempted
-        FreeThrowsPercentage:
-          type:
-          - number
-          - 'null'
-          description: Total free throws percentage
-        OffensiveRebounds:
-          type:
-          - number
-          - 'null'
-          description: Total offensive rebounds
-        DefensiveRebounds:
-          type:
-          - number
-          - 'null'
-          description: Total defensive rebounds
-        Rebounds:
-          type:
-          - number
-          - 'null'
-          description: Total rebounds
-        OffensiveReboundsPercentage:
-          type:
-          - number
-          - 'null'
-          description: Total offensive rebounds percentage
-        DefensiveReboundsPercentage:
-          type:
-          - number
-          - 'null'
-          description: Total defensive rebounds percentage
-        TotalReboundsPercentage:
-          type:
-          - number
-          - 'null'
-          description: The player/team total rebounds percentage
-        Assists:
-          type:
-          - number
-          - 'null'
-          description: Total assists
-        Steals:
-          type:
-          - number
-          - 'null'
-          description: Total steals
-        BlockedShots:
-          type:
-          - number
-          - 'null'
-          description: Total blocked shots
-        Turnovers:
-          type:
-          - number
-          - 'null'
-          description: Total turnovers
-        PersonalFouls:
-          type:
-          - number
-          - 'null'
-          description: Total personal fouls
-        Points:
-          type:
-          - number
-          - 'null'
-          description: Total points scored
-        TrueShootingAttempts:
-          type:
-          - number
-          - 'null'
-          description: 'The player''s true shooting attempts as defined here: http://www.basketball-reference.com/about/glossary.html'
-        TrueShootingPercentage:
-          type:
-          - number
-          - 'null'
-          description: 'The player''s true shooting percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
-        PlayerEfficiencyRating:
-          type:
-          - number
-          - 'null'
-          description: 'The player''s linear weight efficiency rating as defined here: http://bleacherreport.com/articles/113144-cracking-the-code-how-to-calculate-hollingers-per-without-all-the-mess'
-        AssistsPercentage:
-          type:
-          - number
-          - 'null'
-          description: 'The player''s assist percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
-        StealsPercentage:
-          type:
-          - number
-          - 'null'
-          description: 'The player''s steal percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
-        BlocksPercentage:
-          type:
-          - number
-          - 'null'
-          description: 'The player''s block percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
-        TurnOversPercentage:
-          type:
-          - number
-          - 'null'
-          description: 'The player''s turnover percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
-        UsageRatePercentage:
-          type:
-          - number
-          - 'null'
-          description: 'The player''s usage rate percentage as defined here: http://www.basketball-reference.com/about/glossary.html'
-        FantasyPointsFanDuel:
-          type:
-          - number
-          - 'null'
-          description: Total FanDuel daily fantasy points scored
-        FantasyPointsDraftKings:
-          type:
-          - number
-          - 'null'
-          description: Total DraftKings daily fantasy points scored
-        FantasyPointsYahoo:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo daily fantasy points scored
-        PlusMinus:
-          type:
-          - number
-          - 'null'
-          description: Total plus minus
-        DoubleDoubles:
-          type:
-          - number
-          - 'null'
-          description: Total double-doubles scored
-        TripleDoubles:
-          type:
-          - number
-          - 'null'
-          description: Total triple-doubles scored
-        FantasyPointsFantasyDraft:
-          type:
-          - number
-          - 'null'
-          description: Total FantasyDraft daily fantasy points scored
-        IsClosed:
-          type: boolean
-          description: Indicates whether the game is over and the stats for this player have been verified and closed out.
-        LineupConfirmed:
-          type:
-          - boolean
-          - 'null'
-          description: Indicates whether starting lineup is confirmed
-        LineupStatus:
-          type:
-          - string
-          - 'null'
-          description: Indicates whether player is starting, active, or inactive
-    Quarter:
-      properties:
-        QuarterID:
-          type: integer
-          description: Unique identifier for each Quarter.
-        GameID:
-          type: integer
-          description: The unique ID of the game associated with this quarter
-        Number:
-          type: integer
-          description: The Number (Order) of the Quarter in the scope of the Game.
-        Name:
-          type:
-          - string
-          - 'null'
-          description: 'The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)'
-        AwayScore:
-          type:
-          - integer
-          - 'null'
-          description: The total points scored by the away team in the given period only
-        HomeScore:
-          type:
-          - integer
-          - 'null'
-          description: The total points scored by the home team in the given period only
-    FantasyGame:
-      properties:
-        GameID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of this game
+          description: The unique ID of the team
         PlayerID:
           type:
           - integer
@@ -2173,85 +2285,67 @@ components:
           - integer
           - 'null'
           description: The NBA season of the game
-        Day:
-          type:
-          - string
-          - 'null'
-          description: The day of the game
-        DateTime:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game (in US Eastern Time)
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team
-        Opponent:
-          type:
-          - string
-          - 'null'
-          description: Abbreviation [Key] of the opponent team (e.g. LAL; PHI; BOS; CHI; etc.)
-        HomeOrAway:
-          type:
-          - string
-          - 'null'
-          description: Whether the team is home or away
-        Jersey:
-          type:
-          - integer
-          - 'null'
-          description: The player's jersey number
         Name:
           type:
           - string
           - 'null'
-          description: The player's full name
+          description: The name of the player
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the player's team
         Position:
           type:
           - string
           - 'null'
-          description: 'The player''s primary position. Possible values: PG; SG; SF; PF; C'
-        PositionCategory:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s position category. Possible values: C, F, G'
-        Games:
-          type:
-          - integer
-          - 'null'
-          description: 'The number of games played by the player in the game Note: this will be one or zero for single game feeds'
+          description: 'The player''s position associated with the given game or season. Possible values: C, F, FC, G, GF, PF, PG, SF, SG'
         Started:
           type:
           - integer
           - 'null'
           description: 'Indicates whether or not the player started the game Note: this will be one or zero for single game feeds'
-        FantasyPoints:
+        FanDuelSalary:
           type:
-          - number
+          - integer
           - 'null'
-          description: Total fantasy points by the player in the game
-        IsGameOver:
-          type: boolean
-          description: Whether the game is over (true/false)
-        FantasyPointsFanDuel:
+          description: The player's salary for FanDuel daily fantasy contests.
+        DraftKingsSalary:
           type:
-          - number
+          - integer
           - 'null'
-          description: Total FanDuel daily fantasy points scored
-        FantasyPointsYahoo:
+          description: The player's salary for DraftKings daily fantasy contests.
+        FantasyDataSalary:
           type:
-          - number
+          - integer
           - 'null'
-          description: Total Yahoo daily fantasy points scored
-        FantasyPointsDraftKings:
+          description: The player's salary as calculated by SportsDataIO (formerly known as FantasyData).  Based on the same salary cap as DraftKings contests ($50,000).
+        YahooSalary:
           type:
-          - number
+          - integer
           - 'null'
-          description: Total DraftKings daily fantasy points scored
-        FandDuelPosition:
+          description: The player's salary for Yahoo daily fantasy contests.
+        InjuryStatus:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s current injury status; in the form of likelihood that player plays. Possible values: Probable; Questionable; Doubtful; Out'
+        InjuryBodyPart:
+          type:
+          - string
+          - 'null'
+          description: The body part that is injured (Knee, Groin, Calf, Hamstring, etc.)
+        InjuryStartDate:
+          type:
+          - string
+          - 'null'
+          description: The day that the injury started or was first discovered.
+        InjuryNotes:
+          type:
+          - string
+          - 'null'
+          description: Brief description of the player's injury and expected availability.
+        FanDuelPosition:
           type:
           - string
           - 'null'
@@ -2276,105 +2370,21 @@ components:
           - integer
           - 'null'
           description: The ranking of the player's opponent by position with regards to fantasy points allowed.
-        GlobalGameID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of when this game was last updated (in US Eastern Time)
-    PlayerInfo:
-      properties:
-        PlayerID:
-          type: integer
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        Name:
-          type:
-          - string
-          - 'null'
-          description: The player's full name
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the player's team
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the player's team
-        Position:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s primary position. Possible values: C; PF; PG; SF; SG'
-    Series:
-      properties:
-        HomeTeamWins:
-          type: integer
-          description: Total number of wins by the home team in the series
-        AwayTeamWins:
-          type: integer
-          description: Total wins in the series by the away team
-        GameNumber:
-          type: integer
-          description: The game number in the series
-        MaxLength:
-          type: integer
-          description: The maximum number of games that can be played in a series
-    TeamGame:
-      properties:
-        StatID:
-          type: integer
-          description: The unique ID of the stat
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team
-        SeasonType:
-          type:
-          - integer
-          - 'null'
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition)
-        Season:
-          type:
-          - integer
-          - 'null'
-          description: The NBA season of the game
-        Name:
-          type:
-          - string
-          - 'null'
-          description: Team's name
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team
-        Wins:
-          type:
-          - integer
-          - 'null'
-          description: Total number of team wins
-        Losses:
-          type:
-          - integer
-          - 'null'
-          description: Total number of team losses
-        Possessions:
-          type:
-          - number
-          - 'null'
-          description: Total number of estimated possessions by the team in the game
         GlobalTeamID:
           type:
           - integer
           - 'null'
           description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        FantasyDraftSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Fantasy Draft's daily fantasy contests.
+        FantasyDraftPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Fantasy Draft's daily fantasy sports platform.
         GameID:
           type:
           - integer
@@ -2656,16 +2666,6 @@ components:
           - string
           - 'null'
           description: Indicates whether player is starting, active, or inactive
-    Unauthorized:
-      properties:
-        HttpStatusCode:
-          type: integer
-        Code:
-          type: integer
-        Description:
-          type: string
-        Help:
-          type: string
   securitySchemes:
     apiKeyHeader:
       type: apiKey

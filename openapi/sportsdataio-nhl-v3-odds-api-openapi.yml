@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: MLB MLB v3 Headshots NHL v3 Odds API
+  title: NHL v3 Odds API
   version: '1.0'
-  description: MLB API - OpenAPI 3.1 Specification
+  description: NHL API - OpenAPI 3.1 Specification
 servers:
 - url: https://api.sportsdata.io
   description: Production server
@@ -1520,43 +1520,1134 @@ paths:
       - NHL v3 Odds
 components:
   schemas:
-    BettingEntityMetadataCollection:
+    ConsensusOutcome:
       properties:
-        BettingBetTypes:
+        NumberOfSportsbooks:
+          type: integer
+          description: The number of sportsbooks odds that went into creating this consensus outcome
+        BettingOutcomeID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID associated with this specific outcome
+        BettingMarketID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the betting market
+        SportsBook:
+          $ref: '#/components/schemas/Sportsbook'
+          description: The sportsbook offering this outcome for betting
+        BettingOutcomeTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The ID associated with the betting outcome type
+        BettingOutcomeType:
+          type:
+          - string
+          - 'null'
+          description: The name of the betting outcome within a betting market (e.g. Home; Away; Under; Over)
+        PayoutAmerican:
+          type:
+          - integer
+          - 'null'
+          description: 'The american odds payout '
+        PayoutDecimal:
+          type:
+          - number
+          - 'null'
+          description: The decimal odds payout
+        Value:
+          type:
+          - number
+          - 'null'
+          description: The number associated with the outcome (spread/total/etc)
+        Participant:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the participant (typically team or player) associated with the outcome. NOTE: This is provided by the sportsbook. In the case of Player odds; we highly recommend using PlayerID as names of players can be inconsistent between sportsbooks'
+        IsAvailable:
+          type:
+          - boolean
+          - 'null'
+          description: Is this outcome available for betting as of last update
+        IsAlternate:
+          type:
+          - boolean
+          - 'null'
+          description: Is this an alternate value or the core value
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time when this betting outcome was created in US Eastern Time.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of the last time this betting outcome was updated (in US Eastern Time)
+        Unlisted:
+          type:
+          - string
+          - 'null'
+          description: The datetime the outcome was unlisted (no longer available for bets)
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        SportsbookUrl:
+          type:
+          - string
+          - 'null'
+          description: The URL for sportsbook event
+        IsInPlay:
+          type:
+          - boolean
+          - 'null'
+          description: Was this outcome created after the start time of the game (only applies when the betting event is of type game)
+        SportsbookMarketID:
+          type:
+          - string
+          - 'null'
+          description: The market ID of the given sportsbook when available for deep links
+        SportsbookOutcomeID:
+          type:
+          - string
+          - 'null'
+          description: The outcome ID of the given sportsbook when available for deep links
+    BettingMarketSplit:
+      properties:
+        BettingMarketID:
+          type: integer
+          description: The unique ID of the betting market
+        BettingEventID:
+          type: integer
+          description: The unique ID of the betting event associated with this split
+        BettingMarketTypeID:
+          type: integer
+          description: The ID associated with the name of the market type within a market
+        BettingMarketType:
+          type:
+          - string
+          - 'null'
+          description: The name of the market type within a betting market (e.g. Player Prop, Team Prop, Game Prop, etc.)
+        BettingBetTypeID:
+          type: integer
+          description: The ID associated with the name of the bet type within a market
+        BettingBetType:
+          type:
+          - string
+          - 'null'
+          description: The name of the bet type within a market (e.g. Total Points, Moneyline, Puck Line, etc.)
+        BettingPeriodTypeID:
+          type: integer
+          description: The ID associated with the betting period type which we can result
+        BettingPeriodType:
+          type:
+          - string
+          - 'null'
+          description: The name of the period type of a market (e.g. Full Game; 1st Period; Overtime; Regular Season)
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        TeamKey:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team tied to this market split (if applicable)
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        PlayerName:
+          type:
+          - string
+          - 'null'
+          description: The name of the player tied to this split (if applicable)
+        BettingSplits:
           type: array
           items:
-            $ref: '#/components/schemas/BettingEntityMetadata'
-          description: The list of the bet types that can be found within a market
-        BettingMarketTypes:
+            $ref: '#/components/schemas/BettingSplit'
+          description: A list of betting splits
+    BettingSplit:
+      properties:
+        BettingMarketSplitID:
+          type: integer
+          description: The unique ID of this betting split insatnce
+        BettingMarketID:
+          type: integer
+          description: The unique ID of the betting market
+        BettingOutcomeTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The ID associated with the betting outcome type
+        BettingOutcomeType:
+          type:
+          - string
+          - 'null'
+          description: The name of the betting outcome within a betting market (e.g. Home; Away; Under; Over)
+        BetPercentage:
+          type:
+          - integer
+          - 'null'
+          description: Percentage of bets placed on a specific outcome
+        MoneyPercentage:
+          type:
+          - integer
+          - 'null'
+          description: The percent of money on this outcome
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time when this betting split was created in US Eastern Time
+        LastSeen:
+          type:
+          - string
+          - 'null'
+          description: When this split was last updated
+    BettingMarket:
+      properties:
+        BettingMarketID:
+          type: integer
+          description: The unique ID of the betting market
+        BettingEventID:
+          type: integer
+          description: The unique ID assocated with the betting event
+        BettingMarketTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The ID associated with the name of the market type within a market
+        BettingMarketType:
+          type:
+          - string
+          - 'null'
+          description: The name of the market type within a betting market (e.g. Player Prop, Team Prop, Game Prop, etc.)
+        BettingBetTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The ID associated with the name of the bet type within a market
+        BettingBetType:
+          type:
+          - string
+          - 'null'
+          description: The name of the bet type within a market (e.g. Total Points, Moneyline, Puck Line, etc.)
+        BettingPeriodTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The ID associated with the betting period type which we can result
+        BettingPeriodType:
+          type:
+          - string
+          - 'null'
+          description: The name of the period type of a market (e.g. Full Game; 1st Period; Overtime; Regular Season)
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The generic name of this market
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        TeamKey:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team tied to this market result (if applicable)
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        PlayerName:
+          type:
+          - string
+          - 'null'
+          description: The name of the player tied to this market (if applicable)
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time when this betting market was created in US Eastern Time.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The last updated date of this market
+        AvailableSportsbooks:
           type: array
           items:
-            $ref: '#/components/schemas/BettingEntityMetadata'
-          description: A list of the possible market types within a Betting Event (e.g. Game Line, Team Prop, Player Future, etc.)
-        BettingPeriodTypes:
+            $ref: '#/components/schemas/Sportsbook'
+          description: The sportsbooks that have had odds in this market
+        AnyBetsAvailable:
+          type:
+          - boolean
+          - 'null'
+          description: A field that returns "True" if there are any available bets to make within the market in question. If there are no bets available to make, the field returns "False"
+        BettingOutcomes:
           type: array
           items:
-            $ref: '#/components/schemas/BettingEntityMetadata'
-          description: A list of the possible BettingPeriodTypes (e.g. Full Game; Regulation; 1st Period)
-        BettingEventTypes:
+            $ref: '#/components/schemas/BettingOutcome'
+          description: The list of betting outcomes from each sportsbook in this market
+        ConsensusOutcomes:
           type: array
           items:
-            $ref: '#/components/schemas/BettingEntityMetadata'
-          description: A list of the possible BettingEventTypes (e.g. Game, Future)
-        BettingOutcomeTypes:
+            $ref: '#/components/schemas/ConsensusOutcome'
+          description: The single set of consensus outcomes of this market
+        IsArchived:
+          type: boolean
+          description: Indicates if the BettingOutcomes have been moved to the archives
+        ArchiveLocation:
+          type:
+          - string
+          - 'null'
+          description: If IsArchived is true, this returns the URL that can be used to retrieve the archived BettingOutcomes. An API Key and Sportsbook Grouping will be required to retrieve this information. If IsArchived is false, this returns an emtpy string
+    BettingResultingMetadata:
+      properties:
+        BettingMarketTypeId:
+          type: integer
+          description: The ID associated with the name of the market type within a market
+        BettingBetTypeId:
+          type: integer
+          description: The ID associated with the name of the bet type within a market
+        BettingPeriodTypeId:
+          type: integer
+          description: The ID associated with the betting period type which we can result
+    Series:
+      properties:
+        HomeTeamWins:
+          type: integer
+          description: Total wins in the series by the home team
+        AwayTeamWins:
+          type: integer
+          description: Total wins in the series by the away team
+        GameNumber:
+          type: integer
+          description: The number of the game being played in the series
+        MaxLength:
+          type: integer
+          description: The maximum number of games that can be played in a postseason series
+    ScoringPlay:
+      properties:
+        ScoringPlayID:
+          type: integer
+          description: The unique ID of the scoring play
+        PeriodID:
+          type: integer
+          description: The unique ID associated of this period
+        Sequence:
+          type:
+          - integer
+          - 'null'
+          description: The sequence/order that this scoring play happened
+        TimeRemainingMinutes:
+          type:
+          - integer
+          - 'null'
+          description: 'Number of minutes that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock minutes which are the number of minutes that have already passed in the period.'
+        TimeRemainingSeconds:
+          type:
+          - integer
+          - 'null'
+          description: 'Number of seconds that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock sconds which are the number of minutes that have already passed in the period.'
+        ScoredByTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the team that scored the goal
+        AllowedByTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the team that allowed the goal
+        ScoredByPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who scored the goal
+        AssistedByPlayerID1:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the FIRST player who assisted on the goal
+        AssistedByPlayerID2:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the SECOND player who assisted on the goal
+        PowerPlay:
+          type:
+          - boolean
+          - 'null'
+          description: Whether or not the goal was scored on the power play
+        ShortHanded:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the goal was scored shorthanded
+        EmptyNet:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the goal was an empty net goal or not
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: The score of the away team after the conclusion of the scoring play
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: The score of the home team after the conclusion of the scoring play
+    BettingEvent:
+      properties:
+        BettingEventID:
+          type: integer
+          description: The unique ID associated with the betting event
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The name of this betting event
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The NHL season of the betting event
+        BettingEventTypeID:
+          type: integer
+          description: The ID associated with the type of betting event
+        BettingEventType:
+          type:
+          - string
+          - 'null'
+          description: Indicates the type of betting event - Game or Future
+        StartDate:
+          type:
+          - string
+          - 'null'
+          description: The furthest forward time any book has a market set to close for this betting event
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time when this betting event was created in US Eastern Time.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of the last time this betting event was updated (in US Eastern Time)
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the game tied to this BettingEvent
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the game tied to this betting event. This value is guaranteed to be unique across all sports/leagues.
+        GameStatus:
+          type:
+          - string
+          - 'null'
+          description: The status of the game tied to this event. A list of NHL game statuses can be found here.
+        Quarter:
+          type:
+          - string
+          - 'null'
+          description: 'The quarter of the game tied to this event. Note: This field will be null unless the game is ongoing.'
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        AwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique TeamID of the away team in the game tied to this betting event
+        HomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the home team tied to this betting event
+        GlobalAwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the away team tied to this betting event. This value is guaranteed to be unique across all sports/leagues.
+        GlobalHomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the home team tied to this betting event. This value is guaranteed to be unique across all sports/leagues.
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of goals the away team scored in the game tied to the event (post-game)
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the home team scored in the game tied to the event (post-game)
+        TotalScore:
+          type:
+          - integer
+          - 'null'
+          description: Total goals scored in the game (post-game)
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the away team for a game
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the home team for this game
+        BettingMarkets:
           type: array
           items:
-            $ref: '#/components/schemas/BettingEntityMetadata'
-          description: A list of the possible BettingOutcomeTypes (e.g. Home; Away; Under; Over)
-        ResultedMarketMetaData:
+            $ref: '#/components/schemas/BettingMarket'
+          description: The list of betting markets for this event
+        GameStartTime:
+          type:
+          - string
+          - 'null'
+          description: 'The date and time that the game attached to the betting event started. Note: Time is in US Eastern Time'
+    BettingMarketResult:
+      properties:
+        BettingMarketID:
+          type: integer
+          description: The unique ID of the betting market
+        BettingMarketTypeID:
+          type: integer
+          description: The ID associated with the name of the market type within a market
+        BettingMarketType:
+          type:
+          - string
+          - 'null'
+          description: The name of the market type within a betting market (e.g. Player Prop, Team Prop, Game Prop, etc.)
+        BettingBetTypeID:
+          type: integer
+          description: The ID associated with the name of the bet type within a market
+        BettingBetType:
+          type:
+          - string
+          - 'null'
+          description: The name of the bet type within a market (e.g. Total Points, Moneyline, Puck Line, etc.)
+        BettingPeriodTypeID:
+          type: integer
+          description: The ID associated with the betting period type which we can result
+        BettingPeriodType:
+          type:
+          - string
+          - 'null'
+          description: The name of the period type of a market (e.g. Full Game; 1st Period; Overtime; Regular Season)
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The generic name of this market
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        TeamKey:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team tied to this market result (if applicable)
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        PlayerName:
+          type:
+          - string
+          - 'null'
+          description: The name of the player tied to this market (if applicable)
+        BettingOutcomeResults:
           type: array
           items:
-            $ref: '#/components/schemas/BettingResultingMetadata'
-          description: A list of the combinations of MarketType, BetType, & PeriodType which we willl provide automated resulting for
-        BettingResultTypes:
+            $ref: '#/components/schemas/BettingOutcomeResult'
+          description: The list of outcomes under this market with results
+        IsMarketResultingSupported:
+          type: boolean
+          description: Indicates whether resulting is supported for this kind of BettingMarket
+    Sportsbook:
+      properties:
+        SportsbookID:
+          type: integer
+          description: The unique ID of the sportsbook
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The name of the sportsbook(s)
+    BettingOutcome:
+      properties:
+        BettingOutcomeID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID associated with this specific outcome
+        BettingMarketID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the betting market
+        SportsBook:
+          $ref: '#/components/schemas/Sportsbook'
+          description: The sportsbook offering this outcome for betting
+        BettingOutcomeTypeID:
+          type:
+          - integer
+          - 'null'
+          description: The ID associated with the betting outcome type
+        BettingOutcomeType:
+          type:
+          - string
+          - 'null'
+          description: The name of the betting outcome within a betting market (e.g. Home; Away; Under; Over)
+        PayoutAmerican:
+          type:
+          - integer
+          - 'null'
+          description: 'The american odds payout '
+        PayoutDecimal:
+          type:
+          - number
+          - 'null'
+          description: The decimal odds payout
+        Value:
+          type:
+          - number
+          - 'null'
+          description: The number associated with the outcome (spread/total/etc)
+        Participant:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the participant (typically team or player) associated with the outcome. NOTE: This is provided by the sportsbook. In the case of Player odds; we highly recommend using PlayerID as names of players can be inconsistent between sportsbooks'
+        IsAvailable:
+          type:
+          - boolean
+          - 'null'
+          description: Is this outcome available for betting as of last update
+        IsAlternate:
+          type:
+          - boolean
+          - 'null'
+          description: Is this an alternate value or the core value
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time when this betting outcome was created in US Eastern Time.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of the last time this betting outcome was updated (in US Eastern Time)
+        Unlisted:
+          type:
+          - string
+          - 'null'
+          description: The datetime the outcome was unlisted (no longer available for bets)
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        SportsbookUrl:
+          type:
+          - string
+          - 'null'
+          description: The URL for sportsbook event
+        IsInPlay:
+          type:
+          - boolean
+          - 'null'
+          description: Was this outcome created after the start time of the game (only applies when the betting event is of type game)
+        SportsbookMarketID:
+          type:
+          - string
+          - 'null'
+          description: The market ID of the given sportsbook when available for deep links
+        SportsbookOutcomeID:
+          type:
+          - string
+          - 'null'
+          description: The outcome ID of the given sportsbook when available for deep links
+    Period:
+      properties:
+        PeriodID:
+          type: integer
+          description: The unique ID associated of this period
+        GameID:
+          type: integer
+          description: The unique ID of this game tied to this period
+        Name:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the period (possible values: 1; 2; 3; SO; OT; OT2; OT3; OT4; etc)'
+        AwayScore:
+          type:
+          - integer
+          - 'null'
+          description: Total goals scored by the away team in a given period
+        HomeScore:
+          type:
+          - integer
+          - 'null'
+          description: Total goals scored by the home team in the period
+        ScoringPlays:
           type: array
           items:
-            $ref: '#/components/schemas/BettingEntityMetadata'
-          description: A list of the possible BettingResultTypes (e.g. Win; Loss; Push; Not Resulted; Incomplete)
+            $ref: '#/components/schemas/ScoringPlay'
+          description: The details of the scoring plays that occurred during this period
+        Penalties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Penalty'
+          description: The details of the penalties that occurred during this period
+    TeamTrends:
+      properties:
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        UpcomingGame:
+          $ref: '#/components/schemas/Game'
+          description: Upcoming game for this team
+        TeamGameTrends:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamGameTrends'
+          description: The collection of Game Trends for this team
+    GameOddResult:
+      properties:
+        GameOddID:
+          type: integer
+          description: The unique ID of this odd
+        Sportsbook:
+          type:
+          - string
+          - 'null'
+          description: The name of the sportsbook
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time of when these odds were first created; based on US Eatern Time (EST/EDT)
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when these odds were last updated (in US Eastern Time)
+        HomeMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's moneyline for the home team
+        AwayMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's moneyline for the away team
+        HomePointSpread:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's point spread for the home team
+        AwayPointSpread:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's point spread for the away team
+        HomePointSpreadPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's point spread payout for the home team
+        AwayPointSpreadPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's point spread payout for the away team
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's total goals scored over under for the game
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the over
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under
+        SportsbookID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the sportsbook
+        SportsbookUrl:
+          type:
+          - string
+          - 'null'
+          description: The URL for sportsbook event
+        OddType:
+          type:
+          - string
+          - 'null'
+          description: 'The market type of the odd (ex: live, pregame, 1st-pd, etc)'
+        GameOddOutcomeResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOddOutcome'
+          description: List of outcomes showing results of betting markets that were bet on for the given game
+    GameOdd:
+      properties:
+        GameOddId:
+          type: integer
+          description: The unique ID of this odd
+        Sportsbook:
+          type:
+          - string
+          - 'null'
+          description: The name of the sportsbook
+        GameId:
+          type: integer
+          description: The unique ID of this game
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time of when these odds were first created; based on US Eatern Time (EST/EDT)
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when these odds were last updated (in US Eastern Time)
+        HomeMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's moneyline for the home team
+        AwayMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's moneyline for the away team
+        HomePointSpread:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's point spread for the home team
+        AwayPointSpread:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's point spread for the away team
+        HomePointSpreadPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's point spread payout for the home team
+        AwayPointSpreadPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's point spread payout for the away team
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's total goals scored over under for the game
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the over
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under
+        SportsbookId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the sportsbook
+        OddType:
+          type:
+          - string
+          - 'null'
+          description: 'The market type of the odd (ex: live, pregame, 1st-pd, etc)'
+        SportsbookUrl:
+          type:
+          - string
+          - 'null'
+          description: The URL for sportsbook event
+        Unlisted:
+          type:
+          - string
+          - 'null'
+          description: The timestamp when these odds were no longer seen, based on US Eastern Time (EST/EDT)
+    Penalty:
+      properties:
+        PenaltyID:
+          type: integer
+          description: The unique ID of this penalty
+        PeriodID:
+          type: integer
+          description: The unique ID of the period during which this penalty occurred
+        Sequence:
+          type:
+          - integer
+          - 'null'
+          description: The sequence/order that this penalty happened
+        TimeRemainingMinutes:
+          type:
+          - integer
+          - 'null'
+          description: 'Number of minutes that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock minutes which are the number of minutes that have already passed in the period.'
+        TimeRemainingSeconds:
+          type:
+          - integer
+          - 'null'
+          description: 'Number of seconds that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock seconds which are the number of minutes that have already passed in the period.'
+        Description:
+          type:
+          - string
+          - 'null'
+          description: The description of the penalty
+        PenaltyMinutes:
+          type:
+          - integer
+          - 'null'
+          description: Total minutes the penalty lasts
+        PenalizedTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the team who committed the penalty
+        PenalizedPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who committed the penalty
+        DrawnByTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the player/team that drew the penalty
+        DrawnByPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who drew the penalty
+        IsBenchPenalty:
+          type:
+          - boolean
+          - 'null'
+          description: Whether or not the penalty is a bench penalty
+        BenchPenaltyServedByPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who served the bench penalty
+    GameInfoResult:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The NHL season of the game
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition).
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day that the game is scheduled to be played
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in US Eastern Time
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, F/SO, F/OT, Suspended, Postponed, Delayed, Canceled, Forfeit'
+        AwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the away team
+        HomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the home team
+        AwayTeamName:
+          type:
+          - string
+          - 'null'
+          description: The name of the away team
+        HomeTeamName:
+          type:
+          - string
+          - 'null'
+          description: The name of the home team
+        GlobalGameID:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalAwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
+        GlobalTeamHomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        PregameOdds:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOddResult'
+          description: List of Pregame GameOdds from different sportsbooks with results
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of goals the home team scored in the game (updated after game ends to allow for resolving bets)
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of goals the away team scored in the game (updated after game ends to allow for resolving bets)
+        TotalScore:
+          type:
+          - integer
+          - 'null'
+          description: Total goals scored in the game (updated after game ends to allow for resolving bets)
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the home team for this game
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the away team for this game
+        AlternateMarketPregameOdds:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOddResult'
+          description: A list of Alternate Market Pregame GameOdds from different sportsbooks (e.g. 1st Period; 2nd Period; etc.)
+        Period:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the current period of the game. Possible values include: 1; 2; 3; OT; SO; NULL'
+        TimeRemainingMinutes:
+          type:
+          - integer
+          - 'null'
+          description: 'Number of minutes that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock minutes which are the number of minutes that have already passed in the period.'
+        TimeRemainingSeconds:
+          type:
+          - integer
+          - 'null'
+          description: 'Number of seconds that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock sconds which are the number of minutes that have already passed in the period.'
+        Periods:
+          type: array
+          items:
+            $ref: '#/components/schemas/Period'
+          description: The details of the periods (including overtime if applicable) for this game
+        IsClosed:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
+        LiveOdds:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOddResult'
+          description: List of Live Odds from different sportsbooks with results
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
     BettingOutcomeResult:
       properties:
         BettingOutcomeID:
@@ -1592,39 +2683,111 @@ components:
           - number
           - 'null'
           description: The value of the actual result that occured in game (i.e. If a team won a game by 2 and the spread was -1.5, the actual value would be 2 and the bet value would be -1.5)
-    Period:
+    GameBettingSplit:
       properties:
-        PeriodID:
-          type: integer
-          description: The unique ID associated of this period
         GameID:
           type: integer
-          description: The unique ID of this game tied to this period
-        Name:
+          description: The unique ID of the game tied to the BettingSplits Turn on screen reader support
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition).
+        Season:
+          type: integer
+          description: The end year of season (2021-22 would be 2022)
+        Day:
           type:
           - string
           - 'null'
-          description: 'The name of the period (possible values: 1; 2; 3; SO; OT; OT2; OT3; OT4; etc)'
-        AwayScore:
+          description: The date of the game
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        BettingMarketSplits:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingMarketSplit'
+          description: Shows the betting markets that have splits included for them in the game
+    TeamGameTrends:
+      properties:
+        Scope:
+          type:
+          - string
+          - 'null'
+          description: The type of Trend (e.g. Last 5 games, Last 10 games, Last 5 home games, etc.)
+        TeamID:
+          type: integer
+          description: The unique ID of the team
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        OpponentID:
           type:
           - integer
           - 'null'
-          description: Total goals scored by the away team in a given period
-        HomeScore:
+          description: The unique ID of the team's opponent
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the opponent team
+        Wins:
+          type: integer
+          description: 'Total number of wins relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
+        Losses:
+          type: integer
+          description: 'Total losses by the team relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
+        Ties:
+          type: integer
+          description: 'Ties relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
+        WinsAgainstTheSpread:
           type:
           - integer
           - 'null'
-          description: Total goals scored by the home team in the period
-        ScoringPlays:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScoringPlay'
-          description: The details of the scoring plays that occurred during this period
-        Penalties:
-          type: array
-          items:
-            $ref: '#/components/schemas/Penalty'
-          description: The details of the penalties that occurred during this period
+          description: 'Total number of wins against the spread relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
+        LossesAgainstTheSpread:
+          type:
+          - integer
+          - 'null'
+          description: 'Total losses against the puck line by the team relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
+        PushesAgainstTheSpread:
+          type:
+          - integer
+          - 'null'
+          description: 'Pushes against the puck line relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
+        Overs:
+          type:
+          - integer
+          - 'null'
+          description: Amount of times the total score goes over the total goals line
+        Unders:
+          type:
+          - integer
+          - 'null'
+          description: Amount of times the total score goes under the toal goals line
+        OverUnderPushes:
+          type:
+          - integer
+          - 'null'
+          description: Amount of times the total score pushes the total goals line
+        AverageScore:
+          type:
+          - number
+          - 'null'
+          description: 'The average goals per game scored by the team relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
+        AverageOpponentScore:
+          type:
+          - number
+          - 'null'
+          description: 'The average goals per game scored by the opposing teams relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
     MatchupTrends:
       properties:
         UpcomingGame:
@@ -1650,6 +2813,140 @@ components:
           items:
             $ref: '#/components/schemas/Game'
           description: The collection of last 10 game scores between each team
+    GameInfo:
+      properties:
+        GameId:
+          type: integer
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The NHL season of the game
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition).
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day that the game is scheduled to be played
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in US Eastern Time
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, F/SO, F/OT, Suspended, Postponed, Delayed, Canceled, Forfeit'
+        AwayTeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the away team
+        HomeTeamId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the home team
+        AwayTeamName:
+          type:
+          - string
+          - 'null'
+          description: The name of the away team
+        HomeTeamName:
+          type:
+          - string
+          - 'null'
+          description: The name of the home team
+        GlobalGameId:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalAwayTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
+        GlobalHomeTeamId:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        PregameOdds:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOdd'
+          description: List of Pregame GameOdds from different sportsbooks
+        LiveOdds:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOdd'
+          description: List of live game odds from different sportsbooks
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of goals the home team scored in the game (updated after game ends to allow for resolving bets)
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of goals the away team scored in the game (updated after game ends to allow for resolving bets)
+        TotalScore:
+          type:
+          - integer
+          - 'null'
+          description: Total goals scored in the game (updated after game ends to allow for resolving bets)
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the home team for this game
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the away team for a game
+        AlternateMarketPregameOdds:
+          type: array
+          items:
+            $ref: '#/components/schemas/GameOdd'
+          description: A list of Alternate Market Pregame GameOdds from different sportsbooks (e.g. 1st Period; 2nd Period; etc.)
+    GameOddOutcome:
+      properties:
+        GameOddId:
+          type: integer
+          description: The unique ID of this odd
+        GameOddResultTypeId:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this GameOddResultType
+        GameOddResultType:
+          type:
+          - string
+          - 'null'
+          description: The result/outcome of a bet (e.g. Won; Lost; Push; Not Resulted; Incomplete)
+        OddType:
+          type:
+          - string
+          - 'null'
+          description: 'The market type of the odd (ex: live; pregame; 1st-pd; etc)'
+        GameOddType:
+          type:
+          - string
+          - 'null'
+          description: The GameOddOutcomeType of this outcome as a string
+        BetValue:
+          type:
+          - number
+          - 'null'
+          description: The offered betting line from a sportsbook for a game (i.e. If a team won a game by 2 and the spread was -1.5, the actual value would be 2 and the bet value would be -1.5)
+        ActualValue:
+          type:
+          - number
+          - 'null'
+          description: The value of the actual result that occured in game (i.e. If a team won a game by 2 and the spread was -1.5, the actual value would be 2 and the bet value would be -1.5)
     Game:
       properties:
         GameID:
@@ -1859,551 +3156,43 @@ components:
           - integer
           - 'null'
           description: The unique ID of the secondary linesperson of this game
-    Sportsbook:
+    BettingEntityMetadataCollection:
       properties:
-        SportsbookID:
-          type: integer
-          description: The unique ID of the sportsbook
-        Name:
-          type:
-          - string
-          - 'null'
-          description: The name of the sportsbook(s)
-    Series:
-      properties:
-        HomeTeamWins:
-          type: integer
-          description: Total wins in the series by the home team
-        AwayTeamWins:
-          type: integer
-          description: Total wins in the series by the away team
-        GameNumber:
-          type: integer
-          description: The number of the game being played in the series
-        MaxLength:
-          type: integer
-          description: The maximum number of games that can be played in a postseason series
-    Penalty:
-      properties:
-        PenaltyID:
-          type: integer
-          description: The unique ID of this penalty
-        PeriodID:
-          type: integer
-          description: The unique ID of the period during which this penalty occurred
-        Sequence:
-          type:
-          - integer
-          - 'null'
-          description: The sequence/order that this penalty happened
-        TimeRemainingMinutes:
-          type:
-          - integer
-          - 'null'
-          description: 'Number of minutes that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock minutes which are the number of minutes that have already passed in the period.'
-        TimeRemainingSeconds:
-          type:
-          - integer
-          - 'null'
-          description: 'Number of seconds that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock seconds which are the number of minutes that have already passed in the period.'
-        Description:
-          type:
-          - string
-          - 'null'
-          description: The description of the penalty
-        PenaltyMinutes:
-          type:
-          - integer
-          - 'null'
-          description: Total minutes the penalty lasts
-        PenalizedTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The TeamID of the team who committed the penalty
-        PenalizedPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who committed the penalty
-        DrawnByTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The TeamID of the player/team that drew the penalty
-        DrawnByPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who drew the penalty
-        IsBenchPenalty:
-          type:
-          - boolean
-          - 'null'
-          description: Whether or not the penalty is a bench penalty
-        BenchPenaltyServedByPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who served the bench penalty
-    BettingResultingMetadata:
-      properties:
-        BettingMarketTypeId:
-          type: integer
-          description: The ID associated with the name of the market type within a market
-        BettingBetTypeId:
-          type: integer
-          description: The ID associated with the name of the bet type within a market
-        BettingPeriodTypeId:
-          type: integer
-          description: The ID associated with the betting period type which we can result
-    TeamTrends:
-      properties:
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team
-        UpcomingGame:
-          $ref: '#/components/schemas/Game'
-          description: Upcoming game for this team
-        TeamGameTrends:
+        BettingBetTypes:
           type: array
           items:
-            $ref: '#/components/schemas/TeamGameTrends'
-          description: The collection of Game Trends for this team
-    Unauthorized:
-      properties:
-        HttpStatusCode:
-          type: integer
-        Code:
-          type: integer
-        Description:
-          type: string
-        Help:
-          type: string
-    TeamGameTrends:
-      properties:
-        Scope:
-          type:
-          - string
-          - 'null'
-          description: The type of Trend (e.g. Last 5 games, Last 10 games, Last 5 home games, etc.)
-        TeamID:
-          type: integer
-          description: The unique ID of the team
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team
-        OpponentID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team's opponent
-        Opponent:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the opponent team
-        Wins:
-          type: integer
-          description: 'Total number of wins relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
-        Losses:
-          type: integer
-          description: 'Total losses by the team relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
-        Ties:
-          type: integer
-          description: 'Ties relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
-        WinsAgainstTheSpread:
-          type:
-          - integer
-          - 'null'
-          description: 'Total number of wins against the spread relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
-        LossesAgainstTheSpread:
-          type:
-          - integer
-          - 'null'
-          description: 'Total losses against the puck line by the team relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
-        PushesAgainstTheSpread:
-          type:
-          - integer
-          - 'null'
-          description: 'Pushes against the puck line relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
-        Overs:
-          type:
-          - integer
-          - 'null'
-          description: Amount of times the total score goes over the total goals line
-        Unders:
-          type:
-          - integer
-          - 'null'
-          description: Amount of times the total score goes under the toal goals line
-        OverUnderPushes:
-          type:
-          - integer
-          - 'null'
-          description: Amount of times the total score pushes the total goals line
-        AverageScore:
-          type:
-          - number
-          - 'null'
-          description: 'The average goals per game scored by the team relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
-        AverageOpponentScore:
-          type:
-          - number
-          - 'null'
-          description: 'The average goals per game scored by the opposing teams relating to the scope (Examples of Scopes include: Last 3 Games; Last 5 Home Games; Last 10 Games as favorite, etc.)'
-    BettingSplit:
-      properties:
-        BettingMarketSplitID:
-          type: integer
-          description: The unique ID of this betting split insatnce
-        BettingMarketID:
-          type: integer
-          description: The unique ID of the betting market
-        BettingOutcomeTypeID:
-          type:
-          - integer
-          - 'null'
-          description: The ID associated with the betting outcome type
-        BettingOutcomeType:
-          type:
-          - string
-          - 'null'
-          description: The name of the betting outcome within a betting market (e.g. Home; Away; Under; Over)
-        BetPercentage:
-          type:
-          - integer
-          - 'null'
-          description: Percentage of bets placed on a specific outcome
-        MoneyPercentage:
-          type:
-          - integer
-          - 'null'
-          description: The percent of money on this outcome
-        Created:
-          type:
-          - string
-          - 'null'
-          description: The date and time when this betting split was created in US Eastern Time
-        LastSeen:
-          type:
-          - string
-          - 'null'
-          description: When this split was last updated
-    ScoringPlay:
-      properties:
-        ScoringPlayID:
-          type: integer
-          description: The unique ID of the scoring play
-        PeriodID:
-          type: integer
-          description: The unique ID associated of this period
-        Sequence:
-          type:
-          - integer
-          - 'null'
-          description: The sequence/order that this scoring play happened
-        TimeRemainingMinutes:
-          type:
-          - integer
-          - 'null'
-          description: 'Number of minutes that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock minutes which are the number of minutes that have already passed in the period.'
-        TimeRemainingSeconds:
-          type:
-          - integer
-          - 'null'
-          description: 'Number of seconds that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock sconds which are the number of minutes that have already passed in the period.'
-        ScoredByTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The TeamID of the team that scored the goal
-        AllowedByTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The TeamID of the team that allowed the goal
-        ScoredByPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who scored the goal
-        AssistedByPlayerID1:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the FIRST player who assisted on the goal
-        AssistedByPlayerID2:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the SECOND player who assisted on the goal
-        PowerPlay:
-          type:
-          - boolean
-          - 'null'
-          description: Whether or not the goal was scored on the power play
-        ShortHanded:
-          type:
-          - boolean
-          - 'null'
-          description: Whether the goal was scored shorthanded
-        EmptyNet:
-          type:
-          - boolean
-          - 'null'
-          description: Whether the goal was an empty net goal or not
-        AwayTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: The score of the away team after the conclusion of the scoring play
-        HomeTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: The score of the home team after the conclusion of the scoring play
-    GameInfoResult:
-      properties:
-        GameID:
-          type: integer
-          description: The unique ID of this game
-        Season:
-          type: integer
-          description: The NHL season of the game
-        SeasonType:
-          type: integer
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition).
-        Day:
-          type:
-          - string
-          - 'null'
-          description: The day that the game is scheduled to be played
-        DateTime:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game in US Eastern Time
-        Status:
-          type:
-          - string
-          - 'null'
-          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, F/SO, F/OT, Suspended, Postponed, Delayed, Canceled, Forfeit'
-        AwayTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the away team
-        HomeTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the home team
-        AwayTeamName:
-          type:
-          - string
-          - 'null'
-          description: The name of the away team
-        HomeTeamName:
-          type:
-          - string
-          - 'null'
-          description: The name of the home team
-        GlobalGameID:
-          type: integer
-          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
-        GlobalAwayTeamID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
-        GlobalTeamHomeTeamID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
-        PregameOdds:
+            $ref: '#/components/schemas/BettingEntityMetadata'
+          description: The list of the bet types that can be found within a market
+        BettingMarketTypes:
           type: array
           items:
-            $ref: '#/components/schemas/GameOddResult'
-          description: List of Pregame GameOdds from different sportsbooks with results
-        HomeTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: Total number of goals the home team scored in the game (updated after game ends to allow for resolving bets)
-        AwayTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: Total number of goals the away team scored in the game (updated after game ends to allow for resolving bets)
-        TotalScore:
-          type:
-          - integer
-          - 'null'
-          description: Total goals scored in the game (updated after game ends to allow for resolving bets)
-        HomeRotationNumber:
-          type:
-          - integer
-          - 'null'
-          description: The rotation number of the home team for this game
-        AwayRotationNumber:
-          type:
-          - integer
-          - 'null'
-          description: The rotation number of the away team for this game
-        AlternateMarketPregameOdds:
+            $ref: '#/components/schemas/BettingEntityMetadata'
+          description: A list of the possible market types within a Betting Event (e.g. Game Line, Team Prop, Player Future, etc.)
+        BettingPeriodTypes:
           type: array
           items:
-            $ref: '#/components/schemas/GameOddResult'
-          description: A list of Alternate Market Pregame GameOdds from different sportsbooks (e.g. 1st Period; 2nd Period; etc.)
-        Period:
-          type:
-          - string
-          - 'null'
-          description: 'Indicates the current period of the game. Possible values include: 1; 2; 3; OT; SO; NULL'
-        TimeRemainingMinutes:
-          type:
-          - integer
-          - 'null'
-          description: 'Number of minutes that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock minutes which are the number of minutes that have already passed in the period.'
-        TimeRemainingSeconds:
-          type:
-          - integer
-          - 'null'
-          description: 'Number of seconds that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock sconds which are the number of minutes that have already passed in the period.'
-        Periods:
+            $ref: '#/components/schemas/BettingEntityMetadata'
+          description: A list of the possible BettingPeriodTypes (e.g. Full Game; Regulation; 1st Period)
+        BettingEventTypes:
           type: array
           items:
-            $ref: '#/components/schemas/Period'
-          description: The details of the periods (including overtime if applicable) for this game
-        IsClosed:
-          type:
-          - boolean
-          - 'null'
-          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
-        LiveOdds:
+            $ref: '#/components/schemas/BettingEntityMetadata'
+          description: A list of the possible BettingEventTypes (e.g. Game, Future)
+        BettingOutcomeTypes:
           type: array
           items:
-            $ref: '#/components/schemas/GameOddResult'
-          description: List of Live Odds from different sportsbooks with results
-    ConsensusOutcome:
-      properties:
-        NumberOfSportsbooks:
-          type: integer
-          description: The number of sportsbooks odds that went into creating this consensus outcome
-        BettingOutcomeID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID associated with this specific outcome
-        BettingMarketID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the betting market
-        SportsBook:
-          $ref: '#/components/schemas/Sportsbook'
-          description: The sportsbook offering this outcome for betting
-        BettingOutcomeTypeID:
-          type:
-          - integer
-          - 'null'
-          description: The ID associated with the betting outcome type
-        BettingOutcomeType:
-          type:
-          - string
-          - 'null'
-          description: The name of the betting outcome within a betting market (e.g. Home; Away; Under; Over)
-        PayoutAmerican:
-          type:
-          - integer
-          - 'null'
-          description: 'The american odds payout '
-        PayoutDecimal:
-          type:
-          - number
-          - 'null'
-          description: The decimal odds payout
-        Value:
-          type:
-          - number
-          - 'null'
-          description: The number associated with the outcome (spread/total/etc)
-        Participant:
-          type:
-          - string
-          - 'null'
-          description: 'The name of the participant (typically team or player) associated with the outcome. NOTE: This is provided by the sportsbook. In the case of Player odds; we highly recommend using PlayerID as names of players can be inconsistent between sportsbooks'
-        IsAvailable:
-          type:
-          - boolean
-          - 'null'
-          description: Is this outcome available for betting as of last update
-        IsAlternate:
-          type:
-          - boolean
-          - 'null'
-          description: Is this an alternate value or the core value
-        Created:
-          type:
-          - string
-          - 'null'
-          description: The date and time when this betting outcome was created in US Eastern Time.
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of the last time this betting outcome was updated (in US Eastern Time)
-        Unlisted:
-          type:
-          - string
-          - 'null'
-          description: The datetime the outcome was unlisted (no longer available for bets)
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        GlobalTeamID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
-        SportsbookUrl:
-          type:
-          - string
-          - 'null'
-          description: The URL for sportsbook event
-        IsInPlay:
-          type:
-          - boolean
-          - 'null'
-          description: Was this outcome created after the start time of the game (only applies when the betting event is of type game)
-        SportsbookMarketID:
-          type:
-          - string
-          - 'null'
-          description: The market ID of the given sportsbook when available for deep links
-        SportsbookOutcomeID:
-          type:
-          - string
-          - 'null'
-          description: The outcome ID of the given sportsbook when available for deep links
+            $ref: '#/components/schemas/BettingEntityMetadata'
+          description: A list of the possible BettingOutcomeTypes (e.g. Home; Away; Under; Over)
+        ResultedMarketMetaData:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingResultingMetadata'
+          description: A list of the combinations of MarketType, BetType, & PeriodType which we willl provide automated resulting for
+        BettingResultTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BettingEntityMetadata'
+          description: A list of the possible BettingResultTypes (e.g. Win; Loss; Push; Not Resulted; Incomplete)
     BettingEntityMetadata:
       properties:
         RecordId:
@@ -2419,795 +3208,6 @@ components:
           - boolean
           - 'null'
           description: Whether or not this market is currently is use
-    GameBettingSplit:
-      properties:
-        GameID:
-          type: integer
-          description: The unique ID of the game tied to the BettingSplits Turn on screen reader support
-        SeasonType:
-          type: integer
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition).
-        Season:
-          type: integer
-          description: The end year of season (2021-22 would be 2022)
-        Day:
-          type:
-          - string
-          - 'null'
-          description: The date of the game
-        AwayTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the away team
-        HomeTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the home team
-        BettingMarketSplits:
-          type: array
-          items:
-            $ref: '#/components/schemas/BettingMarketSplit'
-          description: Shows the betting markets that have splits included for them in the game
-    GameOdd:
-      properties:
-        GameOddId:
-          type: integer
-          description: The unique ID of this odd
-        Sportsbook:
-          type:
-          - string
-          - 'null'
-          description: The name of the sportsbook
-        GameId:
-          type: integer
-          description: The unique ID of this game
-        Created:
-          type:
-          - string
-          - 'null'
-          description: The date and time of when these odds were first created; based on US Eatern Time (EST/EDT)
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of when these odds were last updated (in US Eastern Time)
-        HomeMoneyLine:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's moneyline for the home team
-        AwayMoneyLine:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's moneyline for the away team
-        HomePointSpread:
-          type:
-          - number
-          - 'null'
-          description: The sportsbook's point spread for the home team
-        AwayPointSpread:
-          type:
-          - number
-          - 'null'
-          description: The sportsbook's point spread for the away team
-        HomePointSpreadPayout:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's point spread payout for the home team
-        AwayPointSpreadPayout:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's point spread payout for the away team
-        OverUnder:
-          type:
-          - number
-          - 'null'
-          description: The sportsbook's total goals scored over under for the game
-        OverPayout:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's payout for the over
-        UnderPayout:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's payout for the under
-        SportsbookId:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the sportsbook
-        OddType:
-          type:
-          - string
-          - 'null'
-          description: 'The market type of the odd (ex: live, pregame, 1st-pd, etc)'
-        SportsbookUrl:
-          type:
-          - string
-          - 'null'
-          description: The URL for sportsbook event
-        Unlisted:
-          type:
-          - string
-          - 'null'
-          description: The timestamp when these odds were no longer seen, based on US Eastern Time (EST/EDT)
-    BettingOutcome:
-      properties:
-        BettingOutcomeID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID associated with this specific outcome
-        BettingMarketID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the betting market
-        SportsBook:
-          $ref: '#/components/schemas/Sportsbook'
-          description: The sportsbook offering this outcome for betting
-        BettingOutcomeTypeID:
-          type:
-          - integer
-          - 'null'
-          description: The ID associated with the betting outcome type
-        BettingOutcomeType:
-          type:
-          - string
-          - 'null'
-          description: The name of the betting outcome within a betting market (e.g. Home; Away; Under; Over)
-        PayoutAmerican:
-          type:
-          - integer
-          - 'null'
-          description: 'The american odds payout '
-        PayoutDecimal:
-          type:
-          - number
-          - 'null'
-          description: The decimal odds payout
-        Value:
-          type:
-          - number
-          - 'null'
-          description: The number associated with the outcome (spread/total/etc)
-        Participant:
-          type:
-          - string
-          - 'null'
-          description: 'The name of the participant (typically team or player) associated with the outcome. NOTE: This is provided by the sportsbook. In the case of Player odds; we highly recommend using PlayerID as names of players can be inconsistent between sportsbooks'
-        IsAvailable:
-          type:
-          - boolean
-          - 'null'
-          description: Is this outcome available for betting as of last update
-        IsAlternate:
-          type:
-          - boolean
-          - 'null'
-          description: Is this an alternate value or the core value
-        Created:
-          type:
-          - string
-          - 'null'
-          description: The date and time when this betting outcome was created in US Eastern Time.
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of the last time this betting outcome was updated (in US Eastern Time)
-        Unlisted:
-          type:
-          - string
-          - 'null'
-          description: The datetime the outcome was unlisted (no longer available for bets)
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        GlobalTeamID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
-        SportsbookUrl:
-          type:
-          - string
-          - 'null'
-          description: The URL for sportsbook event
-        IsInPlay:
-          type:
-          - boolean
-          - 'null'
-          description: Was this outcome created after the start time of the game (only applies when the betting event is of type game)
-        SportsbookMarketID:
-          type:
-          - string
-          - 'null'
-          description: The market ID of the given sportsbook when available for deep links
-        SportsbookOutcomeID:
-          type:
-          - string
-          - 'null'
-          description: The outcome ID of the given sportsbook when available for deep links
-    BettingEvent:
-      properties:
-        BettingEventID:
-          type: integer
-          description: The unique ID associated with the betting event
-        Name:
-          type:
-          - string
-          - 'null'
-          description: The name of this betting event
-        Season:
-          type:
-          - integer
-          - 'null'
-          description: The NHL season of the betting event
-        BettingEventTypeID:
-          type: integer
-          description: The ID associated with the type of betting event
-        BettingEventType:
-          type:
-          - string
-          - 'null'
-          description: Indicates the type of betting event - Game or Future
-        StartDate:
-          type:
-          - string
-          - 'null'
-          description: The furthest forward time any book has a market set to close for this betting event
-        Created:
-          type:
-          - string
-          - 'null'
-          description: The date and time when this betting event was created in US Eastern Time.
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of the last time this betting event was updated (in US Eastern Time)
-        GameID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the game tied to this BettingEvent
-        GlobalGameID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for the game tied to this betting event. This value is guaranteed to be unique across all sports/leagues.
-        GameStatus:
-          type:
-          - string
-          - 'null'
-          description: The status of the game tied to this event. A list of NHL game statuses can be found here.
-        Quarter:
-          type:
-          - string
-          - 'null'
-          description: 'The quarter of the game tied to this event. Note: This field will be null unless the game is ongoing.'
-        AwayTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the away team
-        HomeTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the home team
-        AwayTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique TeamID of the away team in the game tied to this betting event
-        HomeTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the home team tied to this betting event
-        GlobalAwayTeamID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for the away team tied to this betting event. This value is guaranteed to be unique across all sports/leagues.
-        GlobalHomeTeamID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for the home team tied to this betting event. This value is guaranteed to be unique across all sports/leagues.
-        AwayTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: Total number of goals the away team scored in the game tied to the event (post-game)
-        HomeTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: Total number of points the home team scored in the game tied to the event (post-game)
-        TotalScore:
-          type:
-          - integer
-          - 'null'
-          description: Total goals scored in the game (post-game)
-        AwayRotationNumber:
-          type:
-          - integer
-          - 'null'
-          description: The rotation number of the away team for a game
-        HomeRotationNumber:
-          type:
-          - integer
-          - 'null'
-          description: The rotation number of the home team for this game
-        BettingMarkets:
-          type: array
-          items:
-            $ref: '#/components/schemas/BettingMarket'
-          description: The list of betting markets for this event
-        GameStartTime:
-          type:
-          - string
-          - 'null'
-          description: 'The date and time that the game attached to the betting event started. Note: Time is in US Eastern Time'
-    BettingMarket:
-      properties:
-        BettingMarketID:
-          type: integer
-          description: The unique ID of the betting market
-        BettingEventID:
-          type: integer
-          description: The unique ID assocated with the betting event
-        BettingMarketTypeID:
-          type:
-          - integer
-          - 'null'
-          description: The ID associated with the name of the market type within a market
-        BettingMarketType:
-          type:
-          - string
-          - 'null'
-          description: The name of the market type within a betting market (e.g. Player Prop, Team Prop, Game Prop, etc.)
-        BettingBetTypeID:
-          type:
-          - integer
-          - 'null'
-          description: The ID associated with the name of the bet type within a market
-        BettingBetType:
-          type:
-          - string
-          - 'null'
-          description: The name of the bet type within a market (e.g. Total Points, Moneyline, Puck Line, etc.)
-        BettingPeriodTypeID:
-          type:
-          - integer
-          - 'null'
-          description: The ID associated with the betting period type which we can result
-        BettingPeriodType:
-          type:
-          - string
-          - 'null'
-          description: The name of the period type of a market (e.g. Full Game; 1st Period; Overtime; Regular Season)
-        Name:
-          type:
-          - string
-          - 'null'
-          description: The generic name of this market
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team
-        TeamKey:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team tied to this market result (if applicable)
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        PlayerName:
-          type:
-          - string
-          - 'null'
-          description: The name of the player tied to this market (if applicable)
-        Created:
-          type:
-          - string
-          - 'null'
-          description: The date and time when this betting market was created in US Eastern Time.
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The last updated date of this market
-        AvailableSportsbooks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Sportsbook'
-          description: The sportsbooks that have had odds in this market
-        AnyBetsAvailable:
-          type:
-          - boolean
-          - 'null'
-          description: A field that returns "True" if there are any available bets to make within the market in question. If there are no bets available to make, the field returns "False"
-        BettingOutcomes:
-          type: array
-          items:
-            $ref: '#/components/schemas/BettingOutcome'
-          description: The list of betting outcomes from each sportsbook in this market
-        ConsensusOutcomes:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConsensusOutcome'
-          description: The single set of consensus outcomes of this market
-        IsArchived:
-          type: boolean
-          description: Indicates if the BettingOutcomes have been moved to the archives
-        ArchiveLocation:
-          type:
-          - string
-          - 'null'
-          description: If IsArchived is true, this returns the URL that can be used to retrieve the archived BettingOutcomes. An API Key and Sportsbook Grouping will be required to retrieve this information. If IsArchived is false, this returns an emtpy string
-    BettingMarketResult:
-      properties:
-        BettingMarketID:
-          type: integer
-          description: The unique ID of the betting market
-        BettingMarketTypeID:
-          type: integer
-          description: The ID associated with the name of the market type within a market
-        BettingMarketType:
-          type:
-          - string
-          - 'null'
-          description: The name of the market type within a betting market (e.g. Player Prop, Team Prop, Game Prop, etc.)
-        BettingBetTypeID:
-          type: integer
-          description: The ID associated with the name of the bet type within a market
-        BettingBetType:
-          type:
-          - string
-          - 'null'
-          description: The name of the bet type within a market (e.g. Total Points, Moneyline, Puck Line, etc.)
-        BettingPeriodTypeID:
-          type: integer
-          description: The ID associated with the betting period type which we can result
-        BettingPeriodType:
-          type:
-          - string
-          - 'null'
-          description: The name of the period type of a market (e.g. Full Game; 1st Period; Overtime; Regular Season)
-        Name:
-          type:
-          - string
-          - 'null'
-          description: The generic name of this market
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team
-        TeamKey:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team tied to this market result (if applicable)
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        PlayerName:
-          type:
-          - string
-          - 'null'
-          description: The name of the player tied to this market (if applicable)
-        BettingOutcomeResults:
-          type: array
-          items:
-            $ref: '#/components/schemas/BettingOutcomeResult'
-          description: The list of outcomes under this market with results
-        IsMarketResultingSupported:
-          type: boolean
-          description: Indicates whether resulting is supported for this kind of BettingMarket
-    GameOddOutcome:
-      properties:
-        GameOddId:
-          type: integer
-          description: The unique ID of this odd
-        GameOddResultTypeId:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of this GameOddResultType
-        GameOddResultType:
-          type:
-          - string
-          - 'null'
-          description: The result/outcome of a bet (e.g. Won; Lost; Push; Not Resulted; Incomplete)
-        OddType:
-          type:
-          - string
-          - 'null'
-          description: 'The market type of the odd (ex: live; pregame; 1st-pd; etc)'
-        GameOddType:
-          type:
-          - string
-          - 'null'
-          description: The GameOddOutcomeType of this outcome as a string
-        BetValue:
-          type:
-          - number
-          - 'null'
-          description: The offered betting line from a sportsbook for a game (i.e. If a team won a game by 2 and the spread was -1.5, the actual value would be 2 and the bet value would be -1.5)
-        ActualValue:
-          type:
-          - number
-          - 'null'
-          description: The value of the actual result that occured in game (i.e. If a team won a game by 2 and the spread was -1.5, the actual value would be 2 and the bet value would be -1.5)
-    GameOddResult:
-      properties:
-        GameOddID:
-          type: integer
-          description: The unique ID of this odd
-        Sportsbook:
-          type:
-          - string
-          - 'null'
-          description: The name of the sportsbook
-        GameID:
-          type: integer
-          description: The unique ID of this game
-        Created:
-          type:
-          - string
-          - 'null'
-          description: The date and time of when these odds were first created; based on US Eatern Time (EST/EDT)
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of when these odds were last updated (in US Eastern Time)
-        HomeMoneyLine:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's moneyline for the home team
-        AwayMoneyLine:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's moneyline for the away team
-        HomePointSpread:
-          type:
-          - number
-          - 'null'
-          description: The sportsbook's point spread for the home team
-        AwayPointSpread:
-          type:
-          - number
-          - 'null'
-          description: The sportsbook's point spread for the away team
-        HomePointSpreadPayout:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's point spread payout for the home team
-        AwayPointSpreadPayout:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's point spread payout for the away team
-        OverUnder:
-          type:
-          - number
-          - 'null'
-          description: The sportsbook's total goals scored over under for the game
-        OverPayout:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's payout for the over
-        UnderPayout:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's payout for the under
-        SportsbookID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the sportsbook
-        SportsbookUrl:
-          type:
-          - string
-          - 'null'
-          description: The URL for sportsbook event
-        OddType:
-          type:
-          - string
-          - 'null'
-          description: 'The market type of the odd (ex: live, pregame, 1st-pd, etc)'
-        GameOddOutcomeResults:
-          type: array
-          items:
-            $ref: '#/components/schemas/GameOddOutcome'
-          description: List of outcomes showing results of betting markets that were bet on for the given game
-    GameInfo:
-      properties:
-        GameId:
-          type: integer
-          description: The unique ID of this game
-        Season:
-          type: integer
-          description: The NHL season of the game
-        SeasonType:
-          type: integer
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition).
-        Day:
-          type:
-          - string
-          - 'null'
-          description: The day that the game is scheduled to be played
-        DateTime:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game in US Eastern Time
-        Status:
-          type:
-          - string
-          - 'null'
-          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, F/SO, F/OT, Suspended, Postponed, Delayed, Canceled, Forfeit'
-        AwayTeamId:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the away team
-        HomeTeamId:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the home team
-        AwayTeamName:
-          type:
-          - string
-          - 'null'
-          description: The name of the away team
-        HomeTeamName:
-          type:
-          - string
-          - 'null'
-          description: The name of the home team
-        GlobalGameId:
-          type: integer
-          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
-        GlobalAwayTeamId:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
-        GlobalHomeTeamId:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
-        PregameOdds:
-          type: array
-          items:
-            $ref: '#/components/schemas/GameOdd'
-          description: List of Pregame GameOdds from different sportsbooks
-        LiveOdds:
-          type: array
-          items:
-            $ref: '#/components/schemas/GameOdd'
-          description: List of live game odds from different sportsbooks
-        HomeTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: Total number of goals the home team scored in the game (updated after game ends to allow for resolving bets)
-        AwayTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: Total number of goals the away team scored in the game (updated after game ends to allow for resolving bets)
-        TotalScore:
-          type:
-          - integer
-          - 'null'
-          description: Total goals scored in the game (updated after game ends to allow for resolving bets)
-        HomeRotationNumber:
-          type:
-          - integer
-          - 'null'
-          description: The rotation number of the home team for this game
-        AwayRotationNumber:
-          type:
-          - integer
-          - 'null'
-          description: The rotation number of the away team for a game
-        AlternateMarketPregameOdds:
-          type: array
-          items:
-            $ref: '#/components/schemas/GameOdd'
-          description: A list of Alternate Market Pregame GameOdds from different sportsbooks (e.g. 1st Period; 2nd Period; etc.)
-    BettingMarketSplit:
-      properties:
-        BettingMarketID:
-          type: integer
-          description: The unique ID of the betting market
-        BettingEventID:
-          type: integer
-          description: The unique ID of the betting event associated with this split
-        BettingMarketTypeID:
-          type: integer
-          description: The ID associated with the name of the market type within a market
-        BettingMarketType:
-          type:
-          - string
-          - 'null'
-          description: The name of the market type within a betting market (e.g. Player Prop, Team Prop, Game Prop, etc.)
-        BettingBetTypeID:
-          type: integer
-          description: The ID associated with the name of the bet type within a market
-        BettingBetType:
-          type:
-          - string
-          - 'null'
-          description: The name of the bet type within a market (e.g. Total Points, Moneyline, Puck Line, etc.)
-        BettingPeriodTypeID:
-          type: integer
-          description: The ID associated with the betting period type which we can result
-        BettingPeriodType:
-          type:
-          - string
-          - 'null'
-          description: The name of the period type of a market (e.g. Full Game; 1st Period; Overtime; Regular Season)
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team
-        TeamKey:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team tied to this market split (if applicable)
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        PlayerName:
-          type:
-          - string
-          - 'null'
-          description: The name of the player tied to this split (if applicable)
-        BettingSplits:
-          type: array
-          items:
-            $ref: '#/components/schemas/BettingSplit'
-          description: A list of betting splits
   securitySchemes:
     apiKeyHeader:
       type: apiKey

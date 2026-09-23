@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: MLB MLB v3 Headshots NFL v3 Play-by-Play API
+  title: NFL v3 Play-by-Play API
   version: '1.0'
-  description: MLB API - OpenAPI 3.1 Specification
+  description: NFL API - OpenAPI 3.1 Specification
 servers:
 - url: https://api.sportsdata.io
   description: Production server
@@ -276,78 +276,122 @@ paths:
       - NFL v3 Play-by-Play
 components:
   schemas:
-    ScoringPlay:
+    Unauthorized:
       properties:
-        GameKey:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    Play:
+      properties:
+        PlayID:
+          type: integer
+          description: The unique ID of the play
+        QuarterID:
+          type: integer
+          description: The unique ID of the quarter in which the play occurred
+        QuarterName:
           type:
           - string
           - 'null'
-          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks'
-        SeasonType:
-          type: integer
-          description: The type of season that this game corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
-        ScoringPlayID:
-          type: integer
-          description: Unique ID of the scoring play
-        Season:
-          type: integer
-          description: The NFL season of the game
-        Week:
-          type: integer
-          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
-        AwayTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key} of the away team
-        HomeTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the home team
-        Date:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game (in US Eastern Time)
+          description: The name of the quarter in which the play occurred
         Sequence:
           type:
           - integer
           - 'null'
-          description: The order in which the scoring play happened
+          description: The order in which this play and/or event happened over the course of the game
+        TimeRemainingMinutes:
+          type:
+          - integer
+          - 'null'
+          description: The minutes of the time remaining in the Quarter, when this play occurred.
+        TimeRemainingSeconds:
+          type:
+          - integer
+          - 'null'
+          description: The seconds of the time remaining in the Quarter, when this play occurred.
+        PlayTime:
+          type:
+          - string
+          - 'null'
+          description: The estimated timestamp of when this Play occurred on the field. Please note that we do not have scouts at the venue; so this is an estimate based on our TV feed and estimated TV feed delay
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this Play was last updated (in US Eastern time)
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this Play was first created (in US Eastern Time)
         Team:
           type:
           - string
           - 'null'
-          description: The abbreviation [Key] of the team
-        Quarter:
+          description: The abbreviation [Key] of the team that completed the play
+        Opponent:
           type:
           - string
           - 'null'
-          description: The quarter of the scoring play (1; 2; 3; 4; OT)
-        TimeRemaining:
-          type:
-          - string
-          - 'null'
-          description: The amount of time remaining in the current quarter when the scoring play occurred (e.g. 11:23; 5:34; NULL if game is not in progress or at halftime)
-        PlayDescription:
-          type:
-          - string
-          - 'null'
-          description: The detailed description of the play for display purposes
-        AwayScore:
+          description: The abbreviation [Key] of the opponent of the team that this play relates to
+        Down:
           type:
           - integer
           - 'null'
-          description: The away team's score as a result of the scoring play (includes point after)
-        HomeScore:
+          description: The Down when this Play occurred.
+        Distance:
           type:
           - integer
           - 'null'
-          description: The home team's score as a result of the scoring play (includes point after)
-        ScoreID:
-          type: integer
-          description: Unique ID of the score/game
+          description: 'The yards to go for a first down. Note: this can be any positive number or "Goal"'
+        YardLine:
+          type:
+          - integer
+          - 'null'
+          description: the yard line of the ball's current position on the field when this play occurred
+        YardLineTerritory:
+          type:
+          - string
+          - 'null'
+          description: The team's side of the field that the ball is on when the play occurred
+        YardsToEndZone:
+          type:
+          - integer
+          - 'null'
+          description: The number of yards to go to reach the end zone at the start of the play
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'The Type of Play that occurred (possible values: Rush, PassCompleted, PassIncomplete, PassIntercepted, TwoPointConversion, Punt, Kickoff, FieldGoal, ExtraPoint, Fumble, Penalty, Sack, Timeout, Period)'
+        YardsGained:
+          type:
+          - integer
+          - 'null'
+          description: The number of yards gained or lost on the play
+        Description:
+          type:
+          - string
+          - 'null'
+          description: The description of the Play.
+        IsScoringPlay:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this Play was a scoring play.
+        ScoringPlay:
+          $ref: '#/components/schemas/ScoringPlay'
+          description: The details of the scoring play attached to this play (if any).
+        PlayStats:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlayStat'
+          description: The list of player stats accumulated during the play
     Score:
       properties:
         GameKey:
@@ -1081,6 +1125,47 @@ components:
           - integer
           - 'null'
           description: Total penalty yards enforced against the player on the play
+    Quarter:
+      properties:
+        QuarterID:
+          type: integer
+          description: The unique ID of the quarter
+        ScoreID:
+          type: integer
+          description: The unique ID of the score this quarter belongs to
+        Number:
+          type: integer
+          description: The Number (Order) of the Quarter in the scope of the Game.
+        Name:
+          type:
+          - string
+          - 'null'
+          description: 'The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)'
+        Description:
+          type:
+          - string
+          - 'null'
+          description: The long description of the quarter
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the away team in this Quarter.
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the home team in this Quarter.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this Quarter was last updated (in US Eastern time)
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this Quarter was first created (in US Eastern Time)
     Stadium:
       properties:
         StadiumID:
@@ -1131,6 +1216,78 @@ components:
           - string
           - 'null'
           description: 'The type of the stadium (possible values: Outdoor, Dome, RetractableDome)'
+    ScoringPlay:
+      properties:
+        GameKey:
+          type:
+          - string
+          - 'null'
+          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks'
+        SeasonType:
+          type: integer
+          description: The type of season that this game corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+        ScoringPlayID:
+          type: integer
+          description: Unique ID of the scoring play
+        Season:
+          type: integer
+          description: The NFL season of the game
+        Week:
+          type: integer
+          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key} of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        Date:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        Sequence:
+          type:
+          - integer
+          - 'null'
+          description: The order in which the scoring play happened
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Quarter:
+          type:
+          - string
+          - 'null'
+          description: The quarter of the scoring play (1; 2; 3; 4; OT)
+        TimeRemaining:
+          type:
+          - string
+          - 'null'
+          description: The amount of time remaining in the current quarter when the scoring play occurred (e.g. 11:23; 5:34; NULL if game is not in progress or at halftime)
+        PlayDescription:
+          type:
+          - string
+          - 'null'
+          description: The detailed description of the play for display purposes
+        AwayScore:
+          type:
+          - integer
+          - 'null'
+          description: The away team's score as a result of the scoring play (includes point after)
+        HomeScore:
+          type:
+          - integer
+          - 'null'
+          description: The home team's score as a result of the scoring play (includes point after)
+        ScoreID:
+          type: integer
+          description: Unique ID of the score/game
     PlayByPlay:
       properties:
         Score:
@@ -1146,163 +1303,6 @@ components:
           items:
             $ref: '#/components/schemas/Play'
           description: The list of plays for the given game
-    Play:
-      properties:
-        PlayID:
-          type: integer
-          description: The unique ID of the play
-        QuarterID:
-          type: integer
-          description: The unique ID of the quarter in which the play occurred
-        QuarterName:
-          type:
-          - string
-          - 'null'
-          description: The name of the quarter in which the play occurred
-        Sequence:
-          type:
-          - integer
-          - 'null'
-          description: The order in which this play and/or event happened over the course of the game
-        TimeRemainingMinutes:
-          type:
-          - integer
-          - 'null'
-          description: The minutes of the time remaining in the Quarter, when this play occurred.
-        TimeRemainingSeconds:
-          type:
-          - integer
-          - 'null'
-          description: The seconds of the time remaining in the Quarter, when this play occurred.
-        PlayTime:
-          type:
-          - string
-          - 'null'
-          description: The estimated timestamp of when this Play occurred on the field. Please note that we do not have scouts at the venue; so this is an estimate based on our TV feed and estimated TV feed delay
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The database generated timestamp of when this Play was last updated (in US Eastern time)
-        Created:
-          type:
-          - string
-          - 'null'
-          description: The database generated timestamp of when this Play was first created (in US Eastern Time)
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team that completed the play
-        Opponent:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the opponent of the team that this play relates to
-        Down:
-          type:
-          - integer
-          - 'null'
-          description: The Down when this Play occurred.
-        Distance:
-          type:
-          - integer
-          - 'null'
-          description: 'The yards to go for a first down. Note: this can be any positive number or "Goal"'
-        YardLine:
-          type:
-          - integer
-          - 'null'
-          description: the yard line of the ball's current position on the field when this play occurred
-        YardLineTerritory:
-          type:
-          - string
-          - 'null'
-          description: The team's side of the field that the ball is on when the play occurred
-        YardsToEndZone:
-          type:
-          - integer
-          - 'null'
-          description: The number of yards to go to reach the end zone at the start of the play
-        Type:
-          type:
-          - string
-          - 'null'
-          description: 'The Type of Play that occurred (possible values: Rush, PassCompleted, PassIncomplete, PassIntercepted, TwoPointConversion, Punt, Kickoff, FieldGoal, ExtraPoint, Fumble, Penalty, Sack, Timeout, Period)'
-        YardsGained:
-          type:
-          - integer
-          - 'null'
-          description: The number of yards gained or lost on the play
-        Description:
-          type:
-          - string
-          - 'null'
-          description: The description of the Play.
-        IsScoringPlay:
-          type:
-          - boolean
-          - 'null'
-          description: Indicates whether this Play was a scoring play.
-        ScoringPlay:
-          $ref: '#/components/schemas/ScoringPlay'
-          description: The details of the scoring play attached to this play (if any).
-        PlayStats:
-          type: array
-          items:
-            $ref: '#/components/schemas/PlayStat'
-          description: The list of player stats accumulated during the play
-    Quarter:
-      properties:
-        QuarterID:
-          type: integer
-          description: The unique ID of the quarter
-        ScoreID:
-          type: integer
-          description: The unique ID of the score this quarter belongs to
-        Number:
-          type: integer
-          description: The Number (Order) of the Quarter in the scope of the Game.
-        Name:
-          type:
-          - string
-          - 'null'
-          description: 'The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)'
-        Description:
-          type:
-          - string
-          - 'null'
-          description: The long description of the quarter
-        AwayTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: The total points scored by the away team in this Quarter.
-        HomeTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: The total points scored by the home team in this Quarter.
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The database generated timestamp of when this Quarter was last updated (in US Eastern time)
-        Created:
-          type:
-          - string
-          - 'null'
-          description: The database generated timestamp of when this Quarter was first created (in US Eastern Time)
-    Unauthorized:
-      properties:
-        HttpStatusCode:
-          type: integer
-        Code:
-          type: integer
-        Description:
-          type: string
-        Help:
-          type: string
   securitySchemes:
     apiKeyHeader:
       type: apiKey

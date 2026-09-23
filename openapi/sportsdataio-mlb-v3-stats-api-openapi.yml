@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: MLB MLB v3 Headshots MLB v3 Stats API
+  title: MLB v3 Stats API
   version: '1.0'
   description: MLB API - OpenAPI 3.1 Specification
 servers:
@@ -545,7 +545,7 @@ paths:
       - MLB v3 Stats
   /v3/mlb/stats/{format}/PlayerGameStatsBySeason/{season}/{playerid}/{numberofgames}:
     get:
-      description: Specify a season, a player, and number of games (either an integer or <code>all</code>) to see all of their box score logs. Refreshed after their most recent game is complete.
+      description: Specify a season, a player, and number of games (either an integer or all) to see all of their box score logs. Refreshed after their most recent game is complete.
       operationId: mlb_v3_stats_player_game_logs___by_season
       summary: Player Game Logs - by Season
       parameters:
@@ -758,6 +758,629 @@ paths:
       - MLB v3 Stats
 components:
   schemas:
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    TeamGame:
+      properties:
+        StatID:
+          type: integer
+          description: The unique ID of the stat
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The team's unique TeamID as assigned by SportsDataIO
+        SeasonType:
+          type:
+          - integer
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The MLB season of the game
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Team's full name (city and mascot)
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this game
+        OpponentID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team's opponent
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The name of the opponent 
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        IsGameOver:
+          type: boolean
+          description: Whether the game is over (true/false)
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalOpponentID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time).
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played.
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points
+        AtBats:
+          type:
+          - number
+          - 'null'
+          description: At bats while hitting
+        Runs:
+          type:
+          - number
+          - 'null'
+          description: Total runs scored.
+        Hits:
+          type:
+          - number
+          - 'null'
+          description: Total hits
+        Singles:
+          type:
+          - number
+          - 'null'
+          description: Total singles
+        Doubles:
+          type:
+          - number
+          - 'null'
+          description: Total doubles
+        Triples:
+          type:
+          - number
+          - 'null'
+          description: Total triples
+        HomeRuns:
+          type:
+          - number
+          - 'null'
+          description: Total home runs
+        RunsBattedIn:
+          type:
+          - number
+          - 'null'
+          description: Total runs batted in
+        BattingAverage:
+          type:
+          - number
+          - 'null'
+          description: Total batting average
+        Outs:
+          type:
+          - number
+          - 'null'
+          description: Total outs
+        Strikeouts:
+          type:
+          - number
+          - 'null'
+          description: Total strikeouts
+        Walks:
+          type:
+          - number
+          - 'null'
+          description: Total walks
+        HitByPitch:
+          type:
+          - number
+          - 'null'
+          description: Total times hit by pitch
+        Sacrifices:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifices
+        SacrificeFlies:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifice flies
+        GroundIntoDoublePlay:
+          type:
+          - number
+          - 'null'
+          description: Total times grounded into double play
+        StolenBases:
+          type:
+          - number
+          - 'null'
+          description: Total stolen bases
+        CaughtStealing:
+          type:
+          - number
+          - 'null'
+          description: Total caught stealing
+        PitchesSeen:
+          type:
+          - number
+          - 'null'
+          description: Total pitches seen
+        OnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total on base percentage
+        SluggingPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total slugging percentage
+        OnBasePlusSlugging:
+          type:
+          - number
+          - 'null'
+          description: Total on base plus percentage 
+        Errors:
+          type:
+          - number
+          - 'null'
+          description: Total errors
+        Wins:
+          type:
+          - number
+          - 'null'
+          description: Total wins by the team/player
+        Losses:
+          type:
+          - number
+          - 'null'
+          description: Total losses by the team/player
+        Saves:
+          type:
+          - number
+          - 'null'
+          description: Total saves by team/player
+        InningsPitchedDecimal:
+          type:
+          - number
+          - 'null'
+          description: Decimal representation of total innings pitched (e.g. 1.33, 7.66, etc)
+        TotalOutsPitched:
+          type:
+          - number
+          - 'null'
+          description: Total outs pitched by team/player
+        InningsPitchedFull:
+          type:
+          - number
+          - 'null'
+          description: Total full innings pitched (e.g. 6, 71, 89, etc)
+        InningsPitchedOuts:
+          type:
+          - number
+          - 'null'
+          description: 'Outs pitched beyond InningsPitchedFull (possible values: 0, 1, 2)'
+        EarnedRunAverage:
+          type:
+          - number
+          - 'null'
+          description: Total earned run average by team/player
+        PitchingHits:
+          type:
+          - number
+          - 'null'
+          description: Hits allowed while pitching
+        PitchingRuns:
+          type:
+          - number
+          - 'null'
+          description: Runs allowed while pitching
+        PitchingEarnedRuns:
+          type:
+          - number
+          - 'null'
+          description: Earned runs allowed while pitching
+        PitchingWalks:
+          type:
+          - number
+          - 'null'
+          description: Walks allowed while pitching
+        PitchingStrikeouts:
+          type:
+          - number
+          - 'null'
+          description: Strikeouts allowed while pitching
+        PitchingHomeRuns:
+          type:
+          - number
+          - 'null'
+          description: Home runs allowed while pitching
+        PitchesThrown:
+          type:
+          - number
+          - 'null'
+          description: Total pitches thrown while pitching
+        PitchesThrownStrikes:
+          type:
+          - number
+          - 'null'
+          description: Total pitches thrown for strikes while pitching
+        WalksHitsPerInningsPitched:
+          type:
+          - number
+          - 'null'
+          description: Walks plus hits per innings pitched (WHIP) while pitching
+        PitchingBattingAverageAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total batting average against (BAA) while pitching
+        GrandSlams:
+          type:
+          - number
+          - 'null'
+          description: Total grand slams
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total FanDuel fantasy points
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings fantasy points
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points
+        PlateAppearances:
+          type:
+          - number
+          - 'null'
+          description: Total plate appearances
+        TotalBases:
+          type:
+          - number
+          - 'null'
+          description: Number of total bases
+        FlyOuts:
+          type:
+          - number
+          - 'null'
+          description: Total fly outs
+        GroundOuts:
+          type:
+          - number
+          - 'null'
+          description: Total ground outs
+        LineOuts:
+          type:
+          - number
+          - 'null'
+          description: Total line outs
+        PopOuts:
+          type:
+          - number
+          - 'null'
+          description: Total pop outs
+        IntentionalWalks:
+          type:
+          - number
+          - 'null'
+          description: Total intentional walks
+        ReachedOnError:
+          type:
+          - number
+          - 'null'
+          description: Total times reached on error
+        BallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total balls in play
+        BattingAverageOnBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total batting average on balls in play (BABIP)
+        WeightedOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total weight on base percentage
+        PitchingSingles:
+          type:
+          - number
+          - 'null'
+          description: Total singles allowed while pitching
+        PitchingDoubles:
+          type:
+          - number
+          - 'null'
+          description: Total doubles allowed while pitching
+        PitchingTriples:
+          type:
+          - number
+          - 'null'
+          description: Total triples allowed while pitching
+        PitchingGrandSlams:
+          type:
+          - number
+          - 'null'
+          description: Total grand slams allowed while pitching
+        PitchingHitByPitch:
+          type:
+          - number
+          - 'null'
+          description: Total batters hit by pitch while pitching
+        PitchingSacrifices:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifices while pitching
+        PitchingSacrificeFlies:
+          type:
+          - number
+          - 'null'
+          description: Total sacrifice flies while pitching
+        PitchingGroundIntoDoublePlay:
+          type:
+          - number
+          - 'null'
+          description: Total grounded into double plays while pitching
+        PitchingCompleteGames:
+          type:
+          - number
+          - 'null'
+          description: Total complete games while pitching
+        PitchingShutOuts:
+          type:
+          - number
+          - 'null'
+          description: Total shuouts while pitching
+        PitchingNoHitters:
+          type:
+          - number
+          - 'null'
+          description: Total no hitters while pitching
+        PitchingPerfectGames:
+          type:
+          - number
+          - 'null'
+          description: Total perfect games while pitching
+        PitchingPlateAppearances:
+          type:
+          - number
+          - 'null'
+          description: Total plate appearances while pitching
+        PitchingTotalBases:
+          type:
+          - number
+          - 'null'
+          description: Total bases while pitching
+        PitchingFlyOuts:
+          type:
+          - number
+          - 'null'
+          description: Total fly outs while pitching
+        PitchingGroundOuts:
+          type:
+          - number
+          - 'null'
+          description: Total ground outs while pitching
+        PitchingLineOuts:
+          type:
+          - number
+          - 'null'
+          description: Total line outs while pitching
+        PitchingPopOuts:
+          type:
+          - number
+          - 'null'
+          description: Total pop outs while pitching
+        PitchingIntentionalWalks:
+          type:
+          - number
+          - 'null'
+          description: Total intentional walks while pitching
+        PitchingReachedOnError:
+          type:
+          - number
+          - 'null'
+          description: Total times reached on error while pitching
+        PitchingCatchersInterference:
+          type:
+          - number
+          - 'null'
+          description: Total catchers interference while pitching
+        PitchingBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total balls in play while pitching
+        PitchingOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total on base percentage (OBP) while pitching
+        PitchingSluggingPercentage:
+          type:
+          - number
+          - 'null'
+          description: Total slugging percentage (SLG) while pitching
+        PitchingOnBasePlusSlugging:
+          type:
+          - number
+          - 'null'
+          description: Total on base plus slugging (OPS) while pitching
+        PitchingStrikeoutsPerNineInnings:
+          type:
+          - number
+          - 'null'
+          description: Total strikeouts per nine innings (K/9) while pitching
+        PitchingWalksPerNineInnings:
+          type:
+          - number
+          - 'null'
+          description: Total walks per nine innings (BB/9) while pitching
+        PitchingBattingAverageOnBallsInPlay:
+          type:
+          - number
+          - 'null'
+          description: Total batting average on balls in play (BABIP) while pitching
+        PitchingWeightedOnBasePercentage:
+          type:
+          - number
+          - 'null'
+          description: Total weighted on base percentage while pitching 
+        DoublePlays:
+          type:
+          - number
+          - 'null'
+          description: 'Total double plays, defined as one of: Bunted into Double Play, Fly into Double Play, Fouled into Double Play, Ground into Double Pla,y Line into Double Play, Popped into Double Play'
+        PitchingDoublePlays:
+          type:
+          - number
+          - 'null'
+          description: Total double plays while pitching
+        BattingOrderConfirmed:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the batting order is confirmed (true/false)
+        IsolatedPower:
+          type:
+          - number
+          - 'null'
+          description: Total isolated power (ISO)
+        FieldingIndependentPitching:
+          type:
+          - number
+          - 'null'
+          description: Total fielding independent pitching (FIP)
+        PitchingQualityStarts:
+          type:
+          - number
+          - 'null'
+          description: Total quality starts pitched
+        PitchingInningStarted:
+          type:
+          - integer
+          - 'null'
+          description: The inning that the pitcher entered the game (if any).
+        LeftOnBase:
+          type:
+          - number
+          - 'null'
+          description: Total left on base percentage 
+        PitchingHolds:
+          type:
+          - number
+          - 'null'
+          description: Total holds pitched
+        PitchingBlownSaves:
+          type:
+          - number
+          - 'null'
+          description: Total blown saves pitched
+        SubstituteBattingOrder:
+          type:
+          - integer
+          - 'null'
+          description: The position in the batting order where this player was substituted into the game (does not include players in the starting lineup)
+        SubstituteBattingOrderSequence:
+          type:
+          - integer
+          - 'null'
+          description: The sequence in which this player was substituted into the game, within the particular batting order
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Total FantasyDraft fantasy points
+        FantasyPointsBatting:
+          type:
+          - number
+          - 'null'
+          description: Total batting fantasy points
+        FantasyPointsPitching:
+          type:
+          - number
+          - 'null'
+          description: Total pitching fantasy points
+    BoxScore:
+      properties:
+        Game:
+          $ref: '#/components/schemas/Game'
+          description: The details of the game associated with this box score
+        Innings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Inning'
+          description: The inning details associated with the box score
+        TeamGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamGame'
+          description: The team game stats associated with this box score
+        PlayerGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlayerGame'
+          description: The player game stats associated with this box score
     PlayerGame:
       properties:
         StatID:
@@ -1451,27 +2074,6 @@ components:
           - number
           - 'null'
           description: Total pitching fantasy points
-    Inning:
-      properties:
-        InningID:
-          type: integer
-          description: The unique ID of this specific inning
-        GameID:
-          type: integer
-          description: The unique ID of the game tied to this Inning
-        InningNumber:
-          type: integer
-          description: The current inning number of the game
-        AwayTeamRuns:
-          type:
-          - integer
-          - 'null'
-          description: Number of runs scored by the away team in the specific inning
-        HomeTeamRuns:
-          type:
-          - integer
-          - 'null'
-          description: Number of runs scored by the home team in the specific inning
     Game:
       properties:
         GameID:
@@ -1864,26 +2466,163 @@ components:
           - string
           - 'null'
           description: The date and start-time that the suspended in play game will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status.
-    BoxScore:
+    Series:
       properties:
-        Game:
-          $ref: '#/components/schemas/Game'
-          description: The details of the game associated with this box score
-        Innings:
-          type: array
-          items:
-            $ref: '#/components/schemas/Inning'
-          description: The inning details associated with the box score
-        TeamGames:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamGame'
-          description: The team game stats associated with this box score
-        PlayerGames:
-          type: array
-          items:
-            $ref: '#/components/schemas/PlayerGame'
-          description: The player game stats associated with this box score
+        HomeTeamWins:
+          type: integer
+          description: 'Number of wins by the home team on in the series. Note: this is for postseason series only.'
+        AwayTeamWins:
+          type: integer
+          description: 'Number of wins by the away team in the series. Note: This is for postseason series only.'
+        GameNumber:
+          type: integer
+          description: 'Game number in series. Note: this applies to postseason series only.'
+        MaxLength:
+          type: integer
+          description: 'Maximum number of games in the series. Note: this is for postseason series only.'
+    FantasyGame:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career'
+        SeasonType:
+          type:
+          - integer
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar).
+        Season:
+          type:
+          - integer
+          - 'null'
+          description: The MLB season of the game
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in US Eastern Time
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The name [Key] of the player's opponent in the game
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        Jersey:
+          type:
+          - integer
+          - 'null'
+          description: The player's jersey number.
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Player's full name
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position associated with the given game or season. Possible values: 1B, 2B, 3B, C, CF, DH, IF, LF, OF, P, PH, PR, RF, RP, SP, SS'
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s position category. Possible values: DH; IF; OF; P; PH; PR'
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: 'The number of games played by the player. Note: for game feeds this will always = 1'
+        Started:
+          type:
+          - integer
+          - 'null'
+          description: 'Whether the player started in the game. Note: started = 1 and not starting = 0'
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points by the player during the game
+        FantasyPointsBatting:
+          type:
+          - number
+          - 'null'
+          description: Total batting fantasy points by the player in the game
+        FantasyPointsPitching:
+          type:
+          - number
+          - 'null'
+          description: Total pitching fantasy points by the player in the game
+        IsGameOver:
+          type:
+          - boolean
+          - 'null'
+          description: Whether or not the game is over (returns ture/false)
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total FanDuel fantasy points by the player in the game
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points by the player in the game
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings fantasy points by the player in the game
+        FanDuelPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in FanDuel's daily fantasy sports platform.
+        DraftKingsPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in DraftKings' daily fantasy sports platform.
+        YahooPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Yahoo's daily fantasy sports platform
+        OpponentRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the player's opponent with regards to fantasy points allowed
+        OppositionPositionRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the player's opponent by position with regards to fantasy points allowed
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the late update made to this record (in US Eastern Time)
     PlayerSeason:
       properties:
         StatID:
@@ -2469,766 +3208,27 @@ components:
           - number
           - 'null'
           description: Total pitching fantasy points
-    FantasyGame:
+    Inning:
       properties:
+        InningID:
+          type: integer
+          description: The unique ID of this specific inning
         GameID:
           type: integer
-          description: The unique ID of this game
-        PlayerID:
+          description: The unique ID of the game tied to this Inning
+        InningNumber:
           type: integer
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their MLB career'
-        SeasonType:
+          description: The current inning number of the game
+        AwayTeamRuns:
           type:
           - integer
           - 'null'
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar).
-        Season:
+          description: Number of runs scored by the away team in the specific inning
+        HomeTeamRuns:
           type:
           - integer
           - 'null'
-          description: The MLB season of the game
-        Day:
-          type:
-          - string
-          - 'null'
-          description: The date of the game
-        DateTime:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game in US Eastern Time
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team
-        Opponent:
-          type:
-          - string
-          - 'null'
-          description: The name [Key] of the player's opponent in the game
-        HomeOrAway:
-          type:
-          - string
-          - 'null'
-          description: Whether the team is home or away
-        Jersey:
-          type:
-          - integer
-          - 'null'
-          description: The player's jersey number.
-        Name:
-          type:
-          - string
-          - 'null'
-          description: Player's full name
-        Position:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s position associated with the given game or season. Possible values: 1B, 2B, 3B, C, CF, DH, IF, LF, OF, P, PH, PR, RF, RP, SP, SS'
-        PositionCategory:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s position category. Possible values: DH; IF; OF; P; PH; PR'
-        Games:
-          type:
-          - integer
-          - 'null'
-          description: 'The number of games played by the player. Note: for game feeds this will always = 1'
-        Started:
-          type:
-          - integer
-          - 'null'
-          description: 'Whether the player started in the game. Note: started = 1 and not starting = 0'
-        FantasyPoints:
-          type:
-          - number
-          - 'null'
-          description: Total fantasy points by the player during the game
-        FantasyPointsBatting:
-          type:
-          - number
-          - 'null'
-          description: Total batting fantasy points by the player in the game
-        FantasyPointsPitching:
-          type:
-          - number
-          - 'null'
-          description: Total pitching fantasy points by the player in the game
-        IsGameOver:
-          type:
-          - boolean
-          - 'null'
-          description: Whether or not the game is over (returns ture/false)
-        FantasyPointsFanDuel:
-          type:
-          - number
-          - 'null'
-          description: Total FanDuel fantasy points by the player in the game
-        FantasyPointsYahoo:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo fantasy points by the player in the game
-        FantasyPointsDraftKings:
-          type:
-          - number
-          - 'null'
-          description: Total DraftKings fantasy points by the player in the game
-        FanDuelPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in FanDuel's daily fantasy sports platform.
-        DraftKingsPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in DraftKings' daily fantasy sports platform.
-        YahooPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in Yahoo's daily fantasy sports platform
-        OpponentRank:
-          type:
-          - integer
-          - 'null'
-          description: The ranking of the player's opponent with regards to fantasy points allowed
-        OppositionPositionRank:
-          type:
-          - integer
-          - 'null'
-          description: The ranking of the player's opponent by position with regards to fantasy points allowed
-        GlobalGameID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the late update made to this record (in US Eastern Time)
-    Series:
-      properties:
-        HomeTeamWins:
-          type: integer
-          description: 'Number of wins by the home team on in the series. Note: this is for postseason series only.'
-        AwayTeamWins:
-          type: integer
-          description: 'Number of wins by the away team in the series. Note: This is for postseason series only.'
-        GameNumber:
-          type: integer
-          description: 'Game number in series. Note: this applies to postseason series only.'
-        MaxLength:
-          type: integer
-          description: 'Maximum number of games in the series. Note: this is for postseason series only.'
-    TeamGame:
-      properties:
-        StatID:
-          type: integer
-          description: The unique ID of the stat
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The team's unique TeamID as assigned by SportsDataIO
-        SeasonType:
-          type:
-          - integer
-          - 'null'
-          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar)
-        Season:
-          type:
-          - integer
-          - 'null'
-          description: The MLB season of the game
-        Name:
-          type:
-          - string
-          - 'null'
-          description: Team's full name (city and mascot)
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team
-        GlobalTeamID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
-        GameID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of this game
-        OpponentID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team's opponent
-        Opponent:
-          type:
-          - string
-          - 'null'
-          description: The name of the opponent 
-        Day:
-          type:
-          - string
-          - 'null'
-          description: The day of the game
-        DateTime:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game
-        HomeOrAway:
-          type:
-          - string
-          - 'null'
-          description: Whether the team is home or away
-        IsGameOver:
-          type: boolean
-          description: Whether the game is over (true/false)
-        GlobalGameID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
-        GlobalOpponentID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of when the record was last updated (US Eastern Time).
-        Games:
-          type:
-          - integer
-          - 'null'
-          description: The number of games played.
-        FantasyPoints:
-          type:
-          - number
-          - 'null'
-          description: Total fantasy points
-        AtBats:
-          type:
-          - number
-          - 'null'
-          description: At bats while hitting
-        Runs:
-          type:
-          - number
-          - 'null'
-          description: Total runs scored.
-        Hits:
-          type:
-          - number
-          - 'null'
-          description: Total hits
-        Singles:
-          type:
-          - number
-          - 'null'
-          description: Total singles
-        Doubles:
-          type:
-          - number
-          - 'null'
-          description: Total doubles
-        Triples:
-          type:
-          - number
-          - 'null'
-          description: Total triples
-        HomeRuns:
-          type:
-          - number
-          - 'null'
-          description: Total home runs
-        RunsBattedIn:
-          type:
-          - number
-          - 'null'
-          description: Total runs batted in
-        BattingAverage:
-          type:
-          - number
-          - 'null'
-          description: Total batting average
-        Outs:
-          type:
-          - number
-          - 'null'
-          description: Total outs
-        Strikeouts:
-          type:
-          - number
-          - 'null'
-          description: Total strikeouts
-        Walks:
-          type:
-          - number
-          - 'null'
-          description: Total walks
-        HitByPitch:
-          type:
-          - number
-          - 'null'
-          description: Total times hit by pitch
-        Sacrifices:
-          type:
-          - number
-          - 'null'
-          description: Total sacrifices
-        SacrificeFlies:
-          type:
-          - number
-          - 'null'
-          description: Total sacrifice flies
-        GroundIntoDoublePlay:
-          type:
-          - number
-          - 'null'
-          description: Total times grounded into double play
-        StolenBases:
-          type:
-          - number
-          - 'null'
-          description: Total stolen bases
-        CaughtStealing:
-          type:
-          - number
-          - 'null'
-          description: Total caught stealing
-        PitchesSeen:
-          type:
-          - number
-          - 'null'
-          description: Total pitches seen
-        OnBasePercentage:
-          type:
-          - number
-          - 'null'
-          description: Total on base percentage
-        SluggingPercentage:
-          type:
-          - number
-          - 'null'
-          description: Total slugging percentage
-        OnBasePlusSlugging:
-          type:
-          - number
-          - 'null'
-          description: Total on base plus percentage 
-        Errors:
-          type:
-          - number
-          - 'null'
-          description: Total errors
-        Wins:
-          type:
-          - number
-          - 'null'
-          description: Total wins by the team/player
-        Losses:
-          type:
-          - number
-          - 'null'
-          description: Total losses by the team/player
-        Saves:
-          type:
-          - number
-          - 'null'
-          description: Total saves by team/player
-        InningsPitchedDecimal:
-          type:
-          - number
-          - 'null'
-          description: Decimal representation of total innings pitched (e.g. 1.33, 7.66, etc)
-        TotalOutsPitched:
-          type:
-          - number
-          - 'null'
-          description: Total outs pitched by team/player
-        InningsPitchedFull:
-          type:
-          - number
-          - 'null'
-          description: Total full innings pitched (e.g. 6, 71, 89, etc)
-        InningsPitchedOuts:
-          type:
-          - number
-          - 'null'
-          description: 'Outs pitched beyond InningsPitchedFull (possible values: 0, 1, 2)'
-        EarnedRunAverage:
-          type:
-          - number
-          - 'null'
-          description: Total earned run average by team/player
-        PitchingHits:
-          type:
-          - number
-          - 'null'
-          description: Hits allowed while pitching
-        PitchingRuns:
-          type:
-          - number
-          - 'null'
-          description: Runs allowed while pitching
-        PitchingEarnedRuns:
-          type:
-          - number
-          - 'null'
-          description: Earned runs allowed while pitching
-        PitchingWalks:
-          type:
-          - number
-          - 'null'
-          description: Walks allowed while pitching
-        PitchingStrikeouts:
-          type:
-          - number
-          - 'null'
-          description: Strikeouts allowed while pitching
-        PitchingHomeRuns:
-          type:
-          - number
-          - 'null'
-          description: Home runs allowed while pitching
-        PitchesThrown:
-          type:
-          - number
-          - 'null'
-          description: Total pitches thrown while pitching
-        PitchesThrownStrikes:
-          type:
-          - number
-          - 'null'
-          description: Total pitches thrown for strikes while pitching
-        WalksHitsPerInningsPitched:
-          type:
-          - number
-          - 'null'
-          description: Walks plus hits per innings pitched (WHIP) while pitching
-        PitchingBattingAverageAgainst:
-          type:
-          - number
-          - 'null'
-          description: Total batting average against (BAA) while pitching
-        GrandSlams:
-          type:
-          - number
-          - 'null'
-          description: Total grand slams
-        FantasyPointsFanDuel:
-          type:
-          - number
-          - 'null'
-          description: Total FanDuel fantasy points
-        FantasyPointsDraftKings:
-          type:
-          - number
-          - 'null'
-          description: Total DraftKings fantasy points
-        FantasyPointsYahoo:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo fantasy points
-        PlateAppearances:
-          type:
-          - number
-          - 'null'
-          description: Total plate appearances
-        TotalBases:
-          type:
-          - number
-          - 'null'
-          description: Number of total bases
-        FlyOuts:
-          type:
-          - number
-          - 'null'
-          description: Total fly outs
-        GroundOuts:
-          type:
-          - number
-          - 'null'
-          description: Total ground outs
-        LineOuts:
-          type:
-          - number
-          - 'null'
-          description: Total line outs
-        PopOuts:
-          type:
-          - number
-          - 'null'
-          description: Total pop outs
-        IntentionalWalks:
-          type:
-          - number
-          - 'null'
-          description: Total intentional walks
-        ReachedOnError:
-          type:
-          - number
-          - 'null'
-          description: Total times reached on error
-        BallsInPlay:
-          type:
-          - number
-          - 'null'
-          description: Total balls in play
-        BattingAverageOnBallsInPlay:
-          type:
-          - number
-          - 'null'
-          description: Total batting average on balls in play (BABIP)
-        WeightedOnBasePercentage:
-          type:
-          - number
-          - 'null'
-          description: Total weight on base percentage
-        PitchingSingles:
-          type:
-          - number
-          - 'null'
-          description: Total singles allowed while pitching
-        PitchingDoubles:
-          type:
-          - number
-          - 'null'
-          description: Total doubles allowed while pitching
-        PitchingTriples:
-          type:
-          - number
-          - 'null'
-          description: Total triples allowed while pitching
-        PitchingGrandSlams:
-          type:
-          - number
-          - 'null'
-          description: Total grand slams allowed while pitching
-        PitchingHitByPitch:
-          type:
-          - number
-          - 'null'
-          description: Total batters hit by pitch while pitching
-        PitchingSacrifices:
-          type:
-          - number
-          - 'null'
-          description: Total sacrifices while pitching
-        PitchingSacrificeFlies:
-          type:
-          - number
-          - 'null'
-          description: Total sacrifice flies while pitching
-        PitchingGroundIntoDoublePlay:
-          type:
-          - number
-          - 'null'
-          description: Total grounded into double plays while pitching
-        PitchingCompleteGames:
-          type:
-          - number
-          - 'null'
-          description: Total complete games while pitching
-        PitchingShutOuts:
-          type:
-          - number
-          - 'null'
-          description: Total shuouts while pitching
-        PitchingNoHitters:
-          type:
-          - number
-          - 'null'
-          description: Total no hitters while pitching
-        PitchingPerfectGames:
-          type:
-          - number
-          - 'null'
-          description: Total perfect games while pitching
-        PitchingPlateAppearances:
-          type:
-          - number
-          - 'null'
-          description: Total plate appearances while pitching
-        PitchingTotalBases:
-          type:
-          - number
-          - 'null'
-          description: Total bases while pitching
-        PitchingFlyOuts:
-          type:
-          - number
-          - 'null'
-          description: Total fly outs while pitching
-        PitchingGroundOuts:
-          type:
-          - number
-          - 'null'
-          description: Total ground outs while pitching
-        PitchingLineOuts:
-          type:
-          - number
-          - 'null'
-          description: Total line outs while pitching
-        PitchingPopOuts:
-          type:
-          - number
-          - 'null'
-          description: Total pop outs while pitching
-        PitchingIntentionalWalks:
-          type:
-          - number
-          - 'null'
-          description: Total intentional walks while pitching
-        PitchingReachedOnError:
-          type:
-          - number
-          - 'null'
-          description: Total times reached on error while pitching
-        PitchingCatchersInterference:
-          type:
-          - number
-          - 'null'
-          description: Total catchers interference while pitching
-        PitchingBallsInPlay:
-          type:
-          - number
-          - 'null'
-          description: Total balls in play while pitching
-        PitchingOnBasePercentage:
-          type:
-          - number
-          - 'null'
-          description: Total on base percentage (OBP) while pitching
-        PitchingSluggingPercentage:
-          type:
-          - number
-          - 'null'
-          description: Total slugging percentage (SLG) while pitching
-        PitchingOnBasePlusSlugging:
-          type:
-          - number
-          - 'null'
-          description: Total on base plus slugging (OPS) while pitching
-        PitchingStrikeoutsPerNineInnings:
-          type:
-          - number
-          - 'null'
-          description: Total strikeouts per nine innings (K/9) while pitching
-        PitchingWalksPerNineInnings:
-          type:
-          - number
-          - 'null'
-          description: Total walks per nine innings (BB/9) while pitching
-        PitchingBattingAverageOnBallsInPlay:
-          type:
-          - number
-          - 'null'
-          description: Total batting average on balls in play (BABIP) while pitching
-        PitchingWeightedOnBasePercentage:
-          type:
-          - number
-          - 'null'
-          description: Total weighted on base percentage while pitching 
-        DoublePlays:
-          type:
-          - number
-          - 'null'
-          description: 'Total double plays, defined as one of: Bunted into Double Play, Fly into Double Play, Fouled into Double Play, Ground into Double Pla,y Line into Double Play, Popped into Double Play'
-        PitchingDoublePlays:
-          type:
-          - number
-          - 'null'
-          description: Total double plays while pitching
-        BattingOrderConfirmed:
-          type:
-          - boolean
-          - 'null'
-          description: Whether the batting order is confirmed (true/false)
-        IsolatedPower:
-          type:
-          - number
-          - 'null'
-          description: Total isolated power (ISO)
-        FieldingIndependentPitching:
-          type:
-          - number
-          - 'null'
-          description: Total fielding independent pitching (FIP)
-        PitchingQualityStarts:
-          type:
-          - number
-          - 'null'
-          description: Total quality starts pitched
-        PitchingInningStarted:
-          type:
-          - integer
-          - 'null'
-          description: The inning that the pitcher entered the game (if any).
-        LeftOnBase:
-          type:
-          - number
-          - 'null'
-          description: Total left on base percentage 
-        PitchingHolds:
-          type:
-          - number
-          - 'null'
-          description: Total holds pitched
-        PitchingBlownSaves:
-          type:
-          - number
-          - 'null'
-          description: Total blown saves pitched
-        SubstituteBattingOrder:
-          type:
-          - integer
-          - 'null'
-          description: The position in the batting order where this player was substituted into the game (does not include players in the starting lineup)
-        SubstituteBattingOrderSequence:
-          type:
-          - integer
-          - 'null'
-          description: The sequence in which this player was substituted into the game, within the particular batting order
-        FantasyPointsFantasyDraft:
-          type:
-          - number
-          - 'null'
-          description: Total FantasyDraft fantasy points
-        FantasyPointsBatting:
-          type:
-          - number
-          - 'null'
-          description: Total batting fantasy points
-        FantasyPointsPitching:
-          type:
-          - number
-          - 'null'
-          description: Total pitching fantasy points
-    Unauthorized:
-      properties:
-        HttpStatusCode:
-          type: integer
-        Code:
-          type: integer
-        Description:
-          type: string
-        Help:
-          type: string
+          description: Number of runs scored by the home team in the specific inning
   securitySchemes:
     apiKeyHeader:
       type: apiKey

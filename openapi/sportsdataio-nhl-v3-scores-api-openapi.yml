@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: MLB MLB v3 Headshots NHL v3 Scores API
+  title: NHL v3 Scores API
   version: '1.0'
-  description: MLB API - OpenAPI 3.1 Specification
+  description: NHL API - OpenAPI 3.1 Specification
 servers:
 - url: https://api.sportsdata.io
   description: Production server
@@ -80,7 +80,7 @@ paths:
       - NHL v3 Scores
   /v3/nhl/scores/{format}/AreAnyGamesInProgress:
     get:
-      description: Returns <code>true</code> if there is at least one game being played at the time of the request or <code>false</code> if there are none.
+      description: Returns true if there is at least one game being played at the time of the request or false if there are none.
       operationId: nhl_v3_scores_are_games_in_progress
       summary: Are Games In Progress
       parameters:
@@ -1042,893 +1042,6 @@ paths:
       - NHL v3 Scores
 components:
   schemas:
-    Period:
-      properties:
-        PeriodID:
-          type: integer
-          description: The unique ID associated of this period
-        GameID:
-          type: integer
-          description: The unique ID of this game tied to this period
-        Name:
-          type:
-          - string
-          - 'null'
-          description: 'The name of the period (possible values: 1; 2; 3; SO; OT; OT2; OT3; OT4; etc)'
-        AwayScore:
-          type:
-          - integer
-          - 'null'
-          description: Total goals scored by the away team in a given period
-        HomeScore:
-          type:
-          - integer
-          - 'null'
-          description: Total goals scored by the home team in the period
-        ScoringPlays:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScoringPlay'
-          description: The details of the scoring plays that occurred during this period
-        Penalties:
-          type: array
-          items:
-            $ref: '#/components/schemas/Penalty'
-          description: The details of the penalties that occurred during this period
-    GoalieDepthChart:
-      properties:
-        TeamID:
-          type: integer
-          description: The unique ID of the team
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team this player is employed by
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        Name:
-          type:
-          - string
-          - 'null'
-          description: The full name of the goaltender
-        DepthType:
-          type:
-          - string
-          - 'null'
-          description: Indicates whether it is a goalie tandem or not for a goalie depth chart (returns Tandem; Regular)
-        DisplayType:
-          type:
-          - string
-          - 'null'
-          description: If the goalie depth chart is displayed as a Tandem or as Regular
-        DepthOrder:
-          type:
-          - integer
-          - 'null'
-          description: The order of the goalie in the team's depth chart
-        Created:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of when this depth chart was last edited; based on US Eastern Time (EST/EDT)
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of when the record was last updated (in US Eastern Time)
-    News:
-      properties:
-        NewsID:
-          type: integer
-          description: The unique ID of the news story
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team
-        Title:
-          type:
-          - string
-          - 'null'
-          description: The title of the news story
-        Content:
-          type:
-          - string
-          - 'null'
-          description: The full body content of the story
-        Url:
-          type:
-          - string
-          - 'null'
-          description: The URL of the full news story
-        Source:
-          type:
-          - string
-          - 'null'
-          description: The source of the story (RotoBaller, NBCSports.com, etc.)
-        TermsOfUse:
-          type:
-          - string
-          - 'null'
-          description: The terms of use with using this news item, credit must be given to the originator of the story when specified in the terms of use
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of when the news story was last updated
-        TimeAgo:
-          type:
-          - string
-          - 'null'
-          description: A description of how long ago this content was published
-    Game:
-      properties:
-        GameID:
-          type: integer
-          description: The unique ID of this game
-        Season:
-          type: integer
-          description: The NHL season of the game
-        SeasonType:
-          type: integer
-          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 5=AllStar, 6=Exhibition).
-        Status:
-          type:
-          - string
-          - 'null'
-          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, F/SO, F/OT, Suspended, Postponed, Delayed, Canceled, Forfeit, NotNecessary'
-        Day:
-          type:
-          - string
-          - 'null'
-          description: The date of the game
-        DateTime:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game in US Eastern Time
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of when the record was last updated (in US Eastern Time).
-        IsClosed:
-          type:
-          - boolean
-          - 'null'
-          description: 'Indicates whether the game is over and the final score has been verified and closed out. NOTE: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
-        AwayTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the away team
-        HomeTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the home team
-        AwayTeamID:
-          type: integer
-          description: The unique ID of the away team
-        HomeTeamID:
-          type: integer
-          description: The unique ID of the home team
-        StadiumID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the stadium
-        Channel:
-          type:
-          - string
-          - 'null'
-          description: The television station broadcasting the game
-        Attendance:
-          type:
-          - integer
-          - 'null'
-          description: The total number of people who attended the game
-        AwayTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: Total number of goals scored by the away team in the game
-        HomeTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: Total number of goals scored by the home team in the game
-        Period:
-          type:
-          - string
-          - 'null'
-          description: 'Indicates the current period of the game. Possible values include: 1; 2; 3; OT; SO; NULL'
-        TimeRemainingMinutes:
-          type:
-          - integer
-          - 'null'
-          description: Number of minutes remaining in the current period
-        TimeRemainingSeconds:
-          type:
-          - integer
-          - 'null'
-          description: 'Number of seconds that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock sconds which are the number of minutes that have already passed in the period.'
-        AwayTeamMoneyLine:
-          type:
-          - integer
-          - 'null'
-          description: Moneyline from the perspective of the away team
-        HomeTeamMoneyLine:
-          type:
-          - integer
-          - 'null'
-          description: Moneyline from the perspective of the home team
-        PointSpread:
-          type:
-          - number
-          - 'null'
-          description: The oddsmaker puck line at game start from the perspective of the HomeTeam (negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored).
-        OverUnder:
-          type:
-          - number
-          - 'null'
-          description: The sportsbook's total goals scored line (Over/Under) for the game
-        GlobalGameID:
-          type: integer
-          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
-        GlobalAwayTeamID:
-          type: integer
-          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
-        GlobalHomeTeamID:
-          type: integer
-          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
-        PointSpreadAwayTeamMoneyLine:
-          type:
-          - integer
-          - 'null'
-          description: The payout odds when betting on the away team with the puck line
-        PointSpreadHomeTeamMoneyLine:
-          type:
-          - integer
-          - 'null'
-          description: The payout odds when betting on the home team with the puck line
-        LastPlay:
-          type:
-          - string
-          - 'null'
-          description: The description of the most recent play/event of the game. This is for display purposes and does not include corresponding data points.
-        Periods:
-          type: array
-          items:
-            $ref: '#/components/schemas/Period'
-          description: The details of the periods (including overtime if applicable) for this game.
-        GameEndDateTime:
-          type:
-          - string
-          - 'null'
-          description: The date and time that the game ended in US Eastern Time
-        HomeRotationNumber:
-          type:
-          - integer
-          - 'null'
-          description: The rotation number of the home team for this game
-        AwayRotationNumber:
-          type:
-          - integer
-          - 'null'
-          description: The rotation number of the away team for a game
-        NeutralVenue:
-          type:
-          - boolean
-          - 'null'
-          description: Indicates whether this game is played in a neutral venue
-        OverPayout:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's payout for the over
-        UnderPayout:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's payout for the under
-        DateTimeUTC:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game in UTC
-        SeriesInfo:
-          $ref: '#/components/schemas/Series'
-          description: Contains relevant series data for playoff series only - HomeTeamWins, AwayTeamWins, GameNumber, and MaxLength
-        RescheduledFromGameID:
-          type:
-          - integer
-          - 'null'
-          description: The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as "make up" games.
-        RescheduledGameID:
-          type:
-          - integer
-          - 'null'
-          description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
-        Referee1ID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the main referee of this game
-        Referee2ID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the secondary referee of this game
-        Linesperson1ID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the main linesperson of this game
-        Linesperson2ID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the secondary linesperson of this game
-    TeamSeason:
-      properties:
-        StatID:
-          type: integer
-          description: The unique ID of the stat
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team
-        SeasonType:
-          type:
-          - integer
-          - 'null'
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition)
-        Season:
-          type:
-          - integer
-          - 'null'
-          description: The NHL regular season for which these totals apply
-        Name:
-          type:
-          - string
-          - 'null'
-          description: The team's full name (ex. Minnesota Wild; New York Islanders)
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team
-        Wins:
-          type:
-          - integer
-          - 'null'
-          description: Total number of wins by the team in the season
-        Losses:
-          type:
-          - integer
-          - 'null'
-          description: Total losses for the team in the season
-        OvertimeLosses:
-          type:
-          - integer
-          - 'null'
-          description: Total overtime losses by the team in the season
-        OpponentPosition:
-          type:
-          - string
-          - 'null'
-          description: Indicates which position is included in opponent stats that are aggregated together
-        GlobalTeamID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
-        OpponentStat:
-          $ref: '#/components/schemas/OpponentSeason'
-          description: The aggregated season stats for this team's opponents
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of when the record was last updated (US Eastern Time).
-        Games:
-          type:
-          - integer
-          - 'null'
-          description: The number of games played.
-        FantasyPoints:
-          type:
-          - number
-          - 'null'
-          description: Total fantasy points
-        FantasyPointsFanDuel:
-          type:
-          - number
-          - 'null'
-          description: Total FanDuel daily fantasy points scored
-        FantasyPointsDraftKings:
-          type:
-          - number
-          - 'null'
-          description: Total DraftKings daily fantasy points scored
-        FantasyPointsYahoo:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo daily fantasy points scored
-        Minutes:
-          type:
-          - integer
-          - 'null'
-          description: Total number of minutes played
-        Seconds:
-          type:
-          - integer
-          - 'null'
-          description: Total number of seconds played
-        Goals:
-          type:
-          - number
-          - 'null'
-          description: Total number of goals scored
-        Assists:
-          type:
-          - number
-          - 'null'
-          description: Total number of assists
-        ShotsOnGoal:
-          type:
-          - number
-          - 'null'
-          description: Total number of shots on goal
-        PowerPlayGoals:
-          type:
-          - number
-          - 'null'
-          description: Total number of power play goals
-        ShortHandedGoals:
-          type:
-          - number
-          - 'null'
-          description: Total number of short handed goals
-        EmptyNetGoals:
-          type:
-          - number
-          - 'null'
-          description: Total number of empty net goals
-        PowerPlayAssists:
-          type:
-          - number
-          - 'null'
-          description: Total number of power play assists
-        ShortHandedAssists:
-          type:
-          - number
-          - 'null'
-          description: Total number of short handed assists
-        HatTricks:
-          type:
-          - number
-          - 'null'
-          description: Total number of hat tricks
-        ShootoutGoals:
-          type:
-          - number
-          - 'null'
-          description: Total number of shootout goals
-        PlusMinus:
-          type:
-          - number
-          - 'null'
-          description: Total plus minus
-        PenaltyMinutes:
-          type:
-          - number
-          - 'null'
-          description: Total pentalty minutes
-        Blocks:
-          type:
-          - number
-          - 'null'
-          description: Total blocked shots
-        Hits:
-          type:
-          - number
-          - 'null'
-          description: Total hits
-        Takeaways:
-          type:
-          - number
-          - 'null'
-          description: Total takeaways
-        Giveaways:
-          type:
-          - number
-          - 'null'
-          description: Total giveaways
-        FaceoffsWon:
-          type:
-          - number
-          - 'null'
-          description: Total faceoffs won
-        FaceoffsLost:
-          type:
-          - number
-          - 'null'
-          description: Total faceoffs lost
-        Shifts:
-          type:
-          - number
-          - 'null'
-          description: Total shifts
-        GoaltendingMinutes:
-          type:
-          - integer
-          - 'null'
-          description: Total goaltending minutes
-        GoaltendingSeconds:
-          type:
-          - integer
-          - 'null'
-          description: Total goaltending seconds
-        GoaltendingShotsAgainst:
-          type:
-          - number
-          - 'null'
-          description: Total goaltending shots against
-        GoaltendingGoalsAgainst:
-          type:
-          - number
-          - 'null'
-          description: Total goaltending goals against
-        GoaltendingSaves:
-          type:
-          - number
-          - 'null'
-          description: Total goaltending saves
-        GoaltendingWins:
-          type:
-          - number
-          - 'null'
-          description: Total goaltending wins
-        GoaltendingLosses:
-          type:
-          - number
-          - 'null'
-          description: Total goaltendings losses
-        GoaltendingShutouts:
-          type:
-          - number
-          - 'null'
-          description: Total goaltendings shutouts
-        Started:
-          type:
-          - integer
-          - 'null'
-          description: Total games started
-        BenchPenaltyMinutes:
-          type:
-          - number
-          - 'null'
-          description: Total bench pentalty minutes
-        GoaltendingOvertimeLosses:
-          type:
-          - number
-          - 'null'
-          description: Total goaltending overtime losses
-        FantasyPointsFantasyDraft:
-          type:
-          - number
-          - 'null'
-          description: Total FantasyDraft daily fantasy points scored
-    Series:
-      properties:
-        HomeTeamWins:
-          type: integer
-          description: Total wins in the series by the home team
-        AwayTeamWins:
-          type: integer
-          description: Total wins in the series by the away team
-        GameNumber:
-          type: integer
-          description: The number of the game being played in the series
-        MaxLength:
-          type: integer
-          description: The maximum number of games that can be played in a postseason series
-    Penalty:
-      properties:
-        PenaltyID:
-          type: integer
-          description: The unique ID of this penalty
-        PeriodID:
-          type: integer
-          description: The unique ID of the period during which this penalty occurred
-        Sequence:
-          type:
-          - integer
-          - 'null'
-          description: The sequence/order that this penalty happened
-        TimeRemainingMinutes:
-          type:
-          - integer
-          - 'null'
-          description: 'Number of minutes that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock minutes which are the number of minutes that have already passed in the period.'
-        TimeRemainingSeconds:
-          type:
-          - integer
-          - 'null'
-          description: 'Number of seconds that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock seconds which are the number of minutes that have already passed in the period.'
-        Description:
-          type:
-          - string
-          - 'null'
-          description: The description of the penalty
-        PenaltyMinutes:
-          type:
-          - integer
-          - 'null'
-          description: Total minutes the penalty lasts
-        PenalizedTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The TeamID of the team who committed the penalty
-        PenalizedPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who committed the penalty
-        DrawnByTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The TeamID of the player/team that drew the penalty
-        DrawnByPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who drew the penalty
-        IsBenchPenalty:
-          type:
-          - boolean
-          - 'null'
-          description: Whether or not the penalty is a bench penalty
-        BenchPenaltyServedByPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who served the bench penalty
-    Player:
-      properties:
-        PlayerID:
-          type: integer
-          description: '"The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career"'
-        FirstName:
-          type:
-          - string
-          - 'null'
-          description: The first name of the player
-        LastName:
-          type:
-          - string
-          - 'null'
-          description: The player's last name
-        Status:
-          type:
-          - string
-          - 'null'
-          description: The player's current status. Possible values include Active; Inactive; Injured Reserve; Minors; Suspended; Bereavement; Paternity
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team this player is employed by
-        Position:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s primary position. Possible values: C, RW, LW, D, or G.'
-        Jersey:
-          type:
-          - integer
-          - 'null'
-          description: The player's jersey number
-        Catches:
-          type:
-          - string
-          - 'null'
-          description: 'The hand in which the player uses to catch the puck (Right or Left). Note: This field will be null for non-goaltenders'
-        Shoots:
-          type:
-          - string
-          - 'null'
-          description: The hand the player shoots the puck with (right or left)
-        Height:
-          type:
-          - integer
-          - 'null'
-          description: The player's height in inches
-        Weight:
-          type:
-          - integer
-          - 'null'
-          description: The player's weight in pounds (lbs).
-        BirthDate:
-          type:
-          - string
-          - 'null'
-          description: The player's date of birth
-        BirthCity:
-          type:
-          - string
-          - 'null'
-          description: The city in which the player was born
-        BirthState:
-          type:
-          - string
-          - 'null'
-          description: 'The US state in which the player was born. NOTE: If a player was born outside of North America or Australia, this field will be null'
-        PhotoUrl:
-          type:
-          - string
-          - 'null'
-          description: This field is deprecated. Photos are no longer available through it. Headshots are now delivered through IMAGN. Please see our Headshots products for further information.
-        SportRadarPlayerID:
-          type:
-          - string
-          - 'null'
-          description: The player's cross reference PlayerID to the SportRadar API.
-        RotoworldPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The player's cross reference PlayerID to the Rotoworld news feed
-        RotoWirePlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The player's cross reference PlayerID to the RotoWire news feed
-        FantasyAlarmPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The player's cross reference PlayerID to the FantasyAlarm news feed
-        StatsPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The player's cross reference PlayerID to the STATS data feeds
-        SportsDirectPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The player's cross reference PlayerID to the SportsDirect data feeds, now part of Nielsen GraceNote.
-        XmlTeamPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The player's cross reference PlayerID to the XML Team data feeds.
-        InjuryStatus:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s current injury status; in the form of likelihood that player plays. Possible values: Probable; Questionable; Doubtful; Out'
-        InjuryBodyPart:
-          type:
-          - string
-          - 'null'
-          description: The body part that is injured for the player (Knee; Groin; Calf; Upper-body; etc.)
-        InjuryStartDate:
-          type:
-          - string
-          - 'null'
-          description: The day that the injury started or was first discovered
-        InjuryNotes:
-          type:
-          - string
-          - 'null'
-          description: Brief description of the player's injury and expected availability
-        FanDuelPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The player's cross reference PlayerID to FanDuel
-        DraftKingsPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The player's cross reference PlayerID to DraftKings
-        YahooPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The player's cross reference PlayerID to Yahoo Daily Fantasy Sports Contests.
-        FanDuelName:
-          type:
-          - string
-          - 'null'
-          description: The player's full name in FanDuel's daily fantasy sports platform
-        DraftKingsName:
-          type:
-          - string
-          - 'null'
-          description: The player's full name in DraftKings' daily fantasy sports platform
-        YahooName:
-          type:
-          - string
-          - 'null'
-          description: The player's full name in Yahoo's daily fantasy sports platform.
-        DepthChartPosition:
-          type:
-          - string
-          - 'null'
-          description: The position of the player in the team's depth chart
-        DepthChartOrder:
-          type:
-          - integer
-          - 'null'
-          description: The order of the player in the team's depth chart
-        GlobalTeamID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
-        FantasyDraftName:
-          type:
-          - string
-          - 'null'
-          description: The player's full name in FantasyDraft's daily fantasy sports platform
-        FantasyDraftPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The player's cross reference PlayerID to FantasyDraft
-        UsaTodayPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The player's cross reference PlayerID to USA Today headshot data feeds.
-        UsaTodayHeadshotUrl:
-          type:
-          - string
-          - 'null'
-          description: The player's headshot URL as provided by USA Today. License from USA Today is required.
-        UsaTodayHeadshotNoBackgroundUrl:
-          type:
-          - string
-          - 'null'
-          description: The player's transparent background headshot URL as provided by USA Today. License from USA Today is required.
-        UsaTodayHeadshotUpdated:
-          type:
-          - string
-          - 'null'
-          description: The last updated date of the player's headshot as provided by USA Today. License from USA Today is required.
-        UsaTodayHeadshotNoBackgroundUpdated:
-          type:
-          - string
-          - 'null'
-          description: The last updated date of the player's transparent background headshot as provided by USA Today. License from USA Today is required.
     TeamGame:
       properties:
         StatID:
@@ -2217,16 +1330,384 @@ components:
           - number
           - 'null'
           description: Total FantasyDraft daily fantasy points scored
-    Unauthorized:
+    Player:
       properties:
-        HttpStatusCode:
+        PlayerID:
           type: integer
-        Code:
+          description: '"The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career"'
+        FirstName:
+          type:
+          - string
+          - 'null'
+          description: The first name of the player
+        LastName:
+          type:
+          - string
+          - 'null'
+          description: The player's last name
+        Status:
+          type:
+          - string
+          - 'null'
+          description: The player's current status. Possible values include Active; Inactive; Injured Reserve; Minors; Suspended; Bereavement; Paternity
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team this player is employed by
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s primary position. Possible values: C, RW, LW, D, or G.'
+        Jersey:
+          type:
+          - integer
+          - 'null'
+          description: The player's jersey number
+        Catches:
+          type:
+          - string
+          - 'null'
+          description: 'The hand in which the player uses to catch the puck (Right or Left). Note: This field will be null for non-goaltenders'
+        Shoots:
+          type:
+          - string
+          - 'null'
+          description: The hand the player shoots the puck with (right or left)
+        Height:
+          type:
+          - integer
+          - 'null'
+          description: The player's height in inches
+        Weight:
+          type:
+          - integer
+          - 'null'
+          description: The player's weight in pounds (lbs).
+        BirthDate:
+          type:
+          - string
+          - 'null'
+          description: The player's date of birth
+        BirthCity:
+          type:
+          - string
+          - 'null'
+          description: The city in which the player was born
+        BirthState:
+          type:
+          - string
+          - 'null'
+          description: 'The US state in which the player was born. NOTE: If a player was born outside of North America or Australia, this field will be null'
+        PhotoUrl:
+          type:
+          - string
+          - 'null'
+          description: This field is deprecated. Photos are no longer available through it. Headshots are now delivered through IMAGN. Please see our Headshots products for further information.
+        SportRadarPlayerID:
+          type:
+          - string
+          - 'null'
+          description: The player's cross reference PlayerID to the SportRadar API.
+        RotoworldPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the Rotoworld news feed
+        RotoWirePlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the RotoWire news feed
+        FantasyAlarmPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the FantasyAlarm news feed
+        StatsPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the STATS data feeds
+        SportsDirectPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the SportsDirect data feeds, now part of Nielsen GraceNote.
+        XmlTeamPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to the XML Team data feeds.
+        InjuryStatus:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s current injury status; in the form of likelihood that player plays. Possible values: Probable; Questionable; Doubtful; Out'
+        InjuryBodyPart:
+          type:
+          - string
+          - 'null'
+          description: The body part that is injured for the player (Knee; Groin; Calf; Upper-body; etc.)
+        InjuryStartDate:
+          type:
+          - string
+          - 'null'
+          description: The day that the injury started or was first discovered
+        InjuryNotes:
+          type:
+          - string
+          - 'null'
+          description: Brief description of the player's injury and expected availability
+        FanDuelPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to FanDuel
+        DraftKingsPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to DraftKings
+        YahooPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to Yahoo Daily Fantasy Sports Contests.
+        FanDuelName:
+          type:
+          - string
+          - 'null'
+          description: The player's full name in FanDuel's daily fantasy sports platform
+        DraftKingsName:
+          type:
+          - string
+          - 'null'
+          description: The player's full name in DraftKings' daily fantasy sports platform
+        YahooName:
+          type:
+          - string
+          - 'null'
+          description: The player's full name in Yahoo's daily fantasy sports platform.
+        DepthChartPosition:
+          type:
+          - string
+          - 'null'
+          description: The position of the player in the team's depth chart
+        DepthChartOrder:
+          type:
+          - integer
+          - 'null'
+          description: The order of the player in the team's depth chart
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        FantasyDraftName:
+          type:
+          - string
+          - 'null'
+          description: The player's full name in FantasyDraft's daily fantasy sports platform
+        FantasyDraftPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to FantasyDraft
+        UsaTodayPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The player's cross reference PlayerID to USA Today headshot data feeds.
+        UsaTodayHeadshotUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's headshot URL as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotNoBackgroundUrl:
+          type:
+          - string
+          - 'null'
+          description: The player's transparent background headshot URL as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated date of the player's headshot as provided by USA Today. License from USA Today is required.
+        UsaTodayHeadshotNoBackgroundUpdated:
+          type:
+          - string
+          - 'null'
+          description: The last updated date of the player's transparent background headshot as provided by USA Today. License from USA Today is required.
+    GoalieDepthChart:
+      properties:
+        TeamID:
           type: integer
-        Description:
-          type: string
-        Help:
-          type: string
+          description: The unique ID of the team
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team this player is employed by
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The full name of the goaltender
+        DepthType:
+          type:
+          - string
+          - 'null'
+          description: Indicates whether it is a goalie tandem or not for a goalie depth chart (returns Tandem; Regular)
+        DisplayType:
+          type:
+          - string
+          - 'null'
+          description: If the goalie depth chart is displayed as a Tandem or as Regular
+        DepthOrder:
+          type:
+          - integer
+          - 'null'
+          description: The order of the goalie in the team's depth chart
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when this depth chart was last edited; based on US Eastern Time (EST/EDT)
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (in US Eastern Time)
+    Series:
+      properties:
+        HomeTeamWins:
+          type: integer
+          description: Total wins in the series by the home team
+        AwayTeamWins:
+          type: integer
+          description: Total wins in the series by the away team
+        GameNumber:
+          type: integer
+          description: The number of the game being played in the series
+        MaxLength:
+          type: integer
+          description: The maximum number of games that can be played in a postseason series
+    ScheduleBasic:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The NHL season of the game
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition)
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, F/SO, F/OT, Suspended, Postponed, Delayed, Canceled, Forfeit, NotNecessary'
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in US Eastern Time
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (in US Eastern Time)
+        IsClosed:
+          type:
+          - boolean
+          - 'null'
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the stadium
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of goals scored by the away team in the game
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of goals scored by the home team in the game
+        GlobalGameID:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalAwayTeamID:
+          type: integer
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
+        GlobalHomeTeamID:
+          type: integer
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        GameEndDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time that the game ended in US Eastern Time
+        NeutralVenue:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this game is played in a neutral venue
+        DateTimeUTC:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in UTC
+        SeriesInfo:
+          $ref: '#/components/schemas/Series'
+          description: Contains relevant series data for playoff series only - HomeTeamWins, AwayTeamWins, GameNumber, and MaxLength
+        AwayTeamID:
+          type: integer
+          description: The unique ID of the away team
+        HomeTeamID:
+          type: integer
+          description: The unique ID of the home team
+        RescheduledFromGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as "make up" games.
+        RescheduledGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
     ScoringPlay:
       properties:
         ScoringPlayID:
@@ -2300,8 +1781,105 @@ components:
           - integer
           - 'null'
           description: The score of the home team after the conclusion of the scoring play
-    Team:
+    News:
       properties:
+        NewsID:
+          type: integer
+          description: The unique ID of the news story
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Title:
+          type:
+          - string
+          - 'null'
+          description: The title of the news story
+        Content:
+          type:
+          - string
+          - 'null'
+          description: The full body content of the story
+        Url:
+          type:
+          - string
+          - 'null'
+          description: The URL of the full news story
+        Source:
+          type:
+          - string
+          - 'null'
+          description: The source of the story (RotoBaller, NBCSports.com, etc.)
+        TermsOfUse:
+          type:
+          - string
+          - 'null'
+          description: The terms of use with using this news item, credit must be given to the originator of the story when specified in the terms of use
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the news story was last updated
+        TimeAgo:
+          type:
+          - string
+          - 'null'
+          description: A description of how long ago this content was published
+    Season:
+      properties:
+        Season:
+          type: integer
+          description: The NHL regular season for which these totals apply
+        StartYear:
+          type: integer
+          description: The year in which the season started
+        EndYear:
+          type: integer
+          description: The year in which the season ended
+        Description:
+          type:
+          - string
+          - 'null'
+          description: 'The description of the season for display purposes (possible values include: 2017-18, 2018-19, etc)'
+        RegularSeasonStartDate:
+          type:
+          - string
+          - 'null'
+          description: The start date of the regular season
+        PostSeasonStartDate:
+          type:
+          - string
+          - 'null'
+          description: The start date of the postseason
+        SeasonType:
+          type:
+          - string
+          - 'null'
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition).
+        ApiSeason:
+          type:
+          - string
+          - 'null'
+          description: The string to pass into subsequent API calls in the season parameter (e.g. 2025REG, 2025POST, etc.)
+    Standing:
+      properties:
+        Season:
+          type: integer
+          description: The NHL regular season for which these totals apply
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition).
         TeamID:
           type: integer
           description: The unique ID of the team
@@ -2309,73 +1887,145 @@ components:
           type:
           - string
           - 'null'
-          description: Abbreviation of the team (e.g. LA, PHI, BOS, CHI, etc.)
-        Active:
-          type: boolean
-          description: Whether or not this team is active
+          description: The abbreviation [Key] of the team associated with this market (Ex. BOS, EDM, LAK)
         City:
           type:
           - string
           - 'null'
-          description: The city/location of the team (e.g. Los Angeles, Philadelphia, Boston, Chicago, etc.)
+          description: The city/location of the team (e.g. Los Angeles; Philadelphia; Boston; Chicago; etc.)
         Name:
           type:
           - string
           - 'null'
-          description: The mascot of the team (e.g. Kings, Flyers, Bruins, Blackhawks, etc.)
-        StadiumID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team's current home arena
+          description: The team's full name (ex. Minnesota Wild; New York Islanders)
         Conference:
           type:
           - string
           - 'null'
-          description: 'The conference of the team (possible values: Eastern, Western)'
+          description: 'The conference of the team (possible values: Eastern; Western)'
         Division:
           type:
           - string
           - 'null'
           description: The division of the team (e.g. Atlantic; Metropolitan; Central; or Pacific)
-        PrimaryColor:
+        Wins:
           type:
-          - string
+          - integer
           - 'null'
-          description: The team's first color (This is not licensed for public or commercial use)
-        SecondaryColor:
+          description: Total number of wins by the team in the season
+        Losses:
           type:
-          - string
+          - integer
           - 'null'
-          description: The team's second color (This is not licensed for public or commercial use)
-        TertiaryColor:
+          description: Total losses for a team in the regular season
+        OvertimeLosses:
           type:
-          - string
+          - integer
           - 'null'
-          description: The team's third color (This is not licensed for public or commercial use)
-        QuaternaryColor:
+          description: Total overtime losses by the team in the season
+        Percentage:
           type:
-          - string
+          - number
           - 'null'
-          description: The team's fourth color (This is not licensed for public or commercial use)
-        WikipediaLogoUrl:
+          description: The team's winning percentage
+        ConferenceWins:
           type:
-          - string
+          - integer
           - 'null'
-          description: The link to the team's logo hosted on Wikipedia. (This is not licensed for public or commercial use)
-        WikipediaWordMarkUrl:
+          description: Total number of conference wins for a team
+        ConferenceLosses:
           type:
-          - string
+          - integer
           - 'null'
-          description: The link to the team's wordmark logo hosted on Wikipedia. (This is not licensed for public or commercial use)
+          description: Total number of conference losses for a team
+        DivisionWins:
+          type:
+          - integer
+          - 'null'
+          description: Total number of division wins by the team
+        DivisionLosses:
+          type:
+          - integer
+          - 'null'
+          description: Total number of division losses by the team
+        ShutoutWins:
+          type:
+          - integer
+          - 'null'
+          description: Total regular season shutout wins by the team
+        ConferenceRank:
+          type:
+          - integer
+          - 'null'
+          description: Team rank at the conference level
+        DivisionRank:
+          type:
+          - integer
+          - 'null'
+          description: Team rank at the division level
         GlobalTeamID:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
-        HeadCoach:
+        ClinchedDivision:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if team has clinched their division; FALSE if not
+        ClinchedPlayoffBerth:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if team has clinched a playoff spot; FALSE if not
+        ClinchedBestRecordInConference:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if team has clinched the best record in their respective conference; FALSE if not
+        ClinchedPresidentsTrophy:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if team has clinched best record in NHL (President's Trophy); FALSE if not
+        EliminatedFromPlayoffContention:
+          type:
+          - boolean
+          - 'null'
+          description: Returns TRUE if team has been eliminated from playoff contention; FALSE if not
+    Period:
+      properties:
+        PeriodID:
+          type: integer
+          description: The unique ID associated of this period
+        GameID:
+          type: integer
+          description: The unique ID of this game tied to this period
+        Name:
           type:
           - string
           - 'null'
-          description: The current head coach of the team
+          description: 'The name of the period (possible values: 1; 2; 3; SO; OT; OT2; OT3; OT4; etc)'
+        AwayScore:
+          type:
+          - integer
+          - 'null'
+          description: Total goals scored by the away team in a given period
+        HomeScore:
+          type:
+          - integer
+          - 'null'
+          description: Total goals scored by the home team in the period
+        ScoringPlays:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoringPlay'
+          description: The details of the scoring plays that occurred during this period
+        Penalties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Penalty'
+          description: The details of the penalties that occurred during this period
     OpponentSeason:
       properties:
         StatID:
@@ -2626,61 +2276,6 @@ components:
           - number
           - 'null'
           description: Total FantasyDraft daily fantasy points scored
-    Transaction:
-      properties:
-        PlayerID:
-          type: integer
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        Name:
-          type:
-          - string
-          - 'null'
-          description: The player's full name
-        FormerTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The ID of the player's former team
-        FormerTeam:
-          type:
-          - string
-          - 'null'
-          description: The [Key] of the player's former team (e.g. BOS; PHI; DET; EDM, etc.)
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team involved in the transaction
-        Type:
-          type:
-          - string
-          - 'null'
-          description: Type of transaction that occurred
-        Date:
-          type:
-          - string
-          - 'null'
-          description: The date this transaction was created
-        Note:
-          type:
-          - string
-          - 'null'
-          description: A summary of the transaction that occurred (e.g. "Harris has signed with the Canucks.")
-        Created:
-          type:
-          - string
-          - 'null'
-          description: The date and time this transaction was created
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The date and time this transaction was last updated (in US Eastern Time)
     Referee:
       properties:
         RefereeID:
@@ -2764,42 +2359,36 @@ components:
           - number
           - 'null'
           description: The geographic longitude coordinate of this venue.
-    Standing:
+    TeamSeason:
       properties:
-        Season:
+        StatID:
           type: integer
-          description: The NHL regular season for which these totals apply
-        SeasonType:
-          type: integer
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition).
+          description: The unique ID of the stat
         TeamID:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: The unique ID of the team
-        Key:
+        SeasonType:
           type:
-          - string
+          - integer
           - 'null'
-          description: The abbreviation [Key] of the team associated with this market (Ex. BOS, EDM, LAK)
-        City:
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition)
+        Season:
           type:
-          - string
+          - integer
           - 'null'
-          description: The city/location of the team (e.g. Los Angeles; Philadelphia; Boston; Chicago; etc.)
+          description: The NHL regular season for which these totals apply
         Name:
           type:
           - string
           - 'null'
           description: The team's full name (ex. Minnesota Wild; New York Islanders)
-        Conference:
+        Team:
           type:
           - string
           - 'null'
-          description: 'The conference of the team (possible values: Eastern; Western)'
-        Division:
-          type:
-          - string
-          - 'null'
-          description: The division of the team (e.g. Atlantic; Metropolitan; Central; or Pacific)
+          description: The abbreviation [Key] of the team
         Wins:
           type:
           - integer
@@ -2809,162 +2398,369 @@ components:
           type:
           - integer
           - 'null'
-          description: Total losses for a team in the regular season
+          description: Total losses for the team in the season
         OvertimeLosses:
           type:
           - integer
           - 'null'
           description: Total overtime losses by the team in the season
-        Percentage:
+        OpponentPosition:
+          type:
+          - string
+          - 'null'
+          description: Indicates which position is included in opponent stats that are aggregated together
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        OpponentStat:
+          $ref: '#/components/schemas/OpponentSeason'
+          description: The aggregated season stats for this team's opponents
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when the record was last updated (US Eastern Time).
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The number of games played.
+        FantasyPoints:
           type:
           - number
           - 'null'
-          description: The team's winning percentage
-        ConferenceWins:
+          description: Total fantasy points
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Total FanDuel daily fantasy points scored
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings daily fantasy points scored
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo daily fantasy points scored
+        Minutes:
           type:
           - integer
           - 'null'
-          description: Total number of conference wins for a team
-        ConferenceLosses:
+          description: Total number of minutes played
+        Seconds:
           type:
           - integer
           - 'null'
-          description: Total number of conference losses for a team
-        DivisionWins:
+          description: Total number of seconds played
+        Goals:
+          type:
+          - number
+          - 'null'
+          description: Total number of goals scored
+        Assists:
+          type:
+          - number
+          - 'null'
+          description: Total number of assists
+        ShotsOnGoal:
+          type:
+          - number
+          - 'null'
+          description: Total number of shots on goal
+        PowerPlayGoals:
+          type:
+          - number
+          - 'null'
+          description: Total number of power play goals
+        ShortHandedGoals:
+          type:
+          - number
+          - 'null'
+          description: Total number of short handed goals
+        EmptyNetGoals:
+          type:
+          - number
+          - 'null'
+          description: Total number of empty net goals
+        PowerPlayAssists:
+          type:
+          - number
+          - 'null'
+          description: Total number of power play assists
+        ShortHandedAssists:
+          type:
+          - number
+          - 'null'
+          description: Total number of short handed assists
+        HatTricks:
+          type:
+          - number
+          - 'null'
+          description: Total number of hat tricks
+        ShootoutGoals:
+          type:
+          - number
+          - 'null'
+          description: Total number of shootout goals
+        PlusMinus:
+          type:
+          - number
+          - 'null'
+          description: Total plus minus
+        PenaltyMinutes:
+          type:
+          - number
+          - 'null'
+          description: Total pentalty minutes
+        Blocks:
+          type:
+          - number
+          - 'null'
+          description: Total blocked shots
+        Hits:
+          type:
+          - number
+          - 'null'
+          description: Total hits
+        Takeaways:
+          type:
+          - number
+          - 'null'
+          description: Total takeaways
+        Giveaways:
+          type:
+          - number
+          - 'null'
+          description: Total giveaways
+        FaceoffsWon:
+          type:
+          - number
+          - 'null'
+          description: Total faceoffs won
+        FaceoffsLost:
+          type:
+          - number
+          - 'null'
+          description: Total faceoffs lost
+        Shifts:
+          type:
+          - number
+          - 'null'
+          description: Total shifts
+        GoaltendingMinutes:
           type:
           - integer
           - 'null'
-          description: Total number of division wins by the team
-        DivisionLosses:
+          description: Total goaltending minutes
+        GoaltendingSeconds:
           type:
           - integer
           - 'null'
-          description: Total number of division losses by the team
-        ShutoutWins:
+          description: Total goaltending seconds
+        GoaltendingShotsAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total goaltending shots against
+        GoaltendingGoalsAgainst:
+          type:
+          - number
+          - 'null'
+          description: Total goaltending goals against
+        GoaltendingSaves:
+          type:
+          - number
+          - 'null'
+          description: Total goaltending saves
+        GoaltendingWins:
+          type:
+          - number
+          - 'null'
+          description: Total goaltending wins
+        GoaltendingLosses:
+          type:
+          - number
+          - 'null'
+          description: Total goaltendings losses
+        GoaltendingShutouts:
+          type:
+          - number
+          - 'null'
+          description: Total goaltendings shutouts
+        Started:
           type:
           - integer
           - 'null'
-          description: Total regular season shutout wins by the team
-        ConferenceRank:
+          description: Total games started
+        BenchPenaltyMinutes:
           type:
-          - integer
+          - number
           - 'null'
-          description: Team rank at the conference level
-        DivisionRank:
+          description: Total bench pentalty minutes
+        GoaltendingOvertimeLosses:
           type:
-          - integer
+          - number
           - 'null'
-          description: Team rank at the division level
-        GlobalTeamID:
+          description: Total goaltending overtime losses
+        FantasyPointsFantasyDraft:
           type:
-          - integer
+          - number
           - 'null'
-          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
-        ClinchedDivision:
-          type:
-          - boolean
-          - 'null'
-          description: Returns TRUE if team has clinched their division; FALSE if not
-        ClinchedPlayoffBerth:
-          type:
-          - boolean
-          - 'null'
-          description: Returns TRUE if team has clinched a playoff spot; FALSE if not
-        ClinchedBestRecordInConference:
-          type:
-          - boolean
-          - 'null'
-          description: Returns TRUE if team has clinched the best record in their respective conference; FALSE if not
-        ClinchedPresidentsTrophy:
-          type:
-          - boolean
-          - 'null'
-          description: Returns TRUE if team has clinched best record in NHL (President's Trophy); FALSE if not
-        EliminatedFromPlayoffContention:
-          type:
-          - boolean
-          - 'null'
-          description: Returns TRUE if team has been eliminated from playoff contention; FALSE if not
-    TeamGoalieDepthChart:
+          description: Total FantasyDraft daily fantasy points scored
+    Penalty:
       properties:
-        GoalieDepthCharts:
-          type: array
-          items:
-            $ref: '#/components/schemas/GoalieDepthChart'
-          description: List of players that make up the goalie depth chart for each team
+        PenaltyID:
+          type: integer
+          description: The unique ID of this penalty
+        PeriodID:
+          type: integer
+          description: The unique ID of the period during which this penalty occurred
+        Sequence:
+          type:
+          - integer
+          - 'null'
+          description: The sequence/order that this penalty happened
+        TimeRemainingMinutes:
+          type:
+          - integer
+          - 'null'
+          description: 'Number of minutes that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock minutes which are the number of minutes that have already passed in the period.'
+        TimeRemainingSeconds:
+          type:
+          - integer
+          - 'null'
+          description: 'Number of seconds that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock seconds which are the number of minutes that have already passed in the period.'
+        Description:
+          type:
+          - string
+          - 'null'
+          description: The description of the penalty
+        PenaltyMinutes:
+          type:
+          - integer
+          - 'null'
+          description: Total minutes the penalty lasts
+        PenalizedTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the team who committed the penalty
+        PenalizedPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who committed the penalty
+        DrawnByTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the player/team that drew the penalty
+        DrawnByPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who drew the penalty
+        IsBenchPenalty:
+          type:
+          - boolean
+          - 'null'
+          description: Whether or not the penalty is a bench penalty
+        BenchPenaltyServedByPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who served the bench penalty
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    Team:
+      properties:
         TeamID:
           type: integer
           description: The unique ID of the team
-    PlayerBasic:
-      properties:
-        PlayerID:
-          type: integer
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        FirstName:
+        Key:
           type:
           - string
           - 'null'
-          description: The first name of the player
-        LastName:
+          description: Abbreviation of the team (e.g. LA, PHI, BOS, CHI, etc.)
+        Active:
+          type: boolean
+          description: Whether or not this team is active
+        City:
           type:
           - string
           - 'null'
-          description: The player's last name
-        Status:
+          description: The city/location of the team (e.g. Los Angeles, Philadelphia, Boston, Chicago, etc.)
+        Name:
           type:
           - string
           - 'null'
-          description: The player's current status. Possible values include Active; Inactive; Injured Reserve; Minors; Suspended; Bereavement; Paternity
-        TeamID:
+          description: The mascot of the team (e.g. Kings, Flyers, Bruins, Blackhawks, etc.)
+        StadiumID:
           type:
           - integer
           - 'null'
-          description: The unique ID of the team
-        Team:
+          description: The unique ID of the team's current home arena
+        Conference:
           type:
           - string
           - 'null'
-          description: The abbreviation [Key] of the team this player is employed by
-        Position:
+          description: 'The conference of the team (possible values: Eastern, Western)'
+        Division:
           type:
           - string
           - 'null'
-          description: 'The player''s primary position. Possible values: C, RW, LW, D, or G.'
-        Jersey:
-          type:
-          - integer
-          - 'null'
-          description: The player's jersey number
-        Height:
-          type:
-          - integer
-          - 'null'
-          description: The player's height in inches
-        Weight:
-          type:
-          - integer
-          - 'null'
-          description: The player's weight in pounds (lbs)
-        BirthDate:
+          description: The division of the team (e.g. Atlantic; Metropolitan; Central; or Pacific)
+        PrimaryColor:
           type:
           - string
           - 'null'
-          description: The player's date of birth
-        BirthCity:
+          description: The team's first color (This is not licensed for public or commercial use)
+        SecondaryColor:
           type:
           - string
           - 'null'
-          description: The city in which the player was born
-        BirthState:
+          description: The team's second color (This is not licensed for public or commercial use)
+        TertiaryColor:
           type:
           - string
           - 'null'
-          description: 'The US state in which the player was born. NOTE: If a player was born outside of North America or Australia, this field will be null'
+          description: The team's third color (This is not licensed for public or commercial use)
+        QuaternaryColor:
+          type:
+          - string
+          - 'null'
+          description: The team's fourth color (This is not licensed for public or commercial use)
+        WikipediaLogoUrl:
+          type:
+          - string
+          - 'null'
+          description: The link to the team's logo hosted on Wikipedia. (This is not licensed for public or commercial use)
+        WikipediaWordMarkUrl:
+          type:
+          - string
+          - 'null'
+          description: The link to the team's wordmark logo hosted on Wikipedia. (This is not licensed for public or commercial use)
         GlobalTeamID:
-          type:
-          - integer
-          - 'null'
+          type: integer
           description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        HeadCoach:
+          type:
+          - string
+          - 'null'
+          description: The current head coach of the team
     ScoreBasic:
       properties:
         GameID:
@@ -3042,43 +2838,72 @@ components:
           - string
           - 'null'
           description: The date and time of the game in UTC
-    Season:
+    TeamGoalieDepthChart:
       properties:
-        Season:
+        GoalieDepthCharts:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoalieDepthChart'
+          description: List of players that make up the goalie depth chart for each team
+        TeamID:
           type: integer
-          description: The NHL regular season for which these totals apply
-        StartYear:
+          description: The unique ID of the team
+    Transaction:
+      properties:
+        PlayerID:
           type: integer
-          description: The year in which the season started
-        EndYear:
-          type: integer
-          description: The year in which the season ended
-        Description:
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        Name:
           type:
           - string
           - 'null'
-          description: 'The description of the season for display purposes (possible values include: 2017-18, 2018-19, etc)'
-        RegularSeasonStartDate:
+          description: The player's full name
+        FormerTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The ID of the player's former team
+        FormerTeam:
           type:
           - string
           - 'null'
-          description: The start date of the regular season
-        PostSeasonStartDate:
+          description: The [Key] of the player's former team (e.g. BOS; PHI; DET; EDM, etc.)
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        Team:
           type:
           - string
           - 'null'
-          description: The start date of the postseason
-        SeasonType:
+          description: The abbreviation [Key] of the team involved in the transaction
+        Type:
           type:
           - string
           - 'null'
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition).
-        ApiSeason:
+          description: Type of transaction that occurred
+        Date:
           type:
           - string
           - 'null'
-          description: The string to pass into subsequent API calls in the season parameter (e.g. 2025REG, 2025POST, etc.)
-    ScheduleBasic:
+          description: The date this transaction was created
+        Note:
+          type:
+          - string
+          - 'null'
+          description: A summary of the transaction that occurred (e.g. "Harris has signed with the Canucks.")
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The date and time this transaction was created
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The date and time this transaction was last updated (in US Eastern Time)
+    Game:
       properties:
         GameID:
           type: integer
@@ -3088,7 +2913,7 @@ components:
           description: The NHL season of the game
         SeasonType:
           type: integer
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 5=AllStar; 6=Exhibition)
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 5=AllStar, 6=Exhibition).
         Status:
           type:
           - string
@@ -3108,12 +2933,12 @@ components:
           type:
           - string
           - 'null'
-          description: The timestamp of when the record was last updated (in US Eastern Time)
+          description: The timestamp of when the record was last updated (in US Eastern Time).
         IsClosed:
           type:
           - boolean
           - 'null'
-          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. NOTE: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
         AwayTeam:
           type:
           - string
@@ -3124,11 +2949,27 @@ components:
           - string
           - 'null'
           description: The abbreviation [Key] of the home team
+        AwayTeamID:
+          type: integer
+          description: The unique ID of the away team
+        HomeTeamID:
+          type: integer
+          description: The unique ID of the home team
         StadiumID:
           type:
           - integer
           - 'null'
           description: The unique ID of the stadium
+        Channel:
+          type:
+          - string
+          - 'null'
+          description: The television station broadcasting the game
+        Attendance:
+          type:
+          - integer
+          - 'null'
+          description: The total number of people who attended the game
         AwayTeamScore:
           type:
           - integer
@@ -3139,6 +2980,41 @@ components:
           - integer
           - 'null'
           description: Total number of goals scored by the home team in the game
+        Period:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the current period of the game. Possible values include: 1; 2; 3; OT; SO; NULL'
+        TimeRemainingMinutes:
+          type:
+          - integer
+          - 'null'
+          description: Number of minutes remaining in the current period
+        TimeRemainingSeconds:
+          type:
+          - integer
+          - 'null'
+          description: 'Number of seconds that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock sconds which are the number of minutes that have already passed in the period.'
+        AwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Moneyline from the perspective of the away team
+        HomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Moneyline from the perspective of the home team
+        PointSpread:
+          type:
+          - number
+          - 'null'
+          description: The oddsmaker puck line at game start from the perspective of the HomeTeam (negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored).
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's total goals scored line (Over/Under) for the game
         GlobalGameID:
           type: integer
           description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
@@ -3148,16 +3024,56 @@ components:
         GlobalHomeTeamID:
           type: integer
           description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        PointSpreadAwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The payout odds when betting on the away team with the puck line
+        PointSpreadHomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The payout odds when betting on the home team with the puck line
+        LastPlay:
+          type:
+          - string
+          - 'null'
+          description: The description of the most recent play/event of the game. This is for display purposes and does not include corresponding data points.
+        Periods:
+          type: array
+          items:
+            $ref: '#/components/schemas/Period'
+          description: The details of the periods (including overtime if applicable) for this game.
         GameEndDateTime:
           type:
           - string
           - 'null'
           description: The date and time that the game ended in US Eastern Time
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the home team for this game
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the away team for a game
         NeutralVenue:
           type:
           - boolean
           - 'null'
           description: Indicates whether this game is played in a neutral venue
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the over
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under
         DateTimeUTC:
           type:
           - string
@@ -3166,12 +3082,6 @@ components:
         SeriesInfo:
           $ref: '#/components/schemas/Series'
           description: Contains relevant series data for playoff series only - HomeTeamWins, AwayTeamWins, GameNumber, and MaxLength
-        AwayTeamID:
-          type: integer
-          description: The unique ID of the away team
-        HomeTeamID:
-          type: integer
-          description: The unique ID of the home team
         RescheduledFromGameID:
           type:
           - integer
@@ -3182,6 +3092,96 @@ components:
           - integer
           - 'null'
           description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
+        Referee1ID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the main referee of this game
+        Referee2ID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the secondary referee of this game
+        Linesperson1ID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the main linesperson of this game
+        Linesperson2ID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the secondary linesperson of this game
+    PlayerBasic:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        FirstName:
+          type:
+          - string
+          - 'null'
+          description: The first name of the player
+        LastName:
+          type:
+          - string
+          - 'null'
+          description: The player's last name
+        Status:
+          type:
+          - string
+          - 'null'
+          description: The player's current status. Possible values include Active; Inactive; Injured Reserve; Minors; Suspended; Bereavement; Paternity
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team this player is employed by
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s primary position. Possible values: C, RW, LW, D, or G.'
+        Jersey:
+          type:
+          - integer
+          - 'null'
+          description: The player's jersey number
+        Height:
+          type:
+          - integer
+          - 'null'
+          description: The player's height in inches
+        Weight:
+          type:
+          - integer
+          - 'null'
+          description: The player's weight in pounds (lbs)
+        BirthDate:
+          type:
+          - string
+          - 'null'
+          description: The player's date of birth
+        BirthCity:
+          type:
+          - string
+          - 'null'
+          description: The city in which the player was born
+        BirthState:
+          type:
+          - string
+          - 'null'
+          description: 'The US state in which the player was born. NOTE: If a player was born outside of North America or Australia, this field will be null'
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
   securitySchemes:
     apiKeyHeader:
       type: apiKey

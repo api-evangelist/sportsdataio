@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: MLB MLB v3 Headshots NBA v3 Headshots API
+  title: NBA v3 Headshots API
   version: '1.0'
-  description: MLB API - OpenAPI 3.1 Specification
+  description: NBA API - OpenAPI 3.1 Specification
 servers:
 - url: https://api.sportsdata.io
   description: Production server
@@ -14,7 +14,6 @@ tags:
 paths:
   /v3/nba/headshots/{format}/Headshots:
     get:
-      description: Headshots
       operationId: nba_v3_headshots_headshots
       summary: Headshots
       parameters:

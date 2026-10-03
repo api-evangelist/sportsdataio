@@ -1533,145 +1533,6 @@ paths:
       - NFL v3 Stats
 components:
   schemas:
-    FantasyGame:
-      properties:
-        GameID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of this game
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The unique PlayerID of the player as assigned by SportsDataIO tied to this FantasyGame record Note: this ID will stay with the player throughout their entire career'
-        SeasonType:
-          type: integer
-          description: The type of season that this player corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star).
-        Season:
-          type: integer
-          description: The NFL season of the game
-        Day:
-          type:
-          - string
-          - 'null'
-          description: The date of the game (in US Eastern Time)
-        DateTime:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game (in US Eastern Time)
-        Week:
-          type: integer
-          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team
-        Opponent:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the opponent team
-        HomeOrAway:
-          type:
-          - string
-          - 'null'
-          description: Whether the team is home or away
-        Number:
-          type: integer
-          description: Player's jersey number
-        Name:
-          type:
-          - string
-          - 'null'
-          description: Player's full name
-        Position:
-          type:
-          - string
-          - 'null'
-          description: 'The primary position of the player Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR'
-        PositionCategory:
-          type:
-          - string
-          - 'null'
-          description: The category of the player's position (OFF; DEF; ST)
-        Activated:
-          type: integer
-          description: Whether or not the player was active for the game
-        Played:
-          type: integer
-          description: 'Whether the player played at least one snap in the game Note: Will return "1" if player played at least one snap and "0" if they did not'
-        Started:
-          type: integer
-          description: 'Whether the player started the game (on offensive or defense) Note: Started = 1 / Did Not Start = 0'
-        FantasyPoints:
-          type: number
-          description: Total fantasy points by the player in the game
-        FantasyPointsPPR:
-          type: number
-          description: Fantasy points scored based on basic PPR fantasy scoring system by the player in the game
-        FantasyPosition:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s fantasy football position Possible values: QB; RB; WR; TE; DL; LB; DB; K; P; OL'
-        IsGameOver:
-          type:
-          - boolean
-          - 'null'
-          description: Whether the game is over (true/false)
-        FantasyPointsFanDuel:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on FanDuel's scoring system by the player in the game
-        FantasyPointsYahoo:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on Yahoo's daily fantasy scoring system by the player in the game
-        FantasyPointsDraftKings:
-          type:
-          - number
-          - 'null'
-          description: Total DraftKings daily fantasy points scored by the player in the game
-        FanDuelPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in FanDuel's daily fantasy sports platform
-        DraftKingsPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in DraftKings' daily fantasy sports platform
-        YahooPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in Yahoo's daily fantasy sports platform
-        OpponentRank:
-          type:
-          - integer
-          - 'null'
-          description: The ranking of the player's opponent with regards to fantasy points allowed
-        OpponentPositionRank:
-          type:
-          - integer
-          - 'null'
-          description: The ranking of the player's opponent by position with regards to fantasy points allowed
-        GlobalGameID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: 'Time of last update (in US Eastern time) Note: this does not indicate that stats changed'
     Score:
       properties:
         GameKey:
@@ -2036,42 +1897,560 @@ components:
           - boolean
           - 'null'
           description: Indicates whether the game is over and the final score has been verified and closed out.
-    BoxScoreV3:
+    PlayerSeason:
       properties:
-        Score:
-          $ref: '#/components/schemas/Score'
-          description: The Score object related to this game
-        Quarters:
-          type: array
-          items:
-            $ref: '#/components/schemas/Quarter'
-          description: The Quarters objects related to this game
-        TeamGames:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamGame'
-          description: The TeamGame objects related to this game
-        PlayerGames:
-          type: array
-          items:
-            $ref: '#/components/schemas/PlayerGame'
-          description: The PlayerGame objects related to this game
-        FantasyDefenseGames:
-          type: array
-          items:
-            $ref: '#/components/schemas/FantasyDefenseGame'
-          description: The FantasyDefenseGame objects related to this game
-        ScoringPlays:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScoringPlay'
-          description: The ScoringPlay objects related to this game
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        SeasonType:
+          type: integer
+          description: The type of season that this player corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+        Season:
+          type: integer
+          description: The NFL season for which these totals apply
+        Team:
+          type:
+          - string
+          - 'null'
+          description: 'The abbreviation [Key] of the team that the player is on. Note: If this player is a free agent; this field is NULL'
+        Number:
+          type: integer
+          description: Player's jersey number
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Player's full name
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The primary position of the player. Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR'
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: The category of the player's position (OFF; DEF; ST)
+        Activated:
+          type: integer
+          description: The total number of games that the player was active for in the season
+        Played:
+          type: integer
+          description: The total number of games played by the the player in the season
+        Started:
+          type: integer
+          description: Total games started (on offense or defense) by the player in the season
+        PassingAttempts:
+          type: number
+          description: Total passes thrown by the player in the season
+        PassingCompletions:
+          type: number
+          description: Total passes completed by the player in the season
+        PassingYards:
+          type: number
+          description: Total passing yards by the player in the season
+        PassingCompletionPercentage:
+          type: number
+          description: The percentage of passes completed by the player in the season
+        PassingYardsPerAttempt:
+          type: number
+          description: Total average passing yards per attempt by the player in the season
+        PassingYardsPerCompletion:
+          type: number
+          description: Total average passing yards per completion by the player in the season
+        PassingTouchdowns:
+          type: number
+          description: Total passing touchdowns by the player in the season
+        PassingInterceptions:
+          type: number
+          description: Total interceptions thrown by the player in the season
+        PassingRating:
+          type: number
+          description: The passer rating of the player in the season
+        PassingLong:
+          type: number
+          description: Total yards of longest completion by the player in the season
+        PassingSacks:
+          type: number
+          description: The total number of times the player was sacked in the season
+        PassingSackYards:
+          type: number
+          description: Total yards lost by the player in the season as a result of being sacked
+        RushingAttempts:
+          type: number
+          description: Total rushing attempts by the player in the season
+        RushingYards:
+          type: number
+          description: Total rushing yards by the player in the season
+        RushingYardsPerAttempt:
+          type: number
+          description: Total rushing yards per attempt by the player in the season
+        RushingTouchdowns:
+          type: number
+          description: Total rushing touchdowns by the player in the season
+        RushingLong:
+          type: number
+          description: The longest rush by the player in the season
+        ReceivingTargets:
+          type:
+          - number
+          - 'null'
+          description: Total receiving targets by the player in the season
+        Receptions:
+          type: number
+          description: Total receptions by the player in the season
+        ReceivingYards:
+          type: number
+          description: Total receiving yards by the player in the season
+        ReceivingYardsPerReception:
+          type: number
+          description: Average receiving yards per reception by the player in the season
+        ReceivingTouchdowns:
+          type: number
+          description: Total receiving touchdowns by the player in the season
+        ReceivingLong:
+          type: number
+          description: The longest reception by the player in the season
+        Fumbles:
+          type: number
+          description: Total fumbles by the player in the season
+        FumblesLost:
+          type:
+          - number
+          - 'null'
+          description: Total fumbles lost by the player in the season
+        PuntReturns:
+          type: number
+          description: Total punt returns by the player in the season
+        PuntReturnYards:
+          type: number
+          description: Total punt return yards by the player in the season
+        PuntReturnYardsPerAttempt:
+          type: number
+          description: Total average yards gained per punt return by the player in the season
+        PuntReturnTouchdowns:
+          type: number
+          description: Total punt return touchdowns by the player in the season
+        PuntReturnLong:
+          type: number
+          description: The longest punt return by the player in the season
+        KickReturns:
+          type: number
+          description: Total kickoff returns by the player in the season
+        KickReturnYards:
+          type: number
+          description: Total kickoff return yards by the player in the season
+        KickReturnYardsPerAttempt:
+          type: number
+          description: Average yards gained per kick return by the player in the season
+        KickReturnTouchdowns:
+          type: number
+          description: Total kickoff return touchdowns by the player in the season
+        KickReturnLong:
+          type: number
+          description: Longest kick return by the player in the season
+        SoloTackles:
+          type: number
+          description: Total defensive solo (unassisted) tackles by the player in the season
+        AssistedTackles:
+          type: number
+          description: Total defensive assisted tackles by the player in the season
+        TacklesForLoss:
+          type:
+          - number
+          - 'null'
+          description: 'Total tackles for loss by the player in the season. Note: these are tackles behind the line of scrimmage for loss of yards (including sacks)'
+        Sacks:
+          type: number
+          description: Total defensive sacks by the player in the season
+        SackYards:
+          type: number
+          description: Total defensive safeties scored by the player in the season
+        QuarterbackHits:
+          type:
+          - number
+          - 'null'
+          description: 'Total quarterback hits by the player in the season. Note: This is a defensive stat that includes sacks'
+        PassesDefended:
+          type: number
+          description: Total passes defended by the player in the season
+        FumblesForced:
+          type: number
+          description: Total fumbles forced on defense by the player in the season
+        FumblesRecovered:
+          type: number
+          description: Total defensive fumble recoveries by the player in the season
+        FumbleReturnYards:
+          type: number
+          description: Total fumble return yards by the player in the season
+        FumbleReturnTouchdowns:
+          type: number
+          description: Total fumble return touchdowns by the player in the season
+        Interceptions:
+          type: number
+          description: Total defensive interceptions by the player in the season
+        InterceptionReturnYards:
+          type: number
+          description: Total defensive interception return yards by the player in the season
+        InterceptionReturnTouchdowns:
+          type: number
+          description: Total defensive interception return touchdowns by the player in the season
+        BlockedKicks:
+          type: number
+          description: 'Total blocked kicks by the player in the season. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points'
+        SpecialTeamsSoloTackles:
+          type: number
+          description: This field is deprecated
+        SpecialTeamsAssistedTackles:
+          type: number
+          description: This field is deprecated
+        MiscSoloTackles:
+          type: number
+          description: This field is deprecated
+        MiscAssistedTackles:
+          type: number
+          description: This field is deprecated
+        Punts:
+          type: number
+          description: Total number of punts by the player in the season
+        PuntYards:
+          type: number
+          description: Total punt yards by the player in the season
+        PuntAverage:
+          type: number
+          description: The average number of yards per punt by the player in the season
+        FieldGoalsAttempted:
+          type: number
+          description: Total field goals attempted by the player in the season
+        FieldGoalsMade:
+          type: number
+          description: Total field goals made by the player in season
+        FieldGoalsLongestMade:
+          type: number
+          description: Longest field goal made by the player in the season
+        ExtraPointsMade:
+          type: number
+          description: Total extra points made by the player in the season
+        TwoPointConversionPasses:
+          type: number
+          description: Total successful two point conversion passes by the player in the season
+        TwoPointConversionRuns:
+          type: number
+          description: Total successful two point conversion rushes by the player in the season
+        TwoPointConversionReceptions:
+          type: number
+          description: Total successful two point conversion receptions by the player in the season
+        FantasyPoints:
+          type: number
+          description: Fantasy points scored based on basic fantasy scoring system by the player in the season
+        FantasyPointsPPR:
+          type: number
+          description: Fantasy points scored based on basic PPR fantasy scoring system by the player in the season
+        ReceptionPercentage:
+          type: number
+          description: Total percentage of receiving targets that were receptions by the player in the season
+        ReceivingYardsPerTarget:
+          type: number
+          description: Average receiving yards per target by the player in the season
+        Tackles:
+          type: number
+          description: Total tackles (solo & assisted) by the player in the season
+        OffensiveTouchdowns:
+          type: number
+          description: Total offensive touchdowns scored by the player in the season
+        DefensiveTouchdowns:
+          type: number
+          description: Total defensive touchdowns scored by the player in the season
+        SpecialTeamsTouchdowns:
+          type: number
+          description: Total special teams touchdowns scored by the player in the season
+        Touchdowns:
+          type: number
+          description: Total touchdowns scored by the player in the season
+        FantasyPosition:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s fantasy football position. Possible values: QB, RB, WR, TE, DL, LB, DB, K, P, OL'
+        FieldGoalPercentage:
+          type: number
+          description: Total field goal attempts made by the player in the season
+        PlayerSeasonID:
+          type: integer
+          description: Unique ID of PlayerSeason record (subject to change, although it very rarely does).  For a static ID, use a combination of SeasonType, Season and PlayerID.
+        FumblesOwnRecoveries:
+          type:
+          - number
+          - 'null'
+          description: 'Total own fumble recoveries by the player in the season. Note: this fumble doesn''t result in a turnover - the fumbling team recovers the fumble'
+        FumblesOutOfBounds:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        KickReturnFairCatches:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        PuntReturnFairCatches:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated.
+        PuntTouchbacks:
+          type:
+          - number
+          - 'null'
+          description: Total punts that resulted in touchbacks by the player in the season
+        PuntInside20:
+          type:
+          - number
+          - 'null'
+          description: Total punts downed inside the 20 yard line by the player in the season
+        PuntNetAverage:
+          type:
+          - number
+          - 'null'
+          description: The average net yards per punt by the player in the season
+        ExtraPointsAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total extra point kicks attempted by the player in the season
+        BlockedKickReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return touchdowns for the player in the season
+        FieldGoalReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return touchdowns by the player in the season. Note: This field excludes blocked field goals'
+        Safeties:
+          type:
+          - number
+          - 'null'
+          description: Defensive safeties (sacks in end zone, solo tackles in end zone, blocked kicks that went out of bounds in the end zone)
+        FieldGoalsHadBlocked:
+          type:
+          - number
+          - 'null'
+          description: Total field goals by the player that were blocked in the season
+        PuntsHadBlocked:
+          type:
+          - number
+          - 'null'
+          description: Total punts by the player that were blocked in the season
+        ExtraPointsHadBlocked:
+          type:
+          - number
+          - 'null'
+          description: Total extra point kick attempts by the player that were blocked in the season
+        PuntLong:
+          type:
+          - number
+          - 'null'
+          description: The longest punt by the player in the season
+        BlockedKickReturnYards:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return yards for the player in the season
+        FieldGoalReturnYards:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return yards by the player in the season. Note: This field excludes blocked field goals'
+        PuntNetYards:
+          type:
+          - number
+          - 'null'
+          description: The net yards of the punts by the player in the season
+        SpecialTeamsFumblesForced:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        SpecialTeamsFumblesRecovered:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        MiscFumblesForced:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        MiscFumblesRecovered:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        ShortName:
+          type:
+          - string
+          - 'null'
+          description: The first initial and last name of the player (J. Doe)
+        SafetiesAllowed:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        Temperature:
+          type:
+          - integer
+          - 'null'
+          description: Temperature at game start (Fahrenheit)
+        Humidity:
+          type:
+          - integer
+          - 'null'
+          description: The humidity percentage at the start of the game
+        WindSpeed:
+          type:
+          - integer
+          - 'null'
+          description: The wind speed at the start of the game (in MPH)
+        OffensiveSnapsPlayed:
+          type:
+          - integer
+          - 'null'
+          description: 'Total snaps this player played on offensive in the season. Note: Snap counts are available the morning after the game.'
+        DefensiveSnapsPlayed:
+          type:
+          - integer
+          - 'null'
+          description: 'Total snaps this player played on defense in the season. Note: Snap counts are available the morning after the game.'
+        SpecialTeamsSnapsPlayed:
+          type:
+          - integer
+          - 'null'
+          description: 'Total snaps this player played on special teams in the season. Note: Snap counts are available the morning after the game.'
+        OffensiveTeamSnaps:
+          type:
+          - integer
+          - 'null'
+          description: 'Total offensive snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
+        DefensiveTeamSnaps:
+          type:
+          - integer
+          - 'null'
+          description: 'Total defensive snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
+        SpecialTeamsTeamSnaps:
+          type:
+          - integer
+          - 'null'
+          description: 'Total special teams snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
+        AuctionValue:
+          type:
+          - number
+          - 'null'
+          description: Player's dollar value in a $200 salary cap auction draft.
+        AuctionValuePPR:
+          type:
+          - number
+          - 'null'
+          description: Player's dollar value in a $200 salary cap PPR auction draft.
+        TwoPointConversionReturns:
+          type:
+          - number
+          - 'null'
+          description: Total successful two point conversion returns by the player in the season
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FanDuel's scoring system by the player in the season
+        FieldGoalsMade0to19:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 0 to 19 yards made by the player in season
+        FieldGoalsMade20to29:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 20 to 29 yards made by the player in season
+        FieldGoalsMade30to39:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 30 to 39 yards made by the player in season
+        FieldGoalsMade40to49:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 40 to 49 yards made by the player in season
+        FieldGoalsMade50Plus:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 50+ yards made by the player in season
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on DraftKings' scoring system by the player in the season
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on Yahoo's daily fantasy scoring system by the player in the season
+        AverageDraftPosition:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of the player in re-draft leagues
+        AverageDraftPositionPPR:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of this player in Points Per Reception (PPR) leagues.
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL'
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FantasyDraft's scoring system by the player in the season
         ScoringDetails:
           type: array
           items:
             $ref: '#/components/schemas/ScoringDetail'
-          description: The ScoringDetail objects related to this game
-    PlayerGame:
+          description: The details of the scoring plays this player recorded in the season
+        AverageDraftPositionRookie:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of this rookie in Points Per Reception (PPR) leagues.
+        AverageDraftPositionDynasty:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of this player in dynasty drafts leagues
+        AverageDraftPosition2QB:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of this player in 2 Quarterback leagues
+        OffensiveFumbleRecoveryTouchdowns:
+          type:
+          - integer
+          - 'null'
+          description: This field is deprecated
+    PlayerGameRedZone:
       properties:
         GameKey:
           type:
@@ -2758,1144 +3137,78 @@ components:
           - string
           - 'null'
           description: 'Time of last update (in US Eastern time). Note: this does not indicate that stats changed.'
-    PlayerSeasonThirdDown:
+    ScoringPlay:
       properties:
-        PlayerID:
+        GameKey:
           type:
-          - integer
+          - string
           - 'null'
-          description: 'The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks'
         SeasonType:
           type: integer
-          description: The type of season that this player corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+          description: The type of season that this game corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+        ScoringPlayID:
+          type: integer
+          description: Unique ID of the scoring play
         Season:
           type: integer
-          description: The NFL season for which these totals apply
-        Team:
-          type:
-          - string
-          - 'null'
-          description: 'The abbreviation [Key] of the team that the player is on. Note: If this player is a free agent; this field is NULL'
-        Number:
-          type: integer
-          description: Player's jersey number
-        Name:
-          type:
-          - string
-          - 'null'
-          description: Player's full name
-        Position:
-          type:
-          - string
-          - 'null'
-          description: 'The primary position of the player. Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR'
-        PositionCategory:
-          type:
-          - string
-          - 'null'
-          description: The category of the player's position (OFF; DEF; ST)
-        Activated:
-          type: integer
-          description: The total number of games that the player was active for in the season
-        Played:
-          type: integer
-          description: The total number of games played by the the player in the season
-        Started:
-          type: integer
-          description: Total games started (on offense or defense) by the player in the season
-        PassingAttempts:
-          type: number
-          description: Total passes thrown by the player in the season
-        PassingCompletions:
-          type: number
-          description: Total passes completed by the player in the season
-        PassingYards:
-          type: number
-          description: Total passing yards by the player in the season
-        PassingCompletionPercentage:
-          type: number
-          description: The percentage of passes completed by the player in the season
-        PassingYardsPerAttempt:
-          type: number
-          description: Total average passing yards per attempt by the player in the season
-        PassingYardsPerCompletion:
-          type: number
-          description: Total average passing yards per completion by the player in the season
-        PassingTouchdowns:
-          type: number
-          description: Total passing touchdowns by the player in the season
-        PassingInterceptions:
-          type: number
-          description: Total interceptions thrown by the player in the season
-        PassingRating:
-          type: number
-          description: The passer rating of the player in the season
-        PassingLong:
-          type: number
-          description: Total yards of longest completion by the player in the season
-        PassingSacks:
-          type: number
-          description: The total number of times the player was sacked in the season
-        PassingSackYards:
-          type: number
-          description: Total yards lost by the player in the season as a result of being sacked
-        RushingAttempts:
-          type: number
-          description: Total rushing attempts by the player in the season
-        RushingYards:
-          type: number
-          description: Total rushing yards by the player in the season
-        RushingYardsPerAttempt:
-          type: number
-          description: Total rushing yards per attempt by the player in the season
-        RushingTouchdowns:
-          type: number
-          description: Total rushing touchdowns by the player in the season
-        RushingLong:
-          type: number
-          description: The longest rush by the player in the season
-        ReceivingTargets:
-          type:
-          - number
-          - 'null'
-          description: Total receiving targets by the player in the season
-        Receptions:
-          type: number
-          description: Total receptions by the player in the season
-        ReceivingYards:
-          type: number
-          description: Total receiving yards by the player in the season
-        ReceivingYardsPerReception:
-          type: number
-          description: Average receiving yards per reception by the player in the season
-        ReceivingTouchdowns:
-          type: number
-          description: Total receiving touchdowns by the player in the season
-        ReceivingLong:
-          type: number
-          description: The longest reception by the player in the season
-        Fumbles:
-          type: number
-          description: Total fumbles by the player in the season
-        FumblesLost:
-          type:
-          - number
-          - 'null'
-          description: Total fumbles lost by the player in the season
-        PuntReturns:
-          type: number
-          description: Total punt returns by the player in the season
-        PuntReturnYards:
-          type: number
-          description: Total punt return yards by the player in the season
-        PuntReturnYardsPerAttempt:
-          type: number
-          description: Total average yards gained per punt return by the player in the season
-        PuntReturnTouchdowns:
-          type: number
-          description: Total punt return touchdowns by the player in the season
-        PuntReturnLong:
-          type: number
-          description: The longest punt return by the player in the season
-        KickReturns:
-          type: number
-          description: Total kickoff returns by the player in the season
-        KickReturnYards:
-          type: number
-          description: Total kickoff return yards by the player in the season
-        KickReturnYardsPerAttempt:
-          type: number
-          description: Average yards gained per kick return by the player in the season
-        KickReturnTouchdowns:
-          type: number
-          description: Total kickoff return touchdowns by the player in the season
-        KickReturnLong:
-          type: number
-          description: Longest kick return by the player in the season
-        SoloTackles:
-          type: number
-          description: Total defensive solo (unassisted) tackles by the player in the season
-        AssistedTackles:
-          type: number
-          description: Total defensive assisted tackles by the player in the season
-        TacklesForLoss:
-          type:
-          - number
-          - 'null'
-          description: 'Total tackles for loss by the player in the season. Note: these are tackles behind the line of scrimmage for loss of yards (including sacks)'
-        Sacks:
-          type: number
-          description: Total defensive sacks by the player in the season
-        SackYards:
-          type: number
-          description: Total defensive safeties scored by the player in the season
-        QuarterbackHits:
-          type:
-          - number
-          - 'null'
-          description: 'Total quarterback hits by the player in the season. Note: This is a defensive stat that includes sacks'
-        PassesDefended:
-          type: number
-          description: Total passes defended by the player in the season
-        FumblesForced:
-          type: number
-          description: Total fumbles forced on defense by the player in the season
-        FumblesRecovered:
-          type: number
-          description: Total defensive fumble recoveries by the player in the season
-        FumbleReturnYards:
-          type: number
-          description: Total fumble return yards by the player in the season
-        FumbleReturnTouchdowns:
-          type: number
-          description: Total fumble return touchdowns by the player in the season
-        Interceptions:
-          type: number
-          description: Total defensive interceptions by the player in the season
-        InterceptionReturnYards:
-          type: number
-          description: Total defensive interception return yards by the player in the season
-        InterceptionReturnTouchdowns:
-          type: number
-          description: Total defensive interception return touchdowns by the player in the season
-        BlockedKicks:
-          type: number
-          description: 'Total blocked kicks by the player in the season. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points'
-        SpecialTeamsSoloTackles:
-          type: number
-          description: This field is deprecated
-        SpecialTeamsAssistedTackles:
-          type: number
-          description: This field is deprecated
-        MiscSoloTackles:
-          type: number
-          description: This field is deprecated
-        MiscAssistedTackles:
-          type: number
-          description: This field is deprecated
-        Punts:
-          type: number
-          description: Total number of punts by the player in the season
-        PuntYards:
-          type: number
-          description: Total punt yards by the player in the season
-        PuntAverage:
-          type: number
-          description: The average number of yards per punt by the player in the season
-        FieldGoalsAttempted:
-          type: number
-          description: Total field goals attempted by the player in the season
-        FieldGoalsMade:
-          type: number
-          description: Total field goals made by the player in season
-        FieldGoalsLongestMade:
-          type: number
-          description: Longest field goal made by the player in the season
-        ExtraPointsMade:
-          type: number
-          description: Total extra points made by the player in the season
-        TwoPointConversionPasses:
-          type: number
-          description: Total successful two point conversion passes by the player in the season
-        TwoPointConversionRuns:
-          type: number
-          description: Total successful two point conversion rushes by the player in the season
-        TwoPointConversionReceptions:
-          type: number
-          description: Total successful two point conversion receptions by the player in the season
-        FantasyPoints:
-          type: number
-          description: Fantasy points scored based on basic fantasy scoring system by the player in the season
-        FantasyPointsPPR:
-          type: number
-          description: Fantasy points scored based on basic PPR fantasy scoring system by the player in the season
-        ReceptionPercentage:
-          type: number
-          description: Total percentage of receiving targets that were receptions by the player in the season
-        ReceivingYardsPerTarget:
-          type: number
-          description: Average receiving yards per target by the player in the season
-        Tackles:
-          type: number
-          description: Total tackles (solo & assisted) by the player in the season
-        OffensiveTouchdowns:
-          type: number
-          description: Total offensive touchdowns scored by the player in the season
-        DefensiveTouchdowns:
-          type: number
-          description: Total defensive touchdowns scored by the player in the season
-        SpecialTeamsTouchdowns:
-          type: number
-          description: Total special teams touchdowns scored by the player in the season
-        Touchdowns:
-          type: number
-          description: Total touchdowns scored by the player in the season
-        FantasyPosition:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s fantasy football position. Possible values: QB, RB, WR, TE, DL, LB, DB, K, P, OL'
-        FieldGoalPercentage:
-          type: number
-          description: Total field goal attempts made by the player in the season
-        PlayerSeasonID:
-          type: integer
-          description: Unique ID of PlayerSeason record (subject to change, although it very rarely does).  For a static ID, use a combination of SeasonType, Season and PlayerID.
-        FumblesOwnRecoveries:
-          type:
-          - number
-          - 'null'
-          description: 'Total own fumble recoveries by the player in the season. Note: this fumble doesn''t result in a turnover - the fumbling team recovers the fumble'
-        FumblesOutOfBounds:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        KickReturnFairCatches:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        PuntReturnFairCatches:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated.
-        PuntTouchbacks:
-          type:
-          - number
-          - 'null'
-          description: Total punts that resulted in touchbacks by the player in the season
-        PuntInside20:
-          type:
-          - number
-          - 'null'
-          description: Total punts downed inside the 20 yard line by the player in the season
-        PuntNetAverage:
-          type:
-          - number
-          - 'null'
-          description: The average net yards per punt by the player in the season
-        ExtraPointsAttempted:
-          type:
-          - number
-          - 'null'
-          description: Total extra point kicks attempted by the player in the season
-        BlockedKickReturnTouchdowns:
-          type:
-          - number
-          - 'null'
-          description: Total blocked kick recovery return touchdowns for the player in the season
-        FieldGoalReturnTouchdowns:
-          type:
-          - number
-          - 'null'
-          description: 'Total field goal return touchdowns by the player in the season. Note: This field excludes blocked field goals'
-        Safeties:
-          type:
-          - number
-          - 'null'
-          description: Defensive safeties (sacks in end zone, solo tackles in end zone, blocked kicks that went out of bounds in the end zone)
-        FieldGoalsHadBlocked:
-          type:
-          - number
-          - 'null'
-          description: Total field goals by the player that were blocked in the season
-        PuntsHadBlocked:
-          type:
-          - number
-          - 'null'
-          description: Total punts by the player that were blocked in the season
-        ExtraPointsHadBlocked:
-          type:
-          - number
-          - 'null'
-          description: Total extra point kick attempts by the player that were blocked in the season
-        PuntLong:
-          type:
-          - number
-          - 'null'
-          description: The longest punt by the player in the season
-        BlockedKickReturnYards:
-          type:
-          - number
-          - 'null'
-          description: Total blocked kick recovery return yards for the player in the season
-        FieldGoalReturnYards:
-          type:
-          - number
-          - 'null'
-          description: 'Total field goal return yards by the player in the season. Note: This field excludes blocked field goals'
-        PuntNetYards:
-          type:
-          - number
-          - 'null'
-          description: The net yards of the punts by the player in the season
-        SpecialTeamsFumblesForced:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        SpecialTeamsFumblesRecovered:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        MiscFumblesForced:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        MiscFumblesRecovered:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        ShortName:
-          type:
-          - string
-          - 'null'
-          description: The first initial and last name of the player (J. Doe)
-        SafetiesAllowed:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        Temperature:
-          type:
-          - integer
-          - 'null'
-          description: Temperature at game start (Fahrenheit)
-        Humidity:
-          type:
-          - integer
-          - 'null'
-          description: The humidity percentage at the start of the game
-        WindSpeed:
-          type:
-          - integer
-          - 'null'
-          description: The wind speed at the start of the game (in MPH)
-        OffensiveSnapsPlayed:
-          type:
-          - integer
-          - 'null'
-          description: 'Total snaps this player played on offensive in the season. Note: Snap counts are available the morning after the game.'
-        DefensiveSnapsPlayed:
-          type:
-          - integer
-          - 'null'
-          description: 'Total snaps this player played on defense in the season. Note: Snap counts are available the morning after the game.'
-        SpecialTeamsSnapsPlayed:
-          type:
-          - integer
-          - 'null'
-          description: 'Total snaps this player played on special teams in the season. Note: Snap counts are available the morning after the game.'
-        OffensiveTeamSnaps:
-          type:
-          - integer
-          - 'null'
-          description: 'Total offensive snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
-        DefensiveTeamSnaps:
-          type:
-          - integer
-          - 'null'
-          description: 'Total defensive snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
-        SpecialTeamsTeamSnaps:
-          type:
-          - integer
-          - 'null'
-          description: 'Total special teams snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
-        AuctionValue:
-          type:
-          - number
-          - 'null'
-          description: Player's dollar value in a $200 salary cap auction draft.
-        AuctionValuePPR:
-          type:
-          - number
-          - 'null'
-          description: Player's dollar value in a $200 salary cap PPR auction draft.
-        TwoPointConversionReturns:
-          type:
-          - number
-          - 'null'
-          description: Total successful two point conversion returns by the player in the season
-        FantasyPointsFanDuel:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on FanDuel's scoring system by the player in the season
-        FieldGoalsMade0to19:
-          type:
-          - number
-          - 'null'
-          description: Total field goals of 0 to 19 yards made by the player in season
-        FieldGoalsMade20to29:
-          type:
-          - number
-          - 'null'
-          description: Total field goals of 20 to 29 yards made by the player in season
-        FieldGoalsMade30to39:
-          type:
-          - number
-          - 'null'
-          description: Total field goals of 30 to 39 yards made by the player in season
-        FieldGoalsMade40to49:
-          type:
-          - number
-          - 'null'
-          description: Total field goals of 40 to 49 yards made by the player in season
-        FieldGoalsMade50Plus:
-          type:
-          - number
-          - 'null'
-          description: Total field goals of 50+ yards made by the player in season
-        FantasyPointsDraftKings:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on DraftKings' scoring system by the player in the season
-        FantasyPointsYahoo:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on Yahoo's daily fantasy scoring system by the player in the season
-        AverageDraftPosition:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of the player in re-draft leagues
-        AverageDraftPositionPPR:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of this player in Points Per Reception (PPR) leagues.
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: 'The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL'
-        GlobalTeamID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
-        FantasyPointsFantasyDraft:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on FantasyDraft's scoring system by the player in the season
-        ScoringDetails:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScoringDetail'
-          description: The details of the scoring plays this player recorded in the season
-        AverageDraftPositionRookie:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of this rookie in Points Per Reception (PPR) leagues.
-        AverageDraftPositionDynasty:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of this player in dynasty drafts leagues
-        AverageDraftPosition2QB:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of this player in 2 Quarterback leagues
-        OffensiveFumbleRecoveryTouchdowns:
-          type:
-          - integer
-          - 'null'
-          description: This field is deprecated
-    Unauthorized:
-      properties:
-        HttpStatusCode:
-          type: integer
-        Code:
-          type: integer
-        Description:
-          type: string
-        Help:
-          type: string
-    Stadium:
-      properties:
-        StadiumID:
-          type: integer
-          description: The unique ID of the stadium
-        Name:
-          type:
-          - string
-          - 'null'
-          description: The full name of the stadium
-        City:
-          type:
-          - string
-          - 'null'
-          description: The city where the stadium is located
-        State:
-          type:
-          - string
-          - 'null'
-          description: The city where the venue is located
-        Country:
-          type:
-          - string
-          - 'null'
-          description: The 3-digit country code where the stadium is located
-        Capacity:
-          type:
-          - integer
-          - 'null'
-          description: The estimated seating capacity of the stadium
-        PlayingSurface:
-          type:
-          - string
-          - 'null'
-          description: The playing surface of the stadium (Grass, Artificial or Dome)
-        GeoLat:
-          type:
-          - number
-          - 'null'
-          description: The geographic latitude coordinate of this venue
-        GeoLong:
-          type:
-          - number
-          - 'null'
-          description: The geographic longitude coordinate of this venue.
-        Type:
-          type:
-          - string
-          - 'null'
-          description: 'The type of the stadium (possible values: Outdoor, Dome, RetractableDome)'
-    PlayerInfo:
-      properties:
-        PlayerID:
-          type: integer
-          description: 'The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        Name:
-          type:
-          - string
-          - 'null'
-          description: The player's full name
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: 'The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL'
-        Team:
-          type:
-          - string
-          - 'null'
-          description: 'The abbreviation [Key] of the team that the player is on. Note: If this player is a free agent; this field is NULL'
-        Position:
-          type:
-          - string
-          - 'null'
-          description: 'The primary position of the player. Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR'
-    Quarter:
-      properties:
-        QuarterID:
-          type: integer
-          description: The unique ID of the quarter
-        ScoreID:
-          type: integer
-          description: The unique ID of the score this quarter belongs to
-        Number:
-          type: integer
-          description: The Number (Order) of the Quarter in the scope of the Game.
-        Name:
-          type:
-          - string
-          - 'null'
-          description: 'The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)'
-        Description:
-          type:
-          - string
-          - 'null'
-          description: The long description of the quarter
-        AwayTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: The total points scored by the away team in this Quarter.
-        HomeTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: The total points scored by the home team in this Quarter.
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The database generated timestamp of when this Quarter was last updated (in US Eastern time)
-        Created:
-          type:
-          - string
-          - 'null'
-          description: The database generated timestamp of when this Quarter was first created (in US Eastern Time)
-    PlayerOwnership:
-      properties:
-        PlayerID:
-          type: integer
-          description: 'The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        Season:
-          type: integer
-          description: The NFL season of the ownership info
-        SeasonType:
-          type: integer
-          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+          description: The NFL season of the game
         Week:
           type: integer
           description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
-        Name:
+        AwayTeam:
           type:
           - string
           - 'null'
-          description: The player's full name
-        Position:
+          description: The abbreviation [Key} of the away team
+        HomeTeam:
           type:
           - string
           - 'null'
-          description: 'The player''s fantasy football position. Possible values: QB; RB; WR; TE; DL; LB; DB; K; P; OL'
-        Team:
+          description: The abbreviation [Key] of the home team
+        Date:
           type:
           - string
           - 'null'
-          description: The abbreviation [Key] of the team that the player is on
-        TeamID:
+          description: The date and time of the game (in US Eastern Time)
+        Sequence:
           type:
           - integer
           - 'null'
-          description: 'The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL'
-        OwnershipPercentage:
-          type:
-          - number
-          - 'null'
-          description: Player's ownership percentage on NFL.com fantasy leagues during this week
-        DeltaOwnershipPercentage:
-          type:
-          - number
-          - 'null'
-          description: Player's change in ownership percentage on NFL.com fantasy leagues during this week
-        StartPercentage:
-          type:
-          - number
-          - 'null'
-          description: Player's starting lineup percentage on NFL.com fantasy leagues during this week
-        DeltaStartPercentage:
-          type:
-          - number
-          - 'null'
-          description: Player's change in starting lineup percentage on NFL.com fantasy leagues during this week
-    FantasyDefenseSeason:
-      properties:
-        SeasonType:
-          type: integer
-          description: The type of season that this team corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
-        Season:
-          type: integer
-          description: The NFL regular season for which these totals apply
+          description: The order in which the scoring play happened
         Team:
           type:
           - string
           - 'null'
           description: The abbreviation [Key] of the team
-        PointsAllowed:
-          type: number
-          description: Total points allowed by the team during the season
-        TouchdownsScored:
-          type: number
-          description: Total defensive and special teams touchdowns scored by the team in the season
-        SoloTackles:
-          type: number
-          description: Total defensive solo (unassisted) tackles by the team in the season
-        AssistedTackles:
-          type: number
-          description: Total defensive assisted tackles by the team in the season
-        Sacks:
-          type: number
-          description: Total defensive sacks by the team in the season
-        SackYards:
-          type: number
-          description: Total defensive sack yards by the team in the season
-        PassesDefended:
-          type: number
-          description: Total passes defended by the team in the season
-        FumblesForced:
-          type: number
-          description: Total fumbles forced on defense by the team in the season
-        FumblesRecovered:
-          type: number
-          description: Total defensive fumble recoveries by the team in the season
-        FumbleReturnYards:
-          type: number
-          description: Total fumble return yards by the team in the season
-        FumbleReturnTouchdowns:
-          type: number
-          description: Total fumble return touchdowns by the team in the season
-        Interceptions:
-          type: number
-          description: Total defensive interceptions by the team in the season
-        InterceptionReturnYards:
-          type: number
-          description: Total defensive interception return yards by the team in the season
-        InterceptionReturnTouchdowns:
-          type: number
-          description: Total defensive interception return touchdowns by the team in the season
-        BlockedKicks:
-          type: number
-          description: 'Total blocked kicks by the team in the season. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points'
-        Safeties:
-          type: number
-          description: Total defensive safeties scored by the team in the season
-        PuntReturns:
-          type: number
-          description: Total punt returns by the team in the season
-        PuntReturnYards:
-          type: number
-          description: Total punt return yards by the team in the season
-        PuntReturnTouchdowns:
-          type: number
-          description: Total punt return touchdowns by the team in the season
-        PuntReturnLong:
-          type: number
-          description: The longest punt return by the team in the season
-        KickReturns:
-          type: number
-          description: Total kickoff returns by the team in the season
-        KickReturnYards:
-          type: number
-          description: Total kickoff return yards by the team in the season
-        KickReturnTouchdowns:
-          type: number
-          description: Total kickoff return touchdowns by the team in the season
-        KickReturnLong:
-          type: number
-          description: Longest kick return by the team in the season
-        BlockedKickReturnTouchdowns:
+        Quarter:
           type:
-          - number
+          - string
           - 'null'
-          description: Total blocked kick recovery return touchdowns for the team in the season
-        FieldGoalReturnTouchdowns:
+          description: The quarter of the scoring play (1; 2; 3; 4; OT)
+        TimeRemaining:
           type:
-          - number
+          - string
           - 'null'
-          description: 'Total field goal return touchdowns by the team in the season. Note: This field excludes blocked field goals'
-        FantasyPointsAllowed:
+          description: The amount of time remaining in the current quarter when the scoring play occurred (e.g. 11:23; 5:34; NULL if game is not in progress or at halftime)
+        PlayDescription:
           type:
-          - number
+          - string
           - 'null'
-          description: 'Fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
-        QuarterbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points allowed to opposing quarterbacks by the team in the season
-        RunningbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Total fantasy points allowed to opposing running backs by the team in the season
-        WideReceiverFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points allowed to opposing wide receivers
-        TightEndFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points allowed to opposing tight ends by the team in the season
-        KickerFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points allowed to opponent kickers by the team in the season
-        Games:
+          description: The detailed description of the play for display purposes
+        AwayScore:
           type:
           - integer
           - 'null'
-          description: The total number of games played by the team in the season
-        BlockedKickReturnYards:
-          type:
-          - number
-          - 'null'
-          description: Total blocked kick recovery return yards for the team in the season
-        FieldGoalReturnYards:
-          type:
-          - number
-          - 'null'
-          description: 'Total field goal return yards by the team in the season. Note: This field excludes blocked field goals'
-        QuarterbackHits:
-          type:
-          - number
-          - 'null'
-          description: 'Total quarterback hits by the team in the season. Note: This is a defensive stat that includes sacks'
-        TacklesForLoss:
-          type:
-          - number
-          - 'null'
-          description: 'Total tackles for loss by the team in the season. Note: these are tackles behind the line of scrimmage for loss of yards (including sacks)'
-        DefensiveTouchdowns:
-          type:
-          - number
-          - 'null'
-          description: Total defensive touchdowns scored by the team in the season
-        SpecialTeamsTouchdowns:
-          type:
-          - number
-          - 'null'
-          description: Total special teams touchdowns scored by the team in the season
-        FantasyPoints:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points scored based on basic fantasy scoring system by the team in the season
-        Temperature:
+          description: The away team's score as a result of the scoring play (includes point after)
+        HomeScore:
           type:
           - integer
           - 'null'
-          description: Temperature at game start (Fahrenheit)
-        Humidity:
-          type:
-          - integer
-          - 'null'
-          description: The humidity percentage at the start of the game
-        WindSpeed:
-          type:
-          - integer
-          - 'null'
-          description: The wind speed at the start of the game (in MPH)
-        ThirdDownAttempts:
-          type:
-          - number
-          - 'null'
-          description: Total third down attempts against the team in the season
-        ThirdDownConversions:
-          type:
-          - number
-          - 'null'
-          description: Total third down conversions against the team in the season
-        FourthDownAttempts:
-          type:
-          - number
-          - 'null'
-          description: Opponent's fourth down attempts against the team in the season
-        FourthDownConversions:
-          type:
-          - number
-          - 'null'
-          description: Opponent's fourth down conversions against the team in the season
-        PointsAllowedByDefenseSpecialTeams:
-          type:
-          - number
-          - 'null'
-          description: 'Total number of points allowed by the team in the season to the opposing offense and special teams. Note: This field excludes points scored by the opponent''s defense'
-        AuctionValue:
-          type:
-          - number
-          - 'null'
-          description: Player's dollar value in a $200 salary cap auction draft.
-        AuctionValuePPR:
-          type:
-          - number
-          - 'null'
-          description: Player's dollar value in a $200 salary cap PPR auction draft.
-        TwoPointConversionReturns:
-          type:
-          - number
-          - 'null'
-          description: Total successful two point conversion returns by the team in the season
-        FantasyPointsFanDuel:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on FanDuel's scoring system by the team in the season
-        FantasyPointsDraftKings:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on DraftKings' scoring system by the team in the season
-        OffensiveYardsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Offensive yards allowed by the team's defense in the season
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The unique PlayerID of the player as assigned by SportsDataIO for use when combining with player feeds. Note: this ID will stay with the player throughout their entire career'
-        FantasyPointsYahoo:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on Yahoo's daily fantasy scoring system by the team in the season
-        AverageDraftPosition:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of the team's fantasy defense (DST) in re-draft leagues
-        AverageDraftPositionPPR:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of the team (DST) in Points Per Reception (PPR) leagues
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team
-        GlobalTeamID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
-        FanDuelFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: 'FanDuel fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
-        FanDuelQuarterbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FanDuel fantasy points allowed by the team to opposing quarterbacks in the season
-        FanDuelRunningbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FanDuel fantasy points allowed by the team to opposing running backs in the season
-        FanDuelWideReceiverFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FanDuel fantasy points allowed by the team to opposing wide receivers in the season
-        FanDuelTightEndFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FanDuel fantasy points allowed by the team to opposing tight ends in the season
-        FanDuelKickerFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FanDuel fantasy points allowed by the team to opposing kickers in the season
-        DraftKingsFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: 'DraftKings fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
-        DraftKingsQuarterbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: DraftKings fantasy points allowed by the team to opponent quarterbacks in the season
-        DraftKingsRunningbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: DraftKings fantasy points allowed by the team to opponent running backs in the season
-        DraftKingsWideReceiverFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: DraftKings fantasy points allowed by the team to opponent wide receivers in the season
-        DraftKingsTightEndFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: DraftKings fantasy points allowed by the team to opponent tight ends in the season
-        DraftKingsKickerFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: DraftKings fantasy points allowed by the team to opponent kickers in the season
-        YahooFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: 'Total Yahoo fantasy points allowed to opposing offensive players by the team in the season. Note: Offensive players include: QB, RB, WR, & TE'
-        YahooQuarterbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo fantasy points allowed to opposing quarterbacks by the team in the season
-        YahooRunningbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo fantasy points allowed to opposing running backs by the team in the season
-        YahooWideReceiverFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo fantasy points allowed to opposing wide receivers by the team in the season
-        YahooTightEndFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo fantasy points allowed to opposing tight ends by the team in the season
-        YahooKickerFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo fantasy points allowed to opposing kickers by the team in the season
-        FantasyPointsFantasyDraft:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on FanDraft's scoring system by the team in the season
-        FantasyDraftFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: 'FantasyDraft fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
-        FantasyDraftQuarterbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FantasyDraft fantasy points allowed by the team to opposing quarterbacks in the season
-        FantasyDraftRunningbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FantasyDraft fantasy points allowed by the team to opposing running backs in the season
-        FantasyDraftWideReceiverFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FantasyDraft fantasy points allowed by the team to opposing wide receivers in the season
-        FantasyDraftTightEndFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FantasyDraft fantasy points allowed by the team to opposing tight ends in the season
-        FantasyDraftKickerFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FantasyDraft fantasy points allowed by the team to opposing kickers in the season
-        ScoringDetails:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScoringDetail'
-          description: The details of the scoring plays this team DST recorded in the season
-        AverageDraftPositionDynasty:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of this team (DST) in dynasty drafts leagues
-        AverageDraftPosition2QB:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of the team (DST) in 2 Quarterback leagues
+          description: The home team's score as a result of the scoring play (includes point after)
+        ScoreID:
+          type: integer
+          description: Unique ID of the score/game
     Injury:
       properties:
         InjuryID:
@@ -3976,559 +3289,6 @@ components:
           - integer
           - 'null'
           description: The unique ID of the opponent this player played on during this game
-    PlayerSeason:
-      properties:
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        SeasonType:
-          type: integer
-          description: The type of season that this player corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
-        Season:
-          type: integer
-          description: The NFL season for which these totals apply
-        Team:
-          type:
-          - string
-          - 'null'
-          description: 'The abbreviation [Key] of the team that the player is on. Note: If this player is a free agent; this field is NULL'
-        Number:
-          type: integer
-          description: Player's jersey number
-        Name:
-          type:
-          - string
-          - 'null'
-          description: Player's full name
-        Position:
-          type:
-          - string
-          - 'null'
-          description: 'The primary position of the player. Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR'
-        PositionCategory:
-          type:
-          - string
-          - 'null'
-          description: The category of the player's position (OFF; DEF; ST)
-        Activated:
-          type: integer
-          description: The total number of games that the player was active for in the season
-        Played:
-          type: integer
-          description: The total number of games played by the the player in the season
-        Started:
-          type: integer
-          description: Total games started (on offense or defense) by the player in the season
-        PassingAttempts:
-          type: number
-          description: Total passes thrown by the player in the season
-        PassingCompletions:
-          type: number
-          description: Total passes completed by the player in the season
-        PassingYards:
-          type: number
-          description: Total passing yards by the player in the season
-        PassingCompletionPercentage:
-          type: number
-          description: The percentage of passes completed by the player in the season
-        PassingYardsPerAttempt:
-          type: number
-          description: Total average passing yards per attempt by the player in the season
-        PassingYardsPerCompletion:
-          type: number
-          description: Total average passing yards per completion by the player in the season
-        PassingTouchdowns:
-          type: number
-          description: Total passing touchdowns by the player in the season
-        PassingInterceptions:
-          type: number
-          description: Total interceptions thrown by the player in the season
-        PassingRating:
-          type: number
-          description: The passer rating of the player in the season
-        PassingLong:
-          type: number
-          description: Total yards of longest completion by the player in the season
-        PassingSacks:
-          type: number
-          description: The total number of times the player was sacked in the season
-        PassingSackYards:
-          type: number
-          description: Total yards lost by the player in the season as a result of being sacked
-        RushingAttempts:
-          type: number
-          description: Total rushing attempts by the player in the season
-        RushingYards:
-          type: number
-          description: Total rushing yards by the player in the season
-        RushingYardsPerAttempt:
-          type: number
-          description: Total rushing yards per attempt by the player in the season
-        RushingTouchdowns:
-          type: number
-          description: Total rushing touchdowns by the player in the season
-        RushingLong:
-          type: number
-          description: The longest rush by the player in the season
-        ReceivingTargets:
-          type:
-          - number
-          - 'null'
-          description: Total receiving targets by the player in the season
-        Receptions:
-          type: number
-          description: Total receptions by the player in the season
-        ReceivingYards:
-          type: number
-          description: Total receiving yards by the player in the season
-        ReceivingYardsPerReception:
-          type: number
-          description: Average receiving yards per reception by the player in the season
-        ReceivingTouchdowns:
-          type: number
-          description: Total receiving touchdowns by the player in the season
-        ReceivingLong:
-          type: number
-          description: The longest reception by the player in the season
-        Fumbles:
-          type: number
-          description: Total fumbles by the player in the season
-        FumblesLost:
-          type:
-          - number
-          - 'null'
-          description: Total fumbles lost by the player in the season
-        PuntReturns:
-          type: number
-          description: Total punt returns by the player in the season
-        PuntReturnYards:
-          type: number
-          description: Total punt return yards by the player in the season
-        PuntReturnYardsPerAttempt:
-          type: number
-          description: Total average yards gained per punt return by the player in the season
-        PuntReturnTouchdowns:
-          type: number
-          description: Total punt return touchdowns by the player in the season
-        PuntReturnLong:
-          type: number
-          description: The longest punt return by the player in the season
-        KickReturns:
-          type: number
-          description: Total kickoff returns by the player in the season
-        KickReturnYards:
-          type: number
-          description: Total kickoff return yards by the player in the season
-        KickReturnYardsPerAttempt:
-          type: number
-          description: Average yards gained per kick return by the player in the season
-        KickReturnTouchdowns:
-          type: number
-          description: Total kickoff return touchdowns by the player in the season
-        KickReturnLong:
-          type: number
-          description: Longest kick return by the player in the season
-        SoloTackles:
-          type: number
-          description: Total defensive solo (unassisted) tackles by the player in the season
-        AssistedTackles:
-          type: number
-          description: Total defensive assisted tackles by the player in the season
-        TacklesForLoss:
-          type:
-          - number
-          - 'null'
-          description: 'Total tackles for loss by the player in the season. Note: these are tackles behind the line of scrimmage for loss of yards (including sacks)'
-        Sacks:
-          type: number
-          description: Total defensive sacks by the player in the season
-        SackYards:
-          type: number
-          description: Total defensive safeties scored by the player in the season
-        QuarterbackHits:
-          type:
-          - number
-          - 'null'
-          description: 'Total quarterback hits by the player in the season. Note: This is a defensive stat that includes sacks'
-        PassesDefended:
-          type: number
-          description: Total passes defended by the player in the season
-        FumblesForced:
-          type: number
-          description: Total fumbles forced on defense by the player in the season
-        FumblesRecovered:
-          type: number
-          description: Total defensive fumble recoveries by the player in the season
-        FumbleReturnYards:
-          type: number
-          description: Total fumble return yards by the player in the season
-        FumbleReturnTouchdowns:
-          type: number
-          description: Total fumble return touchdowns by the player in the season
-        Interceptions:
-          type: number
-          description: Total defensive interceptions by the player in the season
-        InterceptionReturnYards:
-          type: number
-          description: Total defensive interception return yards by the player in the season
-        InterceptionReturnTouchdowns:
-          type: number
-          description: Total defensive interception return touchdowns by the player in the season
-        BlockedKicks:
-          type: number
-          description: 'Total blocked kicks by the player in the season. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points'
-        SpecialTeamsSoloTackles:
-          type: number
-          description: This field is deprecated
-        SpecialTeamsAssistedTackles:
-          type: number
-          description: This field is deprecated
-        MiscSoloTackles:
-          type: number
-          description: This field is deprecated
-        MiscAssistedTackles:
-          type: number
-          description: This field is deprecated
-        Punts:
-          type: number
-          description: Total number of punts by the player in the season
-        PuntYards:
-          type: number
-          description: Total punt yards by the player in the season
-        PuntAverage:
-          type: number
-          description: The average number of yards per punt by the player in the season
-        FieldGoalsAttempted:
-          type: number
-          description: Total field goals attempted by the player in the season
-        FieldGoalsMade:
-          type: number
-          description: Total field goals made by the player in season
-        FieldGoalsLongestMade:
-          type: number
-          description: Longest field goal made by the player in the season
-        ExtraPointsMade:
-          type: number
-          description: Total extra points made by the player in the season
-        TwoPointConversionPasses:
-          type: number
-          description: Total successful two point conversion passes by the player in the season
-        TwoPointConversionRuns:
-          type: number
-          description: Total successful two point conversion rushes by the player in the season
-        TwoPointConversionReceptions:
-          type: number
-          description: Total successful two point conversion receptions by the player in the season
-        FantasyPoints:
-          type: number
-          description: Fantasy points scored based on basic fantasy scoring system by the player in the season
-        FantasyPointsPPR:
-          type: number
-          description: Fantasy points scored based on basic PPR fantasy scoring system by the player in the season
-        ReceptionPercentage:
-          type: number
-          description: Total percentage of receiving targets that were receptions by the player in the season
-        ReceivingYardsPerTarget:
-          type: number
-          description: Average receiving yards per target by the player in the season
-        Tackles:
-          type: number
-          description: Total tackles (solo & assisted) by the player in the season
-        OffensiveTouchdowns:
-          type: number
-          description: Total offensive touchdowns scored by the player in the season
-        DefensiveTouchdowns:
-          type: number
-          description: Total defensive touchdowns scored by the player in the season
-        SpecialTeamsTouchdowns:
-          type: number
-          description: Total special teams touchdowns scored by the player in the season
-        Touchdowns:
-          type: number
-          description: Total touchdowns scored by the player in the season
-        FantasyPosition:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s fantasy football position. Possible values: QB, RB, WR, TE, DL, LB, DB, K, P, OL'
-        FieldGoalPercentage:
-          type: number
-          description: Total field goal attempts made by the player in the season
-        PlayerSeasonID:
-          type: integer
-          description: Unique ID of PlayerSeason record (subject to change, although it very rarely does).  For a static ID, use a combination of SeasonType, Season and PlayerID.
-        FumblesOwnRecoveries:
-          type:
-          - number
-          - 'null'
-          description: 'Total own fumble recoveries by the player in the season. Note: this fumble doesn''t result in a turnover - the fumbling team recovers the fumble'
-        FumblesOutOfBounds:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        KickReturnFairCatches:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        PuntReturnFairCatches:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated.
-        PuntTouchbacks:
-          type:
-          - number
-          - 'null'
-          description: Total punts that resulted in touchbacks by the player in the season
-        PuntInside20:
-          type:
-          - number
-          - 'null'
-          description: Total punts downed inside the 20 yard line by the player in the season
-        PuntNetAverage:
-          type:
-          - number
-          - 'null'
-          description: The average net yards per punt by the player in the season
-        ExtraPointsAttempted:
-          type:
-          - number
-          - 'null'
-          description: Total extra point kicks attempted by the player in the season
-        BlockedKickReturnTouchdowns:
-          type:
-          - number
-          - 'null'
-          description: Total blocked kick recovery return touchdowns for the player in the season
-        FieldGoalReturnTouchdowns:
-          type:
-          - number
-          - 'null'
-          description: 'Total field goal return touchdowns by the player in the season. Note: This field excludes blocked field goals'
-        Safeties:
-          type:
-          - number
-          - 'null'
-          description: Defensive safeties (sacks in end zone, solo tackles in end zone, blocked kicks that went out of bounds in the end zone)
-        FieldGoalsHadBlocked:
-          type:
-          - number
-          - 'null'
-          description: Total field goals by the player that were blocked in the season
-        PuntsHadBlocked:
-          type:
-          - number
-          - 'null'
-          description: Total punts by the player that were blocked in the season
-        ExtraPointsHadBlocked:
-          type:
-          - number
-          - 'null'
-          description: Total extra point kick attempts by the player that were blocked in the season
-        PuntLong:
-          type:
-          - number
-          - 'null'
-          description: The longest punt by the player in the season
-        BlockedKickReturnYards:
-          type:
-          - number
-          - 'null'
-          description: Total blocked kick recovery return yards for the player in the season
-        FieldGoalReturnYards:
-          type:
-          - number
-          - 'null'
-          description: 'Total field goal return yards by the player in the season. Note: This field excludes blocked field goals'
-        PuntNetYards:
-          type:
-          - number
-          - 'null'
-          description: The net yards of the punts by the player in the season
-        SpecialTeamsFumblesForced:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        SpecialTeamsFumblesRecovered:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        MiscFumblesForced:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        MiscFumblesRecovered:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        ShortName:
-          type:
-          - string
-          - 'null'
-          description: The first initial and last name of the player (J. Doe)
-        SafetiesAllowed:
-          type:
-          - number
-          - 'null'
-          description: This field is deprecated
-        Temperature:
-          type:
-          - integer
-          - 'null'
-          description: Temperature at game start (Fahrenheit)
-        Humidity:
-          type:
-          - integer
-          - 'null'
-          description: The humidity percentage at the start of the game
-        WindSpeed:
-          type:
-          - integer
-          - 'null'
-          description: The wind speed at the start of the game (in MPH)
-        OffensiveSnapsPlayed:
-          type:
-          - integer
-          - 'null'
-          description: 'Total snaps this player played on offensive in the season. Note: Snap counts are available the morning after the game.'
-        DefensiveSnapsPlayed:
-          type:
-          - integer
-          - 'null'
-          description: 'Total snaps this player played on defense in the season. Note: Snap counts are available the morning after the game.'
-        SpecialTeamsSnapsPlayed:
-          type:
-          - integer
-          - 'null'
-          description: 'Total snaps this player played on special teams in the season. Note: Snap counts are available the morning after the game.'
-        OffensiveTeamSnaps:
-          type:
-          - integer
-          - 'null'
-          description: 'Total offensive snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
-        DefensiveTeamSnaps:
-          type:
-          - integer
-          - 'null'
-          description: 'Total defensive snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
-        SpecialTeamsTeamSnaps:
-          type:
-          - integer
-          - 'null'
-          description: 'Total special teams snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
-        AuctionValue:
-          type:
-          - number
-          - 'null'
-          description: Player's dollar value in a $200 salary cap auction draft.
-        AuctionValuePPR:
-          type:
-          - number
-          - 'null'
-          description: Player's dollar value in a $200 salary cap PPR auction draft.
-        TwoPointConversionReturns:
-          type:
-          - number
-          - 'null'
-          description: Total successful two point conversion returns by the player in the season
-        FantasyPointsFanDuel:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on FanDuel's scoring system by the player in the season
-        FieldGoalsMade0to19:
-          type:
-          - number
-          - 'null'
-          description: Total field goals of 0 to 19 yards made by the player in season
-        FieldGoalsMade20to29:
-          type:
-          - number
-          - 'null'
-          description: Total field goals of 20 to 29 yards made by the player in season
-        FieldGoalsMade30to39:
-          type:
-          - number
-          - 'null'
-          description: Total field goals of 30 to 39 yards made by the player in season
-        FieldGoalsMade40to49:
-          type:
-          - number
-          - 'null'
-          description: Total field goals of 40 to 49 yards made by the player in season
-        FieldGoalsMade50Plus:
-          type:
-          - number
-          - 'null'
-          description: Total field goals of 50+ yards made by the player in season
-        FantasyPointsDraftKings:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on DraftKings' scoring system by the player in the season
-        FantasyPointsYahoo:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on Yahoo's daily fantasy scoring system by the player in the season
-        AverageDraftPosition:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of the player in re-draft leagues
-        AverageDraftPositionPPR:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of this player in Points Per Reception (PPR) leagues.
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: 'The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL'
-        GlobalTeamID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
-        FantasyPointsFantasyDraft:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points based on FantasyDraft's scoring system by the player in the season
-        ScoringDetails:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScoringDetail'
-          description: The details of the scoring plays this player recorded in the season
-        AverageDraftPositionRookie:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of this rookie in Points Per Reception (PPR) leagues.
-        AverageDraftPositionDynasty:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of this player in dynasty drafts leagues
-        AverageDraftPosition2QB:
-          type:
-          - number
-          - 'null'
-          description: The average draft position of this player in 2 Quarterback leagues
-        OffensiveFumbleRecoveryTouchdowns:
-          type:
-          - integer
-          - 'null'
-          description: This field is deprecated
     TeamGame:
       properties:
         GameKey:
@@ -5743,6 +4503,1263 @@ components:
         ScoreID:
           type: integer
           description: Unique ID of the score/game
+    FantasyDefenseSeason:
+      properties:
+        SeasonType:
+          type: integer
+          description: The type of season that this team corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+        Season:
+          type: integer
+          description: The NFL regular season for which these totals apply
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        PointsAllowed:
+          type: number
+          description: Total points allowed by the team during the season
+        TouchdownsScored:
+          type: number
+          description: Total defensive and special teams touchdowns scored by the team in the season
+        SoloTackles:
+          type: number
+          description: Total defensive solo (unassisted) tackles by the team in the season
+        AssistedTackles:
+          type: number
+          description: Total defensive assisted tackles by the team in the season
+        Sacks:
+          type: number
+          description: Total defensive sacks by the team in the season
+        SackYards:
+          type: number
+          description: Total defensive sack yards by the team in the season
+        PassesDefended:
+          type: number
+          description: Total passes defended by the team in the season
+        FumblesForced:
+          type: number
+          description: Total fumbles forced on defense by the team in the season
+        FumblesRecovered:
+          type: number
+          description: Total defensive fumble recoveries by the team in the season
+        FumbleReturnYards:
+          type: number
+          description: Total fumble return yards by the team in the season
+        FumbleReturnTouchdowns:
+          type: number
+          description: Total fumble return touchdowns by the team in the season
+        Interceptions:
+          type: number
+          description: Total defensive interceptions by the team in the season
+        InterceptionReturnYards:
+          type: number
+          description: Total defensive interception return yards by the team in the season
+        InterceptionReturnTouchdowns:
+          type: number
+          description: Total defensive interception return touchdowns by the team in the season
+        BlockedKicks:
+          type: number
+          description: 'Total blocked kicks by the team in the season. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points'
+        Safeties:
+          type: number
+          description: Total defensive safeties scored by the team in the season
+        PuntReturns:
+          type: number
+          description: Total punt returns by the team in the season
+        PuntReturnYards:
+          type: number
+          description: Total punt return yards by the team in the season
+        PuntReturnTouchdowns:
+          type: number
+          description: Total punt return touchdowns by the team in the season
+        PuntReturnLong:
+          type: number
+          description: The longest punt return by the team in the season
+        KickReturns:
+          type: number
+          description: Total kickoff returns by the team in the season
+        KickReturnYards:
+          type: number
+          description: Total kickoff return yards by the team in the season
+        KickReturnTouchdowns:
+          type: number
+          description: Total kickoff return touchdowns by the team in the season
+        KickReturnLong:
+          type: number
+          description: Longest kick return by the team in the season
+        BlockedKickReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return touchdowns for the team in the season
+        FieldGoalReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return touchdowns by the team in the season. Note: This field excludes blocked field goals'
+        FantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'Fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
+        QuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opposing quarterbacks by the team in the season
+        RunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points allowed to opposing running backs by the team in the season
+        WideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opposing wide receivers
+        TightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opposing tight ends by the team in the season
+        KickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opponent kickers by the team in the season
+        Games:
+          type:
+          - integer
+          - 'null'
+          description: The total number of games played by the team in the season
+        BlockedKickReturnYards:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return yards for the team in the season
+        FieldGoalReturnYards:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return yards by the team in the season. Note: This field excludes blocked field goals'
+        QuarterbackHits:
+          type:
+          - number
+          - 'null'
+          description: 'Total quarterback hits by the team in the season. Note: This is a defensive stat that includes sacks'
+        TacklesForLoss:
+          type:
+          - number
+          - 'null'
+          description: 'Total tackles for loss by the team in the season. Note: these are tackles behind the line of scrimmage for loss of yards (including sacks)'
+        DefensiveTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total defensive touchdowns scored by the team in the season
+        SpecialTeamsTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total special teams touchdowns scored by the team in the season
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points scored based on basic fantasy scoring system by the team in the season
+        Temperature:
+          type:
+          - integer
+          - 'null'
+          description: Temperature at game start (Fahrenheit)
+        Humidity:
+          type:
+          - integer
+          - 'null'
+          description: The humidity percentage at the start of the game
+        WindSpeed:
+          type:
+          - integer
+          - 'null'
+          description: The wind speed at the start of the game (in MPH)
+        ThirdDownAttempts:
+          type:
+          - number
+          - 'null'
+          description: Total third down attempts against the team in the season
+        ThirdDownConversions:
+          type:
+          - number
+          - 'null'
+          description: Total third down conversions against the team in the season
+        FourthDownAttempts:
+          type:
+          - number
+          - 'null'
+          description: Opponent's fourth down attempts against the team in the season
+        FourthDownConversions:
+          type:
+          - number
+          - 'null'
+          description: Opponent's fourth down conversions against the team in the season
+        PointsAllowedByDefenseSpecialTeams:
+          type:
+          - number
+          - 'null'
+          description: 'Total number of points allowed by the team in the season to the opposing offense and special teams. Note: This field excludes points scored by the opponent''s defense'
+        AuctionValue:
+          type:
+          - number
+          - 'null'
+          description: Player's dollar value in a $200 salary cap auction draft.
+        AuctionValuePPR:
+          type:
+          - number
+          - 'null'
+          description: Player's dollar value in a $200 salary cap PPR auction draft.
+        TwoPointConversionReturns:
+          type:
+          - number
+          - 'null'
+          description: Total successful two point conversion returns by the team in the season
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FanDuel's scoring system by the team in the season
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on DraftKings' scoring system by the team in the season
+        OffensiveYardsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Offensive yards allowed by the team's defense in the season
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO for use when combining with player feeds. Note: this ID will stay with the player throughout their entire career'
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on Yahoo's daily fantasy scoring system by the team in the season
+        AverageDraftPosition:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of the team's fantasy defense (DST) in re-draft leagues
+        AverageDraftPositionPPR:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of the team (DST) in Points Per Reception (PPR) leagues
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        FanDuelFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'FanDuel fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
+        FanDuelQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing quarterbacks in the season
+        FanDuelRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing running backs in the season
+        FanDuelWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing wide receivers in the season
+        FanDuelTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing tight ends in the season
+        FanDuelKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing kickers in the season
+        DraftKingsFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'DraftKings fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
+        DraftKingsQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent quarterbacks in the season
+        DraftKingsRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent running backs in the season
+        DraftKingsWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent wide receivers in the season
+        DraftKingsTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent tight ends in the season
+        DraftKingsKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent kickers in the season
+        YahooFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'Total Yahoo fantasy points allowed to opposing offensive players by the team in the season. Note: Offensive players include: QB, RB, WR, & TE'
+        YahooQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing quarterbacks by the team in the season
+        YahooRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing running backs by the team in the season
+        YahooWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing wide receivers by the team in the season
+        YahooTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing tight ends by the team in the season
+        YahooKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing kickers by the team in the season
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FanDraft's scoring system by the team in the season
+        FantasyDraftFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'FantasyDraft fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
+        FantasyDraftQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing quarterbacks in the season
+        FantasyDraftRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing running backs in the season
+        FantasyDraftWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing wide receivers in the season
+        FantasyDraftTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing tight ends in the season
+        FantasyDraftKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing kickers in the season
+        ScoringDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoringDetail'
+          description: The details of the scoring plays this team DST recorded in the season
+        AverageDraftPositionDynasty:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of this team (DST) in dynasty drafts leagues
+        AverageDraftPosition2QB:
+          type:
+          - number
+          - 'null'
+          description: The average draft position of the team (DST) in 2 Quarterback leagues
+    BoxScoreV3:
+      properties:
+        Score:
+          $ref: '#/components/schemas/Score'
+          description: The Score object related to this game
+        Quarters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quarter'
+          description: The Quarters objects related to this game
+        TeamGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamGame'
+          description: The TeamGame objects related to this game
+        PlayerGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlayerGame'
+          description: The PlayerGame objects related to this game
+        FantasyDefenseGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/FantasyDefenseGame'
+          description: The FantasyDefenseGame objects related to this game
+        ScoringPlays:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoringPlay'
+          description: The ScoringPlay objects related to this game
+        ScoringDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoringDetail'
+          description: The ScoringDetail objects related to this game
+    PlayerOwnership:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        Season:
+          type: integer
+          description: The NFL season of the ownership info
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season, 2=Preseason, 3=Postseason, 4=Offseason, 5=AllStar).
+        Week:
+          type: integer
+          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The player's full name
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s fantasy football position. Possible values: QB; RB; WR; TE; DL; LB; DB; K; P; OL'
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team that the player is on
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL'
+        OwnershipPercentage:
+          type:
+          - number
+          - 'null'
+          description: Player's ownership percentage on NFL.com fantasy leagues during this week
+        DeltaOwnershipPercentage:
+          type:
+          - number
+          - 'null'
+          description: Player's change in ownership percentage on NFL.com fantasy leagues during this week
+        StartPercentage:
+          type:
+          - number
+          - 'null'
+          description: Player's starting lineup percentage on NFL.com fantasy leagues during this week
+        DeltaStartPercentage:
+          type:
+          - number
+          - 'null'
+          description: Player's change in starting lineup percentage on NFL.com fantasy leagues during this week
+    FantasyDefenseGame:
+      properties:
+        GameKey:
+          type:
+          - string
+          - 'null'
+          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks'
+        SeasonType:
+          type: integer
+          description: The type of season that this player corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+        Season:
+          type: integer
+          description: The NFL season of the game
+        Week:
+          type:
+          - integer
+          - 'null'
+          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
+        Date:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the opponent team
+        PointsAllowed:
+          type: number
+          description: Total points allowed by the team during the game
+        TouchdownsScored:
+          type: number
+          description: Total defensive and special teams touchdowns scored by the team in the game
+        SoloTackles:
+          type: number
+          description: Total defensive solo (unassisted) tackles by the team in the game
+        AssistedTackles:
+          type: number
+          description: Total defensive assisted tackles by the team in the game
+        Sacks:
+          type: number
+          description: Total defensive sacks by the team in the game
+        SackYards:
+          type: number
+          description: Total defensive sack yards by the team in the game
+        PassesDefended:
+          type: number
+          description: Total passes defended by the team in the game
+        FumblesForced:
+          type: number
+          description: Total fumbles forced on defense by the team in the game
+        FumblesRecovered:
+          type: number
+          description: Total defensive fumble recoveries by the team in the game
+        FumbleReturnYards:
+          type: number
+          description: Total fumble return yards by the team in the game
+        FumbleReturnTouchdowns:
+          type: number
+          description: Total fumble return touchdowns by the team in the game
+        Interceptions:
+          type: number
+          description: Total defensive interceptions by the team in the game
+        InterceptionReturnYards:
+          type: number
+          description: Total defensive interception return yards by the team in the game
+        InterceptionReturnTouchdowns:
+          type: number
+          description: Total defensive interception return touchdowns by the team in the game
+        BlockedKicks:
+          type: number
+          description: 'Total blocked kicks by team in the game. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points'
+        Safeties:
+          type: number
+          description: Total defensive safeties scored by the team in the game
+        PuntReturns:
+          type: number
+          description: Total punt returns by the team in the game
+        PuntReturnYards:
+          type: number
+          description: Total punt return yards by the team in the game
+        PuntReturnTouchdowns:
+          type: number
+          description: Total punt return touchdowns by the team in the game
+        PuntReturnLong:
+          type: number
+          description: The longest punt return by the team in the game
+        KickReturns:
+          type: number
+          description: Total kickoff returns by the team in the game
+        KickReturnYards:
+          type: number
+          description: Total kickoff return yards by the team in the game
+        KickReturnTouchdowns:
+          type: number
+          description: Total kickoff return touchdowns by the team in the game
+        KickReturnLong:
+          type: number
+          description: Longest kick return by the team in the game
+        BlockedKickReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return touchdowns for the team in the game
+        FieldGoalReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return touchdowns by the team in the game. Note: This field excludes blocked field goals'
+        FantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'Fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
+        QuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opposing quarterbacks by the team in the game
+        RunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total fantasy points allowed to opposing running backs by the team in the game
+        WideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opposing wide receivers
+        TightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opposing tight ends by the team in the game
+        KickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points allowed to opponent kickers by the team in the game
+        BlockedKickReturnYards:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return yards for the team in the game
+        FieldGoalReturnYards:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return yards by the team in the game. Note: This field excludes blocked field goals'
+        QuarterbackHits:
+          type:
+          - number
+          - 'null'
+          description: 'Total quarterback hits by the team in the game. Note: This is a defensive stat that includes sacks'
+        TacklesForLoss:
+          type:
+          - number
+          - 'null'
+          description: 'Total tackles for loss by the team in the game. Note: These are tackles behind the line of scrimmage for loss of yards (including sacks)'
+        DefensiveTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total touchdowns scored by the defense
+        SpecialTeamsTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total special teams touchdowns scored by the team in the game
+        IsGameOver:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the game is over (true/false)
+        FantasyPoints:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points scored based on basic fantasy scoring system by the team's D/ST in the game
+        Stadium:
+          type:
+          - string
+          - 'null'
+          description: Stadium of the event
+        Temperature:
+          type:
+          - integer
+          - 'null'
+          description: Temperature at game start (Fahrenheit)
+        Humidity:
+          type:
+          - integer
+          - 'null'
+          description: The humidity percentage at the start of the game
+        WindSpeed:
+          type:
+          - integer
+          - 'null'
+          description: The wind speed at the start of the game (in MPH)
+        ThirdDownAttempts:
+          type:
+          - number
+          - 'null'
+          description: Total third down attempts against the team in the game
+        ThirdDownConversions:
+          type:
+          - number
+          - 'null'
+          description: Total third down conversions against the team in the game
+        FourthDownAttempts:
+          type:
+          - number
+          - 'null'
+          description: Opponent's fourth down attempts against the team in the game
+        FourthDownConversions:
+          type:
+          - number
+          - 'null'
+          description: Opponent's fourth down conversions against the team in the game
+        PointsAllowedByDefenseSpecialTeams:
+          type:
+          - number
+          - 'null'
+          description: 'Total number of points allowed by the team in the game to the opposing offense and special teams. Note: This field excludes points scored by the opponent''s defense'
+        FanDuelSalary:
+          type:
+          - integer
+          - 'null'
+          description: The team's D/ST salary for FanDuel daily fantasy contests
+        DraftKingsSalary:
+          type:
+          - integer
+          - 'null'
+          description: The team's D/ST salary for DraftKings daily fantasy contests.
+        FantasyDataSalary:
+          type:
+          - integer
+          - 'null'
+          description: The team's D/ST salary as calculated by SportsDataIO (formerly known as FantasyData). Based on the same salary cap as DraftKings contests ($50,000)
+        VictivSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Victiv daily fantasy contests.
+        TwoPointConversionReturns:
+          type:
+          - number
+          - 'null'
+          description: Total successful two point conversion returns by the team in the game
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FanDuel's scoring system by the team in the game
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on DraftKings' scoring system by the team in the game
+        OffensiveYardsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Offensive yards allowed by the team's defense in the game
+        YahooSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Yahoo daily fantasy contests
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO for use when combining with player feeds. Note: this ID will stay with the player throughout their entire career'
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on Yahoo's daily fantasy scoring system by the team in the game
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        OpponentRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the opposing team's offense with regards to fantasy points allowed to fantasy DST
+        OpponentPositionRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the opposing team's offense with regards to fantasy points allowed to fantasy DST
+        FantasyDraftSalary:
+          type:
+          - integer
+          - 'null'
+          description: The team's D/ST salary for FantasyDraft daily fantasy contests.
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team
+        OpponentID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this opponent team
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game (in US Eastern Time)
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues
+        GlobalTeamID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
+        GlobalOpponentID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this team's opponent. This value is guaranteed to be unique across all sports/leagues
+        DraftKingsPosition:
+          type:
+          - string
+          - 'null'
+          description: The position of this team's D/ST; as listed by DraftKings.
+        FanDuelPosition:
+          type:
+          - string
+          - 'null'
+          description: The position of this team's D/ST; as listed by FanDuel.
+        FantasyDraftPosition:
+          type:
+          - string
+          - 'null'
+          description: The position of this team's D/ST; as listed by FantasyDraft
+        YahooPosition:
+          type:
+          - string
+          - 'null'
+          description: The position of the team's defense/special teams unit, as listed on Yahoo's daily fantasy sports platform
+        FantasyDefenseID:
+          type:
+          - integer
+          - 'null'
+          description: '"Unique ID of FantasyDefense record (subject to change; although it very rarely does).  Note: For a guaranteed static ID; use a combination of GameKey and Team"'
+        ScoreID:
+          type: integer
+          description: Unique ID of the score/game
+        FanDuelFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'FanDuel fantasy points allowed to opposing offensive players in the game. Note: positions include: QB; RB; WR; TE'
+        FanDuelQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing quarterbacks in the game
+        FanDuelRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing running backs in the game
+        FanDuelWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing wide receivers in the game
+        FanDuelTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing tight ends in the game
+        FanDuelKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FanDuel fantasy points allowed by the team to opposing kickers in the game
+        DraftKingsFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'DraftKings fantasy points allowed to opposing offensive players in the game. Note: positions include: QB; RB; WR; TE'
+        DraftKingsQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent quarterbacks in the game
+        DraftKingsRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent running backs in the game
+        DraftKingsWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent wide receivers in the game
+        DraftKingsTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed by the team to opponent tight ends in the game
+        DraftKingsKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: DraftKings fantasy points allowed to opposing kickers
+        YahooFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'Total Yahoo fantasy points allowed to opposing offensive players by the team in the game. Note: Offensive players include: QB, RB, WR, & TE'
+        YahooQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing quarterbacks by the team in the game
+        YahooRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing running backs by the team in the game
+        YahooWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing wide receivers by the team in the game
+        YahooTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing tight ends by the team in the game
+        YahooKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: Total Yahoo fantasy points allowed to opposing kickers by the team in the game
+        FantasyPointsFantasyDraft:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FantasyDraft's scoring system by the team in the game
+        FantasyDraftFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: 'FantasyDraft fantasy points allowed to opposing offensive players in the game. Note: positions include: QB; RB; WR; TE'
+        FantasyDraftQuarterbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing quarterbacks in the game
+        FantasyDraftRunningbackFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing running backs in the game
+        FantasyDraftWideReceiverFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing wide receivers in the game
+        FantasyDraftTightEndFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing tight ends in the game
+        FantasyDraftKickerFantasyPointsAllowed:
+          type:
+          - number
+          - 'null'
+          description: FantasyDraft fantasy points allowed by the team to opposing kickers in the game
+        ScoringDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoringDetail'
+          description: The details of the scoring plays this team DST recorded in the game
+    ScoringDetail:
+      properties:
+        GameKey:
+          type:
+          - string
+          - 'null'
+          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks'
+        SeasonType:
+          type: integer
+          description: The type of season that this game corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO tied to this scoring detail. Note: this ID will stay with the player throughout their entire career'
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Season:
+          type: integer
+          description: The season during which the score happened
+        Week:
+          type: integer
+          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
+        ScoringType:
+          type:
+          - string
+          - 'null'
+          description: The type of scoring play (e.g. BlockedFieldGoalReturnTouchdown, BlockedPuntReturnTouchdown, FieldGoalMade, FieldGoalReturnTouchdown, FumbleReturnTouchdown, InterceptionReturnTouchdown, KickoffReturnTouchdown, PassingTouchdown, PuntReturnTouchdown, ReceivingTouchdown, RushingTouchdown, Safety)
+        Length:
+          type: integer
+          description: The length in yards of the score
+        ScoringDetailID:
+          type: integer
+          description: Unique ID of this scoring detail
+        PlayerGameID:
+          type: integer
+          description: Unique ID of the PlayerGame record tied to this scoring detail
+        ScoreID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of the score/game
+        ScoringPlayID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of the scoring play
+    Quarter:
+      properties:
+        QuarterID:
+          type: integer
+          description: The unique ID of the quarter
+        ScoreID:
+          type: integer
+          description: The unique ID of the score this quarter belongs to
+        Number:
+          type: integer
+          description: The Number (Order) of the Quarter in the scope of the Game.
+        Name:
+          type:
+          - string
+          - 'null'
+          description: 'The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)'
+        Description:
+          type:
+          - string
+          - 'null'
+          description: The long description of the quarter
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the away team in this Quarter.
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the home team in this Quarter.
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this Quarter was last updated (in US Eastern time)
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this Quarter was first created (in US Eastern Time)
+    PlayerInfo:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The player's full name
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL'
+        Team:
+          type:
+          - string
+          - 'null'
+          description: 'The abbreviation [Key] of the team that the player is on. Note: If this player is a free agent; this field is NULL'
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The primary position of the player. Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR'
+    FantasyGame:
+      properties:
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this game
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO tied to this FantasyGame record Note: this ID will stay with the player throughout their entire career'
+        SeasonType:
+          type: integer
+          description: The type of season that this player corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star).
+        Season:
+          type: integer
+          description: The NFL season of the game
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game (in US Eastern Time)
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game (in US Eastern Time)
+        Week:
+          type: integer
+          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the opponent team
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        Number:
+          type: integer
+          description: Player's jersey number
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Player's full name
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The primary position of the player Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR'
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: The category of the player's position (OFF; DEF; ST)
+        Activated:
+          type: integer
+          description: Whether or not the player was active for the game
+        Played:
+          type: integer
+          description: 'Whether the player played at least one snap in the game Note: Will return "1" if player played at least one snap and "0" if they did not'
+        Started:
+          type: integer
+          description: 'Whether the player started the game (on offensive or defense) Note: Started = 1 / Did Not Start = 0'
+        FantasyPoints:
+          type: number
+          description: Total fantasy points by the player in the game
+        FantasyPointsPPR:
+          type: number
+          description: Fantasy points scored based on basic PPR fantasy scoring system by the player in the game
+        FantasyPosition:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s fantasy football position Possible values: QB; RB; WR; TE; DL; LB; DB; K; P; OL'
+        IsGameOver:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the game is over (true/false)
+        FantasyPointsFanDuel:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on FanDuel's scoring system by the player in the game
+        FantasyPointsYahoo:
+          type:
+          - number
+          - 'null'
+          description: Fantasy points based on Yahoo's daily fantasy scoring system by the player in the game
+        FantasyPointsDraftKings:
+          type:
+          - number
+          - 'null'
+          description: Total DraftKings daily fantasy points scored by the player in the game
+        FanDuelPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in FanDuel's daily fantasy sports platform
+        DraftKingsPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in DraftKings' daily fantasy sports platform
+        YahooPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Yahoo's daily fantasy sports platform
+        OpponentRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the player's opponent with regards to fantasy points allowed
+        OpponentPositionRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the player's opponent by position with regards to fantasy points allowed
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: 'Time of last update (in US Eastern time) Note: this does not indicate that stats changed'
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
     PlayerSeasonRedZone:
       properties:
         PlayerID:
@@ -6296,196 +6313,459 @@ components:
           - integer
           - 'null'
           description: This field is deprecated
-    FantasyDefenseGame:
+    Stadium:
       properties:
-        GameKey:
+        StadiumID:
+          type: integer
+          description: The unique ID of the stadium
+        Name:
           type:
           - string
           - 'null'
-          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks'
+          description: The full name of the stadium
+        City:
+          type:
+          - string
+          - 'null'
+          description: The city where the stadium is located
+        State:
+          type:
+          - string
+          - 'null'
+          description: The city where the venue is located
+        Country:
+          type:
+          - string
+          - 'null'
+          description: The 3-digit country code where the stadium is located
+        Capacity:
+          type:
+          - integer
+          - 'null'
+          description: The estimated seating capacity of the stadium
+        PlayingSurface:
+          type:
+          - string
+          - 'null'
+          description: The playing surface of the stadium (Grass, Artificial or Dome)
+        GeoLat:
+          type:
+          - number
+          - 'null'
+          description: The geographic latitude coordinate of this venue
+        GeoLong:
+          type:
+          - number
+          - 'null'
+          description: The geographic longitude coordinate of this venue.
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'The type of the stadium (possible values: Outdoor, Dome, RetractableDome)'
+    PlayerSeasonThirdDown:
+      properties:
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The unique PlayerID of the player as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
         SeasonType:
           type: integer
           description: The type of season that this player corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
         Season:
           type: integer
-          description: The NFL season of the game
-        Week:
-          type:
-          - integer
-          - 'null'
-          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
-        Date:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game (in US Eastern Time)
+          description: The NFL season for which these totals apply
         Team:
           type:
           - string
           - 'null'
-          description: The abbreviation [Key] of the team
-        Opponent:
+          description: 'The abbreviation [Key] of the team that the player is on. Note: If this player is a free agent; this field is NULL'
+        Number:
+          type: integer
+          description: Player's jersey number
+        Name:
           type:
           - string
           - 'null'
-          description: The abbreviation [Key] of the opponent team
-        PointsAllowed:
+          description: Player's full name
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The primary position of the player. Possible Values: C; CB; DB; DE; DL; DT; FB; FS; G; ILB; K; KR; LB; LS; NT; OL; OLB; OT; P; QB; RB; S; SS; T; TE; WR'
+        PositionCategory:
+          type:
+          - string
+          - 'null'
+          description: The category of the player's position (OFF; DEF; ST)
+        Activated:
+          type: integer
+          description: The total number of games that the player was active for in the season
+        Played:
+          type: integer
+          description: The total number of games played by the the player in the season
+        Started:
+          type: integer
+          description: Total games started (on offense or defense) by the player in the season
+        PassingAttempts:
           type: number
-          description: Total points allowed by the team during the game
-        TouchdownsScored:
+          description: Total passes thrown by the player in the season
+        PassingCompletions:
           type: number
-          description: Total defensive and special teams touchdowns scored by the team in the game
-        SoloTackles:
+          description: Total passes completed by the player in the season
+        PassingYards:
           type: number
-          description: Total defensive solo (unassisted) tackles by the team in the game
-        AssistedTackles:
+          description: Total passing yards by the player in the season
+        PassingCompletionPercentage:
           type: number
-          description: Total defensive assisted tackles by the team in the game
-        Sacks:
+          description: The percentage of passes completed by the player in the season
+        PassingYardsPerAttempt:
           type: number
-          description: Total defensive sacks by the team in the game
-        SackYards:
+          description: Total average passing yards per attempt by the player in the season
+        PassingYardsPerCompletion:
           type: number
-          description: Total defensive sack yards by the team in the game
-        PassesDefended:
+          description: Total average passing yards per completion by the player in the season
+        PassingTouchdowns:
           type: number
-          description: Total passes defended by the team in the game
-        FumblesForced:
+          description: Total passing touchdowns by the player in the season
+        PassingInterceptions:
           type: number
-          description: Total fumbles forced on defense by the team in the game
-        FumblesRecovered:
+          description: Total interceptions thrown by the player in the season
+        PassingRating:
           type: number
-          description: Total defensive fumble recoveries by the team in the game
-        FumbleReturnYards:
+          description: The passer rating of the player in the season
+        PassingLong:
           type: number
-          description: Total fumble return yards by the team in the game
-        FumbleReturnTouchdowns:
+          description: Total yards of longest completion by the player in the season
+        PassingSacks:
           type: number
-          description: Total fumble return touchdowns by the team in the game
-        Interceptions:
+          description: The total number of times the player was sacked in the season
+        PassingSackYards:
           type: number
-          description: Total defensive interceptions by the team in the game
-        InterceptionReturnYards:
+          description: Total yards lost by the player in the season as a result of being sacked
+        RushingAttempts:
           type: number
-          description: Total defensive interception return yards by the team in the game
-        InterceptionReturnTouchdowns:
+          description: Total rushing attempts by the player in the season
+        RushingYards:
           type: number
-          description: Total defensive interception return touchdowns by the team in the game
-        BlockedKicks:
+          description: Total rushing yards by the player in the season
+        RushingYardsPerAttempt:
           type: number
-          description: 'Total blocked kicks by team in the game. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points'
-        Safeties:
+          description: Total rushing yards per attempt by the player in the season
+        RushingTouchdowns:
           type: number
-          description: Total defensive safeties scored by the team in the game
+          description: Total rushing touchdowns by the player in the season
+        RushingLong:
+          type: number
+          description: The longest rush by the player in the season
+        ReceivingTargets:
+          type:
+          - number
+          - 'null'
+          description: Total receiving targets by the player in the season
+        Receptions:
+          type: number
+          description: Total receptions by the player in the season
+        ReceivingYards:
+          type: number
+          description: Total receiving yards by the player in the season
+        ReceivingYardsPerReception:
+          type: number
+          description: Average receiving yards per reception by the player in the season
+        ReceivingTouchdowns:
+          type: number
+          description: Total receiving touchdowns by the player in the season
+        ReceivingLong:
+          type: number
+          description: The longest reception by the player in the season
+        Fumbles:
+          type: number
+          description: Total fumbles by the player in the season
+        FumblesLost:
+          type:
+          - number
+          - 'null'
+          description: Total fumbles lost by the player in the season
         PuntReturns:
           type: number
-          description: Total punt returns by the team in the game
+          description: Total punt returns by the player in the season
         PuntReturnYards:
           type: number
-          description: Total punt return yards by the team in the game
+          description: Total punt return yards by the player in the season
+        PuntReturnYardsPerAttempt:
+          type: number
+          description: Total average yards gained per punt return by the player in the season
         PuntReturnTouchdowns:
           type: number
-          description: Total punt return touchdowns by the team in the game
+          description: Total punt return touchdowns by the player in the season
         PuntReturnLong:
           type: number
-          description: The longest punt return by the team in the game
+          description: The longest punt return by the player in the season
         KickReturns:
           type: number
-          description: Total kickoff returns by the team in the game
+          description: Total kickoff returns by the player in the season
         KickReturnYards:
           type: number
-          description: Total kickoff return yards by the team in the game
+          description: Total kickoff return yards by the player in the season
+        KickReturnYardsPerAttempt:
+          type: number
+          description: Average yards gained per kick return by the player in the season
         KickReturnTouchdowns:
           type: number
-          description: Total kickoff return touchdowns by the team in the game
+          description: Total kickoff return touchdowns by the player in the season
         KickReturnLong:
           type: number
-          description: Longest kick return by the team in the game
-        BlockedKickReturnTouchdowns:
-          type:
-          - number
-          - 'null'
-          description: Total blocked kick recovery return touchdowns for the team in the game
-        FieldGoalReturnTouchdowns:
-          type:
-          - number
-          - 'null'
-          description: 'Total field goal return touchdowns by the team in the game. Note: This field excludes blocked field goals'
-        FantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: 'Fantasy points allowed to opposing offensive players in the season. Note: positions include: QB; RB; WR; TE'
-        QuarterbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points allowed to opposing quarterbacks by the team in the game
-        RunningbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Total fantasy points allowed to opposing running backs by the team in the game
-        WideReceiverFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points allowed to opposing wide receivers
-        TightEndFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points allowed to opposing tight ends by the team in the game
-        KickerFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points allowed to opponent kickers by the team in the game
-        BlockedKickReturnYards:
-          type:
-          - number
-          - 'null'
-          description: Total blocked kick recovery return yards for the team in the game
-        FieldGoalReturnYards:
-          type:
-          - number
-          - 'null'
-          description: 'Total field goal return yards by the team in the game. Note: This field excludes blocked field goals'
-        QuarterbackHits:
-          type:
-          - number
-          - 'null'
-          description: 'Total quarterback hits by the team in the game. Note: This is a defensive stat that includes sacks'
+          description: Longest kick return by the player in the season
+        SoloTackles:
+          type: number
+          description: Total defensive solo (unassisted) tackles by the player in the season
+        AssistedTackles:
+          type: number
+          description: Total defensive assisted tackles by the player in the season
         TacklesForLoss:
           type:
           - number
           - 'null'
-          description: 'Total tackles for loss by the team in the game. Note: These are tackles behind the line of scrimmage for loss of yards (including sacks)'
-        DefensiveTouchdowns:
+          description: 'Total tackles for loss by the player in the season. Note: these are tackles behind the line of scrimmage for loss of yards (including sacks)'
+        Sacks:
+          type: number
+          description: Total defensive sacks by the player in the season
+        SackYards:
+          type: number
+          description: Total defensive safeties scored by the player in the season
+        QuarterbackHits:
           type:
           - number
           - 'null'
-          description: Total touchdowns scored by the defense
-        SpecialTeamsTouchdowns:
-          type:
-          - number
-          - 'null'
-          description: Total special teams touchdowns scored by the team in the game
-        IsGameOver:
-          type:
-          - boolean
-          - 'null'
-          description: Whether the game is over (true/false)
+          description: 'Total quarterback hits by the player in the season. Note: This is a defensive stat that includes sacks'
+        PassesDefended:
+          type: number
+          description: Total passes defended by the player in the season
+        FumblesForced:
+          type: number
+          description: Total fumbles forced on defense by the player in the season
+        FumblesRecovered:
+          type: number
+          description: Total defensive fumble recoveries by the player in the season
+        FumbleReturnYards:
+          type: number
+          description: Total fumble return yards by the player in the season
+        FumbleReturnTouchdowns:
+          type: number
+          description: Total fumble return touchdowns by the player in the season
+        Interceptions:
+          type: number
+          description: Total defensive interceptions by the player in the season
+        InterceptionReturnYards:
+          type: number
+          description: Total defensive interception return yards by the player in the season
+        InterceptionReturnTouchdowns:
+          type: number
+          description: Total defensive interception return touchdowns by the player in the season
+        BlockedKicks:
+          type: number
+          description: 'Total blocked kicks by the player in the season. Note: BlockedKicks include Field Goals and Punts but NOT Extra Points'
+        SpecialTeamsSoloTackles:
+          type: number
+          description: This field is deprecated
+        SpecialTeamsAssistedTackles:
+          type: number
+          description: This field is deprecated
+        MiscSoloTackles:
+          type: number
+          description: This field is deprecated
+        MiscAssistedTackles:
+          type: number
+          description: This field is deprecated
+        Punts:
+          type: number
+          description: Total number of punts by the player in the season
+        PuntYards:
+          type: number
+          description: Total punt yards by the player in the season
+        PuntAverage:
+          type: number
+          description: The average number of yards per punt by the player in the season
+        FieldGoalsAttempted:
+          type: number
+          description: Total field goals attempted by the player in the season
+        FieldGoalsMade:
+          type: number
+          description: Total field goals made by the player in season
+        FieldGoalsLongestMade:
+          type: number
+          description: Longest field goal made by the player in the season
+        ExtraPointsMade:
+          type: number
+          description: Total extra points made by the player in the season
+        TwoPointConversionPasses:
+          type: number
+          description: Total successful two point conversion passes by the player in the season
+        TwoPointConversionRuns:
+          type: number
+          description: Total successful two point conversion rushes by the player in the season
+        TwoPointConversionReceptions:
+          type: number
+          description: Total successful two point conversion receptions by the player in the season
         FantasyPoints:
-          type:
-          - number
-          - 'null'
-          description: Fantasy points scored based on basic fantasy scoring system by the team's D/ST in the game
-        Stadium:
+          type: number
+          description: Fantasy points scored based on basic fantasy scoring system by the player in the season
+        FantasyPointsPPR:
+          type: number
+          description: Fantasy points scored based on basic PPR fantasy scoring system by the player in the season
+        ReceptionPercentage:
+          type: number
+          description: Total percentage of receiving targets that were receptions by the player in the season
+        ReceivingYardsPerTarget:
+          type: number
+          description: Average receiving yards per target by the player in the season
+        Tackles:
+          type: number
+          description: Total tackles (solo & assisted) by the player in the season
+        OffensiveTouchdowns:
+          type: number
+          description: Total offensive touchdowns scored by the player in the season
+        DefensiveTouchdowns:
+          type: number
+          description: Total defensive touchdowns scored by the player in the season
+        SpecialTeamsTouchdowns:
+          type: number
+          description: Total special teams touchdowns scored by the player in the season
+        Touchdowns:
+          type: number
+          description: Total touchdowns scored by the player in the season
+        FantasyPosition:
           type:
           - string
           - 'null'
-          description: Stadium of the event
+          description: 'The player''s fantasy football position. Possible values: QB, RB, WR, TE, DL, LB, DB, K, P, OL'
+        FieldGoalPercentage:
+          type: number
+          description: Total field goal attempts made by the player in the season
+        PlayerSeasonID:
+          type: integer
+          description: Unique ID of PlayerSeason record (subject to change, although it very rarely does).  For a static ID, use a combination of SeasonType, Season and PlayerID.
+        FumblesOwnRecoveries:
+          type:
+          - number
+          - 'null'
+          description: 'Total own fumble recoveries by the player in the season. Note: this fumble doesn''t result in a turnover - the fumbling team recovers the fumble'
+        FumblesOutOfBounds:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        KickReturnFairCatches:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        PuntReturnFairCatches:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated.
+        PuntTouchbacks:
+          type:
+          - number
+          - 'null'
+          description: Total punts that resulted in touchbacks by the player in the season
+        PuntInside20:
+          type:
+          - number
+          - 'null'
+          description: Total punts downed inside the 20 yard line by the player in the season
+        PuntNetAverage:
+          type:
+          - number
+          - 'null'
+          description: The average net yards per punt by the player in the season
+        ExtraPointsAttempted:
+          type:
+          - number
+          - 'null'
+          description: Total extra point kicks attempted by the player in the season
+        BlockedKickReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return touchdowns for the player in the season
+        FieldGoalReturnTouchdowns:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return touchdowns by the player in the season. Note: This field excludes blocked field goals'
+        Safeties:
+          type:
+          - number
+          - 'null'
+          description: Defensive safeties (sacks in end zone, solo tackles in end zone, blocked kicks that went out of bounds in the end zone)
+        FieldGoalsHadBlocked:
+          type:
+          - number
+          - 'null'
+          description: Total field goals by the player that were blocked in the season
+        PuntsHadBlocked:
+          type:
+          - number
+          - 'null'
+          description: Total punts by the player that were blocked in the season
+        ExtraPointsHadBlocked:
+          type:
+          - number
+          - 'null'
+          description: Total extra point kick attempts by the player that were blocked in the season
+        PuntLong:
+          type:
+          - number
+          - 'null'
+          description: The longest punt by the player in the season
+        BlockedKickReturnYards:
+          type:
+          - number
+          - 'null'
+          description: Total blocked kick recovery return yards for the player in the season
+        FieldGoalReturnYards:
+          type:
+          - number
+          - 'null'
+          description: 'Total field goal return yards by the player in the season. Note: This field excludes blocked field goals'
+        PuntNetYards:
+          type:
+          - number
+          - 'null'
+          description: The net yards of the punts by the player in the season
+        SpecialTeamsFumblesForced:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        SpecialTeamsFumblesRecovered:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        MiscFumblesForced:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        MiscFumblesRecovered:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
+        ShortName:
+          type:
+          - string
+          - 'null'
+          description: The first initial and last name of the player (J. Doe)
+        SafetiesAllowed:
+          type:
+          - number
+          - 'null'
+          description: This field is deprecated
         Temperature:
           type:
           - integer
@@ -6501,350 +6781,142 @@ components:
           - integer
           - 'null'
           description: The wind speed at the start of the game (in MPH)
-        ThirdDownAttempts:
-          type:
-          - number
-          - 'null'
-          description: Total third down attempts against the team in the game
-        ThirdDownConversions:
-          type:
-          - number
-          - 'null'
-          description: Total third down conversions against the team in the game
-        FourthDownAttempts:
-          type:
-          - number
-          - 'null'
-          description: Opponent's fourth down attempts against the team in the game
-        FourthDownConversions:
-          type:
-          - number
-          - 'null'
-          description: Opponent's fourth down conversions against the team in the game
-        PointsAllowedByDefenseSpecialTeams:
-          type:
-          - number
-          - 'null'
-          description: 'Total number of points allowed by the team in the game to the opposing offense and special teams. Note: This field excludes points scored by the opponent''s defense'
-        FanDuelSalary:
+        OffensiveSnapsPlayed:
           type:
           - integer
           - 'null'
-          description: The team's D/ST salary for FanDuel daily fantasy contests
-        DraftKingsSalary:
+          description: 'Total snaps this player played on offensive in the season. Note: Snap counts are available the morning after the game.'
+        DefensiveSnapsPlayed:
           type:
           - integer
           - 'null'
-          description: The team's D/ST salary for DraftKings daily fantasy contests.
-        FantasyDataSalary:
+          description: 'Total snaps this player played on defense in the season. Note: Snap counts are available the morning after the game.'
+        SpecialTeamsSnapsPlayed:
           type:
           - integer
           - 'null'
-          description: The team's D/ST salary as calculated by SportsDataIO (formerly known as FantasyData). Based on the same salary cap as DraftKings contests ($50,000)
-        VictivSalary:
+          description: 'Total snaps this player played on special teams in the season. Note: Snap counts are available the morning after the game.'
+        OffensiveTeamSnaps:
           type:
           - integer
           - 'null'
-          description: The player's salary for Victiv daily fantasy contests.
+          description: 'Total offensive snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
+        DefensiveTeamSnaps:
+          type:
+          - integer
+          - 'null'
+          description: 'Total defensive snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
+        SpecialTeamsTeamSnaps:
+          type:
+          - integer
+          - 'null'
+          description: 'Total special teams snaps this player''s team played in the season. Note: Snap counts are available the morning after the game.'
+        AuctionValue:
+          type:
+          - number
+          - 'null'
+          description: Player's dollar value in a $200 salary cap auction draft.
+        AuctionValuePPR:
+          type:
+          - number
+          - 'null'
+          description: Player's dollar value in a $200 salary cap PPR auction draft.
         TwoPointConversionReturns:
           type:
           - number
           - 'null'
-          description: Total successful two point conversion returns by the team in the game
+          description: Total successful two point conversion returns by the player in the season
         FantasyPointsFanDuel:
           type:
           - number
           - 'null'
-          description: Fantasy points based on FanDuel's scoring system by the team in the game
+          description: Fantasy points based on FanDuel's scoring system by the player in the season
+        FieldGoalsMade0to19:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 0 to 19 yards made by the player in season
+        FieldGoalsMade20to29:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 20 to 29 yards made by the player in season
+        FieldGoalsMade30to39:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 30 to 39 yards made by the player in season
+        FieldGoalsMade40to49:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 40 to 49 yards made by the player in season
+        FieldGoalsMade50Plus:
+          type:
+          - number
+          - 'null'
+          description: Total field goals of 50+ yards made by the player in season
         FantasyPointsDraftKings:
           type:
           - number
           - 'null'
-          description: Fantasy points based on DraftKings' scoring system by the team in the game
-        OffensiveYardsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Offensive yards allowed by the team's defense in the game
-        YahooSalary:
-          type:
-          - integer
-          - 'null'
-          description: The player's salary for Yahoo daily fantasy contests
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The unique PlayerID of the player as assigned by SportsDataIO for use when combining with player feeds. Note: this ID will stay with the player throughout their entire career'
+          description: Fantasy points based on DraftKings' scoring system by the player in the season
         FantasyPointsYahoo:
           type:
           - number
           - 'null'
-          description: Fantasy points based on Yahoo's daily fantasy scoring system by the team in the game
-        HomeOrAway:
+          description: Fantasy points based on Yahoo's daily fantasy scoring system by the player in the season
+        AverageDraftPosition:
           type:
-          - string
+          - number
           - 'null'
-          description: Whether the team is home or away
-        OpponentRank:
+          description: The average draft position of the player in re-draft leagues
+        AverageDraftPositionPPR:
           type:
-          - integer
+          - number
           - 'null'
-          description: The ranking of the opposing team's offense with regards to fantasy points allowed to fantasy DST
-        OpponentPositionRank:
-          type:
-          - integer
-          - 'null'
-          description: The ranking of the opposing team's offense with regards to fantasy points allowed to fantasy DST
-        FantasyDraftSalary:
-          type:
-          - integer
-          - 'null'
-          description: The team's D/ST salary for FantasyDraft daily fantasy contests.
+          description: The average draft position of this player in Points Per Reception (PPR) leagues.
         TeamID:
           type:
           - integer
           - 'null'
-          description: The unique ID of the team
-        OpponentID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of this opponent team
-        Day:
-          type:
-          - string
-          - 'null'
-          description: The date of the game (in US Eastern Time)
-        DateTime:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game (in US Eastern Time)
-        GlobalGameID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues
+          description: 'The unique ID of the team that the player is on. Note: If the player is a free agent; this field is NULL'
         GlobalTeamID:
           type:
           - integer
           - 'null'
           description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues
-        GlobalOpponentID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this team's opponent. This value is guaranteed to be unique across all sports/leagues
-        DraftKingsPosition:
-          type:
-          - string
-          - 'null'
-          description: The position of this team's D/ST; as listed by DraftKings.
-        FanDuelPosition:
-          type:
-          - string
-          - 'null'
-          description: The position of this team's D/ST; as listed by FanDuel.
-        FantasyDraftPosition:
-          type:
-          - string
-          - 'null'
-          description: The position of this team's D/ST; as listed by FantasyDraft
-        YahooPosition:
-          type:
-          - string
-          - 'null'
-          description: The position of the team's defense/special teams unit, as listed on Yahoo's daily fantasy sports platform
-        FantasyDefenseID:
-          type:
-          - integer
-          - 'null'
-          description: '"Unique ID of FantasyDefense record (subject to change; although it very rarely does).  Note: For a guaranteed static ID; use a combination of GameKey and Team"'
-        ScoreID:
-          type: integer
-          description: Unique ID of the score/game
-        FanDuelFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: 'FanDuel fantasy points allowed to opposing offensive players in the game. Note: positions include: QB; RB; WR; TE'
-        FanDuelQuarterbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FanDuel fantasy points allowed by the team to opposing quarterbacks in the game
-        FanDuelRunningbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FanDuel fantasy points allowed by the team to opposing running backs in the game
-        FanDuelWideReceiverFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FanDuel fantasy points allowed by the team to opposing wide receivers in the game
-        FanDuelTightEndFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FanDuel fantasy points allowed by the team to opposing tight ends in the game
-        FanDuelKickerFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FanDuel fantasy points allowed by the team to opposing kickers in the game
-        DraftKingsFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: 'DraftKings fantasy points allowed to opposing offensive players in the game. Note: positions include: QB; RB; WR; TE'
-        DraftKingsQuarterbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: DraftKings fantasy points allowed by the team to opponent quarterbacks in the game
-        DraftKingsRunningbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: DraftKings fantasy points allowed by the team to opponent running backs in the game
-        DraftKingsWideReceiverFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: DraftKings fantasy points allowed by the team to opponent wide receivers in the game
-        DraftKingsTightEndFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: DraftKings fantasy points allowed by the team to opponent tight ends in the game
-        DraftKingsKickerFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: DraftKings fantasy points allowed to opposing kickers
-        YahooFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: 'Total Yahoo fantasy points allowed to opposing offensive players by the team in the game. Note: Offensive players include: QB, RB, WR, & TE'
-        YahooQuarterbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo fantasy points allowed to opposing quarterbacks by the team in the game
-        YahooRunningbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo fantasy points allowed to opposing running backs by the team in the game
-        YahooWideReceiverFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo fantasy points allowed to opposing wide receivers by the team in the game
-        YahooTightEndFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo fantasy points allowed to opposing tight ends by the team in the game
-        YahooKickerFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: Total Yahoo fantasy points allowed to opposing kickers by the team in the game
         FantasyPointsFantasyDraft:
           type:
           - number
           - 'null'
-          description: Fantasy points based on FantasyDraft's scoring system by the team in the game
-        FantasyDraftFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: 'FantasyDraft fantasy points allowed to opposing offensive players in the game. Note: positions include: QB; RB; WR; TE'
-        FantasyDraftQuarterbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FantasyDraft fantasy points allowed by the team to opposing quarterbacks in the game
-        FantasyDraftRunningbackFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FantasyDraft fantasy points allowed by the team to opposing running backs in the game
-        FantasyDraftWideReceiverFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FantasyDraft fantasy points allowed by the team to opposing wide receivers in the game
-        FantasyDraftTightEndFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FantasyDraft fantasy points allowed by the team to opposing tight ends in the game
-        FantasyDraftKickerFantasyPointsAllowed:
-          type:
-          - number
-          - 'null'
-          description: FantasyDraft fantasy points allowed by the team to opposing kickers in the game
+          description: Fantasy points based on FantasyDraft's scoring system by the player in the season
         ScoringDetails:
           type: array
           items:
             $ref: '#/components/schemas/ScoringDetail'
-          description: The details of the scoring plays this team DST recorded in the game
-    ScoringDetail:
-      properties:
-        GameKey:
+          description: The details of the scoring plays this player recorded in the season
+        AverageDraftPositionRookie:
           type:
-          - string
+          - number
           - 'null'
-          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks'
-        SeasonType:
-          type: integer
-          description: The type of season that this game corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
-        PlayerID:
+          description: The average draft position of this rookie in Points Per Reception (PPR) leagues.
+        AverageDraftPositionDynasty:
           type:
-          - integer
+          - number
           - 'null'
-          description: 'The unique PlayerID of the player as assigned by SportsDataIO tied to this scoring detail. Note: this ID will stay with the player throughout their entire career'
-        Team:
+          description: The average draft position of this player in dynasty drafts leagues
+        AverageDraftPosition2QB:
           type:
-          - string
+          - number
           - 'null'
-          description: The abbreviation [Key] of the team
-        Season:
-          type: integer
-          description: The season during which the score happened
-        Week:
-          type: integer
-          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
-        ScoringType:
-          type:
-          - string
-          - 'null'
-          description: The type of scoring play (e.g. BlockedFieldGoalReturnTouchdown, BlockedPuntReturnTouchdown, FieldGoalMade, FieldGoalReturnTouchdown, FumbleReturnTouchdown, InterceptionReturnTouchdown, KickoffReturnTouchdown, PassingTouchdown, PuntReturnTouchdown, ReceivingTouchdown, RushingTouchdown, Safety)
-        Length:
-          type: integer
-          description: The length in yards of the score
-        ScoringDetailID:
-          type: integer
-          description: Unique ID of this scoring detail
-        PlayerGameID:
-          type: integer
-          description: Unique ID of the PlayerGame record tied to this scoring detail
-        ScoreID:
+          description: The average draft position of this player in 2 Quarterback leagues
+        OffensiveFumbleRecoveryTouchdowns:
           type:
           - integer
           - 'null'
-          description: Unique ID of the score/game
-        ScoringPlayID:
-          type:
-          - integer
-          - 'null'
-          description: Unique ID of the scoring play
-    PlayerGameRedZone:
+          description: This field is deprecated
+    PlayerGame:
       properties:
         GameKey:
           type:
@@ -7531,78 +7603,6 @@ components:
           - string
           - 'null'
           description: 'Time of last update (in US Eastern time). Note: this does not indicate that stats changed.'
-    ScoringPlay:
-      properties:
-        GameKey:
-          type:
-          - string
-          - 'null'
-          description: 'A 9 digit unique code identifying the game that this record corresponds to. The GameID is composed of Season; SeasonType; Week and HomeTeam. Note: This value will be NULL for bye weeks'
-        SeasonType:
-          type: integer
-          description: The type of season that this game corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=All-Star)
-        ScoringPlayID:
-          type: integer
-          description: Unique ID of the scoring play
-        Season:
-          type: integer
-          description: The NFL season of the game
-        Week:
-          type: integer
-          description: 'The NFL week of the game (regular season: 1 to 18; preseason: 0 to 4; postseason: 1 to 4). Note: seasons after 2021 will have only 3 preseason weeks'
-        AwayTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key} of the away team
-        HomeTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the home team
-        Date:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game (in US Eastern Time)
-        Sequence:
-          type:
-          - integer
-          - 'null'
-          description: The order in which the scoring play happened
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team
-        Quarter:
-          type:
-          - string
-          - 'null'
-          description: The quarter of the scoring play (1; 2; 3; 4; OT)
-        TimeRemaining:
-          type:
-          - string
-          - 'null'
-          description: The amount of time remaining in the current quarter when the scoring play occurred (e.g. 11:23; 5:34; NULL if game is not in progress or at halftime)
-        PlayDescription:
-          type:
-          - string
-          - 'null'
-          description: The detailed description of the play for display purposes
-        AwayScore:
-          type:
-          - integer
-          - 'null'
-          description: The away team's score as a result of the scoring play (includes point after)
-        HomeScore:
-          type:
-          - integer
-          - 'null'
-          description: The home team's score as a result of the scoring play (includes point after)
-        ScoreID:
-          type: integer
-          description: Unique ID of the score/game
   securitySchemes:
     apiKeyHeader:
       type: apiKey

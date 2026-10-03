@@ -137,6 +137,21 @@ paths:
       - NBA v3 Play-by-Play
 components:
   schemas:
+    PlayByPlay:
+      properties:
+        Game:
+          $ref: '#/components/schemas/Game'
+          description: The details of the game associated with this play-by-play
+        Quarters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quarter'
+          description: The details of the quarters associated with this play-by-play
+        Plays:
+          type: array
+          items:
+            $ref: '#/components/schemas/Play'
+          description: The details of the plays associated with this play-by-play
     Series:
       properties:
         HomeTeamWins:
@@ -151,6 +166,182 @@ components:
         MaxLength:
           type: integer
           description: The maximum number of games that can be played in a series
+    Play:
+      properties:
+        PlayID:
+          type: integer
+          description: The unique identifier of the play.
+        QuarterID:
+          type: integer
+          description: The unique identifier of the Quarter that this play occurred in.
+        QuarterName:
+          type:
+          - string
+          - 'null'
+          description: The name of the quarter that this play occurred in
+        Sequence:
+          type: integer
+          description: The order in which this play happened over the course of the game.
+        TimeRemainingMinutes:
+          type:
+          - integer
+          - 'null'
+          description: The number of minutes remaining in the quarter when this play occurred
+        TimeRemainingSeconds:
+          type:
+          - integer
+          - 'null'
+          description: The number of seconds remaining in the quarter when the play occurred
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the away team scored after this play completed
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total points scored by the home team after the completion of this play
+        PotentialPoints:
+          type:
+          - integer
+          - 'null'
+          description: The points that would have been potentially scored by the shot attempt (if any).
+        Points:
+          type:
+          - integer
+          - 'null'
+          description: The points scores by the shot attempt (if any).
+        ShotMade:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the shot was made (if any).
+        Category:
+          type:
+          - string
+          - 'null'
+          description: 'The category the play. Possible values: Period, Timeout, JumpBall, Shot, Rebound, Foul, Substitution, Turnover, Challenge.'
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'The type of the play. Possible values: None, Period, Timeout, JumpBall, FieldGoalMade, FieldGoalMissed, FreeThrowMade, FreeThrowMissed, Rebound, Steal, Turnover, Foul, PersonalFoul, ShootingFoul, OffensiveFoul, LooseBallFoul, TechnicalFoul, FlagrantFoul, Traveling, Palming, Goaltending, KickedBall, LaneViolation, DelayOfGame, Substitution, Ejection, and Challenge.'
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team associated with this play
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team associated with this play
+        OpponentID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the opponent team associated with this play
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: Abbreviation [Key] of the opponent team (e.g. LAL; PHI; BOS; CHI; etc.)
+        ReceivingTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the team that won the jump ball.
+        ReceivingTeam:
+          type:
+          - string
+          - 'null'
+          description: The team abbreviation [Key] of the team that won the jump ball
+        Description:
+          type:
+          - string
+          - 'null'
+          description: The description of the play.
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        AssistedByPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who recorded an assist on a made field goal by another player (if applicable)
+        BlockedByPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who blocked the field goal attempt on this play (if any).
+        FastBreak:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this play happened on a fast break.
+        SideOfBasket:
+          type:
+          - string
+          - 'null'
+          description: 'The side of the basket that the field goal was attempted from (if any). Possible values: L, R'
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when this play was last updated (in US Eastern Time)
+        Created:
+          type:
+          - string
+          - 'null'
+          description: The database generated timestamp of when this play was first created (in US Eastern Time)
+        SubstituteInPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who substituted into the game.
+        SubstituteOutPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who substituted out of the game.
+        AwayPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who is involved in the play from the away team (if applicable)
+        HomePlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who is involved in the play from the home team
+        ReceivingPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who received the ball
+        BaselineOffsetPercentage:
+          type:
+          - number
+          - 'null'
+          description: The baseline offset percentage of where the ball was shot/passed
+        SidelineOffsetPercentage:
+          type:
+          - number
+          - 'null'
+          description: The sideline offset percentage of where the ball was shot/passed
+        Coordinates:
+          type:
+          - string
+          - 'null'
+          description: The x/y coordinates of where the ball was shot/passed
+        StolenByPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who stole the ball (if applicable)
     Game:
       properties:
         GameID:
@@ -363,182 +554,6 @@ components:
           - integer
           - 'null'
           description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
-    Play:
-      properties:
-        PlayID:
-          type: integer
-          description: The unique identifier of the play.
-        QuarterID:
-          type: integer
-          description: The unique identifier of the Quarter that this play occurred in.
-        QuarterName:
-          type:
-          - string
-          - 'null'
-          description: The name of the quarter that this play occurred in
-        Sequence:
-          type: integer
-          description: The order in which this play happened over the course of the game.
-        TimeRemainingMinutes:
-          type:
-          - integer
-          - 'null'
-          description: The number of minutes remaining in the quarter when this play occurred
-        TimeRemainingSeconds:
-          type:
-          - integer
-          - 'null'
-          description: The number of seconds remaining in the quarter when the play occurred
-        AwayTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: Total number of points the away team scored after this play completed
-        HomeTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: Total points scored by the home team after the completion of this play
-        PotentialPoints:
-          type:
-          - integer
-          - 'null'
-          description: The points that would have been potentially scored by the shot attempt (if any).
-        Points:
-          type:
-          - integer
-          - 'null'
-          description: The points scores by the shot attempt (if any).
-        ShotMade:
-          type:
-          - boolean
-          - 'null'
-          description: Whether the shot was made (if any).
-        Category:
-          type:
-          - string
-          - 'null'
-          description: 'The category the play. Possible values: Period, Timeout, JumpBall, Shot, Rebound, Foul, Substitution, Turnover, Challenge.'
-        Type:
-          type:
-          - string
-          - 'null'
-          description: 'The type of the play. Possible values: None, Period, Timeout, JumpBall, FieldGoalMade, FieldGoalMissed, FreeThrowMade, FreeThrowMissed, Rebound, Steal, Turnover, Foul, PersonalFoul, ShootingFoul, OffensiveFoul, LooseBallFoul, TechnicalFoul, FlagrantFoul, Traveling, Palming, Goaltending, KickedBall, LaneViolation, DelayOfGame, Substitution, Ejection, and Challenge.'
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team associated with this play
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team associated with this play
-        OpponentID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the opponent team associated with this play
-        Opponent:
-          type:
-          - string
-          - 'null'
-          description: Abbreviation [Key] of the opponent team (e.g. LAL; PHI; BOS; CHI; etc.)
-        ReceivingTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The TeamID of the team that won the jump ball.
-        ReceivingTeam:
-          type:
-          - string
-          - 'null'
-          description: The team abbreviation [Key] of the team that won the jump ball
-        Description:
-          type:
-          - string
-          - 'null'
-          description: The description of the play.
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        AssistedByPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who recorded an assist on a made field goal by another player (if applicable)
-        BlockedByPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who blocked the field goal attempt on this play (if any).
-        FastBreak:
-          type:
-          - boolean
-          - 'null'
-          description: Indicates whether this play happened on a fast break.
-        SideOfBasket:
-          type:
-          - string
-          - 'null'
-          description: 'The side of the basket that the field goal was attempted from (if any). Possible values: L, R'
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of when this play was last updated (in US Eastern Time)
-        Created:
-          type:
-          - string
-          - 'null'
-          description: The database generated timestamp of when this play was first created (in US Eastern Time)
-        SubstituteInPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who substituted into the game.
-        SubstituteOutPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who substituted out of the game.
-        AwayPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who is involved in the play from the away team (if applicable)
-        HomePlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who is involved in the play from the home team
-        ReceivingPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who received the ball
-        BaselineOffsetPercentage:
-          type:
-          - number
-          - 'null'
-          description: The baseline offset percentage of where the ball was shot/passed
-        SidelineOffsetPercentage:
-          type:
-          - number
-          - 'null'
-          description: The sideline offset percentage of where the ball was shot/passed
-        Coordinates:
-          type:
-          - string
-          - 'null'
-          description: The x/y coordinates of where the ball was shot/passed
-        StolenByPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who stole the ball (if applicable)
     Quarter:
       properties:
         QuarterID:
@@ -575,21 +590,6 @@ components:
           type: string
         Help:
           type: string
-    PlayByPlay:
-      properties:
-        Game:
-          $ref: '#/components/schemas/Game'
-          description: The details of the game associated with this play-by-play
-        Quarters:
-          type: array
-          items:
-            $ref: '#/components/schemas/Quarter'
-          description: The details of the quarters associated with this play-by-play
-        Plays:
-          type: array
-          items:
-            $ref: '#/components/schemas/Play'
-          description: The details of the plays associated with this play-by-play
   securitySchemes:
     apiKeyHeader:
       type: apiKey

@@ -46,6 +46,16 @@ paths:
       - NBA v3 Headshots
 components:
   schemas:
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
     Headshot:
       properties:
         PlayerID:
@@ -101,16 +111,6 @@ components:
           - string
           - 'null'
           description: The last updated date of the player's transparent background hosted headshot.
-    Unauthorized:
-      properties:
-        HttpStatusCode:
-          type: integer
-        Code:
-          type: integer
-        Description:
-          type: string
-        Help:
-          type: string
   securitySchemes:
     apiKeyHeader:
       type: apiKey

@@ -137,16 +137,16 @@ paths:
       - MLB v3 Play-by-Play
 components:
   schemas:
-    PlayByPlay:
+    Unauthorized:
       properties:
-        Game:
-          $ref: '#/components/schemas/Game'
-          description: The details of the game associated with this play-by-play
-        Plays:
-          type: array
-          items:
-            $ref: '#/components/schemas/Play'
-          description: The details of the plays associated with this play-by-play
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
     Series:
       properties:
         HomeTeamWins:
@@ -344,6 +344,16 @@ components:
           - integer
           - 'null'
           description: The PlayerID of the player on third as a result of the play (post-play)
+    PlayByPlay:
+      properties:
+        Game:
+          $ref: '#/components/schemas/Game'
+          description: The details of the game associated with this play-by-play
+        Plays:
+          type: array
+          items:
+            $ref: '#/components/schemas/Play'
+          description: The details of the plays associated with this play-by-play
     Pitch:
       properties:
         PitchID:
@@ -407,6 +417,27 @@ components:
           - boolean
           - 'null'
           description: Whether or not the hitter struck out looking (returns true/false)
+    Inning:
+      properties:
+        InningID:
+          type: integer
+          description: The unique ID of this specific inning
+        GameID:
+          type: integer
+          description: The unique ID of the game tied to this Inning
+        InningNumber:
+          type: integer
+          description: The current inning number of the game
+        AwayTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the away team in the specific inning
+        HomeTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the home team in the specific inning
     Game:
       properties:
         GameID:
@@ -799,37 +830,6 @@ components:
           - string
           - 'null'
           description: The date and start-time that the suspended in play game will be resumed for play. Useful for tracking when a Suspended game will return to an InProgress status.
-    Unauthorized:
-      properties:
-        HttpStatusCode:
-          type: integer
-        Code:
-          type: integer
-        Description:
-          type: string
-        Help:
-          type: string
-    Inning:
-      properties:
-        InningID:
-          type: integer
-          description: The unique ID of this specific inning
-        GameID:
-          type: integer
-          description: The unique ID of the game tied to this Inning
-        InningNumber:
-          type: integer
-          description: The current inning number of the game
-        AwayTeamRuns:
-          type:
-          - integer
-          - 'null'
-          description: Number of runs scored by the away team in the specific inning
-        HomeTeamRuns:
-          type:
-          - integer
-          - 'null'
-          description: Number of runs scored by the home team in the specific inning
   securitySchemes:
     apiKeyHeader:
       type: apiKey

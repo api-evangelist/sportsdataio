@@ -137,112 +137,30 @@ paths:
       - NHL v3 Play-by-Play
 components:
   schemas:
-    Period:
+    Unauthorized:
       properties:
-        PeriodID:
+        HttpStatusCode:
           type: integer
-          description: The unique ID associated of this period
-        GameID:
+        Code:
           type: integer
-          description: The unique ID of this game tied to this period
-        Name:
-          type:
-          - string
-          - 'null'
-          description: 'The name of the period (possible values: 1; 2; 3; SO; OT; OT2; OT3; OT4; etc)'
-        AwayScore:
-          type:
-          - integer
-          - 'null'
-          description: Total goals scored by the away team in a given period
-        HomeScore:
-          type:
-          - integer
-          - 'null'
-          description: Total goals scored by the home team in the period
-        ScoringPlays:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScoringPlay'
-          description: The details of the scoring plays that occurred during this period
-        Penalties:
-          type: array
-          items:
-            $ref: '#/components/schemas/Penalty'
-          description: The details of the penalties that occurred during this period
-    Penalty:
-      properties:
-        PenaltyID:
-          type: integer
-          description: The unique ID of this penalty
-        PeriodID:
-          type: integer
-          description: The unique ID of the period during which this penalty occurred
-        Sequence:
-          type:
-          - integer
-          - 'null'
-          description: The sequence/order that this penalty happened
-        TimeRemainingMinutes:
-          type:
-          - integer
-          - 'null'
-          description: 'Number of minutes that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock minutes which are the number of minutes that have already passed in the period.'
-        TimeRemainingSeconds:
-          type:
-          - integer
-          - 'null'
-          description: 'Number of seconds that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock seconds which are the number of minutes that have already passed in the period.'
         Description:
-          type:
-          - string
-          - 'null'
-          description: The description of the penalty
-        PenaltyMinutes:
-          type:
-          - integer
-          - 'null'
-          description: Total minutes the penalty lasts
-        PenalizedTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The TeamID of the team who committed the penalty
-        PenalizedPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who committed the penalty
-        DrawnByTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The TeamID of the player/team that drew the penalty
-        DrawnByPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who drew the penalty
-        IsBenchPenalty:
-          type:
-          - boolean
-          - 'null'
-          description: Whether or not the penalty is a bench penalty
-        BenchPenaltyServedByPlayerID:
-          type:
-          - integer
-          - 'null'
-          description: The PlayerID of the player who served the bench penalty
-    PlayByPlay:
+          type: string
+        Help:
+          type: string
+    Series:
       properties:
-        Game:
-          $ref: '#/components/schemas/Game'
-          description: The details of the game associated with this play-by-play
-        Plays:
-          type: array
-          items:
-            $ref: '#/components/schemas/Play'
-          description: List of Plays in the game
+        HomeTeamWins:
+          type: integer
+          description: Total wins in the series by the home team
+        AwayTeamWins:
+          type: integer
+          description: Total wins in the series by the away team
+        GameNumber:
+          type: integer
+          description: The number of the game being played in the series
+        MaxLength:
+          type: integer
+          description: The maximum number of games that can be played in a postseason series
     ScoringPlay:
       properties:
         ScoringPlayID:
@@ -316,20 +234,69 @@ components:
           - integer
           - 'null'
           description: The score of the home team after the conclusion of the scoring play
-    Series:
+    Penalty:
       properties:
-        HomeTeamWins:
+        PenaltyID:
           type: integer
-          description: Total wins in the series by the home team
-        AwayTeamWins:
+          description: The unique ID of this penalty
+        PeriodID:
           type: integer
-          description: Total wins in the series by the away team
-        GameNumber:
-          type: integer
-          description: The number of the game being played in the series
-        MaxLength:
-          type: integer
-          description: The maximum number of games that can be played in a postseason series
+          description: The unique ID of the period during which this penalty occurred
+        Sequence:
+          type:
+          - integer
+          - 'null'
+          description: The sequence/order that this penalty happened
+        TimeRemainingMinutes:
+          type:
+          - integer
+          - 'null'
+          description: 'Number of minutes that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock minutes which are the number of minutes that have already passed in the period.'
+        TimeRemainingSeconds:
+          type:
+          - integer
+          - 'null'
+          description: 'Number of seconds that have passed in the current period.  NOTE: this field name might be misleading as it actually represents the game clock seconds which are the number of minutes that have already passed in the period.'
+        Description:
+          type:
+          - string
+          - 'null'
+          description: The description of the penalty
+        PenaltyMinutes:
+          type:
+          - integer
+          - 'null'
+          description: Total minutes the penalty lasts
+        PenalizedTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the team who committed the penalty
+        PenalizedPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who committed the penalty
+        DrawnByTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The TeamID of the player/team that drew the penalty
+        DrawnByPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who drew the penalty
+        IsBenchPenalty:
+          type:
+          - boolean
+          - 'null'
+          description: Whether or not the penalty is a bench penalty
+        BenchPenaltyServedByPlayerID:
+          type:
+          - integer
+          - 'null'
+          description: The PlayerID of the player who served the bench penalty
     Play:
       properties:
         PlayID:
@@ -441,6 +408,49 @@ components:
           - integer
           - 'null'
           description: The PlayerID of the player involved in the play on the opposing team
+    PlayByPlay:
+      properties:
+        Game:
+          $ref: '#/components/schemas/Game'
+          description: The details of the game associated with this play-by-play
+        Plays:
+          type: array
+          items:
+            $ref: '#/components/schemas/Play'
+          description: List of Plays in the game
+    Period:
+      properties:
+        PeriodID:
+          type: integer
+          description: The unique ID associated of this period
+        GameID:
+          type: integer
+          description: The unique ID of this game tied to this period
+        Name:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the period (possible values: 1; 2; 3; SO; OT; OT2; OT3; OT4; etc)'
+        AwayScore:
+          type:
+          - integer
+          - 'null'
+          description: Total goals scored by the away team in a given period
+        HomeScore:
+          type:
+          - integer
+          - 'null'
+          description: Total goals scored by the home team in the period
+        ScoringPlays:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoringPlay'
+          description: The details of the scoring plays that occurred during this period
+        Penalties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Penalty'
+          description: The details of the penalties that occurred during this period
     Game:
       properties:
         GameID:
@@ -650,16 +660,6 @@ components:
           - integer
           - 'null'
           description: The unique ID of the secondary linesperson of this game
-    Unauthorized:
-      properties:
-        HttpStatusCode:
-          type: integer
-        Code:
-          type: integer
-        Description:
-          type: string
-        Help:
-          type: string
   securitySchemes:
     apiKeyHeader:
       type: apiKey

@@ -137,21 +137,42 @@ paths:
       - NBA v3 Play-by-Play
 components:
   schemas:
-    PlayByPlay:
+    Quarter:
       properties:
-        Game:
-          $ref: '#/components/schemas/Game'
-          description: The details of the game associated with this play-by-play
-        Quarters:
-          type: array
-          items:
-            $ref: '#/components/schemas/Quarter'
-          description: The details of the quarters associated with this play-by-play
-        Plays:
-          type: array
-          items:
-            $ref: '#/components/schemas/Play'
-          description: The details of the plays associated with this play-by-play
+        QuarterID:
+          type: integer
+          description: Unique identifier for each Quarter.
+        GameID:
+          type: integer
+          description: The unique ID of the game associated with this quarter
+        Number:
+          type: integer
+          description: The Number (Order) of the Quarter in the scope of the Game.
+        Name:
+          type:
+          - string
+          - 'null'
+          description: 'The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)'
+        AwayScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the away team in the given period only
+        HomeScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the home team in the given period only
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
     Series:
       properties:
         HomeTeamWins:
@@ -342,6 +363,21 @@ components:
           - integer
           - 'null'
           description: The PlayerID of the player who stole the ball (if applicable)
+    PlayByPlay:
+      properties:
+        Game:
+          $ref: '#/components/schemas/Game'
+          description: The details of the game associated with this play-by-play
+        Quarters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quarter'
+          description: The details of the quarters associated with this play-by-play
+        Plays:
+          type: array
+          items:
+            $ref: '#/components/schemas/Play'
+          description: The details of the plays associated with this play-by-play
     Game:
       properties:
         GameID:
@@ -554,42 +590,6 @@ components:
           - integer
           - 'null'
           description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
-    Quarter:
-      properties:
-        QuarterID:
-          type: integer
-          description: Unique identifier for each Quarter.
-        GameID:
-          type: integer
-          description: The unique ID of the game associated with this quarter
-        Number:
-          type: integer
-          description: The Number (Order) of the Quarter in the scope of the Game.
-        Name:
-          type:
-          - string
-          - 'null'
-          description: 'The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)'
-        AwayScore:
-          type:
-          - integer
-          - 'null'
-          description: The total points scored by the away team in the given period only
-        HomeScore:
-          type:
-          - integer
-          - 'null'
-          description: The total points scored by the home team in the given period only
-    Unauthorized:
-      properties:
-        HttpStatusCode:
-          type: integer
-        Code:
-          type: integer
-        Description:
-          type: string
-        Help:
-          type: string
   securitySchemes:
     apiKeyHeader:
       type: apiKey

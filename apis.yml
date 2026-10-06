@@ -48,7 +48,7 @@ tags:
   - Soccer
   - Sports
 created: '2025-03-01'
-modified: '2026-05-19'
+modified: '2026-10-06'
 url: https://raw.githubusercontent.com/api-evangelist/sportsdataio/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
@@ -722,6 +722,8 @@ apis:
   - type: Documentation
     url: https://sportsdata.io/developers/api-documentation/soccer
 common:
+  - url: https://sportsdata.io/articles
+    type: Blog
   - type: AgenticAccess
     url: agentic-access/sportsdataio-agentic-access.yml
   - type: DomainSecurity

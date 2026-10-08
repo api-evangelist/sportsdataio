@@ -722,6 +722,12 @@ apis:
   - type: Documentation
     url: https://sportsdata.io/developers/api-documentation/soccer
 common:
+  - type: Plans
+    url: plans/sportsdataio-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/sportsdataio-rate-limits.yml
+  - type: FinOps
+    url: finops/sportsdataio-finops.yml
   - url: https://sportsdata.io/articles
     type: Blog
   - type: AgenticAccess

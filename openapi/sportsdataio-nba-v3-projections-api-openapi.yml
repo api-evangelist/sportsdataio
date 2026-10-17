@@ -252,7 +252,142 @@ paths:
       - NBA v3 Projections
 components:
   schemas:
-    PlayerGameProjection:
+    DfsSlateGame:
+      properties:
+        SlateGameID:
+          type: integer
+          description: Unique ID of a SlateGame (assigned by SportsDataIO).
+        SlateID:
+          type: integer
+          description: The SlateID that this SlateGame refers to.
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the game associated with this SlateGame. This points to data in the schedule/game/box score feeds.
+        Game:
+          $ref: '#/components/schemas/Game'
+          description: The details of the Game that this SlateGame refers to.
+        OperatorGameID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of a SlateGame (assigned by the operator).
+        RemovedByOperator:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this game was removed/deleted by the operator.
+    StartingLineups:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of the game associated with this lineup
+        Season:
+          type: integer
+          description: The NBA season of the game that the lineups is associated with
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition).
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: Date and Time of Game
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled; InProgress; Final; F/OT; Suspended; Postponed; Delayed; Canceled; Forfeit'
+        HomeTeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the home team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        AwayTeamID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of Away Team
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeLineup:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lineup'
+          description: The lineup (starters and bench players) of the home team in a given game
+        AwayLineup:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lineup'
+          description: The lineup (starters and bench players) of the away team in a given game
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
+    Lineup:
+      properties:
+        PlayerID:
+          type: integer
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        TeamID:
+          type: integer
+          description: The unique ID of the team
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the team
+        FirstName:
+          type:
+          - string
+          - 'null'
+          description: The player's first name
+        LastName:
+          type:
+          - string
+          - 'null'
+          description: The player's last name
+        Position:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s primary position. Possible values: C; PF; PG; SF; SG'
+        Starting:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this player is in the starting lineup or on the bench
+        Confirmed:
+          type:
+          - boolean
+          - 'null'
+          description: Indicated whether the 'Starting' field has been confirmed for a player
+        LineupStatus:
+          type:
+          - string
+          - 'null'
+          description: Indicates whether player is starting, active, or inactive
+    PlayerSeasonProjection:
       properties:
         StatID:
           type: integer
@@ -261,7 +396,7 @@ components:
           type:
           - integer
           - 'null'
-          description: The unique ID of the team
+          description: The unique ID of the player's team
         PlayerID:
           type:
           - integer
@@ -271,12 +406,12 @@ components:
           type:
           - integer
           - 'null'
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition)
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition).
         Season:
           type:
           - integer
           - 'null'
-          description: The NBA season of the game
+          description: The NBA season in which these totals apply
         Name:
           type:
           - string
@@ -291,135 +426,17 @@ components:
           type:
           - string
           - 'null'
-          description: 'The player''s position associated with the given game or season. Possible values: C, F, FC, G, GF, PF, PG, SF, SG'
+          description: 'The player''s position associated with the given game or season. Possible values: PG; SG; SF; PF; C'
         Started:
           type:
           - integer
           - 'null'
-          description: 'Indicates whether or not the player started the game Note: this will be one or zero for single game feeds'
-        FanDuelSalary:
-          type:
-          - integer
-          - 'null'
-          description: The player's salary for FanDuel daily fantasy contests.
-        DraftKingsSalary:
-          type:
-          - integer
-          - 'null'
-          description: The player's salary for DraftKings daily fantasy contests.
-        FantasyDataSalary:
-          type:
-          - integer
-          - 'null'
-          description: The player's salary as calculated by SportsDataIO (formerly known as FantasyData).  Based on the same salary cap as DraftKings contests ($50,000).
-        YahooSalary:
-          type:
-          - integer
-          - 'null'
-          description: The player's salary for Yahoo daily fantasy contests.
-        InjuryStatus:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s current injury status; in the form of likelihood that player plays. Possible values: Probable; Questionable; Doubtful; Out'
-        InjuryBodyPart:
-          type:
-          - string
-          - 'null'
-          description: The body part that is injured (Knee, Groin, Calf, Hamstring, etc.)
-        InjuryStartDate:
-          type:
-          - string
-          - 'null'
-          description: The day that the injury started or was first discovered.
-        InjuryNotes:
-          type:
-          - string
-          - 'null'
-          description: Brief description of the player's injury and expected availability.
-        FanDuelPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in FanDuel's daily fantasy sports platform.
-        DraftKingsPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in DraftKings' daily fantasy sports platform.
-        YahooPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in Yahoo's daily fantasy sports platform.
-        OpponentRank:
-          type:
-          - integer
-          - 'null'
-          description: The ranking of the player's opponent with regards to fantasy points allowed.
-        OpponentPositionRank:
-          type:
-          - integer
-          - 'null'
-          description: The ranking of the player's opponent by position with regards to fantasy points allowed.
+          description: Indicates how many games the player has started in the season
         GlobalTeamID:
           type:
           - integer
           - 'null'
           description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
-        FantasyDraftSalary:
-          type:
-          - integer
-          - 'null'
-          description: The player's salary for Fantasy Draft's daily fantasy contests.
-        FantasyDraftPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible position in Fantasy Draft's daily fantasy sports platform.
-        GameID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of this game
-        OpponentID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the team's opponent
-        Opponent:
-          type:
-          - string
-          - 'null'
-          description: The name of the opponent 
-        Day:
-          type:
-          - string
-          - 'null'
-          description: The day of the game
-        DateTime:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game
-        HomeOrAway:
-          type:
-          - string
-          - 'null'
-          description: Whether the team is home or away
-        IsGameOver:
-          type: boolean
-          description: Whether the game is over (true/false)
-        GlobalGameID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
-        GlobalOpponentID:
-          type:
-          - integer
-          - 'null'
-          description: A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.
         Updated:
           type:
           - string
@@ -658,32 +675,400 @@ components:
           - string
           - 'null'
           description: Indicates whether player is starting, active, or inactive
-    DfsSlateGame:
+    DfsSlate:
       properties:
-        SlateGameID:
-          type: integer
-          description: Unique ID of a SlateGame (assigned by SportsDataIO).
         SlateID:
           type: integer
-          description: The SlateID that this SlateGame refers to.
-        GameID:
+          description: Unique ID of a Slate (assigned by SportsDataIO).
+        Operator:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the operator who is running contests for this slate. Possible values: FanDuel, DraftKings, Yahoo, FantasyDraft, etc.'
+        OperatorSlateID:
           type:
           - integer
           - 'null'
-          description: The unique ID of the game associated with this SlateGame. This points to data in the schedule/game/box score feeds.
-        Game:
-          $ref: '#/components/schemas/Game'
-          description: The details of the Game that this SlateGame refers to.
-        OperatorGameID:
+          description: Unique ID of a slate (assigned by the operator).
+        OperatorName:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the slate (assigned by the operator). Possible values: Main, Express, Arcade, Late Night, etc.'
+        OperatorDay:
+          type:
+          - string
+          - 'null'
+          description: The day (in EST/EDT) that the slate begins (assigned by the operator).
+        OperatorStartTime:
+          type:
+          - string
+          - 'null'
+          description: The date/time (in EST/EDT) that the slate begins (assigned by the operator).
+        NumberOfGames:
           type:
           - integer
           - 'null'
-          description: Unique ID of a SlateGame (assigned by the operator).
+          description: The number of actual games that this slate covers.
+        IsMultiDaySlate:
+          type:
+          - boolean
+          - 'null'
+          description: Whether this slate uses games that take place on different days.
         RemovedByOperator:
           type:
           - boolean
           - 'null'
-          description: Indicates whether this game was removed/deleted by the operator.
+          description: Indicates whether this slate was removed/deleted by the operator.
+        OperatorGameType:
+          type:
+          - string
+          - 'null'
+          description: The game type of the slate. Will often be null as most operators only have one game type.
+        DfsSlateGames:
+          type: array
+          items:
+            $ref: '#/components/schemas/DfsSlateGame'
+          description: The games that are included in this slate
+        DfsSlatePlayers:
+          type: array
+          items:
+            $ref: '#/components/schemas/DfsSlatePlayer'
+          description: The players that are included in this slate
+        SlateRosterSlots:
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+          description: The positions that need to be filled for this particular slate
+        SalaryCap:
+          type:
+          - integer
+          - 'null'
+          description: The salary cap for the current slate (is null for slates with no salary cap such a Tiers gametypes)
+    DfsSlatePlayer:
+      properties:
+        SlatePlayerID:
+          type: integer
+          description: Unique ID of a SlatePlayer (assigned by SportsDataIO).
+        SlateID:
+          type: integer
+          description: The SlateID that this SlatePlayer refers to.
+        SlateGameID:
+          type:
+          - integer
+          - 'null'
+          description: The SlateGameID that this SlatePlayer refers to.
+        PlayerID:
+          type:
+          - integer
+          - 'null'
+          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
+        PlayerGameProjectionStatID:
+          type:
+          - integer
+          - 'null'
+          description: The SportsDataIO StatID that this SlatePlayer refers to. This points to data in the respective sports' projected player game stats feeds.
+        OperatorPlayerID:
+          type:
+          - string
+          - 'null'
+          description: Unique ID of the Player (assigned by the operator).
+        OperatorSlatePlayerID:
+          type:
+          - string
+          - 'null'
+          description: Unique ID of the SlatePlayer (assigned by the operator).
+        OperatorPlayerName:
+          type:
+          - string
+          - 'null'
+          description: The player's name (assigned by the operator).
+        OperatorPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible positions for the contest (assigned by the operator).
+        OperatorSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for the contest (assigned by the operator).
+        OperatorRosterSlots:
+          type: array
+          items:
+            type:
+            - string
+            - 'null'
+          description: The player's eligible positions to be played in the contest (assigned by the operator). This would include UTIL, etc plays for those that are eligible.
+        RemovedByOperator:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this player was removed/deleted by the operator.
+        Team:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the player's team
+        TeamID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the player's team
+    Quarter:
+      properties:
+        QuarterID:
+          type: integer
+          description: Unique identifier for each Quarter.
+        GameID:
+          type: integer
+          description: The unique ID of the game associated with this quarter
+        Number:
+          type: integer
+          description: The Number (Order) of the Quarter in the scope of the Game.
+        Name:
+          type:
+          - string
+          - 'null'
+          description: 'The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)'
+        AwayScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the away team in the given period only
+        HomeScore:
+          type:
+          - integer
+          - 'null'
+          description: The total points scored by the home team in the given period only
+    Series:
+      properties:
+        HomeTeamWins:
+          type: integer
+          description: Total number of wins by the home team in the series
+        AwayTeamWins:
+          type: integer
+          description: Total wins in the series by the away team
+        GameNumber:
+          type: integer
+          description: The game number in the series
+        MaxLength:
+          type: integer
+          description: The maximum number of games that can be played in a series
+    Game:
+      properties:
+        GameID:
+          type: integer
+          description: The unique ID of this game
+        Season:
+          type: integer
+          description: The NBA season of the game
+        SeasonType:
+          type: integer
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition)
+        Status:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, F/OT, Suspended, Postponed, Delayed, Canceled, Forfeit, NotNecessary'
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The date of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game
+        AwayTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the away team
+        HomeTeam:
+          type:
+          - string
+          - 'null'
+          description: The abbreviation [Key] of the home team
+        AwayTeamID:
+          type: integer
+          description: The unique ID of the away team
+        HomeTeamID:
+          type: integer
+          description: The unique ID of the home team
+        StadiumID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the stadium
+        Channel:
+          type:
+          - string
+          - 'null'
+          description: The television station broadcasting the game
+        Attendance:
+          type:
+          - integer
+          - 'null'
+          description: The total number of people in attendance at the game
+        AwayTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the away team scored in the game
+        HomeTeamScore:
+          type:
+          - integer
+          - 'null'
+          description: Total number of points the home team scored in this game
+        Updated:
+          type:
+          - string
+          - 'null'
+          description: The timestamp of when this game was last updated (in US Eastern Time)
+        Quarter:
+          type:
+          - string
+          - 'null'
+          description: 'The current quarter in the game. Possible values include: 1, 2, 3, 4, Half, OT, NULL'
+        TimeRemainingMinutes:
+          type:
+          - integer
+          - 'null'
+          description: The number of minutes remaining in the quarter
+        TimeRemainingSeconds:
+          type:
+          - integer
+          - 'null'
+          description: The number of seconds remaining in the quarter
+        PointSpread:
+          type:
+          - number
+          - 'null'
+          description: The oddsmaker Point Spread at game start from the perspective of the HomeTeam (negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored)
+        OverUnder:
+          type:
+          - number
+          - 'null'
+          description: The sportsbook's total points scored over under for the game
+        AwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Money line from the perspective of the away team
+        HomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: Money line from the perspective of the home team
+        GlobalGameID:
+          type: integer
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalAwayTeamID:
+          type: integer
+          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
+        GlobalHomeTeamID:
+          type: integer
+          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
+        PointSpreadAwayTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The money line payout odds when betting on the away team with the point spread.
+        PointSpreadHomeTeamMoneyLine:
+          type:
+          - integer
+          - 'null'
+          description: The money line payout odds when betting on the away team with the point spread.
+        LastPlay:
+          type:
+          - string
+          - 'null'
+          description: The description of the most recent play/event of the game. This is for display purposes and does not include corresponding data points.
+        IsClosed:
+          type: boolean
+          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
+        Quarters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quarter'
+          description: The details of the quarters (including overtime periods) for this game.
+        GameEndDateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time that the game ended (in US Eastern Time)
+        HomeRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the home team for this game
+        AwayRotationNumber:
+          type:
+          - integer
+          - 'null'
+          description: The rotation number of the away team for this game
+        NeutralVenue:
+          type:
+          - boolean
+          - 'null'
+          description: Indicates whether this game is played in a neutral venue
+        OverPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the over on the total points line
+        UnderPayout:
+          type:
+          - integer
+          - 'null'
+          description: The sportsbook's payout for the under on the total points line
+        CrewChiefID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of officiating Crew Chief
+        UmpireID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of officiating Umpire referee
+        RefereeID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of officiating referee
+        AlternateID:
+          type:
+          - integer
+          - 'null'
+          description: Unique ID of officiating Alternate referee
+        DateTimeUTC:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game in UTC
+        SeriesInfo:
+          $ref: '#/components/schemas/Series'
+          description: Contains relevant series data for playoff series only - HomeTeamWins, AwayTeamWins, GameNumber, and MaxLength
+        InseasonTournament:
+          type:
+          - boolean
+          - 'null'
+          description: A flag to indicate this game is part of the inseason NBA tournament (can be considered a part of regular season still) - a null would also indicate false
+        RescheduledFromGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as "make up" games.
+        RescheduledGameID:
+          type:
+          - integer
+          - 'null'
+          description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
     Player:
       properties:
         PlayerID:
@@ -929,510 +1314,7 @@ components:
           - integer
           - 'null'
           description: The player's personID on nba dot com
-    Quarter:
-      properties:
-        QuarterID:
-          type: integer
-          description: Unique identifier for each Quarter.
-        GameID:
-          type: integer
-          description: The unique ID of the game associated with this quarter
-        Number:
-          type: integer
-          description: The Number (Order) of the Quarter in the scope of the Game.
-        Name:
-          type:
-          - string
-          - 'null'
-          description: 'The Name of the Quarter (possible values: 1, 2, 3, 4, OT, OT2, OT3, etc)'
-        AwayScore:
-          type:
-          - integer
-          - 'null'
-          description: The total points scored by the away team in the given period only
-        HomeScore:
-          type:
-          - integer
-          - 'null'
-          description: The total points scored by the home team in the given period only
-    DfsSlate:
-      properties:
-        SlateID:
-          type: integer
-          description: Unique ID of a Slate (assigned by SportsDataIO).
-        Operator:
-          type:
-          - string
-          - 'null'
-          description: 'The name of the operator who is running contests for this slate. Possible values: FanDuel, DraftKings, Yahoo, FantasyDraft, etc.'
-        OperatorSlateID:
-          type:
-          - integer
-          - 'null'
-          description: Unique ID of a slate (assigned by the operator).
-        OperatorName:
-          type:
-          - string
-          - 'null'
-          description: 'The name of the slate (assigned by the operator). Possible values: Main, Express, Arcade, Late Night, etc.'
-        OperatorDay:
-          type:
-          - string
-          - 'null'
-          description: The day (in EST/EDT) that the slate begins (assigned by the operator).
-        OperatorStartTime:
-          type:
-          - string
-          - 'null'
-          description: The date/time (in EST/EDT) that the slate begins (assigned by the operator).
-        NumberOfGames:
-          type:
-          - integer
-          - 'null'
-          description: The number of actual games that this slate covers.
-        IsMultiDaySlate:
-          type:
-          - boolean
-          - 'null'
-          description: Whether this slate uses games that take place on different days.
-        RemovedByOperator:
-          type:
-          - boolean
-          - 'null'
-          description: Indicates whether this slate was removed/deleted by the operator.
-        OperatorGameType:
-          type:
-          - string
-          - 'null'
-          description: The game type of the slate. Will often be null as most operators only have one game type.
-        DfsSlateGames:
-          type: array
-          items:
-            $ref: '#/components/schemas/DfsSlateGame'
-          description: The games that are included in this slate
-        DfsSlatePlayers:
-          type: array
-          items:
-            $ref: '#/components/schemas/DfsSlatePlayer'
-          description: The players that are included in this slate
-        SlateRosterSlots:
-          type: array
-          items:
-            type:
-            - string
-            - 'null'
-          description: The positions that need to be filled for this particular slate
-        SalaryCap:
-          type:
-          - integer
-          - 'null'
-          description: The salary cap for the current slate (is null for slates with no salary cap such a Tiers gametypes)
-    StartingLineups:
-      properties:
-        GameID:
-          type: integer
-          description: The unique ID of the game associated with this lineup
-        Season:
-          type: integer
-          description: The NBA season of the game that the lineups is associated with
-        SeasonType:
-          type: integer
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition).
-        Day:
-          type:
-          - string
-          - 'null'
-          description: The day of the game
-        DateTime:
-          type:
-          - string
-          - 'null'
-          description: Date and Time of Game
-        Status:
-          type:
-          - string
-          - 'null'
-          description: 'Indicates the game''s status. Possible values include: Scheduled; InProgress; Final; F/OT; Suspended; Postponed; Delayed; Canceled; Forfeit'
-        HomeTeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the home team
-        HomeTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the home team
-        AwayTeamID:
-          type:
-          - integer
-          - 'null'
-          description: Unique ID of Away Team
-        AwayTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the away team
-        HomeLineup:
-          type: array
-          items:
-            $ref: '#/components/schemas/Lineup'
-          description: The lineup (starters and bench players) of the home team in a given game
-        AwayLineup:
-          type: array
-          items:
-            $ref: '#/components/schemas/Lineup'
-          description: The lineup (starters and bench players) of the away team in a given game
-    Series:
-      properties:
-        HomeTeamWins:
-          type: integer
-          description: Total number of wins by the home team in the series
-        AwayTeamWins:
-          type: integer
-          description: Total wins in the series by the away team
-        GameNumber:
-          type: integer
-          description: The game number in the series
-        MaxLength:
-          type: integer
-          description: The maximum number of games that can be played in a series
-    Unauthorized:
-      properties:
-        HttpStatusCode:
-          type: integer
-        Code:
-          type: integer
-        Description:
-          type: string
-        Help:
-          type: string
-    Lineup:
-      properties:
-        PlayerID:
-          type: integer
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        TeamID:
-          type: integer
-          description: The unique ID of the team
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the team
-        FirstName:
-          type:
-          - string
-          - 'null'
-          description: The player's first name
-        LastName:
-          type:
-          - string
-          - 'null'
-          description: The player's last name
-        Position:
-          type:
-          - string
-          - 'null'
-          description: 'The player''s primary position. Possible values: C; PF; PG; SF; SG'
-        Starting:
-          type:
-          - boolean
-          - 'null'
-          description: Indicates whether this player is in the starting lineup or on the bench
-        Confirmed:
-          type:
-          - boolean
-          - 'null'
-          description: Indicated whether the 'Starting' field has been confirmed for a player
-        LineupStatus:
-          type:
-          - string
-          - 'null'
-          description: Indicates whether player is starting, active, or inactive
-    DfsSlatePlayer:
-      properties:
-        SlatePlayerID:
-          type: integer
-          description: Unique ID of a SlatePlayer (assigned by SportsDataIO).
-        SlateID:
-          type: integer
-          description: The SlateID that this SlatePlayer refers to.
-        SlateGameID:
-          type:
-          - integer
-          - 'null'
-          description: The SlateGameID that this SlatePlayer refers to.
-        PlayerID:
-          type:
-          - integer
-          - 'null'
-          description: 'The player''s unique PlayerID as assigned by SportsDataIO. Note: this ID will stay with the player throughout their entire career'
-        PlayerGameProjectionStatID:
-          type:
-          - integer
-          - 'null'
-          description: The SportsDataIO StatID that this SlatePlayer refers to. This points to data in the respective sports' projected player game stats feeds.
-        OperatorPlayerID:
-          type:
-          - string
-          - 'null'
-          description: Unique ID of the Player (assigned by the operator).
-        OperatorSlatePlayerID:
-          type:
-          - string
-          - 'null'
-          description: Unique ID of the SlatePlayer (assigned by the operator).
-        OperatorPlayerName:
-          type:
-          - string
-          - 'null'
-          description: The player's name (assigned by the operator).
-        OperatorPosition:
-          type:
-          - string
-          - 'null'
-          description: The player's eligible positions for the contest (assigned by the operator).
-        OperatorSalary:
-          type:
-          - integer
-          - 'null'
-          description: The player's salary for the contest (assigned by the operator).
-        OperatorRosterSlots:
-          type: array
-          items:
-            type:
-            - string
-            - 'null'
-          description: The player's eligible positions to be played in the contest (assigned by the operator). This would include UTIL, etc plays for those that are eligible.
-        RemovedByOperator:
-          type:
-          - boolean
-          - 'null'
-          description: Indicates whether this player was removed/deleted by the operator.
-        Team:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the player's team
-        TeamID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the player's team
-    Game:
-      properties:
-        GameID:
-          type: integer
-          description: The unique ID of this game
-        Season:
-          type: integer
-          description: The NBA season of the game
-        SeasonType:
-          type: integer
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition)
-        Status:
-          type:
-          - string
-          - 'null'
-          description: 'Indicates the game''s status. Possible values include: Scheduled, InProgress, Final, F/OT, Suspended, Postponed, Delayed, Canceled, Forfeit, NotNecessary'
-        Day:
-          type:
-          - string
-          - 'null'
-          description: The date of the game
-        DateTime:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game
-        AwayTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the away team
-        HomeTeam:
-          type:
-          - string
-          - 'null'
-          description: The abbreviation [Key] of the home team
-        AwayTeamID:
-          type: integer
-          description: The unique ID of the away team
-        HomeTeamID:
-          type: integer
-          description: The unique ID of the home team
-        StadiumID:
-          type:
-          - integer
-          - 'null'
-          description: The unique ID of the stadium
-        Channel:
-          type:
-          - string
-          - 'null'
-          description: The television station broadcasting the game
-        Attendance:
-          type:
-          - integer
-          - 'null'
-          description: The total number of people in attendance at the game
-        AwayTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: Total number of points the away team scored in the game
-        HomeTeamScore:
-          type:
-          - integer
-          - 'null'
-          description: Total number of points the home team scored in this game
-        Updated:
-          type:
-          - string
-          - 'null'
-          description: The timestamp of when this game was last updated (in US Eastern Time)
-        Quarter:
-          type:
-          - string
-          - 'null'
-          description: 'The current quarter in the game. Possible values include: 1, 2, 3, 4, Half, OT, NULL'
-        TimeRemainingMinutes:
-          type:
-          - integer
-          - 'null'
-          description: The number of minutes remaining in the quarter
-        TimeRemainingSeconds:
-          type:
-          - integer
-          - 'null'
-          description: The number of seconds remaining in the quarter
-        PointSpread:
-          type:
-          - number
-          - 'null'
-          description: The oddsmaker Point Spread at game start from the perspective of the HomeTeam (negative numbers indicate the HomeTeam is favored; positive numbers indicate the AwayTeam is favored)
-        OverUnder:
-          type:
-          - number
-          - 'null'
-          description: The sportsbook's total points scored over under for the game
-        AwayTeamMoneyLine:
-          type:
-          - integer
-          - 'null'
-          description: Money line from the perspective of the away team
-        HomeTeamMoneyLine:
-          type:
-          - integer
-          - 'null'
-          description: Money line from the perspective of the home team
-        GlobalGameID:
-          type: integer
-          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
-        GlobalAwayTeamID:
-          type: integer
-          description: A globally unique ID for the away team. This value is guaranteed to be unique across all sports/leagues.
-        GlobalHomeTeamID:
-          type: integer
-          description: A globally unique ID for the home team. This value is guaranteed to be unique across all sports/leagues.
-        PointSpreadAwayTeamMoneyLine:
-          type:
-          - integer
-          - 'null'
-          description: The money line payout odds when betting on the away team with the point spread.
-        PointSpreadHomeTeamMoneyLine:
-          type:
-          - integer
-          - 'null'
-          description: The money line payout odds when betting on the away team with the point spread.
-        LastPlay:
-          type:
-          - string
-          - 'null'
-          description: The description of the most recent play/event of the game. This is for display purposes and does not include corresponding data points.
-        IsClosed:
-          type: boolean
-          description: 'Indicates whether the game is over and the final score has been verified and closed out. Note: it is recommend for bet resulting to use IsClosed = True rather than simply Final game status'
-        Quarters:
-          type: array
-          items:
-            $ref: '#/components/schemas/Quarter'
-          description: The details of the quarters (including overtime periods) for this game.
-        GameEndDateTime:
-          type:
-          - string
-          - 'null'
-          description: The date and time that the game ended (in US Eastern Time)
-        HomeRotationNumber:
-          type:
-          - integer
-          - 'null'
-          description: The rotation number of the home team for this game
-        AwayRotationNumber:
-          type:
-          - integer
-          - 'null'
-          description: The rotation number of the away team for this game
-        NeutralVenue:
-          type:
-          - boolean
-          - 'null'
-          description: Indicates whether this game is played in a neutral venue
-        OverPayout:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's payout for the over on the total points line
-        UnderPayout:
-          type:
-          - integer
-          - 'null'
-          description: The sportsbook's payout for the under on the total points line
-        CrewChiefID:
-          type:
-          - integer
-          - 'null'
-          description: Unique ID of officiating Crew Chief
-        UmpireID:
-          type:
-          - integer
-          - 'null'
-          description: Unique ID of officiating Umpire referee
-        RefereeID:
-          type:
-          - integer
-          - 'null'
-          description: Unique ID of officiating referee
-        AlternateID:
-          type:
-          - integer
-          - 'null'
-          description: Unique ID of officiating Alternate referee
-        DateTimeUTC:
-          type:
-          - string
-          - 'null'
-          description: The date and time of the game in UTC
-        SeriesInfo:
-          $ref: '#/components/schemas/Series'
-          description: Contains relevant series data for playoff series only - HomeTeamWins, AwayTeamWins, GameNumber, and MaxLength
-        InseasonTournament:
-          type:
-          - boolean
-          - 'null'
-          description: A flag to indicate this game is part of the inseason NBA tournament (can be considered a part of regular season still) - a null would also indicate false
-        RescheduledFromGameID:
-          type:
-          - integer
-          - 'null'
-          description: The GameID of the originally scheduled, postponed game, that this game was rescheduled from. This only pertains to games that are scheduled as "make up" games.
-        RescheduledGameID:
-          type:
-          - integer
-          - 'null'
-          description: The GameID of the game that was rescheduled from this game. This only pertains to postponed games that require rescheduling.
-    PlayerSeasonProjection:
+    PlayerGameProjection:
       properties:
         StatID:
           type: integer
@@ -1441,7 +1323,7 @@ components:
           type:
           - integer
           - 'null'
-          description: The unique ID of the player's team
+          description: The unique ID of the team
         PlayerID:
           type:
           - integer
@@ -1451,12 +1333,12 @@ components:
           type:
           - integer
           - 'null'
-          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition).
+          description: The type of season that this record corresponds to (1=Regular Season; 2=Preseason; 3=Postseason; 4=Offseason; 5=AllStar; 6=Exhibition)
         Season:
           type:
           - integer
           - 'null'
-          description: The NBA season in which these totals apply
+          description: The NBA season of the game
         Name:
           type:
           - string
@@ -1471,17 +1353,135 @@ components:
           type:
           - string
           - 'null'
-          description: 'The player''s position associated with the given game or season. Possible values: PG; SG; SF; PF; C'
+          description: 'The player''s position associated with the given game or season. Possible values: C, F, FC, G, GF, PF, PG, SF, SG'
         Started:
           type:
           - integer
           - 'null'
-          description: Indicates how many games the player has started in the season
+          description: 'Indicates whether or not the player started the game Note: this will be one or zero for single game feeds'
+        FanDuelSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for FanDuel daily fantasy contests.
+        DraftKingsSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for DraftKings daily fantasy contests.
+        FantasyDataSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary as calculated by SportsDataIO (formerly known as FantasyData).  Based on the same salary cap as DraftKings contests ($50,000).
+        YahooSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Yahoo daily fantasy contests.
+        InjuryStatus:
+          type:
+          - string
+          - 'null'
+          description: 'The player''s current injury status; in the form of likelihood that player plays. Possible values: Probable; Questionable; Doubtful; Out'
+        InjuryBodyPart:
+          type:
+          - string
+          - 'null'
+          description: The body part that is injured (Knee, Groin, Calf, Hamstring, etc.)
+        InjuryStartDate:
+          type:
+          - string
+          - 'null'
+          description: The day that the injury started or was first discovered.
+        InjuryNotes:
+          type:
+          - string
+          - 'null'
+          description: Brief description of the player's injury and expected availability.
+        FanDuelPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in FanDuel's daily fantasy sports platform.
+        DraftKingsPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in DraftKings' daily fantasy sports platform.
+        YahooPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Yahoo's daily fantasy sports platform.
+        OpponentRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the player's opponent with regards to fantasy points allowed.
+        OpponentPositionRank:
+          type:
+          - integer
+          - 'null'
+          description: The ranking of the player's opponent by position with regards to fantasy points allowed.
         GlobalTeamID:
           type:
           - integer
           - 'null'
           description: A globally unique ID for this team. This value is guaranteed to be unique across all sports/leagues.
+        FantasyDraftSalary:
+          type:
+          - integer
+          - 'null'
+          description: The player's salary for Fantasy Draft's daily fantasy contests.
+        FantasyDraftPosition:
+          type:
+          - string
+          - 'null'
+          description: The player's eligible position in Fantasy Draft's daily fantasy sports platform.
+        GameID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of this game
+        OpponentID:
+          type:
+          - integer
+          - 'null'
+          description: The unique ID of the team's opponent
+        Opponent:
+          type:
+          - string
+          - 'null'
+          description: The name of the opponent 
+        Day:
+          type:
+          - string
+          - 'null'
+          description: The day of the game
+        DateTime:
+          type:
+          - string
+          - 'null'
+          description: The date and time of the game
+        HomeOrAway:
+          type:
+          - string
+          - 'null'
+          description: Whether the team is home or away
+        IsGameOver:
+          type: boolean
+          description: Whether the game is over (true/false)
+        GlobalGameID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this game. This value is guaranteed to be unique across all sports/leagues.
+        GlobalOpponentID:
+          type:
+          - integer
+          - 'null'
+          description: A globally unique ID for this opponent. This value is guaranteed to be unique across all sports/leagues.
         Updated:
           type:
           - string

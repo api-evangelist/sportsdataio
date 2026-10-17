@@ -137,30 +137,6 @@ paths:
       - MLB v3 Play-by-Play
 components:
   schemas:
-    Unauthorized:
-      properties:
-        HttpStatusCode:
-          type: integer
-        Code:
-          type: integer
-        Description:
-          type: string
-        Help:
-          type: string
-    Series:
-      properties:
-        HomeTeamWins:
-          type: integer
-          description: 'Number of wins by the home team on in the series. Note: this is for postseason series only.'
-        AwayTeamWins:
-          type: integer
-          description: 'Number of wins by the away team in the series. Note: This is for postseason series only.'
-        GameNumber:
-          type: integer
-          description: 'Game number in series. Note: this applies to postseason series only.'
-        MaxLength:
-          type: integer
-          description: 'Maximum number of games in the series. Note: this is for postseason series only.'
     Play:
       properties:
         PlayID:
@@ -344,16 +320,37 @@ components:
           - integer
           - 'null'
           description: The PlayerID of the player on third as a result of the play (post-play)
-    PlayByPlay:
+    Inning:
       properties:
-        Game:
-          $ref: '#/components/schemas/Game'
-          description: The details of the game associated with this play-by-play
-        Plays:
-          type: array
-          items:
-            $ref: '#/components/schemas/Play'
-          description: The details of the plays associated with this play-by-play
+        InningID:
+          type: integer
+          description: The unique ID of this specific inning
+        GameID:
+          type: integer
+          description: The unique ID of the game tied to this Inning
+        InningNumber:
+          type: integer
+          description: The current inning number of the game
+        AwayTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the away team in the specific inning
+        HomeTeamRuns:
+          type:
+          - integer
+          - 'null'
+          description: Number of runs scored by the home team in the specific inning
+    Unauthorized:
+      properties:
+        HttpStatusCode:
+          type: integer
+        Code:
+          type: integer
+        Description:
+          type: string
+        Help:
+          type: string
     Pitch:
       properties:
         PitchID:
@@ -417,27 +414,30 @@ components:
           - boolean
           - 'null'
           description: Whether or not the hitter struck out looking (returns true/false)
-    Inning:
+    Series:
       properties:
-        InningID:
+        HomeTeamWins:
           type: integer
-          description: The unique ID of this specific inning
-        GameID:
+          description: 'Number of wins by the home team on in the series. Note: this is for postseason series only.'
+        AwayTeamWins:
           type: integer
-          description: The unique ID of the game tied to this Inning
-        InningNumber:
+          description: 'Number of wins by the away team in the series. Note: This is for postseason series only.'
+        GameNumber:
           type: integer
-          description: The current inning number of the game
-        AwayTeamRuns:
-          type:
-          - integer
-          - 'null'
-          description: Number of runs scored by the away team in the specific inning
-        HomeTeamRuns:
-          type:
-          - integer
-          - 'null'
-          description: Number of runs scored by the home team in the specific inning
+          description: 'Game number in series. Note: this applies to postseason series only.'
+        MaxLength:
+          type: integer
+          description: 'Maximum number of games in the series. Note: this is for postseason series only.'
+    PlayByPlay:
+      properties:
+        Game:
+          $ref: '#/components/schemas/Game'
+          description: The details of the game associated with this play-by-play
+        Plays:
+          type: array
+          items:
+            $ref: '#/components/schemas/Play'
+          description: The details of the plays associated with this play-by-play
     Game:
       properties:
         GameID:

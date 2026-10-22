@@ -1,0 +1,288 @@
+edges:
+- partner_name: APIs.guru OpenAPI Directory
+  partner: apis-guru
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: third-party
+  evidence: https://apis.guru/
+  category: API definition directory listing (OpenAPI)
+  contract_reference:
+    register: APIs.guru OpenAPI Directory
+    spec_file: null
+    standard: APIs.guru OpenAPI Directory
+    role: listed-in-directory
+    directory_provider: sportsdata.io
+    matched_domain: sportsdata.io
+    matched_by: domain
+    apis_listed: 35
+    version_count: 35
+    first_added: '2018-03-10'
+    last_updated: '2023-03-05'
+    origin_publisher_hosted: false
+    origin_hosts:
+    - fantasydata.com
+    categories:
+    - entertainment
+    own_openapi_files: 33
+    listings:
+    - key: sportsdata.io:cbb-v3-scores
+      title: CBB v3 Scores
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/cbb-v3-scores/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/cbb-v3-scores.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:cbb-v3-stats
+      title: CBB v3 Stats
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/cbb-v3-stats/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/cbb-v3-stats.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:cfb-v3-scores
+      title: CFB v3 Scores
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/cfb-v3-scores/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/cfb-v3-scores.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:csgo-v3-scores
+      title: CS:GO v3 Scores
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/csgo-v3-scores/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/csgo-v3-scores.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:csgo-v3-stats
+      title: CS:GO v3 Stats
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/csgo-v3-stats/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/csgo-v3-stats.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:golf-v2
+      title: Golf v2
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/golf-v2/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/golf-v2.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:lol-v3-projections
+      title: LoL v3 Projections
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/lol-v3-projections/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/lol-v3-projections.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:lol-v3-scores
+      title: LoL v3 Scores
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/lol-v3-scores/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/lol-v3-scores.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:lol-v3-stats
+      title: LoL v3 Stats
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/lol-v3-stats/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/lol-v3-stats.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:mlb-v3-play-by-play
+      title: MLB v3 Play-by-Play
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/mlb-v3-play-by-play/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/mlb-v3-play-by-play.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:mlb-v3-projections
+      title: MLB v3 Projections
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/mlb-v3-projections/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/mlb-v3-projections.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:mlb-v3-rotoballer-articles
+      title: MLB v3 RotoBaller Articles
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/mlb-v3-rotoballer-articles/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/mlb-v3-rotoballer-articles.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:mlb-v3-rotoballer-premium-news
+      title: MLB v3 RotoBaller Premium News
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/mlb-v3-rotoballer-premium-news/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/mlb-v3-rotoballer-premium-news.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:mlb-v3-scores
+      title: MLB v3 Scores
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/mlb-v3-scores/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/mlb-v3-scores.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:mlb-v3-stats
+      title: MLB v3 Stats
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/mlb-v3-stats/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/mlb-v3-stats.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nascar-v2
+      title: NASCAR v2
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nascar-v2/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nascar-v2.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nba-v3-play-by-play
+      title: NBA v3 Play-by-Play
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nba-v3-play-by-play/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nba-v3-play-by-play.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nba-v3-projections
+      title: NBA v3 Projections
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nba-v3-projections/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nba-v3-projections.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nba-v3-rotoballer-articles
+      title: NBA v3 RotoBaller Articles
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nba-v3-rotoballer-articles/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nba-v3-rotoballer-articles.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nba-v3-rotoballer-premium-news
+      title: NBA v3 RotoBaller Premium News
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nba-v3-rotoballer-premium-news/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nba-v3-rotoballer-premium-news.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nba-v3-scores
+      title: NBA v3 Scores
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nba-v3-scores/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nba-v3-scores.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nba-v3-stats
+      title: NBA v3 Stats
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nba-v3-stats/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nba-v3-stats.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nfl-v3-play-by-play
+      title: NFL v3 Play-by-Play
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nfl-v3-play-by-play/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nfl-v3-play-by-play.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nfl-v3-projections
+      title: NFL v3 Projections
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nfl-v3-projections/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nfl-v3-projections.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nfl-v3-rotoballer-articles
+      title: NFL v3 RotoBaller Articles
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nfl-v3-rotoballer-articles/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nfl-v3-rotoballer-articles.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nfl-v3-rotoballer-premium-news
+      title: NFL v3 RotoBaller Premium News
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nfl-v3-rotoballer-premium-news/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nfl-v3-rotoballer-premium-news.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nfl-v3-scores
+      title: NFL v3 Scores
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nfl-v3-scores/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nfl-v3-scores.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nfl-v3-stats
+      title: NFL v3 Stats
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nfl-v3-stats/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nfl-v3-stats.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nhl-v3-play-by-play
+      title: NHL v3 Play-by-Play
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nhl-v3-play-by-play/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nhl-v3-play-by-play.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nhl-v3-projections
+      title: NHL v3 Projections
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nhl-v3-projections/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nhl-v3-projections.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nhl-v3-scores
+      title: NHL v3 Scores
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nhl-v3-scores/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nhl-v3-scores.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:nhl-v3-stats
+      title: NHL v3 Stats
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/nhl-v3-stats/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/nhl-v3-stats.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:soccer-v3-projections
+      title: Soccer v3 Projections
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/soccer-v3-projections/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/soccer-v3-projections.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:soccer-v3-scores
+      title: Soccer v3 Scores
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/soccer-v3-scores/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/soccer-v3-scores.json
+      openapi_version: 3.0.0
+    - key: sportsdata.io:soccer-v3-stats
+      title: Soccer v3 Stats
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/sportsdata.io/soccer-v3-stats/1.0/openapi.json
+      origin_url: https://fantasydata.com/downloads/swagger/soccer-v3-stats.json
+      openapi_version: 3.0.0
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
+      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    detected_by: sweep-openapi-directory-apis-guru.py
+    detected: '2026-10-22'
+  detected_by: sweep-openapi-directory-apis-guru.py
+  first_seen: '2026-10-22'
+generated: '2026-10-22'
+method: searched
+source:
+- https://api.apis.guru/v2/list.json
+- https://api.apis.guru/v2/providers.json
+checked:
+- https://api.apis.guru/v2/list.json
+- https://api.apis.guru/v2/providers.json

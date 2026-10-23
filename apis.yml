@@ -722,6 +722,8 @@ apis:
   - type: Documentation
     url: https://sportsdata.io/developers/api-documentation/soccer
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/sportsdataio/overview
   - type: Plans
     url: plans/sportsdataio-plans-pricing.yml
   - type: RateLimits

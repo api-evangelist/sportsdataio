@@ -1,795 +1,810 @@
 {
+  "info": {
+    "_postman_id": "c51d447e-070b-4b17-a734-ef9380231e95",
+    "name": "Soccer v4 Projections API",
+    "description": "SOCCER API - OpenAPI 3.1 Specification",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:20:24.000Z",
+    "updatedAt": "2026-10-21T20:20:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c51d447e-070b-4b17-a734-ef9380231e95"
+  },
   "item": [
     {
-      "id": "ccb70f39-25b3-47af-a58d-44844dec42cf",
-      "name": "Soccer v4 Projections",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "v4",
       "item": [
         {
-          "id": "7b778280-eee3-421f-b3a0-3d4077906ca3",
-          "name": "Projected Player Game Stats - by Date",
-          "request": {
-            "name": "Projected Player Game Stats - by Date",
-            "description": {
-              "content": "SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, called by date.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v4",
-                "soccer",
-                "projections",
-                ":format",
-                "PlayerGameProjectionStatsByDate",
-                ":competition",
-                ":date"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "JSON",
-                  "key": "format",
-                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "competition",
-                  "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "date",
-                  "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "soccer",
+          "item": [
             {
-              "id": "2a617c6c-25d9-4e83-b2f6-909a527d62f1",
-              "name": "Success",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v4",
-                    "soccer",
-                    "projections",
-                    ":format",
-                    "PlayerGameProjectionStatsByDate",
-                    ":competition",
-                    ":date"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "competition",
-                      "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "date",
-                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "projections",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{format}",
+                  "item": [
+                    {
+                      "name": "PlayerGameProjectionStatsByDate",
+                      "item": [
+                        {
+                          "name": "{competition}",
+                          "item": [
+                            {
+                              "name": "{date}",
+                              "item": [
+                                {
+                                  "name": "Projected Player Game Stats - by Date",
+                                  "id": "98966c56-125c-4c32-8aea-5487e3632327",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v4/soccer/projections/:format/PlayerGameProjectionStatsByDate/:competition/:date",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v4",
+                                        "soccer",
+                                        "projections",
+                                        ":format",
+                                        "PlayerGameProjectionStatsByDate",
+                                        ":competition",
+                                        ":date"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "47412270-84d8-497a-977d-4434c6edbfaf",
+                                          "key": "format",
+                                          "value": "JSON",
+                                          "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                                        },
+                                        {
+                                          "id": "0d7b94db-8dfd-4a24-92ba-becb23569aee",
+                                          "key": "competition",
+                                          "value": "<string>",
+                                          "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+                                        },
+                                        {
+                                          "id": "abe1dce5-eaed-44bb-a0af-9fd660255dd9",
+                                          "key": "date",
+                                          "value": "<string>",
+                                          "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
+                                        }
+                                      ]
+                                    },
+                                    "description": "SportsDataIO's proprietary projections, including DFS salary information and injuries, for fantasy players, called by date."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "640e0f8a-3922-49e5-9c16-1be752dc2d3f",
+                                      "name": "Success",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v4/soccer/projections/:format/PlayerGameProjectionStatsByDate/:competition/:date",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v4",
+                                            "soccer",
+                                            "projections",
+                                            ":format",
+                                            "PlayerGameProjectionStatsByDate",
+                                            ":competition",
+                                            ":date"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "format"
+                                            },
+                                            {
+                                              "key": "competition"
+                                            },
+                                            {
+                                              "key": "date"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "[\n  {\n    \"StatId\": \"<integer>\",\n    \"SeasonType\": \"<integer>\",\n    \"Season\": \"<integer>\",\n    \"RoundId\": \"<integer,null>\",\n    \"TeamId\": \"<integer,null>\",\n    \"PlayerId\": \"<integer,null>\",\n    \"Name\": \"<string,null>\",\n    \"ShortName\": \"<string,null>\",\n    \"Team\": \"<string,null>\",\n    \"PositionCategory\": \"<string,null>\",\n    \"Position\": \"<string,null>\",\n    \"Jersey\": \"<integer,null>\",\n    \"Started\": \"<integer,null>\",\n    \"Captain\": \"<boolean,null>\",\n    \"Suspension\": \"<boolean,null>\",\n    \"SuspensionReason\": \"<string,null>\",\n    \"FanDuelSalary\": \"<integer,null>\",\n    \"DraftKingsSalary\": \"<integer,null>\",\n    \"YahooSalary\": \"<integer,null>\",\n    \"MondogoalSalary\": \"<integer,null>\",\n    \"FanDuelPosition\": \"<string,null>\",\n    \"DraftKingsPosition\": \"<string,null>\",\n    \"YahooPosition\": \"<string,null>\",\n    \"MondogoalPosition\": \"<string,null>\",\n    \"InjuryStatus\": \"<string,null>\",\n    \"InjuryBodyPart\": \"<string,null>\",\n    \"InjuryNotes\": \"<string,null>\",\n    \"InjuryStartDate\": \"<string,null>\",\n    \"GlobalTeamId\": \"<integer,null>\",\n    \"Corners\": \"<number,null>\",\n    \"GameId\": \"<integer,null>\",\n    \"OpponentId\": \"<integer,null>\",\n    \"Opponent\": \"<string,null>\",\n    \"Day\": \"<string,null>\",\n    \"DateTime\": \"<string,null>\",\n    \"HomeOrAway\": \"<string,null>\",\n    \"IsGameOver\": \"<boolean>\",\n    \"GlobalGameId\": \"<integer,null>\",\n    \"GlobalOpponentId\": \"<integer,null>\",\n    \"Updated\": \"<string,null>\",\n    \"UpdatedUtc\": \"<string,null>\",\n    \"Games\": \"<integer,null>\",\n    \"FantasyPoints\": \"<number,null>\",\n    \"FantasyPointsFanDuel\": \"<number,null>\",\n    \"FantasyPointsDraftKings\": \"<number,null>\",\n    \"FantasyPointsYahoo\": \"<number,null>\",\n    \"FantasyPointsMondogoal\": \"<number,null>\",\n    \"Minutes\": \"<number,null>\",\n    \"Goals\": \"<number,null>\",\n    \"Assists\": \"<number,null>\",\n    \"Shots\": \"<number,null>\",\n    \"ShotsOnGoal\": \"<number,null>\",\n    \"YellowCards\": \"<number,null>\",\n    \"RedCards\": \"<number,null>\",\n    \"YellowRedCards\": \"<number,null>\",\n    \"Crosses\": \"<number,null>\",\n    \"TacklesWon\": \"<number,null>\",\n    \"Interceptions\": \"<number,null>\",\n    \"OwnGoals\": \"<number,null>\",\n    \"Fouls\": \"<number,null>\",\n    \"Fouled\": \"<number,null>\",\n    \"Offsides\": \"<number,null>\",\n    \"Passes\": \"<number,null>\",\n    \"PassesCompleted\": \"<number,null>\",\n    \"LastManTackle\": \"<number,null>\",\n    \"CornersWon\": \"<number,null>\",\n    \"BlockedShots\": \"<number,null>\",\n    \"Touches\": \"<number,null>\",\n    \"DefenderCleanSheets\": \"<number,null>\",\n    \"GoalkeeperSaves\": \"<number,null>\",\n    \"GoalkeeperGoalsAgainst\": \"<number,null>\",\n    \"GoalkeeperSingleGoalAgainst\": \"<number,null>\",\n    \"GoalkeeperCleanSheets\": \"<number,null>\",\n    \"GoalkeeperWins\": \"<number,null>\",\n    \"PenaltyKickGoals\": \"<number,null>\",\n    \"PenaltyKickMisses\": \"<number,null>\",\n    \"PenaltyKickSaves\": \"<number,null>\",\n    \"PenaltiesWon\": \"<number,null>\",\n    \"PenaltiesConceded\": \"<number,null>\",\n    \"Score\": \"<number,null>\",\n    \"OpponentScore\": \"<number,null>\",\n    \"Tackles\": \"<number,null>\"\n  },\n  {\n    \"StatId\": \"<integer>\",\n    \"SeasonType\": \"<integer>\",\n    \"Season\": \"<integer>\",\n    \"RoundId\": \"<integer,null>\",\n    \"TeamId\": \"<integer,null>\",\n    \"PlayerId\": \"<integer,null>\",\n    \"Name\": \"<string,null>\",\n    \"ShortName\": \"<string,null>\",\n    \"Team\": \"<string,null>\",\n    \"PositionCategory\": \"<string,null>\",\n    \"Position\": \"<string,null>\",\n    \"Jersey\": \"<integer,null>\",\n    \"Started\": \"<integer,null>\",\n    \"Captain\": \"<boolean,null>\",\n    \"Suspension\": \"<boolean,null>\",\n    \"SuspensionReason\": \"<string,null>\",\n    \"FanDuelSalary\": \"<integer,null>\",\n    \"DraftKingsSalary\": \"<integer,null>\",\n    \"YahooSalary\": \"<integer,null>\",\n    \"MondogoalSalary\": \"<integer,null>\",\n    \"FanDuelPosition\": \"<string,null>\",\n    \"DraftKingsPosition\": \"<string,null>\",\n    \"YahooPosition\": \"<string,null>\",\n    \"MondogoalPosition\": \"<string,null>\",\n    \"InjuryStatus\": \"<string,null>\",\n    \"InjuryBodyPart\": \"<string,null>\",\n    \"InjuryNotes\": \"<string,null>\",\n    \"InjuryStartDate\": \"<string,null>\",\n    \"GlobalTeamId\": \"<integer,null>\",\n    \"Corners\": \"<number,null>\",\n    \"GameId\": \"<integer,null>\",\n    \"OpponentId\": \"<integer,null>\",\n    \"Opponent\": \"<string,null>\",\n    \"Day\": \"<string,null>\",\n    \"DateTime\": \"<string,null>\",\n    \"HomeOrAway\": \"<string,null>\",\n    \"IsGameOver\": \"<boolean>\",\n    \"GlobalGameId\": \"<integer,null>\",\n    \"GlobalOpponentId\": \"<integer,null>\",\n    \"Updated\": \"<string,null>\",\n    \"UpdatedUtc\": \"<string,null>\",\n    \"Games\": \"<integer,null>\",\n    \"FantasyPoints\": \"<number,null>\",\n    \"FantasyPointsFanDuel\": \"<number,null>\",\n    \"FantasyPointsDraftKings\": \"<number,null>\",\n    \"FantasyPointsYahoo\": \"<number,null>\",\n    \"FantasyPointsMondogoal\": \"<number,null>\",\n    \"Minutes\": \"<number,null>\",\n    \"Goals\": \"<number,null>\",\n    \"Assists\": \"<number,null>\",\n    \"Shots\": \"<number,null>\",\n    \"ShotsOnGoal\": \"<number,null>\",\n    \"YellowCards\": \"<number,null>\",\n    \"RedCards\": \"<number,null>\",\n    \"YellowRedCards\": \"<number,null>\",\n    \"Crosses\": \"<number,null>\",\n    \"TacklesWon\": \"<number,null>\",\n    \"Interceptions\": \"<number,null>\",\n    \"OwnGoals\": \"<number,null>\",\n    \"Fouls\": \"<number,null>\",\n    \"Fouled\": \"<number,null>\",\n    \"Offsides\": \"<number,null>\",\n    \"Passes\": \"<number,null>\",\n    \"PassesCompleted\": \"<number,null>\",\n    \"LastManTackle\": \"<number,null>\",\n    \"CornersWon\": \"<number,null>\",\n    \"BlockedShots\": \"<number,null>\",\n    \"Touches\": \"<number,null>\",\n    \"DefenderCleanSheets\": \"<number,null>\",\n    \"GoalkeeperSaves\": \"<number,null>\",\n    \"GoalkeeperGoalsAgainst\": \"<number,null>\",\n    \"GoalkeeperSingleGoalAgainst\": \"<number,null>\",\n    \"GoalkeeperCleanSheets\": \"<number,null>\",\n    \"GoalkeeperWins\": \"<number,null>\",\n    \"PenaltyKickGoals\": \"<number,null>\",\n    \"PenaltyKickMisses\": \"<number,null>\",\n    \"PenaltyKickSaves\": \"<number,null>\",\n    \"PenaltiesWon\": \"<number,null>\",\n    \"PenaltiesConceded\": \"<number,null>\",\n    \"Score\": \"<number,null>\",\n    \"OpponentScore\": \"<number,null>\",\n    \"Tackles\": \"<number,null>\"\n  }\n]",
+                                      "createdAt": "2026-10-21T20:20:24.000Z",
+                                      "updatedAt": "2026-10-21T20:20:24.000Z",
+                                      "uid": "35240-640e0f8a-3922-49e5-9c16-1be752dc2d3f"
+                                    },
+                                    {
+                                      "id": "79a4ad01-900c-4372-893a-4f7da00d0ad3",
+                                      "name": "Unauthorized",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v4/soccer/projections/:format/PlayerGameProjectionStatsByDate/:competition/:date",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v4",
+                                            "soccer",
+                                            "projections",
+                                            ":format",
+                                            "PlayerGameProjectionStatsByDate",
+                                            ":competition",
+                                            ":date"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "format"
+                                            },
+                                            {
+                                              "key": "competition"
+                                            },
+                                            {
+                                              "key": "date"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"Code\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"Help\": \"<string>\"\n}",
+                                      "createdAt": "2026-10-21T20:20:24.000Z",
+                                      "updatedAt": "2026-10-21T20:20:24.000Z",
+                                      "uid": "35240-79a4ad01-900c-4372-893a-4f7da00d0ad3"
+                                    }
+                                  ],
+                                  "createdAt": "2026-10-21T20:20:24.000Z",
+                                  "updatedAt": "2026-10-21T20:20:24.000Z",
+                                  "uid": "35240-98966c56-125c-4c32-8aea-5487e3632327"
+                                }
+                              ],
+                              "id": "c20126a4-4e5c-4b01-852a-01654f69937e",
+                              "createdAt": "2026-10-21T20:20:24.000Z",
+                              "updatedAt": "2026-10-21T20:20:24.000Z",
+                              "uid": "35240-c20126a4-4e5c-4b01-852a-01654f69937e"
+                            }
+                          ],
+                          "id": "c7df4c07-3924-4594-840e-fde2814ab42e",
+                          "createdAt": "2026-10-21T20:20:24.000Z",
+                          "updatedAt": "2026-10-21T20:20:24.000Z",
+                          "uid": "35240-c7df4c07-3924-4594-840e-fde2814ab42e"
+                        }
+                      ],
+                      "id": "96db6b46-1bf3-4dd0-a8f2-dde2d29f5f75",
+                      "createdAt": "2026-10-21T20:20:24.000Z",
+                      "updatedAt": "2026-10-21T20:20:24.000Z",
+                      "uid": "35240-96db6b46-1bf3-4dd0-a8f2-dde2d29f5f75"
+                    },
+                    {
+                      "name": "DfsSlatesByDate",
+                      "item": [
+                        {
+                          "name": "{competition}",
+                          "item": [
+                            {
+                              "name": "{date}",
+                              "item": [
+                                {
+                                  "name": "DFS Slates - by Date",
+                                  "id": "213da23c-f6ce-40f3-a289-94adde9130fb",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v4/soccer/projections/:format/DfsSlatesByDate/:competition/:date",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v4",
+                                        "soccer",
+                                        "projections",
+                                        ":format",
+                                        "DfsSlatesByDate",
+                                        ":competition",
+                                        ":date"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "01ef4af1-79b5-4a37-ae4a-c7234824d253",
+                                          "key": "format",
+                                          "value": "JSON",
+                                          "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                                        },
+                                        {
+                                          "id": "3d75e094-0bb2-48fa-b0c2-0f2cbaa00c39",
+                                          "key": "competition",
+                                          "value": "<string>",
+                                          "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+                                        },
+                                        {
+                                          "id": "229c8e22-468e-4e35-9906-7bfc1a861867",
+                                          "key": "date",
+                                          "value": "<string>",
+                                          "description": "(Required) The date of the game(s).\n<br>Examples: <code>2020-02-18</code>\n"
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns DFS Slates which have not yet started, with their player and salary information."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "0cf12314-1e29-413b-aac5-1b75154df22f",
+                                      "name": "Success",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v4/soccer/projections/:format/DfsSlatesByDate/:competition/:date",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v4",
+                                            "soccer",
+                                            "projections",
+                                            ":format",
+                                            "DfsSlatesByDate",
+                                            ":competition",
+                                            ":date"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "format"
+                                            },
+                                            {
+                                              "key": "competition"
+                                            },
+                                            {
+                                              "key": "date"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "[\n  {\n    \"SlateID\": \"<integer>\",\n    \"Operator\": \"<string,null>\",\n    \"OperatorSlateID\": \"<integer,null>\",\n    \"OperatorName\": \"<string,null>\",\n    \"OperatorDay\": \"<string,null>\",\n    \"OperatorStartTime\": \"<string,null>\",\n    \"NumberOfGames\": \"<integer,null>\",\n    \"IsMultiDaySlate\": \"<boolean,null>\",\n    \"RemovedByOperator\": \"<boolean,null>\",\n    \"OperatorGameType\": \"<string,null>\",\n    \"DfsSlateGames\": [\n      {\n        \"SlateGameID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"GameID\": \"<integer,null>\",\n        \"Game\": {\n          \"GameId\": \"<integer>\",\n          \"RoundId\": \"<integer>\",\n          \"Season\": \"<integer>\",\n          \"SeasonType\": \"<integer>\",\n          \"Group\": \"<string,null>\",\n          \"AwayTeamId\": \"<integer,null>\",\n          \"HomeTeamId\": \"<integer,null>\",\n          \"VenueId\": \"<integer,null>\",\n          \"Day\": \"<string,null>\",\n          \"DateTime\": \"<string,null>\",\n          \"Status\": \"<string,null>\",\n          \"Week\": \"<integer,null>\",\n          \"Period\": \"<string,null>\",\n          \"Clock\": \"<integer,null>\",\n          \"Winner\": \"<string,null>\",\n          \"VenueType\": \"<string,null>\",\n          \"AwayTeamKey\": \"<string,null>\",\n          \"AwayTeamName\": \"<string,null>\",\n          \"AwayTeamCountryCode\": \"<string,null>\",\n          \"AwayTeamScore\": \"<integer,null>\",\n          \"AwayTeamScorePeriod1\": \"<integer,null>\",\n          \"AwayTeamScorePeriod2\": \"<integer,null>\",\n          \"AwayTeamScoreExtraTime\": \"<integer,null>\",\n          \"AwayTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamKey\": \"<string,null>\",\n          \"HomeTeamName\": \"<string,null>\",\n          \"HomeTeamCountryCode\": \"<string,null>\",\n          \"HomeTeamScore\": \"<integer,null>\",\n          \"HomeTeamScorePeriod1\": \"<integer,null>\",\n          \"HomeTeamScorePeriod2\": \"<integer,null>\",\n          \"HomeTeamScoreExtraTime\": \"<integer,null>\",\n          \"HomeTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamMoneyLine\": \"<integer,null>\",\n          \"AwayTeamMoneyLine\": \"<integer,null>\",\n          \"DrawMoneyLine\": \"<integer,null>\",\n          \"PointSpread\": \"<number,null>\",\n          \"HomeTeamPointSpreadPayout\": \"<integer,null>\",\n          \"AwayTeamPointSpreadPayout\": \"<integer,null>\",\n          \"OverUnder\": \"<number,null>\",\n          \"OverPayout\": \"<integer,null>\",\n          \"UnderPayout\": \"<integer,null>\",\n          \"Attendance\": \"<integer,null>\",\n          \"Updated\": \"<string,null>\",\n          \"UpdatedUtc\": \"<string,null>\",\n          \"GlobalGameId\": \"<integer>\",\n          \"GlobalAwayTeamId\": \"<integer,null>\",\n          \"GlobalHomeTeamId\": \"<integer,null>\",\n          \"ClockExtra\": \"<integer,null>\",\n          \"ClockDisplay\": \"<string,null>\",\n          \"IsClosed\": \"<boolean,null>\",\n          \"HomeTeamFormation\": \"<string,null>\",\n          \"AwayTeamFormation\": \"<string,null>\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": \"<integer>\",\n            \"TeamA_AggregateScore\": \"<integer>\",\n            \"TeamB_Id\": \"<integer>\",\n            \"TeamB_AggregateScore\": \"<integer>\",\n            \"WinningTeamId\": \"<integer>\",\n            \"Created\": \"<string,null>\",\n            \"Updated\": \"<string,null>\"\n          }\n        },\n        \"OperatorGameID\": \"<integer,null>\",\n        \"RemovedByOperator\": \"<boolean,null>\"\n      },\n      {\n        \"SlateGameID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"GameID\": \"<integer,null>\",\n        \"Game\": {\n          \"GameId\": \"<integer>\",\n          \"RoundId\": \"<integer>\",\n          \"Season\": \"<integer>\",\n          \"SeasonType\": \"<integer>\",\n          \"Group\": \"<string,null>\",\n          \"AwayTeamId\": \"<integer,null>\",\n          \"HomeTeamId\": \"<integer,null>\",\n          \"VenueId\": \"<integer,null>\",\n          \"Day\": \"<string,null>\",\n          \"DateTime\": \"<string,null>\",\n          \"Status\": \"<string,null>\",\n          \"Week\": \"<integer,null>\",\n          \"Period\": \"<string,null>\",\n          \"Clock\": \"<integer,null>\",\n          \"Winner\": \"<string,null>\",\n          \"VenueType\": \"<string,null>\",\n          \"AwayTeamKey\": \"<string,null>\",\n          \"AwayTeamName\": \"<string,null>\",\n          \"AwayTeamCountryCode\": \"<string,null>\",\n          \"AwayTeamScore\": \"<integer,null>\",\n          \"AwayTeamScorePeriod1\": \"<integer,null>\",\n          \"AwayTeamScorePeriod2\": \"<integer,null>\",\n          \"AwayTeamScoreExtraTime\": \"<integer,null>\",\n          \"AwayTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamKey\": \"<string,null>\",\n          \"HomeTeamName\": \"<string,null>\",\n          \"HomeTeamCountryCode\": \"<string,null>\",\n          \"HomeTeamScore\": \"<integer,null>\",\n          \"HomeTeamScorePeriod1\": \"<integer,null>\",\n          \"HomeTeamScorePeriod2\": \"<integer,null>\",\n          \"HomeTeamScoreExtraTime\": \"<integer,null>\",\n          \"HomeTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamMoneyLine\": \"<integer,null>\",\n          \"AwayTeamMoneyLine\": \"<integer,null>\",\n          \"DrawMoneyLine\": \"<integer,null>\",\n          \"PointSpread\": \"<number,null>\",\n          \"HomeTeamPointSpreadPayout\": \"<integer,null>\",\n          \"AwayTeamPointSpreadPayout\": \"<integer,null>\",\n          \"OverUnder\": \"<number,null>\",\n          \"OverPayout\": \"<integer,null>\",\n          \"UnderPayout\": \"<integer,null>\",\n          \"Attendance\": \"<integer,null>\",\n          \"Updated\": \"<string,null>\",\n          \"UpdatedUtc\": \"<string,null>\",\n          \"GlobalGameId\": \"<integer>\",\n          \"GlobalAwayTeamId\": \"<integer,null>\",\n          \"GlobalHomeTeamId\": \"<integer,null>\",\n          \"ClockExtra\": \"<integer,null>\",\n          \"ClockDisplay\": \"<string,null>\",\n          \"IsClosed\": \"<boolean,null>\",\n          \"HomeTeamFormation\": \"<string,null>\",\n          \"AwayTeamFormation\": \"<string,null>\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": \"<integer>\",\n            \"TeamA_AggregateScore\": \"<integer>\",\n            \"TeamB_Id\": \"<integer>\",\n            \"TeamB_AggregateScore\": \"<integer>\",\n            \"WinningTeamId\": \"<integer>\",\n            \"Created\": \"<string,null>\",\n            \"Updated\": \"<string,null>\"\n          }\n        },\n        \"OperatorGameID\": \"<integer,null>\",\n        \"RemovedByOperator\": \"<boolean,null>\"\n      }\n    ],\n    \"DfsSlatePlayers\": [\n      {\n        \"SlatePlayerID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"SlateGameID\": \"<integer,null>\",\n        \"PlayerID\": \"<integer,null>\",\n        \"PlayerGameProjectionStatID\": \"<integer,null>\",\n        \"OperatorPlayerID\": \"<string,null>\",\n        \"OperatorSlatePlayerID\": \"<string,null>\",\n        \"OperatorPlayerName\": \"<string,null>\",\n        \"OperatorPosition\": \"<string,null>\",\n        \"OperatorSalary\": \"<integer,null>\",\n        \"OperatorRosterSlots\": [\n          \"<string,null>\",\n          \"<string,null>\"\n        ],\n        \"RemovedByOperator\": \"<boolean,null>\",\n        \"Team\": \"<string,null>\",\n        \"TeamID\": \"<integer,null>\"\n      },\n      {\n        \"SlatePlayerID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"SlateGameID\": \"<integer,null>\",\n        \"PlayerID\": \"<integer,null>\",\n        \"PlayerGameProjectionStatID\": \"<integer,null>\",\n        \"OperatorPlayerID\": \"<string,null>\",\n        \"OperatorSlatePlayerID\": \"<string,null>\",\n        \"OperatorPlayerName\": \"<string,null>\",\n        \"OperatorPosition\": \"<string,null>\",\n        \"OperatorSalary\": \"<integer,null>\",\n        \"OperatorRosterSlots\": [\n          \"<string,null>\",\n          \"<string,null>\"\n        ],\n        \"RemovedByOperator\": \"<boolean,null>\",\n        \"Team\": \"<string,null>\",\n        \"TeamID\": \"<integer,null>\"\n      }\n    ],\n    \"SlateRosterSlots\": [\n      \"<string,null>\",\n      \"<string,null>\"\n    ],\n    \"SalaryCap\": \"<integer,null>\",\n    \"CompetitionId\": \"<integer,null>\"\n  },\n  {\n    \"SlateID\": \"<integer>\",\n    \"Operator\": \"<string,null>\",\n    \"OperatorSlateID\": \"<integer,null>\",\n    \"OperatorName\": \"<string,null>\",\n    \"OperatorDay\": \"<string,null>\",\n    \"OperatorStartTime\": \"<string,null>\",\n    \"NumberOfGames\": \"<integer,null>\",\n    \"IsMultiDaySlate\": \"<boolean,null>\",\n    \"RemovedByOperator\": \"<boolean,null>\",\n    \"OperatorGameType\": \"<string,null>\",\n    \"DfsSlateGames\": [\n      {\n        \"SlateGameID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"GameID\": \"<integer,null>\",\n        \"Game\": {\n          \"GameId\": \"<integer>\",\n          \"RoundId\": \"<integer>\",\n          \"Season\": \"<integer>\",\n          \"SeasonType\": \"<integer>\",\n          \"Group\": \"<string,null>\",\n          \"AwayTeamId\": \"<integer,null>\",\n          \"HomeTeamId\": \"<integer,null>\",\n          \"VenueId\": \"<integer,null>\",\n          \"Day\": \"<string,null>\",\n          \"DateTime\": \"<string,null>\",\n          \"Status\": \"<string,null>\",\n          \"Week\": \"<integer,null>\",\n          \"Period\": \"<string,null>\",\n          \"Clock\": \"<integer,null>\",\n          \"Winner\": \"<string,null>\",\n          \"VenueType\": \"<string,null>\",\n          \"AwayTeamKey\": \"<string,null>\",\n          \"AwayTeamName\": \"<string,null>\",\n          \"AwayTeamCountryCode\": \"<string,null>\",\n          \"AwayTeamScore\": \"<integer,null>\",\n          \"AwayTeamScorePeriod1\": \"<integer,null>\",\n          \"AwayTeamScorePeriod2\": \"<integer,null>\",\n          \"AwayTeamScoreExtraTime\": \"<integer,null>\",\n          \"AwayTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamKey\": \"<string,null>\",\n          \"HomeTeamName\": \"<string,null>\",\n          \"HomeTeamCountryCode\": \"<string,null>\",\n          \"HomeTeamScore\": \"<integer,null>\",\n          \"HomeTeamScorePeriod1\": \"<integer,null>\",\n          \"HomeTeamScorePeriod2\": \"<integer,null>\",\n          \"HomeTeamScoreExtraTime\": \"<integer,null>\",\n          \"HomeTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamMoneyLine\": \"<integer,null>\",\n          \"AwayTeamMoneyLine\": \"<integer,null>\",\n          \"DrawMoneyLine\": \"<integer,null>\",\n          \"PointSpread\": \"<number,null>\",\n          \"HomeTeamPointSpreadPayout\": \"<integer,null>\",\n          \"AwayTeamPointSpreadPayout\": \"<integer,null>\",\n          \"OverUnder\": \"<number,null>\",\n          \"OverPayout\": \"<integer,null>\",\n          \"UnderPayout\": \"<integer,null>\",\n          \"Attendance\": \"<integer,null>\",\n          \"Updated\": \"<string,null>\",\n          \"UpdatedUtc\": \"<string,null>\",\n          \"GlobalGameId\": \"<integer>\",\n          \"GlobalAwayTeamId\": \"<integer,null>\",\n          \"GlobalHomeTeamId\": \"<integer,null>\",\n          \"ClockExtra\": \"<integer,null>\",\n          \"ClockDisplay\": \"<string,null>\",\n          \"IsClosed\": \"<boolean,null>\",\n          \"HomeTeamFormation\": \"<string,null>\",\n          \"AwayTeamFormation\": \"<string,null>\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": \"<integer>\",\n            \"TeamA_AggregateScore\": \"<integer>\",\n            \"TeamB_Id\": \"<integer>\",\n            \"TeamB_AggregateScore\": \"<integer>\",\n            \"WinningTeamId\": \"<integer>\",\n            \"Created\": \"<string,null>\",\n            \"Updated\": \"<string,null>\"\n          }\n        },\n        \"OperatorGameID\": \"<integer,null>\",\n        \"RemovedByOperator\": \"<boolean,null>\"\n      },\n      {\n        \"SlateGameID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"GameID\": \"<integer,null>\",\n        \"Game\": {\n          \"GameId\": \"<integer>\",\n          \"RoundId\": \"<integer>\",\n          \"Season\": \"<integer>\",\n          \"SeasonType\": \"<integer>\",\n          \"Group\": \"<string,null>\",\n          \"AwayTeamId\": \"<integer,null>\",\n          \"HomeTeamId\": \"<integer,null>\",\n          \"VenueId\": \"<integer,null>\",\n          \"Day\": \"<string,null>\",\n          \"DateTime\": \"<string,null>\",\n          \"Status\": \"<string,null>\",\n          \"Week\": \"<integer,null>\",\n          \"Period\": \"<string,null>\",\n          \"Clock\": \"<integer,null>\",\n          \"Winner\": \"<string,null>\",\n          \"VenueType\": \"<string,null>\",\n          \"AwayTeamKey\": \"<string,null>\",\n          \"AwayTeamName\": \"<string,null>\",\n          \"AwayTeamCountryCode\": \"<string,null>\",\n          \"AwayTeamScore\": \"<integer,null>\",\n          \"AwayTeamScorePeriod1\": \"<integer,null>\",\n          \"AwayTeamScorePeriod2\": \"<integer,null>\",\n          \"AwayTeamScoreExtraTime\": \"<integer,null>\",\n          \"AwayTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamKey\": \"<string,null>\",\n          \"HomeTeamName\": \"<string,null>\",\n          \"HomeTeamCountryCode\": \"<string,null>\",\n          \"HomeTeamScore\": \"<integer,null>\",\n          \"HomeTeamScorePeriod1\": \"<integer,null>\",\n          \"HomeTeamScorePeriod2\": \"<integer,null>\",\n          \"HomeTeamScoreExtraTime\": \"<integer,null>\",\n          \"HomeTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamMoneyLine\": \"<integer,null>\",\n          \"AwayTeamMoneyLine\": \"<integer,null>\",\n          \"DrawMoneyLine\": \"<integer,null>\",\n          \"PointSpread\": \"<number,null>\",\n          \"HomeTeamPointSpreadPayout\": \"<integer,null>\",\n          \"AwayTeamPointSpreadPayout\": \"<integer,null>\",\n          \"OverUnder\": \"<number,null>\",\n          \"OverPayout\": \"<integer,null>\",\n          \"UnderPayout\": \"<integer,null>\",\n          \"Attendance\": \"<integer,null>\",\n          \"Updated\": \"<string,null>\",\n          \"UpdatedUtc\": \"<string,null>\",\n          \"GlobalGameId\": \"<integer>\",\n          \"GlobalAwayTeamId\": \"<integer,null>\",\n          \"GlobalHomeTeamId\": \"<integer,null>\",\n          \"ClockExtra\": \"<integer,null>\",\n          \"ClockDisplay\": \"<string,null>\",\n          \"IsClosed\": \"<boolean,null>\",\n          \"HomeTeamFormation\": \"<string,null>\",\n          \"AwayTeamFormation\": \"<string,null>\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": \"<integer>\",\n            \"TeamA_AggregateScore\": \"<integer>\",\n            \"TeamB_Id\": \"<integer>\",\n            \"TeamB_AggregateScore\": \"<integer>\",\n            \"WinningTeamId\": \"<integer>\",\n            \"Created\": \"<string,null>\",\n            \"Updated\": \"<string,null>\"\n          }\n        },\n        \"OperatorGameID\": \"<integer,null>\",\n        \"RemovedByOperator\": \"<boolean,null>\"\n      }\n    ],\n    \"DfsSlatePlayers\": [\n      {\n        \"SlatePlayerID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"SlateGameID\": \"<integer,null>\",\n        \"PlayerID\": \"<integer,null>\",\n        \"PlayerGameProjectionStatID\": \"<integer,null>\",\n        \"OperatorPlayerID\": \"<string,null>\",\n        \"OperatorSlatePlayerID\": \"<string,null>\",\n        \"OperatorPlayerName\": \"<string,null>\",\n        \"OperatorPosition\": \"<string,null>\",\n        \"OperatorSalary\": \"<integer,null>\",\n        \"OperatorRosterSlots\": [\n          \"<string,null>\",\n          \"<string,null>\"\n        ],\n        \"RemovedByOperator\": \"<boolean,null>\",\n        \"Team\": \"<string,null>\",\n        \"TeamID\": \"<integer,null>\"\n      },\n      {\n        \"SlatePlayerID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"SlateGameID\": \"<integer,null>\",\n        \"PlayerID\": \"<integer,null>\",\n        \"PlayerGameProjectionStatID\": \"<integer,null>\",\n        \"OperatorPlayerID\": \"<string,null>\",\n        \"OperatorSlatePlayerID\": \"<string,null>\",\n        \"OperatorPlayerName\": \"<string,null>\",\n        \"OperatorPosition\": \"<string,null>\",\n        \"OperatorSalary\": \"<integer,null>\",\n        \"OperatorRosterSlots\": [\n          \"<string,null>\",\n          \"<string,null>\"\n        ],\n        \"RemovedByOperator\": \"<boolean,null>\",\n        \"Team\": \"<string,null>\",\n        \"TeamID\": \"<integer,null>\"\n      }\n    ],\n    \"SlateRosterSlots\": [\n      \"<string,null>\",\n      \"<string,null>\"\n    ],\n    \"SalaryCap\": \"<integer,null>\",\n    \"CompetitionId\": \"<integer,null>\"\n  }\n]",
+                                      "createdAt": "2026-10-21T20:20:24.000Z",
+                                      "updatedAt": "2026-10-21T20:20:24.000Z",
+                                      "uid": "35240-0cf12314-1e29-413b-aac5-1b75154df22f"
+                                    },
+                                    {
+                                      "id": "d61bfa14-85ca-4b98-839b-a0c843e40cda",
+                                      "name": "Unauthorized",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v4/soccer/projections/:format/DfsSlatesByDate/:competition/:date",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v4",
+                                            "soccer",
+                                            "projections",
+                                            ":format",
+                                            "DfsSlatesByDate",
+                                            ":competition",
+                                            ":date"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "format"
+                                            },
+                                            {
+                                              "key": "competition"
+                                            },
+                                            {
+                                              "key": "date"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"Code\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"Help\": \"<string>\"\n}",
+                                      "createdAt": "2026-10-21T20:20:24.000Z",
+                                      "updatedAt": "2026-10-21T20:20:24.000Z",
+                                      "uid": "35240-d61bfa14-85ca-4b98-839b-a0c843e40cda"
+                                    }
+                                  ],
+                                  "createdAt": "2026-10-21T20:20:24.000Z",
+                                  "updatedAt": "2026-10-21T20:20:24.000Z",
+                                  "uid": "35240-213da23c-f6ce-40f3-a289-94adde9130fb"
+                                }
+                              ],
+                              "id": "2722392d-9b64-4875-a03f-ec0dee0bc768",
+                              "createdAt": "2026-10-21T20:20:24.000Z",
+                              "updatedAt": "2026-10-21T20:20:24.000Z",
+                              "uid": "35240-2722392d-9b64-4875-a03f-ec0dee0bc768"
+                            }
+                          ],
+                          "id": "b122e9ad-b937-437c-bd1b-122bad45a8f9",
+                          "createdAt": "2026-10-21T20:20:24.000Z",
+                          "updatedAt": "2026-10-21T20:20:24.000Z",
+                          "uid": "35240-b122e9ad-b937-437c-bd1b-122bad45a8f9"
+                        }
+                      ],
+                      "id": "6f821581-1e00-42f5-adf9-bc2c099d76d2",
+                      "createdAt": "2026-10-21T20:20:24.000Z",
+                      "updatedAt": "2026-10-21T20:20:24.000Z",
+                      "uid": "35240-6f821581-1e00-42f5-adf9-bc2c099d76d2"
+                    },
+                    {
+                      "name": "UpcomingDfsSlatesByCompetition",
+                      "item": [
+                        {
+                          "name": "{competition}",
+                          "item": [
+                            {
+                              "name": "Upcoming DFS Slates - by Competition",
+                              "id": "7f57b93d-a57a-45a1-8bc6-79794c56f529",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v4/soccer/projections/:format/UpcomingDfsSlatesByCompetition/:competition",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v4",
+                                    "soccer",
+                                    "projections",
+                                    ":format",
+                                    "UpcomingDfsSlatesByCompetition",
+                                    ":competition"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "1a59ed3d-9a8c-4cae-9566-b871c9e9ac72",
+                                      "key": "format",
+                                      "value": "JSON",
+                                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                                    },
+                                    {
+                                      "id": "e8100f01-1ed8-4beb-9dfb-0b4f8800e1a4",
+                                      "key": "competition",
+                                      "value": "<string>",
+                                      "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+                                    }
+                                  ]
+                                },
+                                "description": "Returns upcoming DFS Slates which have not yet started, with their player and salary information, by competition."
+                              },
+                              "response": [
+                                {
+                                  "id": "8862b241-359b-4054-a94b-76a3071931c7",
+                                  "name": "Success",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Ocp-Apim-Subscription-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v4/soccer/projections/:format/UpcomingDfsSlatesByCompetition/:competition",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v4",
+                                        "soccer",
+                                        "projections",
+                                        ":format",
+                                        "UpcomingDfsSlatesByCompetition",
+                                        ":competition"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "format"
+                                        },
+                                        {
+                                          "key": "competition"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "[\n  {\n    \"SlateID\": \"<integer>\",\n    \"Operator\": \"<string,null>\",\n    \"OperatorSlateID\": \"<integer,null>\",\n    \"OperatorName\": \"<string,null>\",\n    \"OperatorDay\": \"<string,null>\",\n    \"OperatorStartTime\": \"<string,null>\",\n    \"NumberOfGames\": \"<integer,null>\",\n    \"IsMultiDaySlate\": \"<boolean,null>\",\n    \"RemovedByOperator\": \"<boolean,null>\",\n    \"OperatorGameType\": \"<string,null>\",\n    \"DfsSlateGames\": [\n      {\n        \"SlateGameID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"GameID\": \"<integer,null>\",\n        \"Game\": {\n          \"GameId\": \"<integer>\",\n          \"RoundId\": \"<integer>\",\n          \"Season\": \"<integer>\",\n          \"SeasonType\": \"<integer>\",\n          \"Group\": \"<string,null>\",\n          \"AwayTeamId\": \"<integer,null>\",\n          \"HomeTeamId\": \"<integer,null>\",\n          \"VenueId\": \"<integer,null>\",\n          \"Day\": \"<string,null>\",\n          \"DateTime\": \"<string,null>\",\n          \"Status\": \"<string,null>\",\n          \"Week\": \"<integer,null>\",\n          \"Period\": \"<string,null>\",\n          \"Clock\": \"<integer,null>\",\n          \"Winner\": \"<string,null>\",\n          \"VenueType\": \"<string,null>\",\n          \"AwayTeamKey\": \"<string,null>\",\n          \"AwayTeamName\": \"<string,null>\",\n          \"AwayTeamCountryCode\": \"<string,null>\",\n          \"AwayTeamScore\": \"<integer,null>\",\n          \"AwayTeamScorePeriod1\": \"<integer,null>\",\n          \"AwayTeamScorePeriod2\": \"<integer,null>\",\n          \"AwayTeamScoreExtraTime\": \"<integer,null>\",\n          \"AwayTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamKey\": \"<string,null>\",\n          \"HomeTeamName\": \"<string,null>\",\n          \"HomeTeamCountryCode\": \"<string,null>\",\n          \"HomeTeamScore\": \"<integer,null>\",\n          \"HomeTeamScorePeriod1\": \"<integer,null>\",\n          \"HomeTeamScorePeriod2\": \"<integer,null>\",\n          \"HomeTeamScoreExtraTime\": \"<integer,null>\",\n          \"HomeTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamMoneyLine\": \"<integer,null>\",\n          \"AwayTeamMoneyLine\": \"<integer,null>\",\n          \"DrawMoneyLine\": \"<integer,null>\",\n          \"PointSpread\": \"<number,null>\",\n          \"HomeTeamPointSpreadPayout\": \"<integer,null>\",\n          \"AwayTeamPointSpreadPayout\": \"<integer,null>\",\n          \"OverUnder\": \"<number,null>\",\n          \"OverPayout\": \"<integer,null>\",\n          \"UnderPayout\": \"<integer,null>\",\n          \"Attendance\": \"<integer,null>\",\n          \"Updated\": \"<string,null>\",\n          \"UpdatedUtc\": \"<string,null>\",\n          \"GlobalGameId\": \"<integer>\",\n          \"GlobalAwayTeamId\": \"<integer,null>\",\n          \"GlobalHomeTeamId\": \"<integer,null>\",\n          \"ClockExtra\": \"<integer,null>\",\n          \"ClockDisplay\": \"<string,null>\",\n          \"IsClosed\": \"<boolean,null>\",\n          \"HomeTeamFormation\": \"<string,null>\",\n          \"AwayTeamFormation\": \"<string,null>\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": \"<integer>\",\n            \"TeamA_AggregateScore\": \"<integer>\",\n            \"TeamB_Id\": \"<integer>\",\n            \"TeamB_AggregateScore\": \"<integer>\",\n            \"WinningTeamId\": \"<integer>\",\n            \"Created\": \"<string,null>\",\n            \"Updated\": \"<string,null>\"\n          }\n        },\n        \"OperatorGameID\": \"<integer,null>\",\n        \"RemovedByOperator\": \"<boolean,null>\"\n      },\n      {\n        \"SlateGameID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"GameID\": \"<integer,null>\",\n        \"Game\": {\n          \"GameId\": \"<integer>\",\n          \"RoundId\": \"<integer>\",\n          \"Season\": \"<integer>\",\n          \"SeasonType\": \"<integer>\",\n          \"Group\": \"<string,null>\",\n          \"AwayTeamId\": \"<integer,null>\",\n          \"HomeTeamId\": \"<integer,null>\",\n          \"VenueId\": \"<integer,null>\",\n          \"Day\": \"<string,null>\",\n          \"DateTime\": \"<string,null>\",\n          \"Status\": \"<string,null>\",\n          \"Week\": \"<integer,null>\",\n          \"Period\": \"<string,null>\",\n          \"Clock\": \"<integer,null>\",\n          \"Winner\": \"<string,null>\",\n          \"VenueType\": \"<string,null>\",\n          \"AwayTeamKey\": \"<string,null>\",\n          \"AwayTeamName\": \"<string,null>\",\n          \"AwayTeamCountryCode\": \"<string,null>\",\n          \"AwayTeamScore\": \"<integer,null>\",\n          \"AwayTeamScorePeriod1\": \"<integer,null>\",\n          \"AwayTeamScorePeriod2\": \"<integer,null>\",\n          \"AwayTeamScoreExtraTime\": \"<integer,null>\",\n          \"AwayTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamKey\": \"<string,null>\",\n          \"HomeTeamName\": \"<string,null>\",\n          \"HomeTeamCountryCode\": \"<string,null>\",\n          \"HomeTeamScore\": \"<integer,null>\",\n          \"HomeTeamScorePeriod1\": \"<integer,null>\",\n          \"HomeTeamScorePeriod2\": \"<integer,null>\",\n          \"HomeTeamScoreExtraTime\": \"<integer,null>\",\n          \"HomeTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamMoneyLine\": \"<integer,null>\",\n          \"AwayTeamMoneyLine\": \"<integer,null>\",\n          \"DrawMoneyLine\": \"<integer,null>\",\n          \"PointSpread\": \"<number,null>\",\n          \"HomeTeamPointSpreadPayout\": \"<integer,null>\",\n          \"AwayTeamPointSpreadPayout\": \"<integer,null>\",\n          \"OverUnder\": \"<number,null>\",\n          \"OverPayout\": \"<integer,null>\",\n          \"UnderPayout\": \"<integer,null>\",\n          \"Attendance\": \"<integer,null>\",\n          \"Updated\": \"<string,null>\",\n          \"UpdatedUtc\": \"<string,null>\",\n          \"GlobalGameId\": \"<integer>\",\n          \"GlobalAwayTeamId\": \"<integer,null>\",\n          \"GlobalHomeTeamId\": \"<integer,null>\",\n          \"ClockExtra\": \"<integer,null>\",\n          \"ClockDisplay\": \"<string,null>\",\n          \"IsClosed\": \"<boolean,null>\",\n          \"HomeTeamFormation\": \"<string,null>\",\n          \"AwayTeamFormation\": \"<string,null>\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": \"<integer>\",\n            \"TeamA_AggregateScore\": \"<integer>\",\n            \"TeamB_Id\": \"<integer>\",\n            \"TeamB_AggregateScore\": \"<integer>\",\n            \"WinningTeamId\": \"<integer>\",\n            \"Created\": \"<string,null>\",\n            \"Updated\": \"<string,null>\"\n          }\n        },\n        \"OperatorGameID\": \"<integer,null>\",\n        \"RemovedByOperator\": \"<boolean,null>\"\n      }\n    ],\n    \"DfsSlatePlayers\": [\n      {\n        \"SlatePlayerID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"SlateGameID\": \"<integer,null>\",\n        \"PlayerID\": \"<integer,null>\",\n        \"PlayerGameProjectionStatID\": \"<integer,null>\",\n        \"OperatorPlayerID\": \"<string,null>\",\n        \"OperatorSlatePlayerID\": \"<string,null>\",\n        \"OperatorPlayerName\": \"<string,null>\",\n        \"OperatorPosition\": \"<string,null>\",\n        \"OperatorSalary\": \"<integer,null>\",\n        \"OperatorRosterSlots\": [\n          \"<string,null>\",\n          \"<string,null>\"\n        ],\n        \"RemovedByOperator\": \"<boolean,null>\",\n        \"Team\": \"<string,null>\",\n        \"TeamID\": \"<integer,null>\"\n      },\n      {\n        \"SlatePlayerID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"SlateGameID\": \"<integer,null>\",\n        \"PlayerID\": \"<integer,null>\",\n        \"PlayerGameProjectionStatID\": \"<integer,null>\",\n        \"OperatorPlayerID\": \"<string,null>\",\n        \"OperatorSlatePlayerID\": \"<string,null>\",\n        \"OperatorPlayerName\": \"<string,null>\",\n        \"OperatorPosition\": \"<string,null>\",\n        \"OperatorSalary\": \"<integer,null>\",\n        \"OperatorRosterSlots\": [\n          \"<string,null>\",\n          \"<string,null>\"\n        ],\n        \"RemovedByOperator\": \"<boolean,null>\",\n        \"Team\": \"<string,null>\",\n        \"TeamID\": \"<integer,null>\"\n      }\n    ],\n    \"SlateRosterSlots\": [\n      \"<string,null>\",\n      \"<string,null>\"\n    ],\n    \"SalaryCap\": \"<integer,null>\",\n    \"CompetitionId\": \"<integer,null>\"\n  },\n  {\n    \"SlateID\": \"<integer>\",\n    \"Operator\": \"<string,null>\",\n    \"OperatorSlateID\": \"<integer,null>\",\n    \"OperatorName\": \"<string,null>\",\n    \"OperatorDay\": \"<string,null>\",\n    \"OperatorStartTime\": \"<string,null>\",\n    \"NumberOfGames\": \"<integer,null>\",\n    \"IsMultiDaySlate\": \"<boolean,null>\",\n    \"RemovedByOperator\": \"<boolean,null>\",\n    \"OperatorGameType\": \"<string,null>\",\n    \"DfsSlateGames\": [\n      {\n        \"SlateGameID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"GameID\": \"<integer,null>\",\n        \"Game\": {\n          \"GameId\": \"<integer>\",\n          \"RoundId\": \"<integer>\",\n          \"Season\": \"<integer>\",\n          \"SeasonType\": \"<integer>\",\n          \"Group\": \"<string,null>\",\n          \"AwayTeamId\": \"<integer,null>\",\n          \"HomeTeamId\": \"<integer,null>\",\n          \"VenueId\": \"<integer,null>\",\n          \"Day\": \"<string,null>\",\n          \"DateTime\": \"<string,null>\",\n          \"Status\": \"<string,null>\",\n          \"Week\": \"<integer,null>\",\n          \"Period\": \"<string,null>\",\n          \"Clock\": \"<integer,null>\",\n          \"Winner\": \"<string,null>\",\n          \"VenueType\": \"<string,null>\",\n          \"AwayTeamKey\": \"<string,null>\",\n          \"AwayTeamName\": \"<string,null>\",\n          \"AwayTeamCountryCode\": \"<string,null>\",\n          \"AwayTeamScore\": \"<integer,null>\",\n          \"AwayTeamScorePeriod1\": \"<integer,null>\",\n          \"AwayTeamScorePeriod2\": \"<integer,null>\",\n          \"AwayTeamScoreExtraTime\": \"<integer,null>\",\n          \"AwayTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamKey\": \"<string,null>\",\n          \"HomeTeamName\": \"<string,null>\",\n          \"HomeTeamCountryCode\": \"<string,null>\",\n          \"HomeTeamScore\": \"<integer,null>\",\n          \"HomeTeamScorePeriod1\": \"<integer,null>\",\n          \"HomeTeamScorePeriod2\": \"<integer,null>\",\n          \"HomeTeamScoreExtraTime\": \"<integer,null>\",\n          \"HomeTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamMoneyLine\": \"<integer,null>\",\n          \"AwayTeamMoneyLine\": \"<integer,null>\",\n          \"DrawMoneyLine\": \"<integer,null>\",\n          \"PointSpread\": \"<number,null>\",\n          \"HomeTeamPointSpreadPayout\": \"<integer,null>\",\n          \"AwayTeamPointSpreadPayout\": \"<integer,null>\",\n          \"OverUnder\": \"<number,null>\",\n          \"OverPayout\": \"<integer,null>\",\n          \"UnderPayout\": \"<integer,null>\",\n          \"Attendance\": \"<integer,null>\",\n          \"Updated\": \"<string,null>\",\n          \"UpdatedUtc\": \"<string,null>\",\n          \"GlobalGameId\": \"<integer>\",\n          \"GlobalAwayTeamId\": \"<integer,null>\",\n          \"GlobalHomeTeamId\": \"<integer,null>\",\n          \"ClockExtra\": \"<integer,null>\",\n          \"ClockDisplay\": \"<string,null>\",\n          \"IsClosed\": \"<boolean,null>\",\n          \"HomeTeamFormation\": \"<string,null>\",\n          \"AwayTeamFormation\": \"<string,null>\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": \"<integer>\",\n            \"TeamA_AggregateScore\": \"<integer>\",\n            \"TeamB_Id\": \"<integer>\",\n            \"TeamB_AggregateScore\": \"<integer>\",\n            \"WinningTeamId\": \"<integer>\",\n            \"Created\": \"<string,null>\",\n            \"Updated\": \"<string,null>\"\n          }\n        },\n        \"OperatorGameID\": \"<integer,null>\",\n        \"RemovedByOperator\": \"<boolean,null>\"\n      },\n      {\n        \"SlateGameID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"GameID\": \"<integer,null>\",\n        \"Game\": {\n          \"GameId\": \"<integer>\",\n          \"RoundId\": \"<integer>\",\n          \"Season\": \"<integer>\",\n          \"SeasonType\": \"<integer>\",\n          \"Group\": \"<string,null>\",\n          \"AwayTeamId\": \"<integer,null>\",\n          \"HomeTeamId\": \"<integer,null>\",\n          \"VenueId\": \"<integer,null>\",\n          \"Day\": \"<string,null>\",\n          \"DateTime\": \"<string,null>\",\n          \"Status\": \"<string,null>\",\n          \"Week\": \"<integer,null>\",\n          \"Period\": \"<string,null>\",\n          \"Clock\": \"<integer,null>\",\n          \"Winner\": \"<string,null>\",\n          \"VenueType\": \"<string,null>\",\n          \"AwayTeamKey\": \"<string,null>\",\n          \"AwayTeamName\": \"<string,null>\",\n          \"AwayTeamCountryCode\": \"<string,null>\",\n          \"AwayTeamScore\": \"<integer,null>\",\n          \"AwayTeamScorePeriod1\": \"<integer,null>\",\n          \"AwayTeamScorePeriod2\": \"<integer,null>\",\n          \"AwayTeamScoreExtraTime\": \"<integer,null>\",\n          \"AwayTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamKey\": \"<string,null>\",\n          \"HomeTeamName\": \"<string,null>\",\n          \"HomeTeamCountryCode\": \"<string,null>\",\n          \"HomeTeamScore\": \"<integer,null>\",\n          \"HomeTeamScorePeriod1\": \"<integer,null>\",\n          \"HomeTeamScorePeriod2\": \"<integer,null>\",\n          \"HomeTeamScoreExtraTime\": \"<integer,null>\",\n          \"HomeTeamScorePenalty\": \"<integer,null>\",\n          \"HomeTeamMoneyLine\": \"<integer,null>\",\n          \"AwayTeamMoneyLine\": \"<integer,null>\",\n          \"DrawMoneyLine\": \"<integer,null>\",\n          \"PointSpread\": \"<number,null>\",\n          \"HomeTeamPointSpreadPayout\": \"<integer,null>\",\n          \"AwayTeamPointSpreadPayout\": \"<integer,null>\",\n          \"OverUnder\": \"<number,null>\",\n          \"OverPayout\": \"<integer,null>\",\n          \"UnderPayout\": \"<integer,null>\",\n          \"Attendance\": \"<integer,null>\",\n          \"Updated\": \"<string,null>\",\n          \"UpdatedUtc\": \"<string,null>\",\n          \"GlobalGameId\": \"<integer>\",\n          \"GlobalAwayTeamId\": \"<integer,null>\",\n          \"GlobalHomeTeamId\": \"<integer,null>\",\n          \"ClockExtra\": \"<integer,null>\",\n          \"ClockDisplay\": \"<string,null>\",\n          \"IsClosed\": \"<boolean,null>\",\n          \"HomeTeamFormation\": \"<string,null>\",\n          \"AwayTeamFormation\": \"<string,null>\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": \"<integer>\",\n            \"TeamA_AggregateScore\": \"<integer>\",\n            \"TeamB_Id\": \"<integer>\",\n            \"TeamB_AggregateScore\": \"<integer>\",\n            \"WinningTeamId\": \"<integer>\",\n            \"Created\": \"<string,null>\",\n            \"Updated\": \"<string,null>\"\n          }\n        },\n        \"OperatorGameID\": \"<integer,null>\",\n        \"RemovedByOperator\": \"<boolean,null>\"\n      }\n    ],\n    \"DfsSlatePlayers\": [\n      {\n        \"SlatePlayerID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"SlateGameID\": \"<integer,null>\",\n        \"PlayerID\": \"<integer,null>\",\n        \"PlayerGameProjectionStatID\": \"<integer,null>\",\n        \"OperatorPlayerID\": \"<string,null>\",\n        \"OperatorSlatePlayerID\": \"<string,null>\",\n        \"OperatorPlayerName\": \"<string,null>\",\n        \"OperatorPosition\": \"<string,null>\",\n        \"OperatorSalary\": \"<integer,null>\",\n        \"OperatorRosterSlots\": [\n          \"<string,null>\",\n          \"<string,null>\"\n        ],\n        \"RemovedByOperator\": \"<boolean,null>\",\n        \"Team\": \"<string,null>\",\n        \"TeamID\": \"<integer,null>\"\n      },\n      {\n        \"SlatePlayerID\": \"<integer>\",\n        \"SlateID\": \"<integer>\",\n        \"SlateGameID\": \"<integer,null>\",\n        \"PlayerID\": \"<integer,null>\",\n        \"PlayerGameProjectionStatID\": \"<integer,null>\",\n        \"OperatorPlayerID\": \"<string,null>\",\n        \"OperatorSlatePlayerID\": \"<string,null>\",\n        \"OperatorPlayerName\": \"<string,null>\",\n        \"OperatorPosition\": \"<string,null>\",\n        \"OperatorSalary\": \"<integer,null>\",\n        \"OperatorRosterSlots\": [\n          \"<string,null>\",\n          \"<string,null>\"\n        ],\n        \"RemovedByOperator\": \"<boolean,null>\",\n        \"Team\": \"<string,null>\",\n        \"TeamID\": \"<integer,null>\"\n      }\n    ],\n    \"SlateRosterSlots\": [\n      \"<string,null>\",\n      \"<string,null>\"\n    ],\n    \"SalaryCap\": \"<integer,null>\",\n    \"CompetitionId\": \"<integer,null>\"\n  }\n]",
+                                  "createdAt": "2026-10-21T20:20:24.000Z",
+                                  "updatedAt": "2026-10-21T20:20:24.000Z",
+                                  "uid": "35240-8862b241-359b-4054-a94b-76a3071931c7"
+                                },
+                                {
+                                  "id": "bac4ba16-3be3-4990-9cb4-e81df4e6cba2",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Ocp-Apim-Subscription-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v4/soccer/projections/:format/UpcomingDfsSlatesByCompetition/:competition",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v4",
+                                        "soccer",
+                                        "projections",
+                                        ":format",
+                                        "UpcomingDfsSlatesByCompetition",
+                                        ":competition"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "format"
+                                        },
+                                        {
+                                          "key": "competition"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"Code\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"Help\": \"<string>\"\n}",
+                                  "createdAt": "2026-10-21T20:20:24.000Z",
+                                  "updatedAt": "2026-10-21T20:20:24.000Z",
+                                  "uid": "35240-bac4ba16-3be3-4990-9cb4-e81df4e6cba2"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T20:20:24.000Z",
+                              "updatedAt": "2026-10-21T20:20:24.000Z",
+                              "uid": "35240-7f57b93d-a57a-45a1-8bc6-79794c56f529"
+                            }
+                          ],
+                          "id": "c06cfe3b-0bae-48f4-bd04-a342cfffec04",
+                          "createdAt": "2026-10-21T20:20:24.000Z",
+                          "updatedAt": "2026-10-21T20:20:24.000Z",
+                          "uid": "35240-c06cfe3b-0bae-48f4-bd04-a342cfffec04"
+                        }
+                      ],
+                      "id": "72caddbf-1daf-43e5-925e-443a1fc26702",
+                      "createdAt": "2026-10-21T20:20:24.000Z",
+                      "updatedAt": "2026-10-21T20:20:24.000Z",
+                      "uid": "35240-72caddbf-1daf-43e5-925e-443a1fc26702"
+                    },
+                    {
+                      "name": "InjuredPlayers",
+                      "item": [
+                        {
+                          "name": "{competition}",
+                          "item": [
+                            {
+                              "name": "Player Details - by Injured",
+                              "id": "e7e839ef-74b3-4d3b-9d5a-1cf22ce739ee",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v4/soccer/projections/:format/InjuredPlayers/:competition",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v4",
+                                    "soccer",
+                                    "projections",
+                                    ":format",
+                                    "InjuredPlayers",
+                                    ":competition"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "afd0a2ca-b915-4597-a3f3-8aa5c0e80688",
+                                      "key": "format",
+                                      "value": "JSON",
+                                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                                    },
+                                    {
+                                      "id": "9f152742-d10f-459a-b1b4-f859f1e1faf4",
+                                      "key": "competition",
+                                      "value": "<string>",
+                                      "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
+                                    }
+                                  ]
+                                },
+                                "description": "This endpoint provides all currently injured soccer players by competition, along with injury details."
+                              },
+                              "response": [
+                                {
+                                  "id": "b4275d44-2ce4-4808-a98c-faf623fc9c41",
+                                  "name": "Success",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Ocp-Apim-Subscription-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v4/soccer/projections/:format/InjuredPlayers/:competition",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v4",
+                                        "soccer",
+                                        "projections",
+                                        ":format",
+                                        "InjuredPlayers",
+                                        ":competition"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "format"
+                                        },
+                                        {
+                                          "key": "competition"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "[\n  {\n    \"PlayerId\": \"<integer>\",\n    \"FirstName\": \"<string,null>\",\n    \"LastName\": \"<string,null>\",\n    \"CommonName\": \"<string,null>\",\n    \"ShortName\": \"<string,null>\",\n    \"Position\": \"<string,null>\",\n    \"PositionCategory\": \"<string,null>\",\n    \"Jersey\": \"<integer,null>\",\n    \"Foot\": \"<string,null>\",\n    \"Height\": \"<integer,null>\",\n    \"Weight\": \"<integer,null>\",\n    \"Gender\": \"<string,null>\",\n    \"BirthDate\": \"<string,null>\",\n    \"BirthCity\": \"<string,null>\",\n    \"BirthCountry\": \"<string,null>\",\n    \"Nationality\": \"<string,null>\",\n    \"InjuryStatus\": \"<string,null>\",\n    \"InjuryBodyPart\": \"<string,null>\",\n    \"InjuryNotes\": \"<string,null>\",\n    \"InjuryStartDate\": \"<string,null>\",\n    \"Updated\": \"<string,null>\",\n    \"PhotoUrl\": \"<string,null>\",\n    \"RotoWirePlayerID\": \"<integer,null>\",\n    \"DraftKingsPosition\": \"<string,null>\",\n    \"UsaTodayPlayerID\": \"<integer,null>\",\n    \"UsaTodayHeadshotUrl\": \"<string,null>\",\n    \"UsaTodayHeadshotNoBackgroundUrl\": \"<string,null>\",\n    \"UsaTodayHeadshotUpdated\": \"<string,null>\",\n    \"UsaTodayHeadshotNoBackgroundUpdated\": \"<string,null>\"\n  },\n  {\n    \"PlayerId\": \"<integer>\",\n    \"FirstName\": \"<string,null>\",\n    \"LastName\": \"<string,null>\",\n    \"CommonName\": \"<string,null>\",\n    \"ShortName\": \"<string,null>\",\n    \"Position\": \"<string,null>\",\n    \"PositionCategory\": \"<string,null>\",\n    \"Jersey\": \"<integer,null>\",\n    \"Foot\": \"<string,null>\",\n    \"Height\": \"<integer,null>\",\n    \"Weight\": \"<integer,null>\",\n    \"Gender\": \"<string,null>\",\n    \"BirthDate\": \"<string,null>\",\n    \"BirthCity\": \"<string,null>\",\n    \"BirthCountry\": \"<string,null>\",\n    \"Nationality\": \"<string,null>\",\n    \"InjuryStatus\": \"<string,null>\",\n    \"InjuryBodyPart\": \"<string,null>\",\n    \"InjuryNotes\": \"<string,null>\",\n    \"InjuryStartDate\": \"<string,null>\",\n    \"Updated\": \"<string,null>\",\n    \"PhotoUrl\": \"<string,null>\",\n    \"RotoWirePlayerID\": \"<integer,null>\",\n    \"DraftKingsPosition\": \"<string,null>\",\n    \"UsaTodayPlayerID\": \"<integer,null>\",\n    \"UsaTodayHeadshotUrl\": \"<string,null>\",\n    \"UsaTodayHeadshotNoBackgroundUrl\": \"<string,null>\",\n    \"UsaTodayHeadshotUpdated\": \"<string,null>\",\n    \"UsaTodayHeadshotNoBackgroundUpdated\": \"<string,null>\"\n  }\n]",
+                                  "createdAt": "2026-10-21T20:20:24.000Z",
+                                  "updatedAt": "2026-10-21T20:20:24.000Z",
+                                  "uid": "35240-b4275d44-2ce4-4808-a98c-faf623fc9c41"
+                                },
+                                {
+                                  "id": "82704889-e19d-4de5-88a1-5628f4e4657c",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Ocp-Apim-Subscription-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v4/soccer/projections/:format/InjuredPlayers/:competition",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v4",
+                                        "soccer",
+                                        "projections",
+                                        ":format",
+                                        "InjuredPlayers",
+                                        ":competition"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "format"
+                                        },
+                                        {
+                                          "key": "competition"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"Code\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"Help\": \"<string>\"\n}",
+                                  "createdAt": "2026-10-21T20:20:24.000Z",
+                                  "updatedAt": "2026-10-21T20:20:24.000Z",
+                                  "uid": "35240-82704889-e19d-4de5-88a1-5628f4e4657c"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T20:20:24.000Z",
+                              "updatedAt": "2026-10-21T20:20:24.000Z",
+                              "uid": "35240-e7e839ef-74b3-4d3b-9d5a-1cf22ce739ee"
+                            }
+                          ],
+                          "id": "1fd8b99c-6147-4ccd-9b34-2d03d444c895",
+                          "createdAt": "2026-10-21T20:20:24.000Z",
+                          "updatedAt": "2026-10-21T20:20:24.000Z",
+                          "uid": "35240-1fd8b99c-6147-4ccd-9b34-2d03d444c895"
+                        }
+                      ],
+                      "id": "32f811ed-5139-431d-9d9d-417026fce000",
+                      "createdAt": "2026-10-21T20:20:24.000Z",
+                      "updatedAt": "2026-10-21T20:20:24.000Z",
+                      "uid": "35240-32f811ed-5139-431d-9d9d-417026fce000"
+                    }
+                  ],
+                  "id": "4b6dae90-1fef-46b7-b781-fae2dc6338bd",
+                  "createdAt": "2026-10-21T20:20:24.000Z",
+                  "updatedAt": "2026-10-21T20:20:24.000Z",
+                  "uid": "35240-4b6dae90-1fef-46b7-b781-fae2dc6338bd"
                 }
               ],
-              "body": "[\n  {\n    \"StatId\": 6468,\n    \"SeasonType\": 4722,\n    \"Season\": 7981,\n    \"RoundId\": 1619,\n    \"TeamId\": 4887,\n    \"PlayerId\": 9845,\n    \"Name\": \"string\",\n    \"ShortName\": \"string\",\n    \"Team\": \"string\",\n    \"PositionCategory\": \"string\",\n    \"Position\": \"string\",\n    \"Jersey\": 1195,\n    \"Started\": 4443,\n    \"Captain\": false,\n    \"Suspension\": true,\n    \"SuspensionReason\": \"string\",\n    \"FanDuelSalary\": 9661,\n    \"DraftKingsSalary\": 6748,\n    \"YahooSalary\": 1440,\n    \"MondogoalSalary\": 5563,\n    \"FanDuelPosition\": \"string\",\n    \"DraftKingsPosition\": \"string\",\n    \"YahooPosition\": \"string\",\n    \"MondogoalPosition\": \"string\",\n    \"InjuryStatus\": \"string\",\n    \"InjuryBodyPart\": \"string\",\n    \"InjuryNotes\": \"string\",\n    \"InjuryStartDate\": \"string\",\n    \"GlobalTeamId\": 6549,\n    \"Corners\": 73.77650789109347,\n    \"GameId\": 7495,\n    \"OpponentId\": 6855,\n    \"Opponent\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"HomeOrAway\": \"string\",\n    \"IsGameOver\": true,\n    \"GlobalGameId\": 8620,\n    \"GlobalOpponentId\": 5706,\n    \"Updated\": \"string\",\n    \"UpdatedUtc\": \"string\",\n    \"Games\": 1974,\n    \"FantasyPoints\": 6211.4672944776385,\n    \"FantasyPointsFanDuel\": 1127.092572357954,\n    \"FantasyPointsDraftKings\": 2666.5810567019867,\n    \"FantasyPointsYahoo\": 682.0548483029776,\n    \"FantasyPointsMondogoal\": 1272.2386765131732,\n    \"Minutes\": 9609.315062113903,\n    \"Goals\": 6241.933140231518,\n    \"Assists\": 7524.186094279283,\n    \"Shots\": 3418.037653381255,\n    \"ShotsOnGoal\": 8043.255471827872,\n    \"YellowCards\": 4077.6307067617236,\n    \"RedCards\": 6686.7479319824615,\n    \"YellowRedCards\": 4747.9489575444895,\n    \"Crosses\": 7549.24305771735,\n    \"TacklesWon\": 1923.755557592386,\n    \"Interceptions\": 8455.588203083713,\n    \"OwnGoals\": 8046.469125687779,\n    \"Fouls\": 5598.281224737603,\n    \"Fouled\": 1992.326234949775,\n    \"Offsides\": 322.86809613726433,\n    \"Passes\": 6742.935801049438,\n    \"PassesCompleted\": 1559.9992857537625,\n    \"LastManTackle\": 6648.143548114444,\n    \"CornersWon\": 4726.948156519977,\n    \"BlockedShots\": 8536.522309664377,\n    \"Touches\": 1859.099788211941,\n    \"DefenderCleanSheets\": 1151.5533226382402,\n    \"GoalkeeperSaves\": 8627.34167276545,\n    \"GoalkeeperGoalsAgainst\": 3831.971167952649,\n    \"GoalkeeperSingleGoalAgainst\": 2684.2279574728277,\n    \"GoalkeeperCleanSheets\": 5000.761106371122,\n    \"GoalkeeperWins\": 3826.636934715677,\n    \"PenaltyKickGoals\": 1142.57377256335,\n    \"PenaltyKickMisses\": 9677.018567275753,\n    \"PenaltyKickSaves\": 6770.980722353756,\n    \"PenaltiesWon\": 469.067858343053,\n    \"PenaltiesConceded\": 9331.322188854858,\n    \"Score\": 2450.0196537729826,\n    \"OpponentScore\": 9479.174463520849,\n    \"Tackles\": 1410.2448200483332\n  },\n  {\n    \"StatId\": 1117,\n    \"SeasonType\": 8043,\n    \"Season\": 2864,\n    \"RoundId\": 8239,\n    \"TeamId\": 324,\n    \"PlayerId\": 5101,\n    \"Name\": \"string\",\n    \"ShortName\": \"string\",\n    \"Team\": \"string\",\n    \"PositionCategory\": \"string\",\n    \"Position\": \"string\",\n    \"Jersey\": 5589,\n    \"Started\": 1571,\n    \"Captain\": true,\n    \"Suspension\": true,\n    \"SuspensionReason\": \"string\",\n    \"FanDuelSalary\": 1640,\n    \"DraftKingsSalary\": 5653,\n    \"YahooSalary\": 7513,\n    \"MondogoalSalary\": 4224,\n    \"FanDuelPosition\": \"string\",\n    \"DraftKingsPosition\": \"string\",\n    \"YahooPosition\": \"string\",\n    \"MondogoalPosition\": \"string\",\n    \"InjuryStatus\": \"string\",\n    \"InjuryBodyPart\": \"string\",\n    \"InjuryNotes\": \"string\",\n    \"InjuryStartDate\": \"string\",\n    \"GlobalTeamId\": 3157,\n    \"Corners\": 1984.0951181556732,\n    \"GameId\": 5333,\n    \"OpponentId\": 305,\n    \"Opponent\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"HomeOrAway\": \"string\",\n    \"IsGameOver\": true,\n    \"GlobalGameId\": 7880,\n    \"GlobalOpponentId\": 1825,\n    \"Updated\": \"string\",\n    \"UpdatedUtc\": \"string\",\n    \"Games\": 9716,\n    \"FantasyPoints\": 5772.663511023762,\n    \"FantasyPointsFanDuel\": 9080.267415305523,\n    \"FantasyPointsDraftKings\": 8587.653857041674,\n    \"FantasyPointsYahoo\": 9742.392125200611,\n    \"FantasyPointsMondogoal\": 8629.87572495013,\n    \"Minutes\": 7544.663704067442,\n    \"Goals\": 4986.488251671519,\n    \"Assists\": 2830.5147168339718,\n    \"Shots\": 4398.679880441635,\n    \"ShotsOnGoal\": 4979.073042624421,\n    \"YellowCards\": 59.81777707063873,\n    \"RedCards\": 5987.853325640094,\n    \"YellowRedCards\": 2234.8507220457336,\n    \"Crosses\": 6037.936194122655,\n    \"TacklesWon\": 1958.2831381460842,\n    \"Interceptions\": 7508.858039942515,\n    \"OwnGoals\": 7193.959845019308,\n    \"Fouls\": 6144.8030638767295,\n    \"Fouled\": 7051.130970313832,\n    \"Offsides\": 9965.474002491352,\n    \"Passes\": 5322.2904012806985,\n    \"PassesCompleted\": 6668.668822583595,\n    \"LastManTackle\": 4806.193187456596,\n    \"CornersWon\": 7666.806432934435,\n    \"BlockedShots\": 704.5188225662646,\n    \"Touches\": 3119.0980418876434,\n    \"DefenderCleanSheets\": 9384.36791544626,\n    \"GoalkeeperSaves\": 2306.6064357023706,\n    \"GoalkeeperGoalsAgainst\": 5797.8458152441135,\n    \"GoalkeeperSingleGoalAgainst\": 9859.047372074789,\n    \"GoalkeeperCleanSheets\": 4034.0574811786546,\n    \"GoalkeeperWins\": 2218.72439304879,\n    \"PenaltyKickGoals\": 6575.220889292904,\n    \"PenaltyKickMisses\": 2150.7704012452355,\n    \"PenaltyKickSaves\": 1084.3653353952855,\n    \"PenaltiesWon\": 890.2647329043689,\n    \"PenaltiesConceded\": 6677.235848177497,\n    \"Score\": 1301.9239740351763,\n    \"OpponentScore\": 4019.220778370175,\n    \"Tackles\": 855.742961451581\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "50b9a59a-1853-41ce-9ab0-ae654ab28371",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v4",
-                    "soccer",
-                    "projections",
-                    ":format",
-                    "PlayerGameProjectionStatsByDate",
-                    ":competition",
-                    ":date"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "competition",
-                      "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "date",
-                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-02-27</code>, <code>2017-09-01</code>."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"HttpStatusCode\": 9265,\n  \"Code\": 6519,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "f817b61c-43a9-4df4-b35d-f90b549a71e4",
+              "createdAt": "2026-10-21T20:20:24.000Z",
+              "updatedAt": "2026-10-21T20:20:24.000Z",
+              "uid": "35240-f817b61c-43a9-4df4-b35d-f90b549a71e4"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0a9049ee-52d6-4de4-910e-32529fbf9041",
-          "name": "DFS Slates - by Date",
-          "request": {
-            "name": "DFS Slates - by Date",
-            "description": {
-              "content": "Returns DFS Slates which have not yet started, with their player and salary information.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v4",
-                "soccer",
-                "projections",
-                ":format",
-                "DfsSlatesByDate",
-                ":competition",
-                ":date"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "JSON",
-                  "key": "format",
-                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "competition",
-                  "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "date",
-                  "description": "(Required) The date of the game(s).\n<br>Examples: <code>2020-02-18</code>\n"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1c3dc048-00dd-4d44-aea0-321cb0192d7e",
-              "name": "Success",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v4",
-                    "soccer",
-                    "projections",
-                    ":format",
-                    "DfsSlatesByDate",
-                    ":competition",
-                    ":date"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "competition",
-                      "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "date",
-                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2020-02-18</code>\n"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"SlateID\": 6691,\n    \"Operator\": \"string\",\n    \"OperatorSlateID\": 7607,\n    \"OperatorName\": \"string\",\n    \"OperatorDay\": \"string\",\n    \"OperatorStartTime\": \"string\",\n    \"NumberOfGames\": 794,\n    \"IsMultiDaySlate\": true,\n    \"RemovedByOperator\": false,\n    \"OperatorGameType\": \"string\",\n    \"DfsSlateGames\": [\n      {\n        \"SlateGameID\": 6497,\n        \"SlateID\": 8369,\n        \"GameID\": 3848,\n        \"Game\": {\n          \"GameId\": 8954,\n          \"RoundId\": 5917,\n          \"Season\": 7603,\n          \"SeasonType\": 2113,\n          \"Group\": \"string\",\n          \"AwayTeamId\": 2758,\n          \"HomeTeamId\": 6583,\n          \"VenueId\": 6449,\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"Status\": \"string\",\n          \"Week\": 982,\n          \"Period\": \"string\",\n          \"Clock\": 5118,\n          \"Winner\": \"string\",\n          \"VenueType\": \"string\",\n          \"AwayTeamKey\": \"string\",\n          \"AwayTeamName\": \"string\",\n          \"AwayTeamCountryCode\": \"string\",\n          \"AwayTeamScore\": 2290,\n          \"AwayTeamScorePeriod1\": 9476,\n          \"AwayTeamScorePeriod2\": 7567,\n          \"AwayTeamScoreExtraTime\": 6694,\n          \"AwayTeamScorePenalty\": 9908,\n          \"HomeTeamKey\": \"string\",\n          \"HomeTeamName\": \"string\",\n          \"HomeTeamCountryCode\": \"string\",\n          \"HomeTeamScore\": 7616,\n          \"HomeTeamScorePeriod1\": 1606,\n          \"HomeTeamScorePeriod2\": 9062,\n          \"HomeTeamScoreExtraTime\": 9111,\n          \"HomeTeamScorePenalty\": 4450,\n          \"HomeTeamMoneyLine\": 4321,\n          \"AwayTeamMoneyLine\": 7107,\n          \"DrawMoneyLine\": 323,\n          \"PointSpread\": 8608.449922984284,\n          \"HomeTeamPointSpreadPayout\": 850,\n          \"AwayTeamPointSpreadPayout\": 5029,\n          \"OverUnder\": 2912.279005832643,\n          \"OverPayout\": 9377,\n          \"UnderPayout\": 5144,\n          \"Attendance\": 1511,\n          \"Updated\": \"string\",\n          \"UpdatedUtc\": \"string\",\n          \"GlobalGameId\": 5141,\n          \"GlobalAwayTeamId\": 3089,\n          \"GlobalHomeTeamId\": 6889,\n          \"ClockExtra\": 5826,\n          \"ClockDisplay\": \"string\",\n          \"IsClosed\": false,\n          \"HomeTeamFormation\": \"string\",\n          \"AwayTeamFormation\": \"string\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamA_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WinningTeamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"OperatorGameID\": 8223,\n        \"RemovedByOperator\": true\n      },\n      {\n        \"SlateGameID\": 9397,\n        \"SlateID\": 8836,\n        \"GameID\": 5750,\n        \"Game\": {\n          \"GameId\": 1638,\n          \"RoundId\": 8093,\n          \"Season\": 7865,\n          \"SeasonType\": 2249,\n          \"Group\": \"string\",\n          \"AwayTeamId\": 8134,\n          \"HomeTeamId\": 5626,\n          \"VenueId\": 1395,\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"Status\": \"string\",\n          \"Week\": 807,\n          \"Period\": \"string\",\n          \"Clock\": 7453,\n          \"Winner\": \"string\",\n          \"VenueType\": \"string\",\n          \"AwayTeamKey\": \"string\",\n          \"AwayTeamName\": \"string\",\n          \"AwayTeamCountryCode\": \"string\",\n          \"AwayTeamScore\": 6567,\n          \"AwayTeamScorePeriod1\": 2468,\n          \"AwayTeamScorePeriod2\": 348,\n          \"AwayTeamScoreExtraTime\": 6681,\n          \"AwayTeamScorePenalty\": 6485,\n          \"HomeTeamKey\": \"string\",\n          \"HomeTeamName\": \"string\",\n          \"HomeTeamCountryCode\": \"string\",\n          \"HomeTeamScore\": 1789,\n          \"HomeTeamScorePeriod1\": 2557,\n          \"HomeTeamScorePeriod2\": 7751,\n          \"HomeTeamScoreExtraTime\": 2231,\n          \"HomeTeamScorePenalty\": 149,\n          \"HomeTeamMoneyLine\": 2988,\n          \"AwayTeamMoneyLine\": 3552,\n          \"DrawMoneyLine\": 128,\n          \"PointSpread\": 4498.8160917876285,\n          \"HomeTeamPointSpreadPayout\": 653,\n          \"AwayTeamPointSpreadPayout\": 6199,\n          \"OverUnder\": 7141.941210821119,\n          \"OverPayout\": 4410,\n          \"UnderPayout\": 1083,\n          \"Attendance\": 7698,\n          \"Updated\": \"string\",\n          \"UpdatedUtc\": \"string\",\n          \"GlobalGameId\": 6073,\n          \"GlobalAwayTeamId\": 8961,\n          \"GlobalHomeTeamId\": 7165,\n          \"ClockExtra\": 2182,\n          \"ClockDisplay\": \"string\",\n          \"IsClosed\": true,\n          \"HomeTeamFormation\": \"string\",\n          \"AwayTeamFormation\": \"string\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamA_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WinningTeamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"OperatorGameID\": 1114,\n        \"RemovedByOperator\": false\n      }\n    ],\n    \"DfsSlatePlayers\": [\n      {\n        \"SlatePlayerID\": 6948,\n        \"SlateID\": 3800,\n        \"SlateGameID\": 875,\n        \"PlayerID\": 7879,\n        \"PlayerGameProjectionStatID\": 1353,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 4719,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": true,\n        \"Team\": \"string\",\n        \"TeamID\": 1324\n      },\n      {\n        \"SlatePlayerID\": 4696,\n        \"SlateID\": 4687,\n        \"SlateGameID\": 4280,\n        \"PlayerID\": 483,\n        \"PlayerGameProjectionStatID\": 5862,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 3625,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": true,\n        \"Team\": \"string\",\n        \"TeamID\": 4168\n      }\n    ],\n    \"SlateRosterSlots\": [\n      \"string\",\n      \"string\"\n    ],\n    \"SalaryCap\": 4514,\n    \"CompetitionId\": 6585\n  },\n  {\n    \"SlateID\": 2466,\n    \"Operator\": \"string\",\n    \"OperatorSlateID\": 1884,\n    \"OperatorName\": \"string\",\n    \"OperatorDay\": \"string\",\n    \"OperatorStartTime\": \"string\",\n    \"NumberOfGames\": 1865,\n    \"IsMultiDaySlate\": true,\n    \"RemovedByOperator\": false,\n    \"OperatorGameType\": \"string\",\n    \"DfsSlateGames\": [\n      {\n        \"SlateGameID\": 1335,\n        \"SlateID\": 6654,\n        \"GameID\": 4561,\n        \"Game\": {\n          \"GameId\": 9750,\n          \"RoundId\": 3840,\n          \"Season\": 820,\n          \"SeasonType\": 3239,\n          \"Group\": \"string\",\n          \"AwayTeamId\": 9255,\n          \"HomeTeamId\": 2264,\n          \"VenueId\": 5018,\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"Status\": \"string\",\n          \"Week\": 3788,\n          \"Period\": \"string\",\n          \"Clock\": 5304,\n          \"Winner\": \"string\",\n          \"VenueType\": \"string\",\n          \"AwayTeamKey\": \"string\",\n          \"AwayTeamName\": \"string\",\n          \"AwayTeamCountryCode\": \"string\",\n          \"AwayTeamScore\": 7811,\n          \"AwayTeamScorePeriod1\": 6159,\n          \"AwayTeamScorePeriod2\": 163,\n          \"AwayTeamScoreExtraTime\": 2722,\n          \"AwayTeamScorePenalty\": 5991,\n          \"HomeTeamKey\": \"string\",\n          \"HomeTeamName\": \"string\",\n          \"HomeTeamCountryCode\": \"string\",\n          \"HomeTeamScore\": 6477,\n          \"HomeTeamScorePeriod1\": 7636,\n          \"HomeTeamScorePeriod2\": 2919,\n          \"HomeTeamScoreExtraTime\": 7518,\n          \"HomeTeamScorePenalty\": 6513,\n          \"HomeTeamMoneyLine\": 4654,\n          \"AwayTeamMoneyLine\": 1130,\n          \"DrawMoneyLine\": 2839,\n          \"PointSpread\": 9386.071560671113,\n          \"HomeTeamPointSpreadPayout\": 5072,\n          \"AwayTeamPointSpreadPayout\": 5197,\n          \"OverUnder\": 3921.0677040512232,\n          \"OverPayout\": 6405,\n          \"UnderPayout\": 5830,\n          \"Attendance\": 326,\n          \"Updated\": \"string\",\n          \"UpdatedUtc\": \"string\",\n          \"GlobalGameId\": 92,\n          \"GlobalAwayTeamId\": 615,\n          \"GlobalHomeTeamId\": 1266,\n          \"ClockExtra\": 5681,\n          \"ClockDisplay\": \"string\",\n          \"IsClosed\": true,\n          \"HomeTeamFormation\": \"string\",\n          \"AwayTeamFormation\": \"string\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamA_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WinningTeamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"OperatorGameID\": 4370,\n        \"RemovedByOperator\": true\n      },\n      {\n        \"SlateGameID\": 7444,\n        \"SlateID\": 8993,\n        \"GameID\": 3544,\n        \"Game\": {\n          \"GameId\": 8858,\n          \"RoundId\": 6485,\n          \"Season\": 8407,\n          \"SeasonType\": 5745,\n          \"Group\": \"string\",\n          \"AwayTeamId\": 2335,\n          \"HomeTeamId\": 2474,\n          \"VenueId\": 784,\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"Status\": \"string\",\n          \"Week\": 3498,\n          \"Period\": \"string\",\n          \"Clock\": 4582,\n          \"Winner\": \"string\",\n          \"VenueType\": \"string\",\n          \"AwayTeamKey\": \"string\",\n          \"AwayTeamName\": \"string\",\n          \"AwayTeamCountryCode\": \"string\",\n          \"AwayTeamScore\": 9450,\n          \"AwayTeamScorePeriod1\": 4087,\n          \"AwayTeamScorePeriod2\": 195,\n          \"AwayTeamScoreExtraTime\": 8085,\n          \"AwayTeamScorePenalty\": 2653,\n          \"HomeTeamKey\": \"string\",\n          \"HomeTeamName\": \"string\",\n          \"HomeTeamCountryCode\": \"string\",\n          \"HomeTeamScore\": 7760,\n          \"HomeTeamScorePeriod1\": 8369,\n          \"HomeTeamScorePeriod2\": 8575,\n          \"HomeTeamScoreExtraTime\": 4592,\n          \"HomeTeamScorePenalty\": 8103,\n          \"HomeTeamMoneyLine\": 8177,\n          \"AwayTeamMoneyLine\": 2180,\n          \"DrawMoneyLine\": 3264,\n          \"PointSpread\": 6996.117056974993,\n          \"HomeTeamPointSpreadPayout\": 4224,\n          \"AwayTeamPointSpreadPayout\": 6133,\n          \"OverUnder\": 2633.110988471351,\n          \"OverPayout\": 4365,\n          \"UnderPayout\": 9316,\n          \"Attendance\": 4592,\n          \"Updated\": \"string\",\n          \"UpdatedUtc\": \"string\",\n          \"GlobalGameId\": 1637,\n          \"GlobalAwayTeamId\": 9558,\n          \"GlobalHomeTeamId\": 4673,\n          \"ClockExtra\": 116,\n          \"ClockDisplay\": \"string\",\n          \"IsClosed\": true,\n          \"HomeTeamFormation\": \"string\",\n          \"AwayTeamFormation\": \"string\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamA_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WinningTeamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"OperatorGameID\": 6403,\n        \"RemovedByOperator\": true\n      }\n    ],\n    \"DfsSlatePlayers\": [\n      {\n        \"SlatePlayerID\": 5625,\n        \"SlateID\": 6235,\n        \"SlateGameID\": 4307,\n        \"PlayerID\": 996,\n        \"PlayerGameProjectionStatID\": 6916,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 7222,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": false,\n        \"Team\": \"string\",\n        \"TeamID\": 7306\n      },\n      {\n        \"SlatePlayerID\": 8005,\n        \"SlateID\": 4594,\n        \"SlateGameID\": 6247,\n        \"PlayerID\": 3345,\n        \"PlayerGameProjectionStatID\": 3838,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 5282,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": false,\n        \"Team\": \"string\",\n        \"TeamID\": 3889\n      }\n    ],\n    \"SlateRosterSlots\": [\n      \"string\",\n      \"string\"\n    ],\n    \"SalaryCap\": 1049,\n    \"CompetitionId\": 8576\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3b711491-6033-40b9-956d-b3a294ee7255",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v4",
-                    "soccer",
-                    "projections",
-                    ":format",
-                    "DfsSlatesByDate",
-                    ":competition",
-                    ":date"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "competition",
-                      "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "date",
-                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2020-02-18</code>\n"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"HttpStatusCode\": 9265,\n  \"Code\": 6519,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ca69c4b1-311f-4104-936d-d83e84759cdd",
-          "name": "Upcoming DFS Slates - by Competition",
-          "request": {
-            "name": "Upcoming DFS Slates - by Competition",
-            "description": {
-              "content": "Returns upcoming DFS Slates which have not yet started, with their player and salary information, by competition.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v4",
-                "soccer",
-                "projections",
-                ":format",
-                "UpcomingDfsSlatesByCompetition",
-                ":competition"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "JSON",
-                  "key": "format",
-                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "competition",
-                  "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "69817abd-8e26-4bfb-aa4f-6d0c4c1b19be",
-              "name": "Success",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v4",
-                    "soccer",
-                    "projections",
-                    ":format",
-                    "UpcomingDfsSlatesByCompetition",
-                    ":competition"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "competition",
-                      "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"SlateID\": 6691,\n    \"Operator\": \"string\",\n    \"OperatorSlateID\": 7607,\n    \"OperatorName\": \"string\",\n    \"OperatorDay\": \"string\",\n    \"OperatorStartTime\": \"string\",\n    \"NumberOfGames\": 794,\n    \"IsMultiDaySlate\": true,\n    \"RemovedByOperator\": false,\n    \"OperatorGameType\": \"string\",\n    \"DfsSlateGames\": [\n      {\n        \"SlateGameID\": 6497,\n        \"SlateID\": 8369,\n        \"GameID\": 3848,\n        \"Game\": {\n          \"GameId\": 8954,\n          \"RoundId\": 5917,\n          \"Season\": 7603,\n          \"SeasonType\": 2113,\n          \"Group\": \"string\",\n          \"AwayTeamId\": 2758,\n          \"HomeTeamId\": 6583,\n          \"VenueId\": 6449,\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"Status\": \"string\",\n          \"Week\": 982,\n          \"Period\": \"string\",\n          \"Clock\": 5118,\n          \"Winner\": \"string\",\n          \"VenueType\": \"string\",\n          \"AwayTeamKey\": \"string\",\n          \"AwayTeamName\": \"string\",\n          \"AwayTeamCountryCode\": \"string\",\n          \"AwayTeamScore\": 2290,\n          \"AwayTeamScorePeriod1\": 9476,\n          \"AwayTeamScorePeriod2\": 7567,\n          \"AwayTeamScoreExtraTime\": 6694,\n          \"AwayTeamScorePenalty\": 9908,\n          \"HomeTeamKey\": \"string\",\n          \"HomeTeamName\": \"string\",\n          \"HomeTeamCountryCode\": \"string\",\n          \"HomeTeamScore\": 7616,\n          \"HomeTeamScorePeriod1\": 1606,\n          \"HomeTeamScorePeriod2\": 9062,\n          \"HomeTeamScoreExtraTime\": 9111,\n          \"HomeTeamScorePenalty\": 4450,\n          \"HomeTeamMoneyLine\": 4321,\n          \"AwayTeamMoneyLine\": 7107,\n          \"DrawMoneyLine\": 323,\n          \"PointSpread\": 8608.449922984284,\n          \"HomeTeamPointSpreadPayout\": 850,\n          \"AwayTeamPointSpreadPayout\": 5029,\n          \"OverUnder\": 2912.279005832643,\n          \"OverPayout\": 9377,\n          \"UnderPayout\": 5144,\n          \"Attendance\": 1511,\n          \"Updated\": \"string\",\n          \"UpdatedUtc\": \"string\",\n          \"GlobalGameId\": 5141,\n          \"GlobalAwayTeamId\": 3089,\n          \"GlobalHomeTeamId\": 6889,\n          \"ClockExtra\": 5826,\n          \"ClockDisplay\": \"string\",\n          \"IsClosed\": false,\n          \"HomeTeamFormation\": \"string\",\n          \"AwayTeamFormation\": \"string\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamA_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WinningTeamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"OperatorGameID\": 8223,\n        \"RemovedByOperator\": true\n      },\n      {\n        \"SlateGameID\": 9397,\n        \"SlateID\": 8836,\n        \"GameID\": 5750,\n        \"Game\": {\n          \"GameId\": 1638,\n          \"RoundId\": 8093,\n          \"Season\": 7865,\n          \"SeasonType\": 2249,\n          \"Group\": \"string\",\n          \"AwayTeamId\": 8134,\n          \"HomeTeamId\": 5626,\n          \"VenueId\": 1395,\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"Status\": \"string\",\n          \"Week\": 807,\n          \"Period\": \"string\",\n          \"Clock\": 7453,\n          \"Winner\": \"string\",\n          \"VenueType\": \"string\",\n          \"AwayTeamKey\": \"string\",\n          \"AwayTeamName\": \"string\",\n          \"AwayTeamCountryCode\": \"string\",\n          \"AwayTeamScore\": 6567,\n          \"AwayTeamScorePeriod1\": 2468,\n          \"AwayTeamScorePeriod2\": 348,\n          \"AwayTeamScoreExtraTime\": 6681,\n          \"AwayTeamScorePenalty\": 6485,\n          \"HomeTeamKey\": \"string\",\n          \"HomeTeamName\": \"string\",\n          \"HomeTeamCountryCode\": \"string\",\n          \"HomeTeamScore\": 1789,\n          \"HomeTeamScorePeriod1\": 2557,\n          \"HomeTeamScorePeriod2\": 7751,\n          \"HomeTeamScoreExtraTime\": 2231,\n          \"HomeTeamScorePenalty\": 149,\n          \"HomeTeamMoneyLine\": 2988,\n          \"AwayTeamMoneyLine\": 3552,\n          \"DrawMoneyLine\": 128,\n          \"PointSpread\": 4498.8160917876285,\n          \"HomeTeamPointSpreadPayout\": 653,\n          \"AwayTeamPointSpreadPayout\": 6199,\n          \"OverUnder\": 7141.941210821119,\n          \"OverPayout\": 4410,\n          \"UnderPayout\": 1083,\n          \"Attendance\": 7698,\n          \"Updated\": \"string\",\n          \"UpdatedUtc\": \"string\",\n          \"GlobalGameId\": 6073,\n          \"GlobalAwayTeamId\": 8961,\n          \"GlobalHomeTeamId\": 7165,\n          \"ClockExtra\": 2182,\n          \"ClockDisplay\": \"string\",\n          \"IsClosed\": true,\n          \"HomeTeamFormation\": \"string\",\n          \"AwayTeamFormation\": \"string\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamA_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WinningTeamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"OperatorGameID\": 1114,\n        \"RemovedByOperator\": false\n      }\n    ],\n    \"DfsSlatePlayers\": [\n      {\n        \"SlatePlayerID\": 6948,\n        \"SlateID\": 3800,\n        \"SlateGameID\": 875,\n        \"PlayerID\": 7879,\n        \"PlayerGameProjectionStatID\": 1353,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 4719,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": true,\n        \"Team\": \"string\",\n        \"TeamID\": 1324\n      },\n      {\n        \"SlatePlayerID\": 4696,\n        \"SlateID\": 4687,\n        \"SlateGameID\": 4280,\n        \"PlayerID\": 483,\n        \"PlayerGameProjectionStatID\": 5862,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 3625,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": true,\n        \"Team\": \"string\",\n        \"TeamID\": 4168\n      }\n    ],\n    \"SlateRosterSlots\": [\n      \"string\",\n      \"string\"\n    ],\n    \"SalaryCap\": 4514,\n    \"CompetitionId\": 6585\n  },\n  {\n    \"SlateID\": 2466,\n    \"Operator\": \"string\",\n    \"OperatorSlateID\": 1884,\n    \"OperatorName\": \"string\",\n    \"OperatorDay\": \"string\",\n    \"OperatorStartTime\": \"string\",\n    \"NumberOfGames\": 1865,\n    \"IsMultiDaySlate\": true,\n    \"RemovedByOperator\": false,\n    \"OperatorGameType\": \"string\",\n    \"DfsSlateGames\": [\n      {\n        \"SlateGameID\": 1335,\n        \"SlateID\": 6654,\n        \"GameID\": 4561,\n        \"Game\": {\n          \"GameId\": 9750,\n          \"RoundId\": 3840,\n          \"Season\": 820,\n          \"SeasonType\": 3239,\n          \"Group\": \"string\",\n          \"AwayTeamId\": 9255,\n          \"HomeTeamId\": 2264,\n          \"VenueId\": 5018,\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"Status\": \"string\",\n          \"Week\": 3788,\n          \"Period\": \"string\",\n          \"Clock\": 5304,\n          \"Winner\": \"string\",\n          \"VenueType\": \"string\",\n          \"AwayTeamKey\": \"string\",\n          \"AwayTeamName\": \"string\",\n          \"AwayTeamCountryCode\": \"string\",\n          \"AwayTeamScore\": 7811,\n          \"AwayTeamScorePeriod1\": 6159,\n          \"AwayTeamScorePeriod2\": 163,\n          \"AwayTeamScoreExtraTime\": 2722,\n          \"AwayTeamScorePenalty\": 5991,\n          \"HomeTeamKey\": \"string\",\n          \"HomeTeamName\": \"string\",\n          \"HomeTeamCountryCode\": \"string\",\n          \"HomeTeamScore\": 6477,\n          \"HomeTeamScorePeriod1\": 7636,\n          \"HomeTeamScorePeriod2\": 2919,\n          \"HomeTeamScoreExtraTime\": 7518,\n          \"HomeTeamScorePenalty\": 6513,\n          \"HomeTeamMoneyLine\": 4654,\n          \"AwayTeamMoneyLine\": 1130,\n          \"DrawMoneyLine\": 2839,\n          \"PointSpread\": 9386.071560671113,\n          \"HomeTeamPointSpreadPayout\": 5072,\n          \"AwayTeamPointSpreadPayout\": 5197,\n          \"OverUnder\": 3921.0677040512232,\n          \"OverPayout\": 6405,\n          \"UnderPayout\": 5830,\n          \"Attendance\": 326,\n          \"Updated\": \"string\",\n          \"UpdatedUtc\": \"string\",\n          \"GlobalGameId\": 92,\n          \"GlobalAwayTeamId\": 615,\n          \"GlobalHomeTeamId\": 1266,\n          \"ClockExtra\": 5681,\n          \"ClockDisplay\": \"string\",\n          \"IsClosed\": true,\n          \"HomeTeamFormation\": \"string\",\n          \"AwayTeamFormation\": \"string\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamA_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WinningTeamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"OperatorGameID\": 4370,\n        \"RemovedByOperator\": true\n      },\n      {\n        \"SlateGameID\": 7444,\n        \"SlateID\": 8993,\n        \"GameID\": 3544,\n        \"Game\": {\n          \"GameId\": 8858,\n          \"RoundId\": 6485,\n          \"Season\": 8407,\n          \"SeasonType\": 5745,\n          \"Group\": \"string\",\n          \"AwayTeamId\": 2335,\n          \"HomeTeamId\": 2474,\n          \"VenueId\": 784,\n          \"Day\": \"string\",\n          \"DateTime\": \"string\",\n          \"Status\": \"string\",\n          \"Week\": 3498,\n          \"Period\": \"string\",\n          \"Clock\": 4582,\n          \"Winner\": \"string\",\n          \"VenueType\": \"string\",\n          \"AwayTeamKey\": \"string\",\n          \"AwayTeamName\": \"string\",\n          \"AwayTeamCountryCode\": \"string\",\n          \"AwayTeamScore\": 9450,\n          \"AwayTeamScorePeriod1\": 4087,\n          \"AwayTeamScorePeriod2\": 195,\n          \"AwayTeamScoreExtraTime\": 8085,\n          \"AwayTeamScorePenalty\": 2653,\n          \"HomeTeamKey\": \"string\",\n          \"HomeTeamName\": \"string\",\n          \"HomeTeamCountryCode\": \"string\",\n          \"HomeTeamScore\": 7760,\n          \"HomeTeamScorePeriod1\": 8369,\n          \"HomeTeamScorePeriod2\": 8575,\n          \"HomeTeamScoreExtraTime\": 4592,\n          \"HomeTeamScorePenalty\": 8103,\n          \"HomeTeamMoneyLine\": 8177,\n          \"AwayTeamMoneyLine\": 2180,\n          \"DrawMoneyLine\": 3264,\n          \"PointSpread\": 6996.117056974993,\n          \"HomeTeamPointSpreadPayout\": 4224,\n          \"AwayTeamPointSpreadPayout\": 6133,\n          \"OverUnder\": 2633.110988471351,\n          \"OverPayout\": 4365,\n          \"UnderPayout\": 9316,\n          \"Attendance\": 4592,\n          \"Updated\": \"string\",\n          \"UpdatedUtc\": \"string\",\n          \"GlobalGameId\": 1637,\n          \"GlobalAwayTeamId\": 9558,\n          \"GlobalHomeTeamId\": 4673,\n          \"ClockExtra\": 116,\n          \"ClockDisplay\": \"string\",\n          \"IsClosed\": true,\n          \"HomeTeamFormation\": \"string\",\n          \"AwayTeamFormation\": \"string\",\n          \"PlayoffAggregateScore\": {\n            \"TeamA_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamA_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_Id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamB_AggregateScore\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WinningTeamId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Created\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"OperatorGameID\": 6403,\n        \"RemovedByOperator\": true\n      }\n    ],\n    \"DfsSlatePlayers\": [\n      {\n        \"SlatePlayerID\": 5625,\n        \"SlateID\": 6235,\n        \"SlateGameID\": 4307,\n        \"PlayerID\": 996,\n        \"PlayerGameProjectionStatID\": 6916,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 7222,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": false,\n        \"Team\": \"string\",\n        \"TeamID\": 7306\n      },\n      {\n        \"SlatePlayerID\": 8005,\n        \"SlateID\": 4594,\n        \"SlateGameID\": 6247,\n        \"PlayerID\": 3345,\n        \"PlayerGameProjectionStatID\": 3838,\n        \"OperatorPlayerID\": \"string\",\n        \"OperatorSlatePlayerID\": \"string\",\n        \"OperatorPlayerName\": \"string\",\n        \"OperatorPosition\": \"string\",\n        \"OperatorSalary\": 5282,\n        \"OperatorRosterSlots\": [\n          \"string\",\n          \"string\"\n        ],\n        \"RemovedByOperator\": false,\n        \"Team\": \"string\",\n        \"TeamID\": 3889\n      }\n    ],\n    \"SlateRosterSlots\": [\n      \"string\",\n      \"string\"\n    ],\n    \"SalaryCap\": 1049,\n    \"CompetitionId\": 8576\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ca9f0041-cdbb-498d-b468-bf06f71ddc6a",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v4",
-                    "soccer",
-                    "projections",
-                    ":format",
-                    "UpcomingDfsSlatesByCompetition",
-                    ":competition"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "competition",
-                      "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"HttpStatusCode\": 9265,\n  \"Code\": 6519,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "dfd0ccd1-28f6-4d47-9f92-96eed4c54753",
-          "name": "Player Details - by Injured",
-          "request": {
-            "name": "Player Details - by Injured",
-            "description": {
-              "content": "This endpoint provides all currently injured soccer players by competition, along with injury details.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v4",
-                "soccer",
-                "projections",
-                ":format",
-                "InjuredPlayers",
-                ":competition"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "JSON",
-                  "key": "format",
-                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "competition",
-                  "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d2c826fd-e984-4ec6-885e-d861b9beb52d",
-              "name": "Success",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v4",
-                    "soccer",
-                    "projections",
-                    ":format",
-                    "InjuredPlayers",
-                    ":competition"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "competition",
-                      "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"PlayerId\": 2438,\n    \"FirstName\": \"string\",\n    \"LastName\": \"string\",\n    \"CommonName\": \"string\",\n    \"ShortName\": \"string\",\n    \"Position\": \"string\",\n    \"PositionCategory\": \"string\",\n    \"Jersey\": 1986,\n    \"Foot\": \"string\",\n    \"Height\": 1034,\n    \"Weight\": 3059,\n    \"Gender\": \"string\",\n    \"BirthDate\": \"string\",\n    \"BirthCity\": \"string\",\n    \"BirthCountry\": \"string\",\n    \"Nationality\": \"string\",\n    \"InjuryStatus\": \"string\",\n    \"InjuryBodyPart\": \"string\",\n    \"InjuryNotes\": \"string\",\n    \"InjuryStartDate\": \"string\",\n    \"Updated\": \"string\",\n    \"PhotoUrl\": \"string\",\n    \"RotoWirePlayerID\": 1613,\n    \"DraftKingsPosition\": \"string\",\n    \"UsaTodayPlayerID\": 3122,\n    \"UsaTodayHeadshotUrl\": \"string\",\n    \"UsaTodayHeadshotNoBackgroundUrl\": \"string\",\n    \"UsaTodayHeadshotUpdated\": \"string\",\n    \"UsaTodayHeadshotNoBackgroundUpdated\": \"string\"\n  },\n  {\n    \"PlayerId\": 9891,\n    \"FirstName\": \"string\",\n    \"LastName\": \"string\",\n    \"CommonName\": \"string\",\n    \"ShortName\": \"string\",\n    \"Position\": \"string\",\n    \"PositionCategory\": \"string\",\n    \"Jersey\": 8561,\n    \"Foot\": \"string\",\n    \"Height\": 9967,\n    \"Weight\": 3189,\n    \"Gender\": \"string\",\n    \"BirthDate\": \"string\",\n    \"BirthCity\": \"string\",\n    \"BirthCountry\": \"string\",\n    \"Nationality\": \"string\",\n    \"InjuryStatus\": \"string\",\n    \"InjuryBodyPart\": \"string\",\n    \"InjuryNotes\": \"string\",\n    \"InjuryStartDate\": \"string\",\n    \"Updated\": \"string\",\n    \"PhotoUrl\": \"string\",\n    \"RotoWirePlayerID\": 8891,\n    \"DraftKingsPosition\": \"string\",\n    \"UsaTodayPlayerID\": 1092,\n    \"UsaTodayHeadshotUrl\": \"string\",\n    \"UsaTodayHeadshotNoBackgroundUrl\": \"string\",\n    \"UsaTodayHeadshotUpdated\": \"string\",\n    \"UsaTodayHeadshotNoBackgroundUpdated\": \"string\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c298983b-768c-4121-8064-3347dacbf08a",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v4",
-                    "soccer",
-                    "projections",
-                    ":format",
-                    "InjuredPlayers",
-                    ":competition"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "competition",
-                      "description": "(Required) An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"HttpStatusCode\": 9265,\n  \"Code\": 6519,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "f1a5b6b3-d0fc-432a-9aba-61da4ecf7eb1",
+          "createdAt": "2026-10-21T20:20:24.000Z",
+          "updatedAt": "2026-10-21T20:20:24.000Z",
+          "uid": "35240-f1a5b6b3-d0fc-432a-9aba-61da4ecf7eb1"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.sportsdata.io",
-      "key": "baseUrl"
+      "id": "d7c621cd-dade-4cbc-b491-0aece02c2544",
+      "createdAt": "2026-10-21T20:20:24.000Z",
+      "updatedAt": "2026-10-21T20:20:24.000Z",
+      "uid": "35240-d7c621cd-dade-4cbc-b491-0aece02c2544"
     }
   ],
   "auth": {
@@ -797,25 +812,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Ocp-Apim-Subscription-Key"
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "c07cb7f8-bd3a-4eaa-a798-643764e9d2e4",
-    "name": "MLB MLB v3 Headshots Soccer v4 Projections API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "MLB API - OpenAPI 3.1 Specification",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sportsdata.io"
     }
-  }
+  ]
 }

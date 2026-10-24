@@ -1,180 +1,203 @@
 {
+  "info": {
+    "_postman_id": "6dc02bd7-d112-458c-bfa3-5fabc7a34620",
+    "name": "NHL v3 Headshots API",
+    "description": "NHL API - OpenAPI 3.1 Specification",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:19:17.000Z",
+    "updatedAt": "2026-10-21T20:19:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6dc02bd7-d112-458c-bfa3-5fabc7a34620"
+  },
   "item": [
     {
-      "id": "4ee52a03-6691-42a2-9e7f-9c7c447d28de",
-      "name": "NHL v3 Headshots",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "v3",
       "item": [
         {
-          "id": "fef0c5aa-180b-4bb7-a24c-2725ea07f0ad",
-          "name": "Headshots",
-          "request": {
-            "name": "Headshots",
-            "description": {
-              "content": "Headshots",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v3",
-                "nhl",
-                "headshots",
-                ":format",
-                "Headshots"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "JSON",
-                  "key": "format",
-                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "nhl",
+          "item": [
             {
-              "id": "1d05a732-b322-4423-8279-6dd8050700d1",
-              "name": "Success",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v3",
-                    "nhl",
-                    "headshots",
-                    ":format",
-                    "Headshots"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "headshots",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{format}",
+                  "item": [
+                    {
+                      "name": "Headshots",
+                      "item": [
+                        {
+                          "name": "Headshots",
+                          "id": "ffe564da-0ffd-40ed-8314-7d6c337d1358",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/nhl/headshots/:format/Headshots",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "nhl",
+                                "headshots",
+                                ":format",
+                                "Headshots"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f14c0fa0-f0e1-4db0-afa7-b12d29baf50b",
+                                  "key": "format",
+                                  "value": "JSON",
+                                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "74549cb3-4979-4875-82b0-15254dc44904",
+                              "name": "Success",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/nhl/headshots/:format/Headshots",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "nhl",
+                                    "headshots",
+                                    ":format",
+                                    "Headshots"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "format"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"PlayerID\": \"<integer>\",\n    \"Name\": \"<string,null>\",\n    \"TeamID\": \"<integer,null>\",\n    \"Team\": \"<string,null>\",\n    \"Position\": \"<string,null>\",\n    \"PreferredHostedHeadshotUrl\": \"<string,null>\",\n    \"PreferredHostedHeadshotUpdated\": \"<string,null>\",\n    \"HostedHeadshotWithBackgroundUrl\": \"<string,null>\",\n    \"HostedHeadshotWithBackgroundUpdated\": \"<string,null>\",\n    \"HostedHeadshotNoBackgroundUrl\": \"<string,null>\",\n    \"HostedHeadshotNoBackgroundUpdated\": \"<string,null>\"\n  },\n  {\n    \"PlayerID\": \"<integer>\",\n    \"Name\": \"<string,null>\",\n    \"TeamID\": \"<integer,null>\",\n    \"Team\": \"<string,null>\",\n    \"Position\": \"<string,null>\",\n    \"PreferredHostedHeadshotUrl\": \"<string,null>\",\n    \"PreferredHostedHeadshotUpdated\": \"<string,null>\",\n    \"HostedHeadshotWithBackgroundUrl\": \"<string,null>\",\n    \"HostedHeadshotWithBackgroundUpdated\": \"<string,null>\",\n    \"HostedHeadshotNoBackgroundUrl\": \"<string,null>\",\n    \"HostedHeadshotNoBackgroundUpdated\": \"<string,null>\"\n  }\n]",
+                              "createdAt": "2026-10-21T20:19:17.000Z",
+                              "updatedAt": "2026-10-21T20:19:17.000Z",
+                              "uid": "35240-74549cb3-4979-4875-82b0-15254dc44904"
+                            },
+                            {
+                              "id": "f98c3687-ffde-4510-9f9e-f09debbc3407",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/nhl/headshots/:format/Headshots",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "nhl",
+                                    "headshots",
+                                    ":format",
+                                    "Headshots"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "format"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"Code\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"Help\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:19:17.000Z",
+                              "updatedAt": "2026-10-21T20:19:17.000Z",
+                              "uid": "35240-f98c3687-ffde-4510-9f9e-f09debbc3407"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:19:17.000Z",
+                          "updatedAt": "2026-10-21T20:19:17.000Z",
+                          "uid": "35240-ffe564da-0ffd-40ed-8314-7d6c337d1358"
+                        }
+                      ],
+                      "id": "23ee573f-2487-4d71-9df5-b9cd49c2812b",
+                      "createdAt": "2026-10-21T20:19:17.000Z",
+                      "updatedAt": "2026-10-21T20:19:17.000Z",
+                      "uid": "35240-23ee573f-2487-4d71-9df5-b9cd49c2812b"
+                    }
+                  ],
+                  "id": "1d644041-85c6-452d-bf47-3e70491fd6b4",
+                  "createdAt": "2026-10-21T20:19:17.000Z",
+                  "updatedAt": "2026-10-21T20:19:17.000Z",
+                  "uid": "35240-1d644041-85c6-452d-bf47-3e70491fd6b4"
                 }
               ],
-              "body": "[\n  {\n    \"PlayerID\": 2794,\n    \"Name\": \"string\",\n    \"TeamID\": 1896,\n    \"Team\": \"string\",\n    \"Position\": \"string\",\n    \"PreferredHostedHeadshotUrl\": \"string\",\n    \"PreferredHostedHeadshotUpdated\": \"string\",\n    \"HostedHeadshotWithBackgroundUrl\": \"string\",\n    \"HostedHeadshotWithBackgroundUpdated\": \"string\",\n    \"HostedHeadshotNoBackgroundUrl\": \"string\",\n    \"HostedHeadshotNoBackgroundUpdated\": \"string\"\n  },\n  {\n    \"PlayerID\": 7384,\n    \"Name\": \"string\",\n    \"TeamID\": 4794,\n    \"Team\": \"string\",\n    \"Position\": \"string\",\n    \"PreferredHostedHeadshotUrl\": \"string\",\n    \"PreferredHostedHeadshotUpdated\": \"string\",\n    \"HostedHeadshotWithBackgroundUrl\": \"string\",\n    \"HostedHeadshotWithBackgroundUpdated\": \"string\",\n    \"HostedHeadshotNoBackgroundUrl\": \"string\",\n    \"HostedHeadshotNoBackgroundUpdated\": \"string\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "79fe89f2-1b32-414e-a365-1e81468b6135",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v3",
-                    "nhl",
-                    "headshots",
-                    ":format",
-                    "Headshots"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"HttpStatusCode\": 4447,\n  \"Code\": 1113,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "d565ed37-f625-4e89-ab25-b0ee1afc655e",
+              "createdAt": "2026-10-21T20:19:17.000Z",
+              "updatedAt": "2026-10-21T20:19:17.000Z",
+              "uid": "35240-d565ed37-f625-4e89-ab25-b0ee1afc655e"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "cbfce4ed-5cb1-43dc-ad26-1c27936a6789",
+          "createdAt": "2026-10-21T20:19:17.000Z",
+          "updatedAt": "2026-10-21T20:19:17.000Z",
+          "uid": "35240-cbfce4ed-5cb1-43dc-ad26-1c27936a6789"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.sportsdata.io",
-      "key": "baseUrl"
+      "id": "70a4a7fe-fd1e-43f0-939b-7a3f65d748ea",
+      "createdAt": "2026-10-21T20:19:17.000Z",
+      "updatedAt": "2026-10-21T20:19:17.000Z",
+      "uid": "35240-70a4a7fe-fd1e-43f0-939b-7a3f65d748ea"
     }
   ],
   "auth": {
@@ -182,25 +205,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Ocp-Apim-Subscription-Key"
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "ac1dbddf-2fcc-4841-b5cd-acaa661ecab7",
-    "name": "MLB MLB v3 Headshots NHL v3 Headshots API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "MLB API - OpenAPI 3.1 Specification",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sportsdata.io"
     }
-  }
+  ]
 }

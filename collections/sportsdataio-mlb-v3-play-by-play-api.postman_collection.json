@@ -1,590 +1,608 @@
 {
+  "info": {
+    "_postman_id": "bddc4d8f-5318-468e-ac3a-bdde1a149395",
+    "name": "MLB v3 Play-by-Play API",
+    "description": "MLB API - OpenAPI 3.1 Specification",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:17:14.000Z",
+    "updatedAt": "2026-10-21T20:17:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bddc4d8f-5318-468e-ac3a-bdde1a149395"
+  },
   "item": [
     {
-      "id": "2a8cda2f-5545-4d7f-99e6-a6b651029062",
-      "name": "MLB v3 Play-by-Play",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "v3",
       "item": [
         {
-          "id": "02ab8b88-0f2a-4d79-9991-4c0f847519aa",
-          "name": "Play By Play [Live & Final]",
-          "request": {
-            "name": "Play By Play [Live & Final]",
-            "description": {
-              "content": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by game.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v3",
-                "mlb",
-                "pbp",
-                ":format",
-                "PlayByPlay",
-                ":gameid"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "JSON",
-                  "key": "format",
-                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "gameid",
-                  "description": "(Required) The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "mlb",
+          "item": [
             {
-              "id": "bf20037a-5284-4a23-a82b-747626b8a193",
-              "name": "Success",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v3",
-                    "mlb",
-                    "pbp",
-                    ":format",
-                    "PlayByPlay",
-                    ":gameid"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "gameid",
-                      "description": "(Required) The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "pbp",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{format}",
+                  "item": [
+                    {
+                      "name": "PlayByPlay",
+                      "item": [
+                        {
+                          "name": "{gameid}",
+                          "item": [
+                            {
+                              "name": "Play By Play [Live & Final]",
+                              "id": "927daf3e-1c88-47d9-b800-eea62529d003",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/mlb/pbp/:format/PlayByPlay/:gameid",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "mlb",
+                                    "pbp",
+                                    ":format",
+                                    "PlayByPlay",
+                                    ":gameid"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "b81f7d3e-ae3f-439b-a8ed-d989f5a349d9",
+                                      "key": "format",
+                                      "value": "JSON",
+                                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                                    },
+                                    {
+                                      "id": "294826a6-02a5-4611-9b31-6224336db887",
+                                      "key": "gameid",
+                                      "value": "<string>",
+                                      "description": "(Required) The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                                    }
+                                  ]
+                                },
+                                "description": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered live in real-time, called by game."
+                              },
+                              "response": [
+                                {
+                                  "id": "d6df6fa3-7aa0-4dab-ae1b-3f8c4c89d6b9",
+                                  "name": "Success",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Ocp-Apim-Subscription-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v3/mlb/pbp/:format/PlayByPlay/:gameid",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v3",
+                                        "mlb",
+                                        "pbp",
+                                        ":format",
+                                        "PlayByPlay",
+                                        ":gameid"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "format"
+                                        },
+                                        {
+                                          "key": "gameid"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"Game\": {\n    \"GameID\": \"<integer>\",\n    \"Season\": \"<integer>\",\n    \"SeasonType\": \"<integer>\",\n    \"Status\": \"<string,null>\",\n    \"Day\": \"<string,null>\",\n    \"DateTime\": \"<string,null>\",\n    \"AwayTeam\": \"<string,null>\",\n    \"HomeTeam\": \"<string,null>\",\n    \"AwayTeamID\": \"<integer>\",\n    \"HomeTeamID\": \"<integer>\",\n    \"RescheduledGameID\": \"<integer,null>\",\n    \"StadiumID\": \"<integer,null>\",\n    \"Channel\": \"<string,null>\",\n    \"Inning\": \"<integer,null>\",\n    \"InningHalf\": \"<string,null>\",\n    \"AwayTeamRuns\": \"<integer,null>\",\n    \"HomeTeamRuns\": \"<integer,null>\",\n    \"AwayTeamHits\": \"<integer,null>\",\n    \"HomeTeamHits\": \"<integer,null>\",\n    \"AwayTeamErrors\": \"<integer,null>\",\n    \"HomeTeamErrors\": \"<integer,null>\",\n    \"WinningPitcherID\": \"<integer,null>\",\n    \"LosingPitcherID\": \"<integer,null>\",\n    \"SavingPitcherID\": \"<integer,null>\",\n    \"Attendance\": \"<integer,null>\",\n    \"AwayTeamProbablePitcherID\": \"<integer,null>\",\n    \"HomeTeamProbablePitcherID\": \"<integer,null>\",\n    \"Outs\": \"<integer,null>\",\n    \"Balls\": \"<integer,null>\",\n    \"Strikes\": \"<integer,null>\",\n    \"CurrentPitcherID\": \"<integer,null>\",\n    \"CurrentHitterID\": \"<integer,null>\",\n    \"AwayTeamStartingPitcherID\": \"<integer,null>\",\n    \"HomeTeamStartingPitcherID\": \"<integer,null>\",\n    \"CurrentPitchingTeamID\": \"<integer,null>\",\n    \"CurrentHittingTeamID\": \"<integer,null>\",\n    \"PointSpread\": \"<number,null>\",\n    \"OverUnder\": \"<number,null>\",\n    \"AwayTeamMoneyLine\": \"<integer,null>\",\n    \"HomeTeamMoneyLine\": \"<integer,null>\",\n    \"ForecastTempLow\": \"<integer,null>\",\n    \"ForecastTempHigh\": \"<integer,null>\",\n    \"ForecastDescription\": \"<string,null>\",\n    \"ForecastWindChill\": \"<integer,null>\",\n    \"ForecastWindSpeed\": \"<integer,null>\",\n    \"ForecastWindDirection\": \"<integer,null>\",\n    \"RescheduledFromGameID\": \"<integer,null>\",\n    \"RunnerOnFirst\": \"<boolean,null>\",\n    \"RunnerOnSecond\": \"<boolean,null>\",\n    \"RunnerOnThird\": \"<boolean,null>\",\n    \"AwayTeamStartingPitcher\": \"<string,null>\",\n    \"HomeTeamStartingPitcher\": \"<string,null>\",\n    \"CurrentPitcher\": \"<string,null>\",\n    \"CurrentHitter\": \"<string,null>\",\n    \"WinningPitcher\": \"<string,null>\",\n    \"LosingPitcher\": \"<string,null>\",\n    \"SavingPitcher\": \"<string,null>\",\n    \"DueUpHitterID1\": \"<integer,null>\",\n    \"DueUpHitterID2\": \"<integer,null>\",\n    \"DueUpHitterID3\": \"<integer,null>\",\n    \"GlobalGameID\": \"<integer>\",\n    \"GlobalAwayTeamID\": \"<integer>\",\n    \"GlobalHomeTeamID\": \"<integer>\",\n    \"PointSpreadAwayTeamMoneyLine\": \"<integer,null>\",\n    \"PointSpreadHomeTeamMoneyLine\": \"<integer,null>\",\n    \"LastPlay\": \"<string,null>\",\n    \"IsClosed\": \"<boolean>\",\n    \"Updated\": \"<string,null>\",\n    \"Innings\": [\n      {\n        \"InningID\": \"<integer>\",\n        \"GameID\": \"<integer>\",\n        \"InningNumber\": \"<integer>\",\n        \"AwayTeamRuns\": \"<integer,null>\",\n        \"HomeTeamRuns\": \"<integer,null>\"\n      },\n      {\n        \"InningID\": \"<integer>\",\n        \"GameID\": \"<integer>\",\n        \"InningNumber\": \"<integer>\",\n        \"AwayTeamRuns\": \"<integer,null>\",\n        \"HomeTeamRuns\": \"<integer,null>\"\n      }\n    ],\n    \"GameEndDateTime\": \"<string,null>\",\n    \"HomeRotationNumber\": \"<integer,null>\",\n    \"AwayRotationNumber\": \"<integer,null>\",\n    \"NeutralVenue\": \"<boolean,null>\",\n    \"InningDescription\": \"<string,null>\",\n    \"OverPayout\": \"<integer,null>\",\n    \"UnderPayout\": \"<integer,null>\",\n    \"SeriesInfo\": {\n      \"HomeTeamWins\": \"<integer>\",\n      \"AwayTeamWins\": \"<integer>\",\n      \"GameNumber\": \"<integer>\",\n      \"MaxLength\": \"<integer>\"\n    },\n    \"DateTimeUTC\": \"<string,null>\",\n    \"HomeTeamOpener\": \"<boolean,null>\",\n    \"AwayTeamOpener\": \"<boolean,null>\",\n    \"SuspensionResumeDay\": \"<string,null>\",\n    \"SuspensionResumeDateTime\": \"<string,null>\"\n  },\n  \"Plays\": [\n    {\n      \"PlayID\": \"<integer>\",\n      \"InningID\": \"<integer>\",\n      \"InningNumber\": \"<integer,null>\",\n      \"InningHalf\": \"<string,null>\",\n      \"PlayNumber\": \"<integer,null>\",\n      \"InningBatterNumber\": \"<integer,null>\",\n      \"AwayTeamRuns\": \"<integer,null>\",\n      \"HomeTeamRuns\": \"<integer,null>\",\n      \"HitterID\": \"<integer,null>\",\n      \"PitcherID\": \"<integer,null>\",\n      \"HitterTeamID\": \"<integer,null>\",\n      \"PitcherTeamID\": \"<integer,null>\",\n      \"HitterName\": \"<string,null>\",\n      \"PitcherName\": \"<string,null>\",\n      \"PitcherThrowHand\": \"<string,null>\",\n      \"HitterBatHand\": \"<string,null>\",\n      \"HitterPosition\": \"<string,null>\",\n      \"Outs\": \"<integer,null>\",\n      \"Balls\": \"<integer,null>\",\n      \"Strikes\": \"<integer,null>\",\n      \"PitchNumberThisAtBat\": \"<integer,null>\",\n      \"Result\": \"<string,null>\",\n      \"NumberOfOutsOnPlay\": \"<integer,null>\",\n      \"RunsBattedIn\": \"<integer,null>\",\n      \"AtBat\": \"<boolean,null>\",\n      \"Strikeout\": \"<boolean,null>\",\n      \"Walk\": \"<boolean,null>\",\n      \"Hit\": \"<boolean,null>\",\n      \"Out\": \"<boolean,null>\",\n      \"Sacrifice\": \"<boolean,null>\",\n      \"Error\": \"<boolean,null>\",\n      \"Updated\": \"<string,null>\",\n      \"Description\": \"<string,null>\",\n      \"Pitches\": [\n        {\n          \"PitchID\": \"<integer>\",\n          \"PlayID\": \"<integer>\",\n          \"PitchNumberThisAtBat\": \"<integer,null>\",\n          \"PitcherID\": \"<integer,null>\",\n          \"HitterID\": \"<integer,null>\",\n          \"Outs\": \"<integer,null>\",\n          \"BallsBeforePitch\": \"<integer,null>\",\n          \"StrikesBeforePitch\": \"<integer,null>\",\n          \"Strike\": \"<boolean,null>\",\n          \"Ball\": \"<boolean,null>\",\n          \"Foul\": \"<boolean,null>\",\n          \"Swinging\": \"<boolean,null>\",\n          \"Looking\": \"<boolean,null>\"\n        },\n        {\n          \"PitchID\": \"<integer>\",\n          \"PlayID\": \"<integer>\",\n          \"PitchNumberThisAtBat\": \"<integer,null>\",\n          \"PitcherID\": \"<integer,null>\",\n          \"HitterID\": \"<integer,null>\",\n          \"Outs\": \"<integer,null>\",\n          \"BallsBeforePitch\": \"<integer,null>\",\n          \"StrikesBeforePitch\": \"<integer,null>\",\n          \"Strike\": \"<boolean,null>\",\n          \"Ball\": \"<boolean,null>\",\n          \"Foul\": \"<boolean,null>\",\n          \"Swinging\": \"<boolean,null>\",\n          \"Looking\": \"<boolean,null>\"\n        }\n      ],\n      \"Runner1ID\": \"<integer,null>\",\n      \"Runner2ID\": \"<integer,null>\",\n      \"Runner3ID\": \"<integer,null>\"\n    },\n    {\n      \"PlayID\": \"<integer>\",\n      \"InningID\": \"<integer>\",\n      \"InningNumber\": \"<integer,null>\",\n      \"InningHalf\": \"<string,null>\",\n      \"PlayNumber\": \"<integer,null>\",\n      \"InningBatterNumber\": \"<integer,null>\",\n      \"AwayTeamRuns\": \"<integer,null>\",\n      \"HomeTeamRuns\": \"<integer,null>\",\n      \"HitterID\": \"<integer,null>\",\n      \"PitcherID\": \"<integer,null>\",\n      \"HitterTeamID\": \"<integer,null>\",\n      \"PitcherTeamID\": \"<integer,null>\",\n      \"HitterName\": \"<string,null>\",\n      \"PitcherName\": \"<string,null>\",\n      \"PitcherThrowHand\": \"<string,null>\",\n      \"HitterBatHand\": \"<string,null>\",\n      \"HitterPosition\": \"<string,null>\",\n      \"Outs\": \"<integer,null>\",\n      \"Balls\": \"<integer,null>\",\n      \"Strikes\": \"<integer,null>\",\n      \"PitchNumberThisAtBat\": \"<integer,null>\",\n      \"Result\": \"<string,null>\",\n      \"NumberOfOutsOnPlay\": \"<integer,null>\",\n      \"RunsBattedIn\": \"<integer,null>\",\n      \"AtBat\": \"<boolean,null>\",\n      \"Strikeout\": \"<boolean,null>\",\n      \"Walk\": \"<boolean,null>\",\n      \"Hit\": \"<boolean,null>\",\n      \"Out\": \"<boolean,null>\",\n      \"Sacrifice\": \"<boolean,null>\",\n      \"Error\": \"<boolean,null>\",\n      \"Updated\": \"<string,null>\",\n      \"Description\": \"<string,null>\",\n      \"Pitches\": [\n        {\n          \"PitchID\": \"<integer>\",\n          \"PlayID\": \"<integer>\",\n          \"PitchNumberThisAtBat\": \"<integer,null>\",\n          \"PitcherID\": \"<integer,null>\",\n          \"HitterID\": \"<integer,null>\",\n          \"Outs\": \"<integer,null>\",\n          \"BallsBeforePitch\": \"<integer,null>\",\n          \"StrikesBeforePitch\": \"<integer,null>\",\n          \"Strike\": \"<boolean,null>\",\n          \"Ball\": \"<boolean,null>\",\n          \"Foul\": \"<boolean,null>\",\n          \"Swinging\": \"<boolean,null>\",\n          \"Looking\": \"<boolean,null>\"\n        },\n        {\n          \"PitchID\": \"<integer>\",\n          \"PlayID\": \"<integer>\",\n          \"PitchNumberThisAtBat\": \"<integer,null>\",\n          \"PitcherID\": \"<integer,null>\",\n          \"HitterID\": \"<integer,null>\",\n          \"Outs\": \"<integer,null>\",\n          \"BallsBeforePitch\": \"<integer,null>\",\n          \"StrikesBeforePitch\": \"<integer,null>\",\n          \"Strike\": \"<boolean,null>\",\n          \"Ball\": \"<boolean,null>\",\n          \"Foul\": \"<boolean,null>\",\n          \"Swinging\": \"<boolean,null>\",\n          \"Looking\": \"<boolean,null>\"\n        }\n      ],\n      \"Runner1ID\": \"<integer,null>\",\n      \"Runner2ID\": \"<integer,null>\",\n      \"Runner3ID\": \"<integer,null>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-10-21T20:17:14.000Z",
+                                  "updatedAt": "2026-10-21T20:17:14.000Z",
+                                  "uid": "35240-d6df6fa3-7aa0-4dab-ae1b-3f8c4c89d6b9"
+                                },
+                                {
+                                  "id": "1a6ddc32-ef89-4dd3-8483-1a865de907a3",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Ocp-Apim-Subscription-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v3/mlb/pbp/:format/PlayByPlay/:gameid",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v3",
+                                        "mlb",
+                                        "pbp",
+                                        ":format",
+                                        "PlayByPlay",
+                                        ":gameid"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "format"
+                                        },
+                                        {
+                                          "key": "gameid"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"Code\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"Help\": \"<string>\"\n}",
+                                  "createdAt": "2026-10-21T20:17:14.000Z",
+                                  "updatedAt": "2026-10-21T20:17:14.000Z",
+                                  "uid": "35240-1a6ddc32-ef89-4dd3-8483-1a865de907a3"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T20:17:14.000Z",
+                              "updatedAt": "2026-10-21T20:17:14.000Z",
+                              "uid": "35240-927daf3e-1c88-47d9-b800-eea62529d003"
+                            }
+                          ],
+                          "id": "a8b3ea00-fab5-4815-ac67-ca7ac7c22fcb",
+                          "createdAt": "2026-10-21T20:17:14.000Z",
+                          "updatedAt": "2026-10-21T20:17:14.000Z",
+                          "uid": "35240-a8b3ea00-fab5-4815-ac67-ca7ac7c22fcb"
+                        }
+                      ],
+                      "id": "e145fa89-a460-42ca-a729-768853385c93",
+                      "createdAt": "2026-10-21T20:17:14.000Z",
+                      "updatedAt": "2026-10-21T20:17:14.000Z",
+                      "uid": "35240-e145fa89-a460-42ca-a729-768853385c93"
+                    },
+                    {
+                      "name": "PlayByPlayDelta",
+                      "item": [
+                        {
+                          "name": "{date}",
+                          "item": [
+                            {
+                              "name": "{minutes}",
+                              "item": [
+                                {
+                                  "name": "Play By Play Delta",
+                                  "id": "c5da08ec-2da6-49e2-9325-ce0bce9c032b",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v3/mlb/pbp/:format/PlayByPlayDelta/:date/:minutes",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v3",
+                                        "mlb",
+                                        "pbp",
+                                        ":format",
+                                        "PlayByPlayDelta",
+                                        ":date",
+                                        ":minutes"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "24373b38-67ed-4b56-ad68-b0d326627fdf",
+                                          "key": "format",
+                                          "value": "JSON",
+                                          "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                                        },
+                                        {
+                                          "id": "63ad5429-dfd5-4057-8872-9cd63da2216b",
+                                          "key": "date",
+                                          "value": "<string>",
+                                          "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
+                                        },
+                                        {
+                                          "id": "7f34bb0e-2040-4ac1-92a6-e4812a2271c8",
+                                          "key": "minutes",
+                                          "value": "<string>",
+                                          "description": "(Required) Only returns plays that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
+                                        }
+                                      ]
+                                    },
+                                    "description": "This method returns all play-by-plays for a given season and week, but only returns plays that have changed in the last X minutes as specified in your API call. By definition this is a live endpoint, not final."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "e561f7d2-b4e7-49a7-ad0b-1813216c1ef4",
+                                      "name": "Success",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v3/mlb/pbp/:format/PlayByPlayDelta/:date/:minutes",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v3",
+                                            "mlb",
+                                            "pbp",
+                                            ":format",
+                                            "PlayByPlayDelta",
+                                            ":date",
+                                            ":minutes"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "format"
+                                            },
+                                            {
+                                              "key": "date"
+                                            },
+                                            {
+                                              "key": "minutes"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "[\n  {\n    \"Game\": {\n      \"GameID\": \"<integer>\",\n      \"Season\": \"<integer>\",\n      \"SeasonType\": \"<integer>\",\n      \"Status\": \"<string,null>\",\n      \"Day\": \"<string,null>\",\n      \"DateTime\": \"<string,null>\",\n      \"AwayTeam\": \"<string,null>\",\n      \"HomeTeam\": \"<string,null>\",\n      \"AwayTeamID\": \"<integer>\",\n      \"HomeTeamID\": \"<integer>\",\n      \"RescheduledGameID\": \"<integer,null>\",\n      \"StadiumID\": \"<integer,null>\",\n      \"Channel\": \"<string,null>\",\n      \"Inning\": \"<integer,null>\",\n      \"InningHalf\": \"<string,null>\",\n      \"AwayTeamRuns\": \"<integer,null>\",\n      \"HomeTeamRuns\": \"<integer,null>\",\n      \"AwayTeamHits\": \"<integer,null>\",\n      \"HomeTeamHits\": \"<integer,null>\",\n      \"AwayTeamErrors\": \"<integer,null>\",\n      \"HomeTeamErrors\": \"<integer,null>\",\n      \"WinningPitcherID\": \"<integer,null>\",\n      \"LosingPitcherID\": \"<integer,null>\",\n      \"SavingPitcherID\": \"<integer,null>\",\n      \"Attendance\": \"<integer,null>\",\n      \"AwayTeamProbablePitcherID\": \"<integer,null>\",\n      \"HomeTeamProbablePitcherID\": \"<integer,null>\",\n      \"Outs\": \"<integer,null>\",\n      \"Balls\": \"<integer,null>\",\n      \"Strikes\": \"<integer,null>\",\n      \"CurrentPitcherID\": \"<integer,null>\",\n      \"CurrentHitterID\": \"<integer,null>\",\n      \"AwayTeamStartingPitcherID\": \"<integer,null>\",\n      \"HomeTeamStartingPitcherID\": \"<integer,null>\",\n      \"CurrentPitchingTeamID\": \"<integer,null>\",\n      \"CurrentHittingTeamID\": \"<integer,null>\",\n      \"PointSpread\": \"<number,null>\",\n      \"OverUnder\": \"<number,null>\",\n      \"AwayTeamMoneyLine\": \"<integer,null>\",\n      \"HomeTeamMoneyLine\": \"<integer,null>\",\n      \"ForecastTempLow\": \"<integer,null>\",\n      \"ForecastTempHigh\": \"<integer,null>\",\n      \"ForecastDescription\": \"<string,null>\",\n      \"ForecastWindChill\": \"<integer,null>\",\n      \"ForecastWindSpeed\": \"<integer,null>\",\n      \"ForecastWindDirection\": \"<integer,null>\",\n      \"RescheduledFromGameID\": \"<integer,null>\",\n      \"RunnerOnFirst\": \"<boolean,null>\",\n      \"RunnerOnSecond\": \"<boolean,null>\",\n      \"RunnerOnThird\": \"<boolean,null>\",\n      \"AwayTeamStartingPitcher\": \"<string,null>\",\n      \"HomeTeamStartingPitcher\": \"<string,null>\",\n      \"CurrentPitcher\": \"<string,null>\",\n      \"CurrentHitter\": \"<string,null>\",\n      \"WinningPitcher\": \"<string,null>\",\n      \"LosingPitcher\": \"<string,null>\",\n      \"SavingPitcher\": \"<string,null>\",\n      \"DueUpHitterID1\": \"<integer,null>\",\n      \"DueUpHitterID2\": \"<integer,null>\",\n      \"DueUpHitterID3\": \"<integer,null>\",\n      \"GlobalGameID\": \"<integer>\",\n      \"GlobalAwayTeamID\": \"<integer>\",\n      \"GlobalHomeTeamID\": \"<integer>\",\n      \"PointSpreadAwayTeamMoneyLine\": \"<integer,null>\",\n      \"PointSpreadHomeTeamMoneyLine\": \"<integer,null>\",\n      \"LastPlay\": \"<string,null>\",\n      \"IsClosed\": \"<boolean>\",\n      \"Updated\": \"<string,null>\",\n      \"Innings\": [\n        {\n          \"InningID\": \"<integer>\",\n          \"GameID\": \"<integer>\",\n          \"InningNumber\": \"<integer>\",\n          \"AwayTeamRuns\": \"<integer,null>\",\n          \"HomeTeamRuns\": \"<integer,null>\"\n        },\n        {\n          \"InningID\": \"<integer>\",\n          \"GameID\": \"<integer>\",\n          \"InningNumber\": \"<integer>\",\n          \"AwayTeamRuns\": \"<integer,null>\",\n          \"HomeTeamRuns\": \"<integer,null>\"\n        }\n      ],\n      \"GameEndDateTime\": \"<string,null>\",\n      \"HomeRotationNumber\": \"<integer,null>\",\n      \"AwayRotationNumber\": \"<integer,null>\",\n      \"NeutralVenue\": \"<boolean,null>\",\n      \"InningDescription\": \"<string,null>\",\n      \"OverPayout\": \"<integer,null>\",\n      \"UnderPayout\": \"<integer,null>\",\n      \"SeriesInfo\": {\n        \"HomeTeamWins\": \"<integer>\",\n        \"AwayTeamWins\": \"<integer>\",\n        \"GameNumber\": \"<integer>\",\n        \"MaxLength\": \"<integer>\"\n      },\n      \"DateTimeUTC\": \"<string,null>\",\n      \"HomeTeamOpener\": \"<boolean,null>\",\n      \"AwayTeamOpener\": \"<boolean,null>\",\n      \"SuspensionResumeDay\": \"<string,null>\",\n      \"SuspensionResumeDateTime\": \"<string,null>\"\n    },\n    \"Plays\": [\n      {\n        \"PlayID\": \"<integer>\",\n        \"InningID\": \"<integer>\",\n        \"InningNumber\": \"<integer,null>\",\n        \"InningHalf\": \"<string,null>\",\n        \"PlayNumber\": \"<integer,null>\",\n        \"InningBatterNumber\": \"<integer,null>\",\n        \"AwayTeamRuns\": \"<integer,null>\",\n        \"HomeTeamRuns\": \"<integer,null>\",\n        \"HitterID\": \"<integer,null>\",\n        \"PitcherID\": \"<integer,null>\",\n        \"HitterTeamID\": \"<integer,null>\",\n        \"PitcherTeamID\": \"<integer,null>\",\n        \"HitterName\": \"<string,null>\",\n        \"PitcherName\": \"<string,null>\",\n        \"PitcherThrowHand\": \"<string,null>\",\n        \"HitterBatHand\": \"<string,null>\",\n        \"HitterPosition\": \"<string,null>\",\n        \"Outs\": \"<integer,null>\",\n        \"Balls\": \"<integer,null>\",\n        \"Strikes\": \"<integer,null>\",\n        \"PitchNumberThisAtBat\": \"<integer,null>\",\n        \"Result\": \"<string,null>\",\n        \"NumberOfOutsOnPlay\": \"<integer,null>\",\n        \"RunsBattedIn\": \"<integer,null>\",\n        \"AtBat\": \"<boolean,null>\",\n        \"Strikeout\": \"<boolean,null>\",\n        \"Walk\": \"<boolean,null>\",\n        \"Hit\": \"<boolean,null>\",\n        \"Out\": \"<boolean,null>\",\n        \"Sacrifice\": \"<boolean,null>\",\n        \"Error\": \"<boolean,null>\",\n        \"Updated\": \"<string,null>\",\n        \"Description\": \"<string,null>\",\n        \"Pitches\": [\n          {\n            \"PitchID\": \"<integer>\",\n            \"PlayID\": \"<integer>\",\n            \"PitchNumberThisAtBat\": \"<integer,null>\",\n            \"PitcherID\": \"<integer,null>\",\n            \"HitterID\": \"<integer,null>\",\n            \"Outs\": \"<integer,null>\",\n            \"BallsBeforePitch\": \"<integer,null>\",\n            \"StrikesBeforePitch\": \"<integer,null>\",\n            \"Strike\": \"<boolean,null>\",\n            \"Ball\": \"<boolean,null>\",\n            \"Foul\": \"<boolean,null>\",\n            \"Swinging\": \"<boolean,null>\",\n            \"Looking\": \"<boolean,null>\"\n          },\n          {\n            \"PitchID\": \"<integer>\",\n            \"PlayID\": \"<integer>\",\n            \"PitchNumberThisAtBat\": \"<integer,null>\",\n            \"PitcherID\": \"<integer,null>\",\n            \"HitterID\": \"<integer,null>\",\n            \"Outs\": \"<integer,null>\",\n            \"BallsBeforePitch\": \"<integer,null>\",\n            \"StrikesBeforePitch\": \"<integer,null>\",\n            \"Strike\": \"<boolean,null>\",\n            \"Ball\": \"<boolean,null>\",\n            \"Foul\": \"<boolean,null>\",\n            \"Swinging\": \"<boolean,null>\",\n            \"Looking\": \"<boolean,null>\"\n          }\n        ],\n        \"Runner1ID\": \"<integer,null>\",\n        \"Runner2ID\": \"<integer,null>\",\n        \"Runner3ID\": \"<integer,null>\"\n      },\n      {\n        \"PlayID\": \"<integer>\",\n        \"InningID\": \"<integer>\",\n        \"InningNumber\": \"<integer,null>\",\n        \"InningHalf\": \"<string,null>\",\n        \"PlayNumber\": \"<integer,null>\",\n        \"InningBatterNumber\": \"<integer,null>\",\n        \"AwayTeamRuns\": \"<integer,null>\",\n        \"HomeTeamRuns\": \"<integer,null>\",\n        \"HitterID\": \"<integer,null>\",\n        \"PitcherID\": \"<integer,null>\",\n        \"HitterTeamID\": \"<integer,null>\",\n        \"PitcherTeamID\": \"<integer,null>\",\n        \"HitterName\": \"<string,null>\",\n        \"PitcherName\": \"<string,null>\",\n        \"PitcherThrowHand\": \"<string,null>\",\n        \"HitterBatHand\": \"<string,null>\",\n        \"HitterPosition\": \"<string,null>\",\n        \"Outs\": \"<integer,null>\",\n        \"Balls\": \"<integer,null>\",\n        \"Strikes\": \"<integer,null>\",\n        \"PitchNumberThisAtBat\": \"<integer,null>\",\n        \"Result\": \"<string,null>\",\n        \"NumberOfOutsOnPlay\": \"<integer,null>\",\n        \"RunsBattedIn\": \"<integer,null>\",\n        \"AtBat\": \"<boolean,null>\",\n        \"Strikeout\": \"<boolean,null>\",\n        \"Walk\": \"<boolean,null>\",\n        \"Hit\": \"<boolean,null>\",\n        \"Out\": \"<boolean,null>\",\n        \"Sacrifice\": \"<boolean,null>\",\n        \"Error\": \"<boolean,null>\",\n        \"Updated\": \"<string,null>\",\n        \"Description\": \"<string,null>\",\n        \"Pitches\": [\n          {\n            \"PitchID\": \"<integer>\",\n            \"PlayID\": \"<integer>\",\n            \"PitchNumberThisAtBat\": \"<integer,null>\",\n            \"PitcherID\": \"<integer,null>\",\n            \"HitterID\": \"<integer,null>\",\n            \"Outs\": \"<integer,null>\",\n            \"BallsBeforePitch\": \"<integer,null>\",\n            \"StrikesBeforePitch\": \"<integer,null>\",\n            \"Strike\": \"<boolean,null>\",\n            \"Ball\": \"<boolean,null>\",\n            \"Foul\": \"<boolean,null>\",\n            \"Swinging\": \"<boolean,null>\",\n            \"Looking\": \"<boolean,null>\"\n          },\n          {\n            \"PitchID\": \"<integer>\",\n            \"PlayID\": \"<integer>\",\n            \"PitchNumberThisAtBat\": \"<integer,null>\",\n            \"PitcherID\": \"<integer,null>\",\n            \"HitterID\": \"<integer,null>\",\n            \"Outs\": \"<integer,null>\",\n            \"BallsBeforePitch\": \"<integer,null>\",\n            \"StrikesBeforePitch\": \"<integer,null>\",\n            \"Strike\": \"<boolean,null>\",\n            \"Ball\": \"<boolean,null>\",\n            \"Foul\": \"<boolean,null>\",\n            \"Swinging\": \"<boolean,null>\",\n            \"Looking\": \"<boolean,null>\"\n          }\n        ],\n        \"Runner1ID\": \"<integer,null>\",\n        \"Runner2ID\": \"<integer,null>\",\n        \"Runner3ID\": \"<integer,null>\"\n      }\n    ]\n  },\n  {\n    \"Game\": {\n      \"GameID\": \"<integer>\",\n      \"Season\": \"<integer>\",\n      \"SeasonType\": \"<integer>\",\n      \"Status\": \"<string,null>\",\n      \"Day\": \"<string,null>\",\n      \"DateTime\": \"<string,null>\",\n      \"AwayTeam\": \"<string,null>\",\n      \"HomeTeam\": \"<string,null>\",\n      \"AwayTeamID\": \"<integer>\",\n      \"HomeTeamID\": \"<integer>\",\n      \"RescheduledGameID\": \"<integer,null>\",\n      \"StadiumID\": \"<integer,null>\",\n      \"Channel\": \"<string,null>\",\n      \"Inning\": \"<integer,null>\",\n      \"InningHalf\": \"<string,null>\",\n      \"AwayTeamRuns\": \"<integer,null>\",\n      \"HomeTeamRuns\": \"<integer,null>\",\n      \"AwayTeamHits\": \"<integer,null>\",\n      \"HomeTeamHits\": \"<integer,null>\",\n      \"AwayTeamErrors\": \"<integer,null>\",\n      \"HomeTeamErrors\": \"<integer,null>\",\n      \"WinningPitcherID\": \"<integer,null>\",\n      \"LosingPitcherID\": \"<integer,null>\",\n      \"SavingPitcherID\": \"<integer,null>\",\n      \"Attendance\": \"<integer,null>\",\n      \"AwayTeamProbablePitcherID\": \"<integer,null>\",\n      \"HomeTeamProbablePitcherID\": \"<integer,null>\",\n      \"Outs\": \"<integer,null>\",\n      \"Balls\": \"<integer,null>\",\n      \"Strikes\": \"<integer,null>\",\n      \"CurrentPitcherID\": \"<integer,null>\",\n      \"CurrentHitterID\": \"<integer,null>\",\n      \"AwayTeamStartingPitcherID\": \"<integer,null>\",\n      \"HomeTeamStartingPitcherID\": \"<integer,null>\",\n      \"CurrentPitchingTeamID\": \"<integer,null>\",\n      \"CurrentHittingTeamID\": \"<integer,null>\",\n      \"PointSpread\": \"<number,null>\",\n      \"OverUnder\": \"<number,null>\",\n      \"AwayTeamMoneyLine\": \"<integer,null>\",\n      \"HomeTeamMoneyLine\": \"<integer,null>\",\n      \"ForecastTempLow\": \"<integer,null>\",\n      \"ForecastTempHigh\": \"<integer,null>\",\n      \"ForecastDescription\": \"<string,null>\",\n      \"ForecastWindChill\": \"<integer,null>\",\n      \"ForecastWindSpeed\": \"<integer,null>\",\n      \"ForecastWindDirection\": \"<integer,null>\",\n      \"RescheduledFromGameID\": \"<integer,null>\",\n      \"RunnerOnFirst\": \"<boolean,null>\",\n      \"RunnerOnSecond\": \"<boolean,null>\",\n      \"RunnerOnThird\": \"<boolean,null>\",\n      \"AwayTeamStartingPitcher\": \"<string,null>\",\n      \"HomeTeamStartingPitcher\": \"<string,null>\",\n      \"CurrentPitcher\": \"<string,null>\",\n      \"CurrentHitter\": \"<string,null>\",\n      \"WinningPitcher\": \"<string,null>\",\n      \"LosingPitcher\": \"<string,null>\",\n      \"SavingPitcher\": \"<string,null>\",\n      \"DueUpHitterID1\": \"<integer,null>\",\n      \"DueUpHitterID2\": \"<integer,null>\",\n      \"DueUpHitterID3\": \"<integer,null>\",\n      \"GlobalGameID\": \"<integer>\",\n      \"GlobalAwayTeamID\": \"<integer>\",\n      \"GlobalHomeTeamID\": \"<integer>\",\n      \"PointSpreadAwayTeamMoneyLine\": \"<integer,null>\",\n      \"PointSpreadHomeTeamMoneyLine\": \"<integer,null>\",\n      \"LastPlay\": \"<string,null>\",\n      \"IsClosed\": \"<boolean>\",\n      \"Updated\": \"<string,null>\",\n      \"Innings\": [\n        {\n          \"InningID\": \"<integer>\",\n          \"GameID\": \"<integer>\",\n          \"InningNumber\": \"<integer>\",\n          \"AwayTeamRuns\": \"<integer,null>\",\n          \"HomeTeamRuns\": \"<integer,null>\"\n        },\n        {\n          \"InningID\": \"<integer>\",\n          \"GameID\": \"<integer>\",\n          \"InningNumber\": \"<integer>\",\n          \"AwayTeamRuns\": \"<integer,null>\",\n          \"HomeTeamRuns\": \"<integer,null>\"\n        }\n      ],\n      \"GameEndDateTime\": \"<string,null>\",\n      \"HomeRotationNumber\": \"<integer,null>\",\n      \"AwayRotationNumber\": \"<integer,null>\",\n      \"NeutralVenue\": \"<boolean,null>\",\n      \"InningDescription\": \"<string,null>\",\n      \"OverPayout\": \"<integer,null>\",\n      \"UnderPayout\": \"<integer,null>\",\n      \"SeriesInfo\": {\n        \"HomeTeamWins\": \"<integer>\",\n        \"AwayTeamWins\": \"<integer>\",\n        \"GameNumber\": \"<integer>\",\n        \"MaxLength\": \"<integer>\"\n      },\n      \"DateTimeUTC\": \"<string,null>\",\n      \"HomeTeamOpener\": \"<boolean,null>\",\n      \"AwayTeamOpener\": \"<boolean,null>\",\n      \"SuspensionResumeDay\": \"<string,null>\",\n      \"SuspensionResumeDateTime\": \"<string,null>\"\n    },\n    \"Plays\": [\n      {\n        \"PlayID\": \"<integer>\",\n        \"InningID\": \"<integer>\",\n        \"InningNumber\": \"<integer,null>\",\n        \"InningHalf\": \"<string,null>\",\n        \"PlayNumber\": \"<integer,null>\",\n        \"InningBatterNumber\": \"<integer,null>\",\n        \"AwayTeamRuns\": \"<integer,null>\",\n        \"HomeTeamRuns\": \"<integer,null>\",\n        \"HitterID\": \"<integer,null>\",\n        \"PitcherID\": \"<integer,null>\",\n        \"HitterTeamID\": \"<integer,null>\",\n        \"PitcherTeamID\": \"<integer,null>\",\n        \"HitterName\": \"<string,null>\",\n        \"PitcherName\": \"<string,null>\",\n        \"PitcherThrowHand\": \"<string,null>\",\n        \"HitterBatHand\": \"<string,null>\",\n        \"HitterPosition\": \"<string,null>\",\n        \"Outs\": \"<integer,null>\",\n        \"Balls\": \"<integer,null>\",\n        \"Strikes\": \"<integer,null>\",\n        \"PitchNumberThisAtBat\": \"<integer,null>\",\n        \"Result\": \"<string,null>\",\n        \"NumberOfOutsOnPlay\": \"<integer,null>\",\n        \"RunsBattedIn\": \"<integer,null>\",\n        \"AtBat\": \"<boolean,null>\",\n        \"Strikeout\": \"<boolean,null>\",\n        \"Walk\": \"<boolean,null>\",\n        \"Hit\": \"<boolean,null>\",\n        \"Out\": \"<boolean,null>\",\n        \"Sacrifice\": \"<boolean,null>\",\n        \"Error\": \"<boolean,null>\",\n        \"Updated\": \"<string,null>\",\n        \"Description\": \"<string,null>\",\n        \"Pitches\": [\n          {\n            \"PitchID\": \"<integer>\",\n            \"PlayID\": \"<integer>\",\n            \"PitchNumberThisAtBat\": \"<integer,null>\",\n            \"PitcherID\": \"<integer,null>\",\n            \"HitterID\": \"<integer,null>\",\n            \"Outs\": \"<integer,null>\",\n            \"BallsBeforePitch\": \"<integer,null>\",\n            \"StrikesBeforePitch\": \"<integer,null>\",\n            \"Strike\": \"<boolean,null>\",\n            \"Ball\": \"<boolean,null>\",\n            \"Foul\": \"<boolean,null>\",\n            \"Swinging\": \"<boolean,null>\",\n            \"Looking\": \"<boolean,null>\"\n          },\n          {\n            \"PitchID\": \"<integer>\",\n            \"PlayID\": \"<integer>\",\n            \"PitchNumberThisAtBat\": \"<integer,null>\",\n            \"PitcherID\": \"<integer,null>\",\n            \"HitterID\": \"<integer,null>\",\n            \"Outs\": \"<integer,null>\",\n            \"BallsBeforePitch\": \"<integer,null>\",\n            \"StrikesBeforePitch\": \"<integer,null>\",\n            \"Strike\": \"<boolean,null>\",\n            \"Ball\": \"<boolean,null>\",\n            \"Foul\": \"<boolean,null>\",\n            \"Swinging\": \"<boolean,null>\",\n            \"Looking\": \"<boolean,null>\"\n          }\n        ],\n        \"Runner1ID\": \"<integer,null>\",\n        \"Runner2ID\": \"<integer,null>\",\n        \"Runner3ID\": \"<integer,null>\"\n      },\n      {\n        \"PlayID\": \"<integer>\",\n        \"InningID\": \"<integer>\",\n        \"InningNumber\": \"<integer,null>\",\n        \"InningHalf\": \"<string,null>\",\n        \"PlayNumber\": \"<integer,null>\",\n        \"InningBatterNumber\": \"<integer,null>\",\n        \"AwayTeamRuns\": \"<integer,null>\",\n        \"HomeTeamRuns\": \"<integer,null>\",\n        \"HitterID\": \"<integer,null>\",\n        \"PitcherID\": \"<integer,null>\",\n        \"HitterTeamID\": \"<integer,null>\",\n        \"PitcherTeamID\": \"<integer,null>\",\n        \"HitterName\": \"<string,null>\",\n        \"PitcherName\": \"<string,null>\",\n        \"PitcherThrowHand\": \"<string,null>\",\n        \"HitterBatHand\": \"<string,null>\",\n        \"HitterPosition\": \"<string,null>\",\n        \"Outs\": \"<integer,null>\",\n        \"Balls\": \"<integer,null>\",\n        \"Strikes\": \"<integer,null>\",\n        \"PitchNumberThisAtBat\": \"<integer,null>\",\n        \"Result\": \"<string,null>\",\n        \"NumberOfOutsOnPlay\": \"<integer,null>\",\n        \"RunsBattedIn\": \"<integer,null>\",\n        \"AtBat\": \"<boolean,null>\",\n        \"Strikeout\": \"<boolean,null>\",\n        \"Walk\": \"<boolean,null>\",\n        \"Hit\": \"<boolean,null>\",\n        \"Out\": \"<boolean,null>\",\n        \"Sacrifice\": \"<boolean,null>\",\n        \"Error\": \"<boolean,null>\",\n        \"Updated\": \"<string,null>\",\n        \"Description\": \"<string,null>\",\n        \"Pitches\": [\n          {\n            \"PitchID\": \"<integer>\",\n            \"PlayID\": \"<integer>\",\n            \"PitchNumberThisAtBat\": \"<integer,null>\",\n            \"PitcherID\": \"<integer,null>\",\n            \"HitterID\": \"<integer,null>\",\n            \"Outs\": \"<integer,null>\",\n            \"BallsBeforePitch\": \"<integer,null>\",\n            \"StrikesBeforePitch\": \"<integer,null>\",\n            \"Strike\": \"<boolean,null>\",\n            \"Ball\": \"<boolean,null>\",\n            \"Foul\": \"<boolean,null>\",\n            \"Swinging\": \"<boolean,null>\",\n            \"Looking\": \"<boolean,null>\"\n          },\n          {\n            \"PitchID\": \"<integer>\",\n            \"PlayID\": \"<integer>\",\n            \"PitchNumberThisAtBat\": \"<integer,null>\",\n            \"PitcherID\": \"<integer,null>\",\n            \"HitterID\": \"<integer,null>\",\n            \"Outs\": \"<integer,null>\",\n            \"BallsBeforePitch\": \"<integer,null>\",\n            \"StrikesBeforePitch\": \"<integer,null>\",\n            \"Strike\": \"<boolean,null>\",\n            \"Ball\": \"<boolean,null>\",\n            \"Foul\": \"<boolean,null>\",\n            \"Swinging\": \"<boolean,null>\",\n            \"Looking\": \"<boolean,null>\"\n          }\n        ],\n        \"Runner1ID\": \"<integer,null>\",\n        \"Runner2ID\": \"<integer,null>\",\n        \"Runner3ID\": \"<integer,null>\"\n      }\n    ]\n  }\n]",
+                                      "createdAt": "2026-10-21T20:17:14.000Z",
+                                      "updatedAt": "2026-10-21T20:17:14.000Z",
+                                      "uid": "35240-e561f7d2-b4e7-49a7-ad0b-1813216c1ef4"
+                                    },
+                                    {
+                                      "id": "afe21795-d30e-483f-b195-a95c95cd5e0c",
+                                      "name": "Unauthorized",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v3/mlb/pbp/:format/PlayByPlayDelta/:date/:minutes",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v3",
+                                            "mlb",
+                                            "pbp",
+                                            ":format",
+                                            "PlayByPlayDelta",
+                                            ":date",
+                                            ":minutes"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "format"
+                                            },
+                                            {
+                                              "key": "date"
+                                            },
+                                            {
+                                              "key": "minutes"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"Code\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"Help\": \"<string>\"\n}",
+                                      "createdAt": "2026-10-21T20:17:14.000Z",
+                                      "updatedAt": "2026-10-21T20:17:14.000Z",
+                                      "uid": "35240-afe21795-d30e-483f-b195-a95c95cd5e0c"
+                                    }
+                                  ],
+                                  "createdAt": "2026-10-21T20:17:14.000Z",
+                                  "updatedAt": "2026-10-21T20:17:14.000Z",
+                                  "uid": "35240-c5da08ec-2da6-49e2-9325-ce0bce9c032b"
+                                }
+                              ],
+                              "id": "dc860897-9b79-4a1a-9016-20065fc6120e",
+                              "createdAt": "2026-10-21T20:17:14.000Z",
+                              "updatedAt": "2026-10-21T20:17:14.000Z",
+                              "uid": "35240-dc860897-9b79-4a1a-9016-20065fc6120e"
+                            }
+                          ],
+                          "id": "24ccb746-522d-4afe-8c1b-132500550f6a",
+                          "createdAt": "2026-10-21T20:17:14.000Z",
+                          "updatedAt": "2026-10-21T20:17:14.000Z",
+                          "uid": "35240-24ccb746-522d-4afe-8c1b-132500550f6a"
+                        }
+                      ],
+                      "id": "3b8778df-d449-4022-9942-6bc70a794aac",
+                      "createdAt": "2026-10-21T20:17:14.000Z",
+                      "updatedAt": "2026-10-21T20:17:14.000Z",
+                      "uid": "35240-3b8778df-d449-4022-9942-6bc70a794aac"
+                    },
+                    {
+                      "name": "PlayByPlayFinal",
+                      "item": [
+                        {
+                          "name": "{gameid}",
+                          "item": [
+                            {
+                              "name": "Play By Play [Final]",
+                              "id": "0932d026-b38e-4a56-8140-c916cae7ba25",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/mlb/pbp/:format/PlayByPlayFinal/:gameid",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "mlb",
+                                    "pbp",
+                                    ":format",
+                                    "PlayByPlayFinal",
+                                    ":gameid"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "5e7100d9-bbb5-40f2-b3a8-51fde010d13a",
+                                      "key": "format",
+                                      "value": "JSON",
+                                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                                    },
+                                    {
+                                      "id": "4e3fd57b-227a-4d3b-9434-18820ad60f5d",
+                                      "key": "gameid",
+                                      "value": "<string>",
+                                      "description": "(Required) The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
+                                    }
+                                  ]
+                                },
+                                "description": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by game."
+                              },
+                              "response": [
+                                {
+                                  "id": "de882f44-d098-405c-98c5-22020f16db6b",
+                                  "name": "Success",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Ocp-Apim-Subscription-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v3/mlb/pbp/:format/PlayByPlayFinal/:gameid",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v3",
+                                        "mlb",
+                                        "pbp",
+                                        ":format",
+                                        "PlayByPlayFinal",
+                                        ":gameid"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "format"
+                                        },
+                                        {
+                                          "key": "gameid"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"Game\": {\n    \"GameID\": \"<integer>\",\n    \"Season\": \"<integer>\",\n    \"SeasonType\": \"<integer>\",\n    \"Status\": \"<string,null>\",\n    \"Day\": \"<string,null>\",\n    \"DateTime\": \"<string,null>\",\n    \"AwayTeam\": \"<string,null>\",\n    \"HomeTeam\": \"<string,null>\",\n    \"AwayTeamID\": \"<integer>\",\n    \"HomeTeamID\": \"<integer>\",\n    \"RescheduledGameID\": \"<integer,null>\",\n    \"StadiumID\": \"<integer,null>\",\n    \"Channel\": \"<string,null>\",\n    \"Inning\": \"<integer,null>\",\n    \"InningHalf\": \"<string,null>\",\n    \"AwayTeamRuns\": \"<integer,null>\",\n    \"HomeTeamRuns\": \"<integer,null>\",\n    \"AwayTeamHits\": \"<integer,null>\",\n    \"HomeTeamHits\": \"<integer,null>\",\n    \"AwayTeamErrors\": \"<integer,null>\",\n    \"HomeTeamErrors\": \"<integer,null>\",\n    \"WinningPitcherID\": \"<integer,null>\",\n    \"LosingPitcherID\": \"<integer,null>\",\n    \"SavingPitcherID\": \"<integer,null>\",\n    \"Attendance\": \"<integer,null>\",\n    \"AwayTeamProbablePitcherID\": \"<integer,null>\",\n    \"HomeTeamProbablePitcherID\": \"<integer,null>\",\n    \"Outs\": \"<integer,null>\",\n    \"Balls\": \"<integer,null>\",\n    \"Strikes\": \"<integer,null>\",\n    \"CurrentPitcherID\": \"<integer,null>\",\n    \"CurrentHitterID\": \"<integer,null>\",\n    \"AwayTeamStartingPitcherID\": \"<integer,null>\",\n    \"HomeTeamStartingPitcherID\": \"<integer,null>\",\n    \"CurrentPitchingTeamID\": \"<integer,null>\",\n    \"CurrentHittingTeamID\": \"<integer,null>\",\n    \"PointSpread\": \"<number,null>\",\n    \"OverUnder\": \"<number,null>\",\n    \"AwayTeamMoneyLine\": \"<integer,null>\",\n    \"HomeTeamMoneyLine\": \"<integer,null>\",\n    \"ForecastTempLow\": \"<integer,null>\",\n    \"ForecastTempHigh\": \"<integer,null>\",\n    \"ForecastDescription\": \"<string,null>\",\n    \"ForecastWindChill\": \"<integer,null>\",\n    \"ForecastWindSpeed\": \"<integer,null>\",\n    \"ForecastWindDirection\": \"<integer,null>\",\n    \"RescheduledFromGameID\": \"<integer,null>\",\n    \"RunnerOnFirst\": \"<boolean,null>\",\n    \"RunnerOnSecond\": \"<boolean,null>\",\n    \"RunnerOnThird\": \"<boolean,null>\",\n    \"AwayTeamStartingPitcher\": \"<string,null>\",\n    \"HomeTeamStartingPitcher\": \"<string,null>\",\n    \"CurrentPitcher\": \"<string,null>\",\n    \"CurrentHitter\": \"<string,null>\",\n    \"WinningPitcher\": \"<string,null>\",\n    \"LosingPitcher\": \"<string,null>\",\n    \"SavingPitcher\": \"<string,null>\",\n    \"DueUpHitterID1\": \"<integer,null>\",\n    \"DueUpHitterID2\": \"<integer,null>\",\n    \"DueUpHitterID3\": \"<integer,null>\",\n    \"GlobalGameID\": \"<integer>\",\n    \"GlobalAwayTeamID\": \"<integer>\",\n    \"GlobalHomeTeamID\": \"<integer>\",\n    \"PointSpreadAwayTeamMoneyLine\": \"<integer,null>\",\n    \"PointSpreadHomeTeamMoneyLine\": \"<integer,null>\",\n    \"LastPlay\": \"<string,null>\",\n    \"IsClosed\": \"<boolean>\",\n    \"Updated\": \"<string,null>\",\n    \"Innings\": [\n      {\n        \"InningID\": \"<integer>\",\n        \"GameID\": \"<integer>\",\n        \"InningNumber\": \"<integer>\",\n        \"AwayTeamRuns\": \"<integer,null>\",\n        \"HomeTeamRuns\": \"<integer,null>\"\n      },\n      {\n        \"InningID\": \"<integer>\",\n        \"GameID\": \"<integer>\",\n        \"InningNumber\": \"<integer>\",\n        \"AwayTeamRuns\": \"<integer,null>\",\n        \"HomeTeamRuns\": \"<integer,null>\"\n      }\n    ],\n    \"GameEndDateTime\": \"<string,null>\",\n    \"HomeRotationNumber\": \"<integer,null>\",\n    \"AwayRotationNumber\": \"<integer,null>\",\n    \"NeutralVenue\": \"<boolean,null>\",\n    \"InningDescription\": \"<string,null>\",\n    \"OverPayout\": \"<integer,null>\",\n    \"UnderPayout\": \"<integer,null>\",\n    \"SeriesInfo\": {\n      \"HomeTeamWins\": \"<integer>\",\n      \"AwayTeamWins\": \"<integer>\",\n      \"GameNumber\": \"<integer>\",\n      \"MaxLength\": \"<integer>\"\n    },\n    \"DateTimeUTC\": \"<string,null>\",\n    \"HomeTeamOpener\": \"<boolean,null>\",\n    \"AwayTeamOpener\": \"<boolean,null>\",\n    \"SuspensionResumeDay\": \"<string,null>\",\n    \"SuspensionResumeDateTime\": \"<string,null>\"\n  },\n  \"Plays\": [\n    {\n      \"PlayID\": \"<integer>\",\n      \"InningID\": \"<integer>\",\n      \"InningNumber\": \"<integer,null>\",\n      \"InningHalf\": \"<string,null>\",\n      \"PlayNumber\": \"<integer,null>\",\n      \"InningBatterNumber\": \"<integer,null>\",\n      \"AwayTeamRuns\": \"<integer,null>\",\n      \"HomeTeamRuns\": \"<integer,null>\",\n      \"HitterID\": \"<integer,null>\",\n      \"PitcherID\": \"<integer,null>\",\n      \"HitterTeamID\": \"<integer,null>\",\n      \"PitcherTeamID\": \"<integer,null>\",\n      \"HitterName\": \"<string,null>\",\n      \"PitcherName\": \"<string,null>\",\n      \"PitcherThrowHand\": \"<string,null>\",\n      \"HitterBatHand\": \"<string,null>\",\n      \"HitterPosition\": \"<string,null>\",\n      \"Outs\": \"<integer,null>\",\n      \"Balls\": \"<integer,null>\",\n      \"Strikes\": \"<integer,null>\",\n      \"PitchNumberThisAtBat\": \"<integer,null>\",\n      \"Result\": \"<string,null>\",\n      \"NumberOfOutsOnPlay\": \"<integer,null>\",\n      \"RunsBattedIn\": \"<integer,null>\",\n      \"AtBat\": \"<boolean,null>\",\n      \"Strikeout\": \"<boolean,null>\",\n      \"Walk\": \"<boolean,null>\",\n      \"Hit\": \"<boolean,null>\",\n      \"Out\": \"<boolean,null>\",\n      \"Sacrifice\": \"<boolean,null>\",\n      \"Error\": \"<boolean,null>\",\n      \"Updated\": \"<string,null>\",\n      \"Description\": \"<string,null>\",\n      \"Pitches\": [\n        {\n          \"PitchID\": \"<integer>\",\n          \"PlayID\": \"<integer>\",\n          \"PitchNumberThisAtBat\": \"<integer,null>\",\n          \"PitcherID\": \"<integer,null>\",\n          \"HitterID\": \"<integer,null>\",\n          \"Outs\": \"<integer,null>\",\n          \"BallsBeforePitch\": \"<integer,null>\",\n          \"StrikesBeforePitch\": \"<integer,null>\",\n          \"Strike\": \"<boolean,null>\",\n          \"Ball\": \"<boolean,null>\",\n          \"Foul\": \"<boolean,null>\",\n          \"Swinging\": \"<boolean,null>\",\n          \"Looking\": \"<boolean,null>\"\n        },\n        {\n          \"PitchID\": \"<integer>\",\n          \"PlayID\": \"<integer>\",\n          \"PitchNumberThisAtBat\": \"<integer,null>\",\n          \"PitcherID\": \"<integer,null>\",\n          \"HitterID\": \"<integer,null>\",\n          \"Outs\": \"<integer,null>\",\n          \"BallsBeforePitch\": \"<integer,null>\",\n          \"StrikesBeforePitch\": \"<integer,null>\",\n          \"Strike\": \"<boolean,null>\",\n          \"Ball\": \"<boolean,null>\",\n          \"Foul\": \"<boolean,null>\",\n          \"Swinging\": \"<boolean,null>\",\n          \"Looking\": \"<boolean,null>\"\n        }\n      ],\n      \"Runner1ID\": \"<integer,null>\",\n      \"Runner2ID\": \"<integer,null>\",\n      \"Runner3ID\": \"<integer,null>\"\n    },\n    {\n      \"PlayID\": \"<integer>\",\n      \"InningID\": \"<integer>\",\n      \"InningNumber\": \"<integer,null>\",\n      \"InningHalf\": \"<string,null>\",\n      \"PlayNumber\": \"<integer,null>\",\n      \"InningBatterNumber\": \"<integer,null>\",\n      \"AwayTeamRuns\": \"<integer,null>\",\n      \"HomeTeamRuns\": \"<integer,null>\",\n      \"HitterID\": \"<integer,null>\",\n      \"PitcherID\": \"<integer,null>\",\n      \"HitterTeamID\": \"<integer,null>\",\n      \"PitcherTeamID\": \"<integer,null>\",\n      \"HitterName\": \"<string,null>\",\n      \"PitcherName\": \"<string,null>\",\n      \"PitcherThrowHand\": \"<string,null>\",\n      \"HitterBatHand\": \"<string,null>\",\n      \"HitterPosition\": \"<string,null>\",\n      \"Outs\": \"<integer,null>\",\n      \"Balls\": \"<integer,null>\",\n      \"Strikes\": \"<integer,null>\",\n      \"PitchNumberThisAtBat\": \"<integer,null>\",\n      \"Result\": \"<string,null>\",\n      \"NumberOfOutsOnPlay\": \"<integer,null>\",\n      \"RunsBattedIn\": \"<integer,null>\",\n      \"AtBat\": \"<boolean,null>\",\n      \"Strikeout\": \"<boolean,null>\",\n      \"Walk\": \"<boolean,null>\",\n      \"Hit\": \"<boolean,null>\",\n      \"Out\": \"<boolean,null>\",\n      \"Sacrifice\": \"<boolean,null>\",\n      \"Error\": \"<boolean,null>\",\n      \"Updated\": \"<string,null>\",\n      \"Description\": \"<string,null>\",\n      \"Pitches\": [\n        {\n          \"PitchID\": \"<integer>\",\n          \"PlayID\": \"<integer>\",\n          \"PitchNumberThisAtBat\": \"<integer,null>\",\n          \"PitcherID\": \"<integer,null>\",\n          \"HitterID\": \"<integer,null>\",\n          \"Outs\": \"<integer,null>\",\n          \"BallsBeforePitch\": \"<integer,null>\",\n          \"StrikesBeforePitch\": \"<integer,null>\",\n          \"Strike\": \"<boolean,null>\",\n          \"Ball\": \"<boolean,null>\",\n          \"Foul\": \"<boolean,null>\",\n          \"Swinging\": \"<boolean,null>\",\n          \"Looking\": \"<boolean,null>\"\n        },\n        {\n          \"PitchID\": \"<integer>\",\n          \"PlayID\": \"<integer>\",\n          \"PitchNumberThisAtBat\": \"<integer,null>\",\n          \"PitcherID\": \"<integer,null>\",\n          \"HitterID\": \"<integer,null>\",\n          \"Outs\": \"<integer,null>\",\n          \"BallsBeforePitch\": \"<integer,null>\",\n          \"StrikesBeforePitch\": \"<integer,null>\",\n          \"Strike\": \"<boolean,null>\",\n          \"Ball\": \"<boolean,null>\",\n          \"Foul\": \"<boolean,null>\",\n          \"Swinging\": \"<boolean,null>\",\n          \"Looking\": \"<boolean,null>\"\n        }\n      ],\n      \"Runner1ID\": \"<integer,null>\",\n      \"Runner2ID\": \"<integer,null>\",\n      \"Runner3ID\": \"<integer,null>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-10-21T20:17:14.000Z",
+                                  "updatedAt": "2026-10-21T20:17:14.000Z",
+                                  "uid": "35240-de882f44-d098-405c-98c5-22020f16db6b"
+                                },
+                                {
+                                  "id": "ab38df3e-47ff-4e92-8aaf-e6ca4ab75c51",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Ocp-Apim-Subscription-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v3/mlb/pbp/:format/PlayByPlayFinal/:gameid",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v3",
+                                        "mlb",
+                                        "pbp",
+                                        ":format",
+                                        "PlayByPlayFinal",
+                                        ":gameid"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "format"
+                                        },
+                                        {
+                                          "key": "gameid"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"Code\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"Help\": \"<string>\"\n}",
+                                  "createdAt": "2026-10-21T20:17:14.000Z",
+                                  "updatedAt": "2026-10-21T20:17:14.000Z",
+                                  "uid": "35240-ab38df3e-47ff-4e92-8aaf-e6ca4ab75c51"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T20:17:14.000Z",
+                              "updatedAt": "2026-10-21T20:17:14.000Z",
+                              "uid": "35240-0932d026-b38e-4a56-8140-c916cae7ba25"
+                            }
+                          ],
+                          "id": "e23eca8f-5d1f-4c04-a403-fc0af2df8c30",
+                          "createdAt": "2026-10-21T20:17:14.000Z",
+                          "updatedAt": "2026-10-21T20:17:14.000Z",
+                          "uid": "35240-e23eca8f-5d1f-4c04-a403-fc0af2df8c30"
+                        }
+                      ],
+                      "id": "e5d5d189-b6d6-4be8-85bc-9af3c02265b9",
+                      "createdAt": "2026-10-21T20:17:14.000Z",
+                      "updatedAt": "2026-10-21T20:17:14.000Z",
+                      "uid": "35240-e5d5d189-b6d6-4be8-85bc-9af3c02265b9"
+                    }
+                  ],
+                  "id": "c8af3158-b550-418f-8d6b-76b3732a0991",
+                  "createdAt": "2026-10-21T20:17:14.000Z",
+                  "updatedAt": "2026-10-21T20:17:14.000Z",
+                  "uid": "35240-c8af3158-b550-418f-8d6b-76b3732a0991"
                 }
               ],
-              "body": "{\n  \"Game\": {\n    \"GameID\": 840,\n    \"Season\": 5106,\n    \"SeasonType\": 6804,\n    \"Status\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"AwayTeam\": \"string\",\n    \"HomeTeam\": \"string\",\n    \"AwayTeamID\": 7222,\n    \"HomeTeamID\": 786,\n    \"RescheduledGameID\": 4204,\n    \"StadiumID\": 6127,\n    \"Channel\": \"string\",\n    \"Inning\": 8577,\n    \"InningHalf\": \"string\",\n    \"AwayTeamRuns\": 5285,\n    \"HomeTeamRuns\": 9484,\n    \"AwayTeamHits\": 603,\n    \"HomeTeamHits\": 1716,\n    \"AwayTeamErrors\": 8211,\n    \"HomeTeamErrors\": 2968,\n    \"WinningPitcherID\": 6290,\n    \"LosingPitcherID\": 8717,\n    \"SavingPitcherID\": 7707,\n    \"Attendance\": 7651,\n    \"AwayTeamProbablePitcherID\": 2814,\n    \"HomeTeamProbablePitcherID\": 3041,\n    \"Outs\": 2746,\n    \"Balls\": 6012,\n    \"Strikes\": 1740,\n    \"CurrentPitcherID\": 415,\n    \"CurrentHitterID\": 946,\n    \"AwayTeamStartingPitcherID\": 4366,\n    \"HomeTeamStartingPitcherID\": 9982,\n    \"CurrentPitchingTeamID\": 8824,\n    \"CurrentHittingTeamID\": 7214,\n    \"PointSpread\": 5650.053422320225,\n    \"OverUnder\": 3197.03872965686,\n    \"AwayTeamMoneyLine\": 5833,\n    \"HomeTeamMoneyLine\": 5819,\n    \"ForecastTempLow\": 1296,\n    \"ForecastTempHigh\": 6128,\n    \"ForecastDescription\": \"string\",\n    \"ForecastWindChill\": 2919,\n    \"ForecastWindSpeed\": 8325,\n    \"ForecastWindDirection\": 5090,\n    \"RescheduledFromGameID\": 4602,\n    \"RunnerOnFirst\": true,\n    \"RunnerOnSecond\": false,\n    \"RunnerOnThird\": true,\n    \"AwayTeamStartingPitcher\": \"string\",\n    \"HomeTeamStartingPitcher\": \"string\",\n    \"CurrentPitcher\": \"string\",\n    \"CurrentHitter\": \"string\",\n    \"WinningPitcher\": \"string\",\n    \"LosingPitcher\": \"string\",\n    \"SavingPitcher\": \"string\",\n    \"DueUpHitterID1\": 6597,\n    \"DueUpHitterID2\": 1521,\n    \"DueUpHitterID3\": 7102,\n    \"GlobalGameID\": 1769,\n    \"GlobalAwayTeamID\": 6956,\n    \"GlobalHomeTeamID\": 258,\n    \"PointSpreadAwayTeamMoneyLine\": 1225,\n    \"PointSpreadHomeTeamMoneyLine\": 2000,\n    \"LastPlay\": \"string\",\n    \"IsClosed\": true,\n    \"Updated\": \"string\",\n    \"Innings\": [\n      {\n        \"InningID\": 53,\n        \"GameID\": 2091,\n        \"InningNumber\": 4197,\n        \"AwayTeamRuns\": 22,\n        \"HomeTeamRuns\": 3493\n      },\n      {\n        \"InningID\": 4775,\n        \"GameID\": 2122,\n        \"InningNumber\": 1454,\n        \"AwayTeamRuns\": 8795,\n        \"HomeTeamRuns\": 6417\n      }\n    ],\n    \"GameEndDateTime\": \"string\",\n    \"HomeRotationNumber\": 1610,\n    \"AwayRotationNumber\": 2307,\n    \"NeutralVenue\": false,\n    \"InningDescription\": \"string\",\n    \"OverPayout\": 309,\n    \"UnderPayout\": 4486,\n    \"SeriesInfo\": {\n      \"HomeTeamWins\": 6641,\n      \"AwayTeamWins\": 2979,\n      \"GameNumber\": 8935,\n      \"MaxLength\": 3074\n    },\n    \"DateTimeUTC\": \"string\",\n    \"HomeTeamOpener\": true,\n    \"AwayTeamOpener\": false,\n    \"SuspensionResumeDay\": \"string\",\n    \"SuspensionResumeDateTime\": \"string\"\n  },\n  \"Plays\": [\n    {\n      \"PlayID\": 7298,\n      \"InningID\": 7813,\n      \"InningNumber\": 5527,\n      \"InningHalf\": \"string\",\n      \"PlayNumber\": 8147,\n      \"InningBatterNumber\": 3747,\n      \"AwayTeamRuns\": 1472,\n      \"HomeTeamRuns\": 5581,\n      \"HitterID\": 3885,\n      \"PitcherID\": 5854,\n      \"HitterTeamID\": 1092,\n      \"PitcherTeamID\": 5763,\n      \"HitterName\": \"string\",\n      \"PitcherName\": \"string\",\n      \"PitcherThrowHand\": \"string\",\n      \"HitterBatHand\": \"string\",\n      \"HitterPosition\": \"string\",\n      \"Outs\": 6985,\n      \"Balls\": 8158,\n      \"Strikes\": 8677,\n      \"PitchNumberThisAtBat\": 2099,\n      \"Result\": \"string\",\n      \"NumberOfOutsOnPlay\": 4901,\n      \"RunsBattedIn\": 1307,\n      \"AtBat\": true,\n      \"Strikeout\": true,\n      \"Walk\": false,\n      \"Hit\": false,\n      \"Out\": false,\n      \"Sacrifice\": false,\n      \"Error\": true,\n      \"Updated\": \"string\",\n      \"Description\": \"string\",\n      \"Pitches\": [\n        {\n          \"PitchID\": 5871,\n          \"PlayID\": 4922,\n          \"PitchNumberThisAtBat\": 2126,\n          \"PitcherID\": 3271,\n          \"HitterID\": 8715,\n          \"Outs\": 2367,\n          \"BallsBeforePitch\": 497,\n          \"StrikesBeforePitch\": 8898,\n          \"Strike\": false,\n          \"Ball\": false,\n          \"Foul\": true,\n          \"Swinging\": false,\n          \"Looking\": true\n        },\n        {\n          \"PitchID\": 9635,\n          \"PlayID\": 130,\n          \"PitchNumberThisAtBat\": 3503,\n          \"PitcherID\": 8749,\n          \"HitterID\": 960,\n          \"Outs\": 8678,\n          \"BallsBeforePitch\": 3313,\n          \"StrikesBeforePitch\": 9736,\n          \"Strike\": true,\n          \"Ball\": true,\n          \"Foul\": true,\n          \"Swinging\": true,\n          \"Looking\": false\n        }\n      ],\n      \"Runner1ID\": 6973,\n      \"Runner2ID\": 5905,\n      \"Runner3ID\": 5221\n    },\n    {\n      \"PlayID\": 3411,\n      \"InningID\": 1073,\n      \"InningNumber\": 3589,\n      \"InningHalf\": \"string\",\n      \"PlayNumber\": 537,\n      \"InningBatterNumber\": 5818,\n      \"AwayTeamRuns\": 1099,\n      \"HomeTeamRuns\": 1940,\n      \"HitterID\": 8285,\n      \"PitcherID\": 6690,\n      \"HitterTeamID\": 6989,\n      \"PitcherTeamID\": 8887,\n      \"HitterName\": \"string\",\n      \"PitcherName\": \"string\",\n      \"PitcherThrowHand\": \"string\",\n      \"HitterBatHand\": \"string\",\n      \"HitterPosition\": \"string\",\n      \"Outs\": 2509,\n      \"Balls\": 3598,\n      \"Strikes\": 8712,\n      \"PitchNumberThisAtBat\": 5433,\n      \"Result\": \"string\",\n      \"NumberOfOutsOnPlay\": 7592,\n      \"RunsBattedIn\": 8986,\n      \"AtBat\": false,\n      \"Strikeout\": false,\n      \"Walk\": false,\n      \"Hit\": true,\n      \"Out\": true,\n      \"Sacrifice\": false,\n      \"Error\": true,\n      \"Updated\": \"string\",\n      \"Description\": \"string\",\n      \"Pitches\": [\n        {\n          \"PitchID\": 6923,\n          \"PlayID\": 4566,\n          \"PitchNumberThisAtBat\": 3344,\n          \"PitcherID\": 8635,\n          \"HitterID\": 9566,\n          \"Outs\": 1285,\n          \"BallsBeforePitch\": 4363,\n          \"StrikesBeforePitch\": 9214,\n          \"Strike\": false,\n          \"Ball\": true,\n          \"Foul\": false,\n          \"Swinging\": false,\n          \"Looking\": false\n        },\n        {\n          \"PitchID\": 7484,\n          \"PlayID\": 4603,\n          \"PitchNumberThisAtBat\": 2269,\n          \"PitcherID\": 3058,\n          \"HitterID\": 926,\n          \"Outs\": 7474,\n          \"BallsBeforePitch\": 2521,\n          \"StrikesBeforePitch\": 6055,\n          \"Strike\": false,\n          \"Ball\": true,\n          \"Foul\": true,\n          \"Swinging\": true,\n          \"Looking\": false\n        }\n      ],\n      \"Runner1ID\": 9290,\n      \"Runner2ID\": 4802,\n      \"Runner3ID\": 8224\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c3f1807e-9095-4884-a9f3-da048d1e3dcb",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v3",
-                    "mlb",
-                    "pbp",
-                    ":format",
-                    "PlayByPlay",
-                    ":gameid"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "gameid",
-                      "description": "(Required) The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"HttpStatusCode\": 9794,\n  \"Code\": 5072,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "5509c4a6-0201-4e4b-b8c5-451c120faf97",
+              "createdAt": "2026-10-21T20:17:14.000Z",
+              "updatedAt": "2026-10-21T20:17:14.000Z",
+              "uid": "35240-5509c4a6-0201-4e4b-b8c5-451c120faf97"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a582fe44-32c4-40a6-87cb-bb941b793e55",
-          "name": "Play By Play Delta",
-          "request": {
-            "name": "Play By Play Delta",
-            "description": {
-              "content": "This method returns all play-by-plays for a given season and week, but only returns plays that have changed in the last X minutes as specified in your API call. By definition this is a live endpoint, not final.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v3",
-                "mlb",
-                "pbp",
-                ":format",
-                "PlayByPlayDelta",
-                ":date",
-                ":minutes"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "JSON",
-                  "key": "format",
-                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "date",
-                  "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "minutes",
-                  "description": "(Required) Only returns plays that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f42eb4e6-09ce-4d4d-b939-58561380f2c7",
-              "name": "Success",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v3",
-                    "mlb",
-                    "pbp",
-                    ":format",
-                    "PlayByPlayDelta",
-                    ":date",
-                    ":minutes"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "date",
-                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "minutes",
-                      "description": "(Required) Only returns plays that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"Game\": {\n      \"GameID\": 7136,\n      \"Season\": 3251,\n      \"SeasonType\": 3642,\n      \"Status\": \"string\",\n      \"Day\": \"string\",\n      \"DateTime\": \"string\",\n      \"AwayTeam\": \"string\",\n      \"HomeTeam\": \"string\",\n      \"AwayTeamID\": 6853,\n      \"HomeTeamID\": 2812,\n      \"RescheduledGameID\": 9374,\n      \"StadiumID\": 2783,\n      \"Channel\": \"string\",\n      \"Inning\": 6399,\n      \"InningHalf\": \"string\",\n      \"AwayTeamRuns\": 6497,\n      \"HomeTeamRuns\": 682,\n      \"AwayTeamHits\": 4978,\n      \"HomeTeamHits\": 5389,\n      \"AwayTeamErrors\": 3854,\n      \"HomeTeamErrors\": 1798,\n      \"WinningPitcherID\": 238,\n      \"LosingPitcherID\": 6789,\n      \"SavingPitcherID\": 4289,\n      \"Attendance\": 5301,\n      \"AwayTeamProbablePitcherID\": 4941,\n      \"HomeTeamProbablePitcherID\": 6752,\n      \"Outs\": 5557,\n      \"Balls\": 7560,\n      \"Strikes\": 6375,\n      \"CurrentPitcherID\": 5709,\n      \"CurrentHitterID\": 2755,\n      \"AwayTeamStartingPitcherID\": 90,\n      \"HomeTeamStartingPitcherID\": 6300,\n      \"CurrentPitchingTeamID\": 464,\n      \"CurrentHittingTeamID\": 4952,\n      \"PointSpread\": 8916.830970599962,\n      \"OverUnder\": 542.0540134653252,\n      \"AwayTeamMoneyLine\": 870,\n      \"HomeTeamMoneyLine\": 9800,\n      \"ForecastTempLow\": 3996,\n      \"ForecastTempHigh\": 6351,\n      \"ForecastDescription\": \"string\",\n      \"ForecastWindChill\": 1977,\n      \"ForecastWindSpeed\": 4135,\n      \"ForecastWindDirection\": 6235,\n      \"RescheduledFromGameID\": 9334,\n      \"RunnerOnFirst\": false,\n      \"RunnerOnSecond\": false,\n      \"RunnerOnThird\": false,\n      \"AwayTeamStartingPitcher\": \"string\",\n      \"HomeTeamStartingPitcher\": \"string\",\n      \"CurrentPitcher\": \"string\",\n      \"CurrentHitter\": \"string\",\n      \"WinningPitcher\": \"string\",\n      \"LosingPitcher\": \"string\",\n      \"SavingPitcher\": \"string\",\n      \"DueUpHitterID1\": 993,\n      \"DueUpHitterID2\": 5371,\n      \"DueUpHitterID3\": 8319,\n      \"GlobalGameID\": 3388,\n      \"GlobalAwayTeamID\": 2188,\n      \"GlobalHomeTeamID\": 2962,\n      \"PointSpreadAwayTeamMoneyLine\": 2168,\n      \"PointSpreadHomeTeamMoneyLine\": 4015,\n      \"LastPlay\": \"string\",\n      \"IsClosed\": false,\n      \"Updated\": \"string\",\n      \"Innings\": [\n        {\n          \"InningID\": 6004,\n          \"GameID\": 807,\n          \"InningNumber\": 5219,\n          \"AwayTeamRuns\": 9006,\n          \"HomeTeamRuns\": 6283\n        },\n        {\n          \"InningID\": 253,\n          \"GameID\": 9968,\n          \"InningNumber\": 5279,\n          \"AwayTeamRuns\": 2547,\n          \"HomeTeamRuns\": 7010\n        }\n      ],\n      \"GameEndDateTime\": \"string\",\n      \"HomeRotationNumber\": 4528,\n      \"AwayRotationNumber\": 1948,\n      \"NeutralVenue\": false,\n      \"InningDescription\": \"string\",\n      \"OverPayout\": 5833,\n      \"UnderPayout\": 5946,\n      \"SeriesInfo\": {\n        \"HomeTeamWins\": 7578,\n        \"AwayTeamWins\": 6589,\n        \"GameNumber\": 1541,\n        \"MaxLength\": 7856\n      },\n      \"DateTimeUTC\": \"string\",\n      \"HomeTeamOpener\": true,\n      \"AwayTeamOpener\": false,\n      \"SuspensionResumeDay\": \"string\",\n      \"SuspensionResumeDateTime\": \"string\"\n    },\n    \"Plays\": [\n      {\n        \"PlayID\": 5899,\n        \"InningID\": 3704,\n        \"InningNumber\": 7722,\n        \"InningHalf\": \"string\",\n        \"PlayNumber\": 8886,\n        \"InningBatterNumber\": 2975,\n        \"AwayTeamRuns\": 4140,\n        \"HomeTeamRuns\": 9096,\n        \"HitterID\": 490,\n        \"PitcherID\": 1737,\n        \"HitterTeamID\": 3424,\n        \"PitcherTeamID\": 4943,\n        \"HitterName\": \"string\",\n        \"PitcherName\": \"string\",\n        \"PitcherThrowHand\": \"string\",\n        \"HitterBatHand\": \"string\",\n        \"HitterPosition\": \"string\",\n        \"Outs\": 4584,\n        \"Balls\": 4456,\n        \"Strikes\": 6801,\n        \"PitchNumberThisAtBat\": 512,\n        \"Result\": \"string\",\n        \"NumberOfOutsOnPlay\": 9235,\n        \"RunsBattedIn\": 1208,\n        \"AtBat\": true,\n        \"Strikeout\": true,\n        \"Walk\": true,\n        \"Hit\": false,\n        \"Out\": true,\n        \"Sacrifice\": true,\n        \"Error\": true,\n        \"Updated\": \"string\",\n        \"Description\": \"string\",\n        \"Pitches\": [\n          {\n            \"PitchID\": 2944,\n            \"PlayID\": 8462,\n            \"PitchNumberThisAtBat\": 4790,\n            \"PitcherID\": 5380,\n            \"HitterID\": 845,\n            \"Outs\": 4139,\n            \"BallsBeforePitch\": 8815,\n            \"StrikesBeforePitch\": 3398,\n            \"Strike\": false,\n            \"Ball\": false,\n            \"Foul\": true,\n            \"Swinging\": true,\n            \"Looking\": false\n          },\n          {\n            \"PitchID\": 3005,\n            \"PlayID\": 1855,\n            \"PitchNumberThisAtBat\": 8557,\n            \"PitcherID\": 9521,\n            \"HitterID\": 6877,\n            \"Outs\": 2089,\n            \"BallsBeforePitch\": 8750,\n            \"StrikesBeforePitch\": 5489,\n            \"Strike\": true,\n            \"Ball\": true,\n            \"Foul\": true,\n            \"Swinging\": true,\n            \"Looking\": false\n          }\n        ],\n        \"Runner1ID\": 137,\n        \"Runner2ID\": 4035,\n        \"Runner3ID\": 8451\n      },\n      {\n        \"PlayID\": 1730,\n        \"InningID\": 4842,\n        \"InningNumber\": 4264,\n        \"InningHalf\": \"string\",\n        \"PlayNumber\": 4688,\n        \"InningBatterNumber\": 334,\n        \"AwayTeamRuns\": 1330,\n        \"HomeTeamRuns\": 6297,\n        \"HitterID\": 81,\n        \"PitcherID\": 9980,\n        \"HitterTeamID\": 3597,\n        \"PitcherTeamID\": 9548,\n        \"HitterName\": \"string\",\n        \"PitcherName\": \"string\",\n        \"PitcherThrowHand\": \"string\",\n        \"HitterBatHand\": \"string\",\n        \"HitterPosition\": \"string\",\n        \"Outs\": 3101,\n        \"Balls\": 6866,\n        \"Strikes\": 3349,\n        \"PitchNumberThisAtBat\": 9145,\n        \"Result\": \"string\",\n        \"NumberOfOutsOnPlay\": 7668,\n        \"RunsBattedIn\": 1776,\n        \"AtBat\": false,\n        \"Strikeout\": true,\n        \"Walk\": false,\n        \"Hit\": false,\n        \"Out\": false,\n        \"Sacrifice\": false,\n        \"Error\": true,\n        \"Updated\": \"string\",\n        \"Description\": \"string\",\n        \"Pitches\": [\n          {\n            \"PitchID\": 8367,\n            \"PlayID\": 7157,\n            \"PitchNumberThisAtBat\": 3083,\n            \"PitcherID\": 6880,\n            \"HitterID\": 3273,\n            \"Outs\": 4397,\n            \"BallsBeforePitch\": 6782,\n            \"StrikesBeforePitch\": 9574,\n            \"Strike\": true,\n            \"Ball\": false,\n            \"Foul\": true,\n            \"Swinging\": false,\n            \"Looking\": false\n          },\n          {\n            \"PitchID\": 1071,\n            \"PlayID\": 6947,\n            \"PitchNumberThisAtBat\": 9994,\n            \"PitcherID\": 8093,\n            \"HitterID\": 1609,\n            \"Outs\": 415,\n            \"BallsBeforePitch\": 9274,\n            \"StrikesBeforePitch\": 5762,\n            \"Strike\": true,\n            \"Ball\": false,\n            \"Foul\": false,\n            \"Swinging\": true,\n            \"Looking\": false\n          }\n        ],\n        \"Runner1ID\": 7789,\n        \"Runner2ID\": 6008,\n        \"Runner3ID\": 3597\n      }\n    ]\n  },\n  {\n    \"Game\": {\n      \"GameID\": 5415,\n      \"Season\": 6807,\n      \"SeasonType\": 5977,\n      \"Status\": \"string\",\n      \"Day\": \"string\",\n      \"DateTime\": \"string\",\n      \"AwayTeam\": \"string\",\n      \"HomeTeam\": \"string\",\n      \"AwayTeamID\": 4143,\n      \"HomeTeamID\": 5381,\n      \"RescheduledGameID\": 979,\n      \"StadiumID\": 5660,\n      \"Channel\": \"string\",\n      \"Inning\": 5139,\n      \"InningHalf\": \"string\",\n      \"AwayTeamRuns\": 7071,\n      \"HomeTeamRuns\": 2577,\n      \"AwayTeamHits\": 5769,\n      \"HomeTeamHits\": 2070,\n      \"AwayTeamErrors\": 3769,\n      \"HomeTeamErrors\": 327,\n      \"WinningPitcherID\": 1974,\n      \"LosingPitcherID\": 1307,\n      \"SavingPitcherID\": 986,\n      \"Attendance\": 7477,\n      \"AwayTeamProbablePitcherID\": 8505,\n      \"HomeTeamProbablePitcherID\": 4800,\n      \"Outs\": 6650,\n      \"Balls\": 6373,\n      \"Strikes\": 6658,\n      \"CurrentPitcherID\": 1228,\n      \"CurrentHitterID\": 1759,\n      \"AwayTeamStartingPitcherID\": 3757,\n      \"HomeTeamStartingPitcherID\": 6360,\n      \"CurrentPitchingTeamID\": 3456,\n      \"CurrentHittingTeamID\": 6835,\n      \"PointSpread\": 4738.14940843066,\n      \"OverUnder\": 8034.693825481774,\n      \"AwayTeamMoneyLine\": 9011,\n      \"HomeTeamMoneyLine\": 7530,\n      \"ForecastTempLow\": 2487,\n      \"ForecastTempHigh\": 6254,\n      \"ForecastDescription\": \"string\",\n      \"ForecastWindChill\": 7417,\n      \"ForecastWindSpeed\": 7041,\n      \"ForecastWindDirection\": 8563,\n      \"RescheduledFromGameID\": 4248,\n      \"RunnerOnFirst\": true,\n      \"RunnerOnSecond\": false,\n      \"RunnerOnThird\": true,\n      \"AwayTeamStartingPitcher\": \"string\",\n      \"HomeTeamStartingPitcher\": \"string\",\n      \"CurrentPitcher\": \"string\",\n      \"CurrentHitter\": \"string\",\n      \"WinningPitcher\": \"string\",\n      \"LosingPitcher\": \"string\",\n      \"SavingPitcher\": \"string\",\n      \"DueUpHitterID1\": 6534,\n      \"DueUpHitterID2\": 5035,\n      \"DueUpHitterID3\": 582,\n      \"GlobalGameID\": 3498,\n      \"GlobalAwayTeamID\": 3195,\n      \"GlobalHomeTeamID\": 1946,\n      \"PointSpreadAwayTeamMoneyLine\": 1337,\n      \"PointSpreadHomeTeamMoneyLine\": 2745,\n      \"LastPlay\": \"string\",\n      \"IsClosed\": false,\n      \"Updated\": \"string\",\n      \"Innings\": [\n        {\n          \"InningID\": 6407,\n          \"GameID\": 3154,\n          \"InningNumber\": 4358,\n          \"AwayTeamRuns\": 7782,\n          \"HomeTeamRuns\": 1984\n        },\n        {\n          \"InningID\": 6371,\n          \"GameID\": 6537,\n          \"InningNumber\": 9595,\n          \"AwayTeamRuns\": 9523,\n          \"HomeTeamRuns\": 313\n        }\n      ],\n      \"GameEndDateTime\": \"string\",\n      \"HomeRotationNumber\": 8297,\n      \"AwayRotationNumber\": 4263,\n      \"NeutralVenue\": false,\n      \"InningDescription\": \"string\",\n      \"OverPayout\": 3900,\n      \"UnderPayout\": 4966,\n      \"SeriesInfo\": {\n        \"HomeTeamWins\": 3618,\n        \"AwayTeamWins\": 7317,\n        \"GameNumber\": 7398,\n        \"MaxLength\": 9373\n      },\n      \"DateTimeUTC\": \"string\",\n      \"HomeTeamOpener\": true,\n      \"AwayTeamOpener\": true,\n      \"SuspensionResumeDay\": \"string\",\n      \"SuspensionResumeDateTime\": \"string\"\n    },\n    \"Plays\": [\n      {\n        \"PlayID\": 4831,\n        \"InningID\": 3630,\n        \"InningNumber\": 6137,\n        \"InningHalf\": \"string\",\n        \"PlayNumber\": 256,\n        \"InningBatterNumber\": 2937,\n        \"AwayTeamRuns\": 9894,\n        \"HomeTeamRuns\": 2565,\n        \"HitterID\": 6938,\n        \"PitcherID\": 3800,\n        \"HitterTeamID\": 9752,\n        \"PitcherTeamID\": 155,\n        \"HitterName\": \"string\",\n        \"PitcherName\": \"string\",\n        \"PitcherThrowHand\": \"string\",\n        \"HitterBatHand\": \"string\",\n        \"HitterPosition\": \"string\",\n        \"Outs\": 4092,\n        \"Balls\": 79,\n        \"Strikes\": 1512,\n        \"PitchNumberThisAtBat\": 5861,\n        \"Result\": \"string\",\n        \"NumberOfOutsOnPlay\": 9002,\n        \"RunsBattedIn\": 8224,\n        \"AtBat\": true,\n        \"Strikeout\": true,\n        \"Walk\": false,\n        \"Hit\": false,\n        \"Out\": false,\n        \"Sacrifice\": true,\n        \"Error\": true,\n        \"Updated\": \"string\",\n        \"Description\": \"string\",\n        \"Pitches\": [\n          {\n            \"PitchID\": 7632,\n            \"PlayID\": 2042,\n            \"PitchNumberThisAtBat\": 9227,\n            \"PitcherID\": 9986,\n            \"HitterID\": 3366,\n            \"Outs\": 8153,\n            \"BallsBeforePitch\": 8144,\n            \"StrikesBeforePitch\": 6245,\n            \"Strike\": true,\n            \"Ball\": true,\n            \"Foul\": false,\n            \"Swinging\": false,\n            \"Looking\": false\n          },\n          {\n            \"PitchID\": 379,\n            \"PlayID\": 4697,\n            \"PitchNumberThisAtBat\": 3457,\n            \"PitcherID\": 206,\n            \"HitterID\": 8645,\n            \"Outs\": 7082,\n            \"BallsBeforePitch\": 9276,\n            \"StrikesBeforePitch\": 700,\n            \"Strike\": false,\n            \"Ball\": true,\n            \"Foul\": true,\n            \"Swinging\": false,\n            \"Looking\": true\n          }\n        ],\n        \"Runner1ID\": 5819,\n        \"Runner2ID\": 1089,\n        \"Runner3ID\": 740\n      },\n      {\n        \"PlayID\": 3632,\n        \"InningID\": 4429,\n        \"InningNumber\": 9651,\n        \"InningHalf\": \"string\",\n        \"PlayNumber\": 3687,\n        \"InningBatterNumber\": 984,\n        \"AwayTeamRuns\": 6948,\n        \"HomeTeamRuns\": 2537,\n        \"HitterID\": 8785,\n        \"PitcherID\": 564,\n        \"HitterTeamID\": 9691,\n        \"PitcherTeamID\": 1629,\n        \"HitterName\": \"string\",\n        \"PitcherName\": \"string\",\n        \"PitcherThrowHand\": \"string\",\n        \"HitterBatHand\": \"string\",\n        \"HitterPosition\": \"string\",\n        \"Outs\": 907,\n        \"Balls\": 7093,\n        \"Strikes\": 661,\n        \"PitchNumberThisAtBat\": 9714,\n        \"Result\": \"string\",\n        \"NumberOfOutsOnPlay\": 914,\n        \"RunsBattedIn\": 9454,\n        \"AtBat\": false,\n        \"Strikeout\": true,\n        \"Walk\": true,\n        \"Hit\": false,\n        \"Out\": true,\n        \"Sacrifice\": true,\n        \"Error\": true,\n        \"Updated\": \"string\",\n        \"Description\": \"string\",\n        \"Pitches\": [\n          {\n            \"PitchID\": 720,\n            \"PlayID\": 3513,\n            \"PitchNumberThisAtBat\": 9110,\n            \"PitcherID\": 6451,\n            \"HitterID\": 9027,\n            \"Outs\": 2510,\n            \"BallsBeforePitch\": 2193,\n            \"StrikesBeforePitch\": 8072,\n            \"Strike\": true,\n            \"Ball\": true,\n            \"Foul\": true,\n            \"Swinging\": true,\n            \"Looking\": true\n          },\n          {\n            \"PitchID\": 3295,\n            \"PlayID\": 245,\n            \"PitchNumberThisAtBat\": 5528,\n            \"PitcherID\": 7763,\n            \"HitterID\": 6187,\n            \"Outs\": 4332,\n            \"BallsBeforePitch\": 8124,\n            \"StrikesBeforePitch\": 118,\n            \"Strike\": true,\n            \"Ball\": true,\n            \"Foul\": false,\n            \"Swinging\": true,\n            \"Looking\": true\n          }\n        ],\n        \"Runner1ID\": 673,\n        \"Runner2ID\": 3133,\n        \"Runner3ID\": 9242\n      }\n    ]\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "5e90bea2-a2ba-4fd7-8f5a-fe80132abc5e",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v3",
-                    "mlb",
-                    "pbp",
-                    ":format",
-                    "PlayByPlayDelta",
-                    ":date",
-                    ":minutes"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "date",
-                      "description": "(Required) The date of the game(s).\n<br>Examples: <code>2017-JUL-31</code>, <code>2017-SEP-01</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "minutes",
-                      "description": "(Required) Only returns plays that have changed in the last X minutes.  You specify how many minutes in time to go back.  Valid entries are:\n<code>1</code>, <code>2</code> ... <code>all</code>."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"HttpStatusCode\": 9794,\n  \"Code\": 5072,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "45a52dbf-9728-4fcc-9ec6-0b888cada06c",
-          "name": "Play By Play [Final]",
-          "request": {
-            "name": "Play By Play [Final]",
-            "description": {
-              "content": "Each invididual play, its type and outcome, complete with player and team stats down to the play level, delivered final (after the game ends), called by game.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v3",
-                "mlb",
-                "pbp",
-                ":format",
-                "PlayByPlayFinal",
-                ":gameid"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "JSON",
-                  "key": "format",
-                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "gameid",
-                  "description": "(Required) The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "dcfe1c75-525c-4d5b-8d3a-9c2e6b4911d4",
-              "name": "Success",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v3",
-                    "mlb",
-                    "pbp",
-                    ":format",
-                    "PlayByPlayFinal",
-                    ":gameid"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "gameid",
-                      "description": "(Required) The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"Game\": {\n    \"GameID\": 840,\n    \"Season\": 5106,\n    \"SeasonType\": 6804,\n    \"Status\": \"string\",\n    \"Day\": \"string\",\n    \"DateTime\": \"string\",\n    \"AwayTeam\": \"string\",\n    \"HomeTeam\": \"string\",\n    \"AwayTeamID\": 7222,\n    \"HomeTeamID\": 786,\n    \"RescheduledGameID\": 4204,\n    \"StadiumID\": 6127,\n    \"Channel\": \"string\",\n    \"Inning\": 8577,\n    \"InningHalf\": \"string\",\n    \"AwayTeamRuns\": 5285,\n    \"HomeTeamRuns\": 9484,\n    \"AwayTeamHits\": 603,\n    \"HomeTeamHits\": 1716,\n    \"AwayTeamErrors\": 8211,\n    \"HomeTeamErrors\": 2968,\n    \"WinningPitcherID\": 6290,\n    \"LosingPitcherID\": 8717,\n    \"SavingPitcherID\": 7707,\n    \"Attendance\": 7651,\n    \"AwayTeamProbablePitcherID\": 2814,\n    \"HomeTeamProbablePitcherID\": 3041,\n    \"Outs\": 2746,\n    \"Balls\": 6012,\n    \"Strikes\": 1740,\n    \"CurrentPitcherID\": 415,\n    \"CurrentHitterID\": 946,\n    \"AwayTeamStartingPitcherID\": 4366,\n    \"HomeTeamStartingPitcherID\": 9982,\n    \"CurrentPitchingTeamID\": 8824,\n    \"CurrentHittingTeamID\": 7214,\n    \"PointSpread\": 5650.053422320225,\n    \"OverUnder\": 3197.03872965686,\n    \"AwayTeamMoneyLine\": 5833,\n    \"HomeTeamMoneyLine\": 5819,\n    \"ForecastTempLow\": 1296,\n    \"ForecastTempHigh\": 6128,\n    \"ForecastDescription\": \"string\",\n    \"ForecastWindChill\": 2919,\n    \"ForecastWindSpeed\": 8325,\n    \"ForecastWindDirection\": 5090,\n    \"RescheduledFromGameID\": 4602,\n    \"RunnerOnFirst\": true,\n    \"RunnerOnSecond\": false,\n    \"RunnerOnThird\": true,\n    \"AwayTeamStartingPitcher\": \"string\",\n    \"HomeTeamStartingPitcher\": \"string\",\n    \"CurrentPitcher\": \"string\",\n    \"CurrentHitter\": \"string\",\n    \"WinningPitcher\": \"string\",\n    \"LosingPitcher\": \"string\",\n    \"SavingPitcher\": \"string\",\n    \"DueUpHitterID1\": 6597,\n    \"DueUpHitterID2\": 1521,\n    \"DueUpHitterID3\": 7102,\n    \"GlobalGameID\": 1769,\n    \"GlobalAwayTeamID\": 6956,\n    \"GlobalHomeTeamID\": 258,\n    \"PointSpreadAwayTeamMoneyLine\": 1225,\n    \"PointSpreadHomeTeamMoneyLine\": 2000,\n    \"LastPlay\": \"string\",\n    \"IsClosed\": true,\n    \"Updated\": \"string\",\n    \"Innings\": [\n      {\n        \"InningID\": 53,\n        \"GameID\": 2091,\n        \"InningNumber\": 4197,\n        \"AwayTeamRuns\": 22,\n        \"HomeTeamRuns\": 3493\n      },\n      {\n        \"InningID\": 4775,\n        \"GameID\": 2122,\n        \"InningNumber\": 1454,\n        \"AwayTeamRuns\": 8795,\n        \"HomeTeamRuns\": 6417\n      }\n    ],\n    \"GameEndDateTime\": \"string\",\n    \"HomeRotationNumber\": 1610,\n    \"AwayRotationNumber\": 2307,\n    \"NeutralVenue\": false,\n    \"InningDescription\": \"string\",\n    \"OverPayout\": 309,\n    \"UnderPayout\": 4486,\n    \"SeriesInfo\": {\n      \"HomeTeamWins\": 6641,\n      \"AwayTeamWins\": 2979,\n      \"GameNumber\": 8935,\n      \"MaxLength\": 3074\n    },\n    \"DateTimeUTC\": \"string\",\n    \"HomeTeamOpener\": true,\n    \"AwayTeamOpener\": false,\n    \"SuspensionResumeDay\": \"string\",\n    \"SuspensionResumeDateTime\": \"string\"\n  },\n  \"Plays\": [\n    {\n      \"PlayID\": 7298,\n      \"InningID\": 7813,\n      \"InningNumber\": 5527,\n      \"InningHalf\": \"string\",\n      \"PlayNumber\": 8147,\n      \"InningBatterNumber\": 3747,\n      \"AwayTeamRuns\": 1472,\n      \"HomeTeamRuns\": 5581,\n      \"HitterID\": 3885,\n      \"PitcherID\": 5854,\n      \"HitterTeamID\": 1092,\n      \"PitcherTeamID\": 5763,\n      \"HitterName\": \"string\",\n      \"PitcherName\": \"string\",\n      \"PitcherThrowHand\": \"string\",\n      \"HitterBatHand\": \"string\",\n      \"HitterPosition\": \"string\",\n      \"Outs\": 6985,\n      \"Balls\": 8158,\n      \"Strikes\": 8677,\n      \"PitchNumberThisAtBat\": 2099,\n      \"Result\": \"string\",\n      \"NumberOfOutsOnPlay\": 4901,\n      \"RunsBattedIn\": 1307,\n      \"AtBat\": true,\n      \"Strikeout\": true,\n      \"Walk\": false,\n      \"Hit\": false,\n      \"Out\": false,\n      \"Sacrifice\": false,\n      \"Error\": true,\n      \"Updated\": \"string\",\n      \"Description\": \"string\",\n      \"Pitches\": [\n        {\n          \"PitchID\": 5871,\n          \"PlayID\": 4922,\n          \"PitchNumberThisAtBat\": 2126,\n          \"PitcherID\": 3271,\n          \"HitterID\": 8715,\n          \"Outs\": 2367,\n          \"BallsBeforePitch\": 497,\n          \"StrikesBeforePitch\": 8898,\n          \"Strike\": false,\n          \"Ball\": false,\n          \"Foul\": true,\n          \"Swinging\": false,\n          \"Looking\": true\n        },\n        {\n          \"PitchID\": 9635,\n          \"PlayID\": 130,\n          \"PitchNumberThisAtBat\": 3503,\n          \"PitcherID\": 8749,\n          \"HitterID\": 960,\n          \"Outs\": 8678,\n          \"BallsBeforePitch\": 3313,\n          \"StrikesBeforePitch\": 9736,\n          \"Strike\": true,\n          \"Ball\": true,\n          \"Foul\": true,\n          \"Swinging\": true,\n          \"Looking\": false\n        }\n      ],\n      \"Runner1ID\": 6973,\n      \"Runner2ID\": 5905,\n      \"Runner3ID\": 5221\n    },\n    {\n      \"PlayID\": 3411,\n      \"InningID\": 1073,\n      \"InningNumber\": 3589,\n      \"InningHalf\": \"string\",\n      \"PlayNumber\": 537,\n      \"InningBatterNumber\": 5818,\n      \"AwayTeamRuns\": 1099,\n      \"HomeTeamRuns\": 1940,\n      \"HitterID\": 8285,\n      \"PitcherID\": 6690,\n      \"HitterTeamID\": 6989,\n      \"PitcherTeamID\": 8887,\n      \"HitterName\": \"string\",\n      \"PitcherName\": \"string\",\n      \"PitcherThrowHand\": \"string\",\n      \"HitterBatHand\": \"string\",\n      \"HitterPosition\": \"string\",\n      \"Outs\": 2509,\n      \"Balls\": 3598,\n      \"Strikes\": 8712,\n      \"PitchNumberThisAtBat\": 5433,\n      \"Result\": \"string\",\n      \"NumberOfOutsOnPlay\": 7592,\n      \"RunsBattedIn\": 8986,\n      \"AtBat\": false,\n      \"Strikeout\": false,\n      \"Walk\": false,\n      \"Hit\": true,\n      \"Out\": true,\n      \"Sacrifice\": false,\n      \"Error\": true,\n      \"Updated\": \"string\",\n      \"Description\": \"string\",\n      \"Pitches\": [\n        {\n          \"PitchID\": 6923,\n          \"PlayID\": 4566,\n          \"PitchNumberThisAtBat\": 3344,\n          \"PitcherID\": 8635,\n          \"HitterID\": 9566,\n          \"Outs\": 1285,\n          \"BallsBeforePitch\": 4363,\n          \"StrikesBeforePitch\": 9214,\n          \"Strike\": false,\n          \"Ball\": true,\n          \"Foul\": false,\n          \"Swinging\": false,\n          \"Looking\": false\n        },\n        {\n          \"PitchID\": 7484,\n          \"PlayID\": 4603,\n          \"PitchNumberThisAtBat\": 2269,\n          \"PitcherID\": 3058,\n          \"HitterID\": 926,\n          \"Outs\": 7474,\n          \"BallsBeforePitch\": 2521,\n          \"StrikesBeforePitch\": 6055,\n          \"Strike\": false,\n          \"Ball\": true,\n          \"Foul\": true,\n          \"Swinging\": true,\n          \"Looking\": false\n        }\n      ],\n      \"Runner1ID\": 9290,\n      \"Runner2ID\": 4802,\n      \"Runner3ID\": 8224\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e7aba808-d512-4bd2-855e-05237cbfe16c",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v3",
-                    "mlb",
-                    "pbp",
-                    ":format",
-                    "PlayByPlayFinal",
-                    ":gameid"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "gameid",
-                      "description": "(Required) The GameID of an MLB game.  GameIDs can be found in the Games API.  Valid entries are <code>14620</code> or <code>16905</code>"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"HttpStatusCode\": 9794,\n  \"Code\": 5072,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "4c43105f-e32c-458c-88cc-f61e957d744b",
+          "createdAt": "2026-10-21T20:17:14.000Z",
+          "updatedAt": "2026-10-21T20:17:14.000Z",
+          "uid": "35240-4c43105f-e32c-458c-88cc-f61e957d744b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.sportsdata.io",
-      "key": "baseUrl"
+      "id": "d28dfab4-10c5-44d0-ace6-26a7fc72ddbf",
+      "createdAt": "2026-10-21T20:17:14.000Z",
+      "updatedAt": "2026-10-21T20:17:14.000Z",
+      "uid": "35240-d28dfab4-10c5-44d0-ace6-26a7fc72ddbf"
     }
   ],
   "auth": {
@@ -592,25 +610,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Ocp-Apim-Subscription-Key"
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "c86c0a9f-f4b5-4fff-ae20-57407ee5b47a",
-    "name": "MLB MLB v3 Headshots MLB v3 Play-by-Play API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "MLB API - OpenAPI 3.1 Specification",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sportsdata.io"
     }
-  }
+  ]
 }

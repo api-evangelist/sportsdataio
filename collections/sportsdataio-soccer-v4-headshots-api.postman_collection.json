@@ -1,180 +1,204 @@
 {
+  "info": {
+    "_postman_id": "4adda8bb-a758-4937-bbaf-8b9f442fa130",
+    "name": "Soccer v4 Headshots API",
+    "description": "SOCCER API - OpenAPI 3.1 Specification",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:20:10.000Z",
+    "updatedAt": "2026-10-21T20:20:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4adda8bb-a758-4937-bbaf-8b9f442fa130"
+  },
   "item": [
     {
-      "id": "64163cf1-88ae-4274-9554-d5052f79de2f",
-      "name": "Soccer v4 Headshots",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "v4",
       "item": [
         {
-          "id": "775528e5-196e-4071-85b7-408165fa8434",
-          "name": "Headshots",
-          "request": {
-            "name": "Headshots",
-            "description": {
-              "content": "USA Today/IMAGN cropped action headshots for all active MLS players only, delivered shortly after the season starts.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v4",
-                "soccer",
-                "headshots",
-                ":format",
-                "Headshots"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "JSON",
-                  "key": "format",
-                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "soccer",
+          "item": [
             {
-              "id": "103047d7-d979-4964-8394-f1bc491efdca",
-              "name": "Success",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v4",
-                    "soccer",
-                    "headshots",
-                    ":format",
-                    "Headshots"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "headshots",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{format}",
+                  "item": [
+                    {
+                      "name": "Headshots",
+                      "item": [
+                        {
+                          "name": "Headshots",
+                          "id": "07a5240b-b0f1-4406-b958-fe367e6ea071",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v4/soccer/headshots/:format/Headshots",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v4",
+                                "soccer",
+                                "headshots",
+                                ":format",
+                                "Headshots"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a5a4c6a8-954b-4a69-a1a8-ab2432199548",
+                                  "key": "format",
+                                  "value": "JSON",
+                                  "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
+                                }
+                              ]
+                            },
+                            "description": "USA Today/IMAGN cropped action headshots for all active MLS players only, delivered shortly after the season starts."
+                          },
+                          "response": [
+                            {
+                              "id": "d5da5009-ac34-4234-b3d4-482ae0386f66",
+                              "name": "Success",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v4/soccer/headshots/:format/Headshots",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v4",
+                                    "soccer",
+                                    "headshots",
+                                    ":format",
+                                    "Headshots"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "format"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"PlayerID\": \"<integer>\",\n    \"Name\": \"<string,null>\",\n    \"TeamID\": \"<integer,null>\",\n    \"Team\": \"<string,null>\",\n    \"Position\": \"<string,null>\",\n    \"PreferredHostedHeadshotUrl\": \"<string,null>\",\n    \"PreferredHostedHeadshotUpdated\": \"<string,null>\",\n    \"HostedHeadshotWithBackgroundUrl\": \"<string,null>\",\n    \"HostedHeadshotWithBackgroundUpdated\": \"<string,null>\",\n    \"HostedHeadshotNoBackgroundUrl\": \"<string,null>\",\n    \"HostedHeadshotNoBackgroundUpdated\": \"<string,null>\"\n  },\n  {\n    \"PlayerID\": \"<integer>\",\n    \"Name\": \"<string,null>\",\n    \"TeamID\": \"<integer,null>\",\n    \"Team\": \"<string,null>\",\n    \"Position\": \"<string,null>\",\n    \"PreferredHostedHeadshotUrl\": \"<string,null>\",\n    \"PreferredHostedHeadshotUpdated\": \"<string,null>\",\n    \"HostedHeadshotWithBackgroundUrl\": \"<string,null>\",\n    \"HostedHeadshotWithBackgroundUpdated\": \"<string,null>\",\n    \"HostedHeadshotNoBackgroundUrl\": \"<string,null>\",\n    \"HostedHeadshotNoBackgroundUpdated\": \"<string,null>\"\n  }\n]",
+                              "createdAt": "2026-10-21T20:20:10.000Z",
+                              "updatedAt": "2026-10-21T20:20:10.000Z",
+                              "uid": "35240-d5da5009-ac34-4234-b3d4-482ae0386f66"
+                            },
+                            {
+                              "id": "08438a37-85b8-405f-97d4-f5607eeef9cc",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v4/soccer/headshots/:format/Headshots",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v4",
+                                    "soccer",
+                                    "headshots",
+                                    ":format",
+                                    "Headshots"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "format"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"Code\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"Help\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:20:10.000Z",
+                              "updatedAt": "2026-10-21T20:20:10.000Z",
+                              "uid": "35240-08438a37-85b8-405f-97d4-f5607eeef9cc"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:20:10.000Z",
+                          "updatedAt": "2026-10-21T20:20:10.000Z",
+                          "uid": "35240-07a5240b-b0f1-4406-b958-fe367e6ea071"
+                        }
+                      ],
+                      "id": "8a6fe19e-509a-401c-9d7f-a99d790f1286",
+                      "createdAt": "2026-10-21T20:20:10.000Z",
+                      "updatedAt": "2026-10-21T20:20:10.000Z",
+                      "uid": "35240-8a6fe19e-509a-401c-9d7f-a99d790f1286"
+                    }
+                  ],
+                  "id": "eb238d66-fb23-4cd0-9c82-fc5fba9fd822",
+                  "createdAt": "2026-10-21T20:20:10.000Z",
+                  "updatedAt": "2026-10-21T20:20:10.000Z",
+                  "uid": "35240-eb238d66-fb23-4cd0-9c82-fc5fba9fd822"
                 }
               ],
-              "body": "[\n  {\n    \"PlayerID\": 7404,\n    \"Name\": \"string\",\n    \"TeamID\": 5448,\n    \"Team\": \"string\",\n    \"Position\": \"string\",\n    \"PreferredHostedHeadshotUrl\": \"string\",\n    \"PreferredHostedHeadshotUpdated\": \"string\",\n    \"HostedHeadshotWithBackgroundUrl\": \"string\",\n    \"HostedHeadshotWithBackgroundUpdated\": \"string\",\n    \"HostedHeadshotNoBackgroundUrl\": \"string\",\n    \"HostedHeadshotNoBackgroundUpdated\": \"string\"\n  },\n  {\n    \"PlayerID\": 727,\n    \"Name\": \"string\",\n    \"TeamID\": 614,\n    \"Team\": \"string\",\n    \"Position\": \"string\",\n    \"PreferredHostedHeadshotUrl\": \"string\",\n    \"PreferredHostedHeadshotUpdated\": \"string\",\n    \"HostedHeadshotWithBackgroundUrl\": \"string\",\n    \"HostedHeadshotWithBackgroundUpdated\": \"string\",\n    \"HostedHeadshotNoBackgroundUrl\": \"string\",\n    \"HostedHeadshotNoBackgroundUpdated\": \"string\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "54908a77-dd46-425f-ab6a-6d05e88cff08",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v4",
-                    "soccer",
-                    "headshots",
-                    ":format",
-                    "Headshots"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "JSON",
-                      "key": "format",
-                      "description": "(Required) Desired response format. Valid entries are <code>JSON</code> or <code>XML</code>."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Ocp-Apim-Subscription-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"HttpStatusCode\": 1628,\n  \"Code\": 3038,\n  \"Description\": \"string\",\n  \"Help\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "90d94035-082c-486a-a362-48d025d372e7",
+              "createdAt": "2026-10-21T20:20:10.000Z",
+              "updatedAt": "2026-10-21T20:20:10.000Z",
+              "uid": "35240-90d94035-082c-486a-a362-48d025d372e7"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "f84eebf2-19ca-4c54-a7b2-303f6faa70d8",
+          "createdAt": "2026-10-21T20:20:10.000Z",
+          "updatedAt": "2026-10-21T20:20:10.000Z",
+          "uid": "35240-f84eebf2-19ca-4c54-a7b2-303f6faa70d8"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.sportsdata.io",
-      "key": "baseUrl"
+      "id": "2032c2d8-4fc7-4fba-b347-edcb6618bbb1",
+      "createdAt": "2026-10-21T20:20:10.000Z",
+      "updatedAt": "2026-10-21T20:20:10.000Z",
+      "uid": "35240-2032c2d8-4fc7-4fba-b347-edcb6618bbb1"
     }
   ],
   "auth": {
@@ -182,25 +206,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Ocp-Apim-Subscription-Key"
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "0bb8d5c7-4cb4-436f-9537-40892be4b78e",
-    "name": "MLB MLB v3 Headshots Soccer v4 Headshots API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "MLB API - OpenAPI 3.1 Specification",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sportsdata.io"
     }
-  }
+  ]
 }

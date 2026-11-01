@@ -1,4 +1,4 @@
-# SportsDataIO (sportsdataio)
+# SportsDataIO
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,205 +66,231 @@
 
 SportsDataIO is an award-winning sports data and content provider producing millions of data points across thousands of games annually. The platform offers robust REST APIs, responsive widgets, database downloads, and fantasy sports tools covering 14+ major sports including NFL, MLB, NBA, NHL, Soccer, Golf, NASCAR, MMA/UFC, Tennis, Formula 1, College Football, College Basketball, WNBA, and Olympics. Data includes live scores, statistics, odds feeds, fantasy projections, injuries, lineups, depth charts, standings, and player news.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/sportsdataio/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/sportsdataio/refs/heads/main/apis.yml)
+**Areas:** Sports Data · Statistics · Live Scores · Fantasy Sports · Odds · NFL · NBA · MLB · NHL · Soccer · Sports
 
-## Scope
+## SportsDataIO on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for SportsDataIO is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/sportsdataio/](https://apis.io/providers/sportsdataio/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (33)
 
-- Sports Data
-- Statistics
-- Live Scores
-- Fantasy Sports
-- Odds
-- NFL
-- NBA
-- MLB
-- NHL
-- Soccer
+- [SportsDataIO MLB v3 Headshots API](https://apis.io/apis/sportsdataio/sportsdataio-mlb-v3-headshots-api/) — The MLB v3 Headshots API from SportsDataIO — 1 operation(s) for mlb v3 headshots.
+- [SportsDataIO MLB v3 Odds API](https://apis.io/apis/sportsdataio/sportsdataio-mlb-v3-odds-api/) — The MLB v3 Odds API from SportsDataIO — 34 operation(s) for mlb v3 odds.
+- [SportsDataIO MLB v3 Play-by-Play API](https://apis.io/apis/sportsdataio/sportsdataio-mlb-v3-play-by-play-api/) — The MLB v3 Play-by-Play API from SportsDataIO — 3 operation(s) for mlb v3 play-by-play.
+- [SportsDataIO MLB v3 Projections API](https://apis.io/apis/sportsdataio/sportsdataio-mlb-v3-projections-api/) — The MLB v3 Projections API from SportsDataIO — 8 operation(s) for mlb v3 projections.
+- [SportsDataIO MLB v3 RotoBaller Premium News API](https://apis.io/apis/sportsdataio/sportsdataio-mlb-v3-rotoballer-premium-news-api/) — The MLB v3 RotoBaller Premium News API from SportsDataIO — 2 operation(s) for mlb v3 rotoballer premium news.
+- [SportsDataIO MLB v3 Scores API](https://apis.io/apis/sportsdataio/sportsdataio-mlb-v3-scores-api/) — The MLB v3 Scores API from SportsDataIO — 27 operation(s) for mlb v3 scores.
+- [SportsDataIO MLB v3 Stats API](https://apis.io/apis/sportsdataio/sportsdataio-mlb-v3-stats-api/) — The MLB v3 Stats API from SportsDataIO — 17 operation(s) for mlb v3 stats.
+- [SportsDataIO NBA v3 Headshots API](https://apis.io/apis/sportsdataio/sportsdataio-nba-v3-headshots-api/) — The NBA v3 Headshots API from SportsDataIO — 1 operation(s) for nba v3 headshots.
+- [SportsDataIO NBA v3 Odds API](https://apis.io/apis/sportsdataio/sportsdataio-nba-v3-odds-api/) — The NBA v3 Odds API from SportsDataIO — 34 operation(s) for nba v3 odds.
+- [SportsDataIO NBA v3 Play-by-Play API](https://apis.io/apis/sportsdataio/sportsdataio-nba-v3-play-by-play-api/) — The NBA v3 Play-by-Play API from SportsDataIO — 3 operation(s) for nba v3 play-by-play.
+- [SportsDataIO NBA v3 Projections API](https://apis.io/apis/sportsdataio/sportsdataio-nba-v3-projections-api/) — The NBA v3 Projections API from SportsDataIO — 6 operation(s) for nba v3 projections.
+- [SportsDataIO NBA v3 RotoBaller Premium News API](https://apis.io/apis/sportsdataio/sportsdataio-nba-v3-rotoballer-premium-news-api/) — The NBA v3 RotoBaller Premium News API from SportsDataIO — 2 operation(s) for nba v3 rotoballer premium news.
+- [SportsDataIO NBA v3 Scores API](https://apis.io/apis/sportsdataio/sportsdataio-nba-v3-scores-api/) — The NBA v3 Scores API from SportsDataIO — 28 operation(s) for nba v3 scores.
+- [SportsDataIO NBA v3 Stats API](https://apis.io/apis/sportsdataio/sportsdataio-nba-v3-stats-api/) — The NBA v3 Stats API from SportsDataIO — 14 operation(s) for nba v3 stats.
+- [SportsDataIO NFL v3 Headshots API](https://apis.io/apis/sportsdataio/sportsdataio-nfl-v3-headshots-api/) — The NFL v3 Headshots API from SportsDataIO — 1 operation(s) for nfl v3 headshots.
+- [SportsDataIO NFL v3 Odds API](https://apis.io/apis/sportsdataio/sportsdataio-nfl-v3-odds-api/) — The NFL v3 Odds API from SportsDataIO — 34 operation(s) for nfl v3 odds.
+- [SportsDataIO NFL v3 Play-by-Play API](https://apis.io/apis/sportsdataio/sportsdataio-nfl-v3-play-by-play-api/) — The NFL v3 Play-by-Play API from SportsDataIO — 6 operation(s) for nfl v3 play-by-play.
+- [SportsDataIO NFL v3 Projections API](https://apis.io/apis/sportsdataio/sportsdataio-nfl-v3-projections-api/) — The NFL v3 Projections API from SportsDataIO — 13 operation(s) for nfl v3 projections.
+- [SportsDataIO NFL v3 RotoBaller Premium News API](https://apis.io/apis/sportsdataio/sportsdataio-nfl-v3-rotoballer-premium-news-api/) — The NFL v3 RotoBaller Premium News API from SportsDataIO — 3 operation(s) for nfl v3 rotoballer premium news.
+- [SportsDataIO NFL v3 Scores API](https://apis.io/apis/sportsdataio/sportsdataio-nfl-v3-scores-api/) — The NFL v3 Scores API from SportsDataIO — 45 operation(s) for nfl v3 scores.
+- [SportsDataIO NFL v3 Stats API](https://apis.io/apis/sportsdataio/sportsdataio-nfl-v3-stats-api/) — The NFL v3 Stats API from SportsDataIO — 34 operation(s) for nfl v3 stats.
+- [SportsDataIO NHL v3 Headshots API](https://apis.io/apis/sportsdataio/sportsdataio-nhl-v3-headshots-api/) — The NHL v3 Headshots API from SportsDataIO — 1 operation(s) for nhl v3 headshots.
+- [SportsDataIO NHL v3 Odds API](https://apis.io/apis/sportsdataio/sportsdataio-nhl-v3-odds-api/) — The NHL v3 Odds API from SportsDataIO — 34 operation(s) for nhl v3 odds.
+- [SportsDataIO NHL v3 Play-by-Play API](https://apis.io/apis/sportsdataio/sportsdataio-nhl-v3-play-by-play-api/) — The NHL v3 Play-by-Play API from SportsDataIO — 3 operation(s) for nhl v3 play-by-play.
+- [SportsDataIO NHL v3 Projections API](https://apis.io/apis/sportsdataio/sportsdataio-nhl-v3-projections-api/) — The NHL v3 Projections API from SportsDataIO — 4 operation(s) for nhl v3 projections.
+- [SportsDataIO NHL v3 RotoBaller Premium News API](https://apis.io/apis/sportsdataio/sportsdataio-nhl-v3-rotoballer-premium-news-api/) — The NHL v3 RotoBaller Premium News API from SportsDataIO — 2 operation(s) for nhl v3 rotoballer premium news.
+- [SportsDataIO NHL v3 Scores API](https://apis.io/apis/sportsdataio/sportsdataio-nhl-v3-scores-api/) — The NHL v3 Scores API from SportsDataIO — 28 operation(s) for nhl v3 scores.
+- [SportsDataIO NHL v3 Stats API](https://apis.io/apis/sportsdataio/sportsdataio-nhl-v3-stats-api/) — The NHL v3 Stats API from SportsDataIO — 14 operation(s) for nhl v3 stats.
+- [SportsDataIO Soccer v4 Headshots API](https://apis.io/apis/sportsdataio/sportsdataio-soccer-v4-headshots-api/) — The Soccer v4 Headshots API from SportsDataIO — 1 operation(s) for soccer v4 headshots.
+- [SportsDataIO Soccer v4 Odds API](https://apis.io/apis/sportsdataio/sportsdataio-soccer-v4-odds-api/) — The Soccer v4 Odds API from SportsDataIO — 28 operation(s) for soccer v4 odds.
+- [SportsDataIO Soccer v4 Projections API](https://apis.io/apis/sportsdataio/sportsdataio-soccer-v4-projections-api/) — The Soccer v4 Projections API from SportsDataIO — 4 operation(s) for soccer v4 projections.
+- [SportsDataIO Soccer v4 Scores API](https://apis.io/apis/sportsdataio/sportsdataio-soccer-v4-scores-api/) — The Soccer v4 Scores API from SportsDataIO — 21 operation(s) for soccer v4 scores.
+- [SportsDataIO Soccer v4 Stats API](https://apis.io/apis/sportsdataio/sportsdataio-soccer-v4-stats-api/) — The Soccer v4 Stats API from SportsDataIO — 11 operation(s) for soccer v4 stats.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-03-01
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### SportsDataIO NFL API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Comprehensive NFL data API providing live scores, team statistics, player stats, fantasy projections, injuries, depth charts, standings, schedules, and betting odds. Covers all 32 teams and all NFL regular season, preseason, and playoff games with 136 endpoints for detailed analysis.
+- [Sportsdataio Agentic Access](https://apis.io/agentic-access/sportsdataio/sportsdataio-agentic-access/)
 
-- **Human URL:** [https://sportsdata.io/developers/api-documentation/nfl](https://sportsdata.io/developers/api-documentation/nfl)
-- **Base URL:** `https://api.sportsdata.io`
+#### JSON Schema (104)
 
-#### Tags
+The data models the API reads and writes.
 
-- NFL
-- Football
-- Sports Data
-- Live Scores
-- Statistics
-- Fantasy Sports
+- [Area](https://apis.io/schemas/sportsdataio/sportsdataio-area/)
+- [BettingEntityMetadata](https://apis.io/schemas/sportsdataio/sportsdataio-bettingentitymetadata/)
+- [BettingEntityMetadataCollection](https://apis.io/schemas/sportsdataio/sportsdataio-bettingentitymetadatacollection/)
+- [BettingEvent](https://apis.io/schemas/sportsdataio/sportsdataio-bettingevent/)
+- [BettingMarket](https://apis.io/schemas/sportsdataio/sportsdataio-bettingmarket/)
+- [BettingMarketResult](https://apis.io/schemas/sportsdataio/sportsdataio-bettingmarketresult/)
+- [BettingMarketSplit](https://apis.io/schemas/sportsdataio/sportsdataio-bettingmarketsplit/)
+- [BettingOutcome](https://apis.io/schemas/sportsdataio/sportsdataio-bettingoutcome/)
+- [BettingOutcomeResult](https://apis.io/schemas/sportsdataio/sportsdataio-bettingoutcomeresult/)
+- [BettingResultingMetadata](https://apis.io/schemas/sportsdataio/sportsdataio-bettingresultingmetadata/)
+- [BettingSplit](https://apis.io/schemas/sportsdataio/sportsdataio-bettingsplit/)
+- [Booking](https://apis.io/schemas/sportsdataio/sportsdataio-booking/)
+- [BoxScore](https://apis.io/schemas/sportsdataio/sportsdataio-boxscore/)
+- [BoxScoreV3](https://apis.io/schemas/sportsdataio/sportsdataio-boxscorev3/)
+- [Bye](https://apis.io/schemas/sportsdataio/sportsdataio-bye/)
+- [CanceledMembership](https://apis.io/schemas/sportsdataio/sportsdataio-canceledmembership/)
+- [Coach](https://apis.io/schemas/sportsdataio/sportsdataio-coach/)
+- [Competition](https://apis.io/schemas/sportsdataio/sportsdataio-competition/)
+- [CompetitionDetail](https://apis.io/schemas/sportsdataio/sportsdataio-competitiondetail/)
+- [ConsensusOutcome](https://apis.io/schemas/sportsdataio/sportsdataio-consensusoutcome/)
+- [DepthChart](https://apis.io/schemas/sportsdataio/sportsdataio-depthchart/)
+- [DepthChartWeekly](https://apis.io/schemas/sportsdataio/sportsdataio-depthchartweekly/)
+- [DfsSlate](https://apis.io/schemas/sportsdataio/sportsdataio-dfsslate/)
+- [DfsSlateGame](https://apis.io/schemas/sportsdataio/sportsdataio-dfsslategame/)
+- [DfsSlatePlayer](https://apis.io/schemas/sportsdataio/sportsdataio-dfsslateplayer/)
+- …and 79 more published on APIs.io
 
-#### Properties
+#### JSON Structure (2)
 
-- [Documentation](https://sportsdata.io/developers/api-documentation/nfl)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/sportsdataio/refs/heads/main/openapi/sportsdataio-nfl-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sportsdataio-mlb.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-mlb.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nba.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nba.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nfl.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nfl.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nhl.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nhl.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-soccer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-soccer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Data models expressed in JSON Structure.
 
-### SportsDataIO MLB API
+- [Sportsdataio Nfl Structure](https://apis.io/json-structure/sportsdataio/sportsdataio-nfl-structure/)
+- [Sportsdataio Structure](https://apis.io/json-structure/sportsdataio/sportsdataio-structure/)
 
-Complete MLB data API with live scores, box scores, player statistics, fantasy projections, injuries, lineups, standings, schedules, and odds for all Major League Baseball games. Includes Statcast data, pitch-by-pitch data, and real-time game events.
+#### JSON-LD (1)
 
-- **Human URL:** [https://sportsdata.io/developers/api-documentation/mlb](https://sportsdata.io/developers/api-documentation/mlb)
-- **Base URL:** `https://api.sportsdata.io`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Sportsdataio Context](https://apis.io/jsonld/sportsdataio/sportsdataio-context/)
 
-- MLB
-- Baseball
-- Sports Data
-- Live Scores
-- Statistics
-- Fantasy Sports
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://sportsdata.io/developers/api-documentation/mlb)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/sportsdataio/refs/heads/main/openapi/sportsdataio-mlb-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sportsdataio-mlb.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-mlb.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nba.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nba.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nfl.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nfl.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nhl.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nhl.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-soccer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-soccer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [SportsDataIO Vocabulary](https://apis.io/vocabularies/sportsdataio/sportsdataio-vocabulary/)
 
-### SportsDataIO NBA API
+#### Collections (38)
 
-NBA data API providing live scores, play-by-play, player statistics, fantasy projections, injuries, lineups, standings, and odds. Covers all NBA regular season, playoff, and in-season tournament games with real-time data feeds.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://sportsdata.io/developers/api-documentation/nba](https://sportsdata.io/developers/api-documentation/nba)
-- **Base URL:** `https://api.sportsdata.io`
+- [MLB API](https://apis.io/collections/sportsdataio/open-sportsdataio-mlb/)
+- [MLB MLB v3 Headshots API](https://apis.io/collections/sportsdataio/open-sportsdataio-mlb-v3-headshots-api/)
+- [MLB MLB v3 Headshots MLB v3 Odds API](https://apis.io/collections/sportsdataio/open-sportsdataio-mlb-v3-odds-api/)
+- [MLB MLB v3 Headshots MLB v3 Play-by-Play API](https://apis.io/collections/sportsdataio/open-sportsdataio-mlb-v3-play-by-play-api/)
+- [MLB MLB v3 Headshots MLB v3 Projections API](https://apis.io/collections/sportsdataio/open-sportsdataio-mlb-v3-projections-api/)
+- [MLB MLB v3 Headshots MLB v3 RotoBaller Premium News API](https://apis.io/collections/sportsdataio/open-sportsdataio-mlb-v3-rotoballer-premium-news-api/)
+- [MLB MLB v3 Headshots MLB v3 Scores API](https://apis.io/collections/sportsdataio/open-sportsdataio-mlb-v3-scores-api/)
+- [MLB MLB v3 Headshots MLB v3 Stats API](https://apis.io/collections/sportsdataio/open-sportsdataio-mlb-v3-stats-api/)
+- [NBA API](https://apis.io/collections/sportsdataio/open-sportsdataio-nba/)
+- [MLB MLB v3 Headshots NBA v3 Headshots API](https://apis.io/collections/sportsdataio/open-sportsdataio-nba-v3-headshots-api/)
+- [MLB MLB v3 Headshots NBA v3 Odds API](https://apis.io/collections/sportsdataio/open-sportsdataio-nba-v3-odds-api/)
+- [MLB MLB v3 Headshots NBA v3 Play-by-Play API](https://apis.io/collections/sportsdataio/open-sportsdataio-nba-v3-play-by-play-api/)
+- [MLB MLB v3 Headshots NBA v3 Projections API](https://apis.io/collections/sportsdataio/open-sportsdataio-nba-v3-projections-api/)
+- [MLB MLB v3 Headshots NBA v3 RotoBaller Premium News API](https://apis.io/collections/sportsdataio/open-sportsdataio-nba-v3-rotoballer-premium-news-api/)
+- [MLB MLB v3 Headshots NBA v3 Scores API](https://apis.io/collections/sportsdataio/open-sportsdataio-nba-v3-scores-api/)
+- [MLB MLB v3 Headshots NBA v3 Stats API](https://apis.io/collections/sportsdataio/open-sportsdataio-nba-v3-stats-api/)
+- [NFL API](https://apis.io/collections/sportsdataio/open-sportsdataio-nfl/)
+- [MLB MLB v3 Headshots NFL v3 Headshots API](https://apis.io/collections/sportsdataio/open-sportsdataio-nfl-v3-headshots-api/)
+- [MLB MLB v3 Headshots NFL v3 Odds API](https://apis.io/collections/sportsdataio/open-sportsdataio-nfl-v3-odds-api/)
+- [MLB MLB v3 Headshots NFL v3 Play-by-Play API](https://apis.io/collections/sportsdataio/open-sportsdataio-nfl-v3-play-by-play-api/)
+- [MLB MLB v3 Headshots NFL v3 Projections API](https://apis.io/collections/sportsdataio/open-sportsdataio-nfl-v3-projections-api/)
+- [MLB MLB v3 Headshots NFL v3 RotoBaller Premium News API](https://apis.io/collections/sportsdataio/open-sportsdataio-nfl-v3-rotoballer-premium-news-api/)
+- [MLB MLB v3 Headshots NFL v3 Scores API](https://apis.io/collections/sportsdataio/open-sportsdataio-nfl-v3-scores-api/)
+- [MLB MLB v3 Headshots NFL v3 Stats API](https://apis.io/collections/sportsdataio/open-sportsdataio-nfl-v3-stats-api/)
+- [NHL API](https://apis.io/collections/sportsdataio/open-sportsdataio-nhl/)
+- …and 13 more published on APIs.io
 
-#### Tags
+#### Governance rules (2)
 
-- NBA
-- Basketball
-- Sports Data
-- Live Scores
-- Statistics
-- Fantasy Sports
+Spectral rulesets for the provider's contracts.
 
-#### Properties
+- [SportsDataIO — jsonschema rules](https://apis.io/rules/sportsdataio/sportsdataio-jsonschema-spectral-rules/)
+- [SportsDataIO API Rules](https://apis.io/rules/sportsdataio/sportsdataio-rules/)
 
-- [Documentation](https://sportsdata.io/developers/api-documentation/nba)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/sportsdataio/refs/heads/main/openapi/sportsdataio-nba-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sportsdataio-mlb.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-mlb.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nba.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nba.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nfl.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nfl.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nhl.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nhl.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-soccer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-soccer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Security (2)
 
-### SportsDataIO NHL API
+Authentication, trust centre, and vulnerability disclosure.
 
-NHL data API with live scores, play-by-play, goalie stats, skater statistics, fantasy projections, injuries, line combinations, standings, and odds for all NHL regular season and playoff games.
+- [Sportsdataio Authentication](https://apis.io/security/sportsdataio/sportsdataio-authentication/)
+- [Sportsdataio Domain Security](https://apis.io/security/sportsdataio/sportsdataio-domain-security/)
 
-- **Human URL:** [https://sportsdata.io/developers/api-documentation/nhl](https://sportsdata.io/developers/api-documentation/nhl)
-- **Base URL:** `https://api.sportsdata.io`
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- NHL
-- Hockey
-- Sports Data
-- Live Scores
-- Statistics
-- Fantasy Sports
+- [Sportsdataio Plans Pricing](https://apis.io/plans/sportsdataio/sportsdataio-plans-pricing/)
 
-#### Properties
+#### Rate limits (1)
 
-- [Documentation](https://sportsdata.io/developers/api-documentation/nhl)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/sportsdataio/refs/heads/main/openapi/sportsdataio-nhl-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sportsdataio-mlb.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-mlb.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nba.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nba.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nfl.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nfl.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nhl.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nhl.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-soccer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-soccer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published request limits.
 
-### SportsDataIO Soccer API
+- [Sportsdataio Rate Limits](https://apis.io/rate-limits/sportsdataio/sportsdataio-rate-limits/)
 
-Soccer data API providing live scores, player statistics, team standings, match schedules, lineups, and odds for major leagues including EPL, MLS, La Liga, Bundesliga, Serie A, Champions League, and more.
+#### FinOps (1)
 
-- **Human URL:** [https://sportsdata.io/developers/api-documentation/soccer](https://sportsdata.io/developers/api-documentation/soccer)
-- **Base URL:** `https://api.sportsdata.io`
+What the API costs to run, by operation.
 
-#### Tags
+- [Sportsdataio Finops](https://apis.io/finops/sportsdataio/sportsdataio-finops/)
 
-- Soccer
-- Football
-- EPL
-- MLS
-- Champions League
-- Sports Data
-- Live Scores
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [Documentation](https://sportsdata.io/developers/api-documentation/soccer)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/sportsdataio/refs/heads/main/openapi/sportsdataio-soccer-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sportsdataio-mlb.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-mlb.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nba.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nba.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nfl.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nfl.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-nhl.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-nhl.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sportsdataio-soccer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sportsdataio-soccer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/fantasydata)
-- [LinkedIn](https://www.linkedin.com/company/sportsdatadotio)
 - [Website](https://sportsdata.io/)
-- [Portal](https://sportsdata.io/developers)
 - [Documentation](https://sportsdata.io/developers)
 - [Pricing](https://sportsdata.io/pricing)
-- [Login](https://sportsdata.io/login)
-- [Sign Up](https://sportsdata.io/signup)
 - [Support](https://support.sportsdata.io/)
-- [S D Ks](https://sportsdata.io/developers/integration-tools)
-- [OpenAPI](https://sportsdata.io/developers/sports-data-open-api-swagger-files) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Blog](https://sportsdata.io/articles)
+- [GitHub](https://github.com/fantasydata)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 35.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 53.7 |
+| Contract governance | 13.6 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 14.5 |
+
+**Agent readiness 27.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/sportsdataio/](https://apis.io/providers/sportsdataio/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for SportsDataIO: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/sportsdataio/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
